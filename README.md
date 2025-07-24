@@ -4,7 +4,7 @@
 
 ---
 
-## 🚩 Why I Built This
+##  Why I Built This
 
 As an avid home baker, I often found myself frustrated with traditional recipes that use inconsistent volume-based measurements like cups, spoons, or pinches. These units vary depending on:
 
