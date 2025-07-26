@@ -1,61 +1,86 @@
-# 🍰 BakeGenius.ai – Your Smart Baking Companion
+# 🍰 BakeGenius AI - Precision Baking for Everyone
 
-**BakeGenius.ai** is an AI-powered web application that converts vague, inconsistent recipe measurements (like "1 cup of flour") into **precise gram-based quantities** – making baking more reliable, scalable, and accessible to all.
+**BakeGenius AI** is an AI-powered tool that transforms vague recipe measurements like "1 cup of flour" or "2 tablespoons of butter" into precise gram-based values. It helps home cooks, professionals, and culinary enthusiasts bake with consistency and accuracy by removing the guesswork from measurements.
 
----
-
-##  Why I Built This
-
-As an avid home baker, I often found myself frustrated with traditional recipes that use inconsistent volume-based measurements like cups, spoons, or pinches. These units vary depending on:
-
-- How ingredients are scooped (packed or loose)
-- Country-specific conversions (US vs UK cups)
-- Ingredient density (e.g. 1 cup of oats ≠ 1 cup of sugar)
-
-The result? Failed cakes, wasted ingredients, and endless guesswork.
-
-So, I decided to solve this once and for all — using AI.
+> ⚡ *"BakeGenius AI bridges the gap between casual cooking and scientific precision."*
 
 ---
 
-## 💡 What It Does
+## 🧠 Project Objective
 
-BakeGenius.ai transforms recipes by:
+Many online recipes list ingredients using vague units like cups, teaspoons, and spoons, which can vary depending on the ingredient and person measuring. This inconsistency often leads to failed recipes.
 
-✅ Detecting ingredients and quantities from written recipes  
-✅ Mapping them to density-based weight equivalents  
-✅ Providing **accurate gram-based conversions**  
-✅ Supporting scaling (halve/double) recipes with precision  
-✅ Helping diet-focused users calculate exact weights  
-✅ Creating a **universal format** regardless of the region
-
-Whether you're a beginner, a food blogger, or a pastry chef — you’ll bake with confidence.
+**BakeGenius AI solves this by:**
+- Converting units like "cups", "tablespoons", etc., into exact grams.
+- Using a built-in database of **ingredient densities**.
+- Supporting **voice-based input**, **real-time AI assistance**, and **visualizations**.
+- Empowering bakers with consistent, professional results every time.
 
 ---
 
-## 🎯 Features
+## 🚀 Features
 
-- 🧠 **AI-powered natural language understanding**
-- 📏 **Built-in ingredient density database**
-- 🧾 **Smart parsing of custom or pasted recipes**
-- 🔁 **Recipe scaling for batch baking or meal prep**
-- 🌍 **Global unit adaptation** (cups, tbsp, oz → grams)
-- 🎨 **Responsive & intuitive UI** for all devices
-
----
-
-## 🖥️ How It Works (Behind the Scenes)
-
-1. **Input**: User pastes a recipe or ingredient list  
-2. **Parsing**: NLP algorithms extract ingredients and quantities  
-3. **Lookup**: Density and standard weight values are matched from the database  
-4. **Output**: Clean, precise gram-based version of the recipe
+✅ Convert vague units to **precise gram measurements**  
+✅ Smart ingredient detection using **Natural Language Processing (NLP)**  
+✅ **Ingredient density database** for accurate conversions  
+✅ **Real-time conversion engine** using Gemini API  
+✅ **Voice input**: Speak your recipe and get precise outputs  
+✅ Clean and **user-friendly interface**  
+✅ Visualizations: Show side-by-side conversions and measurement charts  
+✅ Open Source – Easy to contribute and extend
 
 ---
 
-## 🚀 How to Run Locally
+## 🔧 Tech Stack
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/your-username/BakeGenius-ai.git
-   cd BakeGenius-ai
+- **Frontend**: HTML, CSS, JavaScript
+- **AI API**: Gemini API by Google (for language understanding and smart suggestions)
+
+---
+
+## 📊 Example Conversion
+
+| Input                  | Output (in grams) |
+|------------------------|------------------|
+| 1 cup of sugar         | 200g             |
+| 2 tablespoons of butter| 28g              |
+| ½ cup of milk          | 122g             |
+| 1 tsp of baking soda   | 4.8g             |
+
+(*values vary depending on the density of ingredients*)
+
+---
+
+## 🛠️ How to Run Locally
+
+1. Clone the repository:
+```bash
+git clone https://github.com/supriya46788/BakeGenuis-AI.git
+cd BakeGenuis-AI
+```
+
+2. Open the `index.html` file in any browser to run the app.
+
+3. Ensure Gemini API keys are correctly added in your JS code.
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions from the community!  
+Here’s how you can help:
+
+- 📌 Raise issues or bug reports
+- 🌟 Suggest new features
+- 🧪 Improve AI prompt engineering or ingredient logic
+- 🎨 Enhance UI/UX
+
+### Steps to Contribute
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/your-feature`)
+3. Make your changes and commit (`git commit -m "Added feature X"`)
+4. Push to your branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
+ 
+💬 Want to contribute? Just open an issue or ping me!
+
