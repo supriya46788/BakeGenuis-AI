@@ -4,6 +4,9 @@
 
 > ⚡ *"BakeGenius AI bridges the gap between casual cooking and scientific precision."*
 
+<img width="1053" height="595" alt="image" src="https://github.com/user-attachments/assets/1e8384fc-8da9-4aff-bd9c-3da205f79203" />
+
+
 ---
 
 ## 🧠 Project Objective
