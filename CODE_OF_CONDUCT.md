@@ -1,22 +1,20 @@
-# 🌟 Code of Conduct — My Daily Habits Tracker
+# 🌟 Code of Conduct — BakeGenuis AI
 
 ---
 
 ## 💌 Our Commitment
 
-We, the maintainers, contributors, and community members of **My Daily Habits Tracker**, pledge to make participation in our project and our community a **harassment-free experience** for everyone, regardless of:
+We, the maintainers, contributors, and community members of **BakeGenuis AI**, pledge to make participation in our project and our community a **harassment-free experience** for everyone, regardless of:
 
-- Age 👶👴  
-- Body size ⚖️  
-- Visible or invisible disability ♿  
-- Ethnicity 🌍  
-- Gender identity and expression 🏳️‍⚧️  
-- Level of experience 📈  
-- Nationality 🗺️  
-- Personal appearance 🧍  
-- Race 🧬  
-- Religion or lack thereof ☸️✝️☪️🕉️  
-- Sexual identity and orientation 🌈  
+- Age    
+- Visible or invisible disability  
+- Ethnicity 
+- Gender identity and expression  
+- Level of experience   
+- Nationality   
+- Personal appearance   
+- Race  
+- Sexual identity and orientation 
 
 We commit to creating an environment where **everyone feels safe, respected, and empowered to contribute**.
 
@@ -27,13 +25,13 @@ We commit to creating an environment where **everyone feels safe, respected, and
 To create a welcoming and positive environment, all participants are expected to follow these guidelines:
 
 ### ✅ Positive Examples of Behavior
-- Demonstrating empathy and kindness toward other people 🤗.  
-- Being respectful of differing opinions, viewpoints, and experiences 💬.  
-- Giving and gracefully accepting constructive feedback 📢.  
-- Accepting responsibility and apologizing to those affected by mistakes, and learning from the experience ✏️.  
-- Focusing on what is best for the community and project 📈.  
-- Acknowledging and crediting the work of others 📜.  
-- Staying on-topic in discussions and avoiding unnecessary arguments 📌.
+- Demonstrating empathy and kindness toward other people.  
+- Being respectful of differing opinions, viewpoints, and experiences.  
+- Giving and gracefully accepting constructive feedback.  
+- Accepting responsibility and apologizing to those affected by mistakes, and learning from the experience.  
+- Focusing on what is best for the community and project.  
+- Acknowledging and crediting the work of others.  
+- Staying on-topic in discussions and avoiding unnecessary arguments.
 
 ### 🚫 Unacceptable Behavior
 - The use of sexualized language or imagery, and unwelcome sexual attention or advances ❌.  
@@ -100,6 +98,6 @@ By contributing to this project, you agree to:
 ## 💖 Final Note
 
 We believe **open source is more than just code** — it’s about people collaborating, sharing, and growing together.  
-Let’s make **My Daily Habits Tracker** a place where kindness is the default, respect is mutual, and contributions are celebrated 🎉.  
+Let’s make **BakeGenuis AI** a place where kindness is the default, respect is mutual, and contributions are celebrated 🎉.  
 
 Happy contributing! 🌸✨
