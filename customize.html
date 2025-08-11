@@ -421,6 +421,186 @@
             opacity: 1;
             visibility: visible;
         }
+
+        html.dark-mode {
+    --candy-red: #FF6B81; /* Slightly softer red */
+    --sky-blue: #7BAFFF;
+    --sunny-yellow: #FFC65A;
+    --white: #FFFFFF;
+    --light-pink: #3B1A21;
+    --light-blue: #1E2E4A;
+    --light-yellow: #3D3522;
+    
+    background: linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 50%, var(--light-yellow) 100%);
+    color: #eee;
+}
+
+html.dark-mode body {
+    background: linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 50%, var(--light-yellow) 100%);
+}
+
+html.dark-mode nav {
+    background: rgba(30, 30, 30, 0.8);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(15px);
+}
+
+html.dark-mode .logo {
+    color: var(--candy-red);
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+}
+
+html.dark-mode .nav-links a {
+    color: #ccc;
+}
+
+html.dark-mode .nav-links a:hover {
+    background: var(--sunny-yellow);
+    color: #222;
+    transform: translateY(-2px);
+}
+
+html.dark-mode .nav-links a.active {
+    background: var(--candy-red);
+    color: #fff;
+}
+
+html.dark-mode .container {
+    background: transparent;
+    color: #eee;
+}
+
+html.dark-mode .page-header {
+    color: #eee;
+}
+
+html.dark-mode .page-title {
+    color: var(--candy-red);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    animation: bounce 2s ease-in-out infinite;
+}
+
+html.dark-mode .page-subtitle {
+    color: #aaa;
+}
+
+html.dark-mode .ingredient-card {
+    background: rgba(40, 40, 40, 0.85);
+    border: 2px solid rgba(112, 161, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px);
+    color: #ddd;
+}
+
+html.dark-mode .ingredient-card:hover {
+    border-color: var(--sky-blue);
+    box-shadow: 0 12px 40px rgba(112, 161, 255, 0.6);
+    background: rgba(30, 30, 30, 0.95);
+}
+
+html.dark-mode .ingredient-name {
+    color: #eee;
+}
+
+html.dark-mode .ingredient-header {
+    color: #ddd;
+}
+
+html.dark-mode .custom-select,
+html.dark-mode .custom-input {
+    background: #222;
+    border: 2px solid #444;
+    color: #eee;
+}
+
+html.dark-mode .custom-select:focus,
+html.dark-mode .custom-input:focus {
+    border-color: var(--sky-blue);
+    box-shadow: 0 0 10px var(--sky-blue);
+    outline: none;
+}
+
+html.dark-mode .brand-selector {
+    background: rgba(30, 30, 30, 0.85);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.85);
+    color: #ddd;
+}
+
+html.dark-mode .brand-title {
+    color: var(--candy-red);
+}
+
+html.dark-mode .brand-option {
+    background: #222;
+    border-color: #555;
+    color: #ccc;
+}
+
+html.dark-mode .brand-option:hover {
+    background: var(--light-blue);
+    border-color: var(--sky-blue);
+    color: #222;
+    transform: scale(1.05);
+}
+
+html.dark-mode .brand-option.selected {
+    background: var(--sky-blue);
+    border-color: var(--sky-blue);
+    color: #111;
+}
+
+html.dark-mode .action-buttons .btn {
+    color: #eee;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+}
+
+html.dark-mode .btn-primary {
+    background: var(--candy-red);
+    box-shadow: 0 4px 15px rgba(255, 107, 129, 0.7);
+    color: #fff;
+}
+
+html.dark-mode .btn-secondary {
+    background: var(--sky-blue);
+    box-shadow: 0 4px 15px rgba(123, 175, 255, 0.7);
+    color: #fff;
+}
+
+html.dark-mode .btn-success {
+    background: #27ae60;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.7);
+    color: #fff;
+}
+
+html.dark-mode .btn:hover {
+    transform: translateY(-3px);
+    animation: wobble 0.5s ease-in-out;
+}
+
+html.dark-mode .success-message {
+    background: rgba(39, 174, 96, 0.2);
+    border-color: #27ae60;
+    color: #27ae60;
+}
+
+html.dark-mode .tooltip::after {
+    background: #ddd;
+    color: #222;
+}
+
+/* Floating Cupcakes */
+html.dark-mode .floating-cupcake {
+    color: var(--sunny-yellow);
+    opacity: 0.7;
+}
+
+/* Mobile Responsive tweaks */
+@media (max-width: 768px) {
+    html.dark-mode .nav-links {
+        display: none;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -443,6 +623,10 @@
                 <li><a href="scale.html">Scale Recipes</a></li>
                 <li><a href="about.html">About Us</a></li>
             </ul>
+            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+  🌙
+</button>
+
         </div>
     </nav>
 
@@ -717,6 +901,28 @@
                 }, 10);
             }
         });
+        const darkModeToggle = document.getElementById('darkModeToggle');
+
+// On page load, check localStorage and apply dark mode if enabled
+if (localStorage.getItem('darkMode') === 'enabled') {
+    document.documentElement.classList.add('dark-mode');
+    if (darkModeToggle) darkModeToggle.textContent = '☀️';
+}
+
+if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark-mode');
+        
+        if (document.documentElement.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+            darkModeToggle.textContent = '☀️';
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+            darkModeToggle.textContent = '🌙';
+        }
+    });
+}
+
     </script>
 </body>
 </html>

@@ -764,6 +764,228 @@
         ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(135deg, var(--sky-blue), var(--sunny-yellow));
         }
+        /* Dark Mode Overrides */
+html.dark-mode {
+  --candy-red: #ff4765;
+  --sky-blue: #709aff;
+  --sunny-yellow: #ffd54f;
+  --light-pink: #2a2a35;
+  --light-blue: #1e2237;
+  --light-yellow: #3c3f58;
+}
+
+html.dark-mode body {
+  background: linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 30%, var(--light-yellow) 60%, var(--light-pink) 100%);
+  color: #ddd;
+}
+
+html.dark-mode nav {
+  background: rgba(20, 20, 20, 0.85);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html.dark-mode .logo {
+  color: var(--candy-red);
+  text-shadow: 2px 2px 8px rgba(255, 71, 87, 0.6);
+}
+
+html.dark-mode .nav-links a {
+  color: #ccc;
+  background: transparent;
+  box-shadow: none;
+}
+
+html.dark-mode .nav-links a:hover {
+  background: var(--sky-blue);
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(112, 161, 255, 0.7);
+  transform: translateY(-3px) scale(1.05);
+}
+
+html.dark-mode .nav-links a.active {
+  background: var(--candy-red);
+  color: white;
+  box-shadow: 0 8px 25px rgba(255, 71, 87, 0.7);
+}
+
+html.dark-mode .hero {
+  background: transparent; /* or a subtle dark bg if you want */
+  text-align: center;
+  padding: 4rem 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+html.dark-mode .hero-title {
+  /* Use brighter gradient for dark mode */
+  background: linear-gradient(135deg, #ff4765, #709aff, #ffd54f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* fallback */
+  /* Add subtle text shadow for better contrast */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+  animation: heroAnimation 3s ease-out;
+}
+
+html.dark-mode .hero-subtitle {
+  color: #ccc; /* lighter for dark bg */
+  animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+html.dark-mode .hero-subtitle {
+  color: #aaa;
+}
+
+html.dark-mode .section-card {
+  background: rgba(30, 30, 40, 0.8);
+  border: 1px solid rgba(255, 71, 87, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+html.dark-mode .section-card:hover {
+  box-shadow: 0 30px 80px rgba(255, 71, 87, 0.6);
+  transform: translateY(-10px);
+}
+
+html.dark-mode .section-card::before {
+  background: conic-gradient(from 0deg, transparent, rgba(255, 71, 87, 0.3), transparent);
+  opacity: 0.7;
+}
+
+html.dark-mode .section-title {
+  color: var(--candy-red);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+html.dark-mode .section-content {
+  color: #bbb;
+}
+
+html.dark-mode .problem-item {
+  background: rgba(255, 71, 87, 0.15);
+  border-left-color: var(--candy-red);
+  color: #eee;
+}
+
+html.dark-mode .problem-item:hover {
+  background: rgba(255, 71, 87, 0.3);
+  box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+}
+
+html.dark-mode .steps-container {
+  /* no bg so just inherit */
+}
+
+html.dark-mode .step-card {
+  background: linear-gradient(135deg, rgba(20, 40, 80, 0.3), rgba(255, 140, 10, 0.2));
+  border-color: transparent;
+  box-shadow: none;
+  color: #ddd;
+}
+
+html.dark-mode .step-card:hover {
+  box-shadow: 0 20px 40px rgba(112, 161, 255, 0.7);
+  transform: translateY(-5px) scale(1.05);
+}
+
+html.dark-mode .step-card::before {
+  background: linear-gradient(135deg, var(--sky-blue), var(--sunny-yellow), var(--candy-red));
+  opacity: 0.5;
+}
+
+html.dark-mode .step-number {
+  color: var(--sky-blue);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+html.dark-mode .step-title {
+  color: #ddd;
+}
+
+html.dark-mode .step-description {
+  color: #aaa;
+}
+
+html.dark-mode .creator-section {
+  background: linear-gradient(135deg, rgba(255, 71, 87, 0.2), rgba(20, 40, 80, 0.2));
+  color: #eee;
+}
+
+html.dark-mode .creator-avatar {
+  background: linear-gradient(135deg, var(--candy-red), var(--sky-blue));
+  color: #fff;
+  box-shadow: 0 0 20px var(--candy-red);
+}
+
+html.dark-mode .creator-avatar::before {
+  background: linear-gradient(135deg, var(--sunny-yellow), var(--candy-red), var(--sky-blue));
+  opacity: 0.5;
+}
+
+html.dark-mode .creator-name {
+  color: var(--candy-red);
+}
+
+html.dark-mode .creator-title {
+  color: #bbb;
+}
+
+html.dark-mode .social-link {
+  background: var(--sky-blue);
+  color: white;
+  box-shadow: 0 8px 25px rgba(112, 161, 255, 0.8);
+}
+
+html.dark-mode .social-link:hover {
+  box-shadow: 0 15px 35px rgba(255, 165, 2, 0.8);
+  transform: translateY(-3px) scale(1.05);
+}
+
+html.dark-mode .footer {
+  background-color: #121212;
+  color: #ccc;
+  border-top: 1px solid #333;
+}
+
+html.dark-mode .footer h2,
+html.dark-mode .footer h3 {
+  color: var(--candy-red);
+}
+
+html.dark-mode .footer p,
+html.dark-mode .footer-links ul li a {
+  color: #aaa;
+}
+
+html.dark-mode .footer-links ul li a:hover {
+  color: var(--candy-red);
+}
+
+html.dark-mode .footer-newsletter input {
+  background-color: #222;
+  color: #ddd;
+  border: 1px solid #555;
+}
+
+html.dark-mode .footer-newsletter button {
+  background-color: var(--candy-red);
+  color: #fff;
+}
+
+html.dark-mode ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+html.dark-mode ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--candy-red), var(--sky-blue));
+}
+
+html.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--sky-blue), var(--sunny-yellow));
+}
+
     </style>
 </head>
 
@@ -792,6 +1014,10 @@
                 <li><a href="scale.html">Scale Recipes</a></li>
                 <li><a href="about.html" class="active">About Us</a></li>
             </ul>
+            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+  🌙
+</button>
+
         </div>
     </nav>
 
@@ -969,6 +1195,29 @@
 
 
     <script>
+
+        const darkModeToggle = document.getElementById('darkModeToggle');
+
+// On page load, check localStorage and apply dark mode if enabled
+if (localStorage.getItem('darkMode') === 'enabled') {
+    document.documentElement.classList.add('dark-mode');
+    if (darkModeToggle) darkModeToggle.textContent = '☀️';
+}
+
+if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark-mode');
+        
+        if (document.documentElement.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+            darkModeToggle.textContent = '☀️';
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+            darkModeToggle.textContent = '🌙';
+        }
+    });
+}
+
         // Load footer.html into placeholder
         fetch("footer.html")
             .then(response => response.text())

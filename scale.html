@@ -482,6 +482,243 @@
                 justify-content: center;
             }
         }
+        html.dark-mode {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1c3d3a 50%, #4e4c2c 100%);
+  color: #ddd;
+  overflow-x: hidden;
+}
+
+html.dark-mode body {
+  background: transparent;
+  color: #ddd;
+}
+
+/* Floating Elements */
+html.dark-mode .floating-elements {
+  /* optional: dim emojis or icons */
+  opacity: 0.6;
+}
+
+html.dark-mode nav {
+  background: rgba(30, 30, 30, 0.9);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(12px);
+  color: #eee;
+  position: relative;
+  z-index: 100;
+}
+
+html.dark-mode .nav-container {
+  padding: 0 2rem;
+}
+
+html.dark-mode .logo {
+  color: #ff6b6b; /* keep that bright coral */
+  text-shadow: 0 0 6px #ff6b6b;
+  animation: wobble 2s infinite;
+}
+
+html.dark-mode .nav-links a {
+  color: #ccc;
+  transition: all 0.3s ease;
+}
+
+html.dark-mode .nav-links a:hover {
+  background: #ff6b6b;
+  color: white;
+  transform: translateY(-2px);
+}
+
+html.dark-mode .nav-links a.active {
+  background: #4ecdc4;
+  color: white;
+}
+
+/* Container */
+html.dark-mode .container {
+  background: transparent;
+  z-index: 10;
+}
+
+/* Header Section */
+html.dark-mode .header h1 {
+  color: #f5f5f5;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+  animation: bounce 2s infinite;
+}
+
+html.dark-mode .header p {
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Main Content Grid */
+html.dark-mode .main-content {
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Input and Output Sections */
+html.dark-mode .input-section,
+html.dark-mode .output-section {
+  background: rgba(20, 20, 20, 0.85);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(15px);
+  color: #ddd;
+}
+
+/* Section Titles */
+html.dark-mode .section-title {
+  color: #ff6b6b;
+  text-align: center;
+  position: relative;
+}
+
+html.dark-mode .section-title::after {
+  background: #4ecdc4;
+}
+
+/* Input Labels */
+html.dark-mode .input-group label {
+  color: #ccc;
+}
+
+/* Serving Inputs */
+html.dark-mode .serving-input input {
+  background: #222;
+  border: 3px solid #bba842; /* muted gold */
+  color: #eee;
+  font-family: 'Comic Neue', cursive;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+html.dark-mode .serving-input input:focus {
+  border-color: #4ecdc4;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(78, 205, 196, 0.5);
+  outline: none;
+}
+
+/* Textarea */
+html.dark-mode .recipe-textarea {
+  background: #222;
+  border: 3px solid #bba842;
+  color: #eee;
+  font-family: 'Comic Neue', cursive;
+  transition: all 0.3s ease;
+}
+
+html.dark-mode .recipe-textarea:focus {
+  border-color: #4ecdc4;
+  box-shadow: 0 5px 15px rgba(78, 205, 196, 0.5);
+  outline: none;
+}
+
+/* Buttons */
+html.dark-mode .btn-primary {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.6);
+}
+
+html.dark-mode .btn-primary:hover {
+  box-shadow: 0 10px 25px rgba(255, 107, 107, 0.9);
+  animation: shimmer 1s ease-in-out;
+}
+
+html.dark-mode .btn-secondary {
+  background: #bba842;
+  color: #222;
+  box-shadow: 0 5px 15px rgba(187, 168, 66, 0.6);
+}
+
+html.dark-mode .btn-secondary:hover {
+  background: #9a8e3c;
+  color: #eee;
+}
+
+/* Toggle Switch */
+html.dark-mode .slider {
+  background-color: #444;
+}
+
+html.dark-mode input:checked + .slider {
+  background-color: #4ecdc4;
+}
+
+/* Results Section */
+html.dark-mode .results-container {
+  display: none;
+}
+
+html.dark-mode .results-container.show {
+  display: block;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+html.dark-mode .results-table {
+  background: #222;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+}
+
+html.dark-mode .results-table th,
+html.dark-mode .results-table td {
+  border-bottom: 1px solid #444;
+  color: #ddd;
+}
+
+html.dark-mode .results-table th {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  color: white;
+  font-weight: 600;
+}
+
+html.dark-mode .results-table tr:hover {
+  background-color: #333;
+}
+
+html.dark-mode .ingredient-icon {
+  color: #ff6b6b;
+}
+
+/* Suggestions Box */
+html.dark-mode .suggestions-box {
+  background: rgba(187, 168, 66, 0.2);
+  border: 2px solid #bba842;
+  color: #ddd;
+}
+
+html.dark-mode .suggestions-box h3 {
+  color: #ff6b6b;
+}
+
+html.dark-mode .suggestions-box p {
+  color: #ccc;
+}
+
+/* Loading */
+html.dark-mode .loading {
+  color: #eee;
+}
+
+html.dark-mode .spinner {
+  border: 5px solid #333;
+  border-top: 5px solid #ff6b6b;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  html.dark-mode .nav-links {
+    /* same flex styles, but dark bg */
+    background: rgba(30, 30, 30, 0.95);
+  }
+}
+
     </style>
 </head>
 <body>
@@ -504,6 +741,9 @@
                 <li><a href="scale.html" class="active">Scale Recipes</a></li>
                 <li><a href="about.html">About Us</a></li>
             </ul>
+            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+  🌙
+</button>
         </div>
     </nav>
 
@@ -872,6 +1112,27 @@
             
           
         });
+         const darkModeToggle = document.getElementById('darkModeToggle');
+
+// On page load, check localStorage and apply dark mode if enabled
+if (localStorage.getItem('darkMode') === 'enabled') {
+    document.documentElement.classList.add('dark-mode');
+    if (darkModeToggle) darkModeToggle.textContent = '☀️';
+}
+
+if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark-mode');
+        
+        if (document.documentElement.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+            darkModeToggle.textContent = '☀️';
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+            darkModeToggle.textContent = '🌙';
+        }
+    });
+}
     </script>
 </body>
 </html>
