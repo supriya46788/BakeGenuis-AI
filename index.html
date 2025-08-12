@@ -10,6 +10,163 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <style>
+            /* Base Footer Styles */
+.bg-footer {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 3rem 1.5rem;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.bg-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+/* Brand */
+.bg-footer-brand h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #d35400;
+}
+
+.bg-footer-brand p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Links */
+.bg-footer-links h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.bg-footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bg-footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.bg-footer-links a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.bg-footer-links a:hover {
+  color: #d35400;
+}
+
+/* Newsletter */
+.bg-footer-newsletter h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.bg-footer-newsletter p {
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.bg-footer-newsletter form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.bg-footer-newsletter input {
+  flex: 1;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.bg-footer-newsletter button {
+  background-color: #d35400;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.bg-footer-newsletter button:hover {
+  background-color: #b84300;
+}
+
+/* Social Icons */
+.bg-footer-social h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.bg-footer-social .bg-social-icons {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.bg-footer-social .bg-social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d35400;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.bg-footer-social .bg-social-icon:hover {
+  background-color: #b84300;
+}
+
+/* Footer Bottom */
+.bg-footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .bg-footer {
+    background-color: #1e1e1e;
+    color: #ddd;
+  }
+  .bg-footer-links a:hover {
+    color: #ff9f43;
+  }
+  .bg-footer-newsletter input {
+    background-color: #2c2c2c;
+    border: 1px solid #555;
+    color: #fff;
+  }
+  .bg-footer-newsletter button {
+    background-color: #ff9f43;
+  }
+  .bg-footer-newsletter button:hover {
+    background-color: #e67e22;
+  }
+  .bg-footer-social .bg-social-icon {
+    background-color: #ff9f43;
+  }
+  .bg-footer-social .bg-social-icon:hover {
+    background-color: #e67e22;
+  }
+}
+
+
+
         /* Your existing styles */
         * {
             margin: 0;
@@ -732,30 +889,55 @@ html.dark-mode .feature-card:hover .feature-desc {
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-text">
-                Made with ❤️ by Supriya Pandey | BakeGenius.ai © 2025
-            </div>
-            <div class="social-links">
-                <a
-                    href="https://www.linkedin.com/in/supriyapandey595/"
-                    target="_blank"
-                    class="social-link linkedin"
-                    title="LinkedIn Profile"
-                    ><i class="fab fa-linkedin-in"></i
-                ></a>
-                <a
-                    href="https://my-portfolio-nine-flame-62.vercel.app/"
-                    target="_blank"
-                    class="social-link portfolio"
-                    title="Portfolio"
-                    ><i class="fas fa-user"></i
-                ></a>
-            </div>
-        </div>
-    </footer>
+   <!-- Footer Start -->
+   <!-- Footer Start -->
+<footer class="bg-footer">
+  <div class="bg-footer-container">
+
+    <!-- Brand -->
+    <div class="bg-footer-brand">
+      <h2>BakeGenius.ai</h2>
+      <p>Baking meets AI — recipes, ideas, and inspiration to make your creations magical!</p>
+    </div>
+
+    <!-- Links -->
+    <div class="bg-footer-links">
+      <h3>Links</h3>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="bg-footer-newsletter">
+      <h3>Newsletter</h3>
+      <p>Get the latest baking tips & AI recipes!</p>
+      <form id="newsletterForm">
+        <input type="email" id="newsletterEmail" placeholder="Your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- Social -->
+    <div class="bg-footer-social">
+      <h3>Follow Us</h3>
+      <div class="bg-social-icons">
+        <a href="#" class="bg-social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="bg-social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="bg-social-icon"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+  </div>
+  <p class="bg-footer-bottom">&copy; 2025 BakeGenius.ai — All rights reserved.</p>
+</footer>
+<!-- Footer End -->
+
+    <!-- Footer End -->
+
 
     <script>
         // Mobile Navigation Toggle
