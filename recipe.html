@@ -9,6 +9,7 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="footer.css">
     <style>
         /* General Styles & Variables */
         * {
@@ -277,5 +278,15 @@
             }
         });
     </script>
+    <!-- Include Footer -->
+<div id="footer-placeholder"></div>
+<script>
+  fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+</script>
+
 </body>
 </html>
