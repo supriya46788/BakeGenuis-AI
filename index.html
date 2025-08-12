@@ -38,8 +38,8 @@
 
         /* Dark Mode Styles */
         html.dark-mode body {
-           background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: black;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: black;
         }
 
         /* Animated Background Elements */
@@ -247,7 +247,8 @@
         }
 
         /* Toggle Button Styles */
-        #theme-toggle {
+        #theme-toggle,
+        #music-toggle {
             background: none;
             border: none;
             font-size: 1.5rem;
@@ -257,7 +258,8 @@
             transition: transform 0.3s ease;
         }
 
-        #theme-toggle:hover {
+        #theme-toggle:hover,
+        #music-toggle:hover {
             transform: rotate(20deg);
         }
 
@@ -420,7 +422,7 @@
             padding: 2rem;
             border-radius: 20px;
             text-align: center;
-             transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+            transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
             border: 2px solid transparent;
             color: #222;
         }
@@ -430,12 +432,12 @@
             background: rgba(50, 50, 50, 0.8);
             color: #ddd;
         }
-       html.dark-mode .feature-card:hover {
-    background: rgba(70, 130, 180, 0.8); /* steel blue-ish */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
-    border-color: var(--sky-blue);
-    color: #fff;
-}
+        html.dark-mode .feature-card:hover {
+            background: rgba(70, 130, 180, 0.8); /* steel blue-ish */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+            border-color: var(--sky-blue);
+            color: #fff;
+        }
 
         .feature-card:hover {
             transform: translateY(-10px);
@@ -460,30 +462,30 @@
         }
 
         /* Maintain icon colors on hover in dark mode */
-html.dark-mode .feature-card:hover:nth-child(1) .feature-icon {
-    color: var(--candy-red);
-}
-html.dark-mode .feature-card:hover:nth-child(2) .feature-icon {
-    color: var(--sky-blue);
-}
-html.dark-mode .feature-card:hover:nth-child(3) .feature-icon {
-    color: var(--sunny-yellow);
-}
+        html.dark-mode .feature-card:hover:nth-child(1) .feature-icon {
+            color: var(--candy-red);
+        }
+        html.dark-mode .feature-card:hover:nth-child(2) .feature-icon {
+            color: var(--sky-blue);
+        }
+        html.dark-mode .feature-card:hover:nth-child(3) .feature-icon {
+            color: var(--sunny-yellow);
+        }
 
-.feature-card:nth-child(1):hover .feature-icon,
-html.dark-mode .feature-card:nth-child(1):hover .feature-icon {
-    color: var(--candy-red);
-}
+        .feature-card:nth-child(1):hover .feature-icon,
+        html.dark-mode .feature-card:nth-child(1):hover .feature-icon {
+            color: var(--candy-red);
+        }
 
-.feature-card:nth-child(2):hover .feature-icon,
-html.dark-mode .feature-card:nth-child(2):hover .feature-icon {
-    color: var(--sky-blue);
-}
+        .feature-card:nth-child(2):hover .feature-icon,
+        html.dark-mode .feature-card:nth-child(2):hover .feature-icon {
+            color: var(--sky-blue);
+        }
 
-.feature-card:nth-child(3):hover .feature-icon,
-html.dark-mode .feature-card:nth-child(3):hover .feature-icon {
-    color: var(--sunny-yellow);
-}
+        .feature-card:nth-child(3):hover .feature-icon,
+        html.dark-mode .feature-card:nth-child(3):hover .feature-icon {
+            color: var(--sunny-yellow);
+        }
         .feature-title {
             font-size: 1.3rem;
             font-weight: 700;
@@ -496,17 +498,17 @@ html.dark-mode .feature-card:nth-child(3):hover .feature-icon {
             line-height: 1.5;
         }
         /* Dark mode text color */
-html.dark-mode .feature-title,
-html.dark-mode .feature-desc {
-    color: #ddd;
-    transition: color 0.3s ease;
-}
+        html.dark-mode .feature-title,
+        html.dark-mode .feature-desc {
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
 
-/* Dark mode hover text color */
-html.dark-mode .feature-card:hover .feature-title,
-html.dark-mode .feature-card:hover .feature-desc {
-    color: #fff;
-}
+        /* Dark mode hover text color */
+        html.dark-mode .feature-card:hover .feature-title,
+        html.dark-mode .feature-card:hover .feature-desc {
+            color: #fff;
+        }
 
 
         /* Footer */
@@ -637,7 +639,6 @@ html.dark-mode .feature-card:hover .feature-desc {
         }
     </style>
 
-    <!-- Immediately apply saved theme on load to avoid flicker -->
     <script>
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark-mode');
@@ -645,7 +646,11 @@ html.dark-mode .feature-card:hover .feature-desc {
     </script>
 </head>
 <body>
-    <!-- Floating Sweet Elements -->
+    <audio id="background-music" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <div class="floating-sweets">
         <div class="sweet">🧁</div>
         <div class="sweet">🍰</div>
@@ -658,7 +663,6 @@ html.dark-mode .feature-card:hover .feature-desc {
         <div class="sweet">🧁</div>
     </div>
 
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">🍰 BakeGenius.ai</a>
@@ -669,10 +673,14 @@ html.dark-mode .feature-card:hover .feature-desc {
                 <li><a href="scale.html">Scale Recipes</a></li>
                 <li><a href="about.html">About Us</a></li>
             </ul>
-            <!-- Theme toggle button added here -->
-            <button id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
-                <i class="fas fa-moon"></i>
-            </button>
+            <div class="toggle-buttons-container">
+                <button id="music-toggle" aria-label="Toggle music" title="Toggle music">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -681,9 +689,7 @@ html.dark-mode .feature-card:hover .feature-desc {
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="main-content">
-        <!-- Decorative Baking Icons -->
         <div class="baking-icons">
             <div class="baking-icon icon-1">🥄</div>
             <div class="baking-icon icon-2">🍯</div>
@@ -691,19 +697,15 @@ html.dark-mode .feature-card:hover .feature-desc {
             <div class="baking-icon icon-4">🥧</div>
         </div>
 
-        <!-- Hero Section -->
         <section class="hero-section">
             <h1 class="hero-title">Welcome to BakeGenius.ai</h1>
             <p class="hero-subtitle">
                 From spoon to scale — get exact gram conversions with AI magic ✨<br />
                 Transform vague recipe measurements into precise, consistent results every time!
             </p>
-            <a href="convert.html" class="cta-button">Start Converting
-                Now 🚀</a
-            >
+            <a href="convert.html" class="cta-button">Start Converting Now 🚀</a>
         </section>
 
-        <!-- Features Preview -->
         <section class="features-preview">
             <div class="feature-card">
                 <i class="fas fa-magic feature-icon"></i>
@@ -732,7 +734,6 @@ html.dark-mode .feature-card:hover .feature-desc {
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-text">
@@ -846,7 +847,6 @@ html.dark-mode .feature-card:hover .feature-desc {
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeIcon = themeToggleBtn.querySelector('i');
 
-        // Set icon according to saved or default theme
         function updateToggleIcon() {
             if (document.documentElement.classList.contains('dark-mode')) {
                 themeIcon.classList.remove('fa-moon');
@@ -869,8 +869,50 @@ html.dark-mode .feature-card:hover .feature-desc {
             updateToggleIcon();
         });
 
-        // Initialize icon on page load
         updateToggleIcon();
+
+        // Music Toggle Logic
+        const musicToggleBtn = document.getElementById('music-toggle');
+        const music = document.getElementById('background-music');
+        const musicIcon = musicToggleBtn.querySelector('i');
+
+        // Check user preference from localStorage on page load
+        const savedMusicPreference = localStorage.getItem('music');
+
+        function updateMusicIcon() {
+            if (music.paused) {
+                musicIcon.classList.remove('fa-volume-up');
+                musicIcon.classList.add('fa-volume-mute');
+            } else {
+                musicIcon.classList.remove('fa-volume-mute');
+                musicIcon.classList.add('fa-volume-up');
+            }
+        }
+        
+        // Auto-play if not previously muted
+        if (savedMusicPreference !== 'muted') {
+            const playPromise = music.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    // Autoplay was prevented. Show the button, but don't play.
+                    console.log("Autoplay was prevented. User needs to click to play.");
+                });
+            }
+        }
+        
+        // Update icon on initial load
+        updateMusicIcon();
+
+        musicToggleBtn.addEventListener('click', () => {
+            if (music.paused) {
+                music.play();
+                localStorage.setItem('music', 'playing');
+            } else {
+                music.pause();
+                localStorage.setItem('music', 'muted');
+            }
+            updateMusicIcon();
+        });
     </script>
 </body>
 </html>
