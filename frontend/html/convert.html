@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert Recipe - BakeGenius.ai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" type="text/css" href="/frontend/css/convert.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="./favicon/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">🍰 BakeGenius.ai</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="convert.html" class="active">Convert Recipe</a></li>
+                <li><a href="customize.html">Customize</a></li>
+                <li><a href="scale.html">Scale Recipes</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                🌙
+            </button>
+
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">🧪 Recipe Converter</h1>
+            <p class="page-subtitle">Transform your recipes into precise gram measurements with AI magic</p>
+        </div>
+
+        <div class="converter-container">
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="recipeInput" class="input-label">📝 Paste your recipe here:</label>
+                    <textarea id="recipeInput" class="recipe-input" placeholder="Example:
+2 cups all-purpose flour
+1 cup packed brown sugar
+1/2 cup melted butter
+2 large eggs
+1 tsp vanilla extract
+1/2 tsp baking powder
+1/4 tsp salt"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="fileUpload" class="file-upload-label">
+                        📁 Or upload a recipe file
+                    </label>
+                    <input type="file" id="fileUpload" class="file-upload" accept=".txt,.doc,.docx"
+                        onchange="handleFileUpload(event)">
+                </div>
+
+                <button class="convert-button" onclick="convertRecipe()">
+                    <div class="loading-spinner" id="loadingSpinner"></div>
+                    <span id="buttonText">Magically Convert ✨</span>
+                </button>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection">
+                <div class="results-header">
+                    <h2 class="results-title">🎯 Conversion Results</h2>
+                    <div class="unit-toggle">
+                        <button class="active" onclick="toggleUnits('metric')">Metric (g)</button>
+                        <button onclick="toggleUnits('imperial')">Imperial</button>
+                    </div>
+                </div>
+
+                <table class="results-table" id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Ingredient</th>
+                            <th>Original</th>
+                            <th>Grams</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsBody">
+                        <!-- Results will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Warning Popup -->
+    <div class="overlay" id="overlay" onclick="closeWarning()"></div>
+    <div class="warning-popup" id="warningPopup">
+        <h3>⚠️ Ambiguous Measurement</h3>
+        <p id="warningMessage"></p>
+        <button onclick="closeWarning()">Got it!</button>
+    </div>
+
+    <!-- Back to top button -->
+    <button id="backToTop" style="
+        display:none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #f408c1;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50px;
+        cursor: pointer;
+        ">
+        ↑ Top
+    </button>
+
+    <script src="/frontend/js/convert.js"></script>
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer-placeholder").innerHTML = data;
+            });
+    </script>
+
+</body>
+
+</html>
