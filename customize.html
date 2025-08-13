@@ -293,6 +293,15 @@
             background: var(--light-blue);
         }
 
+        /* dark mode toggle button */
+        .dark-mode-toggle{
+            border: none;
+            margin: 0px;
+            padding-inline: 0px;
+            cursor: pointer;
+            background:none;
+        }
+
         /* Action Buttons */
         .action-buttons {
             display: flex;
@@ -629,7 +638,7 @@ html.dark-mode .floating-cupcake {
                 <li><a href="about.html">About Us</a></li>
             </ul>
             <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
-  🌙
+  <img src="moon.png" width="20" height="20">
 </button>
 
         </div>
@@ -939,7 +948,7 @@ html.dark-mode .floating-cupcake {
 // On page load, check localStorage and apply dark mode if enabled
 if (localStorage.getItem('darkMode') === 'enabled') {
     document.documentElement.classList.add('dark-mode');
-    if (darkModeToggle) darkModeToggle.textContent = '☀️';
+    if (darkModeToggle) darkModeToggle.innerHTML = `<img src="sun.png" width="20" height="20">`;
 }
 
 if (darkModeToggle) {
@@ -948,10 +957,10 @@ if (darkModeToggle) {
         
         if (document.documentElement.classList.contains('dark-mode')) {
             localStorage.setItem('darkMode', 'enabled');
-            darkModeToggle.textContent = '☀️';
+            darkModeToggle.innerHTML = `<img src="sun.png" width="20" height="20">`;
         } else {
             localStorage.setItem('darkMode', 'disabled');
-            darkModeToggle.textContent = '🌙';
+            darkModeToggle.innerHTML = `<img src="moon.png" width="20" height="20">`;
         }
     });
 }
