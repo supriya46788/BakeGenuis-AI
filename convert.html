@@ -519,9 +519,9 @@ html.dark-mode .page-subtitle {
 }
 
 /* Converter Container */
-html.dark-mode .converter-container {
-  /* no bg */
-}
+/* html.dark-mode .converter-container {
+  /* no bg 
+} */
 
 /* Input Section */
 html.dark-mode .input-section {
@@ -772,7 +772,34 @@ html.dark-mode .overlay {
         <button onclick="closeWarning()">Got it!</button>
     </div>
 
+    <!-- Back to top button -->
+    <button id="backToTop" style="
+        display:none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #f408c1;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50px;
+        cursor: pointer;
+        ">
+        ↑ Top
+    </button>
+
     <script>
+        // Show button when scrolled down 300px
+  window.onscroll = function() {
+    document.getElementById("backToTop").style.display =
+      document.documentElement.scrollTop > 0 ? "block" : "none";
+  };
+
+  // Scroll smoothly to top
+  document.getElementById("backToTop").onclick = function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
         const GEMINI_API_KEY = 'API_KEY';
         const GEMINI_API_URL = 'API_URL';
 

@@ -615,11 +615,6 @@
         }
     </style>
 
-    <script>
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark-mode');
-        }
-    </script>
 </head>
 <body>
     <audio id="background-music" loop>
@@ -734,7 +729,47 @@
         </div>
     </footer>
 
+    <!-- Adding top to back button -->
+<button id="backToTop" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 9999; background-color: #f408c1; border-radius: 50px; padding: 10px 15px; cursor: pointer;" onclick="scrollToTop()">
+  ↑ Top
+</button>
+
+
     <script>
+       function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleBackToTop() {
+  const btn = document.getElementById("backToTop");
+  if (!btn) return; // stop if button not found
+
+  if (document.documentElement.scrollHeight <= window.innerHeight) {
+    btn.style.display = "block"; // always visible if no scroll
+  } else if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+}
+
+window.addEventListener("scroll", toggleBackToTop);
+window.addEventListener("load", toggleBackToTop);
+
+        // Show button when scrolled down 300px
+//   window.onscroll = function() {
+//     document.getElementById("backToTop").style.display =
+//       document.documentElement.scrollTop > 0 ? "block" : "none";
+//   };
+
+//   // Scroll smoothly to top
+//   document.getElementById("backToTop").onclick = function() {
+//     window.scrollTo({ top: 0, behavior: 'smooth' });
+//   };
+
+  if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+        }
         // Mobile Navigation Toggle
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');

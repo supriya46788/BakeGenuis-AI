@@ -839,7 +839,35 @@ html.dark-mode .spinner {
         </div>
     </div>
 
+<!-- back to top button -->
+<button id="backToTop" style="
+  display:none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f408c1;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+">
+  ↑ Top
+</button>
+
     <script>
+
+        // Show button when scrolled down 300px
+  window.onscroll = function() {
+    document.getElementById("backToTop").style.display =
+      document.documentElement.scrollTop > 0 ? "block" : "none";
+  };
+
+  // Scroll smoothly to top
+  document.getElementById("backToTop").onclick = function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
         const API_KEY = 'API_KEY';
         const API_URL = 'API_URL';
 
