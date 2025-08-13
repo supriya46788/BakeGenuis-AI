@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>BakeGenius.ai - AI-Powered Baking Conversions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet" />
     <link
         rel="stylesheet"
@@ -617,6 +618,85 @@
                 padding: 0.8rem 2rem;
             }
         }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+        /* Navigation */
+        nav {
+            padding: 10px 20px;
+        }
+
+        .nav-links {
+            flex-direction: column;
+            gap: 10px;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            padding: 15px 0;
+        }
+
+        html.dark-mode .nav-links {
+            background: #1a1a1a;
+        }
+
+        .nav-links li {
+            text-align: center;
+        }
+
+        /* Hero section */
+        .hero {
+            flex-direction: column;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+        }
+
+        .cta-button {
+            padding: 12px 20px;
+            font-size: 1rem;
+        }
+
+        /* Floating sweets - prevent overflow */
+        .sweet {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        /* Extra small devices */
+        .hero-title {
+            font-size: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+        }
+
+        .cta-button {
+            font-size: 0.9rem;
+            padding: 10px 16px;
+        }
+
+        nav img {
+            max-width: 120px;
+        }
+
+        /* Reduce sweets on tiny screens */
+        .sweet:nth-child(n+4) {
+            display: none;
+        }
+    }
+
     </style>
 
 </head>
