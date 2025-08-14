@@ -286,7 +286,7 @@ const darkModeToggle = document.getElementById("darkModeToggle");
 if (localStorage.getItem("darkMode") === "enabled") {
   document.documentElement.classList.add("dark-mode");
   if (darkModeToggle)
-    darkModeToggle.innerHTML = `<img src="/assets/sun.png" width="20" height="20">`;
+    darkModeToggle.innerHTML = `<img src="../assets/sun.png" width="20" height="20">`;
 }
 
 if (darkModeToggle) {
@@ -295,10 +295,10 @@ if (darkModeToggle) {
 
     if (document.documentElement.classList.contains("dark-mode")) {
       localStorage.setItem("darkMode", "enabled");
-      darkModeToggle.innerHTML = `<img src="/assets/sun.png" width="20" height="20">`;
+      darkModeToggle.innerHTML = `<img src="../assets/sun.png" width="20" height="20">`;
     } else {
       localStorage.setItem("darkMode", "disabled");
-      darkModeToggle.innerHTML = `<img src="/assets/moon.png" width="20" height="20">`;
+      darkModeToggle.innerHTML = `<img src="../assets/moon.png" width="20" height="20">`;
     }
   });
 }
