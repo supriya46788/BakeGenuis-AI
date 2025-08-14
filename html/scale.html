@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scale Recipes - BakeGenius.ai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" type="text/css" href="../css/scale.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="../favicon/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <style>
+        
+
+    </style>
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-elements">
+        <div class="floating-cupcake">🧁</div>
+        <div class="floating-cupcake">🍰</div>
+        <div class="floating-cupcake">🥧</div>
+        <div class="floating-cupcake">🍪</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🍰 BakeGenius.ai</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="convert.html">Convert Recipe</a></li>
+                <li><a href="customize.html">Customize</a></li>
+                <li><a href="scale.html" class="active">Scale Recipes</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+  <img src="/assets/moon.png" width="20" height="20">
+</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📏 Scale Your Recipes</h1>
+            <p>Perfect portions for any crowd - from intimate dinners to grand celebrations!</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Input Section -->
+            <div class="input-section">
+                <h2 class="section-title">🎯 Recipe Scaling</h2>
+                
+                <div class="serving-inputs">
+                    <div class="serving-input">
+                        <label for="currentServings">Current Servings</label>
+                        <input type="number" id="currentServings" placeholder="6" min="1" value="6">
+                    </div>
+                    <div class="serving-input">
+                        <label for="desiredServings">Desired Servings</label>
+                        <input type="number" id="desiredServings" placeholder="12" min="1" value="12">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="recipeInput">Paste Your Recipe Ingredients:</label>
+                    <textarea 
+                        id="recipeInput" 
+                        class="recipe-textarea" 
+                        placeholder="Example:
+2 cups all-purpose flour
+1 cup sugar
+1/2 cup butter
+2 eggs
+1 tsp baking powder
+1/2 tsp salt
+1 cup milk"
+                    ></textarea>
+                </div>
+
+                <div class="toggle-container">
+                    <span>Keep Original Units</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="convertToGrams">
+                        <span class="slider"></span>
+                    </label>
+                    <span>Convert to Grams</span>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="scaleRecipe()">
+                        ✨ Scale Recipe Magically
+                    </button>
+                    <button class="btn btn-secondary" onclick="clearInputs()">
+                        🧹 Clear All
+                    </button>
+                </div>
+            </div>
+
+            <!-- Output Section -->
+            <div class="output-section">
+                <h2 class="section-title">📊 Scaled Results</h2>
+                
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Scaling your recipe with AI magic... 🪄</p>
+                </div>
+
+                <div class="results-container" id="resultsContainer">
+                    <div id="scalingInfo" class="scaling-info"></div>
+                    <table class="results-table" id="resultsTable">
+                        <thead>
+                            <tr>
+                                <th>Ingredient</th>
+                                <th>Original</th>
+                                <th>Scaled</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsBody">
+                        </tbody>
+                    </table>
+                    
+                    <div class="suggestions-box" id="suggestionsBox">
+                        <h3>🔮 Smart Baking Tips</h3>
+                        <div id="suggestions"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- back to top button -->
+<button id="backToTop" style="
+  display:none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f408c1;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+">
+  ↑ Top
+</button>
+    <!-- Include Footer -->
+<div id="footer-placeholder"></div>
+<script src="../js/scale.js"></script>
+
+</body>
+</html>
