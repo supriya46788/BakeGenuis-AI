@@ -989,3 +989,49 @@ html.dark-mode ::-webkit-scrollbar-thumb {
 html.dark-mode ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, var(--sky-blue), var(--sunny-yellow));
 }
+.ic {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 1rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: white !important; /* Force white color */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transform-style: preserve-3d;
+}
+.icons{
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 10px;
+    width: 200px;
+}
+/* Hover Effects - Maintain original colors */
+.ic:hover {
+    transform: translateY(-8px) scale(1.1) rotate(5deg);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    animation: iconBounce 0.6s ease;
+    color: white !important; /* Force white color on hover */
+    background-size: 120% 120%; /* Optional: Enhance the gradient on hover */
+}
+
+/* Platform-specific colors with gradient effects - add !important to ensure they're not overridden */
+#ic1 { background: linear-gradient(135deg, #0077B5, #00A0DC) !important; }
+#ic2 { background: linear-gradient(135deg, #333, #6e5494) !important; }
+#ic3 { background: linear-gradient(135deg, #1DA1F2, #1D9BF0) !important; }
+#ic4 { background: linear-gradient(135deg, #EA4335, #FBBC05) !important; }
+
+/* Platform-specific glow on hover */
+#ic1:hover { box-shadow: 0 15px 35px rgba(0, 119, 181, 0.5); background: linear-gradient(135deg, #0077B5, #00A0DC) !important; }
+#ic2:hover { box-shadow: 0 15px 35px rgba(51, 51, 51, 0.5); background: linear-gradient(135deg, #333, #6e5494) !important; }
+#ic3:hover { box-shadow: 0 15px 35px rgba(29, 161, 242, 0.5); background: linear-gradient(135deg, #1DA1F2, #1D9BF0) !important; }
+#ic4:hover { box-shadow: 0 15px 35px rgba(234, 67, 53, 0.5); background: linear-gradient(135deg, #EA4335, #FBBC05) !important; }
+
+.footer-social h3{
+    margin-left: 50px;
+}
