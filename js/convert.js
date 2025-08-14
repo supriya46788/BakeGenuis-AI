@@ -15,6 +15,19 @@ const GEMINI_API_URL = "API_URL";
 let currentUnit = "metric";
 let convertedData = [];
 
+// Recipe validation keywords
+const recipeKeywords = [
+  "flour", "sugar", "butter", "egg", "milk", "cream", "vanilla", "salt", "pepper",
+  "baking", "powder", "soda", "yeast", "oil", "honey", "chocolate", "cocoa", "nuts",
+  "cheese", "meat", "chicken", "beef", "fish", "vegetables", "onion", "garlic",
+  "tomato", "recipe", "ingredients", "cooking", "baking", "roast", "fry", "boil",
+  "cup", "cups", "tablespoon", "teaspoon", "ounce", "pound", "gram", "kilogram",
+  "tsp", "tbsp", "oz", "lb", "kg", "ml", "liter", "litre", "degrees", "temperature",
+  "oven", "stove", "pan", "bowl", "mix", "stir", "whisk", "fold", "beat", "knead",
+  "dough", "batter", "sauce", "seasoning", "spice", "herb", "cinnamon", "nutmeg",
+  "ginger", "paprika", "oregano", "basil", "thyme", "rosemary", "parsley", "cilantro"
+];
+
 // Ingredient to emoji mapping
 const ingredientEmojis = {
   flour: "🌾",
@@ -44,13 +57,82 @@ function toggleMobileMenu() {
   navLinks.classList.toggle("active");
 }
 
+function validateRecipeContent(content) {
+  if (!content || content.trim().length < 10) {
+    return false;
+  }
+  
+  const contentLower = content.toLowerCase();
+  
+  // Check if content contains at least 2 recipe-related keywords
+  const foundKeywords = recipeKeywords.filter(keyword => 
+    contentLower.includes(keyword)
+  );
+  
+  return foundKeywords.length >= 2;
+}
+
+function showToast(message, type = 'error') {
+  // Use existing warning popup system but modify it for toast-like behavior
+  const overlay = document.getElementById("overlay");
+  const popup = document.getElementById("warningPopup");
+  const messageEl = document.getElementById("warningMessage");
+  const popupTitle = popup.querySelector("h3");
+  
+  // Reset classes
+  popup.classList.remove('success');
+  
+  if (type === 'error') {
+    popupTitle.textContent = "⚠️ Invalid File";
+    popupTitle.style.color = "#ff4757";
+  } else if (type === 'success') {
+    popupTitle.textContent = "✅ Success";
+    popupTitle.style.color = "#2ed573";
+    popup.classList.add('success');
+  }
+  
+  messageEl.textContent = message;
+  overlay.style.display = "block";
+  popup.style.display = "block";
+  
+  // Auto-close after 4 seconds for toast-like behavior
+  setTimeout(() => {
+    closeWarning();
+  }, 4000);
+}
+
 function handleFileUpload(event) {
   const file = event.target.files[0];
   if (file) {
+    // Check file type
+    const allowedTypes = ['text/plain', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    if (!allowedTypes.includes(file.type) && !file.name.toLowerCase().endsWith('.txt')) {
+      showToast("Please upload a valid text file (.txt, .doc, or .docx) containing recipe content.", 'error');
+      event.target.value = ''; // Clear the file input
+      return;
+    }
+    
     const reader = new FileReader();
     reader.onload = function (e) {
-      document.getElementById("recipeInput").value = e.target.result;
+      const content = e.target.result;
+      
+      // Validate if content is recipe-related
+      if (!validateRecipeContent(content)) {
+        showToast("This file doesn't appear to contain recipe content. Please upload a file with ingredients and cooking instructions.", 'error');
+        event.target.value = ''; // Clear the file input
+        document.getElementById("recipeInput").value = ''; // Clear textarea
+        return;
+      }
+      
+      document.getElementById("recipeInput").value = content;
+      showToast("Recipe file uploaded successfully! You can now convert it to precise measurements.", 'success');
     };
+    
+    reader.onerror = function() {
+      showToast("Error reading file. Please try again with a different file.", 'error');
+      event.target.value = ''; // Clear the file input
+    };
+    
     reader.readAsText(file);
   }
 }
@@ -69,7 +151,13 @@ async function convertRecipe() {
   const recipeText = document.getElementById("recipeInput").value.trim();
 
   if (!recipeText) {
-    showWarning("Please enter a recipe to convert!");
+    showToast("Please enter a recipe to convert!", 'error');
+    return;
+  }
+
+  // Validate recipe content before processing
+  if (!validateRecipeContent(recipeText)) {
+    showToast("The text doesn't appear to contain recipe content. Please ensure you have ingredients with measurements (like '2 cups flour', '1 tsp salt', etc.)", 'error');
     return;
   }
 
@@ -131,7 +219,7 @@ ${recipeText}`,
 
         // Show warnings if any
         if (parsedData.warnings && parsedData.warnings.length > 0) {
-          showWarning(parsedData.warnings.join("\n"));
+          showToast(parsedData.warnings.join("\n"), 'error');
         }
       } else {
         throw new Error("Could not parse AI response");
@@ -144,8 +232,8 @@ ${recipeText}`,
     }
   } catch (error) {
     console.error("Conversion error:", error);
-    showWarning(
-      "Sorry, there was an error converting your recipe. Please try again."
+    showToast(
+      "Sorry, there was an error converting your recipe. Please try again.", 'error'
     );
   } finally {
     setLoading(false);

@@ -63,7 +63,10 @@
 
                 <div class="input-group">
                     <label for="fileUpload" class="file-upload-label">
-                        📁 Or upload a recipe file
+                        📁 Or upload a recipe file (.txt, .doc, .docx)
+                        <small style="display: block; font-size: 0.8em; color: #666; margin-top: 0.25rem;">
+                            Only recipe files with ingredients and instructions are accepted
+                        </small>
                     </label>
                     <input type="file" id="fileUpload" class="file-upload" accept=".txt,.doc,.docx"
                         onchange="handleFileUpload(event)">
