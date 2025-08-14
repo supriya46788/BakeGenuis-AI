@@ -11,6 +11,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+
     <style>
         :root {
             --candy-red: #FF4757;
@@ -1121,6 +1123,13 @@ if (darkModeToggle) {
       document.getElementById("footer-placeholder").innerHTML = data;
     });
 </script>
+<script>
+document.addEventListener('mousemove', function(e) {
+    const cursor = document.querySelector('body::after');
+});
+</script>
+<div class="custom-cursor"></div>
+<script src="cursor.js"></script>
 
 </body>
 </html>
