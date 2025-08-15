@@ -1,0 +1,83 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fffaf5;
+  margin: 0;
+  padding: 0;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 248, 240, 0.85);
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 400px;
+  margin: 80px auto;
+ background: #fffaf3;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.header .emoji {
+  font-size: 40px;
+}
+
+.logo-text {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 8px 0;
+  color: #b3541e;
+}
+
+.brand {
+  color: #b3541e;
+}
+
+h2 {
+  margin: 15px 0;
+  color: #5c3b1e;
+  font-weight: bold;
+}
+
+form input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.primary-btn {
+  width: 100%;
+  background: linear-gradient(to right, #b3541e, #d87a2c);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.primary-btn:hover {
+  background: linear-gradient(to right, #9a461a, #c36b24);
+}
+
+a {
+  color: #b3541e;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
