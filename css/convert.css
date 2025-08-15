@@ -462,6 +462,24 @@ main {
     display: none;
     max-width: 400px;
     text-align: center;
+    animation: slideInScale 0.3s ease-out;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.warning-popup.success {
+    background: rgba(46, 213, 115, 0.95);
+    border-color: var(--mint-green);
+}
+
+@keyframes slideInScale {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
 
 .warning-popup h3 {
