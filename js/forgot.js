@@ -6,6 +6,11 @@ document.getElementById("forgot-form").addEventListener("submit", async (e) => {
 
   const email = document.getElementById("email").value.trim();
 
+  if (!email) {
+    alert("Please enter your email address.");
+    return;
+  }
+
   try {
     await sendPasswordResetEmail(auth, email);
     alert("Password reset email sent! Please check your inbox.");

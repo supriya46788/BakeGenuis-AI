@@ -131,7 +131,6 @@
         ↑ Top
     </button>
 
-<<<<<<< HEAD
 
     <script>
        function scrollToTop() {
@@ -186,17 +185,28 @@ window.addEventListener("load", toggleBackToTop);
             });
         });
 
-        // Smooth scroll for CTA button
+        // CTA button click handler with authentication check
         const ctaButton = document.querySelector('.cta-button');
         ctaButton.addEventListener('click', (e) => {
             e.preventDefault();
-            // Add a fun animation on click
-            ctaButton.style.animation = 'bounce 0.5s ease-in-out';
-            setTimeout(() => {
-                ctaButton.style.animation = 'pulse 2s ease-in-out infinite';
-                // Navigate to convert page (in real app)
-                window.location.href = 'convert.html';
-            }, 500);
+            
+            // Check if user is logged in
+            const user = localStorage.getItem('user');
+            
+            if (user) {
+                // User is logged in, proceed to convert page
+                ctaButton.style.animation = 'bounce 0.5s ease-in-out';
+                setTimeout(() => {
+                    ctaButton.style.animation = 'pulse 2s ease-in-out infinite';
+                    window.location.href = './html/convert.html';
+                }, 500);
+            } else {
+                // User is not logged in, redirect to login page
+                ctaButton.style.animation = 'bounce 0.5s ease-in-out';
+                setTimeout(() => {
+                    window.location.href = './html/login.html';
+                }, 500);
+            }
         });
 
         // Add random colors to floating sweets
@@ -333,8 +343,11 @@ window.addEventListener("load", toggleBackToTop);
             const authLink = document.getElementById('authLink');
             if (user) {
                 // User is signed in
-                authLink.textContent = `👋 ${user.displayName || user.email}`;
+                const displayName = user.displayName || user.email.split('@')[0];
+                authLink.textContent = `👋 ${displayName}`;
                 authLink.href = '#';
+                authLink.style.color = '#4ECDC4';
+                authLink.style.fontWeight = '600';
                 authLink.addEventListener('click', async (e) => {
                     e.preventDefault();
                     if (confirm('Do you want to sign out?')) {
@@ -352,16 +365,15 @@ window.addEventListener("load", toggleBackToTop);
             } else {
                 // User is signed out
                 authLink.textContent = '👨‍💻Login';
-                authLink.href = 'login.html';
+                authLink.href = './html/login.html';
+                authLink.style.color = '';
+                authLink.style.fontWeight = '';
             }
         });
     </script>
     <div class="custom-cursor"></div>
 <script src="cursor.js"></script>
 
-=======
-    <script src="./js/index.js"></script>
->>>>>>> origin/main
 </body>
 
 </html>
