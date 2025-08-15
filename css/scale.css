@@ -472,6 +472,93 @@ input:checked+.slider:before {
     margin-bottom: 0.5rem;
 }
 
+/* Nutritional Breakdown Section */
+.nutrition-section {
+    background: linear-gradient(135deg, #4ECDC4 0%, #A8E6CF 100%);
+    border: 2px solid #4ECDC4;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 8px 32px rgba(78, 205, 196, 0.3);
+}
+
+.nutrition-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.nutrition-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.nutrition-table th {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1.2rem 1rem;
+    text-align: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.nutrition-table td {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.nutrition-table td:first-child {
+    background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.nutrition-table td:nth-child(2) {
+    background: linear-gradient(45deg, #4ECDC4, #44A08D);
+}
+
+.nutrition-table td:nth-child(3) {
+    background: linear-gradient(45deg, #FFE66D, #FF6B6B);
+}
+
+.nutrition-table td:nth-child(4) {
+    background: linear-gradient(45deg, #A8E6CF, #4ECDC4);
+}
+
+.nutrition-table td:nth-child(5) {
+    background: linear-gradient(45deg, #FFB6C1, #FFA07A);
+}
+
+/* Animation for nutrition section */
+.nutrition-section {
+    animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Loading Animation */
 .loading {
     display: none;
@@ -542,6 +629,30 @@ input:checked+.slider:before {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    .nutrition-section {
+        padding: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .nutrition-title {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .nutrition-table th,
+    .nutrition-table td {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .nutrition-table td:first-child {
+        font-size: 1.1rem;
+    }
+
+    .nutrition-table th {
+        font-size: 0.9rem;
     }
 }
 
@@ -764,6 +875,36 @@ html.dark-mode .suggestions-box h3 {
 
 html.dark-mode .suggestions-box p {
     color: #ccc;
+}
+
+/* Nutrition Section Dark Mode */
+html.dark-mode .nutrition-section {
+    background: linear-gradient(135deg, #4ECDC4 0%, #3a5a4a 100%);
+    border: 2px solid #4ECDC4;
+    box-shadow: 0 8px 32px rgba(78, 205, 196, 0.4);
+}
+
+html.dark-mode .nutrition-title {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+html.dark-mode .nutrition-table {
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+html.dark-mode .nutrition-table th {
+    background: rgba(78, 205, 196, 0.3);
+    color: #fff;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+html.dark-mode .nutrition-table td {
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
 /* Loading */
