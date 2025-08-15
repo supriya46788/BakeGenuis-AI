@@ -16,3 +16,95 @@ body {
     transition: transform 0.05s ease;
     z-index: 9999;
 }
+/* Fullscreen Loader */
+#loading-spinner {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  /* Updated to match your sweet pastel gradient */
+  background: linear-gradient(135deg, #7dd3fc, #f9a8d4, #fcd34d);
+  background-size: 300% 300%;
+  animation: gradientShift 6s ease infinite;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  transition: opacity 1.5s ease, visibility 1.5s ease;
+}
+
+/* Smooth gradient movement */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+#loading-spinner.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Floating sweets container */
+.floating-sweets {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.floating-sweets span {
+  position: absolute;
+  font-size: 1.8rem;
+  animation: float 9s linear infinite;
+  opacity: 0.85;
+}
+
+.floating-sweets span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.floating-sweets span:nth-child(2) { left: 28%; animation-delay: 2s; }
+.floating-sweets span:nth-child(3) { left: 50%; animation-delay: 4s; }
+.floating-sweets span:nth-child(4) { left: 72%; animation-delay: 6s; }
+.floating-sweets span:nth-child(5) { left: 88%; animation-delay: 8s; }
+
+@keyframes float {
+  0% { transform: translateY(120%); }
+  100% { transform: translateY(-120%); }
+}
+
+/* Spinner */
+.spinner {
+  width: 70px;
+  height: 70px;
+border: 6px solid white; /* white circle outline */
+  border-top: 6px solid #ff7aa2; /* pink spinning part */
+  border-radius: 50%;
+  
+  /* No background fill */
+
+  background: transparent;
+  box-shadow: 0 6px 18px rgba(255, 122, 162, 0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: spin 1.2s linear infinite;
+  z-index: 10;
+}
+
+.spinner .emoji {
+  font-size: 1.6rem;
+  animation: bounce 1.2s infinite;
+}
+
+/* Animations */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}

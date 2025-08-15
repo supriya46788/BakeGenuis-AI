@@ -1,60 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>BakeGenius.ai - AI-Powered Baking Conversions</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="./favicon/favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
-    <link rel="stylesheet" href="style.css">
+    <title>BakeGenius.ai - AI-Powered Baking Conversions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+        :root {
+            --candy-red: #FF6B6B;
+            --sky-blue: #4ECDC4;
+            --sunny-yellow: #FFD93D;
+            --soft-pink: #FFB6C1;
+            --mint-green: #98FB98;
+            --lavender: #E6E6FA;
+        }
 
+        body {
+            font-family: 'Comic Neue', cursive;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--soft-pink) 50%, var(--sunny-yellow) 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        @keyframes wobble {
+            0% { transform: translateX(0%); }
+            15% { transform: translateX(-25px) rotate(-5deg); }
+            30% { transform: translateX(20px) rotate(3deg); }
+            45% { transform: translateX(-15px) rotate(-3deg); }
+            60% { transform: translateX(10px) rotate(2deg); }
+            75% { transform: translateX(-5px) rotate(-1deg); }
+            100% { transform: translateX(0%); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            /* position: fixed; */
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--candy-red);
+            text-decoration: none;    
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links a:hover {
+            background: var(--sunny-yellow);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--candy-red);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 10px;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+            min-height: calc(100vh - 200px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-section {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s linear infinite;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue), var(--sunny-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--candy-red), var(--sunny-yellow));
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Decorative Elements */
+        .baking-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .baking-icon {
+            position: absolute;
+            font-size: 3rem;
+            color: var(--candy-red);
+            opacity: 0.3;
+            animation: wobble 4s ease-in-out infinite;
+        }
+
+        .icon-1 { top: 10%; left: 10%; animation-delay: 0s; }
+        .icon-2 { top: 20%; right: 15%; animation-delay: 1s; }
+        .icon-3 { bottom: 30%; left: 20%; animation-delay: 2s; }
+        .icon-4 { bottom: 20%; right: 10%; animation-delay: 3s; }
+
+        /* Features Preview */
+        .features-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            max-width: 1000px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--sky-blue);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card:nth-child(1) .feature-icon { color: var(--candy-red); }
+        .feature-card:nth-child(2) .feature-icon { color: var(--sky-blue); }
+        .feature-card:nth-child(3) .feature-icon { color: var(--sunny-yellow); }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .feature-desc {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-text {
+            color: #666;
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            animation: wobble 0.5s ease-in-out;
+        }
+
+        .social-link.linkedin {
+            background: linear-gradient(45deg, #0077B5, #00A0DC);
+        }
+
+        .social-link.portfolio {
+            background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: start;
+                padding-top: 2rem;
+                gap: 1rem;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-section {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .features-preview {
+                grid-template-columns: 1fr;
+                margin-top: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .cta-button {
+                font-size: 1rem;
+                padding: 0.8rem 2rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <audio id="background-music" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
-    <div class="floating-sweets">
-        <div class="sweet">🧁</div>
-        <div class="sweet">🍰</div>
-        <div class="sweet">🍪</div>
-        <div class="sweet">🍭</div>
-        <div class="sweet">🧁</div>
-        <div class="sweet">🍰</div>
-        <div class="sweet">🍪</div>
-        <div class="sweet">🍭</div>
-        <div class="sweet">🧁</div>
-    </div>
-
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">🍰 BakeGenius.ai</a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="./html/convert.html">Convert Recipe</a></li>
-                <li><a href="./html/customize.html">Customize</a></li>
-                <li><a href="./html/scale.html">Scale Recipes</a></li>
-                <li><a href="./html/about.html">About Us</a></li>
+                <li><a href="convert.html">Convert Recipe</a></li>
+                <li><a href="customize.html">Customize</a></li>
+                <li><a href="scale.html">Scale Recipes</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="./html/login.html" id="authLink">👨‍💻Login</a></li>
             </ul>
-            <div class="toggle-buttons-container">
-                <button id="music-toggle" aria-label="Toggle music" title="Toggle music">
-                    <i class="fas fa-volume-up"></i>
-                </button>
-                <button id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
+            
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -63,63 +418,50 @@
         </div>
     </nav>
 
+    <!-- Main Content -->
     <main class="main-content">
-        <div class="baking-icons">
-            <div class="baking-icon icon-1">🥄</div>
-            <div class="baking-icon icon-2">🍯</div>
-            <div class="baking-icon icon-3">⚖️</div>
-            <div class="baking-icon icon-4">🥧</div>
-        </div>
 
+        <!-- Hero Section -->
         <section class="hero-section">
             <h1 class="hero-title">Welcome to BakeGenius.ai</h1>
-            <p class="hero-subtitle">
-                From spoon to scale — get exact gram conversions with AI magic ✨<br />
-                Transform vague recipe measurements into precise, consistent results every time!
-            </p>
-            <a href="./html/convert.html" class="cta-button">Start Converting Now 🚀</a>
+            <p class="hero-subtitle">From spoon to scale — get exact gram conversions with AI magic ✨<br>
+            Transform vague recipe measurements into precise, consistent results every time!</p>
+            <a href="convert.html" class="cta-button">Start Converting Now 🚀</a>
         </section>
 
+        <!-- Features Preview -->
         <section class="features-preview">
             <div class="feature-card">
                 <i class="fas fa-magic feature-icon"></i>
                 <h3 class="feature-title">AI-Powered Precision</h3>
-                <p class="feature-desc">
-                    Advanced AI converts "cups" and "spoons" into exact gram
-                    measurements for perfect baking every time.
-                </p>
+                <p class="feature-desc">Advanced AI converts "cups" and "spoons" into exact gram measurements for perfect baking every time.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-balance-scale feature-icon"></i>
                 <h3 class="feature-title">Smart Recipe Scaling</h3>
-                <p class="feature-desc">
-                    Effortlessly scale recipes up or down while maintaining perfect
-                    ratios and adjusting rising agents intelligently.
-                </p>
+                <p class="feature-desc">Effortlessly scale recipes up or down while maintaining perfect ratios and adjusting rising agents intelligently.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-cogs feature-icon"></i>
                 <h3 class="feature-title">Custom Preferences</h3>
-                <p class="feature-desc">
-                    Personalize conversions based on your preferred brands and
-                    ingredient specifications for consistent results.
-                </p>
+                <p class="feature-desc">Personalize conversions based on your preferred brands and ingredient specifications for consistent results.</p>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-text">
-                <a href="./html/privacy.html">Privacy Policy</a>
-                <a href="./html/terms.html">Terms of Service</a>
                 Made with ❤️ by Supriya Pandey | BakeGenius.ai © 2025
             </div>
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-link linkedin"
-                    title="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://my-portfolio-nine-flame-62.vercel.app/" target="_blank" class="social-link portfolio"
-                    title="Portfolio"><i class="fas fa-user"></i></a>
+                <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-link linkedin" title="LinkedIn Profile">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://my-portfolio-nine-flame-62.vercel.app/" target="_blank" class="social-link portfolio" title="Portfolio">
+                    <i class="fas fa-user"></i>
+                </a>
             </div>
         </div>
     </footer>
@@ -133,40 +475,6 @@
 
 
     <script>
-       function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function toggleBackToTop() {
-  const btn = document.getElementById("backToTop");
-  if (!btn) return; // stop if button not found
-
-  if (document.documentElement.scrollHeight <= window.innerHeight) {
-    btn.style.display = "block"; // always visible if no scroll
-  } else if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-    btn.style.display = "block";
-  } else {
-    btn.style.display = "none";
-  }
-}
-
-window.addEventListener("scroll", toggleBackToTop);
-window.addEventListener("load", toggleBackToTop);
-
-        // Show button when scrolled down 300px
-//   window.onscroll = function() {
-//     document.getElementById("backToTop").style.display =
-//       document.documentElement.scrollTop > 0 ? "block" : "none";
-//   };
-
-//   // Scroll smoothly to top
-//   document.getElementById("backToTop").onclick = function() {
-//     window.scrollTo({ top: 0, behavior: 'smooth' });
-//   };
-
-  if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark-mode');
-        }
         // Mobile Navigation Toggle
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
@@ -178,7 +486,7 @@ window.addEventListener("load", toggleBackToTop);
 
         // Close mobile menu when clicking on a link
         const navItems = document.querySelectorAll('.nav-links a');
-        navItems.forEach((item) => {
+        navItems.forEach(item => {
             item.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 hamburger.classList.remove('active');
@@ -209,49 +517,29 @@ window.addEventListener("load", toggleBackToTop);
             }
         });
 
-        // Add random colors to floating sweets
-        const sweets = document.querySelectorAll('.sweet');
-        const colors = [
-            'var(--candy-red)',
-            'var(--sky-blue)',
-            'var(--sunny-yellow)',
-            'var(--soft-pink)',
-            'var(--mint-green)',
-        ];
-
-        sweets.forEach((sweet) => {
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            sweet.style.color = randomColor;
-            sweet.style.filter = 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))';
-        });
-
         // Parallax effect for decorative icons
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const parallax = scrolled * 0.5;
-
+            
             document.querySelectorAll('.baking-icon').forEach((icon, index) => {
-                icon.style.transform = `translateY(${parallax * (index + 1) * 0.1}px) rotate(${
-                    parallax * 0.05
-                }deg)`;
+                icon.style.transform = `translateY(${parallax * (index + 1) * 0.1}px) rotate(${parallax * 0.05}deg)`;
             });
         });
 
-        // Remove sparkle effect on hover for feature cards
-        document.querySelectorAll('.feature-card').forEach((card) => {
+        // Add sparkle effect on hover for feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
             card.addEventListener('mouseenter', () => {
-                // Removed background change
-                // card.style.background = 'rgba(255, 255, 255, 0.95)';
+                card.style.background = 'rgba(255, 255, 255, 0.95)';
                 card.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.15)';
             });
-
+            
             card.addEventListener('mouseleave', () => {
-                // Removed background change
-                // card.style.background = 'rgba(255, 255, 255, 0.8)';
+                card.style.background = 'rgba(255, 255, 255, 0.8)';
                 card.style.boxShadow = 'none';
             });
         });
-
+      
         // Add loading animation
         window.addEventListener('load', () => {
             document.body.style.opacity = '0';
@@ -374,6 +662,7 @@ window.addEventListener("load", toggleBackToTop);
     <div class="custom-cursor"></div>
 <script src="cursor.js"></script>
 
-</body>
+    </script>
 
+</body>
 </html>
