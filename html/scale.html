@@ -28,16 +28,16 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">🍰 BakeGenius.ai</a>
+            <a href="../index.html" class="logo">🍰 BakeGenius.ai</a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="convert.html">Convert Recipe</a></li>
                 <li><a href="customize.html">Customize</a></li>
                 <li><a href="scale.html" class="active">Scale Recipes</a></li>
                 <li><a href="about.html">About Us</a></li>
             </ul>
             <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
-  <img src="/assets/moon.png" width="20" height="20">
+  <img src="../assets/moon.png" width="20" height="20">
 </button>
         </div>
     </nav>
@@ -128,6 +128,25 @@
                     <div class="suggestions-box" id="suggestionsBox">
                         <h3>🔮 Smart Baking Tips</h3>
                         <div id="suggestions"></div>
+                    </div>
+
+                    <!-- Nutritional Breakdown Section -->
+                    <div class="nutrition-section" id="nutritionSection" style="display:none; margin-top:2em;">
+                        <h3 class="nutrition-title">🥗 Nutritional Breakdown</h3>
+                        <table class="nutrition-table">
+                            <thead>
+                                <tr>
+                                    <th>Calories</th>
+                                    <th>Protein (g)</th>
+                                    <th>Fat (g)</th>
+                                    <th>Carbs (g)</th>
+                                    <th>Sugar (g)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="nutritionBody">
+                                <!-- Nutrition info will be populated here -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

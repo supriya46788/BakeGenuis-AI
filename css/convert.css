@@ -351,6 +351,94 @@ main {
     opacity: 1;
 }
 
+/* Nutritional Breakdown Section */
+.nutrition-section {
+    background: linear-gradient(135deg, var(--mint-green) 0%, var(--lavender) 100%);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.nutrition-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.nutrition-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.nutrition-table th {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1.2rem 1rem;
+    text-align: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.nutrition-table td {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.nutrition-table td:first-child {
+    background: linear-gradient(45deg, var(--candy-red), var(--soft-pink));
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.nutrition-table td:nth-child(2) {
+    background: linear-gradient(45deg, var(--sky-blue), var(--lavender));
+}
+
+.nutrition-table td:nth-child(3) {
+    background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
+}
+
+.nutrition-table td:nth-child(4) {
+    background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
+}
+
+.nutrition-table td:nth-child(5) {
+    background: linear-gradient(45deg, var(--soft-pink), var(--lavender));
+}
+
+/* Animation for nutrition section */
+.nutrition-section {
+    animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* dark mode toggle button */
 .dark-mode-toggle {
     border: none;
@@ -478,6 +566,30 @@ main {
     .input-section,
     .results-section {
         padding: 1.5rem;
+    }
+
+    .nutrition-section {
+        padding: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .nutrition-title {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .nutrition-table th,
+    .nutrition-table td {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .nutrition-table td:first-child {
+        font-size: 1.1rem;
+    }
+
+    .nutrition-table th {
+        font-size: 0.9rem;
     }
 
     .warning-popup {
@@ -624,10 +736,39 @@ html.dark-mode .loading-spinner {
 /* Results Section */
 html.dark-mode .results-section {
     background: var(--glass);
-    border: 1px solid rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow);
+}
+
+/* Nutrition Section Dark Mode */
+html.dark-mode .nutrition-section {
+    background: linear-gradient(135deg, var(--mint-green) 0%, var(--lavender) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(74, 226, 122, 0.2);
+}
+
+html.dark-mode .nutrition-title {
     color: var(--white);
-    display: none;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+html.dark-mode .nutrition-table {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+html.dark-mode .nutrition-table th {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+html.dark-mode .nutrition-table td {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
 html.dark-mode .results-header {

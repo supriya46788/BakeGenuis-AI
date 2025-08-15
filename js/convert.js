@@ -164,6 +164,16 @@ async function convertRecipe() {
   setLoading(true);
 
   try {
+    // Check if API is configured
+    if (!GEMINI_API_KEY || GEMINI_API_KEY === "API_KEY" || !GEMINI_API_URL || GEMINI_API_URL === "API_URL") {
+      // Use mock conversion instead
+      const mockData = convertRecipeLocally(recipeText);
+      convertedData = mockData.ingredients || [];
+      displayResults(convertedData);
+      setLoading(false);
+      return;
+    }
+
     const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
       method: "POST",
       headers: {
@@ -232,12 +242,103 @@ ${recipeText}`,
     }
   } catch (error) {
     console.error("Conversion error:", error);
+fix/content-validation
     showToast(
       "Sorry, there was an error converting your recipe. Please try again.", 'error'
     );
+
+    // Use local conversion as fallback
+    try {
+      const mockData = convertRecipeLocally(recipeText);
+      convertedData = mockData.ingredients || [];
+      displayResults(convertedData);
+    } catch (fallbackError) {
+      showWarning(
+        "Sorry, there was an error converting your recipe. Please try again."
+      );
+    }
+
   } finally {
     setLoading(false);
   }
+}
+
+function convertRecipeLocally(recipeText) {
+  // Local conversion mappings (cups to grams)
+  const conversionMap = {
+    "flour": { "cup": 120, "cups": 120 },
+    "sugar": { "cup": 200, "cups": 200 },
+    "butter": { "cup": 227, "cups": 227 },
+    "egg": { "large": 50, "medium": 44, "small": 38 },
+    "eggs": { "large": 50, "medium": 44, "small": 38 },
+    "milk": { "cup": 240, "cups": 240 },
+    "vanilla": { "tsp": 4, "tbsp": 12, "teaspoon": 4, "tablespoon": 12 },
+    "baking powder": { "tsp": 4, "tbsp": 12, "teaspoon": 4, "tablespoon": 12 },
+    "salt": { "tsp": 6, "tbsp": 18, "teaspoon": 6, "tablespoon": 18 },
+    "chocolate": { "cup": 175, "cups": 175, "oz": 28 },
+    "oil": { "cup": 220, "cups": 220 },
+    "honey": { "cup": 340, "cups": 340 },
+    "cream": { "cup": 240, "cups": 240 }
+  };
+
+  const lines = recipeText.split('\n').filter(line => line.trim());
+  const ingredients = [];
+
+  lines.forEach(line => {
+    line = line.trim();
+    if (!line || line.startsWith('#') || line.startsWith('//')) return;
+
+    // Parse ingredient line
+    const match = line.match(/^[-•*]?\s*(\d+(?:\/\d+)?)\s+(cup|cups|tsp|tbsp|teaspoon|tablespoon|large|medium|small|oz)\s+(.+)$/i);
+    
+    if (match) {
+      let [, amount, unit, ingredient] = match;
+      
+      // Convert fraction to decimal
+      if (amount.includes('/')) {
+        const [num, den] = amount.split('/').map(Number);
+        amount = num / den;
+      } else {
+        amount = parseFloat(amount);
+      }
+
+      // Clean up ingredient name
+      ingredient = ingredient.replace(/,.*$/, '').trim();
+      
+      // Find conversion
+      const ingredientKey = Object.keys(conversionMap).find(key => 
+        ingredient.toLowerCase().includes(key)
+      );
+      
+      let grams = 100; // default
+      let notes = "Estimated conversion";
+      
+      if (ingredientKey && conversionMap[ingredientKey][unit.toLowerCase()]) {
+        grams = Math.round(amount * conversionMap[ingredientKey][unit.toLowerCase()]);
+        notes = "Standard conversion";
+      }
+
+      ingredients.push({
+        ingredient: ingredient,
+        original: `${amount} ${unit}`,
+        grams: grams,
+        notes: notes
+      });
+    } else {
+      // Try to parse other formats
+      const simpleMatch = line.match(/^[-•*]?\s*(.+)$/);
+      if (simpleMatch) {
+        ingredients.push({
+          ingredient: simpleMatch[1],
+          original: "As needed",
+          grams: 5,
+          notes: "To taste"
+        });
+      }
+    }
+  });
+
+  return { ingredients };
 }
 
 function parseTextResponse(text) {
@@ -273,6 +374,37 @@ function displayResults(ingredients) {
   const resultsBody = document.getElementById("resultsBody");
 
   resultsBody.innerHTML = "";
+  let nutritionTotals = {
+    calories: 0,
+    protein: 0,
+    fat: 0,
+    carbs: 0,
+    sugar: 0,
+  };
+
+  // Simple nutrition database (per 100g)
+  const nutritionDB = {
+    flour: { calories: 364, protein: 10, fat: 1, carbs: 76, sugar: 0 },
+    sugar: { calories: 387, protein: 0, fat: 0, carbs: 100, sugar: 100 },
+    butter: { calories: 717, protein: 1, fat: 81, carbs: 0, sugar: 0 },
+    egg: { calories: 155, protein: 13, fat: 11, carbs: 1, sugar: 1 },
+    milk: { calories: 42, protein: 3.4, fat: 1, carbs: 5, sugar: 5 },
+    vanilla: { calories: 288, protein: 0, fat: 0, carbs: 13, sugar: 13 },
+    "baking powder": { calories: 53, protein: 0, fat: 0, carbs: 28, sugar: 0 },
+    salt: { calories: 0, protein: 0, fat: 0, carbs: 0, sugar: 0 },
+    chocolate: { calories: 546, protein: 4.9, fat: 31, carbs: 61, sugar: 48 },
+    cocoa: { calories: 228, protein: 20, fat: 14, carbs: 58, sugar: 1 },
+    oil: { calories: 884, protein: 0, fat: 100, carbs: 0, sugar: 0 },
+    honey: { calories: 304, protein: 0.3, fat: 0, carbs: 82, sugar: 82 },
+    cream: { calories: 340, protein: 2, fat: 36, carbs: 3, sugar: 3 },
+    cheese: { calories: 402, protein: 25, fat: 33, carbs: 1.3, sugar: 1 },
+    nuts: { calories: 607, protein: 20, fat: 54, carbs: 20, sugar: 4 },
+    fruit: { calories: 52, protein: 0.3, fat: 0.2, carbs: 14, sugar: 10 },
+    lemon: { calories: 29, protein: 1.1, fat: 0.3, carbs: 9, sugar: 2.5 },
+    orange: { calories: 47, protein: 0.9, fat: 0.1, carbs: 12, sugar: 9 },
+    cinnamon: { calories: 247, protein: 4, fat: 1.2, carbs: 81, sugar: 2.2 },
+    default: { calories: 100, protein: 1, fat: 1, carbs: 20, sugar: 5 },
+  };
 
   ingredients.forEach((item) => {
     const row = document.createElement("tr");
@@ -286,16 +418,42 @@ function displayResults(ingredients) {
                         ${item.ingredient}
                     </td>
                     <td>${item.original}</td>
-                    <td class="tooltip" data-tooltip="${
+                    <td class="tooltip" data-tooltip="$${
                       item.notes || "Standard conversion"
                     }">
                         <strong>${item.grams}g</strong>
                     </td>
                     <td><small>${item.notes || "Standard"}</small></td>
                 `;
-
     resultsBody.appendChild(row);
+
+    // Nutrition calculation
+    const key = Object.keys(nutritionDB).find((k) => item.ingredient.toLowerCase().includes(k)) || "default";
+    const nutri = nutritionDB[key];
+    const factor = item.grams / 100;
+    nutritionTotals.calories += nutri.calories * factor;
+    nutritionTotals.protein += nutri.protein * factor;
+    nutritionTotals.fat += nutri.fat * factor;
+    nutritionTotals.carbs += nutri.carbs * factor;
+    nutritionTotals.sugar += nutri.sugar * factor;
   });
+
+  // Show nutrition section
+  const nutritionSection = document.getElementById("nutritionSection");
+  const nutritionBody = document.getElementById("nutritionBody");
+  if (ingredients.length > 0) {
+    nutritionSection.style.display = "block";
+    nutritionBody.innerHTML = `<tr>
+      <td>${nutritionTotals.calories.toFixed(0)}</td>
+      <td>${nutritionTotals.protein.toFixed(1)}</td>
+      <td>${nutritionTotals.fat.toFixed(1)}</td>
+      <td>${nutritionTotals.carbs.toFixed(1)}</td>
+      <td>${nutritionTotals.sugar.toFixed(1)}</td>
+    </tr>`;
+  } else {
+    nutritionSection.style.display = "none";
+    nutritionBody.innerHTML = "";
+  }
 
   resultsSection.style.display = "block";
   resultsSection.scrollIntoView({ behavior: "smooth" });
