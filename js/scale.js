@@ -65,13 +65,13 @@
                 if (match) {
                     if (match.length === 4) {
                         return {
-                            amount: parseFloat(match[1]),
+                            amount: parseAmount(match[1]),
                             unit: match[2].toLowerCase(),
                             ingredient: match[3].trim()
                         };
                     } else {
                         return {
-                            amount: parseFloat(match[1]),
+                            amount: parseAmount(match[1]),
                             unit: 'unit',
                             ingredient: match[2].trim()
                         };
@@ -85,6 +85,15 @@
                 ingredient: line.trim()
             };
         }
+
+        function parseAmount(value) {
+            if (value.includes('/')) {
+                const [num, den] = value.split('/').map(Number);
+                return num / den;
+            }
+            return parseFloat(value);
+        }
+
 
         function convertToGrams(amount, unit, ingredient) {
             const normalizedUnit = unit.toLowerCase();
