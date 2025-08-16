@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <a href="../index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+    <button id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                </button>
     <h1>Get in Touch with BakeGenius AI</h1>
     <p>We're here to help you achieve baking perfection with precise measurements every time!</p>
     
@@ -67,5 +73,30 @@
             <i class="fa-regular fa-envelope"></i>
         </a>
     </div>
+  
+<script>
+  const themeToggle = document.getElementById("theme-toggle");
+  const icon = themeToggle.querySelector("i");
+
+  // Apply saved theme on page load
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    icon.classList.replace("fa-moon", "fa-sun");
+  }
+
+  // Toggle theme on click
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+      localStorage.setItem("theme", "dark");
+      icon.classList.replace("fa-moon", "fa-sun");
+    } else {
+      localStorage.setItem("theme", "light");
+      icon.classList.replace("fa-sun", "fa-moon");
+    }
+  });
+</script>
+
 </body>
 </html>
