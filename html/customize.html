@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Customize - BakeGenius.ai</title>
-<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/footer.css">
-<link rel="stylesheet" type="text/css" href="../css/customize.css" />
-<link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="48x48" href="/favicon/favicon-48x48.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize - BakeGenius.ai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/customize.css">
 </head>
-
 <body>
     <!-- Animated Background Elements -->
     <div class="floating-elements">
@@ -26,16 +21,12 @@
         <div class="nav-container">
             <div class="logo">🍰 BakeGenius.ai</div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/BakeGenuis-AI/index.html">Home</a></li>
                 <li><a href="convert.html">Convert Recipe</a></li>
                 <li><a href="customize.html" class="active">Customize</a></li>
                 <li><a href="scale.html">Scale Recipes</a></li>
                 <li><a href="about.html">About Us</a></li>
             </ul>
-            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
-                <img src="/assets/moon.png" width="20" height="20">
-            </button>
-
         </div>
     </nav>
 
@@ -43,8 +34,7 @@
     <div class="container">
         <div class="page-header">
             <h1 class="page-title">🎨 Customize Your Recipe</h1>
-            <p class="page-subtitle">Fine-tune ingredient densities and measurement types for perfect baking precision!
-            </p>
+            <p class="page-subtitle">Fine-tune ingredient densities and measurement types for perfect baking precision!</p>
         </div>
 
         <!-- Brand Selector -->
@@ -82,26 +72,6 @@
         </div>
     </div>
 
-    <!-- back to top button -->
-    <button id="backToTop" style="
-        display:none;
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #f408c1;
-        color: #fff;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 50px;
-        cursor: pointer;
-        ">
-        ↑ Top
-    </button>
-
     <script src="../js/customize.js"></script>
-    <!-- Include Footer -->
-    <div id="footer-placeholder"></div>
-
 </body>
-
 </html>
