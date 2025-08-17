@@ -92,6 +92,28 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
+        /* Auth Navigation Styles */
+        .auth-nav-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-nav-item span {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            background: rgba(255, 71, 87, 0.1);
+        }
+
+        .auth-nav-item a {
+            background: var(--sky-blue);
+            color: white !important;
+        }
+
+        .auth-nav-item a:hover {
+            background: var(--candy-red);
+            transform: translateY(-2px);
+        }
+
         .hamburger {
             display: none;
             flex-direction: column;
