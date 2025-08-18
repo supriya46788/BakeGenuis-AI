@@ -338,6 +338,7 @@ input:checked + .slider:before {
 }
 
 /* Footer */
+
 .footer {
     background-color: #1F2937;
     color: #D1D5DB;

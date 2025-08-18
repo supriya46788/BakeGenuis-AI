@@ -149,7 +149,7 @@
         }
 
         // Apply changes function
-        function applyChanges() {
+        function applyChanges(event) {
             const button = event.target;
             button.style.transform = 'scale(0.95)';
             button.innerHTML = '⏳ Applying...';
@@ -179,7 +179,7 @@
         }
 
         // Save settings
-        function saveSettings() {
+        function saveSettings(event) {
             const button = event.target;
             button.style.transform = 'scale(0.95)';
             button.innerHTML = '💾 Saving...';

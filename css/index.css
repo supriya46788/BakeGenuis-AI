@@ -1,4 +1,5 @@
 * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,6 +13,7 @@
     --text-light: #6B7280;
     --border: #E5E7EB;
 }
+
 
 body {
     font-family: 'Inter', sans-serif;
