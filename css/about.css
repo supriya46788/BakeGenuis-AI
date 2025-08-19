@@ -115,7 +115,6 @@ nav {
     color: #fff;
     font-weight: bold;
 }
-
 /* ================= Hero ================= */
 .hero {
     text-align: center;
@@ -282,6 +281,7 @@ nav {
 }
 
 /* Footer */
+
 .footer {
     background-color: #1F2937; /* Navy blue */
     color: #E5E7EB; /* Light gray for text */
