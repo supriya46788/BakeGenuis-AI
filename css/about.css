@@ -299,6 +299,71 @@
             position: relative;
             z-index: 1;
         }
+        /* Contributors Section */
+.contributors {
+  margin: 60px auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.img{
+    font-size:xx-large;
+}
+.contributor-card h3{
+    text-decoration: underline;
+}
+
+.xyz {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff6ec4, #7873f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contributor-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contributor-card {
+  background: #fafafa;
+  border-radius: 15px;
+  padding: 20px;
+  width: 220px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contributor-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.contributor-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid #ff6ec4;
+}
+
+.contributor-card h3 a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+.contributor-card p {
+  font-size: 14px;
+  color: #666;
+}
+
 
         /* Problem List */
         .problem-list {
