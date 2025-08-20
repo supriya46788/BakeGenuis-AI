@@ -528,7 +528,7 @@ body {
     font-weight: 600;
     text-align: center;
     display: none;
-    animation: fadeIn 0.9s ease-in-out;
+    animation: fadeIn 1.9s ease-in-out;
 }
 
 .success-message.show {
