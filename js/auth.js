@@ -276,7 +276,7 @@ async function handleLogin(event) {
     auth.login(email, password);
 
     // Success message BELOW the inputs
-    showSuccess('✅ Login successful! ');
+    showSuccess('✅ Login successful! Redirecting…');
 
     // Keep button disabled; redirect after short delay so user can see the message
     setTimeout(() => {
@@ -317,7 +317,7 @@ async function handleSignup(event) {
     auth.signup(name, email, password);
 
     // Success message BELOW the inputs
-    showSuccess('🎉 Signup successful! Welcome to BakeGenius...');
+    showSuccess('🎉 Signup successful! Redirecting…');
 
     // Keep button disabled; redirect after short delay
     setTimeout(() => {
@@ -333,7 +333,6 @@ async function handleSignup(event) {
 
 /* ---------- Nav helpers / Auth checks ---------- */
 function updateNavigation() {
-
   if (!auth.isLoggedIn()) return;
 
   const navLinks = document.querySelector('.nav-links');
@@ -356,52 +355,6 @@ function updateNavigation() {
     ctaBtn.parentNode.replaceChild(userInfo, ctaBtn);
   }
 }
-
-
-    if (!auth.isLoggedIn()) return;
-
-    const authButtons = document.querySelector('.auth-buttons');
-    const navbarContainer = document.querySelector('.navbar-container');
-    
-    if (authButtons && navbarContainer) {
-        // Replace auth buttons with user info
-        const userInfo = document.createElement('div');
-        userInfo.className = 'user-info';
-        userInfo.innerHTML = `
-            <div class="user-avatar">${auth.currentUser.name.charAt(0).toUpperCase()}</div>
-            <span>Hi, ${auth.currentUser.name.split(' ')[0]}!</span>
-            <button class="logout-btn" onclick="handleLogout()">Logout</button>
-        `;
-        
-        authButtons.parentNode.replaceChild(userInfo, authButtons);
-    }
-    
-    // Also handle the case where there's a single CTA button (like on some pages)
-    const ctaBtn = document.querySelector('.cta-btn');
-    if (ctaBtn && !document.querySelector('.user-info')) {
-        const userInfo = document.createElement('div');
-        userInfo.className = 'user-info';
-        userInfo.innerHTML = `
-            <div class="user-avatar">${auth.currentUser.name.charAt(0).toUpperCase()}</div>
-            <span>Hi, ${auth.currentUser.name.split(' ')[0]}!</span>
-            <button class="logout-btn" onclick="handleLogout()">Logout</button>
-        `;
-        
-        ctaBtn.parentNode.replaceChild(userInfo, ctaBtn);
-    }
-}
-
-// Helper function to get correct path based on current location
-function getCurrentPath() {
-    const currentPath = window.location.pathname;
-    if (currentPath.includes('/html/')) {
-        return './';
-    } else {
-        return 'html/';
-    }
-}
-
-// Handle logout
 
 function handleLogout() {
   if (confirm('Are you sure you want to logout?')) {
