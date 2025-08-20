@@ -115,6 +115,20 @@
   transform: translateY(-2px);
 }
 
+.fb-color {
+    padding: 8px 15px;
+    background-color: rgba(238, 255, 0, 0.356);
+    border-radius: 20px;
+    border: black 1px solid;
+}
+.fb-color:hover{
+    background-color: rgba(169, 196, 13, 0.39);
+}
+.fb-color a {
+    color: black;
+    text-decoration: none;
+}
+
 /* CTA Button */
 .cta-btn {
   padding: 10px 20px;
