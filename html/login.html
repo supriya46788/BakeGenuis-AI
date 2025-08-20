@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sign Up - BakeGenius.ai</title>
+  <title>Login - BakeGenius.ai</title>
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../css/auth.css">
@@ -27,7 +27,7 @@
         <li><a href="./customize.html">Customize</a></li>
         <li><a href="./about.html">About</a></li>
       </ul>
-      <a href="./login.html" class="cta-btn">Login</a>
+      <a href="./signup.html" class="cta-btn">Sign Up</a>
     </div>
   </nav>
 
@@ -35,27 +35,11 @@
   <div class="auth-container">
     <div class="auth-card">
       <div class="auth-header">
-        <h1 class="auth-title">🎂 Join BakeGenius!</h1>
-        <p class="auth-subtitle">Create your account and start baking with precision</p>
+        <h1 class="auth-title">🔐 Welcome Back!</h1>
+        <p class="auth-subtitle">Sign in to continue your baking journey</p>
       </div>
 
-      <form class="auth-form" id="signupForm" novalidate>
-        <div class="form-group">
-          <label for="name" class="form-label">
-            <i class="fas fa-user"></i>
-            Full Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            class="form-input"
-            placeholder="Your full name"
-            required
-            minlength="2"
-          >
-        </div>
-
+      <form class="auth-form" id="loginForm" novalidate>
         <div class="form-group">
           <label for="email" class="form-label">
             <i class="fas fa-envelope"></i>
@@ -82,32 +66,10 @@
               id="password"
               name="password"
               class="form-input"
-              placeholder="Create a strong password"
+              placeholder="Enter your password"
               required
-              minlength="6"
             >
             <button type="button" class="password-toggle" onclick="togglePassword('password')">
-              <i class="fas fa-eye"></i>
-            </button>
-          </div>
-          <div class="password-strength" id="passwordStrength"></div>
-        </div>
-
-        <div class="form-group">
-          <label for="confirmPassword" class="form-label">
-            <i class="fas fa-lock"></i>
-            Confirm Password
-          </label>
-          <div class="password-input-container">
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              class="form-input"
-              placeholder="Confirm your password"
-              required
-            >
-            <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
               <i class="fas fa-eye"></i>
             </button>
           </div>
@@ -118,8 +80,8 @@
         <div class="success-message" id="successMessage"></div>
 
 
-        <button type="submit" class="auth-button" id="signupButton">
-          <span class="button-text">Create Account 🚀</span>
+        <button type="submit" class="auth-button" id="loginButton">
+          <span class="button-text">Sign In ✨</span>
           <div class="loading-spinner"></div>
         </button>
       </form>
@@ -128,7 +90,7 @@
             </form>
 
             <div class="auth-footer">
-                <p>Already have an account? <a href="./login.html" class="auth-link login-link">🔐 Sign In</a></p>
+                <p>Don't have an account? <a href="./signup.html" class="auth-link signup-link">🎂 Create Account</a></p>
             </div>
         </div>
 
@@ -138,7 +100,7 @@
   <script src="../js/auth.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      initSignupPage();
+      initLoginPage();
     });
   </script>
 </body>
