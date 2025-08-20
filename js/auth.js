@@ -323,17 +323,25 @@ async function handleSignup(event) {
 function updateNavigation() {
     if (!auth.isLoggedIn()) return;
 
-    const navLinks = document.querySelector('.nav-links');
-    const ctaBtn = document.querySelector('.cta-btn');
+    const authButtons = document.querySelector('.auth-buttons');
+    const navbarContainer = document.querySelector('.navbar-container');
     
-    if (navLinks && ctaBtn) {
-        // Hide login/signup links when logged in
-        const loginLink = navLinks.querySelector('a[href*="login.html"]');
-        const signupLink = navLinks.querySelector('a[href*="signup.html"]');
-        if (loginLink) loginLink.parentElement.style.display = 'none';
-        if (signupLink) signupLink.parentElement.style.display = 'none';
+    if (authButtons && navbarContainer) {
+        // Replace auth buttons with user info
+        const userInfo = document.createElement('div');
+        userInfo.className = 'user-info';
+        userInfo.innerHTML = `
+            <div class="user-avatar">${auth.currentUser.name.charAt(0).toUpperCase()}</div>
+            <span>Hi, ${auth.currentUser.name.split(' ')[0]}!</span>
+            <button class="logout-btn" onclick="handleLogout()">Logout</button>
+        `;
         
-        // Replace CTA button with user info
+        authButtons.parentNode.replaceChild(userInfo, authButtons);
+    }
+    
+    // Also handle the case where there's a single CTA button (like on some pages)
+    const ctaBtn = document.querySelector('.cta-btn');
+    if (ctaBtn && !document.querySelector('.user-info')) {
         const userInfo = document.createElement('div');
         userInfo.className = 'user-info';
         userInfo.innerHTML = `
@@ -343,6 +351,16 @@ function updateNavigation() {
         `;
         
         ctaBtn.parentNode.replaceChild(userInfo, ctaBtn);
+    }
+}
+
+// Helper function to get correct path based on current location
+function getCurrentPath() {
+    const currentPath = window.location.pathname;
+    if (currentPath.includes('/html/')) {
+        return './';
+    } else {
+        return 'html/';
     }
 }
 

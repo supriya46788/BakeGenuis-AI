@@ -50,6 +50,7 @@ nav {
 }
 
 .nav-links {
+
     display: flex;
     list-style: none;
     gap: 2rem;
@@ -423,6 +424,7 @@ main {
 }
 
 /* Footer */
+
 
 .footer {
     background-color: #1F2937; /* Navy blue */

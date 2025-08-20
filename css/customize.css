@@ -1,126 +1,376 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customize - BakeGenius.ai</title>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/customize.css">
-</head>
-<body>
-   
+/* =======================================================
+   RESET
+======================================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">🍰 BakeGenius.ai</div>
-            <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="convert.html">Convert Recipe</a></li>
-                <li><a href="customize.html" class="active">Customize</a></li>
-                <li><a href="scale.html">Scale Recipes</a></li>
-                <li><a href="about.html">About Us</a></li>
-            </ul>
-        </div>
-    </nav>
+/* =======================================================
+   THEME (Navy + Teal)
+======================================================= */
+:root{
+  --navy-blue:#0a192f;
+  --light-navy:#112240;
+  --teal:#14b8a6;
+  --light-teal:#5eead4;
 
-    <!-- Main Content -->
-    <div class="container">
-        <div class="page-header">
-            <h1 class="page-title">🎨 Customize Your Recipe</h1>
-            <p class="page-subtitle">Fine-tune ingredient densities and measurement types for perfect baking precision!</p>
-        </div>
+  --white:#ffffff;
+  --ink:#0f172a;
+  --muted:#64748b;
 
-        <!-- Brand Selector -->
-        <div class="brand-selector">
-            <h2 class="brand-title">🏷️ Choose Your Preferred Brand</h2>
-            <div class="brand-options">
-                <div class="brand-option selected" data-brand="standard">Standard/Generic</div>
-                <div class="brand-option" data-brand="king-arthur">King Arthur Flour</div>
-                <div class="brand-option" data-brand="bob-red-mill">Bob's Red Mill</div>
-                <div class="brand-option" data-brand="gold-medal">Gold Medal</div>
-            </div>
-        </div>
+  --bg-page:#f7fafc;
+  --bg-card:#ffffff;
 
-        <!-- Ingredients Container -->
-        <div class="ingredients-container" id="ingredientsContainer">
-            <!-- Sample ingredients will be loaded here -->
-        </div>
+  --ring-teal:0 0 0 3px rgba(20,184,166,.25);
+  --shadow-1:0 2px 8px rgba(2,6,23,.08);
+  --shadow-2:0 12px 30px rgba(2,6,23,.12);
 
-        <!-- Success Message -->
-        <div class="success-message" id="successMessage">
-            ✨ Settings saved successfully! Your customizations will be applied to future conversions.
-        </div>
+  --radius-8:8px;
+  --radius-12:12px;
+  --radius-20:20px;
 
-        <!-- Action Buttons -->
-        <div class="action-buttons">
-            <button class="btn btn-primary" onclick="applyChanges()">
-                ✨ Apply Changes
-            </button>
-            <button class="btn btn-secondary" onclick="resetToDefaults()">
-                🔄 Reset to Defaults
-            </button>
-            <button class="btn btn-success" onclick="saveSettings()">
-                💾 Save Settings
-            </button>
-        </div>
-    </div>
+  --gradient-1:linear-gradient(135deg,#0a192f,#112240);
+  --gradient-2:linear-gradient(135deg,#0fb7a3,#5eead4);
+  --gradient-3:linear-gradient(135deg,#112240,#0a192f);
+}
 
-       <!-- Footer Section -->
-<footer class="footer">
-    <div class="footer-container">
+/* =======================================================
+   BASE
+======================================================= */
+body{
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg-page);
+  color:var(--ink);
+  line-height:1.6;
+  min-height:100vh;
+  overflow-x:hidden;
+}
 
-        <!-- Brand -->
-        <div class="footer-brand">
-            <h2>BakeGenius.ai</h2>
-            <p>Baking meets AI — recipes, ideas, and inspiration to make your creations magical!</p>
-        </div>
 
-        <!-- Links -->
-        <div class="footer-links">
-            <h3>Links</h3>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="convert.html">Convert Recipe</a></li>
-            <li><a href="customize.html">Customize</a></li>
-            <li><a href="scale.html">Scale Recipes</a></li>
-          </ul>
-        </div>
 
-        <!-- Newsletter -->
-        <div class="footer-newsletter">
-            <h3>Newsletter</h3>
-            <p>Get the latest baking tips & AI recipes!</p>
-            <form id="newsletterForm">
-                <input type="email" id="newsletterEmail" placeholder="Your email" required>
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
+/* =======================================================
+   NAVIGATION (works with <nav> … and .navbar …)
+======================================================= */
+/* Navigation Bar */
+nav {
+    background: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
 
-        <!-- Social -->
-        <div class="footer-social">
-            <h3>Follow Us</h3>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-icon linkedin">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/supriya46788" target="_blank" class="social-icon github">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="#" target="_blank" class="social-icon twitter">
-                    <i class="fa-brands fa-twitter"></i>
-                </a>
-                <a href="mailto:supriyadpandey502@gmail.com" target="_blank" class="social-icon email">
-                    <i class="fa-regular fa-envelope"></i>
-                </a>
-            </div>
-        </div>
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    </div>
-    <p class="footer-bottom">&copy; 2025 BakeGenius.ai — All rights reserved.</p>
-</footer>
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
 
-    <script src="../js/customize.js"></script>
-</body>
-</html>
+/* Nav links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: #333;
+}
+
+/* Default hover effect - Teal box */
+.nav-links a:hover {
+    background-color: teal;
+    color: white;
+}
+
+/* Active (Customize) - Navy Blue Box */
+.nav-links a.active {
+    background-color: navy;
+    color: white;
+    font-weight: bold;
+}
+
+/* =======================================================
+   HERO / HEADER (names preserved)
+======================================================= */
+.container{ max-width:1000px; margin:2rem auto; padding:0 1rem; position:relative; z-index:10; }
+.page-header{ text-align:center; margin-bottom:3rem; }
+.page-title{
+  font-size:3rem; font-weight:800; letter-spacing:.4px;
+  color:var(--navy-blue); margin-bottom:1rem;
+}
+.page-subtitle{ font-size:1.1rem; color:var(--muted); max-width:640px; margin:0 auto; }
+
+/* Old bounce kept (more subtle) */
+@keyframes bounce{
+  0%,20%,50%,80%,100%{ transform:translateY(0); }
+  40%{ transform:translateY(-8px); }
+  60%{ transform:translateY(-4px); }
+}
+
+/* =======================================================
+   INGREDIENT CARDS (all selectors kept)
+======================================================= */
+.ingredients-container{ display:grid; gap:1.25rem; margin-bottom:2rem; }
+.ingredient-card{
+  background:var(--bg-card);
+  border:1px solid rgba(2,6,23,.06);
+  border-radius:var(--radius-20);
+  padding:1.25rem 1.25rem 1.5rem;
+  box-shadow:var(--shadow-1);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .2s ease;
+  position:relative; overflow:hidden;
+}
+.ingredient-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(20,184,166,.4);
+  box-shadow:var(--shadow-2);
+}
+.ingredient-card::before{
+  content:"";
+  position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(20,184,166,.12),transparent);
+  transform:translateX(-100%); transition:transform .6s ease;
+}
+.ingredient-card:hover::before{ transform:translateX(100%); }
+
+.ingredient-header{ display:flex; align-items:center; gap:.8rem; margin-bottom:1rem; }
+.ingredient-icon{ font-size:1.75rem; color:var(--teal); }
+.ingredient-name{ font-size:1.15rem; font-weight:700; color:var(--navy-blue); flex:1; }
+
+.ingredient-controls{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; align-items:end; }
+.control-group{ display:flex; flex-direction:column; gap:.45rem; }
+.control-label{ font-size:.9rem; font-weight:600; color:var(--muted); }
+
+.custom-select,.custom-input{
+  width:100%; padding:.75rem .9rem;
+  border:1px solid rgba(2,6,23,.12);
+  border-radius:12px; background:#fff;
+  font:inherit; color:var(--ink);
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+.custom-select:focus,.custom-input:focus{ outline:none; border-color:var(--teal); box-shadow:var(--ring-teal); }
+.custom-input[type="number"]{ text-align:center; font-weight:600; }
+
+/* =======================================================
+   BRAND SELECTOR (kept)
+======================================================= */
+.brand-selector{
+  background:var(--bg-card);
+  border:1px solid rgba(2,6,23,.06);
+  border-radius:var(--radius-20);
+  padding:1.5rem;
+  box-shadow:var(--shadow-1);
+  margin-bottom:2rem;
+}
+.brand-title{
+  font-size:1.35rem; font-weight:800; color:var(--navy-blue);
+  text-align:center; margin-bottom:1rem;
+}
+.brand-options{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
+.brand-option{
+  background:#fff; border:1px solid rgba(2,6,23,.12);
+  border-radius:12px; padding:1rem; text-align:center; cursor:pointer;
+  font-weight:700; color:var(--ink);
+  transition:transform .2s ease, border-color .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+.brand-option:hover{ border-color:var(--teal); background:rgba(20,184,166,.06); transform:translateY(-3px); box-shadow:0 10px 24px rgba(20,184,166,.15); }
+.brand-option.selected{ border-color:var(--teal); background:rgba(20,184,166,.12); }
+
+/* =======================================================
+   ACTION BUTTONS (kept)
+======================================================= */
+.action-buttons{ display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.btn{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:1rem 1.6rem; border:none; border-radius:28px;
+  font-weight:800; letter-spacing:.3px; text-decoration:none; cursor:pointer;
+  transition:transform .2s ease, box-shadow .25s ease, background-color .2s ease, color .2s ease;
+}
+.btn:hover{ transform:translateY(-2px); }
+
+.btn-primary{ background:var(--navy-blue); color:#fff; box-shadow:0 10px 22px rgba(2,6,23,.25); }
+.btn-primary:hover{ background:#0c2347; }
+
+.btn-secondary{ background:var(--teal); color:#05121f; box-shadow:0 10px 22px rgba(20,184,166,.25); }
+.btn-secondary:hover{ background:#0fae9d; color:#031018; }
+
+.btn-success{ background:#15a36b; color:#fff; box-shadow:0 10px 22px rgba(21,163,107,.25); }
+.btn-success:hover{ background:#118a5b; }
+
+/* legacy wobble retained but tamed */
+@keyframes wobble{
+  0%{ transform:translateY(-2px) rotate(0); }
+  25%{ transform:translateY(-2px) rotate(.6deg); }
+  75%{ transform:translateY(-2px) rotate(-.6deg); }
+  100%{ transform:translateY(-2px) rotate(0); }
+}
+
+/* =======================================================
+   SUCCESS MESSAGE (kept)
+======================================================= */
+.success-message{
+  background:rgba(20,184,166,.08);
+  border:1px solid rgba(20,184,166,.45);
+  color:#0a8f80;
+  border-radius:14px;
+  padding:1rem; margin:1rem 0;
+  text-align:center; font-weight:700; display:none;
+  animation:slideDown .45s ease-out;
+}
+@keyframes slideDown{
+  from{ transform:translateY(-12px); opacity:0; }
+  to{ transform:translateY(0); opacity:1; }
+}
+
+/* =======================================================
+   TOOLTIP (kept)
+======================================================= */
+.tooltip{ position:relative; cursor:help; }
+.tooltip::after{
+  content:attr(data-tooltip);
+  position:absolute; bottom:calc(100% + 10px); left:50%; transform:translateX(-50%);
+  background:var(--navy-blue); color:#fff; padding:.5rem .65rem;
+  border-radius:8px; font-size:.8rem; white-space:nowrap;
+  opacity:0; visibility:hidden; transition:opacity .2s ease, transform .2s ease;
+  box-shadow:var(--shadow-1); z-index:1000;
+}
+.tooltip:hover::after{ opacity:1; visibility:visible; transform:translateX(-50%) translateY(-4px); }
+
+footer {
+    background-color: #1f2937; /* dark navy */
+    color: #d1d5db; /* light gray text */
+    padding: 50px 80px 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.footer-logo h2 {
+    color: #10b981; /* teal green */
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.footer-logo p {
+    max-width: 280px;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.footer-links h3,
+.footer-newsletter h3,
+.footer-social h3 {
+    color: #10b981;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 12px;
+}
+
+.footer-links ul li a {
+    color: #f1f5f9;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #10b981;
+}
+
+.footer-newsletter p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.footer-newsletter input {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 12px;
+    background: #111827;
+    color: #f1f5f9;
+}
+
+.footer-newsletter button {
+    padding: 12px 25px;
+    background-color: #10b981;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.footer-newsletter button:hover {
+    background-color: #059669;
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-social-icons a {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #374151;
+    color: white;
+    font-size: 18px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.footer-social-icons a:hover {
+    transform: translateY(-5px);
+    background: #10b981;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #374151;
+    padding-top: 15px;
+    font-size: 13px;
+    color: #9ca3af;
+}
+
