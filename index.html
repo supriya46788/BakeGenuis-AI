@@ -111,6 +111,9 @@
         .cta-btn:hover {
             background-color: #3dbeb5;
         }
+        /* Scroll To Top Button */
+        
+
     </style>
 </head>
 <body>
@@ -235,9 +238,30 @@
         &copy; 2025 BakeGenius.ai — All rights reserved.
       </p>
     </footer>
+    <button id="scrollTopBtn" title="Go to top">⬆</button>
 
     <script src="js/index.js"></script>
     <script src="js/auth.js"></script>
     <link rel="stylesheet" href="css/auth.css">
+    
+    <script>
+  // Get the button
+  let scrollBtn = document.getElementById("scrollTopBtn");
+
+  // When the user scrolls down 100px, show the button
+  window.onscroll = function () {
+    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  };
+
+  // When user clicks, scroll to top
+  scrollBtn.onclick = function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+</script>
+
 </body>
 </html>
