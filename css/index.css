@@ -125,6 +125,20 @@
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
+.fb-color {
+    padding: 8px 15px;
+    background-color: rgba(238, 255, 0, 0.356);
+    border-radius: 20px;
+    border: black 1px solid;
+}
+.fb-color:hover{
+    background-color: rgba(169, 196, 13, 0.39);
+}
+.fb-color a {
+    color: black;
+    text-decoration: none;
+}
+
 /* Scale Now Navigation Button */
 .scale-nav-btn {
     background: linear-gradient(45deg, #60a5fa, #fde68a) !important;
