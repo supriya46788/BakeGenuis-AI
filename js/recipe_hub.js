@@ -9,6 +9,7 @@ class RecipeHub {
         this.savedRecipes = JSON.parse(localStorage.getItem('savedRecipes') || '[]');
         this.followedCreators = JSON.parse(localStorage.getItem('followedCreators') || '[]');
         this.likedRecipes = JSON.parse(localStorage.getItem('likedRecipes') || '[]');
+        this.recipeLikes = JSON.parse(localStorage.getItem('recipeLikes') || '{}');
         
         this.init();
     }
@@ -193,6 +194,11 @@ class RecipeHub {
         ];
 
         this.filteredRecipes = [...this.recipes];
+        this.recipes.forEach(recipe => {
+            if (this.recipeLikes[recipe.id] !== undefined) {
+                recipe.likes = this.recipeLikes[recipe.id];
+            }
+        });
     }
 
     toggleFilters() {
@@ -464,20 +470,21 @@ class RecipeHub {
         const index = this.likedRecipes.indexOf(recipeId);
         const countSpan = btn.querySelector('.count');
         const recipe = this.recipes.find(r => r.id === recipeId);
-        
+
         if (index > -1) {
             this.likedRecipes.splice(index, 1);
             btn.classList.remove('liked');
             recipe.likes--;
-            countSpan.textContent = recipe.likes;
         } else {
             this.likedRecipes.push(recipeId);
             btn.classList.add('liked');
             recipe.likes++;
-            countSpan.textContent = recipe.likes;
         }
-        
+
+        this.recipeLikes[recipeId] = recipe.likes;
+        countSpan.textContent = recipe.likes;
         localStorage.setItem('likedRecipes', JSON.stringify(this.likedRecipes));
+        localStorage.setItem('recipeLikes', JSON.stringify(this.recipeLikes));
     }
 
     toggleFollowCreator(creatorName, btn) {
