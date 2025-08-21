@@ -154,18 +154,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Add dynamic color changes to nav links
-    function initNavLinkEffects() {
-        const navLinks = document.querySelectorAll('.nav-links a:not(.active)');
-        const colors = ['var(--candy-red)', 'var(--sky-blue)', 'var(--sunny-yellow)'];
-        
-        navLinks.forEach((link, index) => {
-            link.addEventListener('mouseenter', function() {
-                this.style.backgroundColor = colors[index % colors.length];
-            });
-        });
-    }
-
     // Add floating animation to creator avatar
     function initCreatorAvatarEffect() {
         const avatar = document.querySelector('.creator-avatar');
