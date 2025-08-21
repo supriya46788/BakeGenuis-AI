@@ -366,16 +366,32 @@ function getCurrentPath() {
 
 // Handle logout
 function handleLogout() {
-    if (confirm('Are you sure you want to logout?')) {
-        auth.logout();
-        // Determine correct path based on current location
-        const currentPath = window.location.pathname;
-        if (currentPath.includes('/html/')) {
-            window.location.href = 'login.html';
-        } else {
-            window.location.href = 'html/login.html';
+    Swal.fire({
+        title: 'Are you sure you want to log out?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#FF4757',
+        cancelButtonColor: '#70A1FF',
+        confirmButtonText: 'Yes, log out',
+        cancelButtonText: 'Cancel',
+        customClass: {
+            popup: 'swal-popup',
+            title: 'swal-title',
+            confirmButton: 'swal-confirm-btn',
+            cancelButton: 'swal-cancel-btn'
         }
-    }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            auth.logout();
+            // Determine correct path based on current location
+            const currentPath = window.location.pathname;
+            if (currentPath.includes('/html/')) {
+                window.location.href = 'login.html';
+            } else {
+                window.location.href = 'html/login.html';
+            }
+        }
+    });
 }
 
 // Check authentication on page load

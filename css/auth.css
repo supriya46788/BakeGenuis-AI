@@ -500,6 +500,50 @@ body {
     box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4) !important;
 }
 
+/* SweetAlert2 Custom Styles */
+.swal-popup {
+    font-family: 'Comic Neue', cursive !important;
+    border-radius: 20px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+}
+
+.swal-title {
+    color: #333 !important;
+    font-weight: 700 !important;
+    font-size: 1.5rem !important;
+}
+
+.swal-confirm-btn {
+    background: linear-gradient(45deg, #FF4757, #ff3838) !important;
+    border: none !important;
+    border-radius: 15px !important;
+    font-family: 'Comic Neue', cursive !important;
+    font-weight: 600 !important;
+    padding: 10px 20px !important;
+    transition: all 0.3s ease !important;
+}
+
+.swal-confirm-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4) !important;
+}
+
+.swal-cancel-btn {
+    background: linear-gradient(45deg, #70A1FF, #60a5fa) !important;
+    border: none !important;
+    border-radius: 15px !important;
+    font-family: 'Comic Neue', cursive !important;
+    font-weight: 600 !important;
+    padding: 10px 20px !important;
+    transition: all 0.3s ease !important;
+}
+
+.swal-cancel-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(112, 161, 255, 0.4) !important;
+}
+
 .fb-color {
             padding: 8px 15px;
             background-color: rgba(238, 255, 0, 0.356);
