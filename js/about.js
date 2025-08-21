@@ -154,18 +154,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Add dynamic color changes to nav links
-    function initNavLinkEffects() {
-        const navLinks = document.querySelectorAll('.nav-links a:not(.active)');
-        const colors = ['var(--candy-red)', 'var(--sky-blue)', 'var(--sunny-yellow)'];
-        
-        navLinks.forEach((link, index) => {
-            link.addEventListener('mouseenter', function() {
-                this.style.backgroundColor = colors[index % colors.length];
-            });
-        });
-    }
-
     // Add floating animation to creator avatar
     function initCreatorAvatarEffect() {
         const avatar = document.querySelector('.creator-avatar');
@@ -216,6 +204,43 @@ document.addEventListener('DOMContentLoaded', function() {
             progressBar.style.width = scrollPercent + '%';
         });
     }
+    const owner = "supriya46788";  
+    const repo = "BakeGenuis-AI";  
+    const token = "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";
+    const contributorsContainer = document.getElementById("contributors-container");
+    async function loadContributors(){
+        try {
+            const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contributors`,{
+                headers: {
+                    Authorization: `token ${token}`
+      }
+            });
+            const contributors = await res.json();
+            if (!Array.isArray(contributors)) {
+            console.error("GitHub API Error:", contributors);
+            contributorsContainer.innerHTML = "<p>⚠ Unable to load contributors. Please try again later.</p>";
+            return;
+    }
+
+            contributors.forEach(contributor=>{
+                const card = document.createElement("div");
+                card.classList.add("contributor-card");
+                card.innerHTML = `<img src="${contributor.avatar_url}" alt="${contributor.login}">
+                <h3><a href="${contributor.html_url}" target="_blank">${contributor.login}</a></h3>
+                <p>Contributions: ${contributor.contributions}</p>`;
+                contributorsContainer.appendChild(card);
+
+            })
+
+            
+        } catch (error) {
+            console.error("Error fetching contributors:", error);
+            
+        }
+
+       
+
+    }
 
     // Initialize all functions
     createSparkles();
@@ -231,6 +256,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCreatorAvatarEffect();
     initLoadingAnimation();
     initScrollProgress();
+    loadContributors();
 
     // Add some extra sparkle regeneration
     setInterval(createSparkles, 10000);

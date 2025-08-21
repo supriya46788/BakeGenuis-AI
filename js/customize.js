@@ -1,46 +1,16 @@
 // Sample ingredients data (in real app, this would come from previous conversion)
-        const sampleIngredients = [
-            {
-                name: 'All-Purpose Flour',
-                icon: '🌾',
-                currentGrams: 120,
-                measurementType: 'sifted',
-                originalAmount: '1 cup'
-            },
-            {
-                name: 'Brown Sugar',
-                icon: '🍯',
-                currentGrams: 200,
-                measurementType: 'packed',
-                originalAmount: '1 cup'
-            },
-            {
-                name: 'Butter',
-                icon: '🧈',
-                currentGrams: 226,
-                measurementType: 'softened',
-                originalAmount: '1 cup'
-            },
-            {
-                name: 'Vanilla Extract',
-                icon: '🌟',
-                currentGrams: 4,
-                measurementType: 'liquid',
-                originalAmount: '1 tsp'
-            },
-            {
-                name: 'Baking Powder',
-                icon: '⚡',
-                currentGrams: 4,
-                measurementType: 'leveled',
-                originalAmount: '1 tsp'
-            }
+        const defaultIngredients = [
+            { name: 'All-Purpose Flour', icon: '🌾', currentGrams: 120, measurementType: 'sifted', originalAmount: '1 cup' },
+            { name: 'Brown Sugar', icon: '🍯', currentGrams: 200, measurementType: 'packed', originalAmount: '1 cup' },
+            { name: 'Butter', icon: '🧈', currentGrams: 226, measurementType: 'softened', originalAmount: '1 cup' },
+            { name: 'Vanilla Extract', icon: '🌟', currentGrams: 4, measurementType: 'liquid', originalAmount: '1 tsp' },
+            { name: 'Baking Powder', icon: '⚡', currentGrams: 4, measurementType: 'leveled', originalAmount: '1 tsp' }
         ];
 
-        // Load ingredients from localStorage or use sample data
+        // Load ingredients
         function loadIngredients() {
             const savedIngredients = localStorage.getItem('bakegenius_ingredients');
-            return savedIngredients ? JSON.parse(savedIngredients) : sampleIngredients;
+            return savedIngredients ? JSON.parse(savedIngredients) : JSON.parse(JSON.stringify(defaultIngredients)); 
         }
 
         // Render ingredient cards
@@ -149,7 +119,7 @@
         }
 
         // Apply changes function
-        function applyChanges() {
+        function applyChanges(event) {
             const button = event.target;
             button.style.transform = 'scale(0.95)';
             button.innerHTML = '⏳ Applying...';
@@ -179,7 +149,7 @@
         }
 
         // Save settings
-        function saveSettings() {
+        function saveSettings(event) {
             const button = event.target;
             button.style.transform = 'scale(0.95)';
             button.innerHTML = '💾 Saving...';
