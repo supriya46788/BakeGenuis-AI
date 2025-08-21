@@ -1,89 +1,178 @@
-// Authentication System for BakeGenius AI
+// Secure Authentication System for BakeGenius AI
+// Uses backend API with proper password hashing and JWT tokens
+
 class AuthSystem {
     constructor() {
-        this.users = this.loadUsers();
+        this.cleanupOldStorage(); // Remove old insecure storage
         this.currentUser = this.getCurrentUser();
+        this.token = this.getToken();
     }
 
-    // Load users from localStorage
-    loadUsers() {
-        const users = localStorage.getItem('bakegenius_users');
-        return users ? JSON.parse(users) : [];
-    }
-
-    // Save users to localStorage
-    saveUsers() {
-        localStorage.setItem('bakegenius_users', JSON.stringify(this.users));
-    }
-
-    // Get current logged-in user
-    getCurrentUser() {
-        const user = localStorage.getItem('bakegenius_current_user');
-        return user ? JSON.parse(user) : null;
-    }
-
-    // Set current user
-    setCurrentUser(user) {
-        localStorage.setItem('bakegenius_current_user', JSON.stringify(user));
-        this.currentUser = user;
-    }
-
-    // Clear current user (logout)
-    clearCurrentUser() {
+    // Clean up old insecure localStorage items
+    cleanupOldStorage() {
+        // Remove plain text password storage
+        localStorage.removeItem('bakegenius_users');
         localStorage.removeItem('bakegenius_current_user');
+        
+        // Note: We keep bakegenius_user_name and bakegenius_user_email for display purposes
+        // but these don't contain sensitive information
+    }
+
+    // API Base URL
+    getApiBaseUrl() {
+        // Use relative URL for same-origin requests
+        return window.location.origin.includes('localhost') 
+            ? 'http://localhost:3000' 
+            : '';
+    }
+
+    // Get stored JWT token
+    getToken() {
+        return localStorage.getItem('bakegenius_token');
+    }
+
+    // Store JWT token
+    setToken(token) {
+        localStorage.setItem('bakegenius_token', token);
+        this.token = token;
+    }
+
+    // Remove JWT token (logout)
+    removeToken() {
+        localStorage.removeItem('bakegenius_token');
+        this.token = null;
+    }
+
+    // Get current logged-in user from token
+    getCurrentUser() {
+        const token = this.getToken();
+        if (!token) return null;
+
+        try {
+            // Decode JWT token to get user info (without verification for frontend use)
+            const payload = JSON.parse(atob(token.split('.')[1]));
+            return {
+                id: payload.userId,
+                // Additional user info can be stored in token or fetched from API
+                name: localStorage.getItem('bakegenius_user_name') || 'User',
+                email: localStorage.getItem('bakegenius_user_email') || ''
+            };
+        } catch (error) {
+            console.error('Error decoding token:', error);
+            this.removeToken();
+            return null;
+        }
+    }
+
+    // Set current user info (for display purposes)
+    setCurrentUser(userData) {
+        if (userData.name) {
+            localStorage.setItem('bakegenius_user_name', userData.name);
+        }
+        if (userData.email) {
+            localStorage.setItem('bakegenius_user_email', userData.email);
+        }
+        this.currentUser = this.getCurrentUser(); // Refresh user data
+    }
+
+    // Clear user data (logout)
+    clearCurrentUser() {
+        localStorage.removeItem('bakegenius_user_name');
+        localStorage.removeItem('bakegenius_user_email');
+        this.removeToken();
         this.currentUser = null;
     }
 
-    // Check if email already exists
-    emailExists(email) {
-        return this.users.some(user => user.email.toLowerCase() === email.toLowerCase());
-    }
-
-    // Register new user
-    signup(name, email, password) {
-        if (this.emailExists(email)) {
-            throw new Error('An account with this email already exists');
+    // Make authenticated API request
+    async makeAuthenticatedRequest(url, options = {}) {
+        const token = this.getToken();
+        if (!token) {
+            throw new Error('No authentication token found');
         }
 
-        const newUser = {
-            id: Date.now().toString(),
-            name: name.trim(),
-            email: email.toLowerCase().trim(),
-            password: password, // In production, this should be hashed
-            createdAt: new Date().toISOString()
+        const defaultOptions = {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            ...options
         };
 
-        this.users.push(newUser);
-        this.saveUsers();
-        
-        // Auto-login after signup
-        this.setCurrentUser({
-            id: newUser.id,
-            name: newUser.name,
-            email: newUser.email
-        });
+        try {
+            const response = await fetch(url, defaultOptions);
+            
+            if (response.status === 401) {
+                // Token expired or invalid
+                this.clearCurrentUser();
+                throw new Error('Session expired. Please login again.');
+            }
 
-        return newUser;
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+            }
+
+            return await response.json();
+        } catch (error) {
+            if (error.message.includes('Failed to fetch')) {
+                throw new Error('Network error. Please check your connection.');
+            }
+            throw error;
+        }
     }
 
-    // Login user
-    login(email, password) {
-        const user = this.users.find(u => 
-            u.email.toLowerCase() === email.toLowerCase().trim() && 
-            u.password === password
-        );
+    // Register new user via API
+    async signup(name, email, password) {
+        try {
+            const response = await fetch(`${this.getApiBaseUrl()}/api/auth/signup`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, password })
+            });
 
-        if (!user) {
-            throw new Error('Invalid email or password');
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Registration failed');
+            }
+
+            // Store token and user data
+            this.setToken(data.token);
+            this.setCurrentUser(data.user);
+
+            return data.user;
+        } catch (error) {
+            throw new Error(error.message || 'Registration failed. Please try again.');
         }
+    }
 
-        this.setCurrentUser({
-            id: user.id,
-            name: user.name,
-            email: user.email
-        });
+    // Login user via API
+    async login(email, password) {
+        try {
+            const response = await fetch(`${this.getApiBaseUrl()}/api/auth/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password })
+            });
 
-        return user;
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Login failed');
+            }
+
+            // Store token and user data
+            this.setToken(data.token);
+            this.setCurrentUser(data.user);
+
+            return data.user;
+        } catch (error) {
+            throw new Error(error.message || 'Login failed. Please try again.');
+        }
     }
 
     // Logout user
@@ -93,7 +182,30 @@ class AuthSystem {
 
     // Check if user is logged in
     isLoggedIn() {
-        return this.currentUser !== null;
+        return this.token !== null && this.currentUser !== null;
+    }
+
+    // Get user profile from API
+    async getProfile() {
+        try {
+            const data = await this.makeAuthenticatedRequest(`${this.getApiBaseUrl()}/api/user/profile`);
+            this.setCurrentUser(data);
+            return data;
+        } catch (error) {
+            throw new Error(error.message || 'Failed to fetch user profile');
+        }
+    }
+
+    // Verify token is still valid
+    async verifyToken() {
+        if (!this.token) return false;
+        
+        try {
+            await this.getProfile();
+            return true;
+        } catch (error) {
+            return false;
+        }
     }
 }
 
@@ -253,11 +365,8 @@ async function handleLogin(event) {
             throw new Error('Please enter a valid email address');
         }
 
-        // Simulate API delay
-        await new Promise(resolve => setTimeout(resolve, 1000));
-
-        // Attempt login
-        auth.login(email, password);
+        // Attempt login via API
+        await auth.login(email, password);
 
         // Success - redirect to home
         window.location.href = '../index.html';
@@ -303,11 +412,8 @@ async function handleSignup(event) {
             throw new Error('Passwords do not match');
         }
 
-        // Simulate API delay
-        await new Promise(resolve => setTimeout(resolve, 1500));
-
-        // Attempt signup
-        auth.signup(name, email, password);
+        // Attempt signup via API
+        await auth.signup(name, email, password);
 
         // Success - redirect to home
         window.location.href = '../index.html';
