@@ -897,7 +897,7 @@ body::before {
 
        
 .footer {
-    background-color: #1a1a1a;
+    background-color:#FFB6C1 ;
     color: #fff;
     padding: 40px 20px;
     font-family: sans-serif;
@@ -994,7 +994,6 @@ body::before {
 /* Specific brand colors */
 .social-icon.linkedin { background: #0077b5; }
 .social-icon.github   { background: #6e5494; }
-.social-icon.twitter  { background: #1da1f2; }
 .social-icon.email    { background: #ff8800; }
 
 .footer-bottom {
