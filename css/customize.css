@@ -473,6 +473,15 @@
                 justify-content: center;
             }
         }
+        /* NEW: Density Input Styles */
+        .density-input {
+            border: 2px solid #c7e9c0;
+            background: #f0fff4;
+        }
+        .density-input:focus {
+            border-color: #2ecc71;
+            background: #e9fdf0;
+        }
 
         /* Success Message */
         .success-message {
@@ -524,7 +533,7 @@
 
         
 .footer {
-    background-color: #1a1a1a;
+    background-color:#FFB6C1;
     color: #fff;
     padding: 40px 20px;
     font-family: sans-serif;

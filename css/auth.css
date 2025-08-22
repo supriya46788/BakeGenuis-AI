@@ -499,6 +499,47 @@ body {
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4) !important;
 }
+/* Error Message */
+.error-message {
+    background: rgba(255, 56, 56, 0.1);
+    border: 2px solid var(--error-red);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 0.5rem;  /* shows below input */
+    color: var(--error-red);
+    font-weight: 600;
+    text-align: center;
+    display: none;
+    animation: shake 0.5s ease-in-out;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* ✅ Success Message (NEW) */
+.success-message {
+    background: rgba(46, 213, 115, 0.1);
+    border: 2px solid var(--success-green);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 0.5rem;  /* also below input */
+    color: var(--success-green);
+    font-weight: 600;
+    text-align: center;
+    display: none;
+    animation: fadeIn 1.9s ease-in-out;
+}
+
+.success-message.show {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 
 /* SweetAlert2 Custom Styles */
 .swal-popup {

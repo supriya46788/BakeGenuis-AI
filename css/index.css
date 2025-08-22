@@ -675,7 +675,7 @@
         }
 
 .footer {
-    background-color: #1a1a1a;
+    background-color: #FFB6C1;
     color: #fff;
     padding: 40px 20px;
     font-family: sans-serif;
@@ -810,3 +810,74 @@
   transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
+
+/* === Cupcake Animation Section === */
+
+/* Container */
+.cupcake-animation {
+  position: relative;
+  height: 220px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Cup (🧁) */
+.cup {
+  font-size: 6rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: dropCup 1s ease-out forwards;
+}
+
+/* Cake top (🍒) */
+.cake-top {
+  font-size: 3rem;
+  position: absolute;
+  left: 50%;
+  top: -150px;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: dropCake 1s ease-out forwards;
+  animation-delay: 1s;
+}
+
+/* Cup bounce animation */
+@keyframes dropCup {
+  0%   { top: -150px; opacity: 0; }
+  70%  { top: 70px;  opacity: 1; }
+  85%  { top: 55px; }
+  100% { top: 60px; }
+}
+
+/* Cake top bounce animation */
+@keyframes dropCake {
+  0%   { top: -150px; opacity: 0; }
+  70%  { top: 0px;   opacity: 1; }
+  85%  { top: 20px; }
+  100% { top: 10px; }
+}
+
+/* Sprinkles (colored dots) */
+.sprinkles span {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  top: 30px;
+  left: 50%;
+  opacity: 0;
+  animation: sprinkle 1s ease-out forwards;
+  animation-delay: 2s;
+}
+
+.sprinkles span:nth-child(1) { background: #ff69b4; left: 48%; }
+.sprinkles span:nth-child(2) { background: #ffa500; left: 52%; }
+.sprinkles span:nth-child(3) { background: #32cd32; left: 55%; }
+
+@keyframes sprinkle {
+  from { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(-40px); opacity: 0; }
+}
+
+/* === End Cupcake Animation Section === */

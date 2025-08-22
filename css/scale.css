@@ -147,7 +147,7 @@
 .user-avatar {
     width: 40px;
     height: 40px;
-    background: linear-gradient(45deg, var(--candy-red), var(--sunny-yellow));
+    background-color: coral;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -555,7 +555,7 @@
 
         
 .footer {
-    background-color: #1a1a1a;
+    background-color: #FFB6C1;
     color: #fff;
     padding: 40px 20px;
     font-family: sans-serif;
