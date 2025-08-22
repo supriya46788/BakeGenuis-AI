@@ -529,12 +529,12 @@ function initGoogleSignIn(page) {
             } catch (e) {
                 console.error('Failed to initialize Google Sign-In', e);
                 target.style.display = 'block';
-                target.innerHTML = '<div style="font-size:14px;color:#c00;padding:8px 0;">Failed to initialize Google Sign-In. Check console.</div>';
+                target.innerHTML = '<div style="font-size:14px;color:#888;padding:8px 0;">Failed to initialize Google Sign-In. Check console.</div>';
             }
         } else if (attempts >= maxAttempts) {
             clearInterval(timer);
             target.style.display = 'block';
-            target.innerHTML = '<div style="font-size:14px;color:#c00;padding:8px 0;">Could not load Google script. Check network/ad-blockers.</div>';
+            target.innerHTML = '<div style="font-size:14px;color:#888;padding:8px 0;">Could not load Google script. Check network/ad-blockers.</div>';
         }
     }, 100);
 }

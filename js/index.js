@@ -2,38 +2,32 @@
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
 
-        if (hamburger && navLinks) {
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                hamburger.classList.toggle('active');
-            });
-        }
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
 
         // Close mobile menu when clicking on a link
         const navItems = document.querySelectorAll('.nav-links a');
-        if (navItems && navItems.length) {
-            navItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    if (navLinks) navLinks.classList.remove('active');
-                    if (hamburger) hamburger.classList.remove('active');
-                });
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
             });
-        }
+        });
 
         // Smooth scroll for CTA button
         const ctaButton = document.querySelector('.cta-button');
-        if (ctaButton) {
-            ctaButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                // Add a fun animation on click
-                ctaButton.style.animation = 'bounce 0.5s ease-in-out';
-                setTimeout(() => {
-                    ctaButton.style.animation = 'pulse 2s ease-in-out infinite';
-                    // Navigate to convert page (in real app)
-                    window.location.href = 'html/convert.html';
-                }, 500);
-            });
-        }
+        ctaButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Add a fun animation on click
+            ctaButton.style.animation = 'bounce 0.5s ease-in-out';
+            setTimeout(() => {
+                ctaButton.style.animation = 'pulse 2s ease-in-out infinite';
+                // Navigate to convert page (in real app)
+                window.location.href = 'html/convert.html';
+            }, 500);
+        });
 
         // Parallax effect for decorative icons
         window.addEventListener('scroll', () => {
