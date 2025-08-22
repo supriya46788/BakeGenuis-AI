@@ -100,6 +100,7 @@ Many online recipes list ingredients using vague units like cups, teaspoons, and
 
 - **Frontend**: HTML, CSS, JavaScript
 - **AI API**: Gemini API by Google (for language understanding and smart suggestions)
+- **Authentication**: Google Sign-In (OAuth 2.0) for secure user management
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -124,9 +125,21 @@ git clone https://github.com/supriya46788/BakeGenuis-AI.git
 cd BakeGenuis-AI
 ```
 
-2. Open the `index.html` file in any browser to run the app.
+2. Set up Google Sign-In (optional):
+   - Copy `js/google_config.example.js` to `js/google_config.js`
+   - Get your Google OAuth client ID from [Google Cloud Console](https://console.cloud.google.com/apis/credentials)
+   - Add your client ID to `js/google_config.js`
+   - Add `js/google_config.js` to `.gitignore` to keep your client ID private
 
-3. Ensure Gemini API keys are correctly added in your JS code.
+3. Start a local server (required for Google Sign-In):
+```bash
+python3 -m http.server 5501
+# or use any other local server
+```
+
+4. Open `http://localhost:5501` in your browser
+
+5. Ensure Gemini API keys are correctly added in your JS code.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -189,6 +202,7 @@ Here’s how you can help:
 - 🌟 Suggest new features
 - 🧪 Improve AI prompt engineering or ingredient logic
 - 🎨 Enhance UI/UX
+- 🔐 Set up Google Sign-In for testing (see setup instructions above)
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 

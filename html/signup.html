@@ -125,12 +125,17 @@
                 </button>
             </form>
 
+            <div style="margin: 16px 0; text-align:center; color:#888;">or</div>
+            <div id="googleSignInDiv" style="display:flex; justify-content:center; margin-bottom: 8px;"></div>
+
             <div class="auth-footer">
                 <p>Already have an account? <a href="./login.html" class="auth-link login-link">🔐 Sign In</a></p>
             </div>
         </div>
     </div>
 
+    <script src="../js/google_config.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="../js/auth.js"></script>
     <script>
         // Initialize signup page

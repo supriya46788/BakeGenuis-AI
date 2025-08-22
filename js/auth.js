@@ -206,6 +206,9 @@ function initLoginPage() {
 
     // Clear any existing errors
     hideError();
+
+    // Initialize Google Sign-In button if available
+    initGoogleSignIn('login');
 }
 
 // Signup page initialization
@@ -231,6 +234,9 @@ function initSignupPage() {
 
     // Clear any existing errors
     hideError();
+
+    // Initialize Google Sign-In button if available
+    initGoogleSignIn('signup');
 }
 
 // Handle login form submission
@@ -330,8 +336,12 @@ function updateNavigation() {
         // Replace auth buttons with user info
         const userInfo = document.createElement('div');
         userInfo.className = 'user-info';
+        const hasAvatar = auth.currentUser && auth.currentUser.avatarUrl;
+        const avatarHtml = hasAvatar
+            ? `<img src="${auth.currentUser.avatarUrl}" alt="avatar" class="user-avatar" style="width:32px;height:32px;border-radius:50%;object-fit:cover;" />`
+            : `<div class="user-avatar">${auth.currentUser.name.charAt(0).toUpperCase()}</div>`;
         userInfo.innerHTML = `
-            <div class="user-avatar">${auth.currentUser.name.charAt(0).toUpperCase()}</div>
+            ${avatarHtml}
             <span>Hi, ${auth.currentUser.name.split(' ')[0]}!</span>
             <button class="logout-btn" onclick="handleLogout()">Logout</button>
         `;
@@ -344,8 +354,12 @@ function updateNavigation() {
     if (ctaBtn && !document.querySelector('.user-info')) {
         const userInfo = document.createElement('div');
         userInfo.className = 'user-info';
+        const hasAvatar = auth.currentUser && auth.currentUser.avatarUrl;
+        const avatarHtml = hasAvatar
+            ? `<img src="${auth.currentUser.avatarUrl}" alt="avatar" class="user-avatar" style="width:32px;height:32px;border-radius:50%;object-fit:cover;" />`
+            : `<div class="user-avatar">${auth.currentUser.name.charAt(0).toUpperCase()}</div>`;
         userInfo.innerHTML = `
-            <div class="user-avatar">${auth.currentUser.name.charAt(0).toUpperCase()}</div>
+            ${avatarHtml}
             <span>Hi, ${auth.currentUser.name.split(' ')[0]}!</span>
             <button class="logout-btn" onclick="handleLogout()">Logout</button>
         `;
@@ -368,6 +382,10 @@ function getCurrentPath() {
 function handleLogout() {
     if (confirm('Are you sure you want to logout?')) {
         auth.logout();
+        // Disable Google auto-select so the next visit doesn't auto sign-in
+        if (window.google && google.accounts && google.accounts.id) {
+            try { google.accounts.id.disableAutoSelect(); } catch (e) {}
+        }
         // Determine correct path based on current location
         const currentPath = window.location.pathname;
         if (currentPath.includes('/html/')) {
@@ -406,4 +424,117 @@ document.addEventListener('DOMContentLoaded', function() {
 // Export for use in other files
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { auth, checkAuth, updateNavigation, handleLogout };
+}
+
+// --------------------
+// Google Sign-In Setup
+// --------------------
+
+function base64UrlDecode(input) {
+    const base64 = input.replace(/-/g, '+').replace(/_/g, '/');
+    const padded = base64.padEnd(base64.length + (4 - base64.length % 4) % 4, '=');
+    try {
+        return decodeURIComponent(atob(padded).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+    } catch (e) {
+        return atob(padded);
+    }
+}
+
+function parseJwt(idToken) {
+    try {
+        const payload = idToken.split('.')[1];
+        const json = base64UrlDecode(payload);
+        return JSON.parse(json);
+    } catch (e) {
+        return null;
+    }
+}
+
+function handleGoogleCredentialResponse(response) {
+    const credential = response && response.credential;
+    if (!credential) {
+        showError('Google sign-in failed. Please try again.');
+        return;
+    }
+    const payload = parseJwt(credential);
+    if (!payload || !payload.email) {
+        showError('Unable to parse Google user.');
+        return;
+    }
+
+    const googleUser = {
+        id: 'google:' + (payload.sub || payload.email),
+        name: payload.name || payload.given_name || payload.email.split('@')[0],
+        email: (payload.email || '').toLowerCase(),
+        avatarUrl: payload.picture || '',
+        provider: 'google',
+        createdAt: new Date().toISOString()
+    };
+
+    const existingLocal = auth.users.find(u => u.email.toLowerCase() === googleUser.email);
+    if (!existingLocal) {
+        auth.users.push(googleUser);
+        auth.saveUsers();
+    } else {
+        // Merge avatar and provider info for existing user
+        existingLocal.provider = existingLocal.provider || 'local';
+        if (googleUser.avatarUrl && !existingLocal.avatarUrl) {
+            existingLocal.avatarUrl = googleUser.avatarUrl;
+            auth.saveUsers();
+        }
+    }
+
+    auth.setCurrentUser({ id: googleUser.id, name: googleUser.name, email: googleUser.email, avatarUrl: googleUser.avatarUrl });
+
+    // Redirect to home
+    window.location.href = '../index.html';
+}
+
+function initGoogleSignIn(page) {
+    const target = document.getElementById('googleSignInDiv');
+    if (!target) return;
+
+    const clientId = (window.GOOGLE_CLIENT_ID || '').trim();
+    if (!clientId) {
+        // Show guidance if client id is not configured
+        target.style.display = 'block';
+        target.innerHTML = '<div style="font-size:14px;color:#888;padding:8px 0;">Set GOOGLE_CLIENT_ID in <code>js/google_config.js</code> to enable Google Sign-In.</div>';
+        console.warn('Google Sign-In: Missing window.GOOGLE_CLIENT_ID. Set it in js/google_config.js');
+        return;
+    }
+
+    let attempts = 0;
+    const maxAttempts = 40; // ~4s
+    const timer = setInterval(function() {
+        attempts++;
+        if (window.google && google.accounts && google.accounts.id) {
+            clearInterval(timer);
+            try {
+                google.accounts.id.initialize({
+                    client_id: clientId,
+                    callback: handleGoogleCredentialResponse,
+                    auto_select: false,
+                    cancel_on_tap_outside: true,
+                    use_fedcm_for_prompt: true
+                });
+                google.accounts.id.renderButton(target, {
+                    theme: 'outline',
+                    size: 'large',
+                    text: 'continue_with',
+                    shape: 'pill',
+                    logo_alignment: 'left'
+                });
+            } catch (e) {
+                console.error('Failed to initialize Google Sign-In', e);
+                target.style.display = 'block';
+                target.innerHTML = '<div style="font-size:14px;color:#c00;padding:8px 0;">Failed to initialize Google Sign-In. Check console.</div>';
+            }
+        } else if (attempts >= maxAttempts) {
+            clearInterval(timer);
+            target.style.display = 'block';
+            target.innerHTML = '<div style="font-size:14px;color:#c00;padding:8px 0;">Could not load Google script. Check network/ad-blockers.</div>';
+        }
+    }, 100);
 }
