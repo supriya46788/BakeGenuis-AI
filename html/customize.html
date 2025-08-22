@@ -6,6 +6,7 @@
     <title>Customize - BakeGenius.ai</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../css/customize.css">
 </head>
 <body>
@@ -60,6 +61,16 @@
         <!-- Ingredients Container -->
         <div class="ingredients-container" id="ingredientsContainer">
             <!-- Sample ingredients will be loaded here -->
+        </div>
+        
+        <div class="density-editor">
+            <h2>⚖️ Ingredient Density Editor</h2>
+            <form id="densityForm">
+                <input type="text" id="ingredientName" placeholder="Ingredient name (e.g. sugar)" required>
+                <input type="number" id="ingredientDensity" placeholder="Density (g/ml)" required>
+                <button type="submit" class="btn btn-primary">Add / Update Density</button>
+            </form>
+            <ul id="densityList"></ul>
         </div>
 
         <!-- Success Message -->
