@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="../css/customize.css">
 </head>
 <body>
+   
 
     <!-- Navigation -->
-
     <nav>
         <div class="nav-container">
             <div class="logo">🍰 BakeGenius.ai</div>
@@ -24,12 +24,6 @@
             </ul>
         </div>
     </nav>
-
-
-    <!-- Auth Check Script -->
-    <script src="../js/auth.js"></script>
-
-
 
     <!-- Main Content -->
     <div class="container">
@@ -61,13 +55,13 @@
 
         <!-- Action Buttons -->
         <div class="action-buttons">
-            <button class="btn btn-primary" onclick="applyChanges(event)">
+            <button class="btn btn-primary" onclick="applyChanges()">
                 ✨ Apply Changes
             </button>
             <button class="btn btn-secondary" onclick="resetToDefaults()">
                 🔄 Reset to Defaults
             </button>
-            <button class="btn btn-success" onclick="saveSettings(event)">
+            <button class="btn btn-success" onclick="saveSettings()">
                 💾 Save Settings
             </button>
         </div>
@@ -129,5 +123,4 @@
 
     <script src="../js/customize.js"></script>
 </body>
-
 </html>

@@ -499,6 +499,105 @@ body {
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4) !important;
 }
+/* Error Message */
+.error-message {
+    background: rgba(255, 56, 56, 0.1);
+    border: 2px solid var(--error-red);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 0.5rem;  /* shows below input */
+    color: var(--error-red);
+    font-weight: 600;
+    text-align: center;
+    display: none;
+    animation: shake 0.5s ease-in-out;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* ✅ Success Message (NEW) */
+.success-message {
+    background: rgba(46, 213, 115, 0.1);
+    border: 2px solid var(--success-green);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 0.5rem;  /* also below input */
+    color: var(--success-green);
+    font-weight: 600;
+    text-align: center;
+    display: none;
+    animation: fadeIn 1.9s ease-in-out;
+}
+
+.success-message.show {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* SweetAlert2 Custom Styles */
+.swal-popup {
+    font-family: 'Comic Neue', cursive !important;
+    border-radius: 20px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+}
+
+.swal-title {
+    color: #333 !important;
+    font-weight: 700 !important;
+    font-size: 1.5rem !important;
+}
+
+.swal-confirm-btn {
+    background: linear-gradient(45deg, #FF4757, #ff3838) !important;
+    border: none !important;
+    border-radius: 15px !important;
+    font-family: 'Comic Neue', cursive !important;
+    font-weight: 600 !important;
+    padding: 10px 20px !important;
+    transition: all 0.3s ease !important;
+}
+
+.swal-confirm-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4) !important;
+}
+
+.swal-cancel-btn {
+    background: linear-gradient(45deg, #70A1FF, #60a5fa) !important;
+    border: none !important;
+    border-radius: 15px !important;
+    font-family: 'Comic Neue', cursive !important;
+    font-weight: 600 !important;
+    padding: 10px 20px !important;
+    transition: all 0.3s ease !important;
+}
+
+.swal-cancel-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(112, 161, 255, 0.4) !important;
+}
+
+.fb-color {
+            padding: 8px 15px;
+            background-color: rgba(238, 255, 0, 0.356);
+            border-radius: 20px;
+            border: black 1px solid;
+        }
+        .fb-color:hover{
+            background-color: rgba(169, 196, 13, 0.39);
+        }
+        .fb-color a {
+            color: black;
+            text-decoration: none;
+        }
 
 /* Responsive Design */
 @media (max-width: 768px) {
