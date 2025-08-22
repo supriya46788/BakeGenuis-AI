@@ -6,6 +6,7 @@
     <title>BakeGenius.ai - AI-Powered Baking Conversions</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="css/index.css">
     <style>
         /* Updated Navbar Styles */
@@ -111,6 +112,9 @@
         .cta-btn:hover {
             background-color: #3dbeb5;
         }
+        /* Scroll To Top Button */
+        
+
     </style>
 </head>
 <body>
@@ -122,8 +126,12 @@
                 <li><a href="./index.html" class="active">Home</a></li>
                 <li><a href="./html/convert.html">Convert Recipe</a></li>
                 <li><a href="./html/customize.html">Customize</a></li>
+                <li><a href="./html/recipe_hub.html">Recipe Hub</a></li>
                 <li><a href="./html/about.html">About</a></li>
             </ul>
+            <div class="fb-color">
+              <a href="./html/feedback.html">Feedback</a>
+            </div>
             <div class="auth-buttons">
                 <a href="./html/login.html" class="login-btn">Login</a>
                 <a href="./html/signup.html" class="signup-btn">Sign Up</a>
@@ -182,6 +190,7 @@
             <li><a href="html/convert.html">Convert Recipe</a></li>
             <li><a href="html/customize.html">Customize</a></li>
             <li><a href="html/scale.html">Scale Recipes</a></li>
+            <li><a href="html/feedback.html">Feedback</a></li>
           </ul>
         </div>
 
@@ -235,9 +244,30 @@
         &copy; 2025 BakeGenius.ai — All rights reserved.
       </p>
     </footer>
+    <button id="scrollTopBtn" title="Go to top">⬆</button>
 
     <script src="js/index.js"></script>
     <script src="js/auth.js"></script>
     <link rel="stylesheet" href="css/auth.css">
+    
+    <script>
+  // Get the button
+  let scrollBtn = document.getElementById("scrollTopBtn");
+
+  // When the user scrolls down 100px, show the button
+  window.onscroll = function () {
+    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  };
+
+  // When user clicks, scroll to top
+  scrollBtn.onclick = function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+</script>
+
 </body>
 </html>

@@ -157,7 +157,19 @@
 .nav-links li a:hover {
   transform: translateY(-2px);
 }
-
+.fb-color {
+            padding: 8px 15px;
+            background-color: rgba(238, 255, 0, 0.356);
+            border-radius: 20px;
+            border: black 1px solid;
+        }
+        .fb-color:hover{
+            background-color: rgba(169, 196, 13, 0.39);
+        }
+        .fb-color a {
+            color: black;
+            text-decoration: none;
+        }
 /* CTA Button */
 .cta-btn {
   padding: 10px 20px;
@@ -250,11 +262,12 @@
             font-size: 4rem;
             font-weight: 700;
             background: linear-gradient(135deg, var(--candy-red), var(--sky-blue), var(--sunny-yellow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-            animation: heroAnimation 3s ease-out;
+              -webkit-background-clip: text;
+              background-clip: text;
+              background-clip: text;
+              -webkit-text-fill-color: transparent;
+              margin-bottom: 1rem;
+              animation: heroAnimation 3s ease-out;
         }
 
         @keyframes heroAnimation {
@@ -384,6 +397,7 @@
   font-weight: 700;
   background: linear-gradient(90deg, #ff6ec4, #7873f5);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

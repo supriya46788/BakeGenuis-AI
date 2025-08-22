@@ -71,7 +71,9 @@ class AuthSystem {
   // Login user
   login(email, password) {
     const user = this.users.find(
-      (u) => u.email.toLowerCase() === email.toLowerCase().trim() && u.password === password
+      (u) =>
+        u.email.toLowerCase() === email.toLowerCase().trim() &&
+        u.password === password
     );
 
     if (!user) {
@@ -119,7 +121,6 @@ function showError(message) {
   const success = getSuccessEl();
   if (success) success.classList.remove('show');
 
-  // Auto-hide error after 5s
   clearTimeout(el._hideTimer);
   el._hideTimer = setTimeout(() => {
     el.classList.remove('show');
@@ -137,16 +138,13 @@ function showSuccess(message) {
   el.textContent = message;
   el.classList.add('show');
 
-  // Hide error if visible
   hideError();
 
-  // Auto-hide success after 3s
   clearTimeout(el._hideTimer);
   el._hideTimer = setTimeout(() => {
     el.classList.remove('show');
   }, 3000);
 
-  // Ensure message is visible in viewport
   el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
@@ -226,7 +224,6 @@ function validateEmail(email) {
 
 /* ---------- Page Init ---------- */
 function initLoginPage() {
-  // If already logged in, go home
   if (auth.isLoggedIn()) {
     window.location.href = '../index.html';
     return;
@@ -239,7 +236,6 @@ function initLoginPage() {
 }
 
 function initSignupPage() {
-  // If already logged in, go home
   if (auth.isLoggedIn()) {
     window.location.href = '../index.html';
     return;
@@ -250,7 +246,9 @@ function initSignupPage() {
 
   const passwordInput = document.getElementById('password');
   if (passwordInput) {
-    passwordInput.addEventListener('input', (e) => checkPasswordStrength(e.target.value));
+    passwordInput.addEventListener('input', (e) =>
+      checkPasswordStrength(e.target.value)
+    );
   }
 
   hideError();
@@ -268,25 +266,22 @@ async function handleLogin(event) {
 
   try {
     if (!email || !password) throw new Error('Please fill in all fields');
-    if (!validateEmail(email)) throw new Error('Please enter a valid email address');
+    if (!validateEmail(email))
+      throw new Error('Please enter a valid email address');
 
-    // Simulate API delay
     await new Promise((r) => setTimeout(r, 800));
 
     auth.login(email, password);
 
-    // Success message BELOW the inputs
     showSuccess('✅ Login successful! Redirecting…');
 
-    // Keep button disabled; redirect after short delay so user can see the message
     setTimeout(() => {
       window.location.href = '../index.html';
     }, 1200);
-    return; // Don't run finally's setLoading(false)
+    return;
   } catch (err) {
     showError(err.message || 'Something went wrong. Please try again.');
   } finally {
-    // Re-enable only if there was an error (success path returned early)
     setLoading(false, 'loginButton');
   }
 }
@@ -306,20 +301,21 @@ async function handleSignup(event) {
     if (!name || !email || !password || !confirmPassword) {
       throw new Error('Please fill in all fields');
     }
-    if (name.trim().length < 2) throw new Error('Name must be at least 2 characters long');
-    if (!validateEmail(email)) throw new Error('Please enter a valid email address');
-    if (password.length < 6) throw new Error('Password must be at least 6 characters long');
-    if (password !== confirmPassword) throw new Error('Passwords do not match');
+    if (name.trim().length < 2)
+      throw new Error('Name must be at least 2 characters long');
+    if (!validateEmail(email))
+      throw new Error('Please enter a valid email address');
+    if (password.length < 6)
+      throw new Error('Password must be at least 6 characters long');
+    if (password !== confirmPassword)
+      throw new Error('Passwords do not match');
 
-    // Simulate API delay
     await new Promise((r) => setTimeout(r, 1000));
 
     auth.signup(name, email, password);
 
-    // Success message BELOW the inputs
-    showSuccess('🎉 Signup successful! Redirecting…');
+    showSuccess('✅ Signup successful! Redirecting…');
 
-    // Keep button disabled; redirect after short delay
     setTimeout(() => {
       window.location.href = '../index.html';
     }, 1400);
@@ -331,7 +327,7 @@ async function handleSignup(event) {
   }
 }
 
-/* ---------- Nav helpers / Auth checks ---------- */
+/* ---------- Navigation & Auth ---------- */
 function updateNavigation() {
   if (!auth.isLoggedIn()) return;
 
@@ -356,16 +352,33 @@ function updateNavigation() {
   }
 }
 
+// Final merged logout with SweetAlert and correct path handling
 function handleLogout() {
-  if (confirm('Are you sure you want to logout?')) {
-    auth.logout();
-    const currentPath = window.location.pathname;
-    if (currentPath.includes('/html/')) {
-      window.location.href = 'login.html';
-    } else {
-      window.location.href = 'html/login.html';
+  Swal.fire({
+    title: 'Are you sure you want to log out?',
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonColor: '#FF4757',
+    cancelButtonColor: '#70A1FF',
+    confirmButtonText: 'Yes, log out',
+    cancelButtonText: 'Cancel',
+    customClass: {
+      popup: 'swal-popup',
+      title: 'swal-title',
+      confirmButton: 'swal-confirm-btn',
+      cancelButton: 'swal-cancel-btn'
     }
-  }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      auth.logout();
+      const currentPath = window.location.pathname;
+      if (currentPath.includes('/html/')) {
+        window.location.href = 'login.html';
+      } else {
+        window.location.href = 'html/login.html';
+      }
+    }
+  });
 }
 
 function checkAuth() {
@@ -384,12 +397,10 @@ function checkAuth() {
   return true;
 }
 
-// Initialize auth system on every page
 document.addEventListener('DOMContentLoaded', function () {
   checkAuth();
 });
 
-// Export for tests (ignored by browsers)
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { auth, checkAuth, updateNavigation, handleLogout };
 }
