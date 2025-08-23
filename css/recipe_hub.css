@@ -485,7 +485,6 @@ body::before {
     backdrop-filter: blur(15px);
     border-radius: 20px;
     padding: 2rem;
-    margin: 2rem 0;
     box-shadow: 0 8px 30px rgba(0,0,0,0.1);
 }
 
@@ -897,7 +896,7 @@ body::before {
 
        
 .footer {
-    background-color: #1a1a1a;
+    background-color:#FFB6C1 ;
     color: #fff;
     padding: 40px 20px;
     font-family: sans-serif;
@@ -1004,4 +1003,3 @@ body::before {
     border-top: 1px solid #333;
     padding-top: 20px;
 }
-

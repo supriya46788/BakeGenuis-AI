@@ -114,7 +114,302 @@
         .cta-btn:hover {
             background-color: #3dbeb5;
         }
-        /* Scroll To Top Button */
+       
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f5f0;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            flex: 1;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #ff7f50;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        
+        p.lead {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #666;
+        }
+        
+        /* Footer Styles */
+        .footer {
+          width: 100%;
+            background: linear-gradient(135deg, #FFB6C1 0%, #ff9aac 100%);
+            color: #fff;
+            padding: 50px 0 20px;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-brand h2 {
+            font-size: 2rem;
+            color: #ff7f50;
+            margin-bottom: 15px;
+        }
+        
+        .footer-brand p {
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 280px;
+        }
+        
+        .footer h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #ff7f50;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 3px;
+            background-color: #ff7f50;
+            border-radius: 2px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-weight: 500;
+        }
+        
+        .footer-links ul li a:hover {
+            color: #ff7f50;
+            transform: translateX(5px);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-icon.linkedin { background: #0077b5; }
+        .social-icon.github   { background: #6e5494; }
+        .social-icon.twitter  { background: #1da1f2; }
+        .social-icon.email    { background: #ff8800; }
+        
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin: 40px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-section h2 {
+            font-size: 2.2rem;
+            color: #ff7f50;
+            margin-bottom: 15px;
+        }
+        
+        .newsletter-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            padding: 16px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form input:focus {
+            box-shadow: 0 4px 15px rgba(255, 127, 80, 0.3);
+        }
+        
+        .newsletter-form button {
+            background-color: #ff7f50;
+            color: white;
+            border: none;
+            padding: 16px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 127, 80, 0.3);
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #ff956b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 127, 80, 0.4);
+        }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: white;
+            color: #333;
+            padding: 18px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 1000;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .toast-success {
+            border-left: 5px solid #4caf50;
+        }
+        
+        .toast-error {
+            border-left: 5px solid #f44336;
+        }
+        
+        .toast-icon {
+            font-size: 24px;
+        }
+        
+        .toast-success .toast-icon {
+            color: #4caf50;
+        }
+        
+        .toast-error .toast-icon {
+            color: #f44336;
+        }
+        
+        .toast-message {
+            flex: 1;
+        }
+        
+        .toast-close {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+        }
+        
+        .toast-close:hover {
+            color: #333;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .toast {
+                left: 20px;
+                right: 20px;
+                bottom: 20px;
+            }
+        }
         
 
     </style>
@@ -182,80 +477,85 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-container">
-        <!-- Brand -->
-        <div class="footer-brand">
-          <h2>BakeGenius.ai</h2>
-          <p>
-            Baking meets AI — recipes, ideas, and inspiration to make your
-            creations magical!
-          </p>
+    <div class="container">
+        <div class="content">
+            <h1>BakeGenius.ai</h1>
+            <p class="lead">Where baking meets artificial intelligence. Discover recipes, get ideas, and find inspiration to make your creations magical!</p>
+            
+            <!-- Newsletter Section -->
+            <div class="newsletter-section">
+                <div class="newsletter-content">
+                    <h2>Subscribe to Our Newsletter</h2>
+                    <p>Get the latest baking tips, AI-generated recipes, and exclusive content delivered to your inbox!</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" id="newsletterEmail" placeholder="Your email address" required>
+                        <button type="submit">Subscribe Now</button>
+                    </form>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <!-- Links -->
-        <div class="footer-links">
-          <h3>Links</h3>
-          <ul>
-            <li><a href="html/about.html">About Us</a></li>
-            <li><a href="html/convert.html">Convert Recipe</a></li>
-            <li><a href="html/customize.html">Customize</a></li>
-            <li><a href="html/scale.html">Scale Recipes</a></li>
-            <li><a href="html/feedback.html">Feedback</a></li>
-          </ul>
-        </div>
+     <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <h2>BakeGenius.ai</h2>
+                    <p>
+                        Baking meets AI — recipes, ideas, and inspiration to make your
+                        creations magical!
+                    </p>
+                </div>
 
-        <!-- Newsletter -->
-        <div class="footer-newsletter">
-          <h3>Newsletter</h3>
-          <p>Get the latest baking tips & AI recipes!</p>
-          <form id="newsletterForm">
-            <input
-              type="email"
-              id="newsletterEmail"
-              placeholder="Your email"
-              required
-            />
-            <button type="submit">Subscribe</button>
-          </form>
-        </div>
+                <!-- Links -->
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="html/about.html">About Us</a></li>
+                        <li><a href="html/convert.html">Convert Recipe</a></li>
+                        <li><a href="html/customize.html">Customize</a></li>
+                        <li><a href="html/scale.html">Scale Recipes</a></li>
+                        <li><a href="html/feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
 
-        <!-- Social -->
-        <div class="footer-social">
-          <h3>Follow Us</h3>
-          <div class="social-icons">
-            <a
-              href="https://www.linkedin.com/in/supriyapandey595/"
-              target="_blank"
-              class="social-icon linkedin"
-            >
-              <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a
-              href="https://github.com/supriya46788"
-              target="_blank"
-              class="social-icon github"
-            >
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="#" target="_blank" class="social-icon twitter">
-              <i class="fa-brands fa-twitter"></i>
-            </a>
-            <a
-              href="mailto:supriyadpandey502@gmail.com"
-              target="_blank"
-              class="social-icon email"
-            >
-              <i class="fa-regular fa-envelope"></i>
-            </a>
-          </div>
+                <!-- Social -->
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <p>Follow us on social media for daily baking inspiration</p>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-icon linkedin">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/supriya46788" target="_blank" class="social-icon github">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="#" target="_blank" class="social-icon twitter">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="mailto:supriyadpandey502@gmail.com" target="_blank" class="social-icon email">
+                            <i class="fa-regular fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-bottom">
+                &copy; 2025 BakeGenius.ai — All rights reserved.
+            </p>
+        </footer>
+    
+    <!-- Toast Notification -->
+    <div class="toast toast-success" id="toastNotification">
+        <div class="toast-icon">
+            <i class="fas fa-check-circle"></i>
         </div>
-      </div>
-      <p class="footer-bottom">
-        &copy; 2025 BakeGenius.ai — All rights reserved.
-      </p>
-    </footer>
+        <div class="toast-message" id="toastMessage">Successfully subscribed to our newsletter!</div>
+        <button class="toast-close" id="toastClose">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
     <button id="scrollTopBtn" title="Go to top">⬆</button>
 
     <script src="js/index.js"></script>
@@ -279,6 +579,67 @@
   scrollBtn.onclick = function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+
+   document.addEventListener('DOMContentLoaded', function() {
+            const newsletterForm = document.getElementById('newsletterForm');
+            const toastNotification = document.getElementById('toastNotification');
+            const toastMessage = document.getElementById('toastMessage');
+            const toastClose = document.getElementById('toastClose');
+            
+            // Show toast function
+            function showToast(message, isSuccess = true) {
+                toastMessage.textContent = message;
+                
+                // Update toast style based on success/error
+                if (isSuccess) {
+                    toastNotification.classList.remove('toast-error');
+                    toastNotification.classList.add('toast-success');
+                    toastNotification.querySelector('.toast-icon').innerHTML = '<i class="fas fa-check-circle"></i>';
+                } else {
+                    toastNotification.classList.remove('toast-success');
+                    toastNotification.classList.add('toast-error');
+                    toastNotification.querySelector('.toast-icon').innerHTML = '<i class="fas fa-exclamation-circle"></i>';
+                }
+                
+                // Show toast
+                toastNotification.classList.add('show');
+                
+                // Auto hide after 5 seconds
+                setTimeout(() => {
+                    hideToast();
+                }, 5000);
+            }
+            
+            // Hide toast function
+            function hideToast() {
+                toastNotification.classList.remove('show');
+            }
+            
+            // Close toast when close button is clicked
+            toastClose.addEventListener('click', hideToast);
+            
+            // Handle newsletter form submission
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const email = document.getElementById('newsletterEmail').value;
+                
+                // Simple email validation
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                if (!emailPattern.test(email)) {
+                    showToast('Please enter a valid email address.', false);
+                    return;
+                }
+                
+                // Simulate form submission
+                setTimeout(() => {
+                    showToast('Thank you for subscribing to our newsletter!');
+                    newsletterForm.reset();
+                }, 1000);
+            });
+        });
 </script>
 
 </body>
