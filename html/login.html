@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../css/auth.css">
+  <link rel="stylesheet" href="../css/toggle.css">
 </head>
 <body>
   <!-- Animated Background Elements -->
@@ -27,7 +28,16 @@
         <li><a href="./customize.html">Customize</a></li>
         <li><a href="./recipe_hub.html">Recipe Hub</a></li>
         <li><a href="./about.html">About</a></li>
-      </ul>
+        </ul>
+      <div class="theme-switch-container">
+  <label class="theme-switch">
+    <input type="checkbox" id="theme-toggle" />
+    <span class="slider">
+      <i class="fas fa-sun"></i>
+      <i class="fas fa-moon"></i>
+    </span>
+  </label>
+</div>
       <div class="fb-color">
         <a href="feedback.html">Feedback</a>
       </div>
@@ -94,7 +104,13 @@
       </div>
     </div>
   </div>
-
+  <script src="../js/theme.js"></script>
+    <script>
+        // Initialize login page
+        document.addEventListener('DOMContentLoaded', function() {
+            initLoginPage();
+        });
+    </script>
   <script src="../js/auth.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {

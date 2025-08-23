@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="css/index.css">
-
+    <link rel="stylesheet" href="../css/toggle.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -188,19 +188,22 @@
         <li><a href="./html/convert.html">Convert Recipe</a></li>
         <li><a href="./html/recipe_hub.html">Recipe Hub</a></li>
         <li><a href="./html/about.html">About</a></li>
-      </ul>
-
-      <div class="fb-color">
-        <a href="./html/feedback.html">Feedback</a>
-      </div>
-
-      <div class="auth-buttons">
+  <div class="fb-color">
+        <a href="feedback.html">Feedback</a>
+    </div>
+     <div class="auth-buttons">
         <a href="./html/login.html" class="login-btn">Login</a>
         <a href="./html/signup.html" class="signup-btn">Sign Up</a>
       </div>
-
       <a href="./html/scale.html" class="cta-btn">Scale Now</a>
     </div>
+              <label class="theme-switch">
+    <input type="checkbox" id="theme-toggle" />
+    <span class="slider">
+      <i class="fas fa-sun"></i>
+      <i class="fas fa-moon"></i>
+    </span>
+  </label>
     </div> 
   </nav>
   <script>
@@ -348,7 +351,7 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 </script>
-
+<script src="js/theme.js"></script>
 </body>
 
 </html>

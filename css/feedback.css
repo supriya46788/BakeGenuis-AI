@@ -17,7 +17,208 @@
     --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
     --success-green: #2ED573;
 }
+/* Dark Mode Overrides */
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --card-bg: rgba(30, 30, 30, 0.9);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --input-bg: rgba(50, 50, 50, 0.8);
+    --input-border: rgba(255, 255, 255, 0.2);
+    --input-placeholder: rgba(200, 200, 200, 0.6);
+    --section-title: #bb86fc;
+    --section-text: #e0e0e0;
+    --btn-gradient: linear-gradient(45deg, #bb86fc, #03dac6);
+    --btn-text: #000;
+    --navbar-gradient: linear-gradient(90deg, #222, #111, #333);
+    --footer-bg: #1a1a1a;
+    --footer-text: #e0e0e0;
+}
 
+/* Body background gradient */
+[data-theme="dark"] body {
+    background: linear-gradient(135deg, #121212 0%, #1f1f1f 50%, #2a2a2a 100%);
+    color: var(--text-color);
+}
+
+/* Navbar Glow & Gradient Magic */
+[data-theme="dark"] .navbar {
+  background: var(--navbar-gradient);
+  box-shadow: 0 4px 20px rgba(187,134,252,0.4);
+  border-bottom: 1px solid rgba(187,134,252,0.2);
+}
+
+[data-theme="dark"] .nav-links li a {
+  color: var(--link-color) !important;
+  text-shadow: 0 0 8px rgba(187,134,252,0.5);
+}
+
+[data-theme="dark"] .nav-links li a:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 0 12px rgba(187,134,252,0.8);
+}
+/* Dark Mode Feedback Button */
+[data-theme="dark"] .fb-color {
+    padding: 8px 18px;
+    background: linear-gradient(135deg, rgba(245,115,197,0.9), rgba(190,8,245,0.7));
+    border-radius: 25px;
+    border: 1px solid rgba(190, 8, 245, 0.3);
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(190, 8, 245, 0.3);
+}
+
+[data-theme="dark"] .fb-color:hover {
+    background: linear-gradient(135deg, rgba(243,19,224,0.85), rgba(190,8,245,0.9));
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(190, 8, 245, 0.6);
+}
+
+[data-theme="dark"] .fb-color a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Hero Section */
+[data-theme="dark"] .hero-title,
+[data-theme="dark"] .hero-subtitle {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] #feedbackFormSection {
+    box-shadow: 0 15px 40px rgba(187, 134, 252, 0.4), 0 0 15px rgba(187, 134, 252, 0.2);
+    border: 1px solid rgba(187, 134, 252, 0.3);
+}
+/* Section Cards */
+[data-theme="dark"] .section-card {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+[data-theme="dark"] .section-title {
+    color: var(--section-title) !important;
+}
+
+[data-theme="dark"] .section-content,
+[data-theme="dark"] .feedback-message {
+    color: var(--section-text) !important;
+}
+
+/* Feedback Form */
+[data-theme="dark"] .form-label {
+    color: #e0e0e0;
+}
+/* Dark Mode Inputs */
+[data-theme="dark"] .form-input,
+[data-theme="dark"] .form-textarea
+[data-theme="dark"] #feedbackRating  {
+    background: rgba(40, 40, 40, 0.9); /* toned down dark bg */
+    color: #ffffff; /* text visible */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* subtle border */
+}
+
+[data-theme="dark"] .form-input:focus,
+[data-theme="dark"] .form-textarea:focus {
+    background: rgba(50, 50, 50, 0.95);
+    border-color: #bb86fc; /* accent on focus */
+    box-shadow: 0 0 8px rgba(187, 134, 252, 0.3);
+    outline: none;
+}
+/* Dark Mode Feedback Rating Dropdown */
+[data-theme="dark"] #feedbackRating {
+    background: rgba(50, 50, 50, 0.9); /* darker, not blinding */
+    color: #ffffff; /* text visible */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+}
+
+[data-theme="dark"] #feedbackRating:hover {
+    border-color: #bb86fc;
+    box-shadow: 0 0 6px rgba(187, 134, 252, 0.2);
+}
+
+[data-theme="dark"] #feedbackRating:focus {
+    outline: none;
+    border-color: #bb86fc;
+    box-shadow: 0 0 8px rgba(187, 134, 252, 0.3);
+    background: rgba(60, 60, 60, 0.95); /* darker on focus, not too bright */
+}
+[data-theme="dark"] .form-input::placeholder,
+[data-theme="dark"] .form-textarea::placeholder {
+    color: #cccccc; /* softer placeholder */
+}
+/* Dark Mode Feedback Textarea */
+[data-theme="dark"] .form-textarea {
+    background: rgba(50, 50, 50, 0.9); /* dark but not pitch black */
+    color: #ffffff; /* readable text */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+}
+
+[data-theme="dark"] .form-textarea:focus {
+    outline: none;
+    border-color: #bb86fc;
+    box-shadow: 0 0 8px rgba(187, 134, 252, 0.3);
+    background: rgba(60, 60, 60, 0.95);
+}
+/* Buttons */
+[data-theme="dark"] .submit-btn,
+[data-theme="dark"] .home-btn {
+    background: var(--btn-gradient);
+    color: var(--btn-text);
+}
+
+/* Feedback List Items */
+[data-theme="dark"] .feedback-item {
+    background: rgba(40, 40, 40, 0.85);
+    border-left: 4px solid #bb86fc;
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .feedback-name {
+    color: #bb86fc;
+}
+
+[data-theme="dark"] .feedback-email,
+[data-theme="dark"] .feedback-date {
+    color: #ccc;
+}
+
+/* Footer */
+[data-theme="dark"] .footer {
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .footer h2,
+[data-theme="dark"] .footer h3 {
+    color: #ff7f50 !important; /* Orange accent like index page */
+}
+
+[data-theme="dark"] .footer p,
+[data-theme="dark"] .footer-links ul li a,
+[data-theme="dark"] .footer-text {
+    color: #e0e0e0 !important;
+}
+
+[data-theme="dark"] .footer-links ul li a:hover {
+    color: #ffa502 !important; /* Brighter orange hover */
+}
+
+[data-theme="dark"] .footer-newsletter input {
+    background: rgba(255,255,255,0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+[data-theme="dark"] .footer-newsletter button {
+    background: linear-gradient(45deg, #ff7f50, #ffa502);
+    color: #000000;
+}
 body {
     font-family: 'Comic Neue', cursive;
     background: linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 30%, var(--light-yellow) 60%, var(--light-pink) 100%);
@@ -26,7 +227,53 @@ body {
     overflow-x: hidden;
     line-height: 1.6;
 }
+  /* Dark-Light Toggle Slider */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
 
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+/* When checked (dark mode) */
+.theme-switch input:checked + .slider {
+  background: #4ECDC4; /* you can use any gradient if you want */
+}
+
+.theme-switch input:checked + .slider:before {
+  transform: translateX(24px);
+}
 /* Advanced Animated Background */
 .animated-bg {
     position: fixed;
