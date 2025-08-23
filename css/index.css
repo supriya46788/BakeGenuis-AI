@@ -658,8 +658,9 @@ body {
 
 .feature-icon {
   font-size: 3rem;
-  margin-bottom: 1rem;
-  display: block;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+  will-change: transform;
 }
 
 .feature-card:nth-child(1) .feature-icon {
@@ -671,6 +672,49 @@ body {
 .feature-card:nth-child(3) .feature-icon {
   color: var(--sunny-yellow);
 }
+/* Animations on icons */
+@keyframes sparkle {
+ 0%   { transform: rotate(0deg) scale(1);    color: var(--candy-red); }
+    25%  { transform: rotate(-10deg) scale(1.1); color: var(--soft-pink); }
+    50%  { transform: rotate(10deg) scale(1.2);  color: var(--sunny-yellow); }
+    75%  { transform: rotate(-6deg) scale(1.1);  color: var(--sky-blue); }
+    100% { transform: rotate(0deg) scale(1);    color: var(--mint-green); }
+}
+
+@keyframes tilt {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(-6deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.magic {
+  animation: sparkle 2s ease-in-out infinite;
+}
+.scale {
+  color: var(--sky-blue);
+  animation: tilt 2s ease-in-out infinite;
+  transform-origin: 50% 10%;
+}
+.gears {
+  color: var(--sunny-yellow);
+  animation: spin 3s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .icon {
+    animation: none !important;
+  }
+}
+/* animation styles end here */
 
 .feature-title {
   font-size: 1.3rem;
