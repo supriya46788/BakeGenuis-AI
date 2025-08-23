@@ -115,6 +115,22 @@ body {
     transform: translateY(-2px);
 }
 
+.signup-btn {
+    padding: 8px 15px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signup-btn:hover {
+    background-color: #ff5252;
+}
+
 /* Scale Now Navigation Button */
 .scale-nav-btn {
     background: linear-gradient(45deg, #60a5fa, #fde68a) !important;
@@ -465,6 +481,7 @@ body {
     gap: 1rem;
     color: #0b0c6b;
     font-weight: 600;
+    margin-right: 1rem;
 }
 
 .user-avatar {
@@ -570,6 +587,19 @@ body {
     box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4) !important;
 }
 
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.navbar-container > .user-info + .cta-btn {
+    margin-left: 0;
+}
 .swal-cancel-btn {
     background: linear-gradient(45deg, #70A1FF, #60a5fa) !important;
     border: none !important;
@@ -606,14 +636,18 @@ body {
     }
 
     .user-info {
-        flex-wrap: wrap;
         gap: 0.5rem;
-        justify-content: center;
+        margin-right: 0.5rem;
+        font-size: 0.9rem;
     }
 
-    .scale-btn {
-        order: -1;
-        margin-bottom: 0.5rem;
+    .user-info span {
+        display: none;
+    }
+    
+    .logout-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
     }
 
     .auth-container {
@@ -630,6 +664,10 @@ body {
 
     .auth-subtitle {
         font-size: 1rem;
+    }
+    
+    .navbar-container {
+        gap: 0.5rem;
     }
 }
 

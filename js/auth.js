@@ -344,13 +344,13 @@ function updateNavigation() {
   if (!auth.isLoggedIn()) return;
 
   const navLinks = document.querySelector('.nav-links');
+  const authButtons = document.querySelector('.auth-buttons');
   const ctaBtn = document.querySelector('.cta-btn');
 
-  if (navLinks && ctaBtn) {
-    const loginLink = navLinks.querySelector('a[href*="login.html"]');
-    const signupLink = navLinks.querySelector('a[href*="signup.html"]');
-    if (loginLink) loginLink.parentElement.style.display = 'none';
-    if (signupLink) signupLink.parentElement.style.display = 'none';
+  if (navLinks) {
+    if (authButtons) {
+      authButtons.style.display = 'none';
+    }
 
     const userInfo = document.createElement('div');
     userInfo.className = 'user-info';
@@ -360,7 +360,13 @@ function updateNavigation() {
       <button class="logout-btn" onclick="handleLogout()">Logout</button>
     `;
 
-    ctaBtn.parentNode.replaceChild(userInfo, ctaBtn);
+    if (ctaBtn) {
+      ctaBtn.parentNode.insertBefore(userInfo, ctaBtn);
+    } else if (authButtons) {
+      authButtons.parentNode.replaceChild(userInfo, authButtons);
+    } else {
+      document.querySelector('.navbar-container').appendChild(userInfo);
+    }
   }
 }
 
