@@ -1,46 +1,25 @@
 // Sample ingredients data (in real app, this would come from previous conversion)
-        const sampleIngredients = [
-            {
-                name: 'All-Purpose Flour',
-                icon: '🌾',
-                currentGrams: 120,
-                measurementType: 'sifted',
-                originalAmount: '1 cup'
-            },
-            {
-                name: 'Brown Sugar',
-                icon: '🍯',
-                currentGrams: 200,
-                measurementType: 'packed',
-                originalAmount: '1 cup'
-            },
-            {
-                name: 'Butter',
-                icon: '🧈',
-                currentGrams: 226,
-                measurementType: 'softened',
-                originalAmount: '1 cup'
-            },
-            {
-                name: 'Vanilla Extract',
-                icon: '🌟',
-                currentGrams: 4,
-                measurementType: 'liquid',
-                originalAmount: '1 tsp'
-            },
-            {
-                name: 'Baking Powder',
-                icon: '⚡',
-                currentGrams: 4,
-                measurementType: 'leveled',
-                originalAmount: '1 tsp'
-            }
+        const defaultIngredients = [
+            { name: 'All-Purpose Flour', icon: '🌾', currentGrams: 120, measurementType: 'sifted', originalAmount: '1 cup', density: 0.593 },
+            { name: 'Brown Sugar', icon: '🍯', currentGrams: 200, measurementType: 'packed', originalAmount: '1 cup', density: 0.721 },
+            { name: 'Butter', icon: '🧈', currentGrams: 226, measurementType: 'softened', originalAmount: '1 cup', density: 0.911 },
+            { name: 'Vanilla Extract', icon: '🌟', currentGrams: 4, measurementType: 'liquid', originalAmount: '1 tsp', density: 1.0 },
+            { name: 'Baking Powder', icon: '⚡', currentGrams: 4, measurementType: 'leveled', originalAmount: '1 tsp', density: 0.9 }
         ];
 
-        // Load ingredients from localStorage or use sample data
+        // Load ingredients
         function loadIngredients() {
             const savedIngredients = localStorage.getItem('bakegenius_ingredients');
-            return savedIngredients ? JSON.parse(savedIngredients) : sampleIngredients;
+            return savedIngredients ? JSON.parse(savedIngredients) : JSON.parse(JSON.stringify(defaultIngredients)); 
+        }
+
+        //  Utility to get density safely (check user-updated density first, else fallback to default)
+       function getDensity(ingredient) {
+           if (ingredient.density && !isNaN(ingredient.density)) {
+               return ingredient.density; // user override
+            }
+            const defaultMatch = defaultIngredients.find(d => d.name === ingredient.name);
+            return defaultMatch ? defaultMatch.density : 1.0; // fallback
         }
 
         // Render ingredient cards
@@ -76,6 +55,14 @@
                                    data-field="currentGrams"
                                    min="1" max="1000" step="0.1">
                         </div>
+                        <div class="control-group">
+                            <label class="control-label">Density (g/ml)</label>
+                            <input type="number" class="custom-input"
+                                   value="${ingredient.density || ''}"
+                                   data-ingredient="${index}"
+                                   data-field="density"
+                                   min="0.1" max="5" step="0.01">
+                        </div>
                     </div>
                 </div>
             `).join('');
@@ -108,6 +95,12 @@
             const ingredients = loadIngredients();
             ingredients[ingredientIndex][field] = value;
             
+            // Recalculate grams if density was updated
+            if (field === 'density') {
+                const newDensity = getDensity(ingredients[ingredientIndex]);
+                ingredients[ingredientIndex].currentGrams = +(ingredients[ingredientIndex].currentGrams * (newDensity / defaultIngredients[ingredientIndex].density)).toFixed(2);
+            }
+
             // Auto-save changes
             localStorage.setItem('bakegenius_ingredients', JSON.stringify(ingredients));
         }
@@ -149,7 +142,7 @@
         }
 
         // Apply changes function
-        function applyChanges() {
+        function applyChanges(event) {
             const button = event.target;
             button.style.transform = 'scale(0.95)';
             button.innerHTML = '⏳ Applying...';
@@ -179,7 +172,7 @@
         }
 
         // Save settings
-        function saveSettings() {
+        function saveSettings(event) {
             const button = event.target;
             button.style.transform = 'scale(0.95)';
             button.innerHTML = '💾 Saving...';

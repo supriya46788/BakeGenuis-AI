@@ -454,3 +454,4 @@ input:checked + .slider:before {
     .nav-container { flex-direction: column; gap: 1rem; }
     .nav-links { flex-direction: row; flex-wrap: wrap; justify-content: center; }
 }
+
