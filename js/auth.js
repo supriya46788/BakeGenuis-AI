@@ -98,6 +98,18 @@ class AuthSystem {
   isLoggedIn() {
     return this.currentUser !== null;
   }
+
+  // Update user information
+  updateUser(userId, updatedData) {
+    const userIndex = this.users.findIndex(user => user.id === userId);
+    if (userIndex !== -1) {
+        this.users[userIndex] = { ...this.users[userIndex], ...updatedData };
+        this.saveUsers();
+        if (this.currentUser && this.currentUser.id === userId) {
+            this.setCurrentUser(this.users[userIndex]);
+        }
+    }
+  }
 }
 
 // Global auth instance
@@ -382,7 +394,7 @@ function handleLogout() {
 }
 
 function checkAuth() {
-  const protectedPages = ['convert.html', 'customize.html', 'scale.html'];
+  const protectedPages = ['convert.html', 'customize.html', 'scale.html', 'profile.html'];
   const currentPage = window.location.pathname.split('/').pop();
 
   if (protectedPages.includes(currentPage) && !auth.isLoggedIn()) {

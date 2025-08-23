@@ -1,285 +1,397 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BakeGenius.ai - AI-Powered Baking Conversions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="css/index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BakeGenius.ai - AI-Powered Baking Conversions</title>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <style>
-        /* Updated Navbar Styles */
-        .navbar {
-            background-color: #fff8f0;
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .navbar-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ff6b6b;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            align-items: center;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #ff6b6b;
-        }
-        
-        .nav-links a.active {
-            color: #ff6b6b;
-            font-weight: bold;
-        }
-        
-        .auth-buttons {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .login-btn {
-            padding: 8px 15px;
-            background: transparent;
-            border: 1px solid #ff6b6b;
-            color: #ff6b6b;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .login-btn:hover {
-            background-color: #ff6b6b;
-            color: white;
-        }
-        
-        .signup-btn {
-            padding: 8px 15px;
-            background-color: #ff6b6b;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .signup-btn:hover {
-            background-color: #ff5252;
-        }
-        
-        .cta-btn {
-            padding: 10px 20px;
-            background-color: #4ecdc4;
-            color: white;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            margin-left: 20px;
-        }
-        
-        .cta-btn:hover {
-            background-color: #3dbeb5;
-        }
-        /* Scroll To Top Button */
-        
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 
-    </style>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Comic Neue", cursive;
+      background-color: #fffdfc;
+      color: #333;
+      line-height: 1.6;
+    }
 
+    /* Navbar */
+    .navbar {
+      background-color: #fff8f0;
+      padding: 15px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: #ff6b6b;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #ff6b6b;
+    }
+
+    /* Buttons */
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .login-btn,
+    .signup-btn,
+    .cta-btn {
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .login-btn {
+      border: 1px solid #ff6b6b;
+      color: #ff6b6b;
+    }
+    .login-btn:hover { background-color: #ff6b6b; color: #fff; }
+
+    .signup-btn {
+      background-color: #ff6b6b;
+      color: #fff;
+      border: none;
+    }
+    .signup-btn:hover { background-color: #ff5252; }
+
+    .cta-btn {
+      background-color: #4ecdc4;
+      color: white;
+      margin-left: 15px;
+    }
+    .cta-btn:hover { background-color: #3dbeb5; }
+
+    /* Hero Section */
+    .hero-section {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(180deg, #fff8f0, #fff);
+    }
+
+    .hero-title {
+      font-size: 36px;
+      color: #ff6b6b;
+      margin-bottom: 15px;
+      animation: fadeIn 1s ease;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #4ecdc4;
+      color: white;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.3s ease, background 0.3s;
+    }
+    .cta-button:hover {
+      background: #3dbeb5;
+      transform: scale(1.05);
+    }
+
+    /* Features */
+    .features-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .feature-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover { transform: translateY(-5px); }
+
+    .feature-icon {
+      font-size: 40px;
+      color: #ff6b6b;
+      margin-bottom: 15px;
+    }
+
+    .feature-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #fff8f0;
+      padding: 50px 20px 20px;
+      margin-top: 60px;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+    }
+
+    .footer h3 {
+      margin-bottom: 15px;
+      color: #ff6b6b;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: #ff6b6b; }
+
+    .footer-social .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-icon {
+      font-size: 20px;
+      color: #333;
+      transition: color 0.3s, transform 0.3s;
+    }
+    .social-icon:hover {
+      color: #ff6b6b;
+      transform: scale(1.1);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    /* Scroll-to-top button */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      display: none;
+      background: #ff6b6b;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 12px;
+      cursor: pointer;
+      font-size: 18px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s, transform 0.3s;
+    }
+    #scrollTopBtn:hover {
+      background: #ff5252;
+      transform: translateY(-2px);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #fff8f0;
+        position: absolute;
+        top: 65px;
+        right: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      }
+      .nav-links.active { display: flex; }
+
+      .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 22px;
+        color: #ff6b6b;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .menu-toggle { display: none; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="logo">🍰 BakeGenius.ai</div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="./index.html" class="active">Home</a></li>
-                <li><a href="./html/convert.html">Convert Recipe</a></li>
-                <li><a href="./html/customize.html">Customize</a></li>
-                <li><a href="./html/recipe_hub.html">Recipe Hub</a></li>
-                <li><a href="./html/about.html">About</a></li>
-            </ul>
-            <div class="fb-color">
-              <a href="./html/feedback.html">Feedback</a>
-            </div>
-            <div class="auth-buttons">
-                <a href="./html/login.html" class="login-btn">Login</a>
-                <a href="./html/signup.html" class="signup-btn">Sign Up</a>
-            </div>
-            <a href="./html/scale.html" class="cta-btn">Scale Now</a>
-        </div>
-    </nav>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo">🍰 BakeGenius.ai</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="./index.html" class="active">Home</a></li>
+        <li><a href="./html/convert.html">Convert Recipe</a></li>
+        <li><a href="./html/customize.html">Customize</a></li>
+        <li><a href="./html/recipe_hub.html">Recipe Hub</a></li>
+        <li><a href="./html/about.html">About</a></li>
+        <li><a href="./html/profile.html">Profile</a></li>
+      </ul>
+      <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+      <div class="auth-buttons">
+        <a href="./html/login.html" class="login-btn">Login</a>
+        <a href="./html/signup.html" class="signup-btn">Sign Up</a>
+      </div>
+      <a href="./html/scale.html" class="cta-btn">Scale Now</a>
+    </div>
+  </nav>
 
-    <section class="cupcake-animation">
-    <div class="cup">🧁</div>
-    <div class="cake-top">🍒</div>
+  <!-- Hero -->
+  <section class="hero-section">
+    <h1 class="hero-title">Welcome to BakeGenius.ai</h1>
+    <p class="hero-subtitle">From spoon to scale — get exact gram conversions with AI magic ✨<br>
+      Transform vague recipe measurements into precise, consistent results every time!</p>
+    <a href="html/convert.html" class="cta-button">Start Converting Now 🚀</a>
+  </section>
 
-    <div class="sprinkles">
-      <span></span><span></span><span></span>
+  <!-- Features -->
+  <section class="features-preview">
+    <div class="feature-card">
+      <i class="fas fa-magic feature-icon"></i>
+      <h3 class="feature-title">AI-Powered Precision</h3>
+      <p class="feature-desc">Advanced AI converts "cups" and "spoons" into exact gram measurements for perfect baking every time.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-balance-scale feature-icon"></i>
+      <h3 class="feature-title">Smart Recipe Scaling</h3>
+      <p class="feature-desc">Effortlessly scale recipes up or down while maintaining perfect ratios and adjusting rising agents intelligently.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-cogs feature-icon"></i>
+      <h3 class="feature-title">Custom Preferences</h3>
+      <p class="feature-desc">Personalize conversions based on your preferred brands and ingredient specifications for consistent results.</p>
     </div>
   </section>
 
-    <!-- Rest of your HTML remains the same -->
-    <main class="main-content">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <h1 class="hero-title">Welcome to BakeGenius.ai</h1>
-            <p class="hero-subtitle">From spoon to scale — get exact gram conversions with AI magic ✨<br>
-            Transform vague recipe measurements into precise, consistent results every time!</p>
-            <a href="html/convert.html" class="cta-button">Start Converting Now 🚀</a>
-        </section>
-
-        <!-- Features Preview -->
-        <section class="features-preview">
-            <div class="feature-card">
-                <i class="fas fa-magic feature-icon"></i>
-                <h3 class="feature-title">AI-Powered Precision</h3>
-                <p class="feature-desc">Advanced AI converts "cups" and "spoons" into exact gram measurements for perfect baking every time.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-balance-scale feature-icon"></i>
-                <h3 class="feature-title">Smart Recipe Scaling</h3>
-                <p class="feature-desc">Effortlessly scale recipes up or down while maintaining perfect ratios and adjusting rising agents intelligently.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-cogs feature-icon"></i>
-                <h3 class="feature-title">Custom Preferences</h3>
-                <p class="feature-desc">Personalize conversions based on your preferred brands and ingredient specifications for consistent results.</p>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-container">
-        <!-- Brand -->
-        <div class="footer-brand">
-          <h2>BakeGenius.ai</h2>
-          <p>
-            Baking meets AI — recipes, ideas, and inspiration to make your
-            creations magical!
-          </p>
-        </div>
-
-        <!-- Links -->
-        <div class="footer-links">
-          <h3>Links</h3>
-          <ul>
-            <li><a href="html/about.html">About Us</a></li>
-            <li><a href="html/convert.html">Convert Recipe</a></li>
-            <li><a href="html/customize.html">Customize</a></li>
-            <li><a href="html/scale.html">Scale Recipes</a></li>
-            <li><a href="html/feedback.html">Feedback</a></li>
-          </ul>
-        </div>
-
-        <!-- Newsletter -->
-        <div class="footer-newsletter">
-          <h3>Newsletter</h3>
-          <p>Get the latest baking tips & AI recipes!</p>
-          <form id="newsletterForm">
-            <input
-              type="email"
-              id="newsletterEmail"
-              placeholder="Your email"
-              required
-            />
-            <button type="submit">Subscribe</button>
-          </form>
-        </div>
-
-        <!-- Social -->
-        <div class="footer-social">
-          <h3>Follow Us</h3>
-          <div class="social-icons">
-            <a
-              href="https://www.linkedin.com/in/supriyapandey595/"
-              target="_blank"
-              class="social-icon linkedin"
-            >
-              <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a
-              href="https://github.com/supriya46788"
-              target="_blank"
-              class="social-icon github"
-            >
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="#" target="_blank" class="social-icon twitter">
-              <i class="fa-brands fa-twitter"></i>
-            </a>
-            <a
-              href="mailto:supriyadpandey502@gmail.com"
-              target="_blank"
-              class="social-icon email"
-            >
-              <i class="fa-regular fa-envelope"></i>
-            </a>
-          </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>BakeGenius.ai</h2>
+        <p>Baking meets AI — recipes, ideas, and inspiration to make your creations magical!</p>
+      </div>
+      <div class="footer-links">
+        <h3>Links</h3>
+        <ul>
+          <li><a href="html/about.html">About Us</a></li>
+          <li><a href="html/convert.html">Convert Recipe</a></li>
+          <li><a href="html/customize.html">Customize</a></li>
+          <li><a href="html/scale.html">Scale Recipes</a></li>
+          <li><a href="html/feedback.html">Feedback</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h3>Newsletter</h3>
+        <p>Get the latest baking tips & AI recipes!</p>
+        <form id="newsletterForm">
+          <input type="email" id="newsletterEmail" placeholder="Your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-social">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-icon linkedin"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/supriya46788" target="_blank" class="social-icon github"><i class="fa-brands fa-github"></i></a>
+          <a href="#" target="_blank" class="social-icon twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="mailto:supriyadpandey502@gmail.com" target="_blank" class="social-icon email"><i class="fa-regular fa-envelope"></i></a>
         </div>
       </div>
-      <p class="footer-bottom">
-        &copy; 2025 BakeGenius.ai — All rights reserved.
-      </p>
-    </footer>
-    <button id="scrollTopBtn" title="Go to top">⬆</button>
+    </div>
+    <p class="footer-bottom">&copy; 2025 BakeGenius.ai — All rights reserved.</p>
+  </footer>
 
-    <script src="js/index.js"></script>
-    <script src="js/auth.js"></script>
-    <link rel="stylesheet" href="css/auth.css">
-    
-    <script>
-  // Get the button
-  let scrollBtn = document.getElementById("scrollTopBtn");
+  <!-- Scroll to Top -->
+  <button id="scrollTopBtn" title="Go to top">⬆</button>
 
-  // When the user scrolls down 100px, show the button
-  window.onscroll = function () {
-    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-      scrollBtn.style.display = "block";
-    } else {
-      scrollBtn.style.display = "none";
-    }
-  };
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
 
-  // When user clicks, scroll to top
-  scrollBtn.onclick = function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-</script>
-
+    // Scroll to top button
+    let scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function () {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    };
+    scrollBtn.onclick = function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+  </script>
 </body>
 </html>
