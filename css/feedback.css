@@ -119,6 +119,11 @@ body {
     letter-spacing: 1px;
 }
 
+.logo a{
+    text-decoration: none;
+    color: #fff;
+}
+
 .nav-links {
     display: flex;
     list-style: none;

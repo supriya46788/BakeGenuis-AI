@@ -70,6 +70,11 @@
   letter-spacing: 1px;
 }
 
+.logo a{
+    text-decoration: none;
+    color: #fff;
+}
+
 /* Nav Links */
 .nav-links {
   display: flex;
