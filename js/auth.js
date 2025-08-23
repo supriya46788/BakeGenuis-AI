@@ -329,52 +329,35 @@ async function handleSignup(event) {
 function updateNavigation() {
     if (!auth.isLoggedIn()) return;
 
-    const authButtons = document.querySelector('.auth-buttons');
     const navbarContainer = document.querySelector('.navbar-container');
-    
-    if (authButtons && navbarContainer) {
-        // Replace auth buttons with user info
-        const userInfo = document.createElement('div');
-        userInfo.className = 'user-info';
-        const hasAvatar = auth.currentUser && auth.currentUser.avatarUrl;
-        const avatarHtml = hasAvatar
-            ? `<img src="${auth.currentUser.avatarUrl}" alt="avatar" class="user-avatar" style="width:32px;height:32px;border-radius:50%;object-fit:cover;" />`
-            : `<div class="user-avatar">${auth.currentUser.name.charAt(0).toUpperCase()}</div>`;
-        userInfo.innerHTML = `
-            ${avatarHtml}
-            <span>Hi, ${auth.currentUser.name.split(' ')[0]}!</span>
-            <button class="logout-btn" onclick="handleLogout()">Logout</button>
-        `;
-        
-        authButtons.parentNode.replaceChild(userInfo, authButtons);
-    }
-    
-    // Also handle the case where there's a single CTA button (like on some pages)
-    const ctaBtn = document.querySelector('.cta-btn');
-    if (ctaBtn && !document.querySelector('.user-info')) {
-        const userInfo = document.createElement('div');
-        userInfo.className = 'user-info';
-        const hasAvatar = auth.currentUser && auth.currentUser.avatarUrl;
-        const avatarHtml = hasAvatar
-            ? `<img src="${auth.currentUser.avatarUrl}" alt="avatar" class="user-avatar" style="width:32px;height:32px;border-radius:50%;object-fit:cover;" />`
-            : `<div class="user-avatar">${auth.currentUser.name.charAt(0).toUpperCase()}</div>`;
-        userInfo.innerHTML = `
-            ${avatarHtml}
-            <span>Hi, ${auth.currentUser.name.split(' ')[0]}!</span>
-            <button class="logout-btn" onclick="handleLogout()">Logout</button>
-        `;
-        
-        ctaBtn.parentNode.replaceChild(userInfo, ctaBtn);
-    }
-}
+    if (!navbarContainer) return;
 
-// Helper function to get correct path based on current location
-function getCurrentPath() {
-    const currentPath = window.location.pathname;
-    if (currentPath.includes('/html/')) {
-        return './';
+    // Remove existing user-info if present
+    const existingUserInfo = navbarContainer.querySelector('.user-info');
+    if (existingUserInfo) existingUserInfo.remove();
+
+    // Build user info div
+    const userInfo = document.createElement('div');
+    userInfo.className = 'user-info';
+    const hasAvatar = auth.currentUser && auth.currentUser.avatarUrl;
+    const avatarHtml = hasAvatar
+        ? `<img src="${auth.currentUser.avatarUrl}" alt="avatar" class="user-avatar" style="width:32px;height:32px;border-radius:50%;object-fit:cover;" />`
+        : `<div class="user-avatar">${auth.currentUser.name.charAt(0).toUpperCase()}</div>`;
+    userInfo.innerHTML = `
+        ${avatarHtml}
+        <span>Hi, ${auth.currentUser.name.split(' ')[0]}!</span>
+        <button class="logout-btn" onclick="handleLogout()">Logout</button>
+    `;
+
+    // Insert user info in place of CTA button or at the end
+    const ctaBtn = navbarContainer.querySelector('.cta-btn');
+    const authButtons = navbarContainer.querySelector('.auth-buttons');
+    if (ctaBtn) {
+        ctaBtn.parentNode.replaceChild(userInfo, ctaBtn);
+    } else if (authButtons) {
+        authButtons.parentNode.replaceChild(userInfo, authButtons);
     } else {
-        return 'html/';
+        navbarContainer.appendChild(userInfo);
     }
 }
 
