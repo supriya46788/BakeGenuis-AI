@@ -35,6 +35,8 @@ class FeedbackSystem {
             name: formData.get('name').trim(),
             email: formData.get('email').trim(),
             message: formData.get('message').trim(),
+            rating: formData.get('rating'),
+            sentiment: this.detectSentiment(formData.get('message')),
             timestamp: new Date().toISOString(),
             date: new Date().toLocaleDateString('en-US', {
                 year: 'numeric',
@@ -142,6 +144,21 @@ class FeedbackSystem {
         }, 5000);
     }
 
+    // Detect sentiment (simple keyword-based for demo purposes)
+    detectSentiment(message) {
+        const positiveWords = ['good', 'great', 'amazing', 'love', 'excellent','nice'];
+        const negativeWords = ['bad', 'poor', 'terrible', 'hate', 'awful'];
+
+        let score = 0;
+        const lowerMsg = message.toLowerCase();
+
+        positiveWords.forEach(word => { if (lowerMsg.includes(word)) score++; });
+        negativeWords.forEach(word => { if (lowerMsg.includes(word)) score--; });
+
+        if (score > 0) return 'Positive';
+        if (score < 0) return 'Negative';
+        return 'Neutral';
+    }
     // Display feedback list
     displayFeedbackList() {
         const listSection = document.getElementById('feedbackListSection');
@@ -151,15 +168,17 @@ class FeedbackSystem {
             feedbackList.innerHTML = '<p style="text-align: center; color: #666;">No feedback submitted yet.</p>';
         } else {
             feedbackList.innerHTML = this.feedbacks.map(feedback => `
-                <div class="feedback-item">
-                    <div class="feedback-header">
-                        <span class="feedback-name">${this.escapeHtml(feedback.name)}</span>
-                        <span class="feedback-date">${feedback.date}</span>
-                    </div>
-                    <div class="feedback-email">${this.escapeHtml(feedback.email)}</div>
-                    <div class="feedback-message">${this.escapeHtml(feedback.message)}</div>
+            <div class="feedback-item">
+                <div class="feedback-header">
+                    <span class="feedback-name">${this.escapeHtml(feedback.name)}</span>
+                    <span class="feedback-date">${feedback.date}</span>
                 </div>
-            `).join('');
+                <div class="feedback-rating">Rating: ${'⭐'.repeat(feedback.rating)}</div>
+                <div class="feedback-sentiment">Sentiment: ${feedback.sentiment}</div>
+                <div class="feedback-email">${this.escapeHtml(feedback.email)}</div>
+                <div class="feedback-message">${this.escapeHtml(feedback.message)}</div>
+            </div>
+        `).join('');
         }
         
         listSection.style.display = 'block';
