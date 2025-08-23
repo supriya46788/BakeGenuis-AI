@@ -1069,3 +1069,49 @@ body {
         margin-top: 10px;      /* spacing below links */
     }
 }
+/* Make toggle show properly on all screen sizes */
+.nav-links li .theme-switch {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto; /* pushes toggle to the right on big screens */
+}
+
+/* On small screens, make it wrap nicely */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-wrap: wrap;       /* allow items to go to next line */
+        justify-content: flex-start; /* align items nicely */
+        gap: 15px;
+    }
+
+    .nav-links li .theme-switch {
+        margin-left: 0;        /* remove auto margin on small screens */
+        width: 100%;           /* full width so it’s not squeezed */
+        justify-content: flex-start; /* toggle aligns left */
+        margin-top: 10px;      /* spacing below links */
+    }
+}
+/* Make toggle show properly on all screen sizes */
+.nav-links li .theme-switch {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto; /* pushes toggle to the right on big screens */
+}
+
+/* On small screens, make it wrap nicely */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-wrap: wrap;       /* allow items to go to next line */
+        justify-content: flex-start; /* align items nicely */
+        gap: 15px;
+    }
+
+    .nav-links li .theme-switch {
+        margin-left: 0;        /* remove auto margin on small screens */
+        width: 100%;           /* full width so it’s not squeezed */
+        justify-content: flex-start; /* toggle aligns left */
+        margin-top: 10px;      /* spacing below links */
+    }
+}
