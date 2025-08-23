@@ -1,0 +1,172 @@
+/* ===== SCROLL TO TOP BUTTON STYLES ===== */
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #ffd93d);
+    background-size: 200% 200%;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: gradient-shift 3s ease infinite;
+    font-family: 'Comic Neue', cursive;
+}
+
+/* Gradient animation */
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Hover effects */
+.scroll-to-top:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    animation-duration: 1s; /* Speed up gradient on hover */
+}
+
+/* Active/click effect */
+.scroll-to-top:active {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Show animation */
+.scroll-to-top.show {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInUp 0.4s ease-out;
+}
+
+/* Hide animation */
+.scroll-to-top.hide {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    animation: fadeOutDown 0.4s ease-out forwards;
+}
+
+/* Fade in up animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Fade out down animation */
+@keyframes fadeOutDown {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(40px) scale(0.5);
+    }
+}
+
+/* Pulse effect when visible */
+.scroll-to-top.pulse {
+    animation: gradient-shift 3s ease infinite, pulse-effect 2s ease-in-out infinite;
+}
+
+@keyframes pulse-effect {
+    0%, 100% {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 30px rgba(255, 107, 107, 0.6), 0 0 0 10px rgba(255, 107, 107, 0.1);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .scroll-to-top {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 20px;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .scroll-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 18px;
+    }
+}
+
+/* High contrast mode accessibility */
+@media (prefers-contrast: high) {
+    .scroll-to-top {
+        background: #000;
+        color: #fff;
+        border: 2px solid #fff;
+    }
+    
+    .scroll-to-top:hover {
+        background: #333;
+    }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-to-top {
+        animation: none;
+        transition: opacity 0.3s ease;
+    }
+    
+    .scroll-to-top:hover {
+        transform: none;
+        animation: none;
+    }
+    
+    .scroll-to-top.show {
+        animation: none;
+    }
+    
+    .scroll-to-top.hide {
+        animation: none;
+    }
+}
+
+/* Alternative button styles for different themes */
+.scroll-to-top.theme-minimal {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.scroll-to-top.theme-dark {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #ecf0f1;
+}
+
+.scroll-to-top.theme-pastel {
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    color: #8b4513;
+}

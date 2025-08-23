@@ -208,6 +208,17 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderIngredients();
             loadBrandPreference();
+            
+            // Initialize scroll to top with custom theme for customize page
+            if (window.ScrollToTop) {
+                window.scrollToTopInstance = window.ScrollToTop.create({
+                    buttonText: '🎨',
+                    buttonTitle: 'Back to customization options',
+                    theme: 'default',
+                    enablePulse: true,
+                    showOffset: 200
+                });
+            }
         });
 
         // Add some fun interactions

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/scroll-to-top.css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -324,30 +325,11 @@
         &copy; 2025 BakeGenius.ai — All rights reserved.
       </p>
     </footer>
-    <button id="scrollTopBtn" title="Go to top">⬆</button>
 
+    <script src="js/scroll-to-top.js"></script>
     <script src="js/index.js"></script>
     <script src="js/auth.js"></script>
     <link rel="stylesheet" href="css/auth.css">
-    
-    <script>
-  // Get the button
-  let scrollBtn = document.getElementById("scrollTopBtn");
-
-  // When the user scrolls down 100px, show the button
-  window.onscroll = function () {
-    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-      scrollBtn.style.display = "block";
-    } else {
-      scrollBtn.style.display = "none";
-    }
-  };
-
-  // When user clicks, scroll to top
-  scrollBtn.onclick = function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-</script>
 
 </body>
 
