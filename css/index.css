@@ -617,6 +617,20 @@
         }
 
 
+
+/* Specific brand colors */
+.social-icon.linkedin { background: #0077b5; }
+.social-icon.github   { background: #6e5494; }
+.social-icon.email    { background: #ff8800; }
+
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 30px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
 #scrollTopBtn {
   display: block !important;
 
