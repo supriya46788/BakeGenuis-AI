@@ -1,256 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BakeGenius.ai - AI-Powered Baking Conversions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index.css" />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <style>
-    /* Updated Navbar Styles */ 
-    .navbar { 
-      background-color: #fff8f0; 
-      padding: 15px 0; 
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-    } 
-    .navbar-container { 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      max-width: 1200px; 
-      margin: 0 auto; 
-      padding: 0 20px; 
-    } 
-    .logo { 
-      font-size: 24px; 
-      font-weight: bold; 
-      color: #ff6b6b; 
-    } 
-    .nav-links { 
-      display: flex; 
-      list-style: none; 
-      margin: 0; 
-      padding: 0; 
-      align-items: center; 
+      /* Updated Navbar Styles */
+      .navbar {
+        background-color: #fff8f0;
+        padding: 15px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       }
-      .nav-links li { 
-        margin-left: 20px; 
-      } 
-      .nav-links a { 
-        text-decoration: none; 
-        color: #333; 
-        font-weight: 500; 
-        transition: color 0.3s; 
-      } 
-      .nav-links a:hover { 
-        color: #ff6b6b; 
-      } 
-      .nav-links a.active { 
-        color: #ff6b6b; 
-        font-weight: bold; 
-      } 
-      .auth-buttons { 
-        display: flex; 
-        align-items: center; 
-        gap: 10px; 
+      .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
       }
-       .login-btn { 
-        padding: 8px 15px; 
-        background: transparent; 
-        border: 1px solid #ff6b6b; 
-        color: #ff6b6b; 
-        border-radius: 20px; 
-        cursor: pointer; 
-        transition: all 0.3s; 
-        text-decoration: none; 
-        font-weight: 500; 
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #ff6b6b;
       }
-       .login-btn:hover { 
-        background-color: #ff6b6b; 
-        color: white; 
+      .nav-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
       }
-       .signup-btn { 
-        padding: 8px 15px; 
-        background-color: #ff6b6b; 
-        color: white; 
-        border: none; 
-        border-radius: 20px; 
-        cursor: pointer; 
-        transition: all 0.3s; 
-        text-decoration: none; 
-        font-weight: 500; 
+      .nav-links li {
+        margin-left: 20px;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+      .nav-links a:hover {
+        color: #ff6b6b;
+      }
+      .nav-links a.active {
+        color: #ff6b6b;
+        font-weight: bold;
+      }
+      .auth-buttons {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .login-btn {
+        padding: 8px 15px;
+        background: transparent;
+        border: 1px solid #ff6b6b;
+        color: #ff6b6b;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .login-btn:hover {
+        background-color: #ff6b6b;
+        color: white;
+      }
+      .signup-btn {
+        padding: 8px 15px;
+        background-color: #ff6b6b;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .signup-btn:hover {
+        background-color: #ff5252;
+      }
+      .cta-btn {
+        padding: 10px 20px;
+        background-color: #4ecdc4;
+        color: white;
+        border-radius: 20px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s;
+        margin-left: 20px;
+      }
+      .cta-btn:hover {
+        background-color: #3dbeb5;
+      }
+      /* Scroll To Top Button */
+      /* Hamburger */
+      .hamburger {
+        display: none;
+        font-size: 28px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #fff; /* white icon */
+      }
+
+      /* Desktop view */
+      .menu {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      /* Mobile view */
+      @media (max-width: 768px) {
+        .hamburger {
+          display: block;
         }
-         .signup-btn:hover { 
-          background-color: #ff5252; 
+
+        .menu {
+          display: none;
+          flex-direction: column;
+          align-items: flex-start;
+          position: absolute;
+          top: 65px;
+          right: 20px;
+          background: #fff8f0;
+          padding: 15px;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          width: 240px;
+          z-index: 1000;
+          gap: 15px;
         }
-         .cta-btn { 
-          padding: 10px 20px; 
-          background-color: #4ecdc4; 
-          color: white; 
-          border-radius: 20px; 
-          text-decoration: none; 
-          font-weight: bold; 
-          transition: background-color 0.3s; 
-          margin-left: 20px; 
+
+        .menu.active {
+          display: flex;
         }
-         .cta-btn:hover { 
-          background-color: #3dbeb5; 
+
+        .nav-links {
+          flex-direction: column;
+          width: 100%;
+          gap: 10px;
+          margin: 0;
+          padding: 0;
         }
-         /* Scroll To Top Button */
-/* Hamburger */
-.hamburger {
-  display: none;
-  font-size: 28px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #fff; /* white icon */
-}
 
-/* Desktop view */
-.menu {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
+        .nav-links li {
+          margin: 0;
+        }
+        .nav-links a {
+          width: 100%;
+          text-align: left;
+        }
 
-/* Mobile view */
-@media (max-width: 768px) {
-  .hamburger { display: block; }
+        .fb-color,
+        .auth-buttons,
+        .cta-btn {
+          width: 100%;
+          text-align: left;
+        }
 
-  .menu {
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    position: absolute;
-    top: 65px;
-    right: 20px;
-    background: #fff8f0;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 240px;
-    z-index: 1000;
-    gap: 15px;
-  }
+        .auth-buttons {
+          flex-direction: column;
+          gap: 10px;
+        }
 
-  .menu.active { display: flex; }
+        .cta-btn {
+          margin-left: 0;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="logo">🍰 BakeGenius.ai</div>
+        <button
+          class="hamburger"
+          aria-label="Toggle menu"
+          onclick="toggleMenu()"
+        >
+          ☰
+        </button>
+        <div class="menu" id="menu">
+          <ul class="nav-links" id="navLinks">
+            <!-- order you asked -->
+            <li><a href="./index.html" class="active">Home</a></li>
+            <li><a href="./html/customize.html">Customize</a></li>
+            <li><a href="./html/convert.html">Convert Recipe</a></li>
+            <li><a href="./html/recipe_hub.html">Recipe Hub</a></li>
+            <li><a href="./html/about.html">About</a></li>
+          </ul>
 
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-    margin: 0;
-    padding: 0;
-  }
+          <div class="fb-color">
+            <a href="./html/feedback.html">Feedback</a>
+          </div>
 
-  .nav-links li { margin: 0; }
-  .nav-links a { width: 100%; text-align: left; }
+          <div class="auth-buttons">
+            <a href="./html/login.html" class="login-btn">Login</a>
+            <a href="./html/signup.html" class="signup-btn">Sign Up</a>
+          </div>
 
-  .fb-color, .auth-buttons, .cta-btn {
-    width: 100%;
-    text-align: left;
-  }
-
-  .auth-buttons {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .cta-btn {
-    margin-left: 0;
-    text-align: center;
-  }
-}
-
-        
-      </style> 
-</head> 
-<body> 
-  <!-- Navigation --> 
-   <nav class="navbar"> 
-    <div class="navbar-container"> 
-      <div class="logo">🍰 BakeGenius.ai</div>
-      <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
-      <div class="menu" id="menu">
-      <ul class="nav-links" id="navLinks">
-        <!-- order you asked -->
-        <li><a href="./index.html" class="active">Home</a></li>
-        <li><a href="./html/customize.html">Customize</a></li>
-        <li><a href="./html/convert.html">Convert Recipe</a></li>
-        <li><a href="./html/recipe_hub.html">Recipe Hub</a></li>
-        <li><a href="./html/about.html">About</a></li>
-      </ul>
-
-      <div class="fb-color">
-        <a href="./html/feedback.html">Feedback</a>
+          <a href="./html/scale.html" class="cta-btn">Scale Now</a>
+        </div>
       </div>
-
-      <div class="auth-buttons">
-        <a href="./html/login.html" class="login-btn">Login</a>
-        <a href="./html/signup.html" class="signup-btn">Sign Up</a>
-      </div>
-
-      <a href="./html/scale.html" class="cta-btn">Scale Now</a>
-    </div>
-    </div> 
-  </nav>
-  <script>
-  function toggleMenu() {
-    document.getElementsByClassName("navLinks").classList.toggle("active");
-  }
-</script><script>
-  function toggleMenu() {
-    document.getElementById("menu").classList.toggle("active");
-  }
-</script>
-
+    </nav>
+    <script>
+      function toggleMenu() {
+        document.getElementsByClassName("navLinks").classList.toggle("active");
+      }
+    </script>
+    <script>
+      function toggleMenu() {
+        document.getElementById("menu").classList.toggle("active");
+      }
+    </script>
 
     <section class="cupcake-animation">
-    <div class="cup">🧁</div>
-    <div class="cake-top">🍒</div>
+      <div class="cup">🧁</div>
+      <div class="cake-top">🍒</div>
 
-    <div class="sprinkles">
-      <span></span><span></span><span></span>
-    </div>
-  </section>
+      <div class="sprinkles"><span></span><span></span><span></span></div>
+    </section>
 
     <!-- Rest of your HTML remains the same -->
     <main class="main-content">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <h1 class="hero-title">Welcome to BakeGenius.ai</h1>
-            <p class="hero-subtitle">From spoon to scale — get exact gram conversions with AI magic ✨<br>
-            Transform vague recipe measurements into precise, consistent results every time!</p>
-            <a href="html/convert.html" class="cta-button">Start Converting Now 🚀</a>
-        </section>
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <h1 class="hero-title">Welcome to BakeGenius.ai</h1>
+        <p class="hero-subtitle">
+          From spoon to scale — get exact gram conversions with AI magic ✨<br />
+          Transform vague recipe measurements into precise, consistent results
+          every time!
+        </p>
+        <a href="html/convert.html" class="cta-button"
+          >Start Converting Now 🚀</a
+        >
+      </section>
 
-        <!-- Features Preview -->
-        <section class="features-preview">
-            <div class="feature-card">
-                <i class="fas fa-magic feature-icon"></i>
-                <h3 class="feature-title">AI-Powered Precision</h3>
-                <p class="feature-desc">Advanced AI converts "cups" and "spoons" into exact gram measurements for perfect baking every time.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-balance-scale feature-icon"></i>
-                <h3 class="feature-title">Smart Recipe Scaling</h3>
-                <p class="feature-desc">Effortlessly scale recipes up or down while maintaining perfect ratios and adjusting rising agents intelligently.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-cogs feature-icon"></i>
-                <h3 class="feature-title">Custom Preferences</h3>
-                <p class="feature-desc">Personalize conversions based on your preferred brands and ingredient specifications for consistent results.</p>
-            </div>
-        </section>
+      <!-- Features Preview -->
+      <section class="features-preview">
+        <div class="feature-card">
+          <i class="fas fa-magic feature-icon"></i>
+          <h3 class="feature-title">AI-Powered Precision</h3>
+          <p class="feature-desc">
+            Advanced AI converts "cups" and "spoons" into exact gram
+            measurements for perfect baking every time.
+          </p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-balance-scale feature-icon"></i>
+          <h3 class="feature-title">Smart Recipe Scaling</h3>
+          <p class="feature-desc">
+            Effortlessly scale recipes up or down while maintaining perfect
+            ratios and adjusting rising agents intelligently.
+          </p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-cogs feature-icon"></i>
+          <h3 class="feature-title">Custom Preferences</h3>
+          <p class="feature-desc">
+            Personalize conversions based on your preferred brands and
+            ingredient specifications for consistent results.
+          </p>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
@@ -328,27 +361,66 @@
 
     <script src="js/index.js"></script>
     <script src="js/auth.js"></script>
-    <link rel="stylesheet" href="css/auth.css">
-    
+    <link rel="stylesheet" href="css/auth.css" />
+
     <script>
-  // Get the button
-  let scrollBtn = document.getElementById("scrollTopBtn");
+      // Get the button
+      let scrollBtn = document.getElementById("scrollTopBtn");
 
-  // When the user scrolls down 100px, show the button
-  window.onscroll = function () {
-    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-      scrollBtn.style.display = "block";
-    } else {
-      scrollBtn.style.display = "none";
-    }
-  };
+      // When the user scrolls down 100px, show the button
+      window.onscroll = function () {
+        if (
+          document.body.scrollTop > 10 ||
+          document.documentElement.scrollTop > 10
+        ) {
+          scrollBtn.style.display = "block";
+        } else {
+          scrollBtn.style.display = "none";
+        }
+      };
 
-  // When user clicks, scroll to top
-  scrollBtn.onclick = function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-</script>
+      // When user clicks, scroll to top
+      scrollBtn.onclick = function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+    </script>
+    <script>
+      //Js for typing animation of Home page
+      document.addEventListener("DOMContentLoaded", () => {
+        const el = document.querySelector(".hero-title");
 
-</body>
+        if (!el) return;
 
+        // Function to restart typing animation
+        const startTyping = () => {
+          el.classList.remove("typing-active");
+          void el.offsetWidth; // Force reflow to restart animation
+          el.classList.add("typing-active");
+        };
+
+        // Intersection Observer - starts when element is in view
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              startTyping();
+            }
+          },
+          { threshold: 0.5 }
+        );
+
+        observer.observe(el);
+
+        // Detect when user comes back to tab
+        document.addEventListener("visibilitychange", () => {
+          if (!document.hidden) {
+            // Only restart if element is visible in viewport
+            const rect = el.getBoundingClientRect();
+            if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+              startTyping();
+            }
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
