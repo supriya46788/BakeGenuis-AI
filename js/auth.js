@@ -45,7 +45,7 @@ class AuthSystem {
   signup(name, email, password) {
     if (this.emailExists(email)) {
       toastManager.error('An account with this email already exists', 'Signup Error');
-      return;
+      throw new Error('An account with this email already exists');
     }
 
     const newUser = {
@@ -78,20 +78,19 @@ class AuthSystem {
     );
     if (!user) {
       toastManager.error('Invalid email or password', 'Login Error');
-      return;
+      throw new Error('Invalid email or password');
     }
     this.setCurrentUser({
       id: user.id,
       name: user.name,
       email: user.email,
     });
-    return true;
+    return user;
   }
 
   // Logout user
   logout() {
     this.clearCurrentUser();
-
   }
 
   // Check if user is logged in
@@ -222,11 +221,13 @@ function getSuccessEl() {
 }
 
 function showError(message) {
-  // Only show error toasts for specific critical errors
+  // Show toast for critical errors
   const criticalErrors = [
     'An account with this email already exists',
     'Invalid email or password',
-    'Network error - please check your connection'
+    'Network error - please check your connection',
+    'Passwords do not match',
+    'Please enter a valid email address'
   ];
   
   if (criticalErrors.some(error => message.includes(error))) {
@@ -271,7 +272,7 @@ function showSuccess(message) {
   el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-function setLoading(isLoading, buttonId) {
+function setLoading(isLoading, buttonId = 'loginButton') {
   const button = document.getElementById(buttonId);
   if (!button) return;
   const spinner = button.querySelector('.loading-spinner');
@@ -323,7 +324,7 @@ function checkPasswordStrength(password) {
   switch (strength) {
     case 0:
     case 1:
-      message = '⚠ Weak password';
+      message = '⚠️ Weak password';
       strengthElement.className = 'password-strength weak';
       break;
     case 2:
@@ -342,7 +343,8 @@ function checkPasswordStrength(password) {
 }
 
 function validateEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).trim());
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
 }
 
 /* ---------- Page Init ---------- */
@@ -352,11 +354,15 @@ function initLoginPage() {
     return;
   }
 
-  const form = document.getElementById('loginForm');
-  if (form) form.addEventListener('submit', handleLogin);
+  const loginForm = document.getElementById('loginForm');
+  if (loginForm) {
+    loginForm.addEventListener('submit', handleLogin);
+  }
 
   hideError();
-  // Removed welcome toast
+
+  // Initialize Google Sign-In button if available
+  initGoogleSignIn('login');
 }
 
 function initSignupPage() {
@@ -365,8 +371,10 @@ function initSignupPage() {
     return;
   }
 
-  const form = document.getElementById('signupForm');
-  if (form) form.addEventListener('submit', handleSignup);
+  const signupForm = document.getElementById('signupForm');
+  if (signupForm) {
+    signupForm.addEventListener('submit', handleSignup);
+  }
 
   const passwordInput = document.getElementById('password');
   if (passwordInput) {
@@ -376,11 +384,12 @@ function initSignupPage() {
   }
 
   hideError();
-  // Removed welcome toast
+
+  // Initialize Google Sign-In button if available
+  initGoogleSignIn('signup');
 }
 
 /* ---------- Submit Handlers ---------- */
-
 async function handleLogin(event) {
   event.preventDefault();
   hideError();
@@ -393,43 +402,34 @@ async function handleLogin(event) {
   try {
     if (!email || !password) {
       toastManager.error('Please fill in all fields', 'Login Error');
-      // throw new Error('Please fill in all fields');
-      return;
+      throw new Error('Please fill in all fields');
     }
     if (!validateEmail(email)) {
       toastManager.error('Enter a valid email address', 'Login Error');
-      // throw new Error('Please enter a valid email address');
-      return;
+      throw new Error('Please enter a valid email address');
     }
     if (password.length < 6) {
       toastManager.error('Password must be at least 6 characters long', 'Login Error');
-      // throw new Error('Password must be at least 6 characters long');
-      return;
+      throw new Error('Password must be at least 6 characters long');
     }
+
     await new Promise((r) => setTimeout(r, 800));
 
-    if(auth.login(email, password)){
+    auth.login(email, password);
 
     // Success toast ONLY for successful login
-     toastManager.success('Login successful!', '', 1200);
-    // showSuccess('✅ Login successful! Redirecting…');
+    toastManager.success(`Welcome back, ${auth.currentUser.name.split(' ')[0]}! 🎉`, 'Login Successful!');
+
     setTimeout(() => {
       window.location.href = '../index.html';
     }, 1200);
-    }
-    // else{
-    // setTimeout(() => {
-    //   window.location.href = '../index.html';
-    // }, 1200);
     return;
   } catch (err) {
-    toastManager.error(err.message || 'Something went wrong. Please try again.', 'Login Error');
-    // showError(err.message || 'Something went wrong. Please try again.');
+    showError(err.message || 'Something went wrong. Please try again.');
   } finally {
     setLoading(false, 'loginButton');
   }
 }
-
 
 async function handleSignup(event) {
   event.preventDefault();
@@ -445,24 +445,23 @@ async function handleSignup(event) {
   try {
     if (!name || !email || !password || !confirmPassword) {
       toastManager.error('Please fill in all fields', 'Signup Error');
-      return;
+      throw new Error('Please fill in all fields');
     }
     if (name.trim().length < 2) {
       toastManager.error('Name must be at least 2 characters long', 'Signup Error');
-      return;
+      throw new Error('Name must be at least 2 characters long');
     }
-
     if (!validateEmail(email)) {
       toastManager.error('Please enter a valid email address', 'Signup Error');
-      return;
+      throw new Error('Please enter a valid email address');
     }
     if (password.length < 6) {
       toastManager.error('Password must be at least 6 characters long', 'Signup Error');
-      return;
+      throw new Error('Password must be at least 6 characters long');
     }
     if (password !== confirmPassword) {
       toastManager.error('Passwords do not match', 'Signup Error');
-      return;
+      throw new Error('Passwords do not match');
     }
 
     await new Promise((r) => setTimeout(r, 1000));
@@ -471,15 +470,13 @@ async function handleSignup(event) {
 
     // Success toast ONLY for successful signup
     toastManager.success(`Welcome to BakeGenius, ${name.split(' ')[0]}! 🎂`, 'Account Created!');
-    // showSuccess('✅ Signup successful! Redirecting…');
 
     setTimeout(() => {
       window.location.href = '../index.html';
     }, 1400);
     return;
   } catch (err) {
-    toastManager.error(err.message || 'Something went wrong. Please try again.', 'Signup Error');
-    // showError(err.message || 'Something went wrong. Please try again.');
+    showError(err.message || 'Something went wrong. Please try again.');
   } finally {
     setLoading(false, 'signupButton');
   }
@@ -489,68 +486,92 @@ async function handleSignup(event) {
 function updateNavigation() {
   if (!auth.isLoggedIn()) return;
 
-  const navLinks = document.querySelector('.nav-links');
-  const ctaBtn = document.querySelector('.cta-btn');
+  const navbarContainer = document.querySelector('.navbar-container');
+  if (!navbarContainer) return;
 
+  // Hide login/signup buttons
   const loginBtn = document.querySelector('.login-btn');
   const signupBtn = document.querySelector('.signup-btn');
   if (loginBtn) loginBtn.style.display = 'none';
   if (signupBtn) signupBtn.style.display = 'none';
 
-  if (navLinks && ctaBtn) {
-    const loginLink = navLinks.querySelector('a[href*="login.html"]');
-    const signupLink = navLinks.querySelector('a[href*="signup.html"]');
-    if (loginLink) loginLink.parentElement.style.display = 'none';
-    if (signupLink) signupLink.parentElement.style.display = 'none';
+  // Remove existing user-info if present
+  const existingUserInfo = navbarContainer.querySelector('.user-info');
+  if (existingUserInfo) existingUserInfo.remove();
 
-    const userInfo = document.createElement('div');
-    userInfo.className = 'user-info';
-    userInfo.innerHTML = `
-      <div class="user-avatar">${auth.currentUser.name.charAt(0).toUpperCase()}</div>
-      <span>Hi, ${auth.currentUser.name.split(' ')[0]}!</span>
-      <button class="logout-btn" onclick="handleLogout()">Logout</button>
-    `;
+  // Build user info div
+  const userInfo = document.createElement('div');
+  userInfo.className = 'user-info';
+  const hasAvatar = auth.currentUser && auth.currentUser.avatarUrl;
+  const avatarHtml = hasAvatar
+    ? `<img src="${auth.currentUser.avatarUrl}" alt="avatar" class="user-avatar" style="width:32px;height:32px;border-radius:50%;object-fit:cover;" />`
+    : `<div class="user-avatar">${auth.currentUser.name.charAt(0).toUpperCase()}</div>`;
+  
+  userInfo.innerHTML = `
+    ${avatarHtml}
+    <span>Hi, ${auth.currentUser.name.split(' ')[0]}!</span>
+    <button class="logout-btn" onclick="handleLogout()">Logout</button>
+  `;
 
+  // Insert user info in place of CTA button or at the end
+  const ctaBtn = navbarContainer.querySelector('.cta-btn');
+  const authButtons = navbarContainer.querySelector('.auth-buttons');
+  if (ctaBtn) {
     ctaBtn.parentNode.replaceChild(userInfo, ctaBtn);
+  } else if (authButtons) {
+    authButtons.parentNode.replaceChild(userInfo, authButtons);
+  } else {
+    navbarContainer.appendChild(userInfo);
   }
 }
 
 function handleLogout() {
-  Swal.fire({
-    title: 'Are you sure you want to log out?',
-    icon: 'question',
-    showCancelButton: true,
-    confirmButtonColor: '#FF4757',
-    cancelButtonColor: '#70A1FF',
-    confirmButtonText: 'Yes, log out',
-    cancelButtonText: 'Cancel',
-    customClass: {
-      popup: 'swal-popup',
-      title: 'swal-title',
-      confirmButton: 'swal-confirm-btn',
-      cancelButton: 'swal-cancel-btn'
+  if (typeof Swal !== 'undefined') {
+    Swal.fire({
+      title: 'Are you sure you want to log out?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#FF4757',
+      cancelButtonColor: '#70A1FF',
+      confirmButtonText: 'Yes, log out',
+      cancelButtonText: 'Cancel',
+      customClass: {
+        popup: 'swal-popup',
+        title: 'swal-title',
+        confirmButton: 'swal-confirm-btn',
+        cancelButton: 'swal-cancel-btn'
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        performLogout();
+      }
+    });
+  } else {
+    if (confirm('Are you sure you want to logout?')) {
+      performLogout();
     }
-  }).then((result) => {
-    if (result.isConfirmed) {
-      auth.logout();
-      
-      // Success toast ONLY for successful logout
-      toastManager.success('You have been logged out successfully', 'Goodbye!',2000);
-      
-      const currentPath = window.location.pathname;
-      setTimeout(() => {
-        if (currentPath.includes('/html/')) {
+  }
+}
 
-          window.location.href = 'login.html';
-     
-        } else {
-
-          window.location.href = 'html/login.html';
-        }
-      }, 1800);
-      
+function performLogout() {
+  auth.logout();
+  
+  // Disable Google auto-select so the next visit doesn't auto sign-in
+  if (window.google && google.accounts && google.accounts.id) {
+    try { google.accounts.id.disableAutoSelect(); } catch (e) {}
+  }
+  
+  // Success toast ONLY for successful logout
+  toastManager.success('You have been logged out successfully', 'Goodbye!', 2000);
+  
+  const currentPath = window.location.pathname;
+  setTimeout(() => {
+    if (currentPath.includes('/html/')) {
+      window.location.href = 'login.html';
+    } else {
+      window.location.href = 'html/login.html';
     }
-  });
+  }, 1800);
 }
 
 function checkAuth() {
@@ -575,4 +596,126 @@ document.addEventListener('DOMContentLoaded', function () {
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { auth, checkAuth, updateNavigation, handleLogout };
+}
+
+// --------------------
+// Google Sign-In Setup
+// --------------------
+
+function base64UrlDecode(input) {
+  const base64 = input.replace(/-/g, '+').replace(/_/g, '/');
+  const padded = base64.padEnd(base64.length + (4 - base64.length % 4) % 4, '=');
+  try {
+    return decodeURIComponent(atob(padded).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+  } catch (e) {
+    return atob(padded);
+  }
+}
+
+function parseJwt(idToken) {
+  try {
+    const payload = idToken.split('.')[1];
+    const json = base64UrlDecode(payload);
+    return JSON.parse(json);
+  } catch (e) {
+    return null;
+  }
+}
+
+function handleGoogleCredentialResponse(response) {
+  const credential = response && response.credential;
+  if (!credential) {
+    toastManager.error('Google sign-in failed. Please try again.', 'Google Sign-In Error');
+    return;
+  }
+  const payload = parseJwt(credential);
+  if (!payload || !payload.email) {
+    toastManager.error('Unable to parse Google user.', 'Google Sign-In Error');
+    return;
+  }
+
+  const googleUser = {
+    id: 'google:' + (payload.sub || payload.email),
+    name: payload.name || payload.given_name || payload.email.split('@')[0],
+    email: (payload.email || '').toLowerCase(),
+    avatarUrl: payload.picture || '',
+    provider: 'google',
+    createdAt: new Date().toISOString()
+  };
+
+  const existingLocal = auth.users.find(u => u.email.toLowerCase() === googleUser.email);
+  if (!existingLocal) {
+    auth.users.push(googleUser);
+    auth.saveUsers();
+  } else {
+    // Merge avatar and provider info for existing user
+    existingLocal.provider = existingLocal.provider || 'local';
+    if (googleUser.avatarUrl && !existingLocal.avatarUrl) {
+      existingLocal.avatarUrl = googleUser.avatarUrl;
+      auth.saveUsers();
+    }
+  }
+
+  auth.setCurrentUser({ 
+    id: googleUser.id, 
+    name: googleUser.name, 
+    email: googleUser.email, 
+    avatarUrl: googleUser.avatarUrl 
+  });
+
+  // Success toast for Google Sign-In
+  toastManager.success(`Welcome, ${googleUser.name.split(' ')[0]}! 🎉`, 'Google Sign-In Successful!');
+
+  // Redirect to home
+  setTimeout(() => {
+    window.location.href = '../index.html';
+  }, 1200);
+}
+
+function initGoogleSignIn(page) {
+  const target = document.getElementById('google-login-btn');
+  if (!target) return;
+
+  const clientId = (window.GOOGLE_CLIENT_ID || '').trim();
+  if (!clientId) {
+    // Show guidance if client id is not configured
+    target.style.display = 'block';
+    target.innerHTML = '<div style="font-size:14px;color:#888;padding:8px 0;">Set GOOGLE_CLIENT_ID in <code>js/google_config.js</code> to enable Google Sign-In.</div>';
+    console.warn('Google Sign-In: Missing window.GOOGLE_CLIENT_ID. Set it in js/google_config.js');
+    return;
+  }
+
+  let attempts = 0;
+  const maxAttempts = 40; // ~4s
+  const timer = setInterval(function() {
+    attempts++;
+    if (window.google && google.accounts && google.accounts.id) {
+      clearInterval(timer);
+      try {
+        google.accounts.id.initialize({
+          client_id: clientId,
+          callback: handleGoogleCredentialResponse,
+          auto_select: false,
+          cancel_on_tap_outside: true,
+          use_fedcm_for_prompt: true
+        });
+        
+        // Add click handler to existing button
+        target.addEventListener('click', function() {
+          google.accounts.id.prompt();
+        });
+        
+      } catch (e) {
+        console.error('Failed to initialize Google Sign-In', e);
+        target.style.display = 'block';
+        target.innerHTML = '<div style="font-size:14px;color:#888;padding:8px 0;">Failed to initialize Google Sign-In. Check console.</div>';
+      }
+    } else if (attempts >= maxAttempts) {
+      clearInterval(timer);
+      target.style.display = 'block';
+      target.innerHTML = '<div style="font-size:14px;color:#888;padding:8px 0;">Could not load Google script. Check network/ad-blockers.</div>';
+    }
+  }, 100);
 }

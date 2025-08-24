@@ -26,6 +26,128 @@ body {
     overflow-x: hidden;
 }
 
+/* Divider line */
+        .divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 12px 0;
+        }
+
+        .divider::before,
+        .divider::after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px solid #e0e0e0;
+        }
+
+        .divider:not(:empty)::before {
+        margin-right: 15px;
+        }
+
+        .divider:not(:empty)::after {
+        margin-left: 15px;
+        }
+
+        .divider span {
+        color: #666;
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+        padding: 0 5px;
+        }
+
+        /* Google Button */
+        .google-btn {
+            display: flex;
+            font-family: 'Comic Neue', cursive !important;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 1.3rem;
+            background: linear-gradient(
+            135deg,
+            var(--candy-red) 0%,
+            var(--sunny-yellow) 25%,
+            var(--success-green) 50%,
+            var(--sky-blue) 75%,
+            var(--candy-red) 100%
+            );
+            color: white !important;
+            border: none;
+            border-radius: 20px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow:
+                0 8px 20px rgba(66, 133, 244, 0.3),
+                0 4px 10px rgba(15, 157, 88, 0.2);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Shine effect */
+        .google-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.25),
+                transparent
+            );
+            transition: left 0.5s;
+        }
+
+        /* Hover effects */
+        .google-btn:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 15px 35px rgba(66, 133, 244, 0.4),
+                0 8px 15px rgba(15, 157, 88, 0.3);
+            background: linear-gradient(135deg, #F4B400 0%, #DB4437 30%, #0F9D58 70%, #4285F4 100%);
+        }
+
+        .google-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Active click */
+        .google-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Google icon */
+        .google-icon {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.2s ease;
+        filter: drop-shadow(0 0 4px rgba(241, 255, 93, 0.8)); /* soft glow */
+        }
+
+        .google-btn:hover .google-icon {
+            transform: scale(1.1);
+        }
+
+        @keyframes spin {
+            0% {
+                transform: translateY(-50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(-50%) rotate(360deg);
+            }
+        }
 /* Animated Background Elements */
 .floating-elements {
     position: fixed;
@@ -80,6 +202,11 @@ body {
     letter-spacing: 1px;
 }
 
+.logo a{
+    text-decoration: none;
+    color: #fff;
+}
+
 .nav-links {
     display: flex;
     list-style: none;
@@ -113,6 +240,22 @@ body {
 
 .nav-links li a:hover {
     transform: translateY(-2px);
+}
+
+.signup-btn {
+    padding: 8px 15px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signup-btn:hover {
+    background-color: #ff5252;
 }
 
 /* Scale Now Navigation Button */
@@ -465,6 +608,7 @@ body {
     gap: 1rem;
     color: #0b0c6b;
     font-weight: 600;
+    margin-right: 1rem;
 }
 
 .user-avatar {
@@ -570,6 +714,19 @@ body {
     box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4) !important;
 }
 
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.navbar-container > .user-info + .cta-btn {
+    margin-left: 0;
+}
 .swal-cancel-btn {
     background: linear-gradient(45deg, #70A1FF, #60a5fa) !important;
     border: none !important;
@@ -606,14 +763,18 @@ body {
     }
 
     .user-info {
-        flex-wrap: wrap;
         gap: 0.5rem;
-        justify-content: center;
+        margin-right: 0.5rem;
+        font-size: 0.9rem;
     }
 
-    .scale-btn {
-        order: -1;
-        margin-bottom: 0.5rem;
+    .user-info span {
+        display: none;
+    }
+    
+    .logout-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
     }
 
     .auth-container {
@@ -630,6 +791,10 @@ body {
 
     .auth-subtitle {
         font-size: 1rem;
+    }
+    
+    .navbar-container {
+        gap: 0.5rem;
     }
 }
 

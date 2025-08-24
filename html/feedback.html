@@ -26,7 +26,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="navbar-container">
-            <div class="logo">🍰 BakeGenius.ai</div>
+            <div class="logo"><a href="../index.html" >🍰 BakeGenius.ai</a></div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="./convert.html">Convert Recipe</a></li>
@@ -89,7 +89,20 @@
                             required
                         >
                     </div>
-
+                    <div class="form-group">
+                        <label for="feedbackRating" class="form-label">
+                            <i class="fas fa-star"></i>
+                            Rate Us
+                        </label>
+                        <select id="feedbackRating" name="rating" class="form-input" required>
+                            <option value="">Select Rating</option>
+                            <option value="1">⭐</option>
+                            <option value="2">⭐⭐</option>
+                            <option value="3">⭐⭐⭐</option>
+                            <option value="4">⭐⭐⭐⭐</option>
+                            <option value="5">⭐⭐⭐⭐⭐</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="feedbackMessage" class="form-label">
                             <i class="fas fa-comment"></i>
@@ -189,9 +202,6 @@
                     </a>
                     <a href="https://github.com/supriya46788" target="_blank" class="social-icon github">
                         <i class="fa-brands fa-github"></i>
-                    </a>
-                    <a href="#" target="_blank" class="social-icon twitter">
-                        <i class="fa-brands fa-twitter"></i>
                     </a>
                     <a href="mailto:supriyadpandey502@gmail.com" target="_blank" class="social-icon email">
                         <i class="fa-regular fa-envelope"></i>

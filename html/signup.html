@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up - BakeGenius.ai</title>
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../css/auth.css">
+
   <link rel="stylesheet" href="../css/toast.css">
+
+  <!-- Firebase SDK (modular) -->
+  <script type="module" src="../js/firebase.js"></script>
 </head>
 <body>
   <!-- Animated Background Elements -->
@@ -21,7 +25,7 @@
   <!-- Navigation -->
   <nav class="navbar">
     <div class="navbar-container">
-      <div class="logo">🍰 BakeGenius.ai</div>
+      <div class="logo"><a href="../index.html">🍰 BakeGenius.ai</a></div>
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
         <li><a href="./convert.html">Convert Recipe</a></li>
@@ -32,7 +36,7 @@
       <div class="fb-color">
         <a href="feedback.html">Feedback</a>
       </div>
-      <a href="./login.html" class="cta-btn">Login</a>
+      <a href="./login.html" class="signup-btn">Login</a>
     </div>
   </nav>
 
@@ -44,17 +48,17 @@
         <p class="auth-subtitle">Create your account and start baking with precision</p>
       </div>
 
-      <form class="auth-form" id="signupForm" novalidate>
+      <form class="auth-form" id="signupForm">
         <div class="form-group">
           <label for="name" class="form-label">
             <i class="fas fa-user"></i>
             Full Name
           </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            class="form-input"
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            class="form-input" 
             placeholder="Your full name"
             required
             minlength="2"
@@ -66,11 +70,11 @@
             <i class="fas fa-envelope"></i>
             Email Address
           </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            class="form-input"
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            class="form-input" 
             placeholder="your@email.com"
             required
           >
@@ -82,11 +86,11 @@
             Password
           </label>
           <div class="password-input-container">
-            <input
-              type="password"
-              id="password"
-              name="password"
-              class="form-input"
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              class="form-input" 
               placeholder="Create a strong password"
               required
               minlength="6"
@@ -104,11 +108,11 @@
             Confirm Password
           </label>
           <div class="password-input-container">
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              class="form-input"
+            <input 
+              type="password" 
+              id="confirmPassword" 
+              name="confirmPassword" 
+              class="form-input" 
               placeholder="Confirm your password"
               required
             >
@@ -118,15 +122,24 @@
           </div>
         </div>
 
-        <!-- Messages -->
         <div class="error-message" id="errorMessage"></div>
-        <div class="success-message" id="successMessage"></div>
 
         <button type="submit" class="auth-button" id="signupButton">
           <span class="button-text">🚀 Create Account</span>
-          <div class="loading-spinner"></div>
+          <div class="loading-spinner" id="loadingSpinner"></div>
         </button>
       </form>
+
+      <!-- Divider -->
+      <div class="divider"><span>or continue with</span></div>
+
+      <!-- Google Sign Up button -->
+      <button type="button" id="google-login-btn" class="google-btn">
+        <span class="google-logo">
+          <i class="fab fa-google"></i>
+        </span>
+        <span>Sign Up with Google</span>
+      </button>
 
       <div class="auth-footer">
         <p>Already have an account? <a href="./login.html" class="auth-link login-link">🔐 Sign In</a></p>
@@ -134,10 +147,11 @@
     </div>
   </div>
 
+  <!-- Scripts -->
   <script src="../js/auth.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      initSignupPage();
+    document.addEventListener('DOMContentLoaded', function() {
+      initSignupPage(); // from auth.js
     });
   </script>
 </body>
