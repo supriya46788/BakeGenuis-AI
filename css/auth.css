@@ -738,19 +738,6 @@ body {
     box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4) !important;
 }
 
-.navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: auto;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.navbar-container > .user-info + .cta-btn {
-    margin-left: 0;
-}
 .swal-cancel-btn {
     background: linear-gradient(45deg, #70A1FF, #60a5fa) !important;
     border: none !important;
@@ -765,7 +752,6 @@ body {
     transform: translateY(-2px) !important;
     box-shadow: 0 4px 12px rgba(112, 161, 255, 0.4) !important;
 }
-
 .fb-color {
             padding: 8px 15px;
             background-color: rgba(238, 255, 0, 0.356);

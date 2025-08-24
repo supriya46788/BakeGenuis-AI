@@ -75,17 +75,12 @@ body {
 /* Navbar Base */
 .navbar {
   width: 100%;
-  background: linear-gradient(
-    90deg,
-    #60a5fa,
-    #f9a8d4,
-    #fde68a
-  ); /* light blue → light pink → soft yellow */
+  background: linear-gradient(90deg, #60a5fa, #f9a8d4, #fde68a); /* light blue → light pink → soft yellow */
   padding: 12px 20px;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 .navbar-container {

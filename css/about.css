@@ -175,22 +175,6 @@
             color: black;
             text-decoration: none;
         }
-/* CTA Button */
-.cta-btn {
-  padding: 10px 20px;
-  background: linear-gradient(45deg, #60a5fa, #f9a8d4, #fde68a);
-  color: #ffffff;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 30px;
-  transition: all 0.4s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-}
-
-.cta-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-}
 
 /* Scale Now Navigation Button */
 .scale-nav-btn {
@@ -255,6 +239,24 @@
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4) !important;
 }
+
+/* CTA Button */
+.cta-btn {
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #60a5fa, #f9a8d4, #fde68a);
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.cta-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
         /* Hero Section */
         .hero {
             text-align: center;
