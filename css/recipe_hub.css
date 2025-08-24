@@ -162,6 +162,11 @@ body::before {
     letter-spacing: 1px;
 }
 
+.logo a{
+    text-decoration: none;
+    color: #fff;
+}
+
 .nav-links {
     display: flex;
     list-style: none;
@@ -485,7 +490,6 @@ body::before {
     backdrop-filter: blur(15px);
     border-radius: 20px;
     padding: 2rem;
-    margin: 2rem 0;
     box-shadow: 0 8px 30px rgba(0,0,0,0.1);
 }
 
@@ -1003,4 +1007,3 @@ body::before {
     border-top: 1px solid #333;
     padding-top: 20px;
 }
-

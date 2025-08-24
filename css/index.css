@@ -70,6 +70,11 @@
   letter-spacing: 1px;
 }
 
+.logo a{
+    text-decoration: none;
+    color: #fff;
+}
+
 /* Nav Links */
 .nav-links {
   display: flex;
@@ -557,64 +562,6 @@
             line-height: 1.5;
         }
 
-        /* Footer */
-        .footer {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            position: relative;
-            z-index: 2;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-text {
-            color: #666;
-            font-weight: 600;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
-            color: white;
-            text-decoration: none;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .social-link:hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            animation: wobble 0.5s ease-in-out;
-        }
-
-        .social-link.linkedin {
-            background: linear-gradient(45deg, #0077B5, #00A0DC);
-        }
-
-        .social-link.portfolio {
-            background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
-        }
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -674,12 +621,6 @@
             }
         }
 
-.footer {
-    background-color: #FFB6C1;
-    color: #fff;
-    padding: 40px 20px;
-    font-family: sans-serif;
-}
 
 .footer-container {
     max-width: 1200px;
