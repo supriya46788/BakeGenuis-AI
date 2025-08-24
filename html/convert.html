@@ -6,6 +6,9 @@
     <title>Convert Recipe - BakeGenius.ai</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../css/convert.css">
     <link rel="stylesheet" href="../css/scroll-to-top.css">
@@ -14,7 +17,7 @@
     <!-- Navigation -->
     <nav class="navbar">
   <div class="navbar-container">
-    <div class="logo">🍰 BakeGenius.ai</div>
+    <div class="logo"><a href="../index.html" >🍰 BakeGenius.ai</a></div>
       <ul class="nav-links" id="navLinks">
       <li><a href="../index.html" >Home</a></li>
       <li><a href="./convert.html" class="active">Convert Recipe</a></li>
@@ -31,6 +34,7 @@
 
     <!-- Auth Check Script -->
     <script src="../js/auth.js"></script>
+    <script src="../js/firebase.js"></script>
 
     <!-- Main Content -->
     <main>
@@ -160,5 +164,25 @@
 
     <script src="../js/scroll-to-top.js"></script>
     <script src="../js/convert.js"></script>
+    
+    <!-- Back to Top Button -->
+    <button id="scrollTopBtn" title="Go to top">⬆</button>
+    
+    <script>
+        // Back to Top Button functionality
+        let scrollBtn = document.getElementById("scrollTopBtn");
+
+        window.onscroll = function () {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
+
+        scrollBtn.onclick = function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+    </script>
 </body>
 </html>

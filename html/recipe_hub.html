@@ -28,7 +28,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="navbar-container">
-            <div class="logo">🍰 BakeGenius.ai</div>
+            <div class="logo"><a href="../index.html" >🍰 BakeGenius.ai</a></div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="./convert.html">Convert Recipe</a></li>
@@ -261,5 +261,25 @@
     <!-- Scripts -->
     <script src="../js/scroll-to-top.js"></script>
     <script src="../js/recipe_hub.js"></script>
+    
+    <!-- Back to Top Button -->
+    <button id="scrollTopBtn" title="Go to top">⬆</button>
+    
+    <script>
+        // Back to Top Button functionality
+        let scrollBtn = document.getElementById("scrollTopBtn");
+
+        window.onscroll = function () {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
+
+        scrollBtn.onclick = function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+    </script>
 </body>
 </html>
