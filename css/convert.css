@@ -6,8 +6,12 @@
             --mint-green: #2ED573;
             --lavender: #A55EEA;
             --white: #FFFFFF;
-            --dark-gray: #1A1A1A;
+            --dark-gray: #4b4949;
+            --light-gray:#bababa;
             --light-gray: #F8F9FA;
+            --light-pink: #FFE0E6;
+            --light-blue: #E8F4FF;
+            --light-yellow: #FFF5E0;
             --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             --glass: rgba(255, 255, 255, 0.15);
         }
@@ -20,7 +24,7 @@
 
         body {
             font-family: 'Comic Neue', cursive;
-            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--lavender) 50%, var(--soft-pink) 100%);
+            background: linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 50%, var(--light-yellow) 100%);
             min-height: 100vh;
             color: var(--white);
         }
@@ -51,6 +55,11 @@
   font-weight: bold;
   color: #ffffff;
   letter-spacing: 1px;
+}
+
+.logo a{
+    text-decoration: none;
+    color: #fff;
 }
 
 /* Nav Links */
@@ -201,7 +210,7 @@
             font-size: clamp(2rem, 6vw, 3rem);
             font-weight: 700;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, var(--white), var(--sunny-yellow));
+            background: linear-gradient(45deg, var(--dark-gray), var(--sunny-yellow));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -211,6 +220,7 @@
             font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 2rem;
+            color: var(--dark-gray);
         }
 
         .converter-container {
@@ -222,7 +232,7 @@
         }
 
         .input-section {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(151, 146, 146, 0.1);
             backdrop-filter: blur(20px);
             border-radius: 20px;
             padding: 2rem;
@@ -238,7 +248,7 @@
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: var(--white);
+            color: var(--dark-gray);
         }
 
         .recipe-input {
@@ -247,9 +257,9 @@
             padding: 1rem;
             border: none;
             border-radius: 15px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(197, 197, 197, 0.1);
             backdrop-filter: blur(10px);
-            color: var(--white);
+            color: var(--dark-gray);
             font-family: 'Comic Neue', cursive;
             font-size: 1rem;
             resize: vertical;
@@ -259,12 +269,12 @@
 
         .recipe-input:focus {
             outline: none;
-            border-color: var(--sunny-yellow);
-            box-shadow: 0 0 20px rgba(255, 165, 2, 0.3);
+            border-color: var(--light-yellow);
+            box-shadow: 0 0 20px rgba(255, 231, 195, 0.3);
         }
 
         .recipe-input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
+            color:var(--light-gray);
         }
 
         .file-upload {
