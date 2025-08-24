@@ -13,7 +13,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="css/index.css" />
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/scroll-to-top.css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -644,12 +646,16 @@
         &copy; 2025 BakeGenius.ai — All rights reserved.
       </p>
     </footer>
+
     <button id="scrollTopBtn" class="hidden" title="Go to top">
       <i class="fas fa-arrow-up"></i>
     </button>
 
+
+    <script src="js/scroll-to-top.js"></script>
     <script src="js/index.js"></script>
     <script src="js/auth.js"></script>
+
     <link rel="stylesheet" href="css/auth.css" />
 
     <script>
@@ -723,6 +729,7 @@
         );
 
         observer.observe(el);
+
 
         // Detect when user comes back to tab
         document.addEventListener("visibilitychange", () => {
