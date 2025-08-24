@@ -21,7 +21,195 @@ html {
     --lavender: #E6E6FA;
     --navbar-gradient: linear-gradient(90deg, #60a5fa, #f9a8d4, #fde68a);
 }
+/* 🌙 Dark Theme for BakeGenius.ai */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --accent-pink: #ff7f50;
+  --card-bg: rgba(30, 30, 30, 0.9);
+  --card-hover: rgba(50, 50, 50, 0.95);
+  --shadow: rgba(0, 0, 0, 0.7);
+  --navbar-gradient: linear-gradient(90deg, #222, #111, #333);
+}
 
+/* === Global === */
+[data-theme="dark"] html,
+[data-theme="dark"] body {
+  background: linear-gradient(135deg, #121212 0%, #1f1f1f 50%, #2a2a2a 100%) !important;
+  color: var(--text-color) !important;
+}
+
+[data-theme="dark"] body::before {
+  background: none !important;
+}
+
+[data-theme="dark"] .hero-title,
+[data-theme="dark"] .hero-subtitle,
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .user-info {
+  color: #fff !important;
+}
+
+/* === Navbar === */
+/* Navbar Glow & Gradient Magic */
+[data-theme="dark"] .navbar {
+    background: linear-gradient(90deg, #222222, #111111, #333333);
+    box-shadow: 0 4px 20px rgba(187,134,252,0.4);
+    border-bottom: 1px solid rgba(187,134,252,0.2);
+}
+
+[data-theme="dark"] .nav-links li a {
+    color: #ffffff !important;
+    text-shadow: 0 0 8px rgba(187,134,252,0.5);
+}
+
+[data-theme="dark"] .nav-links li a:hover {
+    transform: translateY(-2px);
+    text-shadow: 0 0 12px rgba(187,134,252,0.8);
+}
+
+/* CTA Buttons */
+[data-theme="dark"] .cta-btn {
+  background: linear-gradient(45deg, #bb86fc, #03dac6);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(187,134,252,0.3);
+}
+[data-theme="dark"] .logout-btn {
+  background: linear-gradient(45deg, #ff4b4b, #ff2d2d) !important;
+}
+
+/* Dark Mode Feedback Button */
+[data-theme="dark"] .fb-color {
+    padding: 8px 18px;
+    background: linear-gradient(135deg, rgba(245,115,197,0.9), rgba(190,8,245,0.7));
+    border-radius: 25px;
+    border: 1px solid rgba(190, 8, 245, 0.3);
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(190, 8, 245, 0.3);
+}
+
+[data-theme="dark"] .fb-color:hover {
+    background: linear-gradient(135deg, rgba(243,19,224,0.85), rgba(190,8,245,0.9));
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(190, 8, 245, 0.6);
+}
+
+[data-theme="dark"] .fb-color a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+/* === Recipe Feed / Cards === */
+[data-theme="dark"] .recipe-feed,
+[data-theme="dark"] .search-section,
+[data-theme="dark"] .filters-panel,
+[data-theme="dark"] .recipe-card {
+  background: var(--card-bg) !important;
+  color: #f0f0f0 !important;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 10px 30px var(--shadow);
+}
+[data-theme="dark"] .recipe-card:hover {
+  background: var(--card-hover) !important;
+  box-shadow: 0 15px 40px rgba(187,134,252,0.25);
+}
+[data-theme="dark"] .recipe-title,
+[data-theme="dark"] .recipe-description,
+[data-theme="dark"] .creator-name {
+  color: #fff !important;
+}
+[data-theme="dark"] .action-btn {
+  color: #aaa !important;
+}
+[data-theme="dark"] .action-btn:hover {
+  background: rgba(255,255,255,0.05);
+  color: #fff !important;
+}
+
+/* === Search === */
+[data-theme="dark"] .search-bar {
+  background: rgba(40, 40, 40, 0.9);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+[data-theme="dark"] .search-input {
+  color: #fff !important;
+}
+[data-theme="dark"] .search-input::placeholder {
+  color: #bbb !important;
+}
+/*footer*/
+[data-theme="dark"] .footer {
+    background: var(--footer-bg) !important;
+    color: var(--footer-text) !important;
+    box-shadow: 0 0 30px rgba(255,255,255,0.05);
+}
+
+[data-theme="dark"] .footer-links ul li a,
+[data-theme="dark"] .footer-text {
+    color: #e0e0e0 !important;
+}
+[data-theme="dark"] .footer-links ul li a:hover {
+    color: #ff7f50 !important;
+}
+/* === Avatars, Tags, Badges === */
+[data-theme="dark"] .recipe-difficulty,
+[data-theme="dark"] .recipe-time {
+  background: rgba(255,255,255,0.15);
+  color: #fff !important;
+}
+[data-theme="dark"] .recipe-tag {
+  background: rgba(187,134,252,0.2);
+  color: #bb86fc;
+}
+  /* Dark-Light Toggle Slider */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+/* When checked (dark mode) */
+.theme-switch input:checked + .slider {
+  background: #4ECDC4; /* you can use any gradient if you want */
+}
+
+.theme-switch input:checked + .slider:before {
+  transform: translateX(24px);
+}
 /* Recipe Feed */
 .recipe-feed {
     background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.95) 100%);
@@ -204,7 +392,7 @@ body::before {
 }
 
 .cta-btn {
-    padding: 10px 20px;
+    padding: 8px 20px;
     background: var(--navbar-gradient);
     color: #ffffff;
     font-weight: bold;
