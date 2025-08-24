@@ -44,7 +44,8 @@ class AuthSystem {
   // Register new user
   signup(name, email, password) {
     if (this.emailExists(email)) {
-      throw new Error('An account with this email already exists');
+      toastManager.error('An account with this email already exists', 'Signup Error');
+      return;
     }
 
     const newUser = {
@@ -75,23 +76,22 @@ class AuthSystem {
         u.email.toLowerCase() === email.toLowerCase().trim() &&
         u.password === password
     );
-
     if (!user) {
-      throw new Error('Invalid email or password');
+      toastManager.error('Invalid email or password', 'Login Error');
+      return;
     }
-
     this.setCurrentUser({
       id: user.id,
       name: user.name,
       email: user.email,
     });
-
-    return user;
+    return true;
   }
 
   // Logout user
   logout() {
     this.clearCurrentUser();
+
   }
 
   // Check if user is logged in
@@ -103,6 +103,116 @@ class AuthSystem {
 // Global auth instance
 const auth = new AuthSystem();
 
+/* ---------- Toast System ---------- */
+class ToastManager {
+  constructor() {
+    this.container = this.createContainer();
+    this.toasts = [];
+  }
+
+  createContainer() {
+    let container = document.querySelector('.toast-container');
+    if (!container) {
+      container = document.createElement('div');
+      container.className = 'toast-container';
+      document.body.appendChild(container);
+    }
+    return container;
+  }
+
+  show(message, type = 'info', title = '', duration = 5000) {
+    const toast = this.createToast(message, type, title);
+    this.container.appendChild(toast);
+    this.toasts.push(toast);
+
+    // Trigger animation
+    setTimeout(() => toast.classList.add('show'), 100);
+
+    // Auto remove
+    const removeTimer = setTimeout(() => {
+      this.remove(toast);
+    }, duration);
+
+    // Store timer reference for manual removal
+    toast._removeTimer = removeTimer;
+
+    // Limit number of toasts
+    if (this.toasts.length > 5) {
+      this.remove(this.toasts[0]);
+    }
+
+    return toast;
+  }
+
+  createToast(message, type, title) {
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    
+    const icons = {
+      success: '🎉',
+      error: '❌',
+      warning: '⚠️',
+      info: 'ℹ️'
+    };
+
+    const toastTitle = title || {
+      success: 'Success!',
+      error: 'Error!',
+      warning: 'Warning!',
+      info: 'Info'
+    }[type];
+
+    toast.innerHTML = `
+      <div class="toast-icon">${icons[type] || icons.info}</div>
+      <div class="toast-content">
+        <div class="toast-title">${toastTitle}</div>
+        <div class="toast-message">${message}</div>
+      </div>
+      <button class="toast-close" onclick="toastManager.remove(this.parentElement)">×</button>
+      <div class="toast-progress"></div>
+    `;
+
+    return toast;
+  }
+
+  remove(toast) {
+    if (!toast || !toast.parentElement) return;
+
+    // Clear timer if exists
+    if (toast._removeTimer) {
+      clearTimeout(toast._removeTimer);
+    }
+
+    toast.classList.remove('show');
+    
+    setTimeout(() => {
+      if (toast.parentElement) {
+        toast.parentElement.removeChild(toast);
+      }
+      this.toasts = this.toasts.filter(t => t !== toast);
+    }, 400);
+  }
+
+  success(message, title = 'Success!', duration = 5000) {
+    return this.show(message, 'success', title, duration);
+  }
+
+  error(message, title = 'Error!', duration = 6000) {
+    return this.show(message, 'error', title, duration);
+  }
+
+  warning(message, title = 'Warning!', duration = 5000) {
+    return this.show(message, 'warning', title, duration);
+  }
+
+  info(message, title = 'Info', duration = 4000) {
+    return this.show(message, 'info', title, duration);
+  }
+}
+
+// Global toast manager instance
+const toastManager = new ToastManager();
+
 /* ---------- UI Helpers ---------- */
 function getErrorEl() {
   return document.getElementById('errorMessage');
@@ -112,6 +222,18 @@ function getSuccessEl() {
 }
 
 function showError(message) {
+  // Only show error toasts for specific critical errors
+  const criticalErrors = [
+    'An account with this email already exists',
+    'Invalid email or password',
+    'Network error - please check your connection'
+  ];
+  
+  if (criticalErrors.some(error => message.includes(error))) {
+    toastManager.error(message, 'Authentication Error');
+  }
+  
+  // Keep inline messages for all errors
   const el = getErrorEl();
   if (!el) return;
   el.textContent = message;
@@ -133,6 +255,7 @@ function hideError() {
 }
 
 function showSuccess(message) {
+  // Don't show success toasts here - only in specific success handlers
   const el = getSuccessEl();
   if (!el) return;
   el.textContent = message;
@@ -233,6 +356,7 @@ function initLoginPage() {
   if (form) form.addEventListener('submit', handleLogin);
 
   hideError();
+  // Removed welcome toast
 }
 
 function initSignupPage() {
@@ -252,9 +376,11 @@ function initSignupPage() {
   }
 
   hideError();
+  // Removed welcome toast
 }
 
 /* ---------- Submit Handlers ---------- */
+
 async function handleLogin(event) {
   event.preventDefault();
   hideError();
@@ -265,26 +391,45 @@ async function handleLogin(event) {
   const password = formData.get('password');
 
   try {
-    if (!email || !password) throw new Error('Please fill in all fields');
-    if (!validateEmail(email))
-      throw new Error('Please enter a valid email address');
-
+    if (!email || !password) {
+      toastManager.error('Please fill in all fields', 'Login Error');
+      // throw new Error('Please fill in all fields');
+      return;
+    }
+    if (!validateEmail(email)) {
+      toastManager.error('Enter a valid email address', 'Login Error');
+      // throw new Error('Please enter a valid email address');
+      return;
+    }
+    if (password.length < 6) {
+      toastManager.error('Password must be at least 6 characters long', 'Login Error');
+      // throw new Error('Password must be at least 6 characters long');
+      return;
+    }
     await new Promise((r) => setTimeout(r, 800));
 
-    auth.login(email, password);
+    if(auth.login(email, password)){
 
-    showSuccess('✅ Login successful! Redirecting…');
-
+    // Success toast ONLY for successful login
+     toastManager.success('Login successful!', '', 1200);
+    // showSuccess('✅ Login successful! Redirecting…');
     setTimeout(() => {
       window.location.href = '../index.html';
     }, 1200);
+    }
+    // else{
+    // setTimeout(() => {
+    //   window.location.href = '../index.html';
+    // }, 1200);
     return;
   } catch (err) {
-    showError(err.message || 'Something went wrong. Please try again.');
+    toastManager.error(err.message || 'Something went wrong. Please try again.', 'Login Error');
+    // showError(err.message || 'Something went wrong. Please try again.');
   } finally {
     setLoading(false, 'loginButton');
   }
 }
+
 
 async function handleSignup(event) {
   event.preventDefault();
@@ -299,29 +444,42 @@ async function handleSignup(event) {
 
   try {
     if (!name || !email || !password || !confirmPassword) {
-      throw new Error('Please fill in all fields');
+      toastManager.error('Please fill in all fields', 'Signup Error');
+      return;
     }
-    if (name.trim().length < 2)
-      throw new Error('Name must be at least 2 characters long');
-    if (!validateEmail(email))
-      throw new Error('Please enter a valid email address');
-    if (password.length < 6)
-      throw new Error('Password must be at least 6 characters long');
-    if (password !== confirmPassword)
-      throw new Error('Passwords do not match');
+    if (name.trim().length < 2) {
+      toastManager.error('Name must be at least 2 characters long', 'Signup Error');
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      toastManager.error('Please enter a valid email address', 'Signup Error');
+      return;
+    }
+    if (password.length < 6) {
+      toastManager.error('Password must be at least 6 characters long', 'Signup Error');
+      return;
+    }
+    if (password !== confirmPassword) {
+      toastManager.error('Passwords do not match', 'Signup Error');
+      return;
+    }
 
     await new Promise((r) => setTimeout(r, 1000));
 
     auth.signup(name, email, password);
 
-    showSuccess('✅ Signup successful! Redirecting…');
+    // Success toast ONLY for successful signup
+    toastManager.success(`Welcome to BakeGenius, ${name.split(' ')[0]}! 🎂`, 'Account Created!');
+    // showSuccess('✅ Signup successful! Redirecting…');
 
     setTimeout(() => {
       window.location.href = '../index.html';
     }, 1400);
     return;
   } catch (err) {
-    showError(err.message || 'Something went wrong. Please try again.');
+    toastManager.error(err.message || 'Something went wrong. Please try again.', 'Signup Error');
+    // showError(err.message || 'Something went wrong. Please try again.');
   } finally {
     setLoading(false, 'signupButton');
   }
@@ -333,6 +491,11 @@ function updateNavigation() {
 
   const navLinks = document.querySelector('.nav-links');
   const ctaBtn = document.querySelector('.cta-btn');
+
+  const loginBtn = document.querySelector('.login-btn');
+  const signupBtn = document.querySelector('.signup-btn');
+  if (loginBtn) loginBtn.style.display = 'none';
+  if (signupBtn) signupBtn.style.display = 'none';
 
   if (navLinks && ctaBtn) {
     const loginLink = navLinks.querySelector('a[href*="login.html"]');
@@ -352,7 +515,6 @@ function updateNavigation() {
   }
 }
 
-// Final merged logout with SweetAlert and correct path handling
 function handleLogout() {
   Swal.fire({
     title: 'Are you sure you want to log out?',
@@ -371,12 +533,22 @@ function handleLogout() {
   }).then((result) => {
     if (result.isConfirmed) {
       auth.logout();
+      
+      // Success toast ONLY for successful logout
+      toastManager.success('You have been logged out successfully', 'Goodbye!',2000);
+      
       const currentPath = window.location.pathname;
-      if (currentPath.includes('/html/')) {
-        window.location.href = 'login.html';
-      } else {
-        window.location.href = 'html/login.html';
-      }
+      setTimeout(() => {
+        if (currentPath.includes('/html/')) {
+
+          window.location.href = 'login.html';
+     
+        } else {
+
+          window.location.href = 'html/login.html';
+        }
+      }, 1800);
+      
     }
   });
 }
