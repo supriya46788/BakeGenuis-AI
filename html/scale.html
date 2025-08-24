@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../css/scale.css">
+      <link rel="stylesheet" href="../css/toggle.css">
 </head>
 <body>
     <!-- Floating Background Elements -->
@@ -28,10 +29,17 @@
       <li><a href="./customize.html">Customize</a></li>
       <li><a href="./recipe_hub.html">Recipe Hub</a></li>
       <li><a href="./about.html">About</a></li>
-    </ul>
     <div class="fb-color">
         <a href="feedback.html">Feedback</a>
     </div>
+    </ul>
+      <label class="theme-switch">
+    <input type="checkbox" id="theme-toggle" />
+    <span class="slider">
+      <i class="fas fa-sun"></i>
+      <i class="fas fa-moon"></i>
+    </span>
+  </label>
     <a href="./scale.html" class="cta-btn">Scale Now</a>
   </div>
 </nav>
@@ -184,6 +192,7 @@
 </footer>
 
     <script src="../js/scale.js"></script>
+    <script src="../js/theme.js"></script>
     
     <!-- Back to Top Button -->
     <button id="scrollTopBtn" title="Go to top">⬆</button>
