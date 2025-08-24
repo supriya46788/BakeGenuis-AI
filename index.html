@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en" data-theme="light">
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BakeGenius.ai - AI-Powered Baking Conversions</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap"
@@ -13,13 +14,16 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="css/index.css" />
 
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="../css/toggle.css">
+    <link rel="stylesheet" href="../css/toggle.css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
+
 
     <style>
       /* Updated Navbar Styles */
@@ -484,7 +488,15 @@
           <div class="fb-color">
             <a href="./html/feedback.html">Feedback</a>
           </div>
-
+      <div class="theme-switch-container">
+  <label class="theme-switch">
+    <input type="checkbox" id="theme-toggle" />
+    <span class="slider">
+      <i class="fas fa-sun"></i>
+      <i class="fas fa-moon"></i>
+    </span>
+  </label>
+</div>
           <div class="auth-buttons">
             <a href="./html/login.html" class="login-btn">Login</a>
             <a href="./html/signup.html" class="signup-btn">Sign Up</a>
@@ -648,7 +660,7 @@
     <button id="scrollTopBtn" class="hidden" title="Go to top">
       <i class="fas fa-arrow-up"></i>
     </button>
-
+<script src="js/theme.js"></script>
     <script src="js/index.js"></script>
     <script src="js/auth.js"></script>
     <link rel="stylesheet" href="css/auth.css" />
@@ -739,3 +751,4 @@
     </script>
   </body>
 </html>
+

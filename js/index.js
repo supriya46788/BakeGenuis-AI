@@ -1,20 +1,20 @@
 // Mobile Navigation Toggle
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
+      // const hamburger = document.getElementById('hamburger');
+     // const navLinks = document.getElementById('navLinks');
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
+       //hamburger.addEventListener('click', () => {
+         //   navLinks.classList.toggle('active');
+         //  hamburger.classList.toggle('active');
+     // });
 
-        // Close mobile menu when clicking on a link
-        const navItems = document.querySelectorAll('.nav-links a');
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
+       //Close mobile menu when clicking on a link
+     // const navItems = document.querySelectorAll('.nav-links a');
+      // navItems.forEach(item => {
+        //   item.addEventListener('click', () => {
+          //    navLinks.classList.remove('active');
+          //     hamburger.classList.remove('active');
+        //    });
+    //   });
 
         // Smooth scroll for CTA button
         const ctaButton = document.querySelector('.cta-button');
@@ -51,3 +51,5 @@
                 card.style.boxShadow = 'none';
             });
         });
+     
+
