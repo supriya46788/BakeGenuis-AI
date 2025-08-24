@@ -181,12 +181,223 @@ body[data-theme="dark"] .auth-footer .signup-link {
 body[data-theme="dark"] .auth-footer .signup-link:hover {
     color: #01a7fa;       /* softer orange/pink hover that pops but is readable */
 }
+/* ================= Full Dark Mode ================= */
+html[data-theme="dark"] {
+    background: linear-gradient(135deg, #1C1C1C 0%, #2C2C2C 50%, #0E0E0E 100%);
+    color: #f0f0f0;
+}
+
+html[data-theme="dark"] body {
+    background: none; /* remove light gradient from body */
+    color: #f0f0f0;
+}
+
+/* Navbar Glow & Gradient Magic */
+[data-theme="dark"] .navbar {
+    background: linear-gradient(90deg, #222222, #111111, #333333);
+    box-shadow: 0 4px 20px rgba(187,134,252,0.4);
+    border-bottom: 1px solid rgba(187,134,252,0.2);
+}
+
+[data-theme="dark"] .nav-links li a {
+    color: #ffffff !important;
+    text-shadow: 0 0 8px rgba(187,134,252,0.5);
+}
+
+[data-theme="dark"] .nav-links li a:hover {
+    transform: translateY(-2px);
+    text-shadow: 0 0 12px rgba(187,134,252,0.8);
+}
+
+/* Dark Mode Feedback Button */
+[data-theme="dark"] .fb-color {
+    padding: 8px 18px;
+    background: linear-gradient(135deg, rgba(245,115,197,0.9), rgba(190,8,245,0.7));
+    border-radius: 25px;
+    border: 1px solid rgba(190, 8, 245, 0.3);
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(190, 8, 245, 0.3);
+}
+
+[data-theme="dark"] .fb-color:hover {
+    background: linear-gradient(135deg, rgba(243,19,224,0.85), rgba(190,8,245,0.9));
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(190, 8, 245, 0.6);
+}
+
+[data-theme="dark"] .fb-color a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+html[data-theme="dark"] .floating-cupcake {
+    opacity: 0.5; /* softer for dark bg */
+    text-shadow: 0 0 3px #fff;
+}
+
+html[data-theme="dark"] .auth-card {
+    background: rgba(30, 30, 30, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+html[data-theme="dark"] .auth-title {
+    background: linear-gradient(45deg, #FF6B6B, #70A1FF, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+html[data-theme="dark"] .auth-subtitle {
+    color: #ccc;
+}
+
+html[data-theme="dark"] .form-label,
+html[data-theme="dark"] .auth-footer p {
+    color: #ddd;
+}
+
+html[data-theme="dark"] .form-input {
+    background: rgba(60, 60, 60, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+html[data-theme="dark"] .form-input::placeholder {
+    color: #aaa;
+}
+
+html[data-theme="dark"] .form-input:focus {
+    background: rgba(70, 70, 70, 0.95);
+    border-color: #70A1FF;
+    box-shadow: 0 0 8px rgba(112, 161, 255, 0.5);
+}
+
+html[data-theme="dark"] .password-toggle {
+    color: #ccc;
+}
+
+html[data-theme="dark"] .password-toggle:hover {
+    color: #70A1FF;
+    background: rgba(112, 161, 255, 0.1);
+}
+
+html[data-theme="dark"] .error-message {
+    background: rgba(255, 56, 56, 0.1);
+    border-color: #ff3838;
+    color: #ff3838;
+}
+
+html[data-theme="dark"] .success-message {
+    background: rgba(46, 213, 115, 0.1);
+    border-color: #2ED573;
+    color: #2ED573;
+}
+
+html[data-theme="dark"] .auth-button {
+    background: linear-gradient(45deg, #70A1FF, #FF6B6B);
+    box-shadow: 0 8px 25px rgba(112, 161, 255, 0.7);
+}
+
+html[data-theme="dark"] .auth-button:hover {
+    box-shadow: 0 12px 35px rgba(112, 161, 255, 0.8);
+}
+
+html[data-theme="dark"] .auth-link {
+    color: #e1f5f1;
+}
+
+html[data-theme="dark"] .auth-link:hover {
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .theme-switch .slider {
+    background: #4ECDC4;
+}
+
+html[data-theme="dark"] .theme-switch input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+html[data-theme="dark"] .swal-popup {
+    background: rgba(30, 30, 30, 0.95) !important;
+    color: #fff !important;
+    backdrop-filter: blur(20px);
+}
+
+html[data-theme="dark"] .swal-title {
+    color: #fff !important;
+}
+
+html[data-theme="dark"] .swal-confirm-btn,
+html[data-theme="dark"] .swal-cancel-btn {
+    color: #fff !important;
+}
+/* Dark mode footer link fix */
+body[data-theme="dark"] .auth-footer .signup-link {
+    color: #fcfcfc;       /* softer, readable blue for normal state */
+    text-decoration: underline; /* optional for clarity */
+    transition: color 0.3s ease;
+}
+
+body[data-theme="dark"] .auth-footer .signup-link:hover {
+    color: #01a7fa;       /* softer orange/pink hover that pops but is readable */
+}
 body {
     font-family: 'Comic Neue', cursive;
     background: linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 50%, var(--light-yellow) 100%);
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
+}
+/* Dark-Light Toggle Slider */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+/* When checked (dark mode) */
+.theme-switch input:checked + .slider {
+  background: #4ECDC4; /* you can use any gradient if you want */
+}
+
+.theme-switch input:checked + .slider:before {
+  transform: translateX(24px);
 }
 /* Dark-Light Toggle Slider */
 .theme-switch {
@@ -893,6 +1104,53 @@ body {
     .auth-button {
         padding: 1rem;
         font-size: 1.1rem;
+    }
+}
+/* Make toggle show properly on all screen sizes */
+.nav-links li .theme-switch {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto; /* pushes toggle to the right on big screens */
+}
+
+/* On small screens, make it wrap nicely */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-wrap: wrap;       /* allow items to go to next line */
+        justify-content: flex-start; /* align items nicely */
+        gap: 15px;
+    }
+
+    .nav-links li .theme-switch {
+        margin-left: 0;        /* remove auto margin on small screens */
+        width: 100%;           /* full width so it’s not squeezed */
+        justify-content: flex-start; /* toggle aligns left */
+        margin-top: 10px;      /* spacing below links */
+    }
+>>>>>>> a063742 (Add light/dark toggle on all pages with mobile responsiveness)
+}
+/* Make toggle show properly on all screen sizes */
+.nav-links li .theme-switch {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto; /* pushes toggle to the right on big screens */
+}
+
+/* On small screens, make it wrap nicely */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-wrap: wrap;       /* allow items to go to next line */
+        justify-content: flex-start; /* align items nicely */
+        gap: 15px;
+    }
+
+    .nav-links li .theme-switch {
+        margin-left: 0;        /* remove auto margin on small screens */
+        width: 100%;           /* full width so it’s not squeezed */
+        justify-content: flex-start; /* toggle aligns left */
+        margin-top: 10px;      /* spacing below links */
     }
 }
 /* Make toggle show properly on all screen sizes */

@@ -7,6 +7,8 @@
         :root {
             --bg-color: #ffffff;
             --text-color: #000000;
+            --bg-color: #ffffff;
+            --text-color: #000000;
             --candy-red: #FF6B6B;
             --sky-blue: #4ECDC4;
             --sunny-yellow: #FFD93D;
@@ -259,6 +261,16 @@ body {
 }
 
 
+
+body {
+  font-family: 'Comic Neue', cursive;
+  overflow-x: hidden;
+  background: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  position: relative;
+  transition: background 0.3s, color 0.3s;
+}
 
 body {
   font-family: 'Comic Neue', cursive;
