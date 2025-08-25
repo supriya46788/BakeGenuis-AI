@@ -994,3 +994,43 @@
     transform: scale(1.1);
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
+
+#contributors-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.contributor-card {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    padding: 4px 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    max-width: 150px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.contributor-card img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 6px;
+    flex-shrink: 0;
+}
+
+.contributor-card span {
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contributor-card:hover {
+    transform: translateY(-2px) scale(1.05);
+}
+

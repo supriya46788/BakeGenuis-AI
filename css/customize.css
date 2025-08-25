@@ -695,20 +695,158 @@
             background: #e9fdf0;
         }
 
-        /* Success Message */
-        .success-message {
-            background: rgba(46, 213, 115, 0.1);
-            border: 2px solid #2ED573;
-            border-radius: 15px;
-            padding: 1rem;
-            margin: 1rem 0;
-            text-align: center;
-            color: #2ED573;
-            font-weight: 600;
-            display: none;
-            animation: slideDown 0.5s ease-out;
-        }
+      
+       /* Success Message */
+.success-message {
+    background: #e9fdf0;
+    border: 2px solid #2ED573;
+    border-radius: 10px;
+    padding: 0.6rem 1rem;
+    margin: 1rem auto;
+    max-width: 400px;
+    text-align: center;
+    color: #2ED573;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: none;
+    box-shadow: 0 4px 12px rgba(46, 213, 115, 0.2);
+    animation: fadeInUp 0.5s ease-out;
+}
 
+/* Animation for showing success */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Density Editor Hover Effect */
+.density-editor {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.density-editor::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.density-editor:hover {
+    transform: translateY(-5px);
+    border-color: var(--sky-blue);
+    box-shadow: 0 12px 40px rgba(112, 161, 255, 0.2);
+}
+
+.density-editor:hover::before {
+    left: 100%;
+}
+
+/* Density List (added densities) */
+#densityList {
+    margin-top: 1rem;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+}
+
+#densityList li {
+    background: #f8faff;
+    border: 1px solid #d6e4ff;
+    border-radius: 20px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #3a6ff7;
+    box-shadow: 0 2px 6px rgba(58, 111, 247, 0.15);
+    transition: transform 0.2s ease;
+}
+
+#densityList li:hover {
+    transform: scale(1.05);
+}
+/* Density Editor */
+.density-editor {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.density-editor h2 {
+    text-align: center;
+    color: var(--candy-red);
+    margin-bottom: 1rem;
+}
+
+/* Form styling */
+#densityForm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+#densityForm input {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#densityForm input:focus {
+    border-color: var(--sky-blue);
+    box-shadow: 0 0 0 3px rgba(112, 161, 255, 0.2);
+}
+
+#densityForm button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Make it mobile friendly */
+@media (max-width: 768px) {
+    #densityForm {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #densityForm input,
+    #densityForm button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
         @keyframes slideDown {
             from { transform: translateY(-20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
