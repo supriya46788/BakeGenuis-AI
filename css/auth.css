@@ -3,9 +3,60 @@
 /* Rewritten for Clarity, Maintainability, and Responsiveness        */
 /* =================================================================== */
 
-/* -------------------------------------- */
-/* 1. Global Setup & CSS Variables        */
-/* -------------------------------------- */
+
+/* =======================
+   Theme Styles
+   ======================= */
+html[data-theme="dark"] {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+html[data-theme="light"] {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* =======================
+   Auth Title Gradient
+   ======================= */
+.auth-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+html[data-theme="dark"] .auth-title {
+    background: linear-gradient(45deg, #FF6B6B, #70A1FF, #FFD700);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =======================
+   General UI Elements
+   ======================= */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: #70A1FF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4A90E2;
+}
+
+
 
 * {
   margin: 0;
@@ -76,10 +127,11 @@ body {
   left: 20%;
   animation-delay: 4s;
 }
-.floating-cupcake:nth-child(4) {
-  bottom: 30%;
-  right: 10%;
-  animation-delay: 1s;
+html[data-theme="dark"] .auth-title {
+    background: linear-gradient(45deg, #FF6B6B, #70A1FF, #FFD700);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 @keyframes float {
@@ -102,7 +154,7 @@ body {
   padding: 12px 20px;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
@@ -247,6 +299,135 @@ body {
 .theme-switch input:checked + .slider:before {
   transform: translateX(24px);
 }
+/* Divider line */
+        .divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 12px 0;
+        }
+
+        .divider::before,
+        .divider::after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px solid #e0e0e0;
+        }
+
+        .divider:not(:empty)::before {
+        margin-right: 15px;
+        }
+
+        .divider:not(:empty)::after {
+        margin-left: 15px;
+        }
+
+        .divider span {
+        color: #666;
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+        padding: 0 5px;
+        }
+        /*-candy-red: #FF4757;
+            --sky-blue: #70A1FF;
+            --sunny-yellow: #FFA502;
+            --white: #FFFFFF;
+            --light-pink: #FFE0E6;
+            --light-blue: #E8F4FF;
+            --light-yellow: #FFF5E0;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }*/
+
+        /* Google Button */
+        .google-btn {
+            display: flex;
+            font-family: 'Comic Neue', cursive !important;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 1.3rem;
+            background:rgba(255, 71, 87, 0.8) ;
+            color: white !important;
+            border: none;
+            border-radius: 20px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow:
+                0 8px 20px rgba(66, 133, 244, 0.3),
+                0 4px 10px rgba(15, 157, 88, 0.2);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Shine effect */
+        .google-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.25),
+                transparent
+            );
+            transition: left 0.5s;
+        }
+
+        .google-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Active click */
+        .google-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Google icon */
+        .google-icon {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.2s ease;
+        filter: drop-shadow(0 0 4px rgba(241, 255, 93, 0.8)); /* soft glow */
+        }
+
+        .google-btn:hover .google-icon {
+            transform: scale(1.1);
+        }
+
+        @keyframes spin {
+            0% {
+                transform: translateY(-50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(-50%) rotate(360deg);
+            }
+        }
+/* Animated Background Elements */
+.floating-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+
 
 /* -------------------------------------- */
 /* 5. Auth Card & Container               */
@@ -256,7 +437,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 80px); /* Adjust based on navbar height */
+  min-height: calc(100vh - 70px);
   padding: 2rem 1rem; /* Added horizontal padding */
   position: relative;
   z-index: 10;
@@ -750,6 +931,10 @@ html[data-theme="dark"] .auth-link {
 
 /* Mobile Screens */
 @media (max-width: 480px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
   .auth-card {
     padding: 1.5rem;
     border-radius: 20px;

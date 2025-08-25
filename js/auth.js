@@ -342,6 +342,7 @@ function checkPasswordStrength(password) {
   strengthElement.textContent = message;
 }
 
+// Use the more permissive email validation (keep your version)
 function validateEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -574,24 +575,56 @@ function performLogout() {
   }, 1800);
 }
 
+// Enhanced checkAuth function to handle more scenarios
 function checkAuth() {
-  const protectedPages = ['convert.html', 'customize.html', 'scale.html'];
+  const protectedPages = ['convert.html', 'customize.html', 'scale.html', 'recipe_hub.html'];
   const currentPage = window.location.pathname.split('/').pop();
 
+  // Redirect to login if trying to access protected page without authentication
   if (protectedPages.includes(currentPage) && !auth.isLoggedIn()) {
     window.location.href = 'login.html';
     return false;
   }
 
+  // Redirect away from login/signup pages if already authenticated
+  const authPages = ['login.html', 'signup.html'];
+  if (authPages.includes(currentPage) && auth.isLoggedIn()) {
+    window.location.href = '../index.html';
+    return false;
+  }
+
+  // Update navigation based on auth status
   if (auth.isLoggedIn()) {
     updateNavigation();
+  } else {
+    // Ensure auth elements are visible when logged out
+    const authElements = document.querySelectorAll('a[href*="login.html"], a[href*="signup.html"], .login-btn, .signup-btn');
+    authElements.forEach(element => {
+      element.style.display = '';
+    });
+
+    // Ensure Scale Now button is always visible
+    const scaleButtons = document.querySelectorAll('.cta-btn, .scale-nav-btn, a[href*="scale.html"]');
+    scaleButtons.forEach(button => {
+      button.style.display = '';
+    });
+
+    const userInfo = document.querySelector('.user-info');
+    if (userInfo) {
+      userInfo.remove();
+    }
   }
 
   return true;
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   checkAuth();
+  window.addEventListener('storage', function(e) {
+    if (e.key === 'bakegenius_current_user') {
+      checkAuth();
+    }
+  });
 });
 
 if (typeof module !== 'undefined' && module.exports) {
