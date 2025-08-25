@@ -3,11 +3,27 @@
 /* Rewritten for Clarity, Maintainability, and Responsiveness        */
 /* =================================================================== */
 
- UI.improvement
-html[data-theme="dark"] .auth-card {
-    background: rgba(30, 30, 30, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+
+/* =======================
+   Theme Styles
+   ======================= */
+html[data-theme="dark"] {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+html[data-theme="light"] {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* =======================
+   Auth Title Gradient
+   ======================= */
+.auth-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
 }
 
 html[data-theme="dark"] .auth-title {
@@ -17,20 +33,29 @@ html[data-theme="dark"] .auth-title {
     -webkit-text-fill-color: transparent;
 }
 
-html[data-theme="dark"] .auth-subtitle {
-    color: #ccc;
+/* =======================
+   General UI Elements
+   ======================= */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-html[data-theme="dark"] .form-label,
-html[data-theme="dark"] .auth-footer p {
-    color: #ddd;
-}
-
-html[data-theme="dark"] .form-input {
-    background: rgba(60, 60, 60, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+button {
+    background-color: #70A1FF;
     color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+button:hover {
+    background-color: #4A90E2;
+}
+
 
 
 * {
@@ -102,14 +127,12 @@ body {
   left: 20%;
   animation-delay: 4s;
 }
- UI.improvement
-
 html[data-theme="dark"] .auth-title {
     background: linear-gradient(45deg, #FF6B6B, #70A1FF, #FFD700);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
+}
 
 @keyframes float {
   0%,
@@ -276,7 +299,6 @@ html[data-theme="dark"] .auth-title {
 .theme-switch input:checked + .slider:before {
   transform: translateX(24px);
 }
-UI.improvement
 /* Divider line */
         .divider {
         display: flex;
@@ -930,5 +952,4 @@ html[data-theme="dark"] .auth-link {
   .auth-footer p {
     font-size: 0.9rem; /* Slightly smaller text on mobile */
   }
-}
 }
