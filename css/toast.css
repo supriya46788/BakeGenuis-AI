@@ -1,0 +1,141 @@
+/* Toast Styles */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
+
+.toast {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateX(400px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Comic Neue', cursive;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.toast.success {
+  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+}
+
+.toast.error {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+}
+
+.toast.warning {
+  background: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%);
+}
+
+.toast.info {
+  background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+}
+
+.toast-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.toast-content {
+  flex: 1;
+}
+
+.toast-title {
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  font-size: 15px;
+}
+
+.toast-message {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 13px;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0;
+  margin-left: 8px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+
+.toast-close:hover {
+  opacity: 1;
+}
+
+.toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  width: 100%;
+  transform-origin: left;
+  animation: toast-progress 5s linear forwards;
+}
+
+@keyframes toast-progress {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .toast-container {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+  
+  .toast {
+    transform: translateY(-100px);
+    margin: 0;
+  }
+  
+  .toast.show {
+    transform: translateY(0);
+  }
+}
+
+/* Animation for multiple toasts */
+.toast:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.toast:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.toast:nth-child(4) {
+  animation-delay: 0.3s;
+}
