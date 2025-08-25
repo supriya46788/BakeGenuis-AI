@@ -91,10 +91,29 @@ class AuthSystem {
         this.clearCurrentUser();
     }
 
+
+  // Check if user is logged in
+  isLoggedIn() {
+    return this.currentUser !== null;
+  }
+
+  // Update user information
+  updateUser(userId, updatedData) {
+    const userIndex = this.users.findIndex(user => user.id === userId);
+    if (userIndex !== -1) {
+        this.users[userIndex] = { ...this.users[userIndex], ...updatedData };
+        this.saveUsers();
+        if (this.currentUser && this.currentUser.id === userId) {
+            this.setCurrentUser(this.users[userIndex]);
+        }
+    }
+  }
+
     // Check if user is logged in
     isLoggedIn() {
         return this.currentUser !== null;
     }
+
 }
 
 // Global auth instance
@@ -405,7 +424,11 @@ function updateNavigation() {
 
 // Enhanced checkAuth function to handle more scenarios
 function checkAuth() {
+
+  const protectedPages = ['convert.html', 'customize.html', 'scale.html', 'profile.html'];
+=======
   const protectedPages = ['convert.html', 'customize.html', 'scale.html', 'recipe_hub.html'];
+
   const currentPage = window.location.pathname.split('/').pop();
 
   // Redirect to login if trying to access protected page without authentication
@@ -454,6 +477,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { auth, checkAuth, updateNavigation, handleLogout };
+}
+=======
 // --------------------
 // Google Sign-In Setup
 // --------------------
@@ -566,3 +594,4 @@ function initGoogleSignIn(page) {
         }
     }, 100);
 }
+
