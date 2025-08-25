@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../css/recipe_hub.css">
+      <link rel="stylesheet" href="../css/toggle.css">
 </head>
 <body>
     <!-- Animated Background -->
@@ -27,20 +28,27 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="navbar-container">
-            <div class="logo">🍰 BakeGenius.ai</div>
+            <div class="logo"><a href="../index.html" >🍰 BakeGenius.ai</a></div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="./convert.html">Convert Recipe</a></li>
                 <li><a href="./customize.html">Customize</a></li>
                 <li><a href="./recipe_hub.html" class="active">Recipe Hub</a></li>
                 <li><a href="./about.html">About</a></li>
-            </ul>
-            <div class="fb-color">
-                <a href="feedback.html">Feedback</a>
-            </div>
-            <a href="./scale.html" class="cta-btn">Scale Now</a>
-        </div>
-    </nav>
+    </ul>
+  <label class="theme-switch">
+    <input type="checkbox" id="theme-toggle" />
+    <span class="slider">
+      <i class="fas fa-sun"></i>
+      <i class="fas fa-moon"></i>
+    </span>
+  </label>
+    <div class="fb-color">
+        <a href="feedback.html">Feedback</a>
+    </div>
+    <a href="./scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
+  </div>
+</nav>
 
     <!-- Auth Check Script -->
     <script src="../js/auth.js"></script>
@@ -259,5 +267,26 @@
 
     <!-- Scripts -->
     <script src="../js/recipe_hub.js"></script>
+    <script src="../js/theme.js"></script>
+    
+    <!-- Back to Top Button -->
+    <button id="scrollTopBtn" title="Go to top">⬆</button>
+    
+    <script>
+        // Back to Top Button functionality
+        let scrollBtn = document.getElementById("scrollTopBtn");
+
+        window.onscroll = function () {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
+
+        scrollBtn.onclick = function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+    </script>
 </body>
 </html>

@@ -77,7 +77,7 @@ Many online recipes list ingredients using vague units like cups, teaspoons, and
   <b>This project is now OFFICIALLY accepted for:</b>
 </p>
 
-![GSSoC Logo](/BakeGenuis-AI/gssoc%20logo.png)
+![GSSoC Logo](https://github.com/supriya46788/BakeGenuis-AI/blob/main/gssoc%20logo.png)
 
 🌟 **Exciting News...**
 
