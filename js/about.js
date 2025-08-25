@@ -206,42 +206,42 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     const owner = "supriya46788";  
     const repo = "BakeGenuis-AI";  
-    const token = "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";
     const contributorsContainer = document.getElementById("contributors-container");
-    async function loadContributors(){
-        try {
-            const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contributors`,{
-                headers: {
-                    Authorization: `token ${token}`
-      }
-            });
-            const contributors = await res.json();
-            if (!Array.isArray(contributors)) {
-            console.error("GitHub API Error:", contributors);
-            contributorsContainer.innerHTML = "<p>⚠ Unable to load contributors. Please try again later.</p>";
+
+    async function loadContributors() {
+    const contributorsContainer = document.getElementById("contributors-container");
+    contributorsContainer.innerHTML = "Loading contributors...";
+
+    try {
+        const res = await fetch(`https://api.github.com/repos/supriya46788/BakeGenuis-AI/contributors`);
+        const contributors = await res.json();
+
+        if (!Array.isArray(contributors)) {
+            contributorsContainer.innerHTML = "<p>⚠ Unable to load contributors.</p>";
             return;
-    }
-
-            contributors.forEach(contributor=>{
-                const card = document.createElement("div");
-                card.classList.add("contributor-card");
-                card.innerHTML = `<img src="${contributor.avatar_url}" alt="${contributor.login}">
-                <h3><a href="${contributor.html_url}" target="_blank">${contributor.login}</a></h3>
-                <p>Contributions: ${contributor.contributions}</p>`;
-                contributorsContainer.appendChild(card);
-
-            })
-
-            
-        } catch (error) {
-            console.error("Error fetching contributors:", error);
-            
         }
 
-       
+        contributorsContainer.innerHTML = ""; // Clear loading
 
+        contributors.forEach(contributor => {
+            const card = document.createElement("div");
+            card.classList.add("contributor-card");
+            card.innerHTML = `
+                <img src="${contributor.avatar_url}" alt="${contributor.login}">
+                <span>${contributor.login}</span>
+            `;
+            contributorsContainer.appendChild(card);
+        });
+
+    } catch (error) {
+        console.error("Error fetching contributors:", error);
+        contributorsContainer.innerHTML = "<p>⚠ Error fetching contributors.</p>";
     }
+}
 
+loadContributors();
+
+    loadContributors();
     // Initialize all functions
     createSparkles();
     initScrollAnimations();
@@ -252,12 +252,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initTypingEffect();
     initProblemItemAnimations();
     initStepCardAnimations();
-    initNavLinkEffects();
     initCreatorAvatarEffect();
     initLoadingAnimation();
     initScrollProgress();
-    loadContributors();
-
     // Add some extra sparkle regeneration
     setInterval(createSparkles, 10000);
     
