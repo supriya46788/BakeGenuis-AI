@@ -355,7 +355,7 @@ body {
 .navbar {
   width: 100%;
   background: var(--navbar-gradient); /* light or dark depending on theme */
-  padding: 12px 20px;
+  padding: 0.75rem 1.25rem;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -389,7 +389,7 @@ body {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 25px;
+  gap: 1.5rem;
 }
 
 .nav-links li a {
@@ -398,7 +398,7 @@ body {
   text-decoration: none;
   position: relative;
   transition: all 0.3s ease-in-out;
-  padding: 5px 0;
+  padding: 0.3rem 0;
 }
 
 /* Hover Gradient Underline */
@@ -476,7 +476,7 @@ body {
 
 /* CTA Button */
 .cta-btn {
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   background: var(--cta-gradient);
   color: var(--cta-text);
   font-weight: bold;
@@ -492,7 +492,7 @@ body {
 }
 
 .fb-color {
-  padding: 8px 15px;
+  padding: 0.5rem 0.9rem;
   background-color: rgba(238, 255, 0, 0.356);
   border-radius: 20px;
   border: black 1px solid;
@@ -817,7 +817,7 @@ body {
 }
 
 .login-btn {
-  padding: 8px 15px;
+  padding: 0.5rem 0.9rem;
   background: transparent;
   border: 1px solid #ff6b6b;
   color: #ff6b6b;
@@ -834,7 +834,7 @@ body {
 }
 
 .signup-btn {
-  padding: 8px 15px;
+  padding: 0.5rem 0.9rem;
   background-color: #ff6b6b;
   color: white;
   border: none;
