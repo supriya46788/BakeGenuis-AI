@@ -491,7 +491,7 @@ body::before {
 
 .hero-subtitle {
     font-size: 1.2rem;
-    color: #fff;
+    color: #666;
     opacity: 0.9;
     max-width: 600px;
     margin: 0 auto;
