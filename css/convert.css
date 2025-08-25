@@ -7,11 +7,14 @@
         :root {
             --candy-red: #FF4757;
             --sky-blue: #70A1FF;
+            --dark-gray: #3a3a3a;
             --sunny-yellow: #FFA502;
             --white: #FFFFFF;
             --light-pink: #FFE0E6;
             --light-blue: #E8F4FF;
             --light-yellow: #FFF5E0;
+            --mint-green: #98ff98;  
+            --sky-blue: #87ceeb;
             --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
@@ -415,12 +418,13 @@
         }
 
         .page-title {
+            display: inline-block;
             font-size: clamp(2rem, 6vw, 3rem);
             font-weight: 700;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, var(--dark-gray), var(--sunny-yellow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background: linear-gradient(0deg, var(--dark-gray), var(--sunny-yellow)); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
             background-clip: text;
         }
 
@@ -428,7 +432,6 @@
             font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 2rem;
-            color: var(--dark-gray);
         }
 
         .converter-container {
@@ -456,7 +459,6 @@
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: var(--dark-gray);
         }
 
         .recipe-input {
@@ -467,7 +469,6 @@
             border-radius: 15px;
             background: rgba(197, 197, 197, 0.1);
             backdrop-filter: blur(10px);
-            color: var(--dark-gray);
             font-family: 'Comic Neue', cursive;
             font-size: 1rem;
             resize: vertical;
