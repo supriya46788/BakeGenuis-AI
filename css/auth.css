@@ -82,6 +82,7 @@ html[data-theme="dark"] .auth-card {
 
 html[data-theme="dark"] .auth-title {
     background: linear-gradient(45deg, #FF6B6B, #70A1FF, #FFD700);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -246,6 +247,7 @@ html[data-theme="dark"] .auth-card {
 
 html[data-theme="dark"] .auth-title {
     background: linear-gradient(45deg, #FF6B6B, #70A1FF, #FFD700);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -429,6 +431,17 @@ body {
         white-space: nowrap;
         padding: 0 5px;
         }
+        /*-candy-red: #FF4757;
+            --sky-blue: #70A1FF;
+            --sunny-yellow: #FFA502;
+            --white: #FFFFFF;
+            --light-pink: #FFE0E6;
+            --light-blue: #E8F4FF;
+            --light-yellow: #FFF5E0;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }*/
 
         /* Google Button */
         .google-btn {
@@ -439,14 +452,7 @@ body {
             gap: 8px;
             width: 100%;
             padding: 1.3rem;
-            background: linear-gradient(
-            135deg,
-            var(--candy-red) 0%,
-            var(--sunny-yellow) 25%,
-            var(--success-green) 50%,
-            var(--sky-blue) 75%,
-            var(--candy-red) 100%
-            );
+            background:rgba(255, 71, 87, 0.8) ;
             color: white !important;
             border: none;
             border-radius: 20px;
@@ -480,15 +486,6 @@ body {
                 transparent
             );
             transition: left 0.5s;
-        }
-
-        /* Hover effects */
-        .google-btn:hover {
-            transform: translateY(-2px);
-            box-shadow:
-                0 15px 35px rgba(66, 133, 244, 0.4),
-                0 8px 15px rgba(15, 157, 88, 0.3);
-            background: linear-gradient(135deg, #F4B400 0%, #DB4437 30%, #0F9D58 70%, #4285F4 100%);
         }
 
         .google-btn:hover::before {
