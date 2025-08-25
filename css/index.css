@@ -358,7 +358,7 @@ body {
   padding: 12px 20px;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
   transition: background 0.3s;
 }
@@ -570,7 +570,7 @@ body {
 }
 /* Main Content */
 .main-content {
-  margin-top: 10px;
+  margin-top: 0;
   padding: 2rem;
   position: relative;
   z-index: 2;
@@ -1137,12 +1137,21 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+  
+  .navbar-container {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
   .nav-links {
     position: fixed;
-    top: 80px;
+    top: 70px;
     left: -100%;
     width: 100%;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 70px);
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     flex-direction: column;
@@ -1151,6 +1160,7 @@ body {
     gap: 1rem;
     transition: left 0.3s ease;
     display: flex;
+    z-index: 999;
   }
 
   .nav-links.active {
@@ -1326,7 +1336,7 @@ body {
   font-size: 25px;
   color: white;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 999;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
    /* Smooth transition for transform and shadow */
   transition: transform 0.4s ease, box-shadow 0.4s ease;

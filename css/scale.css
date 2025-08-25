@@ -261,7 +261,7 @@
   padding: 12px 20px;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
@@ -422,7 +422,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem 2rem 2rem;
             position: relative;
             z-index: 10;
         }
@@ -754,6 +754,10 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 15px;
+            }
+
             .nav-links {
                 flex-direction: column;
                 gap: 0.5rem;

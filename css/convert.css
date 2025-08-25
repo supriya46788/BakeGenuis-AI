@@ -246,7 +246,7 @@
   padding: 12px 20px;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
@@ -404,7 +404,7 @@
 
         /* Main Content */
         main {
-            padding: 6rem 2rem 2rem;
+            padding: 2rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -704,6 +704,10 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 15px;
+            }
+
             .nav-links {
                 display: none;
                 position: absolute;
@@ -714,6 +718,7 @@
                 flex-direction: column;
                 padding: 2rem;
                 gap: 1rem;
+                z-index: 999;
             }
 
             .nav-links.active {
