@@ -264,7 +264,7 @@
   padding: 12px 20px;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
@@ -425,7 +425,7 @@
         /* Main Container */
         .container {
             max-width: 1000px;
-            margin: 2rem auto;
+            margin: 1rem auto 2rem;
             padding: 0 1rem;
             position: relative;
             z-index: 10;
@@ -657,6 +657,10 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 15px;
+            }
+
             .nav-links {
                 display: none;
             }

@@ -249,7 +249,7 @@
   padding: 12px 20px;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
@@ -407,7 +407,7 @@
 }
 /* Main Content */
 .main-content {
-    padding-top: 2rem;
+    padding-top: 1rem;
 }
 
 .container {
@@ -956,6 +956,10 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+    
     .hero-title {
         font-size: 2.5rem;
     }

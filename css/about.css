@@ -246,7 +246,7 @@
   padding: 12px 20px;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
@@ -404,7 +404,7 @@
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 2rem 2rem 4rem;
             position: relative;
             z-index: 10;
         }
@@ -796,6 +796,10 @@
 
         /* Mobile Responsive */
         @media (max-width: 968px) {
+            .navbar {
+                padding: 10px 15px;
+            }
+
             .nav-links {
                 display: none;
             }

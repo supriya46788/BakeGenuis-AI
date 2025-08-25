@@ -502,7 +502,7 @@ body {
 /* Hero Section */
 .hero {
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 2rem 2rem 4rem;
     position: relative;
     z-index: 10;
 }
@@ -861,6 +861,10 @@ body {
 
 /* Mobile Responsive */
 @media (max-width: 968px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
     .nav-links {
         display: none;
     }

@@ -131,7 +131,7 @@ html[data-theme="dark"] .auth-title {
   padding: 12px 20px;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
@@ -415,7 +415,7 @@ UI.improvement
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 80px); /* Adjust based on navbar height */
+  min-height: calc(100vh - 70px);
   padding: 2rem 1rem; /* Added horizontal padding */
   position: relative;
   z-index: 10;
@@ -909,6 +909,10 @@ html[data-theme="dark"] .auth-link {
 
 /* Mobile Screens */
 @media (max-width: 480px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
   .auth-card {
     padding: 1.5rem;
     border-radius: 20px;
@@ -926,4 +930,5 @@ html[data-theme="dark"] .auth-link {
   .auth-footer p {
     font-size: 0.9rem; /* Slightly smaller text on mobile */
   }
+}
 }
