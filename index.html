@@ -178,82 +178,94 @@
         cursor: pointer;
         transition: all 0.3s ease;
         text-decoration: none;
-        font-size: 0.9rem;
-        box-shadow: 0 2px 8px rgba(255, 71, 87, 0.3) !important;
-    }
 
-    .logout-btn:hover {
-        background: linear-gradient(45deg, #ff3838, #ff2d2d) !important;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4) !important;
-    }
-      /* Newsletter Section */
-      .newsletter-section {
-        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-        padding: 60px 20px;
-        text-align: center;
-        border-radius: 12px;
-        margin: 40px 0;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        font-weight: bold;
+        transition: background-color 0.3s;
+        margin-left: 20px;
       }
-
-      .newsletter-content {
-        max-width: 600px;
-        margin: 0 auto;
+      .cta-btn:hover {
+        background-color: #3dbeb5;
       }
-
-      .newsletter-section h2 {
-        font-size: 2.2rem;
-        color: #ff7f50;
-        margin-bottom: 15px;
-      }
-
-      .newsletter-section p {
-        font-size: 1.1rem;
-        margin-bottom: 30px;
-        color: #666;
-      }
-
-      .newsletter-form {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        max-width: 500px;
-        margin: 0 auto;
-      }
-
-      .newsletter-form input {
-        padding: 16px 20px;
+      /* Scroll To Top Button */
+      /* Hamburger */
+      .hamburger {
+        display: none;
+        font-size: 28px;
+        background: none;
         border: none;
-        border-radius: 50px;
-        font-size: 1rem;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        outline: none;
-        transition: all 0.3s ease;
-      }
-
-      .newsletter-form input:focus {
-        box-shadow: 0 4px 15px rgba(255, 127, 80, 0.3);
-      }
-
-      .newsletter-form button {
-        background-color: #ff7f50;
-        color: white;
-        border: none;
-        padding: 16px 30px;
-        border-radius: 50px;
-        font-size: 1.1rem;
-        font-weight: 600;
         cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 10px rgba(255, 127, 80, 0.3);
+        color: #fff; /* white icon */
       }
 
-      .newsletter-form button:hover {
-        background-color: #ff956b;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(255, 127, 80, 0.4);
+      /* Desktop view */
+      .menu {
+        display: flex;
+        align-items: center;
+        gap: 20px;
       }
+
+      /* Mobile view */
+      @media (max-width: 768px) {
+        .hamburger {
+          display: block;
+        }
+
+        .menu {
+          display: none;
+          flex-direction: column;
+          align-items: flex-start;
+          position: absolute;
+          top: 65px;
+          right: 20px;
+          background: #fff8f0;
+          padding: 15px;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          width: 240px;
+          z-index: 1000;
+          gap: 15px;
+        }
+
+        .menu.active {
+          display: flex;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          width: 100%;
+          gap: 10px;
+          margin: 0;
+          padding: 0;
+        }
+
+        .nav-links li {
+          margin: 0;
+        }
+        .nav-links a {
+          width: 100%;
+          text-align: left;
+        }
+
+        .fb-color,
+        .auth-buttons,
+        .cta-btn {
+          width: 100%;
+          text-align: left;
+        }
+
+        .auth-buttons {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .cta-btn {
+          margin-left: 0;
+          text-align: center;
+        }
+      }
+
+     
+
 
       /* Toast Notification */
       .toast {
@@ -328,11 +340,98 @@
 
       .footer-container {
         max-width: 1200px;
+        
         margin: 0 auto;
         padding: 0 20px;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+       /* Newsletter Section */
+      .footer-container .newsletter-section {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        padding: 20px;
+        text-align: left;
+        border-radius: 12px;
+        margin: 0 auto;
+        
+        max-width: 3500px;
+        width: 100%;
+      }
+
+      .footer-container .newsletter-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 350px;
+        margin: 0 auto;
+        
+        
+      }
+
+      .footer-container .newsletter-section h2 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #ff7f50;
+        margin-bottom: 8px;
+      }
+
+      .footer-container .newsletter-section p {
+        font-size: 14px;
+        margin-bottom: 12px;
+        color: #fff;
+      }
+
+      .footer-container .newsletter-form {
+        display: flex;
+        
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        max-width: 100%;
+        margin-top: 12px;
+        margin: 12px auto 0 auto;
+        justify-content: center;
+      }
+
+      .footer-container .newsletter-form input {
+        flex: 1;
+        min-width: 180px;
+        max-width: 350px;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        
+        outline: none;
+        transition: all 0.3s ease;
+        
+      }
+
+      .footer-container .newsletter-form input:focus {
+        box-shadow: 0 4px 15px rgba(255, 127, 80, 0.3);
+      }
+
+      .footer-container .newsletter-form button {
+        background-color: #ff7f50;
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(255, 127, 80, 0.3);
+      }
+
+      .footer-container .newsletter-form button:hover {
+        background-color: #ff956b;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(255, 127, 80, 0.4);
       }
 
       .footer-brand h2 {
@@ -533,7 +632,40 @@
       </section>
     </main>
 
-    <!-- Newsletter Section -->
+    
+
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+   
+
+      <div class="footer-container">
+           
+    
+   
+        <!-- Brand -->
+        <div class="footer-brand">
+          <h2>BakeGenius.ai</h2>
+          <p>
+            Baking meets AI — recipes, ideas, and inspiration to make your
+            creations magical!
+          </p>
+        </div>
+
+        <!-- Links -->
+        <div class="footer-links">
+          <h3>Links</h3>
+          <ul>
+            <li><a href="html/about.html">About Us</a></li>
+            <li><a href="html/convert.html">Convert Recipe</a></li>
+            <li><a href="html/customize.html">Customize</a></li>
+            <li><a href="html/scale.html">Scale Recipes</a></li>
+            <li><a href="html/feedback.html">Feedback</a></li>
+          </ul>
+        </div>
+
+         <!-- Newsletter Section -->
     <div class="container">
       <div class="content">
         <div class="newsletter-section">
@@ -557,38 +689,7 @@
       </div>
     </div>
 
-    <!-- Toast Notification -->
-    <div id="toastNotification" class="toast">
-      <div class="toast-icon">✔️</div>
-      <div id="toastMessage" class="toast-message">
-        Subscribed successfully!
-      </div>
-      <button id="toastClose" class="toast-close">&times;</button>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-container">
-        <!-- Brand -->
-        <div class="footer-brand">
-          <h2>BakeGenius.ai</h2>
-          <p>
-            Baking meets AI — recipes, ideas, and inspiration to make your
-            creations magical!
-          </p>
-        </div>
-
-        <!-- Links -->
-        <div class="footer-links">
-          <h3>Links</h3>
-          <ul>
-            <li><a href="html/about.html">About Us</a></li>
-            <li><a href="html/convert.html">Convert Recipe</a></li>
-            <li><a href="html/customize.html">Customize</a></li>
-            <li><a href="html/scale.html">Scale Recipes</a></li>
-            <li><a href="html/feedback.html">Feedback</a></li>
-          </ul>
-        </div>
+       
 
         <!-- Social -->
         <div class="footer-social">
@@ -618,10 +719,25 @@
           </div>
         </div>
       </div>
+
+      
+
+
       <p class="footer-bottom">
         &copy; 2025 BakeGenius.ai — All rights reserved.
       </p>
     </footer>
+
+     <!-- Toast Notification -->
+    <div id="toastNotification" class="toast">
+      <div class="toast-icon">✔️</div>
+      <div id="toastMessage" class="toast-message">
+        Subscribed successfully!
+      </div>
+      <button id="toastClose" class="toast-close">&times;</button>
+    </div>
+
+
     <button id="scrollTopBtn" class="hidden" title="Go to top">
       <i class="fas fa-arrow-up"></i>
     </button>
