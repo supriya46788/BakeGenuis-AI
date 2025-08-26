@@ -6,7 +6,10 @@
   <title>Sign Up - BakeGenius.ai</title>
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/toggle.css">
+  <link rel="stylesheet" href="../css/about.css">
   <link rel="stylesheet" href="../css/auth.css">
+  
 
   <!-- Firebase SDK (modular) -->
   <script type="module" src="../js/firebase.js"></script>
@@ -23,23 +26,24 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="navbar-container">
-            <div class="logo">🍰 BakeGenius.ai</div>
+            <div class="logo"><a href="../index.html">🍰 BakeGenius.ai</a></div>
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="./convert.html">Convert Recipe</a></li>
                 <li><a href="./customize.html">Customize</a></li>
+                <li><a href="./recipe_hub.html">Recipe Hub</a></li>
                 <li><a href="./about.html">About</a></li>
-                </li>
                 </ul>
-<div class="theme-switch-container">
-  <label class="theme-switch">
-    <input type="checkbox" id="theme-toggle" />
-    <span class="slider">
-      <i class="fas fa-sun"></i>
-      <i class="fas fa-moon"></i>
-    </span>
-  </label>
-</div>
+            <label class="theme-switch">
+              <input type="checkbox" id="theme-toggle" />
+              <span class="slider">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+              </span>
+            </label>
+            <div class="fb-color">
+                <a href="feedback.html">Feedback</a>
+            </div>
             <a href="./login.html" class="cta-btn">Login</a>
         </div>
     </nav>
@@ -158,7 +162,7 @@
       initSignupPage(); // from auth.js
     });
   </script>
-    <script src="../js/theme.js"></script>
+  <script src="../js/theme.js"></script>
 
   <!-- Back to Top Button -->
   <button id="scrollTopBtn" title="Go to top">⬆</button>
