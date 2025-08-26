@@ -1161,3 +1161,114 @@
     transform: scale(1.1);
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
+/* ============================= */
+/* Dark Theme Styling            */
+/* ============================= */
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #f1f1f1;
+    --muted-text: #b0b0b0;
+    --accent: #ff6b6b;
+    --border-color: #2c2c2c;
+    --btn-bg: #2a2a2a;
+    --btn-hover: #3a3a3a;
+}
+
+/* Section */
+[data-theme="dark"] .recipe-feed {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Section Header */
+[data-theme="dark"] .section-header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .section-title {
+    color: var(--accent);
+}
+
+[data-theme="dark"] .sort-options select {
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 6px 10px;
+}
+
+/* Recipe Card */
+[data-theme="dark"] .recipe-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-theme="dark"] .recipe-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+}
+
+/* Text */
+[data-theme="dark"] .recipe-title,
+[data-theme="dark"] .creator-name {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .recipe-description,
+[data-theme="dark"] .rating-count,
+[data-theme="dark"] .recipe-time span {
+    color: var(--muted-text);
+}
+
+/* Overlay */
+[data-theme="dark"] .recipe-overlay {
+    background: linear-gradient(to top, rgba(18,18,18,0.9), rgba(18,18,18,0.1));
+    color: var(--text-color);
+}
+
+/* Buttons */
+[data-theme="dark"] .save-btn,
+[data-theme="dark"] .follow-btn,
+[data-theme="dark"] .action-btn {
+    background: var(--btn-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+[data-theme="dark"] .save-btn:hover,
+[data-theme="dark"] .follow-btn:hover,
+[data-theme="dark"] .action-btn:hover {
+    background: var(--btn-hover);
+    color: var(--accent);
+}
+
+/* Tags */
+[data-theme="dark"] .recipe-tags span {
+    background: var(--btn-bg);
+    color: var(--text-color);
+    border-radius: 8px;
+    padding: 3px 8px;
+    margin: 2px;
+    font-size: 0.8rem;
+}
+
+/* Load More Button */
+[data-theme="dark"] .load-more-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    transition: transform 0.2s ease;
+}
+
+[data-theme="dark"] .load-more-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
