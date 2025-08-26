@@ -2,30 +2,6 @@
 <html lang="en" data-theme="light">
 <html lang="en" data-theme="light">
 <head>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BakeGenius.ai - AI-Powered Baking Conversions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link rel="stylesheet" href="css/index.css" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-</head>
-
-<body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="navbar-container">
-      <div class="logo"><a href="./index.html">🍰 BakeGenius.ai</a></div>
-      <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
-        ☰
-      </button>
-      <div class="menu" id="menu">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BakeGenius.ai - AI-Powered Baking Conversions</title>
@@ -581,229 +557,284 @@
     <nav class="navbar">
       <div class="navbar-container">
         <div class="logo"><a href="./index.html">🍰 BakeGenius.ai</a></div>
-
         <ul class="nav-links" id="navLinks">
-          <!-- order you asked -->
           <li><a href="./index.html" class="active">Home</a></li>
           <li><a href="./html/convert.html">Convert Recipe</a></li>
           <li><a href="./html/customize.html">Customize</a></li>
           <li><a href="./html/recipe_hub.html">Recipe Hub</a></li>
           <li><a href="./html/about.html">About</a></li>
         </ul>
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-toggle" />
+          <span class="slider">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+          </span>
+        </label>
+        <div class="fb-color">
+          <a href="./html/feedback.html">Feedback</a>
+        </div>
         <div class="auth-buttons">
           <a href="./html/login.html" class="login-btn">Login</a>
           <a href="./html/signup.html" class="signup-btn">Sign Up</a>
         </div>
+        <a href="./html/scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
+      </div>
+    </nav>
 
-        <a href="./html/scale.html" class="cta-btn">Scale Now</a>
-        <div class="theme-switch-container">
-          <label class="theme-switch">
-            <input type="checkbox" id="theme-toggle" />
-            <span class="slider">
-              <i class="fas fa-sun"></i>
-              <i class="fas fa-moon"></i>
-            </span>
-          </label>
-        </div>
-  </nav>
-  <script>
-    function toggleMenu() {
-      document
-        .getElementsByClassName("navLinks")
-        .classList.toggle("active");
-    }
-  </script>
-  <script>
-    function toggleMenu() {
-      document.getElementById("menu").classList.toggle("active");
-    }
-  </script>
+    <section class="cupcake-animation">
+      <div class="cup">🧁</div>
+      <div class="cake-top">🍒</div>
 
-  <section class="cupcake-animation">
-    <div class="cup">🧁</div>
-    <div class="cake-top">🍒</div>
-
-    <div class="sprinkles"><span></span><span></span><span></span></div>
-  </section>
-
-  <!-- Rest of your HTML remains the same -->
-  <main class="main-content">
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <h1 class="hero-title">Welcome to BakeGenius.ai</h1>
-      <p class="hero-subtitle">
-        From spoon to scale — get exact gram conversions with AI magic ✨<br />
-        Transform vague recipe measurements into precise, consistent results
-        every time!
-      </p>
-      <a href="html/convert.html" class="cta-button">Start Converting Now 🚀</a>
+      <div class="sprinkles"><span></span><span></span><span></span></div>
     </section>
 
-    <!-- Features Preview -->
-    <section class="features-preview">
-      <div class="feature-card">
-        <i class="fas fa-wand-magic-sparkles feature-icon magic"></i>
-        <h3 class="feature-title">AI-Powered Precision</h3>
-        <p class="feature-desc">
-          Advanced AI converts "cups" and "spoons" into exact gram
-          measurements for perfect baking every time.
+    <!-- Rest of your HTML remains the same -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <h1 class="hero-title">Welcome to BakeGenius.ai</h1>
+        <p class="hero-subtitle">
+          From spoon to scale — get exact gram conversions with AI magic ✨<br />
+          Transform vague recipe measurements into precise, consistent results
+          every time!
         </p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-balance-scale feature-icon scale"></i>
-        <h3 class="feature-title">Smart Recipe Scaling</h3>
-        <p class="feature-desc">
-          Effortlessly scale recipes up or down while maintaining perfect
-          ratios and adjusting rising agents intelligently.
-        </p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-cogs feature-icon gears"></i>
-        <h3 class="feature-title">Custom Preferences</h3>
-        <p class="feature-desc">
-          Personalize conversions based on your preferred brands and
-          ingredient specifications for consistent results.
-        </p>
-      </div>
-    </section>
-  </main>
+        <a href="html/convert.html" class="cta-button"
+          >Start Converting Now 🚀</a
+        >
+      </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <!-- Brand -->
-      <div class="footer-brand">
-        <h2>BakeGenius.ai</h2>
-        <p>
-          Baking meets AI — recipes, ideas, and inspiration to make your
-          creations magical!
-        </p>
-      </div>
-      <!-- Links -->
-      <div class="footer-links">
-        <h3>Links</h3>
-        <ul>
-          <li><a href="html/about.html">About Us</a></li>
-          <li><a href="html/convert.html">Convert Recipe</a></li>
-          <li><a href="html/customize.html">Customize</a></li>
-          <li><a href="html/scale.html">Scale Recipes</a></li>
-          <li><a href="html/feedback.html">Feedback</a></li>
-        </ul>
-      </div>
-      <!-- Social -->
-      <div class="footer-social">
-        <h3>Follow Us</h3>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-icon linkedin">
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
-          <a href="https://github.com/supriya46788" target="_blank" class="social-icon github">
-            <i class="fa-brands fa-github"></i>
-          </a>
-          <a href="mailto:supriyadpandey502@gmail.com" target="_blank" class="social-icon email">
-            <i class="fa-regular fa-envelope"></i>
-          </a>
+      <!-- Features Preview -->
+      <section class="features-preview">
+        <div class="feature-card">
+          <i class="fas fa-wand-magic-sparkles feature-icon magic"></i>
+          <h3 class="feature-title">AI-Powered Precision</h3>
+          <p class="feature-desc">
+            Advanced AI converts "cups" and "spoons" into exact gram
+            measurements for perfect baking every time.
+          </p>
         </div>
-      </div>
-      <div class="fb-color">
-        <a href="./html/feedback.html">Feedback</a>
+        <div class="feature-card">
+          <i class="fas fa-balance-scale feature-icon scale"></i>
+          <h3 class="feature-title">Smart Recipe Scaling</h3>
+          <p class="feature-desc">
+            Effortlessly scale recipes up or down while maintaining perfect
+            ratios and adjusting rising agents intelligently.
+          </p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-cogs feature-icon gears"></i>
+          <h3 class="feature-title">Custom Preferences</h3>
+          <p class="feature-desc">
+            Personalize conversions based on your preferred brands and
+            ingredient specifications for consistent results.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    
+
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+   
+
+      <div class="footer-container">
+           
+    
+   
+        <!-- Brand -->
+        <div class="footer-brand">
+          <h2>BakeGenius.ai</h2>
+          <p>
+            Baking meets AI — recipes, ideas, and inspiration to make your
+            creations magical!
+          </p>
+        </div>
+
+        <!-- Links -->
+        <div class="footer-links">
+          <h3>Links</h3>
+          <ul>
+            <li><a href="html/about.html">About Us</a></li>
+            <li><a href="html/convert.html">Convert Recipe</a></li>
+            <li><a href="html/customize.html">Customize</a></li>
+            <li><a href="html/scale.html">Scale Recipes</a></li>
+            <li><a href="html/feedback.html">Feedback</a></li>
+          </ul>
+        </div>
+
+         <!-- Newsletter Section -->
+    <div class="container">
+      <div class="content">
+        <div class="newsletter-section">
+          <div class="newsletter-content">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>
+              Get the latest baking tips, AI-generated recipes, and exclusive
+              content delivered to your inbox!
+            </p>
+            <form class="newsletter-form" id="newsletterForm">
+              <input
+                type="email"
+                id="newsletterEmail"
+                placeholder="Your email address"
+                required
+              />
+              <button type="submit">Subscribe Now</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-    <p class="footer-bottom">
-      &copy; 2025 BakeGenius.ai — All rights reserved.
-    </p>
-  </footer>
-  <button id="scrollTopBtn" class="hidden" title="Go to top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-  <script src="js/theme.js"></script>
-  <script src="js/index.js"></script>
-  <script src="js/auth.js"></script>
 
-  <script>
-    // Get the button
-    let scrollBtn = document.getElementById("scrollTopBtn");
-    const threshold = 30;
+       
 
-    // When the user scrolls down 100px, show the button
-    function toggleBtn() {
-      if (window.scrollY > threshold) scrollBtn.classList.remove("hidden");
-      else scrollBtn.classList.add("hidden");
-    }
+        <!-- Social -->
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a
+              href="https://www.linkedin.com/in/supriyapandey595/"
+              target="_blank"
+              class="social-icon linkedin"
+            >
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/supriya46788"
+              target="_blank"
+              class="social-icon github"
+            >
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a
+              href="mailto:supriyadpandey502@gmail.com"
+              target="_blank"
+              class="social-icon email"
+            >
+              <i class="fa-regular fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
 
-    window.addEventListener("scroll", toggleBtn, { passive: true });
-    toggleBtn(); // set correct state on load
+      
 
-    scrollBtn.addEventListener("click", () =>
-      window.scrollTo({ top: 0, behavior: "smooth" })
-    );
 
-    // Newsletter form
-    const newsletterForm = document.getElementById("newsletterForm");
-    const newsletterEmail = document.getElementById("newsletterEmail");
-    const toast = document.getElementById("toastNotification");
-    const toastMsg = document.getElementById("toastMessage");
-    const toastClose = document.getElementById("toastClose");
+      <p class="footer-bottom">
+        &copy; 2025 BakeGenius.ai — All rights reserved.
+      </p>
+    </footer>
 
-    newsletterForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const email = newsletterEmail.value.trim();
-      if (!email) return;
+     <!-- Toast Notification -->
+    <div id="toastNotification" class="toast">
+      <div class="toast-icon">✔️</div>
+      <div id="toastMessage" class="toast-message">
+        Subscribed successfully!
+      </div>
+      <button id="toastClose" class="toast-close">&times;</button>
+    </div>
 
-      // Simulate subscription
-      toast.classList.add("show");
-      toastMsg.textContent = "Subscribed successfully!";
-      toast.classList.remove("toast-error");
-      toast.classList.add("toast-success");
 
-      newsletterEmail.value = "";
-      setTimeout(() => {
+    <button id="scrollTopBtn" class="hidden" title="Go to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+<script src="js/theme.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/auth.js"></script>
+    <link rel="stylesheet" href="css/auth.css" />
 
-        toast.classList.remove("show");
-      }, 4000);
-    });
+    <script>
+      // Get the button
+      let scrollBtn = document.getElementById("scrollTopBtn");
+      const threshold = 30;
 
-    toastClose.addEventListener("click", () => {
-      toast.classList.remove("show");
-    });
-  </script>
-  <script>
-    //Js for typing animation of Home page
-    document.addEventListener("DOMContentLoaded", () => {
-      const el = document.querySelector(".hero-title");
+      // When the user scrolls down 100px, show the button
+      function toggleBtn() {
+        if (window.scrollY > threshold) scrollBtn.classList.remove("hidden");
+        else scrollBtn.classList.add("hidden");
+      }
 
-      if (!el) return;
+      window.addEventListener("scroll", toggleBtn, { passive: true });
+      toggleBtn(); // set correct state on load
 
-      // Function to restart typing animation
-      const startTyping = () => {
-        el.classList.remove("typing-active");
-        void el.offsetWidth; // Force reflow to restart animation
-        el.classList.add("typing-active");
-      };
-
-      // Intersection Observer - starts when element is in view
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            startTyping();
-          }
-        },
-        { threshold: 0.5 }
+      scrollBtn.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" })
       );
 
-      observer.observe(el);
+      // Newsletter form
+      const newsletterForm = document.getElementById("newsletterForm");
+      const newsletterEmail = document.getElementById("newsletterEmail");
+      const toast = document.getElementById("toastNotification");
+      const toastMsg = document.getElementById("toastMessage");
+      const toastClose = document.getElementById("toastClose");
 
-      // Detect when user comes back to tab
-      document.addEventListener("visibilitychange", () => {
-        if (!document.hidden) {
-          // Only restart if element is visible in viewport
-          const rect = el.getBoundingClientRect();
-          if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-            startTyping();
-          }
-        }
+      newsletterForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const email = newsletterEmail.value.trim();
+        if (!email) return;
+
+        // Simulate subscription
+        toast.classList.add("show");
+        toastMsg.textContent = "Subscribed successfully!";
+        toast.classList.remove("toast-error");
+        toast.classList.add("toast-success");
+
+        newsletterEmail.value = "";
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 4000);
       });
-    });
-  </script>
-</body>
+
+      toastClose.addEventListener("click", () => {
+        toast.classList.remove("show");
+      });
+    </script>
+    <script>
+      //Js for typing animation of Home page
+      document.addEventListener("DOMContentLoaded", () => {
+        const el = document.querySelector(".hero-title");
+
+        if (!el) return;
+
+        // Function to restart typing animation
+        const startTyping = () => {
+          el.classList.remove("typing-active");
+          void el.offsetWidth; // Force reflow to restart animation
+          el.classList.add("typing-active");
+        };
+
+        // Intersection Observer - starts when element is in view
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              startTyping();
+            }
+          },
+          { threshold: 0.5 }
+        );
+
+        observer.observe(el);
+
+        // Detect when user comes back to tab
+        document.addEventListener("visibilitychange", () => {
+          if (!document.hidden) {
+            // Only restart if element is visible in viewport
+            const rect = el.getBoundingClientRect();
+            if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+              startTyping();
+            }
+          }
+        });
+      });
+
+      //smooth-scrolling
+      
+    </script>
+    <script src="https://unpkg.com/lenis@1.1.21/dist/lenis.min.js"></script>
+    <script src="./js/feature.js"></script>
+  </body>
 </html>
