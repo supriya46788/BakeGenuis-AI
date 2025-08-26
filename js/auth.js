@@ -45,7 +45,8 @@ class AuthSystem {
   signup(name, email, password) {
     if (this.emailExists(email)) {
       toastManager.error('An account with this email already exists', 'Signup Error');
-      throw new Error('An account with this email already exists');
+      // throw new Error('An account with this email already exists');
+      return;
     }
 
     const newUser = {
@@ -66,7 +67,7 @@ class AuthSystem {
       email: newUser.email,
     });
 
-    return newUser;
+    return true;
   }
 
   // Login user
@@ -78,14 +79,15 @@ class AuthSystem {
     );
     if (!user) {
       toastManager.error('Invalid email or password', 'Login Error');
-      throw new Error('Invalid email or password');
+      // throw new Error('Invalid email or password');
+      return;
     }
     this.setCurrentUser({
       id: user.id,
       name: user.name,
       email: user.email,
     });
-    return user;
+    return true;
   }
 
   // Logout user
@@ -403,30 +405,34 @@ async function handleLogin(event) {
   try {
     if (!email || !password) {
       toastManager.error('Please fill in all fields', 'Login Error');
-      throw new Error('Please fill in all fields');
+      // throw new Error('Please fill in all fields');
+      return;
     }
     if (!validateEmail(email)) {
       toastManager.error('Enter a valid email address', 'Login Error');
-      throw new Error('Please enter a valid email address');
+      // throw new Error('Please enter a valid email address');
+      return;
     }
     if (password.length < 6) {
       toastManager.error('Password must be at least 6 characters long', 'Login Error');
-      throw new Error('Password must be at least 6 characters long');
+      // throw new Error('Password must be at least 6 characters long');
+      return;
     }
 
     await new Promise((r) => setTimeout(r, 800));
 
-    auth.login(email, password);
-
-    // Success toast ONLY for successful login
-    toastManager.success(`Welcome back, ${auth.currentUser.name.split(' ')[0]}! 🎉`, 'Login Successful!');
-
-    setTimeout(() => {
+    if(auth.login(email, password)){
+      // Success toast ONLY for successful login
+      toastManager.success(`Welcome back, ${auth.currentUser.name.split(' ')[0]}! 🎉`, 'Login Successful!');
+      setTimeout(() => {
       window.location.href = '../index.html';
     }, 1200);
-    return;
+    }
+
+    
   } catch (err) {
-    showError(err.message || 'Something went wrong. Please try again.');
+    toastManager.error(err.message || 'Something went wrong. Please try again.', 'Login Error');
+    // showError(err.message || 'Something went wrong. Please try again.');
   } finally {
     setLoading(false, 'loginButton');
   }
@@ -446,38 +452,43 @@ async function handleSignup(event) {
   try {
     if (!name || !email || !password || !confirmPassword) {
       toastManager.error('Please fill in all fields', 'Signup Error');
-      throw new Error('Please fill in all fields');
+      // throw new Error('Please fill in all fields');
+      return;
     }
     if (name.trim().length < 2) {
       toastManager.error('Name must be at least 2 characters long', 'Signup Error');
-      throw new Error('Name must be at least 2 characters long');
+      // throw new Error('Name must be at least 2 characters long');
+      return;
     }
     if (!validateEmail(email)) {
       toastManager.error('Please enter a valid email address', 'Signup Error');
-      throw new Error('Please enter a valid email address');
+      // throw new Error('Please enter a valid email address');
+      return;
     }
     if (password.length < 6) {
       toastManager.error('Password must be at least 6 characters long', 'Signup Error');
-      throw new Error('Password must be at least 6 characters long');
+      // throw new Error('Password must be at least 6 characters long');
+      return;
     }
     if (password !== confirmPassword) {
       toastManager.error('Passwords do not match', 'Signup Error');
-      throw new Error('Passwords do not match');
+      // throw new Error('Passwords do not match');
+      return;
     }
 
     await new Promise((r) => setTimeout(r, 1000));
 
-    auth.signup(name, email, password);
-
-    // Success toast ONLY for successful signup
-    toastManager.success(`Welcome to BakeGenius, ${name.split(' ')[0]}! 🎂`, 'Account Created!');
+    if(auth.signup(name, email, password)){
+      // Success toast ONLY for successful signup
+      toastManager.success(`Welcome to BakeGenius, ${name.split(' ')[0]}! 🎂`, 'Account Created!');
 
     setTimeout(() => {
       window.location.href = '../index.html';
     }, 1400);
-    return;
+  }
   } catch (err) {
-    showError(err.message || 'Something went wrong. Please try again.');
+    // showError(err.message || 'Something went wrong. Please try again.');
+    toastManager.error(err.message || 'Something went wrong. Please try again.', 'Signup Error');
   } finally {
     setLoading(false, 'signupButton');
   }
