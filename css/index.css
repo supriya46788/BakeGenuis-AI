@@ -355,10 +355,10 @@ body {
 .navbar {
   width: 100%;
   background: var(--navbar-gradient); /* light or dark depending on theme */
-  padding: 12px 20px;
+  padding: 0.75rem 1.25rem;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
   transition: background 0.3s;
 }
@@ -389,7 +389,7 @@ body {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 25px;
+  gap: 1.5rem;
 }
 
 .nav-links li a {
@@ -398,7 +398,7 @@ body {
   text-decoration: none;
   position: relative;
   transition: all 0.3s ease-in-out;
-  padding: 5px 0;
+  padding: 0.3rem 0;
 }
 
 /* Hover Gradient Underline */
@@ -476,7 +476,7 @@ body {
 
 /* CTA Button */
 .cta-btn {
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   background: var(--cta-gradient);
   color: var(--cta-text);
   font-weight: bold;
@@ -492,6 +492,7 @@ body {
 }
 
 .fb-color {
+
   padding: 8px 16px;
     background: linear-gradient(45deg, #60a5fa, #fde68a);
     color: #ffffff;
@@ -501,6 +502,7 @@ body {
     transition: all 0.4s ease;
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
     border: 0;
+
 }
 .fb-color:hover {
   transform: scale(1.08);
@@ -576,7 +578,7 @@ body {
 }
 /* Main Content */
 .main-content {
-  margin-top: 10px;
+  margin-top: 0;
   padding: 2rem;
   position: relative;
   z-index: 2;
@@ -823,7 +825,7 @@ body {
 }
 
 .login-btn {
-  padding: 8px 15px;
+  padding: 0.5rem 0.9rem;
   background: transparent;
   border: 1px solid #ff6b6b;
   color: #ff6b6b;
@@ -840,7 +842,7 @@ body {
 }
 
 .signup-btn {
-  padding: 8px 15px;
+  padding: 0.5rem 0.9rem;
   background-color: #ff6b6b;
   color: white;
   border: none;
@@ -1143,12 +1145,21 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+  
+  .navbar-container {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
   .nav-links {
     position: fixed;
-    top: 80px;
+    top: 70px;
     left: -100%;
     width: 100%;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 70px);
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     flex-direction: column;
@@ -1157,6 +1168,7 @@ body {
     gap: 1rem;
     transition: left 0.3s ease;
     display: flex;
+    z-index: 999;
   }
 
   .nav-links.active {
@@ -1332,7 +1344,7 @@ body {
   font-size: 25px;
   color: white;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 999;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
    /* Smooth transition for transform and shadow */
   transition: transform 0.4s ease, box-shadow 0.4s ease;

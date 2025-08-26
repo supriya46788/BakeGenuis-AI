@@ -7,11 +7,14 @@
         :root {
             --candy-red: #FF4757;
             --sky-blue: #70A1FF;
+            --dark-gray: #3a3a3a;
             --sunny-yellow: #FFA502;
             --white: #FFFFFF;
             --light-pink: #FFE0E6;
             --light-blue: #E8F4FF;
             --light-yellow: #FFF5E0;
+            --mint-green: #98ff98;  
+            --sky-blue: #87ceeb;
             --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
@@ -243,10 +246,10 @@
 .navbar {
   width: 100%;
   background: linear-gradient(90deg, #60a5fa, #f9a8d4, #fde68a); /* light blue → light pink → soft yellow */
-  padding: 12px 20px;
+  padding: 0.75rem 1.25rem;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
@@ -275,7 +278,7 @@
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 25px;
+  gap: 1.5rem;
 }
 
 .nav-links li a {
@@ -284,7 +287,7 @@
   text-decoration: none;
   position: relative;
   transition: all 0.3s ease-in-out;
-  padding: 5px 0;
+  padding: 0.3rem 0;
 }
 
 /* Hover Gradient Underline */
@@ -309,6 +312,7 @@
   transform: translateY(-2px);
 }
 .fb-color {
+
             padding: 8px 16px;
     background: linear-gradient(45deg, #60a5fa, #fde68a);
     color: #ffffff;
@@ -317,6 +321,7 @@
     border-radius: 30px;
     transition: all 0.4s ease;
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+
         }
         .fb-color:hover{
             transform: scale(1.08);
@@ -328,12 +333,14 @@
         }
 /* CTA Button */
 .cta-btn {
+
   padding: 8px 16px;
+
   background: linear-gradient(45deg, #60a5fa, #f9a8d4, #fde68a);
   color: #ffffff;
   font-weight: bold;
   text-decoration: none;
-  border-radius: 30px;
+  border-radius: 1.875rem;
   transition: all 0.4s ease;
   box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
@@ -409,7 +416,7 @@
 
         /* Main Content */
         main {
-            padding: 6rem 2rem 2rem;
+            padding: 2rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -420,12 +427,13 @@
         }
 
         .page-title {
+            display: inline-block;
             font-size: clamp(2rem, 6vw, 3rem);
             font-weight: 700;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, var(--dark-gray), var(--sunny-yellow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background: linear-gradient(0deg, var(--dark-gray), var(--sunny-yellow)); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
             background-clip: text;
         }
 
@@ -433,7 +441,6 @@
             font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 2rem;
-            color: var(--dark-gray);
         }
 
         .converter-container {
@@ -461,7 +468,6 @@
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: var(--dark-gray);
         }
 
         .recipe-input {
@@ -472,7 +478,6 @@
             border-radius: 15px;
             background: rgba(197, 197, 197, 0.1);
             backdrop-filter: blur(10px);
-            color: var(--dark-gray);
             font-family: 'Comic Neue', cursive;
             font-size: 1rem;
             resize: vertical;
@@ -709,6 +714,10 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 15px;
+            }
+
             .nav-links {
                 display: none;
                 position: absolute;
@@ -719,6 +728,7 @@
                 flex-direction: column;
                 padding: 2rem;
                 gap: 1rem;
+                z-index: 999;
             }
 
             .nav-links.active {
