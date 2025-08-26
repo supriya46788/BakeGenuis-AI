@@ -2,6 +2,7 @@
 <html lang="en" data-theme="light">
 <html lang="en" data-theme="light">
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BakeGenius.ai - AI-Powered Baking Conversions</title>
@@ -24,6 +25,563 @@
         ☰
       </button>
       <div class="menu" id="menu">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BakeGenius.ai - AI-Powered Baking Conversions</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="../css/toggle.css">
+    <link rel="stylesheet" href="../css/toggle.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="./css/feature.css">
+<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.8/dist/lenis.css">
+    <style>
+      /* Updated Navbar Styles */
+    .navbar {
+      width: 100%;
+      background: linear-gradient(90deg, #60a5fa, #f9a8d4, #fde68a); /* light blue → light pink → soft yellow */
+      padding: 12px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* Logo */
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+
+    .logo a{
+        text-decoration: none;
+        color: #fff;
+    }
+
+    /* Nav Links */
+    .nav-links {
+      margin-left: -2px;
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    .nav-links li a {
+      color: #ffffff;
+      font-weight: 500;
+      text-decoration: none;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      padding: 5px 0;
+    }
+
+    /* Hover Gradient Underline */
+    .nav-links li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #60a5fa, #f9a8d4, #fde68a);
+      border-radius: 5px;
+      transition: width 0.4s ease;
+    }
+
+    .nav-links li a:hover::after,
+    .nav-links li a.active::after {
+      width: 100%;
+    }
+
+    .nav-links li a:hover {
+      transform: translateY(-2px);
+    }
+    .fb-color {
+                padding: 8px 15px;
+                background-color: rgba(238, 255, 0, 0.356);
+                border-radius: 20px;
+                border: black 1px solid;
+            }
+            .fb-color:hover{
+                background-color: rgba(169, 196, 13, 0.39);
+            }
+            .fb-color a {
+                color: black;
+                text-decoration: none;
+            }
+    /* CTA Button */
+    .cta-btn {
+      padding: 10px 20px;
+      background: linear-gradient(45deg, #60a5fa, #f9a8d4, #fde68a);
+      color: #ffffff;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Scale Now Navigation Button */
+    .scale-nav-btn {
+      margin-left: -30px;
+        background: linear-gradient(45deg, #60a5fa, #fde68a) !important;
+        color: #ffffff !important;
+        padding: 8px 16px !important;
+        border-radius: 20px !important;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 2px 8px rgba(96, 165, 250, 0.3) !important;
+        display: inline-block !important;
+    }
+
+    .scale-nav-btn:hover {
+        transform: translateY(-2px) scale(1.05) !important;
+        box-shadow: 0 4px 12px rgba(96, 165, 250, 0.4) !important;
+    }
+
+    .scale-nav-btn::after {
+        display: none !important;
+    }
+
+    /* User Info Display */
+    .user-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: #ffffff;
+        font-weight: 600;
+    }
+
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(45deg, var(--candy-red), var(--sunny-yellow));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: white;
+    }
+
+    .logout-btn {
+        background: linear-gradient(45deg, #ff4757, #ff3838) !important;
+        color: #ffffff;
+        border: none !important;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-family: 'Comic Neue', cursive;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+
+        font-weight: bold;
+        transition: background-color 0.3s;
+        margin-left: 20px;
+      }
+      .cta-btn:hover {
+        background-color: #3dbeb5;
+      }
+      /* Scroll To Top Button */
+      /* Hamburger */
+      .hamburger {
+        display: none;
+        font-size: 28px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #fff; /* white icon */
+      }
+
+      /* Desktop view */
+      .menu {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      /* Mobile view */
+      @media (max-width: 768px) {
+        .hamburger {
+          display: block;
+        }
+
+        .menu {
+          display: none;
+          flex-direction: column;
+          align-items: flex-start;
+          position: absolute;
+          top: 65px;
+          right: 20px;
+          background: #fff8f0;
+          padding: 15px;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          width: 240px;
+          z-index: 1000;
+          gap: 15px;
+        }
+
+        .menu.active {
+          display: flex;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          width: 100%;
+          gap: 10px;
+          margin: 0;
+          padding: 0;
+        }
+
+        .nav-links li {
+          margin: 0;
+        }
+        .nav-links a {
+          width: 100%;
+          text-align: left;
+        }
+
+        .fb-color,
+        .auth-buttons,
+        .cta-btn {
+          width: 100%;
+          text-align: left;
+        }
+
+        .auth-buttons {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .cta-btn {
+          margin-left: 0;
+          text-align: center;
+        }
+      }
+
+     
+
+
+      /* Toast Notification */
+      .toast {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: white;
+        color: #333;
+        padding: 18px 25px;
+        border-radius: 8px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        transform: translateY(100px);
+        opacity: 0;
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        z-index: 1000;
+      }
+
+      .toast.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .toast-success {
+        border-left: 5px solid #4caf50;
+      }
+
+      .toast-error {
+        border-left: 5px solid #f44336;
+      }
+
+      .toast-icon {
+        font-size: 24px;
+      }
+
+      .toast-success .toast-icon {
+        color: #4caf50;
+      }
+
+      .toast-error .toast-icon {
+        color: #f44336;
+      }
+
+      .toast-message {
+        flex: 1;
+      }
+
+      .toast-close {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: #999;
+        transition: color 0.3s;
+      }
+
+      .toast-close:hover {
+        color: #333;
+      }
+
+      /* Footer Styles */
+      .footer {
+        width: 100%;
+        background: linear-gradient(135deg, #ffb6c1 0%, #ff9aac 100%);
+        color: #fff;
+        padding: 50px 0 20px;
+        border-radius: 12px 12px 0 0;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+       /* Newsletter Section */
+      .footer-container .newsletter-section {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        padding: 20px;
+        text-align: left;
+        border-radius: 12px;
+        margin: 0 auto;
+        
+        max-width: 3500px;
+        width: 100%;
+      }
+
+      .footer-container .newsletter-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 350px;
+        margin: 0 auto;
+        
+        
+      }
+
+      .footer-container .newsletter-section h2 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #ff7f50;
+        margin-bottom: 8px;
+      }
+
+      .footer-container .newsletter-section p {
+        font-size: 14px;
+        margin-bottom: 12px;
+        color: #fff;
+      }
+
+      .footer-container .newsletter-form {
+        display: flex;
+        
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        max-width: 100%;
+        margin-top: 12px;
+        margin: 12px auto 0 auto;
+        justify-content: center;
+      }
+
+      .footer-container .newsletter-form input {
+        flex: 1;
+        min-width: 180px;
+        max-width: 350px;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        
+        outline: none;
+        transition: all 0.3s ease;
+        
+      }
+
+      .footer-container .newsletter-form input:focus {
+        box-shadow: 0 4px 15px rgba(255, 127, 80, 0.3);
+      }
+
+      .footer-container .newsletter-form button {
+        background-color: #ff7f50;
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(255, 127, 80, 0.3);
+      }
+
+      .footer-container .newsletter-form button:hover {
+        background-color: #ff956b;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(255, 127, 80, 0.4);
+      }
+
+      .footer-brand h2 {
+        font-size: 2rem;
+        color: #ff7f50;
+        margin-bottom: 15px;
+      }
+
+      .footer-brand p {
+        font-size: 1rem;
+        line-height: 1.6;
+        max-width: 280px;
+      }
+
+      .footer h3 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+        color: #ff7f50;
+        position: relative;
+        display: inline-block;
+      }
+
+      .footer h3::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 40px;
+        height: 3px;
+        background-color: #ff7f50;
+        border-radius: 2px;
+      }
+
+      .footer-links ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links ul li {
+        margin-bottom: 12px;
+      }
+
+      .footer-links ul li a {
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+        font-weight: 500;
+      }
+
+      .footer-links ul li a:hover {
+        color: #ff7f50;
+        transform: translateX(5px);
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 15px;
+      }
+
+      .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        color: white;
+        font-size: 20px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .social-icon:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .social-icon.linkedin {
+        background: #0077b5;
+      }
+      .social-icon.github {
+        background: #6e5494;
+      }
+      .social-icon.twitter {
+        background: #1da1f2;
+      }
+      .social-icon.email {
+        background: #ff8800;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        font-size: 0.9rem;
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .footer-container {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+        }
+
+        .toast {
+          left: 20px;
+          right: 20px;
+          bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="logo"><a href="./index.html">🍰 BakeGenius.ai</a></div>
+
         <ul class="nav-links" id="navLinks">
           <!-- order you asked -->
           <li><a href="./index.html" class="active">Home</a></li>
