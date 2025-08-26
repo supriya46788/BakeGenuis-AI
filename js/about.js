@@ -185,25 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Add scroll progress indicator
-    function initScrollProgress() {
-        const progressBar = document.createElement('div');
-        progressBar.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--candy-red), var(--sky-blue), var(--sunny-yellow));
-            z-index: 9999;
-            transition: width 0.3s ease;
-        `;
-        document.body.appendChild(progressBar);
-
-        window.addEventListener('scroll', () => {
-            const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-            progressBar.style.width = scrollPercent + '%';
-        });
-    }
+    
     const owner = "supriya46788";  
     const repo = "BakeGenuis-AI";  
     const contributorsContainer = document.getElementById("contributors-container");
@@ -254,7 +236,7 @@ loadContributors();
     initStepCardAnimations();
     initCreatorAvatarEffect();
     initLoadingAnimation();
-    initScrollProgress();
+    // initScrollProgress();
     // Add some extra sparkle regeneration
     setInterval(createSparkles, 10000);
     
