@@ -13,207 +13,26 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
-
-    <style>
-    /* Updated Navbar Styles */ 
-    .navbar { 
-      background-color: #fff8f0; 
-      padding: 15px 0; 
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-    } 
-    .navbar-container { 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      max-width: 1200px; 
-      margin: 0 auto; 
-      padding: 0 20px; 
-    } 
-    .logo { 
-      font-size: 24px; 
-      font-weight: bold; 
-      color: #ff6b6b; 
-    } 
-    .nav-links { 
-      display: flex; 
-      list-style: none; 
-      margin: 0; 
-      padding: 0; 
-      align-items: center; 
-      }
-      .nav-links li { 
-        margin-left: 20px; 
-      } 
-      .nav-links a { 
-        text-decoration: none; 
-        color: #333; 
-        font-weight: 500; 
-        transition: color 0.3s; 
-      } 
-      .nav-links a:hover { 
-        color: #ff6b6b; 
-      } 
-      .nav-links a.active { 
-        color: #ff6b6b; 
-        font-weight: bold; 
-      } 
-      .auth-buttons { 
-        display: flex; 
-        align-items: center; 
-        gap: 10px; 
-      }
-       .login-btn { 
-        padding: 8px 15px; 
-        background: transparent; 
-        border: 1px solid #ff6b6b; 
-        color: #ff6b6b; 
-        border-radius: 20px; 
-        cursor: pointer; 
-        transition: all 0.3s; 
-        text-decoration: none; 
-        font-weight: 500; 
-      }
-       .login-btn:hover { 
-        background-color: #ff6b6b; 
-        color: white; 
-      }
-       .signup-btn { 
-        padding: 8px 15px; 
-        background-color: #ff6b6b; 
-        color: white; 
-        border: none; 
-        border-radius: 20px; 
-        cursor: pointer; 
-        transition: all 0.3s; 
-        text-decoration: none; 
-        font-weight: 500; 
-        }
-         .signup-btn:hover { 
-          background-color: #ff5252; 
-        }
-         .cta-btn { 
-          padding: 10px 20px; 
-          background-color: #4ecdc4; 
-          color: white; 
-          border-radius: 20px; 
-          text-decoration: none; 
-          font-weight: bold; 
-          transition: background-color 0.3s; 
-          margin-left: 20px; 
-        }
-         .cta-btn:hover { 
-          background-color: #3dbeb5; 
-        }
-         /* Scroll To Top Button */
-/* Hamburger */
-.hamburger {
-  display: none;
-  font-size: 28px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #fff; /* white icon */
-}
-
-/* Desktop view */
-.menu {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-/* Mobile view */
-@media (max-width: 768px) {
-  .hamburger { display: block; }
-
-  .menu {
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    position: absolute;
-    top: 65px;
-    right: 20px;
-    background: #fff8f0;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 240px;
-    z-index: 1000;
-    gap: 15px;
-  }
-
-  .menu.active { display: flex; }
-
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-links li { margin: 0; }
-  .nav-links a { width: 100%; text-align: left; }
-
-  .fb-color, .auth-buttons, .cta-btn {
-    width: 100%;
-    text-align: left;
-  }
-
-  .auth-buttons {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .cta-btn {
-    margin-left: 0;
-    text-align: center;
-  }
-}
-
-        
-      </style> 
 </head> 
 <body> 
   <!-- Navigation --> 
    <nav class="navbar"> 
     <div class="navbar-container"> 
       <div class="logo">🍰 BakeGenius.ai</div>
-      <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
-      <div class="menu" id="menu">
+      <button id="hamburger" class="hamburger" aria-label="Toggle menu">☰</button>
       <ul class="nav-links" id="navLinks">
-        <!-- order you asked -->
         <li><a href="./index.html" class="active">Home</a></li>
         <li><a href="./html/customize.html">Customize</a></li>
         <li><a href="./html/convert.html">Convert Recipe</a></li>
         <li><a href="./html/recipe_hub.html">Recipe Hub</a></li>
         <li><a href="./html/about.html">About</a></li>
+        <li><a href="./html/feedback.html" class="fb-color">Feedback</a></li>
+        <li><a href="./html/login.html" class="login-btn">Login</a></li>
+        <li><a href="./html/signup.html" class="signup-btn">Sign Up</a></li>
+        <li><a href="./html/scale.html" class="cta-btn">Scale Now</a></li>
       </ul>
-
-      <div class="fb-color">
-        <a href="./html/feedback.html">Feedback</a>
-      </div>
-
-      <div class="auth-buttons">
-        <a href="./html/login.html" class="login-btn">Login</a>
-        <a href="./html/signup.html" class="signup-btn">Sign Up</a>
-      </div>
-
-      <a href="./html/scale.html" class="cta-btn">Scale Now</a>
-    </div>
     </div> 
   </nav>
-  <script>
-  function toggleMenu() {
-    document.getElementsByClassName("navLinks").classList.toggle("active");
-  }
-</script><script>
-  function toggleMenu() {
-    document.getElementById("menu").classList.toggle("active");
-  }
-</script>
-
-
     <section class="cupcake-animation">
     <div class="cup">🧁</div>
     <div class="cake-top">🍒</div>

@@ -46,10 +46,12 @@
         /* Navbar Base */
 .navbar {
   width: 100%;
-  background: linear-gradient(90deg, #60a5fa, #f9a8d4, #fde68a); /* light blue → light pink → soft yellow */
-  padding: 12px 20px;
+   /* light blue → light pink → soft yellow 
+  padding: 12px 20px;*/
+   padding: 30px 50px;
   position: sticky;
   top: 0;
+  background: linear-gradient(90deg, #60a5fa, #f9a8d4, #fde68a);
   z-index: 100;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
@@ -59,31 +61,35 @@
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
-  margin: auto;
+  margin: auto;/* margin: 0 auto; */
+  /*padding: 0 20px; */
 }
 
 /* Logo */
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 2.2rem; /*24px*/
+  font-weight: 800;
   color: #ffffff;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
 /* Nav Links */
 .nav-links {
   display: flex;
+  /* margin: 0;
+  padding: 0;*/
   list-style: none;
-  gap: 25px;
+  gap: 40px;
 }
 
 .nav-links li a {
   color: #ffffff;
-  font-weight: 500;
+  font-size: 1.2rem; 
+  font-weight: 700;
   text-decoration: none;
   position: relative;
   transition: all 0.3s ease-in-out;
-  padding: 5px 0;
+  padding: 10px 0;
 }
 
 /* Hover Gradient Underline */
@@ -108,21 +114,27 @@
   transform: translateY(-2px);
 }
 
+.hamburger {
+  display: none; /* hide on desktop */
+}
+
 /* CTA Button */
 .cta-btn {
   padding: 10px 20px;
-  background: linear-gradient(45deg, #60a5fa, #f9a8d4, #fde68a);
+  background: linear-gradient(45deg, #60a5fa, #f9a8d4, #fde68a);/*#4ecdc4;*/
   color: #ffffff;
   font-weight: bold;
   text-decoration: none;
-  border-radius: 30px;
-  transition: all 0.4s ease;
+  border-radius: 30px;/*20px*/
+  transition: all 0.4s ease;/*background-color 0.3s; */
   box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  /*margin-left: 20px; */
 }
 
 .cta-btn:hover {
   transform: scale(1.08);
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  /*background-color: #3dbeb5; */
 }
 
 .fb-color {
@@ -389,7 +401,7 @@
         }
         
         .login-btn {
-            padding: 8px 15px;
+            padding: 2px 10px;
             background: transparent;
             border: 1px solid #ff6b6b;
             color: #ff6b6b;
@@ -406,7 +418,7 @@
         }
         
         .signup-btn {
-            padding: 8px 15px;
+            padding: 2px 10px;
             background-color: #ff6b6b;
             color: white;
             border: none;
@@ -620,24 +632,24 @@
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: rgba(255, 255, 255, 0.95);
+                top: 60px;
+                left: 20px;
+                width: 240px;
+                background: linear-gradient(90deg, #60a5fa, #f9a8d4, #fde68a);
                 backdrop-filter: blur(10px);
                 flex-direction: column;
-                justify-content: start;
+                align-items: center;
                 padding-top: 2rem;
-                gap: 1rem;
+                gap: 10px;                
                 transition: left 0.3s ease;
-                display: flex;
-            }
+                z-index: 999;
+                display: none;
+                }
 
             .nav-links.active {
                 left: 0;
+                display: flex; 
             }
-
 
             .hero-title {
                 font-size: 2.5rem;
@@ -656,6 +668,15 @@
             .footer-content {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            .hamburger {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 28px;
+                cursor: pointer;
+                color: #fff;
             }
         }
 
