@@ -10,7 +10,10 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/lenis@1.1.21/dist/lenis.min.js"></script>
     <link rel="stylesheet" href="../css/convert.css">
+      <link rel="stylesheet" href="../css/toggle.css">
+    <link rel="stylesheet" href="../css/feature.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -24,10 +27,17 @@
       <li><a href="./recipe_hub.html">Recipe Hub</a></li>
       <li><a href="./about.html">About</a></li>
     </ul>
+  <label class="theme-switch">
+    <input type="checkbox" id="theme-toggle" />
+    <span class="slider">
+      <i class="fas fa-sun"></i>
+      <i class="fas fa-moon"></i>
+    </span>
+  </label>
     <div class="fb-color">
         <a href="feedback.html">Feedback</a>
     </div>
-    <a href="./scale.html" class="cta-btn">Scale Now</a>
+    <a href="./scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
   </div>
 </nav>
 
@@ -162,5 +172,27 @@
 </footer>
 
     <script src="../js/convert.js"></script>
+    <script src="../js/theme.js"></script>
+    
+    <!-- Back to Top Button -->
+    <button id="scrollTopBtn" title="Go to top">⬆</button>
+    
+    <script>
+        // Back to Top Button functionality
+        let scrollBtn = document.getElementById("scrollTopBtn");
+
+        window.onscroll = function () {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
+
+        scrollBtn.onclick = function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+    </script>
+    <script src="../js/feature.js"></script>
 </body>
 </html>

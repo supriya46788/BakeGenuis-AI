@@ -1,111 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login - BakeGenius.ai</title>
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - BakeGenius.ai</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
 
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-  <script src="../js/firebase.js" defer></script>
+    <!-- Firebase SDKs -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script> -->
+     
 
-  <link rel="stylesheet" href="../css/auth.css">
-</head>
-<body>
-  <!-- Animated Background Elements -->
-  <div class="floating-elements">
-    <div class="floating-cupcake">🧁</div>
-    <div class="floating-cupcake">🍰</div>
-    <div class="floating-cupcake">🥧</div>
-    <div class="floating-cupcake">🍪</div>
-  </div>
-
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="navbar-container">
-      <div class="logo"><a href="../index.html">🍰 BakeGenius.ai</a></div>
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="./convert.html">Convert Recipe</a></li>
-        <li><a href="./customize.html">Customize</a></li>
-        <li><a href="./recipe_hub.html">Recipe Hub</a></li>
-        <li><a href="./about.html">About</a></li>
-      </ul>
-      <div class="fb-color"><a href="feedback.html">Feedback</a></div>
-      <a href="./signup.html" class="signup-btn">Sign Up</a>
+    <link rel="stylesheet" href="../css/auth.css" />
+    <link rel="stylesheet" href="../css/feature.css" />
+    <link rel="stylesheet" href="../css/toggle.css" />
+  </head>
+  <body>
+    <!-- Animated Background Elements -->
+    <div class="floating-elements">
+      <div class="floating-cupcake">🧁</div>
+      <div class="floating-cupcake">🍰</div>
+      <div class="floating-cupcake">🥧</div>
+      <div class="floating-cupcake">🍪</div>
     </div>
-  </nav>
 
-  <!-- Main Content -->
-  <div class="auth-container">
-    <div class="auth-card">
-      <div class="auth-header">
-        <h1 class="auth-title">🔐 Welcome Back!</h1>
-        <p class="auth-subtitle">Sign in to continue your baking journey</p>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="logo"><a href="../index.html">🍰 BakeGenius.ai</a></div>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./convert.html">Convert Recipe</a></li>
+          <li><a href="./customize.html">Customize</a></li>
+          <li><a href="./recipe_hub.html">Recipe Hub</a></li>
+          <li><a href="./about.html">About</a></li>
+        </ul>
+        <div class="theme-switch-container">
+          <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" />
+            <span class="slider">
+              <i class="fas fa-sun"></i>
+              <i class="fas fa-moon"></i>
+            </span>
+          </label>
+        </div>
+        <div class="fb-color">
+          <a href="feedback.html">Feedback</a>
+        </div>
+        <a href="./signup.html" class="signup-btn">Sign Up</a>
       </div>
+    </nav>
 
-      <form class="auth-form" id="loginForm">
-        <!-- Email -->
-        <div class="form-group">
-          <label for="email" class="form-label"><i class="fas fa-envelope"></i> Email Address</label>
-          <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+    <!-- Main Content -->
+    <div class="auth-container">
+      <div class="auth-card">
+        <div class="auth-header">
+          <h1 class="auth-title">🔐 Welcome Back!</h1>
+          <p class="auth-subtitle">Sign in to continue your baking journey</p>
         </div>
 
-        <!-- Password -->
-        <div class="form-group">
-          <label for="password" class="form-label"><i class="fas fa-lock"></i> Password</label>
-          <div class="password-input-container">
-            <input type="password" id="password" name="password" class="form-input" placeholder="Enter your password" required>
-            <button type="button" class="password-toggle" onclick="togglePassword('password')">
-              <i class="fas fa-eye"></i>
-            </button>
+        <form class="auth-form" id="loginForm">
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email" class="form-label"
+              ><i class="fas fa-envelope"></i> Email Address</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              placeholder="your@email.com"
+              required
+            />
           </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label for="password" class="form-label"
+              ><i class="fas fa-lock"></i> Password</label
+            >
+            <div class="password-input-container">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="form-input"
+                placeholder="Enter your password"
+                required
+              />
+              <button
+                type="button"
+                class="password-toggle"
+                onclick="togglePassword('password')"
+              >
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Error Message -->
+          <div class="error-message" id="errorMessage"></div>
+
+          <!-- Normal Login -->
+          <button type="submit" class="auth-button" id="loginButton">
+            <span class="button-text">🔐 Sign In</span>
+            <div class="loading-spinner" id="loadingSpinner"></div>
+          </button>
+
+          <!-- Divider -->
+          <div class="divider"><span>or continue with</span></div>
+
+          <!-- Google Login -->
+          <button type="button" id="google-login-btn" class="google-btn">
+            <span class="google-logo">
+              <!-- Google SVG -->
+              <svg class="google-icon" viewBox="0 0 533.5 544.3">
+                <path
+                  fill="#4285F4"
+                  d="M533.5 278.4c0-18.5-1.6-37.1-5-55.2H272v104.5h146.9c-6.4 34.7-25.7 64.1-54.9 83.5l89 69.4c52-47.8 80.5-118.3 80.5-202.2z"
+                />
+                <path
+                  fill="#34A853"
+                  d="M272 544.3c73.6 0 135.4-24.3 180.5-65.9l-89-69.4c-24.7 16.6-56.4 26.2-91.5 26.2-70.4 0-130-47.6-151.3-111.5l-93.6 72.3c43.3 85.1 132.1 147.3 244.9 147.3z"
+                />
+                <path
+                  fill="#FBBC04"
+                  d="M120.7 323.7c-10.4-30.7-10.4-63.6 0-94.3L27 157c-40.7 79.7-40.7 172 0 251.7l93.7-72.3z"
+                />
+                <path
+                  fill="#EA4335"
+                  d="M272 107.7c38.6-.6 75.5 13.6 104 39.4l77.7-77.7C403.2 23.9 340.2-.2 272 0 159.2 0 70.5 62.2 27.2 147.3l93.6 72.4c21.4-63.9 81-111.5 151.2-112z"
+                />
+              </svg>
+            </span>
+            <span>Continue with Google</span>
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          <p>
+            Don't have an account?
+            <a href="./signup.html" class="auth-link signup-link"
+              >🎂 Create Account</a
+            >
+          </p>
         </div>
-
-        <!-- Error Message -->
-        <div class="error-message" id="errorMessage"></div>
-
-        <!-- Normal Login -->
-        <button type="submit" class="auth-button" id="loginButton">
-          <span class="button-text">🔐 Sign In</span>
-          <div class="loading-spinner" id="loadingSpinner"></div>
-        </button>
-
-        <!-- Divider -->
-        <div class="divider"><span>or continue with</span></div>
-
-        <!-- Google Login -->
-        <button type="button" id="google-login-btn" class="google-btn">
-          <span class="google-logo">
-            <!-- Google SVG -->
-            <svg class="google-icon" viewBox="0 0 533.5 544.3">
-              <path fill="#4285F4" d="M533.5 278.4c0-18.5-1.6-37.1-5-55.2H272v104.5h146.9c-6.4 34.7-25.7 64.1-54.9 83.5l89 69.4c52-47.8 80.5-118.3 80.5-202.2z"/>
-              <path fill="#34A853" d="M272 544.3c73.6 0 135.4-24.3 180.5-65.9l-89-69.4c-24.7 16.6-56.4 26.2-91.5 26.2-70.4 0-130-47.6-151.3-111.5l-93.6 72.3c43.3 85.1 132.1 147.3 244.9 147.3z"/>
-              <path fill="#FBBC04" d="M120.7 323.7c-10.4-30.7-10.4-63.6 0-94.3L27 157c-40.7 79.7-40.7 172 0 251.7l93.7-72.3z"/>
-              <path fill="#EA4335" d="M272 107.7c38.6-.6 75.5 13.6 104 39.4l77.7-77.7C403.2 23.9 340.2-.2 272 0 159.2 0 70.5 62.2 27.2 147.3l93.6 72.4c21.4-63.9 81-111.5 151.2-112z"/>
-            </svg>
-          </span>
-          <span>Continue with Google</span>
-        </button>
-      </form>
-
-      <div class="auth-footer">
-        <p>Don't have an account? <a href="./signup.html" class="auth-link signup-link">🎂 Create Account</a></p>
       </div>
     </div>
-  </div>
-
-  <!-- JS -->
-  <script src="../js/auth.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      if (typeof initLoginPage === "function") {
+    <script src="../js/theme.js"></script>
+    <script>
+      // Initialize login page
+      document.addEventListener("DOMContentLoaded", function () {
         initLoginPage();
-      }
-    });
-  </script>
-</body>
+      });
+    </script>
+    <!-- JS -->
+    <script src="../js/auth.js"></script>
+    <script type="module" src="../js/firebase.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (typeof initLoginPage === "function") {
+          initLoginPage();
+        }
+      });
+    </script>
+
+    <!-- Back to Top Button -->
+    <button id="scrollTopBtn" title="Go to top">⬆</button>
+
+    <script>
+      // Back to Top Button functionality
+      let scrollBtn = document.getElementById("scrollTopBtn");
+
+      window.onscroll = function () {
+        if (
+          document.body.scrollTop > 100 ||
+          document.documentElement.scrollTop > 100
+        ) {
+          scrollBtn.style.display = "block";
+        } else {
+          scrollBtn.style.display = "none";
+        }
+      };
+
+      scrollBtn.onclick = function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+    </script>
+  </body>
 </html>

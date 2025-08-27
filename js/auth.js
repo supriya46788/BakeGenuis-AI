@@ -187,7 +187,7 @@ function checkPasswordStrength(password) {
 }
 
 function validateEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com|hotmail\.com)$/i;
     return emailRegex.test(email);
 }
 
@@ -325,89 +325,134 @@ async function handleSignup(event) {
     }
 }
 
-// Update navigation for logged-in users
-function updateNavigation() {
-    if (!auth.isLoggedIn()) return;
-
-    const navbarContainer = document.querySelector('.navbar-container');
-    if (!navbarContainer) return;
-
-    // Remove existing user-info if present
-    const existingUserInfo = navbarContainer.querySelector('.user-info');
-    if (existingUserInfo) existingUserInfo.remove();
-
-    // Build user info div
-    const userInfo = document.createElement('div');
-    userInfo.className = 'user-info';
-    const hasAvatar = auth.currentUser && auth.currentUser.avatarUrl;
-    const avatarHtml = hasAvatar
-        ? `<img src="${auth.currentUser.avatarUrl}" alt="avatar" class="user-avatar" style="width:32px;height:32px;border-radius:50%;object-fit:cover;" />`
-        : `<div class="user-avatar">${auth.currentUser.name.charAt(0).toUpperCase()}</div>`;
-    userInfo.innerHTML = `
-        ${avatarHtml}
-        <span>Hi, ${auth.currentUser.name.split(' ')[0]}!</span>
-        <button class="logout-btn" onclick="handleLogout()">Logout</button>
-    `;
-
-    // Insert user info in place of CTA button or at the end
-    const ctaBtn = navbarContainer.querySelector('.cta-btn');
-    const authButtons = navbarContainer.querySelector('.auth-buttons');
-    if (ctaBtn) {
-        ctaBtn.parentNode.replaceChild(userInfo, ctaBtn);
-    } else if (authButtons) {
-        authButtons.parentNode.replaceChild(userInfo, authButtons);
-    } else {
-        navbarContainer.appendChild(userInfo);
-    }
-}
 
 // Handle logout
 function handleLogout() {
-    if (confirm('Are you sure you want to logout?')) {
-        auth.logout();
-        // Disable Google auto-select so the next visit doesn't auto sign-in
-        if (window.google && google.accounts && google.accounts.id) {
-            try { google.accounts.id.disableAutoSelect(); } catch (e) {}
+    Swal.fire({
+        title: 'Are you sure you want to log out?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#FF4757',
+        cancelButtonColor: '#70A1FF',
+        confirmButtonText: 'Yes, log out',
+        cancelButtonText: 'Cancel',
+        customClass: {
+            popup: 'swal-popup',
+            title: 'swal-title',
+            confirmButton: 'swal-confirm-btn',
+            cancelButton: 'swal-cancel-btn'
         }
-        // Determine correct path based on current location
-        const currentPath = window.location.pathname;
-        if (currentPath.includes('/html/')) {
-            window.location.href = 'login.html';
+    }).then((result) => {
+        if (result.isConfirmed) {
+            auth.logout();
+            // Determine correct path based on current location
+            const currentPath = window.location.pathname;
+            if (currentPath.includes('/html/')) {
+                window.location.href = 'login.html';
+            } else {
+                window.location.href = 'html/login.html';
+            }
+        }
+    });
+}
+
+/* ---------- Navigation & Auth ---------- */
+function updateNavigation() {
+    if (!auth.isLoggedIn()) return;
+
+    // Hide only login/signup elements in navigation
+    const authLinks = document.querySelectorAll('a[href*="login.html"], a[href*="signup.html"]');
+    authLinks.forEach(link => {
+        link.style.display = 'none';
+    });
+
+    // Also check for any buttons with login/signup classes or IDs
+    const loginButtons = document.querySelectorAll('.login-btn, .signup-btn, #loginButton, #signupButton');
+    loginButtons.forEach(button => {
+        button.style.display = 'none';
+    });
+
+    // Show user info if user is logged in
+    const navContainer = document.querySelector('.navbar-container');
+    const ctaBtn = document.querySelector('.cta-btn');
+
+    if (navContainer && !document.querySelector('.user-info')) {
+        const userInfo = document.createElement('div');
+        userInfo.className = 'user-info';
+        userInfo.innerHTML = `
+            <div class="user-avatar">${auth.currentUser.name.charAt(0).toUpperCase()}</div>
+            <span>Hi, ${auth.currentUser.name.split(' ')[0]}!</span>
+            <button class="logout-btn" onclick="handleLogout()">Logout</button>
+        `;
+
+        // Insert user info in appropriate location
+        // Don't replace the CTA button if it's a Scale button
+        if (ctaBtn && !ctaBtn.classList.contains('scale-nav-btn') && 
+            !ctaBtn.href.includes('scale.html')) {
+            ctaBtn.parentNode.replaceChild(userInfo, ctaBtn);
         } else {
-            window.location.href = 'html/login.html';
+            // Fallback: append to navbar container
+            navContainer.appendChild(userInfo);
         }
     }
+
+    // Ensure Scale Now button remains visible
+    const scaleButtons = document.querySelectorAll('.cta-btn.scale-nav-btn, a[href*="scale.html"]');
+    scaleButtons.forEach(button => {
+        button.style.display = '';
+    });
 }
 
-// Check authentication on page load
+// Enhanced checkAuth function to handle more scenarios
 function checkAuth() {
-    // Pages that require authentication
-    const protectedPages = ['convert.html', 'customize.html', 'scale.html'];
-    const currentPage = window.location.pathname.split('/').pop();
-    
-    if (protectedPages.includes(currentPage) && !auth.isLoggedIn()) {
-        // Redirect to login
-        window.location.href = 'login.html';
-        return false;
-    }
-    
-    // Update navigation if logged in
-    if (auth.isLoggedIn()) {
-        updateNavigation();
-    }
-    
-    return true;
-}
+  const protectedPages = ['convert.html', 'customize.html', 'scale.html', 'recipe_hub.html'];
+  const currentPage = window.location.pathname.split('/').pop();
 
-// Initialize auth system on page load
+  // Redirect to login if trying to access protected page without authentication
+  if (protectedPages.includes(currentPage) && !auth.isLoggedIn()) {
+    window.location.href = 'login.html';
+    return false;
+  }
+
+  // Redirect away from login/signup pages if already authenticated
+  const authPages = ['login.html', 'signup.html'];
+  if (authPages.includes(currentPage) && auth.isLoggedIn()) {
+    window.location.href = '../index.html';
+    return false;
+  }
+
+  // Update navigation based on auth status
+  if (auth.isLoggedIn()) {
+    updateNavigation();
+  } else {
+    // Ensure auth elements are visible when logged out
+    const authElements = document.querySelectorAll('a[href*="login.html"], a[href*="signup.html"], .login-btn, .signup-btn');
+    authElements.forEach(element => {
+      element.style.display = '';
+    });
+
+    // Ensure Scale Now button is always visible
+    const scaleButtons = document.querySelectorAll('.cta-btn, .scale-nav-btn, a[href*="scale.html"]');
+    scaleButtons.forEach(button => {
+      button.style.display = '';
+    });
+
+    const userInfo = document.querySelector('.user-info');
+    if (userInfo) {
+      userInfo.remove();
+    }
+  }
+
+  return true;
+}
 document.addEventListener('DOMContentLoaded', function() {
-    checkAuth();
+  checkAuth();
+  window.addEventListener('storage', function(e) {
+    if (e.key === 'bakegenius_current_user') {
+      checkAuth();
+    }
+  });
 });
-
-// Export for use in other files
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { auth, checkAuth, updateNavigation, handleLogout };
-}
 
 // --------------------
 // Google Sign-In Setup

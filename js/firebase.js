@@ -17,9 +17,9 @@ const firebaseConfig = {
 // ✅ Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const authFirebase = getAuth(app);
+const provider = new GoogleAuthProvider(); 
 
-authFirebase.languageCode = "en";
-const provider = new GoogleAuthProvider();
+authFirebase.languageCode = "en"; 
 
 // ✅ Google Login Button
 const googleLogin = document.getElementById("google-login-btn");

@@ -150,7 +150,7 @@
             setTimeout(() => {
                 button.style.transform = '';
                 button.innerHTML = '✨ Apply Changes';
-                showSuccessMessage('Changes applied successfully!');
+                showSuccessMessage('Changes applied successfully!', 'apply');
             }, 1000);
         }
 
@@ -184,16 +184,27 @@
             }, 800);
         }
 
-        // Show success message
-        function showSuccessMessage(message) {
-            const successDiv = document.getElementById('successMessage');
-            successDiv.textContent = `✨ ${message}`;
-            successDiv.style.display = 'block';
-            
-            setTimeout(() => {
-                successDiv.style.display = 'none';
-            }, 3000);
-        }
+// Show success message
+function showSuccessMessage(message, type = "default") {
+    const successDiv = document.getElementById('successMessage');
+    successDiv.textContent = `✨ ${message}`;
+    successDiv.style.display = 'block';
+
+    // Different colors based on type
+    if (type === "apply") {
+        successDiv.style.borderColor = "var(--candy-red)";
+        successDiv.style.color = "var(--candy-red)";
+        successDiv.style.background = "rgba(255, 71, 87, 0.1)";
+    } else {
+        successDiv.style.borderColor = "#2ED573";
+        successDiv.style.color = "#2ED573";
+        successDiv.style.background = "rgba(46, 213, 115, 0.1)";
+    }
+
+    setTimeout(() => {
+        successDiv.style.display = 'none';
+    }, 3000);
+}
 
         // Load saved brand preference
         function loadBrandPreference() {
