@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (heroTitle) {
             const text = heroTitle.textContent;
             heroTitle.textContent = '';
-            heroTitle.style.borderRight = '2px solid';
+            // heroTitle.style.borderRight = '2px solid';
             
             let i = 0;
             const typeWriter = () => {
@@ -110,9 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     heroTitle.textContent += text.charAt(i);
                     i++;
                     setTimeout(typeWriter, 100);
-                } else {
-                    heroTitle.style.borderRight = 'none';
-                }
+                } 
             };
             
             setTimeout(typeWriter, 500);
