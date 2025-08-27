@@ -1335,7 +1335,86 @@
     transform: scale(1.1);
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
-/* ============================= */
+/* Floating Tip Button */
+.tip-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #ffb6c1, #ff69b4); /* candy pink */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 1.3rem;  /* smaller so bulb fits */
+  display: flex;      /* center emoji */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 1000;
+}
+
+.tip-btn:hover {
+  transform: scale(1.1) rotate(10deg);
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  box-shadow: 0 0 12px #ff69b4, 0 0 20px #ff1493;
+}
+
+/* Tip Popup Card */
+.tip-popup {
+  position: fixed;
+  bottom: 90px;
+  left: 20px;
+  background: #fff0f5; /* light candy pink */
+  border: 2px solid #ff69b4;
+  border-radius: 16px;
+  padding: 15px 20px;
+  max-width: 250px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  font-family: 'Comic Neue', cursive;
+  color: #333;
+  display: none; /* hidden by default */
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+  box-shadow: 0 6px 16px rgba(255,105,180,0.3); /* pinkish glow */
+}
+
+
+.tip-popup p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #444;
+  padding-right: 22px; /* space for close button */
+}
+
+/* Close Button */
+.close-tip {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: #ff1493;
+  font-size: 14px;   /* neat size */
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.close-tip:hover {
+  color: #ff007f;
+
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}/* ============================= */
 /* Dark Theme Styling            */
 /* ============================= */
 [data-theme="dark"] {
