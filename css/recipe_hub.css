@@ -463,6 +463,12 @@ body::before {
     overflow-x: auto;
     padding: 1rem 0;
     scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.recipe-carousel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .recipe-carousel .recipe-card {
