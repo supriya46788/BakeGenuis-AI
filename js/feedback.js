@@ -19,11 +19,19 @@ class FeedbackSystem {
 
     // Initialize event listeners
     initializeEventListeners() {
-        const feedbackForm = document.getElementById('feedbackForm');
-        if (feedbackForm) {
-            feedbackForm.addEventListener('submit', this.handleSubmit.bind(this));
-        }
+    const feedbackForm = document.getElementById('feedbackForm');
+    if (feedbackForm) {
+        feedbackForm.addEventListener('submit', this.handleSubmit.bind(this));
+
+        // 🔥 Keyboard shortcuts for quick submit
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                feedbackForm.requestSubmit();
+            }
+        });
     }
+}
 
     // Handle form submission
     async handleSubmit(event) {
