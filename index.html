@@ -215,632 +215,629 @@
       @media (max-width: 768px) {
         .hamburger {
           display: block;
+
         }
 
+        /* Desktop view */
         .menu {
-          display: none;
-          flex-direction: column;
-          align-items: flex-start;
-          position: absolute;
-          top: 65px;
-          right: 20px;
-          background: #fff8f0;
-          padding: 15px;
-          border-radius: 10px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          width: 240px;
-          z-index: 1000;
-          gap: 15px;
-        }
-
-        .menu.active {
           display: flex;
+          align-items: center;
+          gap: 20px;
         }
 
-        .nav-links {
-          flex-direction: column;
+        /* Mobile view */
+        @media (max-width: 768px) {
+          .hamburger {
+            display: block;
+          }
+
+          .menu {
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            position: absolute;
+            top: 65px;
+            right: 20px;
+            background: #fff8f0;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 240px;
+            z-index: 1000;
+            gap: 15px;
+          }
+
+          .menu.active {
+            display: flex;
+          }
+
+          .nav-links {
+            flex-direction: column;
+            width: 100%;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+          }
+
+          .nav-links li {
+            margin: 0;
+          }
+          .nav-links a {
+            width: 100%;
+            text-align: left;
+          }
+
+          .fb-color,
+          .auth-buttons,
+          .cta-btn {
+            width: 100%;
+            text-align: left;
+          }
+
+          .auth-buttons {
+            flex-direction: column;
+            gap: 10px;
+          }
+
+          .cta-btn {
+            margin-left: 0;
+            text-align: center;
+          }
+        }
+        
+
+        /* Toast Notification */
+        .toast {
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          background: white;
+          color: #333;
+          padding: 18px 25px;
+          border-radius: 8px;
+          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          transform: translateY(100px);
+          opacity: 0;
+          transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+          z-index: 1000;
+        }
+
+        .toast.show {
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+        .toast-success {
+          border-left: 5px solid #4caf50;
+        }
+
+        .toast-error {
+          border-left: 5px solid #f44336;
+        }
+
+        .toast-icon {
+          font-size: 24px;
+        }
+
+        .toast-success .toast-icon {
+          color: #4caf50;
+        }
+
+        .toast-error .toast-icon {
+          color: #f44336;
+        }
+
+        .toast-message {
+          flex: 1;
+        }
+
+        .toast-close {
+          background: none;
+          border: none;
+          font-size: 20px;
+          cursor: pointer;
+          color: #999;
+          transition: color 0.3s;
+        }
+
+        .toast-close:hover {
+          color: #333;
+        }
+
+        /* Footer Styles */
+        .footer {
           width: 100%;
+          background: linear-gradient(135deg, #ffb6c1 0%, #ff9aac 100%);
+          color: #fff;
+          padding: 50px 0 20px;
+          border-radius: 12px 12px 0 0;
+          box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .footer-container {
+          max-width: 1200px;
+
+          margin: 0 auto;
+          padding: 0 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex-wrap: wrap;
+          gap: 20px;
+        }
+
+        /* Newsletter Section */
+        .footer-container .newsletter-section {
+          background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+          padding: 20px;
+          text-align: left;
+          border-radius: 12px;
+          margin: 0 auto;
+
+          max-width: 3500px;
+          width: 100%;
+        }
+
+        .footer-container .newsletter-content {
+          display: flex;
+          flex-direction: column;
           gap: 10px;
-          margin: 0;
+          max-width: 350px;
+          margin: 0 auto;
+        }
+
+        .footer-container .newsletter-section h2 {
+          font-size: 18px;
+          font-weight: 600;
+          color: #ff7f50;
+          margin-bottom: 8px;
+        }
+
+        .footer-container .newsletter-section p {
+          font-size: 14px;
+          margin-bottom: 12px;
+          color: #fff;
+        }
+
+        .footer-container .newsletter-form {
+          display: flex;
+
+          align-items: center;
+          gap: 8px;
+          flex-wrap: wrap;
+          max-width: 100%;
+          margin-top: 12px;
+          margin: 12px auto 0 auto;
+          justify-content: center;
+        }
+
+
+        .footer-container .newsletter-form input {
+          flex: 1;
+          min-width: 180px;
+          max-width: 350px;
+          padding: 10px;
+          border: none;
+          border-radius: 6px;
+          font-size: 14px;
+
+          outline: none;
+          transition: all 0.3s ease;
+        }
+
+        .footer-container .newsletter-form input:focus {
+          box-shadow: 0 4px 15px rgba(255, 127, 80, 0.3);
+        }
+
+        .footer-container .newsletter-form button {
+          background-color: #ff7f50;
+          color: white;
+          border: none;
+          padding: 10px 16px;
+          border-radius: 6px;
+          font-size: 14px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 10px rgba(255, 127, 80, 0.3);
+        }
+
+        .footer-container .newsletter-form button:hover {
+          background-color: #ff956b;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 15px rgba(255, 127, 80, 0.4);
+        }
+
+        .footer-brand h2 {
+          font-size: 2rem;
+          color: #ff7f50;
+          margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+          font-size: 1rem;
+          line-height: 1.6;
+          max-width: 280px;
+        }
+
+        .footer h3 {
+          font-size: 1.3rem;
+          margin-bottom: 20px;
+          color: #ff7f50;
+          position: relative;
+          display: inline-block;
+        }
+
+        .footer h3::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -8px;
+          width: 40px;
+          height: 3px;
+          background-color: #ff7f50;
+          border-radius: 2px;
+        }
+
+        .footer-links ul {
+          list-style: none;
           padding: 0;
         }
 
-        .nav-links li {
-          margin: 0;
-        }
-        .nav-links a {
-          width: 100%;
-          text-align: left;
+        .footer-links ul li {
+          margin-bottom: 12px;
         }
 
-        .fb-color,
-        .auth-buttons,
-        .cta-btn {
-          width: 100%;
-          text-align: left;
+        .footer-links ul li a {
+          color: #fff;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          display: inline-block;
+          font-weight: 500;
         }
 
-        .auth-buttons {
-          flex-direction: column;
-          gap: 10px;
+        .footer-links ul li a:hover {
+          color: #ff7f50;
+          transform: translateX(5px);
         }
 
-        .cta-btn {
-          margin-left: 0;
+        .social-icons {
+          display: flex;
+          gap: 15px;
+          margin-top: 15px;
+        }
+
+        .social-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          color: white;
+          font-size: 20px;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icon:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-icon.linkedin {
+          background: #0077b5;
+        }
+        .social-icon.github {
+          background: #6e5494;
+        }
+        .social-icon.twitter {
+          background: #1da1f2;
+        }
+        .social-icon.email {
+          background: #ff8800;
+        }
+
+        .footer-bottom {
           text-align: center;
-        }
-      }
-
-     
-
-
-      /* Toast Notification */
-      .toast {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        background: white;
-        color: #333;
-        padding: 18px 25px;
-        border-radius: 8px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        transform: translateY(100px);
-        opacity: 0;
-        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-        z-index: 1000;
-      }
-
-      .toast.show {
-        transform: translateY(0);
-        opacity: 1;
-      }
-
-      .toast-success {
-        border-left: 5px solid #4caf50;
-      }
-
-      .toast-error {
-        border-left: 5px solid #f44336;
-      }
-
-      .toast-icon {
-        font-size: 24px;
-      }
-
-      .toast-success .toast-icon {
-        color: #4caf50;
-      }
-
-      .toast-error .toast-icon {
-        color: #f44336;
-      }
-
-      .toast-message {
-        flex: 1;
-      }
-
-      .toast-close {
-        background: none;
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-        color: #999;
-        transition: color 0.3s;
-      }
-
-      .toast-close:hover {
-        color: #333;
-      }
-
-      /* Footer Styles */
-      .footer {
-        width: 100%;
-        background: linear-gradient(135deg, #ffb6c1 0%, #ff9aac 100%);
-        color: #fff;
-        padding: 50px 0 20px;
-        border-radius: 12px 12px 0 0;
-        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
-      }
-
-      .footer-container {
-        max-width: 1200px;
-        
-        margin: 0 auto;
-        padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        gap: 20px;
-      }
-
-       /* Newsletter Section */
-      .footer-container .newsletter-section {
-        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-        padding: 20px;
-        text-align: left;
-        border-radius: 12px;
-        margin: 0 auto;
-        
-        max-width: 3500px;
-        width: 100%;
-      }
-
-      .footer-container .newsletter-content {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        max-width: 350px;
-        margin: 0 auto;
-        
-        
-      }
-
-      .footer-container .newsletter-section h2 {
-        font-size: 18px;
-        font-weight: 600;
-        color: #ff7f50;
-        margin-bottom: 8px;
-      }
-
-      .footer-container .newsletter-section p {
-        font-size: 14px;
-        margin-bottom: 12px;
-        color: #fff;
-      }
-
-      .footer-container .newsletter-form {
-        display: flex;
-        
-        align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
-        max-width: 100%;
-        margin-top: 12px;
-        margin: 12px auto 0 auto;
-        justify-content: center;
-      }
-
-      .footer-container .newsletter-form input {
-        flex: 1;
-        min-width: 180px;
-        max-width: 350px;
-        padding: 10px;
-        border: none;
-        border-radius: 6px;
-        font-size: 14px;
-        
-        outline: none;
-        transition: all 0.3s ease;
-        
-      }
-
-      .footer-container .newsletter-form input:focus {
-        box-shadow: 0 4px 15px rgba(255, 127, 80, 0.3);
-      }
-
-      .footer-container .newsletter-form button {
-        background-color: #ff7f50;
-        color: white;
-        border: none;
-        padding: 10px 16px;
-        border-radius: 6px;
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 10px rgba(255, 127, 80, 0.3);
-      }
-
-      .footer-container .newsletter-form button:hover {
-        background-color: #ff956b;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(255, 127, 80, 0.4);
-      }
-
-      .footer-brand h2 {
-        font-size: 2rem;
-        color: #ff7f50;
-        margin-bottom: 15px;
-      }
-
-      .footer-brand p {
-        font-size: 1rem;
-        line-height: 1.6;
-        max-width: 280px;
-      }
-
-      .footer h3 {
-        font-size: 1.3rem;
-        margin-bottom: 20px;
-        color: #ff7f50;
-        position: relative;
-        display: inline-block;
-      }
-
-      .footer h3::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -8px;
-        width: 40px;
-        height: 3px;
-        background-color: #ff7f50;
-        border-radius: 2px;
-      }
-
-      .footer-links ul {
-        list-style: none;
-        padding: 0;
-      }
-
-      .footer-links ul li {
-        margin-bottom: 12px;
-      }
-
-      .footer-links ul li a {
-        color: #fff;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        display: inline-block;
-        font-weight: 500;
-      }
-
-      .footer-links ul li a:hover {
-        color: #ff7f50;
-        transform: translateX(5px);
-      }
-
-      .social-icons {
-        display: flex;
-        gap: 15px;
-        margin-top: 15px;
-      }
-
-      .social-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        color: white;
-        font-size: 20px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      }
-
-      .social-icon:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      .social-icon.linkedin {
-        background: #0077b5;
-      }
-      .social-icon.github {
-        background: #6e5494;
-      }
-      .social-icon.twitter {
-        background: #1da1f2;
-      }
-      .social-icon.email {
-        background: #ff8800;
-      }
-
-      .footer-bottom {
-        text-align: center;
-        font-size: 0.9rem;
-        margin-top: 50px;
-        padding-top: 20px;
-        border-top: 1px solid rgba(255, 255, 255, 0.3);
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .footer-container {
-          grid-template-columns: 1fr;
-          gap: 30px;
+          font-size: 0.9rem;
+          margin-top: 50px;
+          padding-top: 20px;
+          border-top: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        .newsletter-form {
-          flex-direction: column;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+          .footer-container {
+            grid-template-columns: 1fr;
+            gap: 30px;
+          }
+
+          .newsletter-form {
+            flex-direction: column;
+          }
+
+          .toast {
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+          }
         }
-
-        .toast {
-          left: 20px;
-          right: 20px;
-          bottom: 20px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="navbar-container">
-        <div class="logo"><a href="./index.html">🍰 BakeGenius.ai</a></div>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="./html/convert.html">Convert Recipe</a></li>
-          <li><a href="./html/customize.html">Customize</a></li>
-          <li><a href="./html/recipe_hub.html">Recipe Hub</a></li>
-          <li><a href="./html/about.html">About</a></li>
-        </ul>
-        
-        <div class="fb-color">
-          <a href="./html/feedback.html">Feedback</a>
-        </div>
-        <div class="auth-buttons">
-          <a href="./html/login.html" class="login-btn">Login</a>
-          <a href="./html/signup.html" class="signup-btn">Sign Up</a>
-        </div>
-        <a href="./html/scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
-        <label class="theme-switch">
-          <input type="checkbox" id="theme-toggle" />
-          <span class="slider">
-            <i class="fas fa-sun"></i>
-            <i class="fas fa-moon"></i>
-          </span>
-        </label>
-      </div>
-    </nav>
-
-    <section class="cupcake-animation">
-      <div class="cup">🧁</div>
-      <div class="cake-top">🍒</div>
-
-      <div class="sprinkles"><span></span><span></span><span></span></div>
-    </section>
-
-    <!-- Rest of your HTML remains the same -->
-    <main class="main-content">
-      <!-- Hero Section -->
-      <section class="hero-section">
-        <h1 class="hero-title">Welcome to BakeGenius.ai</h1>
-        <p class="hero-subtitle">
-          From spoon to scale — get exact gram conversions with AI magic ✨<br />
-          Transform vague recipe measurements into precise, consistent results
-          every time!
-        </p>
-        <a href="html/convert.html" class="cta-button"
-          >Start Converting Now 🚀</a
-        >
-      </section>
-
-      <!-- Features Preview -->
-      <section class="features-preview">
-        <div class="feature-card">
-          <i class="fas fa-wand-magic-sparkles feature-icon magic"></i>
-          <h3 class="feature-title">AI-Powered Precision</h3>
-          <p class="feature-desc">
-            Advanced AI converts "cups" and "spoons" into exact gram
-            measurements for perfect baking every time.
-          </p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-balance-scale feature-icon scale"></i>
-          <h3 class="feature-title">Smart Recipe Scaling</h3>
-          <p class="feature-desc">
-            Effortlessly scale recipes up or down while maintaining perfect
-            ratios and adjusting rising agents intelligently.
-          </p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-cogs feature-icon gears"></i>
-          <h3 class="feature-title">Custom Preferences</h3>
-          <p class="feature-desc">
-            Personalize conversions based on your preferred brands and
-            ingredient specifications for consistent results.
-          </p>
-        </div>
-      </section>
-    </main>
-
-    
-
-    
-
-    <!-- Footer -->
-    <footer class="footer">
-   
-
-      <div class="footer-container">
-           
-    
-   
-        <!-- Brand -->
-        <div class="footer-brand">
-          <h2>BakeGenius.ai</h2>
-          <p>
-            Baking meets AI — recipes, ideas, and inspiration to make your
-            creations magical!
-          </p>
-        </div>
-
-        <!-- Links -->
-        <div class="footer-links">
-          <h3>Links</h3>
-          <ul>
-            <li><a href="html/about.html">About Us</a></li>
-            <li><a href="html/convert.html">Convert Recipe</a></li>
-            <li><a href="html/customize.html">Customize</a></li>
-            <li><a href="html/scale.html">Scale Recipes</a></li>
-            <li><a href="html/feedback.html">Feedback</a></li>
+      </style>
+    </head>
+    <body>
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="navbar-container">
+          <div class="logo"><a href="./index.html">🍰 BakeGenius.ai</a></div>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="./index.html" class="active">Home</a></li>
+            <li><a href="./html/convert.html">Convert Recipe</a></li>
+            <li><a href="./html/customize.html">Customize</a></li>
+            <li><a href="./html/recipe_hub.html">Recipe Hub</a></li>
+            <li><a href="./html/about.html">About</a></li>
           </ul>
+          <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" />
+            <span class="slider">
+              <i class="fas fa-sun"></i>
+              <i class="fas fa-moon"></i>
+            </span>
+          </label>
+          <div class="fb-color">
+            <a href="./html/feedback.html">Feedback</a>
+          </div>
+          <div class="auth-buttons">
+            <a href="./html/login.html" class="login-btn">Login</a>
+            <a href="./html/signup.html" class="signup-btn">Sign Up</a>
+          </div>
+          <a href="./html/scale.html" class="cta-btn scale-nav-btn"
+            >Scale Now</a
+          >
         </div>
+      </nav>
 
-         <!-- Newsletter Section -->
-    <div class="container">
-      <div class="content">
-        <div class="newsletter-section">
-          <div class="newsletter-content">
-            <h2>Subscribe to Our Newsletter</h2>
-            <p>
-              Get the latest baking tips, AI-generated recipes, and exclusive
-              content delivered to your inbox!
+      <section class="cupcake-animation">
+        <div class="cup">🧁</div>
+        <div class="cake-top">🍒</div>
+
+        <div class="sprinkles"><span></span><span></span><span></span></div>
+      </section>
+
+      <!-- Rest of your HTML remains the same -->
+      <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <h1 class="hero-title">Welcome to BakeGenius.ai</h1>
+          <p class="hero-subtitle">
+            From spoon to scale — get exact gram conversions with AI magic ✨<br />
+            Transform vague recipe measurements into precise, consistent results
+            every time!
+          </p>
+          <a href="html/convert.html" class="cta-button"
+            >Start Converting Now 🚀</a
+          >
+        </section>
+
+        <!-- Features Preview -->
+        <section class="features-preview">
+          <div class="feature-card">
+            <i class="fas fa-wand-magic-sparkles feature-icon magic"></i>
+            <h3 class="feature-title">AI-Powered Precision</h3>
+            <p class="feature-desc">
+              Advanced AI converts "cups" and "spoons" into exact gram
+              measurements for perfect baking every time.
             </p>
-            <form class="newsletter-form" id="newsletterForm">
-              <input
-                type="email"
-                id="newsletterEmail"
-                placeholder="Your email address"
-                required
-              />
-              <button type="submit">Subscribe Now</button>
-            </form>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-balance-scale feature-icon scale"></i>
+            <h3 class="feature-title">Smart Recipe Scaling</h3>
+            <p class="feature-desc">
+              Effortlessly scale recipes up or down while maintaining perfect
+              ratios and adjusting rising agents intelligently.
+            </p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-cogs feature-icon gears"></i>
+            <h3 class="feature-title">Custom Preferences</h3>
+            <p class="feature-desc">
+              Personalize conversions based on your preferred brands and
+              ingredient specifications for consistent results.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-container">
+          <!-- Brand -->
+          <div class="footer-brand">
+            <h2> <span class="footer-logo">🍰</span> BakeGenius.ai</h2>
+            <p>
+              Baking meets AI — recipes, ideas, and inspiration to make your
+              creations magical!
+            </p>
+          </div>
+
+          <!-- Links -->
+          <div class="footer-links">
+            <h3>Links</h3>
+            <ul>
+              <!-- add icons for each links -->
+              <li><a href="html/about.html"><i class="fa-solid fa-circle-info footer-icon"></i> About Us</a></li>
+              <li><a href="html/convert.html"><i class="fa-solid fa-arrows-rotate footer-icon"></i> Convert Recipe</a></li>
+              <li><a href="html/customize.html"><i class="fa-solid fa-sliders footer-icon"></i> Customize</a></li>
+              <li><a href="html/scale.html"><i class="fa-solid fa-ruler footer-icon"></i> Scale Recipes</a></li>
+              <li><a href="html/feedback.html"><i class="fa-solid fa-comment-dots footer-icon"></i>Feedback</a></li>
+            </ul>
+          </div>
+
+          <!-- Newsletter Section -->
+          <div class="container">
+            <div class="content">
+              <div class="newsletter-section">
+                <div class="newsletter-content">
+                  <h2>Subscribe to Our Newsletter</h2>
+                  <p>
+                    Get the latest baking tips, AI-generated recipes, and
+                    exclusive content delivered to your inbox!
+                  </p>
+                  <form class="newsletter-form" id="newsletterForm">
+                    <input
+                      type="email"
+                      id="newsletterEmail"
+                      placeholder="Your email address"
+                      required
+                    />
+                    <button type="submit">Subscribe Now</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social -->
+          <div class="footer-social">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+              <a
+                href="https://www.linkedin.com/in/supriyapandey595/"
+                target="_blank"
+                class="social-icon linkedin"
+              >
+                <i class="fa-brands fa-linkedin"></i>
+              </a>
+              <a
+                href="https://github.com/supriya46788"
+                target="_blank"
+                class="social-icon github"
+              >
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a
+                href="mailto:supriyadpandey502@gmail.com"
+                target="_blank"
+                class="social-icon email"
+              >
+                <i class="fa-regular fa-envelope"></i>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-       
+        <p class="footer-bottom">
+          &copy; 2025 BakeGenius.ai — All rights reserved.
+        </p>
+      </footer>
 
-        <!-- Social -->
-        <div class="footer-social">
-          <h3>Follow Us</h3>
-          <div class="social-icons">
-            <a
-              href="https://www.linkedin.com/in/supriyapandey595/"
-              target="_blank"
-              class="social-icon linkedin"
-            >
-              <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a
-              href="https://github.com/supriya46788"
-              target="_blank"
-              class="social-icon github"
-            >
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a
-              href="mailto:supriyadpandey502@gmail.com"
-              target="_blank"
-              class="social-icon email"
-            >
-              <i class="fa-regular fa-envelope"></i>
-            </a>
-          </div>
+      <!-- Toast Notification -->
+      <div id="toastNotification" class="toast">
+        <div class="toast-icon">✔️</div>
+        <div id="toastMessage" class="toast-message">
+          Subscribed successfully!
         </div>
+        <button id="toastClose" class="toast-close">&times;</button>
       </div>
 
-      
+      <button id="scrollTopBtn" class="hidden" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+      <script src="js/theme.js"></script>
+      <script src="js/index.js"></script>
+      <script src="js/auth.js"></script>
 
+      <script>
+        // Get the button
+        let scrollBtn = document.getElementById("scrollTopBtn");
+        const threshold = 30;
 
-      <p class="footer-bottom">
-        &copy; 2025 BakeGenius.ai — All rights reserved.
-      </p>
-    </footer>
+        // When the user scrolls down 100px, show the button
+        function toggleBtn() {
+          if (window.scrollY > threshold) scrollBtn.classList.remove("hidden");
+          else scrollBtn.classList.add("hidden");
+        }
 
-     <!-- Toast Notification -->
-    <div id="toastNotification" class="toast">
-      <div class="toast-icon">✔️</div>
-      <div id="toastMessage" class="toast-message">
-        Subscribed successfully!
-      </div>
-      <button id="toastClose" class="toast-close">&times;</button>
-    </div>
+        window.addEventListener("scroll", toggleBtn, { passive: true });
+        toggleBtn(); // set correct state on load
 
-
-    <button id="scrollTopBtn" class="hidden" title="Go to top">
-      <i class="fas fa-arrow-up"></i>
-    </button>
-<script src="js/theme.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/auth.js"></script>
-    <link rel="stylesheet" href="css/auth.css" />
-
-    <script>
-      // Get the button
-      let scrollBtn = document.getElementById("scrollTopBtn");
-      const threshold = 30;
-
-      // When the user scrolls down 100px, show the button
-      function toggleBtn() {
-        if (window.scrollY > threshold) scrollBtn.classList.remove("hidden");
-        else scrollBtn.classList.add("hidden");
-      }
-
-      window.addEventListener("scroll", toggleBtn, { passive: true });
-      toggleBtn(); // set correct state on load
-
-      scrollBtn.addEventListener("click", () =>
-        window.scrollTo({ top: 0, behavior: "smooth" })
-      );
-
-      // Newsletter form
-      const newsletterForm = document.getElementById("newsletterForm");
-      const newsletterEmail = document.getElementById("newsletterEmail");
-      const toast = document.getElementById("toastNotification");
-      const toastMsg = document.getElementById("toastMessage");
-      const toastClose = document.getElementById("toastClose");
-
-      newsletterForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const email = newsletterEmail.value.trim();
-        if (!email) return;
-
-        // Simulate subscription
-        toast.classList.add("show");
-        toastMsg.textContent = "Subscribed successfully!";
-        toast.classList.remove("toast-error");
-        toast.classList.add("toast-success");
-
-        newsletterEmail.value = "";
-        setTimeout(() => {
-          toast.classList.remove("show");
-        }, 4000);
-      });
-
-      toastClose.addEventListener("click", () => {
-        toast.classList.remove("show");
-      });
-    </script>
-    <script>
-      //Js for typing animation of Home page
-      document.addEventListener("DOMContentLoaded", () => {
-        const el = document.querySelector(".hero-title");
-
-        if (!el) return;
-
-        // Function to restart typing animation
-        const startTyping = () => {
-          el.classList.remove("typing-active");
-          void el.offsetWidth; // Force reflow to restart animation
-          el.classList.add("typing-active");
-        };
-
-        // Intersection Observer - starts when element is in view
-        const observer = new IntersectionObserver(
-          ([entry]) => {
-            if (entry.isIntersecting) {
-              startTyping();
-            }
-          },
-          { threshold: 0.5 }
+        scrollBtn.addEventListener("click", () =>
+          window.scrollTo({ top: 0, behavior: "smooth" })
         );
 
-        observer.observe(el);
+        // Newsletter form
+        const newsletterForm = document.getElementById("newsletterForm");
+        const newsletterEmail = document.getElementById("newsletterEmail");
+        const toast = document.getElementById("toastNotification");
+        const toastMsg = document.getElementById("toastMessage");
+        const toastClose = document.getElementById("toastClose");
 
-        // Detect when user comes back to tab
-        document.addEventListener("visibilitychange", () => {
-          if (!document.hidden) {
-            // Only restart if element is visible in viewport
-            const rect = el.getBoundingClientRect();
-            if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-              startTyping();
-            }
-          }
+        newsletterForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = newsletterEmail.value.trim();
+          if (!email) return;
+
+          // Simulate subscription
+          toast.classList.add("show");
+          toastMsg.textContent = "Subscribed successfully!";
+          toast.classList.remove("toast-error");
+          toast.classList.add("toast-success");
+
+          newsletterEmail.value = "";
+          setTimeout(() => {
+            toast.classList.remove("show");
+          }, 4000);
         });
-      });
 
-      //smooth-scrolling
-      
-    </script>
-    <script src="https://unpkg.com/lenis@1.1.21/dist/lenis.min.js"></script>
-    <script src="./js/feature.js"></script>
-  </body>
+        toastClose.addEventListener("click", () => {
+          toast.classList.remove("show");
+        });
+      </script>
+      <script>
+        //Js for typing animation of Home page
+        document.addEventListener("DOMContentLoaded", () => {
+          const el = document.querySelector(".hero-title");
+
+          if (!el) return;
+
+          // Function to restart typing animation
+          const startTyping = () => {
+            el.classList.remove("typing-active");
+            void el.offsetWidth; // Force reflow to restart animation
+            el.classList.add("typing-active");
+          };
+
+          // Intersection Observer - starts when element is in view
+          const observer = new IntersectionObserver(
+            ([entry]) => {
+              if (entry.isIntersecting) {
+                startTyping();
+              }
+            },
+            { threshold: 0.5 }
+          );
+
+          observer.observe(el);
+
+          // Detect when user comes back to tab
+          document.addEventListener("visibilitychange", () => {
+            if (!document.hidden) {
+              // Only restart if element is visible in viewport
+              const rect = el.getBoundingClientRect();
+              if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                startTyping();
+              }
+            }
+          });
+        });
+
+        //smooth-scrolling
+      </script>
+      <script src="https://unpkg.com/lenis@1.1.21/dist/lenis.min.js"></script>
+      <script src="./js/feature.js"></script>
+    </body>
+  </html>
 </html>
