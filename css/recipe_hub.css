@@ -1394,7 +1394,7 @@
 
 /* Overlay */
 [data-theme="dark"] .recipe-overlay {
-    background: linear-gradient(to top, rgba(18,18,18,0.9), rgba(18,18,18,0.1));
+    /* background: linear-gradient(to top, rgba(18,18,18,0.9), rgba(18,18,18,0.1)); */
     color: var(--text-color);
 }
 
