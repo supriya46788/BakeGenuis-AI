@@ -34,3 +34,27 @@ function smoothScrolling() {
 window.addEventListener('DOMContentLoaded', function() {
   setTimeout(smoothScrolling, 100); // Small delay to ensure everything is properly loaded
 });
+
+
+//globle scrolling progression bar across all pages
+function initScrollProgress() {
+        const progressBar = document.createElement('div');
+        progressBar.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--candy-red), var(--sky-blue), var(--sunny-yellow));
+            z-index: 9999;
+            transition: width 0.3s ease;
+        `;
+        document.body.appendChild(progressBar);
+
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        });
+    }
+
+    initScrollProgress();

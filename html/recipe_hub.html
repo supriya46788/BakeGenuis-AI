@@ -36,24 +36,23 @@
                 <li><a href="./customize.html">Customize</a></li>
                 <li><a href="./recipe_hub.html" class="active">Recipe Hub</a></li>
                 <li><a href="./about.html">About</a></li>
-    </ul>
-  <label class="theme-switch">
-    <input type="checkbox" id="theme-toggle" />
-    <span class="slider">
-      <i class="fas fa-sun"></i>
-      <i class="fas fa-moon"></i>
-    </span>
-  </label>
-    <div class="fb-color">
-        <a href="feedback.html">Feedback</a>
-    </div>
-    <a href="./scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
-  </div>
-</nav>
+            </ul>
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-toggle" />
+                <span class="slider">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+                </span>
+            </label>
+            <div class="fb-color">
+                <a href="feedback.html">Feedback</a>
+            </div>
+            <a href="./scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
+        </div>
+    </nav>
 
     <!-- Auth Check Script -->
     <script src="../js/auth.js"></script>
-    <link rel="stylesheet" href="../css/auth.css">
 
     <!-- Main Content -->
     <main class="main-content">
@@ -75,6 +74,9 @@
                             Filters
                         </button>
                     </div>
+                    </div>
+                    </div>
+                    </section>
                     
                     <!-- Advanced Filters -->
                     <div class="filters-panel" id="filtersPanel">
@@ -123,7 +125,7 @@
                 <!-- Trending Recipes -->
                 <div class="section-header">
                     <h2 class="section-title">🔥 Trending Recipes</h2>
-                    <button class="view-all-btn">View All</button>
+                    <button class="view-all-btn" id="viewAllTrending">View All</button>
                 </div>
                 <div class="recipe-carousel" id="trendingRecipes">
                     <!-- Trending recipes will be loaded here -->
@@ -132,7 +134,7 @@
                 <!-- Featured Recipes -->
                 <div class="section-header">
                     <h2 class="section-title">⭐ Featured Recipes</h2>
-                    <button class="view-all-btn">View All</button>
+                    <button class="view-all-btn" id="viewAllFeatured">View All</button>
                 </div>
                 <div class="recipe-carousel" id="featuredRecipes">
                     <!-- Featured recipes will be loaded here -->
@@ -268,6 +270,9 @@
 
     <!-- Scripts -->
     <script src="../js/recipe_hub.js"></script>
+
+    <script src="../js/carousel_autoscroll.js"></script>
+
     <script src="../js/theme.js"></script>
     
     <!-- Back to Top Button -->
@@ -290,5 +295,6 @@
         };
     </script>
     <script src="../js/feature.js"></script>
+
 </body>
 </html>

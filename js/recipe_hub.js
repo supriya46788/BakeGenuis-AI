@@ -42,6 +42,36 @@ class RecipeHub {
             const element = document.getElementById(filterId);
             element?.addEventListener('change', () => this.applyFilters());
         });
+
+        // View All buttons for Trending and Featured (show in main grid)
+        const trendingViewAll = document.getElementById('viewAllTrending');
+        const featuredViewAll = document.getElementById('viewAllFeatured');
+        if (trendingViewAll) {
+            trendingViewAll.addEventListener('click', () => this.showAllTrendingInGrid());
+        }
+        if (featuredViewAll) {
+            featuredViewAll.addEventListener('click', () => this.showAllFeaturedInGrid());
+        }
+    }
+
+    showAllTrendingInGrid() {
+        // Show all trending recipes in the main recipe grid
+        this.filteredRecipes = this.recipes.filter(recipe => recipe.trending);
+        this.currentPage = 1;
+        this.renderRecipeGrid();
+        // Optionally scroll to the grid
+        const grid = document.getElementById('recipeGrid');
+        if (grid) grid.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    showAllFeaturedInGrid() {
+        // Show all featured recipes in the main recipe grid
+        this.filteredRecipes = this.recipes.filter(recipe => recipe.featured);
+        this.currentPage = 1;
+        this.renderRecipeGrid();
+        // Optionally scroll to the grid
+        const grid = document.getElementById('recipeGrid');
+        if (grid) grid.scrollIntoView({ behavior: 'smooth' });
     }
 
     createSparkles() {
@@ -293,18 +323,13 @@ class RecipeHub {
     renderRecipeGrid() {
         const container = document.getElementById('recipeGrid');
         if (!container) return;
-        
-        const startIndex = 0;
-        const endIndex = this.currentPage * this.recipesPerPage;
-        const recipesToShow = this.filteredRecipes.slice(startIndex, endIndex);
-        
-        container.innerHTML = recipesToShow.map(recipe => this.createRecipeCard(recipe)).join('');
+        // Show all recipes (no pagination)
+        container.innerHTML = this.filteredRecipes.map(recipe => this.createRecipeCard(recipe)).join('');
         this.attachCardEventListeners(container);
-        
-        // Update load more button
+        // Hide load more button
         const loadMoreBtn = document.getElementById('loadMoreBtn');
         if (loadMoreBtn) {
-            loadMoreBtn.style.display = endIndex >= this.filteredRecipes.length ? 'none' : 'block';
+            loadMoreBtn.style.display = 'none';
         }
     }
 
