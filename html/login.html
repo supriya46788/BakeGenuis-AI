@@ -17,9 +17,16 @@
     <!-- <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script> -->
      
-
+      <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="../css/auth.css" />
-    <link rel="stylesheet" href="../css/feature.css" />
+
+
+    <link rel="stylesheet" href="../css/toast.css" />
+
+    <link rel="stylesheet" href="../css/feature.css">
+
+
     <link rel="stylesheet" href="../css/toggle.css" />
   </head>
   <body>
@@ -155,14 +162,10 @@
         </div>
       </div>
     </div>
+
+    <!-- Scripts -->
     <script src="../js/theme.js"></script>
-    <script>
-      // Initialize login page
-      document.addEventListener("DOMContentLoaded", function () {
-        initLoginPage();
-      });
-    </script>
-    <!-- JS -->
+    <script src="../js/google_config.js"></script>
     <script src="../js/auth.js"></script>
     <script type="module" src="../js/firebase.js" defer></script>
     <script>
