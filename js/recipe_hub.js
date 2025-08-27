@@ -617,3 +617,34 @@ document.addEventListener('DOMContentLoaded', () => {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = RecipeHub;
 }
+// Baking Tips Array
+const bakingTips = [
+  "Always preheat your oven for even baking. 🔥",
+  "Use room temperature eggs and butter for smoother batters. 🥚🧈",
+  "Don’t open the oven door too often—it drops the temperature! 🚪❌",
+  "Weigh your ingredients for accuracy instead of using cups. ⚖️",
+  "Chill cookie dough before baking for thicker cookies. 🍪",
+  "Line pans with parchment paper to prevent sticking. 📜",
+  "Let cakes cool before frosting or the icing will melt. 🎂",
+  "Use unsalted butter to control salt levels better. 🧈",
+  "Always taste your batter for balance (except raw egg doughs 😉).",
+  "A pinch of salt enhances the sweetness of desserts. 🧂🍫"
+];
+
+// DOM Elements
+const tipBtn = document.getElementById("tipBtn");
+const tipPopup = document.getElementById("tipPopup");
+const tipText = document.getElementById("tipText");
+const closeTip = document.getElementById("closeTip");
+
+// Show Random Tip
+tipBtn.addEventListener("click", () => {
+  const randomIndex = Math.floor(Math.random() * bakingTips.length);
+  tipText.textContent = bakingTips[randomIndex];
+  tipPopup.style.display = "block";
+});
+
+// Close Popup
+closeTip.addEventListener("click", () => {
+  tipPopup.style.display = "none";
+});
