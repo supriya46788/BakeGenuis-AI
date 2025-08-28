@@ -2,7 +2,7 @@
 function smoothScrolling() {
   // Check if Lenis is available
   if (typeof Lenis === 'undefined') {
-    console.error('Lenis library not loaded. Please check if the script is included.');
+    // Lenis library not available - use default scrolling
     return;
   }
   
@@ -24,9 +24,9 @@ function smoothScrolling() {
     // Start the animation loop
     requestAnimationFrame(raf);
     
-    console.log('Smooth scrolling initialized successfully');
+    // Smooth scrolling initialized successfully
   } catch (error) {
-    console.error('Error initializing smooth scrolling:', error);
+    // Fallback to default scrolling behavior
   }
 }
 

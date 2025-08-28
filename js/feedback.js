@@ -80,7 +80,7 @@ class FeedbackSystem {
             this.displayFeedbackList();
 
         } catch (error) {
-            console.error('Error submitting feedback:', error);
+            // Handle feedback submission error gracefully
             this.showError('Something went wrong. Please try again.');
         } finally {
             this.setLoading(false);
@@ -260,5 +260,5 @@ function goToHome() {
 document.addEventListener('DOMContentLoaded', function() {
     new FeedbackSystem();
     
-    console.log('🍰 BakeGenius.ai Feedback Page Loaded Successfully!');
+    // Feedback page initialization complete
 });
