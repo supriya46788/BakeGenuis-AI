@@ -539,6 +539,13 @@
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <i class="fa-solid fa-spinner"></i>
+            <h2>Ready for some baking<span class="dots"></span></h2>
+        </div>
+    </div>
     <!-- Navigation -->
     <nav class="navbar">
       <div class="navbar-container">
@@ -799,6 +806,15 @@
           }
         });
       });
+
+      document.addEventListener("DOMContentLoaded", function () {
+            const loadingScreen = document.getElementById("loading-screen");
+        
+            // Set a timeout to hide the loading screen
+            setTimeout(() => {
+                loadingScreen.classList.add("hidden");
+            }, 7000); // 7000ms = 7 seconds (adjust as needed)
+        });
 
       //smooth-scrolling
     </script>
