@@ -811,14 +811,20 @@ html.dark-mode .spinner {
                 </div>
 
                 <div class="btn-group">
-                    <button class="btn btn-primary" onclick="scaleRecipe()">
-                        ✨ Scale Recipe Magically
-                    </button>
-                    <button class="btn btn-secondary" onclick="clearInputs()">
-                        🧹 Clear All
-                    </button>
-                </div>
-            </div>
+    <button class="btn btn-primary" onclick="scaleRecipe()">
+        ✨ Scale Recipe Magically
+    </button>
+    <button class="btn btn-secondary" onclick="clearInputs()">
+        🧹 Clear All
+    </button>
+    <button class="btn" style="background-color: #4da6ff; color: white;" onclick="saveCurrentRecipe()">
+    ⭐ Save Recipe
+</button>
+
+
+</div>
+</div>
+
 
             <!-- Output Section -->
             <div class="output-section">
@@ -935,7 +941,7 @@ html.dark-mode .spinner {
             }
             return ingredientIcons.default;
         }
-
+        
         function parseIngredientLine(line) {
             // Enhanced regex to capture amount, unit, and ingredient
             const patterns = [
@@ -1134,6 +1140,54 @@ html.dark-mode .spinner {
             
             suggestions.innerHTML = tips.map(tip => `<p>${tip}</p>`).join('');
         }
+
+
+        function saveCurrentRecipe() {
+    const resultsBody = document.getElementById('resultsBody');
+    const scalingInfo = document.getElementById('scalingInfo');
+    const suggestions = document.getElementById('suggestions');
+
+    if (!resultsBody || resultsBody.innerHTML.trim() === "") {
+        alert("⚠️ No recipe results to save yet!");
+        return;
+    }
+
+    let currentServings = document.getElementById('currentServings').value;
+    let desiredServings = document.getElementById('desiredServings').value;
+
+    // Extract ingredients
+    let rows = resultsBody.querySelectorAll("tr");
+    let ingredientsText = "";
+    rows.forEach(row => {
+        let cells = row.querySelectorAll("td");
+        ingredientsText += `Ingredient: ${cells[0].innerText.trim()} | Original: ${cells[1].innerText.trim()} | Scaled: ${cells[2].innerText.trim()}\n`;
+    });
+
+    // Extract tips
+    let tipsText = "";
+    suggestions.querySelectorAll("p").forEach(p => {
+        tipsText += `- ${p.innerText.trim()}\n`;
+    });
+
+    // Build the text content
+    let recipeText = `🍴 Scaled Recipe\n\nCurrent Servings: ${currentServings}\nDesired Servings: ${desiredServings}\n\nIngredients:\n${ingredientsText}\nTips:\n${tipsText}\n\nSaved on: ${new Date().toLocaleString()}`;
+
+    // Create a blob and trigger download
+    let blob = new Blob([recipeText], { type: "text/plain" });
+    let url = URL.createObjectURL(blob);
+
+    let a = document.createElement("a");
+    a.href = url;
+    a.download = `recipe_${Date.now()}.txt`; // filename
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    URL.revokeObjectURL(url);
+
+    alert("✅ Recipe saved as .txt file!");
+}
+
 
         function clearInputs() {
             document.getElementById('currentServings').value = '6';
