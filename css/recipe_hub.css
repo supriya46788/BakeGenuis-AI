@@ -249,16 +249,6 @@ body::before {
     color: white;
 }
 
-/* Force inline row for user-info in mobile menu */
-#mobileAuthButtons .user-info {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 0;
-}
-
-
 .logout-btn {
     background: linear-gradient(45deg, #ff4757, #ff3838) !important;
     color: #ffffff;
@@ -847,7 +837,7 @@ body::before {
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
-        position: fixed;
+        position: absolute;
         top: 60px;
         left: -100%;
         width: auto;
@@ -865,7 +855,7 @@ body::before {
     
     .nav-links.active {
         left: 0;
-        display:flex;
+        display: flex; 
     }
     
     .hamburger {
@@ -882,6 +872,18 @@ body::before {
         display: block;
         margin: 10px auto;
         text-align: center;
+    }
+
+    .mobile-only {
+        display: block; /* show inside hamburger */
+    }
+
+    .desktop-only {
+        display: none;  /* hide on mobile  */
+    }
+
+    .navbar-container > .cta-btn {
+        display: none !important;
     }
 
     .hero-title {
@@ -923,18 +925,6 @@ body::before {
         align-items: flex-start;
     }
     
-    .nav-links {
-        gap: 15px;
-    }
-    
-    .nav-links li a {
-        font-size: 0.9rem;
-    }
-    
-    .navbar-container {
-        padding: 0 10px;
-    }
-    
     .container {
         padding: 0 15px;
     }
@@ -943,18 +933,6 @@ body::before {
         width: 100%;
         max-width: 300px;
         justify-content: center;
-    }
-
-    .mobile-only {
-        display: block; /* show inside hamburger */
-    }
-
-    .desktop-only {
-        display: none;  /* hide on mobile  */
-    }
-
-    .navbar-container > .cta-btn {
-        display: none !important;
     }
 
 }

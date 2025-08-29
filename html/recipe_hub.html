@@ -27,6 +27,7 @@
     <nav class="navbar">
         <div class="navbar-container">
             <div class="logo">🍰 BakeGenius.ai</div>
+
              <!-- HAMBURGER ICON -->
             <button class="hamburger" id="hamburgerBtn">
                 <i class="fa fa-bars"></i>
@@ -38,13 +39,14 @@
                 <li><a href="./customize.html">Customize</a></li>
                 <li><a href="./recipe_hub.html" class="active">Recipe Hub</a></li>
                 <li><a href="./about.html">About</a></li>
+                <li><a href="feedback.html" class="fb-color">Feedback</a></li>
                 <!-- 👇 Mobile-only placeholders -->
                 <li class="mobile-only" id="mobileAuthButtons">
                     <!-- auth.js will inject Login/Signup OR User Info + Logout here -->
                 </li>
-                <li><a href="./feedback.html" class="fb-color">Feedback</a></li>
                 <li class="mobile-only"><a href="./scale.html" class="cta-btn">Scale Now</a></li>
             </ul>
+            
             <!-- 👇 Desktop-only placeholders -->
              <div class="desktop-only" id="desktopAuthButtons">
              <!-- auth.js will inject Login/Signup OR User Info + Logout here -->
@@ -277,8 +279,7 @@
   });
 </script>
 
-<script>
-    function updateNavigation() {
+<script> function updateNavigation() {
   const desktopAuth = document.getElementById('desktopAuthButtons');
   const mobileAuth = document.getElementById('mobileAuthButtons');
 

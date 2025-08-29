@@ -201,17 +201,18 @@
     box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4) !important;
 }
 
-.hamburger {
-  display: none;
-  font-size: 28px;
-  color: #fff;
-  cursor: pointer;
+.mobile-only{
+    display: none;
+}
+.desktop-only{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
- .actions-toggle {
-  display: none;
-} 
-
+.hamburger {
+    display: none;
+}
 
         /* Main Content */
         main {
@@ -514,52 +515,51 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-
-            .actions-toggle {
-                display: block;
-            }
-
-            .nav-right{
-                display: none;
-            }
-
-            .mobile-actions {
-                display: none;
-                flex-direction: column;
-                background: rgba(0,0,0,0.9);
-                position: absolute;
-                top: 100%;
-                right: 0;
-                padding: 1.5rem;
-                gap: 1rem;
-                z-index: 998;
-            }
-            .mobile-actions.active {
-                display: flex;
-            }
-            
             .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width:auto;
+                max-width: 300px;
+                height: auto;
                 background: rgba(0, 0, 0, 0.9);
                 flex-direction: column;
-                padding: 2rem;
-                gap: 1rem;
-                z-index: 999; /**/
+                align-items: center;
+                padding-top: 2rem;
+                gap: 15px;
+                transition: left 0.3s ease;
+                z-index: 1000;
+                display: flex;
             }
 
             .nav-links.active {
-                display: flex;
+                left:0;
             }
 
-            .mobile-menu {
-                display: flex;
+            .hamburger {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 28px;
+                cursor: pointer;
+                color: #fff;
+                z-index: 1100;
+            }
+            .nav-links .cta-btn {
+                display: block;
+                margin: 10px auto;
+                text-align: center;
+            }
+            .mobile-only{
+                display:block;
+            }
+            
+            .desktop-only{
+                display: none;
+            }
+            
+            .navbar-container> .cta-btn{
+                display: none !important;
             }
 
             main {
