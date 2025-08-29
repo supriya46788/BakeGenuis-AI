@@ -57,6 +57,30 @@
           text-decoration: none;
           color: #fff;
       }
+      /* Back to Top Button */
+#scrollTopBtn {
+  display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    background: linear-gradient(45deg, #ff6ec7, #ffa07a, #87cefa);
+    color: black;
+    cursor: pointer;
+    padding: 7px 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+  transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
 
       /* Nav Links */
       .nav-links {
@@ -707,7 +731,7 @@
       <button id="toastClose" class="toast-close">&times;</button>
     </div>
 
-    <button id="scrollTopBtn" class="hidden" title="Go to top">
+    <button id="scrollTopBtn" title="Go to top">
       <i class="fas fa-arrow-up"></i>
     </button>
 
