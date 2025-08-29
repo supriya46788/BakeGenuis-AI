@@ -6,6 +6,7 @@
     <title>Scale Recipes - BakeGenius.ai</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="css/floating_emoji_fix.css">
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="48x48" href="./favicon/favicon-48x48.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
@@ -887,8 +888,9 @@ html.dark-mode .spinner {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-        const API_KEY = 'API_KEY';
-        const API_URL = 'API_URL';
+        // Note: API keys removed for security - implement server-side API calls in production
+        const API_KEY = null;
+        const API_URL = null;
 
         // Ingredient icons mapping
         const ingredientIcons = {
@@ -1229,6 +1231,10 @@ if (darkModeToggle) {
     });
 }
     </script>
+    
+    <!-- Floating Emoji Footer Fix -->
+    <script src="js/floating_emoji_footer_fix.js"></script>
+    
     <!-- Include Footer -->
 <div id="footer-placeholder"></div>
 <script>

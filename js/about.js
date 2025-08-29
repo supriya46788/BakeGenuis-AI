@@ -214,14 +214,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     } catch (error) {
-        console.error("Error fetching contributors:", error);
-        contributorsContainer.innerHTML = "<p>⚠ Error fetching contributors.</p>";
+        // Handle contributor loading error gracefully
+        contributorsContainer.innerHTML = "<p>⚠ Unable to load contributors at this time.</p>";
     }
 }
 
 loadContributors();
-
-    loadContributors();
     // Initialize all functions
     createSparkles();
     initScrollAnimations();
@@ -237,7 +235,5 @@ loadContributors();
     // initScrollProgress();
     // Add some extra sparkle regeneration
     setInterval(createSparkles, 10000);
-    
-    console.log('🍰 BakeGenius.ai About Page Loaded Successfully!');
 });
     

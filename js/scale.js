@@ -1,5 +1,6 @@
- const API_KEY = 'API_KEY';
-        const API_URL = 'API_URL';
+ // Note: API keys removed for security - implement server-side API calls in production
+const API_KEY = null;
+const API_URL = null;
 
         // Ingredient icons mapping
         const ingredientIcons = {
