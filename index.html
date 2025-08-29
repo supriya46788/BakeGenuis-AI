@@ -98,15 +98,15 @@
       }
       .fb-color {
                 padding: 8px 15px;
-                background-color: rgba(238, 255, 0, 0.356);
+                background: linear-gradient(45deg, #60a5fa, #fde68a);
                 border-radius: 20px;
-                border: black 1px solid;
+                border: none;
             }
             .fb-color:hover{
-                background-color: rgba(169, 196, 13, 0.39);
+                background: linear-gradient(45deg, #60a5fa, #fde68a);
             }
             .fb-color a {
-                color: black;
+                color: white;
                 text-decoration: none;
             }
       /* CTA Button */
@@ -162,7 +162,7 @@
       .user-avatar {
           width: 40px;
           height: 40px;
-          background: linear-gradient(45deg, var(--candy-red), var(--sunny-yellow));
+          background: linear-gradient(45deg, #c270f6, #747061);
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -172,7 +172,7 @@
       }
 
       .logout-btn {
-          background: linear-gradient(45deg, #ff4757, #ff3838) !important;
+          background: linear-gradient(90deg, #ff5f6d, #c31432);
           color: #ffffff;
           border: none !important;
           padding: 0.5rem 1rem;
@@ -551,19 +551,12 @@
       <div class="navbar-container">
         <div class="logo"><a href="./index.html">🍰 BakeGenius.ai</a></div>
         <ul class="nav-links" id="navLinks">
-          <li><a href="./index.html" class="active">Home</a></li>
           <li><a href="./html/convert.html">Convert Recipe</a></li>
           <li><a href="./html/customize.html">Customize</a></li>
           <li><a href="./html/recipe_hub.html">Recipe Hub</a></li>
           <li><a href="./html/about.html">About</a></li>
         </ul>
-        <label class="theme-switch">
-          <input type="checkbox" id="theme-toggle" />
-          <span class="slider">
-            <i class="fas fa-sun"></i>
-            <i class="fas fa-moon"></i>
-          </span>
-        </label>
+        
         <div class="fb-color">
           <a href="./html/feedback.html">Feedback</a>
         </div>
@@ -572,6 +565,13 @@
           <a href="./html/signup.html" class="signup-btn">Sign Up</a>
         </div>
         <a href="./html/scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-toggle" />
+          <span class="slider">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+          </span>
+        </label>
       </div>
     </nav>
 
