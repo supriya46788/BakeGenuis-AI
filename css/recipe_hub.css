@@ -926,11 +926,11 @@
 .save-btn {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 80px;
     background: rgba(255,255,255,0.9);
     border: none;
     width: 40px;
-    height: 40px;
+    height: 30px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -1487,18 +1487,33 @@
 [data-theme="dark"] .save-btn,
 [data-theme="dark"] .follow-btn,
 [data-theme="dark"] .action-btn {
-    background: var(--btn-bg);
+    background: rgba(0,0,0,0.8); /* or var(--btn-bg-dark) */
     color: var(--text-color);
     border: 1px solid var(--border-color);
-    border-radius: 10px;
-    transition: background 0.2s ease, color 0.2s ease;
+    border-radius: 50%; /* Match light mode roundness */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
 [data-theme="dark"] .save-btn:hover,
 [data-theme="dark"] .follow-btn:hover,
 [data-theme="dark"] .action-btn:hover {
-    background: var(--btn-hover);
-    color: var(--accent);
+    background: var(--candy-red);
+    color: white;
+    transform: scale(1.1);
+}
+
+[data-theme="dark"] .save-btn.saved {
+    background: var(--candy-red);
+    color: white;
+}
+
+[data-theme="dark"] .follow-btn.following {
+    background: var(--sky-blue);
+    color: white;
 }
 
 /* Tags */
