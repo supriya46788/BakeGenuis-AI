@@ -277,36 +277,33 @@
   });
 </script>
 
-<!-- <script> 
+<script>
     function updateNavigation() {
-  const mobileAuth = document.getElementById("mobileAuthButtons");
-  const desktopAuth = document.getElementById("desktopAuthButtons");
+  const desktopAuth = document.getElementById('desktopAuthButtons');
+  const mobileAuth = document.getElementById('mobileAuthButtons');
 
   if (auth.isLoggedIn()) {
-    const userInfoHTML = `
+    const userUI = `
       <div class="user-info">
         <div class="user-avatar">${auth.currentUser.name.charAt(0).toUpperCase()}</div>
-        <span>Hi, ${auth.currentUser.name.split(" ")[0]}!</span>
+        <span>Hi, ${auth.currentUser.name.split(' ')[0]}!</span>
         <button class="logout-btn" onclick="handleLogout()">Logout</button>
       </div>
     `;
 
-    if (mobileAuth) mobileAuth.innerHTML = userInfoHTML;
-    if (desktopAuth) desktopAuth.innerHTML = userInfoHTML;
+    if (desktopAuth) desktopAuth.innerHTML = userUI;
+    if (mobileAuth) mobileAuth.innerHTML = userUI;
   } else {
-    const loginSignupHTML = `
-      <a href="./login.html">Login</a> | 
-      <a href="./signup.html">Signup</a>
+    const guestUI = `
+      <a href="./login.html" class="login-btn">Login</a>
+      <a href="./signup.html" class="signup-btn">Signup</a>
     `;
-    if (mobileAuth) mobileAuth.innerHTML = loginSignupHTML;
-    if (desktopAuth) desktopAuth.innerHTML = loginSignupHTML;
+
+    if (desktopAuth) desktopAuth.innerHTML = guestUI;
+    if (mobileAuth) mobileAuth.innerHTML = guestUI;
   }
 }
-
-</script> -->
-
-
-
+</script>
     <!-- Scripts -->
     <script src="../js/recipe_hub.js"></script>
 </body>
