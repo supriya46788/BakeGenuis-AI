@@ -155,8 +155,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #ccc;
-  border-radius: 34px;
+  background: linear-gradient(45deg, #6b7043, #fde68a);  border-radius: 34px;
   transition: 0.4s;
   display: flex;
   align-items: center;
@@ -180,7 +179,7 @@ body {
 
 /* When checked (dark mode) */
 .theme-switch input:checked + .slider {
-  background: #4ecdc4; /* you can use any gradient if you want */
+  background: linear-gradient(45deg, #bf60fa, #fde68a);
 }
 
 .theme-switch input:checked + .slider:before {
@@ -373,52 +372,18 @@ body {
   transform: translateY(-2px);
 }
 
-/* Dark Mode Feedback Button */
-[data-theme="dark"] .fb-color {
-  padding: 8px 18px;
-  background: linear-gradient(
-    135deg,
-    rgba(245, 115, 197, 0.9),
-    rgba(190, 8, 245, 0.7)
-  );
-  border-radius: 25px;
-  border: 1px solid rgba(190, 8, 245, 0.3);
-  display: inline-block;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(190, 8, 245, 0.3);
-}
-
-[data-theme="dark"] .fb-color:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(243, 19, 224, 0.85),
-    rgba(190, 8, 245, 0.9)
-  );
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(190, 8, 245, 0.6);
-}
-
-[data-theme="dark"] .fb-color a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-[data-theme="dark"] .fb-color a:hover {
-  color: #ffffff;
-}
-
 .fb-color {
   padding: 8px 15px;
-  background-color: rgba(238, 255, 0, 0.356);
+  background: linear-gradient(45deg, #60a5fa, #fde68a);
   border-radius: 20px;
-  border: black 1px solid;
+  border: none;
 }
 .fb-color:hover {
-  background-color: rgba(169, 196, 13, 0.39);
+  box-shadow: 0 4px 12px rgba(96,165,250,0.5);
+  transform: translateY(-2px);
 }
 .fb-color a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
@@ -473,7 +438,7 @@ body {
 .user-avatar {
   width: 40px;
   height: 40px;
-  background: linear-gradient(45deg, var(--candy-red), var(--sunny-yellow));
+  background: linear-gradient(45deg, #c270f6, #747061);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -483,7 +448,7 @@ body {
 }
 
 .logout-btn {
-  background: linear-gradient(45deg, #ff4757, #ff3838) !important;
+  background: linear-gradient(90deg, #ff5f6d, #c31432);
   color: #ffffff;
   border: none !important;
   padding: 0.5rem 1rem;

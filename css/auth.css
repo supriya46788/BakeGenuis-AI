@@ -218,16 +218,17 @@ html[data-theme="dark"] .auth-title {
   padding: 8px 15px;
   background-color: rgba(238, 255, 0, 0.356);
   border-radius: 20px;
-  border: black 1px solid;
+  border: none;
   transition: background-color 0.3s ease;
 }
 
 .fb-color:hover {
-  background-color: rgba(169, 196, 13, 0.39);
+  box-shadow: 0 4px 12px rgba(96,165,250,0.5);
+  transform: translateY(-2px);
 }
 
 .fb-color a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
@@ -269,7 +270,7 @@ html[data-theme="dark"] .auth-title {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #ccc;
+  background: linear-gradient(45deg, #6b7043, #fde68a);
   border-radius: 34px;
   transition: 0.4s;
   display: flex;
@@ -293,7 +294,8 @@ html[data-theme="dark"] .auth-title {
 }
 
 .theme-switch input:checked + .slider {
-  background: #4ecdc4;
+  background: linear-gradient(45deg, #bf60fa, #fde68a);
+
 }
 
 .theme-switch input:checked + .slider:before {
@@ -828,22 +830,6 @@ html[data-theme="dark"] body {
 [data-theme="dark"] .nav-links li a {
   color: #ffffff !important;
   text-shadow: 0 0 8px rgba(187, 134, 252, 0.5);
-}
-
-/* Feedback Button */
-[data-theme="dark"] .fb-color {
-  background: linear-gradient(
-    135deg,
-    rgba(245, 115, 197, 0.9),
-    rgba(190, 8, 245, 0.7)
-  );
-  border-radius: 25px;
-  border: 1px solid rgba(190, 8, 245, 0.3);
-  box-shadow: 0 0 10px rgba(190, 8, 245, 0.3);
-}
-
-[data-theme="dark"] .fb-color a {
-  color: #fff;
 }
 
 /* Auth Card & Form */
