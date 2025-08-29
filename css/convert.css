@@ -42,7 +42,7 @@
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
-  margin: auto;
+  margin:0 auto;
 }
 
 /* Logo */
@@ -57,7 +57,17 @@
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 25px;
+  gap: 20px;
+  margin: 0 auto;              /* this centers the nav links between logo & nav-right */
+  align-items: center;
+}
+
+/* Right side container for Feedback, Scale, user-info */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 12px; /* small spacing from center */
 }
 
 .nav-links li a {
@@ -143,6 +153,12 @@
     display: none !important;
 }
 
+.nav-links .user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 /* User Info Display */
 .user-info {
     display: flex;
@@ -184,6 +200,18 @@
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4) !important;
 }
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+}
+
+ .actions-toggle {
+  display: none;
+} 
+
 
         /* Main Content */
         main {
@@ -486,6 +514,33 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .actions-toggle {
+                display: block;
+            }
+
+            .nav-right{
+                display: none;
+            }
+
+            .mobile-actions {
+                display: none;
+                flex-direction: column;
+                background: rgba(0,0,0,0.9);
+                position: absolute;
+                top: 100%;
+                right: 0;
+                padding: 1.5rem;
+                gap: 1rem;
+                z-index: 998;
+            }
+            .mobile-actions.active {
+                display: flex;
+            }
+            
             .nav-links {
                 display: none;
                 position: absolute;
@@ -496,6 +551,7 @@
                 flex-direction: column;
                 padding: 2rem;
                 gap: 1rem;
+                z-index: 999; /**/
             }
 
             .nav-links.active {

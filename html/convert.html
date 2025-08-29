@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="../css/convert.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <!-- Navigation-->
+<nav class="navbar">
   <div class="navbar-container">
     <div class="logo">🍰 BakeGenius.ai</div>
       <ul class="nav-links" id="navLinks">
@@ -21,11 +21,25 @@
       <li><a href="./recipe_hub.html">Recipe Hub</a></li>
       <li><a href="./about.html">About</a></li>
     </ul>
-    <div class="fb-color">
-        <a href="feedback.html">Feedback</a>
+
+    <div class="nav-right" id="navRight">
+      <!-- feedback & scale now moved here (desktop) -->
+      <a href="feedback.html" class="fb-color">Feedback</a>
+      <a href="./scale.html" class="cta-btn">Scale Now</a>
+      <!-- auth.js will inject .user-info into this .nav-right (see JS below) -->
     </div>
-    <a href="./scale.html" class="cta-btn">Scale Now</a>
-  </div>
+
+      <div class="mobile-actions" id="mobileActions"></div>
+
+    <!-- Hamburger Menu Button -->
+    <div class="hamburger" onclick="toggleMobileMenu()">
+        <i class="fa fa-bars"></i>
+    </div>
+    <!-- Actions Dropdown Toggle -->
+     <div class="actions-toggle" onclick="toggleActionsMenu()">
+        <i class="fa fa-angle-down"></i>
+    </div>
+</div>
 </nav>
 
     <!-- Auth Check Script -->
