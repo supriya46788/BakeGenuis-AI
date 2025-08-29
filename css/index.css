@@ -635,7 +635,7 @@
                 top: 60px;
                 left: 20px;
                 width: 240px;
-                background: linear-gradient(90deg, #60a5fa, #f9a8d4, #fde68a);
+                background: rgba(0, 0, 0, 0.9);
                 backdrop-filter: blur(10px);
                 flex-direction: column;
                 align-items: center;

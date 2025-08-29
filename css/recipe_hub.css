@@ -249,6 +249,16 @@ body::before {
     color: white;
 }
 
+/* Force inline row for user-info in mobile menu */
+#mobileAuthButtons .user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+
 .logout-btn {
     background: linear-gradient(45deg, #ff4757, #ff3838) !important;
     color: #ffffff;
@@ -268,6 +278,20 @@ body::before {
     background: linear-gradient(45deg, #ff3838, #ff2d2d) !important;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4) !important;
+}
+
+.mobile-only {
+  display: none; /* hidden by default (desktop view) */
+}
+
+.desktop-only {
+  display: flex;
+  align-items: center;
+  gap: 10px;  
+}
+
+.hamburger {
+  display: none;
 }
 
 /* Main Content */
@@ -822,6 +846,44 @@ body::before {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: auto;
+        max-width: 300px;
+        height: auto;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding-top: 2rem;
+        transition: left 0.3s ease;
+        z-index: 1000;
+        display: flex; /* flex*/
+    }
+    
+    .nav-links.active {
+        left: 0;
+        display:flex;
+    }
+    
+    .hamburger {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        color: #fff;
+        z-index: 1100;
+    }
+    
+    .nav-links .cta-btn{
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+    }
+
     .hero-title {
         font-size: 2.5rem;
     }
@@ -876,6 +938,25 @@ body::before {
     .container {
         padding: 0 15px;
     }
+
+    .btn{
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+
+    .mobile-only {
+        display: block; /* show inside hamburger */
+    }
+
+    .desktop-only {
+        display: none;  /* hide on mobile  */
+    }
+
+    .navbar-container > .cta-btn {
+        display: none !important;
+    }
+
 }
 
 @media (max-width: 480px) {
