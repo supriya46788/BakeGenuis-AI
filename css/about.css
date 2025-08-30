@@ -475,6 +475,27 @@ body {
   z-index: 10;
 }
 
+.mobile-only{
+    display: none;
+}
+.desktop-only{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hamburger {
+    display: none;
+}
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
 .hero-title {
   font-size: 4rem;
   font-weight: 700;
@@ -972,6 +993,74 @@ body {
   transform: translateY(0);
 }
 
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--candy-red), var(--sky-blue));
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--sky-blue), var(--sunny-yellow));
+        }
+
+/* Mobile responsivness*/
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: auto;
+        max-width: 300px;
+        height: auto;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding-top: 2rem;
+        transition: left 0.3s ease;
+        z-index: 1000;
+        display: flex; /* flex*/
+    }
+    .nav-links.active {
+        left: 0;
+    }
+    .hamburger {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        color: #fff;
+        z-index: 1100;
+    }
+    .nav-links .cta-btn {
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+    }
+
+    .mobile-only{
+        display:block;
+    }
+
+    .desktop-only{
+        display: none;
+    }
+
+    .navbar-container> .cta-btn{
+        display: none !important;
+    }
+}
+
+        
 .footer {
   background-color: #ffb6c1;
   color: #fff;

@@ -28,12 +28,32 @@
     <!-- Navigation -->
       <nav class="navbar">
   <div class="navbar-container">
+    <div class="logo">🍰 BakeGenius.ai</div>
+
+     <!-- HAMBURGER ICON -->
+    <button class="hamburger" id="hamburgerBtn">
+      <i class="fa fa-bars"></i>
+    </button>
+
     <div class="logo"><a href="../index.html" >🍰 BakeGenius.ai</a></div>
       <ul class="nav-links" id="navLinks">
       <li><a href="./convert.html" >Convert Recipe</a></li>
       <li><a href="./customize.html" class="active">Customize</a></li>
       <li><a href="./recipe_hub.html">Recipe Hub</a></li>
       <li><a href="./about.html">About</a></li>
+      <li><a href="feedback.html" class="fb-color">Feedback</a></li>
+      <!-- 👇 Mobile-only placeholders -->
+      <li class="mobile-only" id="mobileAuthButtons">
+        <!-- auth.js will inject Login/Signup OR User Info + Logout here -->
+      </li>
+      <li class="mobile-only"><a href="./scale.html" class="cta-btn">Scale Now</a></li>
+      </ul>
+    
+    <!-- 👇 Desktop-only placeholders -->
+      <div class="desktop-only" id="desktopAuthButtons">
+      <!-- auth.js will inject Login/Signup OR User Info + Logout here -->
+      </div>
+      <a href="./scale.html" class="cta-btn">Scale Now</a>
     </ul>
       
     <div class="fb-color">
@@ -159,6 +179,43 @@
     <p class="footer-bottom">&copy; 2025 BakeGenius.ai — All rights reserved.</p>
 </footer>
 
+<script>
+  const hamburger = document.getElementById("hamburgerBtn");
+  const navLinks = document.getElementById("navLinks");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
+
+<script> 
+    function updateNavigation() {
+  const mobileAuth = document.getElementById("mobileAuthButtons");
+  const desktopAuth = document.getElementById("desktopAuthButtons");
+
+  if (auth.isLoggedIn()) {
+    const userInfoHTML = `
+      <div class="user-info">
+        <div class="user-avatar">${auth.currentUser.name.charAt(0).toUpperCase()}</div>
+        <span>Hi, ${auth.currentUser.name.split(" ")[0]}!</span>
+        <button class="logout-btn" onclick="handleLogout()">Logout</button>
+      </div>
+    `;
+
+    if (mobileAuth) mobileAuth.innerHTML = userInfoHTML;
+    if (desktopAuth) desktopAuth.innerHTML = userInfoHTML;
+  } else {
+    const loginSignupHTML = `
+      <a href="./login.html">Login</a> | <a href="./signup.html">Signup</a>
+    `;
+
+    if (mobileAuth) mobileAuth.innerHTML = loginSignupHTML;
+    if (desktopAuth) desktopAuth.innerHTML = loginSignupHTML;
+  }
+}
+</script>
+
+<script src="../js/customize.js"></script>
     <script src="../js/customize.js"></script>
     <script src="../js/theme.js"></script>
     <script src="../js/floating_emoji_footer_fix.js"></script>
