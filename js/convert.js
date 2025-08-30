@@ -263,6 +263,56 @@ ${recipeText}`
             }
         `;
         document.head.appendChild(style);
+
+function toggleActionsMenu() {
+  document.getElementById("mobileActions").classList.toggle("active");
+
+  // Optional: rotate the arrow when active
+  const arrow = document.querySelector(".actions-toggle i");
+  arrow.classList.toggle("fa-angle-down");
+  arrow.classList.toggle("fa-angle-up");
+}
+
+function toggleActionsMenu() {
+  const actions = document.getElementById("mobileActions");
+  actions.classList.toggle("active");
+
+  const arrow = document.querySelector(".actions-toggle i");
+  if (arrow) {
+    arrow.classList.toggle("fa-angle-down");
+    arrow.classList.toggle("fa-angle-up");
+  }
+}
+
+// Re-parent nav items responsively
+function handleResponsiveNav() {
+  const navLinks = document.getElementById("navLinks");
+  const mobileActions = document.getElementById("mobileActions");
+  const userInfo = document.querySelector(".user-info"); // injected by auth.js
+  const feedback = navLinks.querySelector(".fb-color");
+  const scale = navLinks.querySelector(".cta-btn");
+
+  if (window.innerWidth <= 768) {
+    if (feedback && !mobileActions.contains(feedback)) mobileActions.appendChild(feedback);
+    if (scale && !mobileActions.contains(scale)) mobileActions.appendChild(scale);
+    if (userInfo && !mobileActions.contains(userInfo)) mobileActions.appendChild(userInfo);
+  } else {
+    if (feedback && !navLinks.contains(feedback)) navLinks.appendChild(feedback);
+    if (scale && !navLinks.contains(scale)) navLinks.appendChild(scale);
+    if (userInfo && !navLinks.contains(userInfo)) navLinks.appendChild(userInfo);
+  }
+}
+
+window.addEventListener("resize", handleResponsiveNav);
+window.addEventListener("load", handleResponsiveNav);
+
+function toggleActionsMenu() {
+  const drawer = document.getElementById('mobileActions');
+  drawer.classList.toggle('active');
+
+  const arrow = document.querySelector('.actions-toggle i');
+  if (arrow) arrow.classList.toggle('fa-angle-up');
+}
         document.addEventListener('keydown', function (event) {
     if (event.ctrlKey && event.key === 'Enter') {
         event.preventDefault(); // avoid accidental new line in textarea

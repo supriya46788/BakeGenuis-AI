@@ -29,25 +29,23 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="navbar-container">
-            <div class="logo"><a href="../index.html" >🍰 BakeGenius.ai</a></div>
+            <div class="logo">🍰 BakeGenius.ai</div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="./convert.html">Convert Recipe</a></li>
                 <li><a href="./customize.html">Customize</a></li>
                 <li><a href="./recipe_hub.html" class="active">Recipe Hub</a></li>
                 <li><a href="./about.html">About</a></li>
+                <li><a href="feedback.html" class="fb-color">Feedback</a></li>
+                <!-- 👇 Mobile-only placeholders -->
+                <li class="mobile-only" id="mobileAuthButtons">
+                    <!-- auth.js will inject Login/Signup OR User Info + Logout here -->
+                </li>
+                <li class="mobile-only"><a href="./scale.html" class="cta-btn">Scale Now</a></li>
             </ul>
-            
             <div class="fb-color">
                 <a href="feedback.html">Feedback</a>
             </div>
-            <a href="./scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
-            <label class="theme-switch">
-                <input type="checkbox" id="theme-toggle" />
-                <span class="slider">
-                <i class="fas fa-sun"></i>
-                <i class="fas fa-moon"></i>
-                </span>
-            </label>
+            <a href="./scale.html" class="cta-btn">Scale Now</a>
         </div>
     </nav>
 
@@ -272,11 +270,6 @@
     💡
 </button>
 
-<!-- Tip Popup -->
-<div id="tipPopup" class="tip-popup">
-    <p id="tipText">Here’s a random tip!</p>
-    <button id="closeTip" class="close-tip">×</button>
-</div>
     <!-- Scripts -->
     <script src="../js/recipe_hub.js"></script>
 
