@@ -528,13 +528,11 @@ function updateNavigation() {
   // Insert user info in place of CTA button or at the end
   const ctaBtn = navbarContainer.querySelector('.cta-btn');
   const authButtons = navbarContainer.querySelector('.auth-buttons');
-  if (ctaBtn) {
-    ctaBtn.parentNode.replaceChild(userInfo, ctaBtn);
-  } else if (authButtons) {
-    authButtons.parentNode.replaceChild(userInfo, authButtons);
+ if (authButtons) {
+  authButtons.parentNode.replaceChild(userInfo, authButtons);
   } else {
-    navbarContainer.appendChild(userInfo);
-  }
+  navbarContainer.appendChild(userInfo);
+ }
 }
 
 function handleLogout() {
