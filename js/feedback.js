@@ -19,11 +19,19 @@ class FeedbackSystem {
 
     // Initialize event listeners
     initializeEventListeners() {
-        const feedbackForm = document.getElementById('feedbackForm');
-        if (feedbackForm) {
-            feedbackForm.addEventListener('submit', this.handleSubmit.bind(this));
-        }
+    const feedbackForm = document.getElementById('feedbackForm');
+    if (feedbackForm) {
+        feedbackForm.addEventListener('submit', this.handleSubmit.bind(this));
+
+        // 🔥 Keyboard shortcuts for quick submit
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                feedbackForm.requestSubmit();
+            }
+        });
     }
+}
 
     // Handle form submission
     async handleSubmit(event) {
@@ -72,7 +80,7 @@ class FeedbackSystem {
             this.displayFeedbackList();
 
         } catch (error) {
-            console.error('Error submitting feedback:', error);
+            // Handle feedback submission error gracefully
             this.showError('Something went wrong. Please try again.');
         } finally {
             this.setLoading(false);
@@ -252,5 +260,5 @@ function goToHome() {
 document.addEventListener('DOMContentLoaded', function() {
     new FeedbackSystem();
     
-    console.log('🍰 BakeGenius.ai Feedback Page Loaded Successfully!');
+    // Feedback page initialization complete
 });

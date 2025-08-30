@@ -42,6 +42,36 @@ class RecipeHub {
             const element = document.getElementById(filterId);
             element?.addEventListener('change', () => this.applyFilters());
         });
+
+        // View All buttons for Trending and Featured (show in main grid)
+        const trendingViewAll = document.getElementById('viewAllTrending');
+        const featuredViewAll = document.getElementById('viewAllFeatured');
+        if (trendingViewAll) {
+            trendingViewAll.addEventListener('click', () => this.showAllTrendingInGrid());
+        }
+        if (featuredViewAll) {
+            featuredViewAll.addEventListener('click', () => this.showAllFeaturedInGrid());
+        }
+    }
+
+    showAllTrendingInGrid() {
+        // Show all trending recipes in the main recipe grid
+        this.filteredRecipes = this.recipes.filter(recipe => recipe.trending);
+        this.currentPage = 1;
+        this.renderRecipeGrid();
+        // Optionally scroll to the grid
+        const grid = document.getElementById('recipeGrid');
+        if (grid) grid.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    showAllFeaturedInGrid() {
+        // Show all featured recipes in the main recipe grid
+        this.filteredRecipes = this.recipes.filter(recipe => recipe.featured);
+        this.currentPage = 1;
+        this.renderRecipeGrid();
+        // Optionally scroll to the grid
+        const grid = document.getElementById('recipeGrid');
+        if (grid) grid.scrollIntoView({ behavior: 'smooth' });
     }
 
     createSparkles() {
@@ -293,18 +323,13 @@ class RecipeHub {
     renderRecipeGrid() {
         const container = document.getElementById('recipeGrid');
         if (!container) return;
-        
-        const startIndex = 0;
-        const endIndex = this.currentPage * this.recipesPerPage;
-        const recipesToShow = this.filteredRecipes.slice(startIndex, endIndex);
-        
-        container.innerHTML = recipesToShow.map(recipe => this.createRecipeCard(recipe)).join('');
+        // Show all recipes (no pagination)
+        container.innerHTML = this.filteredRecipes.map(recipe => this.createRecipeCard(recipe)).join('');
         this.attachCardEventListeners(container);
-        
-        // Update load more button
+        // Hide load more button
         const loadMoreBtn = document.getElementById('loadMoreBtn');
         if (loadMoreBtn) {
-            loadMoreBtn.style.display = endIndex >= this.filteredRecipes.length ? 'none' : 'block';
+            loadMoreBtn.style.display = 'none';
         }
     }
 
@@ -592,3 +617,34 @@ document.addEventListener('DOMContentLoaded', () => {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = RecipeHub;
 }
+// Baking Tips Array
+const bakingTips = [
+  "Always preheat your oven for even baking. 🔥",
+  "Use room temperature eggs and butter for smoother batters. 🥚🧈",
+  "Don’t open the oven door too often—it drops the temperature! 🚪❌",
+  "Weigh your ingredients for accuracy instead of using cups. ⚖️",
+  "Chill cookie dough before baking for thicker cookies. 🍪",
+  "Line pans with parchment paper to prevent sticking. 📜",
+  "Let cakes cool before frosting or the icing will melt. 🎂",
+  "Use unsalted butter to control salt levels better. 🧈",
+  "Always taste your batter for balance (except raw egg doughs 😉).",
+  "A pinch of salt enhances the sweetness of desserts. 🧂🍫"
+];
+
+// DOM Elements
+const tipBtn = document.getElementById("tipBtn");
+const tipPopup = document.getElementById("tipPopup");
+const tipText = document.getElementById("tipText");
+const closeTip = document.getElementById("closeTip");
+
+// Show Random Tip
+tipBtn.addEventListener("click", () => {
+  const randomIndex = Math.floor(Math.random() * bakingTips.length);
+  tipText.textContent = bakingTips[randomIndex];
+  tipPopup.style.display = "block";
+});
+
+// Close Popup
+closeTip.addEventListener("click", () => {
+  tipPopup.style.display = "none";
+});

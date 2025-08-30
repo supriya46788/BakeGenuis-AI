@@ -3,7 +3,175 @@
             padding: 0;
             box-sizing: border-box;
         }
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #ffffff;
 
+  --body-gradient: linear-gradient(135deg, #121212 0%, #1f1f1f 50%, #2a2a3c 100%);
+  --navbar-gradient: linear-gradient(90deg, #222222, #111111, #333333);
+  --link-color: #ffffff;
+  --link-hover-gradient: linear-gradient(90deg, #bb86fc, #03dac6);
+  --cta-gradient: linear-gradient(45deg, #bb86fc, #03dac6);
+  --cta-text: #ffffff;
+
+  --card-bg: rgba(42,42,60,0.85);
+  --card-hover-bg: rgba(50,50,70,0.95);
+  --card-shadow: rgba(0, 0, 0, 0.4);
+  --hero-bg: rgba(30,30,30,0.85);
+  --footer-bg: #1a1a1a;
+  --footer-text: #ffffff;
+}
+
+/* Body */
+[data-theme="dark"] body {
+    background: var(--body-gradient);
+    color: var(--text-color);
+}
+
+/* Navbar */
+[data-theme="dark"] .navbar {
+  background: var(--navbar-gradient);
+  box-shadow: 0 4px 20px rgba(187,134,252,0.4);
+  border-bottom: 1px solid rgba(187,134,252,0.2);
+}
+
+[data-theme="dark"] .nav-links li a {
+  color: var(--link-color) !important;
+  text-shadow: 0 0 8px rgba(187,134,252,0.5);
+}
+
+[data-theme="dark"] .nav-links li a:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 0 12px rgba(187,134,252,0.8);
+}
+
+/* Hero / Header */
+[data-theme="dark"] .header h1,
+[data-theme="dark"] .header p {
+    color: #ffffff;
+}
+
+/* Cards & Sections */
+[data-theme="dark"] .input-section,
+[data-theme="dark"] .output-section,
+[data-theme="dark"] .suggestions-box,
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .section-card,
+[data-theme="dark"] .step-card {
+    background: linear-gradient(145deg, #2a2a3c, #33334d);
+    color: #e0e0e0;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    backdrop-filter: blur(5px);
+}
+
+[data-theme="dark"] .feature-title,
+[data-theme="dark"] .feature-desc,
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .section-content,
+[data-theme="dark"] .step-title,
+[data-theme="dark"] .step-description,
+[data-theme="dark"] .step-number {
+    color: #f0f0f0;
+}
+
+/* Inputs and Textareas */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+    background: #2e2e3f;
+    color: #f0f0f0;
+    border: 2px solid #4ecdc4;
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    font-family: 'Comic Neue', cursive;
+}
+/* Recipe input / textarea */
+[data-theme="dark"] .recipe-textarea,
+[data-theme="dark"] .serving-input input {
+    background: #2e2e3f;      /* dark but not black */
+    color: #f0f0f0;           /* white text */
+    border: 2px solid #4ecdc4; /* highlight border */
+}
+
+[data-theme="dark"] .recipe-textarea::placeholder,
+[data-theme="dark"] .serving-input input::placeholder {
+    color: #bbbbbb;           /* visible placeholder */
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+    color: #cccccc;
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus {
+    outline: none;
+    border-color: #bb86fc;
+    box-shadow: 0 0 8px rgba(187,134,252,0.4);
+}
+/* Dark mode for recipe input section */
+[data-theme="dark"] .input-group label {
+    color: #ffffff; /* white text for label */
+}
+
+[data-theme="dark"] .input-group textarea {
+    background: #2e2e3f;   /* darkish background */
+    color: #ffffff;        /* white text */
+    border: 2px solid #4ecdc4; /* visible border */
+}
+
+[data-theme="dark"] .input-group textarea::placeholder {
+    color: #bbbbbb; /* placeholder visible */
+}
+/* Buttons */
+[data-theme="dark"] .btn-primary {
+    background: var(--cta-gradient);
+    color: var(--cta-text);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+[data-theme="dark"] .btn-secondary {
+    background: #444455;
+    color: #f0f0f0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Feedback button */
+[data-theme="dark"] .fb-color {
+    padding: 8px 18px;
+    background: linear-gradient(135deg, rgba(245,115,197,0.9), rgba(190,8,245,0.7));
+    border-radius: 25px;
+    border: 1px solid rgba(190, 8, 245, 0.3);
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(190, 8, 245, 0.3);
+}
+
+[data-theme="dark"] .fb-color:hover {
+    background: linear-gradient(135deg, rgba(243,19,224,0.85), rgba(190,8,245,0.9));
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(190, 8, 245, 0.6);
+}
+
+[data-theme="dark"] .fb-color a {
+    color: #fff;
+}
+
+/* Footer */
+[data-theme="dark"] .footer {
+    background: var(--footer-bg) !important;
+    color: var(--footer-text) !important;
+    box-shadow: 0 0 30px rgba(255,255,255,0.05);
+}
+
+[data-theme="dark"] .footer-links ul li a,
+[data-theme="dark"] .footer-text {
+    color: #e0e0e0 !important;
+}
+[data-theme="dark"] .footer-links ul li a:hover {
+    color: #ff7f50 !important;
+}
         body {
             font-family: 'Comic Neue', cursive;
             background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 50%, #FFE66D 100%);
@@ -11,7 +179,53 @@
             position: relative;
             overflow-x: hidden;
         }
+ /* Dark-Light Toggle Slider */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
 
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  font-size: 10px;
+  color: #fff;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+/* When checked (dark mode) */
+.theme-switch input:checked + .slider {
+  background: #4ECDC4; /* you can use any gradient if you want */
+}
+
+.theme-switch input:checked + .slider:before {
+  transform: translateX(24px);
+}
         /* Animated Background Elements */
         .floating-elements {
             position: fixed;
@@ -47,7 +261,7 @@
   padding: 12px 20px;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
@@ -65,6 +279,11 @@
   font-weight: bold;
   color: #ffffff;
   letter-spacing: 1px;
+}
+
+.logo a{
+    text-decoration: none;
+    color: #fff;
 }
 
 /* Nav Links */
@@ -135,6 +354,28 @@
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
+/* Scale Now Navigation Button */
+.scale-nav-btn {
+  background: linear-gradient(45deg, #60a5fa, #fde68a) !important;
+  color: #ffffff !important;
+  padding: 8px 16px !important;
+  border-radius: 20px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 8px rgba(96, 165, 250, 0.3) !important;
+  display: inline-block !important;
+}
+
+.scale-nav-btn:hover {
+  transform: translateY(-2px) scale(1.05) !important;
+  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.4) !important;
+}
+
+.scale-nav-btn::after {
+  display: none !important;
+}
+
 /* User Info Display */
 .user-info {
     display: flex;
@@ -194,7 +435,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem 2rem 2rem;
             position: relative;
             z-index: 10;
         }
@@ -526,6 +767,10 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 15px;
+            }
+
             .nav-links {
                 position: fixed;
                 top: 60px;
@@ -718,4 +963,28 @@
     margin-top: 30px;
     border-top: 1px solid #333;
     padding-top: 20px;
+}
+
+/* Back to Top Button */
+#scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background: linear-gradient(45deg, #ff6ec7, #ffa07a, #ffd700, #87cefa);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }

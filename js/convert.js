@@ -1,5 +1,6 @@
- const GEMINI_API_KEY = 'API_KEY';
-        const GEMINI_API_URL = 'API_URL';
+ // Note: API keys removed for security - implement server-side API calls in production
+        const GEMINI_API_KEY = null;
+        const GEMINI_API_URL = null;
 
         let currentUnit = 'metric';
         let convertedData = [];
@@ -312,3 +313,9 @@ function toggleActionsMenu() {
   const arrow = document.querySelector('.actions-toggle i');
   if (arrow) arrow.classList.toggle('fa-angle-up');
 }
+        document.addEventListener('keydown', function (event) {
+    if (event.ctrlKey && event.key === 'Enter') {
+        event.preventDefault(); // avoid accidental new line in textarea
+        convertRecipe();
+    }
+});
