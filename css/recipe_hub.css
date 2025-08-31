@@ -343,27 +343,29 @@
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
-/* Scale Now Navigation Button */
+
+/* Scale Now Navigation Button (matched with customize.css) */
 .scale-nav-btn {
-    background: linear-gradient(45deg, #60a5fa, #fde68a) !important;
-    color: #ffffff !important;
-    padding: 8px 16px !important;
-    border-radius: 20px !important;
-    font-weight: 600 !important;
-    text-decoration: none !important;
-    transition: all 0.3s ease !important;
-    box-shadow: 0 2px 8px rgba(96, 165, 250, 0.3) !important;
-    display: inline-block !important;
+  background: linear-gradient(45deg, #60a5fa, #fde68a);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(96, 165, 250, 0.3);
+  display: inline-block;
 }
 
 .scale-nav-btn:hover {
-    transform: translateY(-2px) scale(1.05) !important;
-    box-shadow: 0 4px 12px rgba(96, 165, 250, 0.4) !important;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.4);
 }
 
 .scale-nav-btn::after {
-    display: none !important;
+  display: none;
 }
+
 
 /* User Info Display */
 .user-info {
