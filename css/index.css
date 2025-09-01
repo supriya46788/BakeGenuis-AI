@@ -1638,9 +1638,10 @@ body {
         transform: rotate(360deg);
     }
 }
-/* Scroll to Bottom Button */
-#scrollToBottomBtn {
-  display: none;
+
+/* scroll to top and bottom in same place home page */
+#scrollToBottomBtn,
+#scrollToTopBtn {
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -1655,39 +1656,12 @@ body {
   font-size: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, background 0.3s ease;
+  display: none; /* hidden by default */
 }
 
-#scrollToBottomBtn:hover {
-  transform: translateY(2px) scale(1.05);
+#scrollToBottomBtn:hover,
+#scrollToTopBtn:hover {
+  transform: scale(1.05);
   background: linear-gradient(45deg, var(--sky-blue), var(--sunny-yellow));
 }
 
-/* light and dark theme for hamburger menu */
-@media (max-width: 768px) {
-  /* Light Mode Menu */
-  [data-theme="light"] .menu {
-    background:  #F2F0EF !important;
-  }
-
-  [data-theme="light"] .menu a,
-  [data-theme="light"] .menu .fb-color a,
-  [data-theme="light"] .menu .login-btn,
-  [data-theme="light"] .menu .signup-btn,
-  [data-theme="light"] .menu .scale-nav-btn {
-    color: #000000 !important;
-  }
-
-  /* Dark Mode Menu */
-  [data-theme="dark"] .menu {
-    background: #1e1e1e !important; /* dark grey */
-  }
-
-  [data-theme="dark"] .menu a,
-  [data-theme="dark"] .menu .fb-color a,
-  [data-theme="dark"] .menu .login-btn,
-  [data-theme="dark"] .menu .signup-btn,
-  [data-theme="dark"] .menu .scale-nav-btn
-  [data-theme="dark"] .menu .user-info span{
-    color: #ffffff !important;
-  }
-}

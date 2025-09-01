@@ -54,25 +54,42 @@ document.querySelectorAll('.feature-card').forEach(card => {
   });
 });
 
-// ================= Scroll-to-Bottom Button =================
+// ================= Scroll-to-Top & Bottom Toggle =================
 const scrollToBottomBtn = document.getElementById("scrollToBottomBtn");
-if (scrollToBottomBtn) {
-  const showThreshold = 200; // px from top to show button
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-  // Toggle visibility
-  function toggleScrollBottomBtn() {
-    if (window.scrollY < document.body.scrollHeight - window.innerHeight - showThreshold) {
+if (scrollToBottomBtn && scrollToTopBtn) {
+  const showThreshold = 200; // px from top
+
+  function toggleScrollBtns() {
+    const scrollY = window.scrollY;
+    const nearBottom = scrollY >= document.body.scrollHeight - window.innerHeight - showThreshold;
+
+    if (scrollY <= showThreshold) {
+      // At top → show bottom button, hide top
       scrollToBottomBtn.style.display = "block";
-    } else {
+      scrollToTopBtn.style.display = "none";
+    } else if (nearBottom) {
+      // At bottom → show top button only
       scrollToBottomBtn.style.display = "none";
+      scrollToTopBtn.style.display = "block";
+    } else {
+      // In between → show top button
+      scrollToBottomBtn.style.display = "none";
+      scrollToTopBtn.style.display = "block";
     }
   }
 
-  window.addEventListener("scroll", toggleScrollBottomBtn, { passive: true });
-  toggleScrollBottomBtn();
+  window.addEventListener("scroll", toggleScrollBtns, { passive: true });
+  toggleScrollBtns();
 
   // Scroll smoothly to bottom
   scrollToBottomBtn.addEventListener("click", () => {
     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  });
+
+  // Scroll smoothly to top
+  scrollToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
