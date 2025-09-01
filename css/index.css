@@ -1617,9 +1617,10 @@ body {
         transform: rotate(360deg);
     }
 }
-/* Scroll to Bottom Button */
-#scrollToBottomBtn {
-  display: none;
+
+/* scroll to top and bottom in same place home page */
+#scrollToBottomBtn,
+#scrollToTopBtn {
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -1634,9 +1635,13 @@ body {
   font-size: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, background 0.3s ease;
+  display: none; /* hidden by default */
 }
 
-#scrollToBottomBtn:hover {
-  transform: translateY(2px) scale(1.05);
+#scrollToBottomBtn:hover,
+#scrollToTopBtn:hover {
+  transform: scale(1.05);
   background: linear-gradient(45deg, var(--sky-blue), var(--sunny-yellow));
 }
+
+

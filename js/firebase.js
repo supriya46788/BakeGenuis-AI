@@ -4,13 +4,13 @@ import { getAuth, GoogleAuthProvider, signInWithPopup} from "https://www.gstatic
 
 // Firebase Config
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY", // Replace with your actual API key
-  authDomain: "YOUR_AUTH_DOMAIN", // Replace with your actual auth domain
-  projectId: "YOUR_PROJECT_ID", // Replace with your actual project ID
-  storageBucket: "YOUR_STORAGE_BUCKET", // Replace with your actual storage bucket
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID", // Replace with your actual messaging sender ID
-  appId: "YOUR_APP_ID", // Replace with your actual app ID
-  measurementId: "YOUR_MEASUREMENT_ID" // Replace with your actual measurement ID if needed
+  apiKey: "AIzaSyCAI-w1Xb_gQ3mkwqvfJZndO2xmGhNTe6Q", // Replace with your actual API key
+  authDomain: "bakegenius123.firebaseapp.com", // Replace with your actual auth domain
+  projectId: "bakegenius123", // Replace with your actual project ID
+  storageBucket: "bakegenius123.firebasestorage.app", // Replace with your actual storage bucket
+  messagingSenderId: "515189598759", // Replace with your actual messaging sender ID
+  appId: "1:515189598759:web:6d55c7125bae70d11cfc02", // Replace with your actual app ID
+  measurementId: "G-P45HQK1G5Z" // Replace with your actual measurement ID if needed
 };
 
 
