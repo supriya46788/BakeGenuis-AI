@@ -36,20 +36,24 @@
   <nav class="navbar">
     <div class="navbar-container">
       <div class="logo"><a href="./index.html">🍰 BakeGenius.ai</a></div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="./html/convert.html">Convert Recipe</a></li>
-        <li><a href="./html/customize.html">Customize</a></li>
-        <li><a href="./html/recipe_hub.html">Recipe Hub</a></li>
-        <li><a href="./html/about.html">About</a></li>
-      </ul>
-      <div class="fb-color">
-        <a href="./html/feedback.html">Feedback</a>
-      </div>
-      <div class="auth-buttons">
-        <a href="./html/login.html" class="login-btn">Login</a>
-        <a href="./html/signup.html" class="signup-btn">Sign Up</a>
-      </div>
-      <a href="./html/scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
+      <button class="hamburger" id="hamburger">&#9776;</button>
+      <div class="menu" id="menu">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="./html/convert.html">Convert Recipe</a></li>
+          <li><a href="./html/customize.html">Customize</a></li>
+          <li><a href="./html/recipe_hub.html">Recipe Hub</a></li>
+          <li><a href="./html/about.html">About</a></li>
+        </ul>
+        <div class="fb-color">
+          <a href="./html/feedback.html">Feedback</a>
+        </div>
+        <div class="auth-buttons">
+          <a href="./html/login.html" class="login-btn">Login</a>
+          <a href="./html/signup.html" class="signup-btn">Sign Up</a>
+        </div>
+        <a href="./html/scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
+        </div>
+
       <label class="theme-switch">
         <input type="checkbox" id="theme-toggle" />
         <span class="slider">
@@ -206,5 +210,21 @@
       observer.observe(el);
     });
   </script>
+
+  <!-- Hamburger in mobile view -->
+   <script>
+    // Hamburger toggle for mobile
+   document.addEventListener("DOMContentLoaded", () => {
+   const hamburger = document.getElementById("hamburger");
+   const menu = document.getElementById("menu");
+
+   if (hamburger && menu) {
+     hamburger.addEventListener("click", () => {
+      menu.classList.toggle("active");
+    });
+    }
+});
+   </script>
+
 </body>
 </html>
