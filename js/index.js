@@ -1,20 +1,27 @@
 // ================= Mobile Navigation Toggle (commented for now) =================
-// const hamburger = document.getElementById('hamburger');
-// const navLinks = document.getElementById('navLinks');
 
-// hamburger.addEventListener('click', () => {
-//     navLinks.classList.toggle('active');
-//     hamburger.classList.toggle('active');
-// });
+// ================= Mobile Navigation Toggle =================
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
 
-// // Close mobile menu when clicking on a link
-// const navItems = document.querySelectorAll('.nav-links a');
-// navItems.forEach(item => {
-//     item.addEventListener('click', () => {
-//         navLinks.classList.remove('active');
-//         hamburger.classList.remove('active');
-//     });
-// });
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', !expanded);
+  });
+
+  // Close mobile menu when clicking on a link
+  const navItems = navLinks.querySelectorAll('a');
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
 
 // ================= Smooth scroll for CTA button =================
 const ctaButton = document.querySelector('.cta-button');
