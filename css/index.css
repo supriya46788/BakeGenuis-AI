@@ -1128,7 +1128,7 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .navbar {
+  /* .navbar {
     padding: 10px 15px;
   }
 
@@ -1156,7 +1156,7 @@ body {
 
   .nav-links.active {
     left: 0;
-  }
+  } */
 
   .hero-title {
     font-size: 2.5rem;
@@ -1539,9 +1539,30 @@ body {
     background: #fff8f0;
     padding: 15px;
     border-radius: 10px;
+    width: auto; 
+    z-index: 999;
   }
   .menu.active {
     display: flex;
+  }
+
+  .menu .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .menu .nav-links li a {
+    color: #000; /* ✅ visible text color */
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .menu .user-info span {
+    color: #333 !important;   /* dark grey */
   }
 }
 
@@ -1639,4 +1660,34 @@ body {
 #scrollToBottomBtn:hover {
   transform: translateY(2px) scale(1.05);
   background: linear-gradient(45deg, var(--sky-blue), var(--sunny-yellow));
+}
+
+/* light and dark theme for hamburger menu */
+@media (max-width: 768px) {
+  /* Light Mode Menu */
+  [data-theme="light"] .menu {
+    background:  #F2F0EF !important;
+  }
+
+  [data-theme="light"] .menu a,
+  [data-theme="light"] .menu .fb-color a,
+  [data-theme="light"] .menu .login-btn,
+  [data-theme="light"] .menu .signup-btn,
+  [data-theme="light"] .menu .scale-nav-btn {
+    color: #000000 !important;
+  }
+
+  /* Dark Mode Menu */
+  [data-theme="dark"] .menu {
+    background: #1e1e1e !important; /* dark grey */
+  }
+
+  [data-theme="dark"] .menu a,
+  [data-theme="dark"] .menu .fb-color a,
+  [data-theme="dark"] .menu .login-btn,
+  [data-theme="dark"] .menu .signup-btn,
+  [data-theme="dark"] .menu .scale-nav-btn
+  [data-theme="dark"] .menu .user-info span{
+    color: #ffffff !important;
+  }
 }
