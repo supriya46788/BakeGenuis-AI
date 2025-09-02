@@ -1,40 +1,15 @@
+
 // ================= Mobile Navigation Toggle =================
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
-const navRight = document.querySelector('.nav-right');
+// document.addEventListener('DOMContentLoaded', function() {
+//     const hamburger = document.querySelector('.hamburger');
+//     const menuWrapper = document.querySelector('.menu-wrapper');
 
-if (hamburger && navLinks) {
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    if (navRight) {
-      navRight.classList.toggle('active');
-    }
-    hamburger.classList.toggle('active');
-  });
-
-  // Close mobile menu when clicking on a link
-  const navItems = document.querySelectorAll('.nav-links a, .nav-right a');
-  navItems.forEach(item => {
-    item.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-      if (navRight) {
-        navRight.classList.remove('active');
-      }
-      hamburger.classList.remove('active');
-    });
-  });
-
-  // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !navLinks.contains(e.target) && (!navRight || !navRight.contains(e.target))) {
-      navLinks.classList.remove('active');
-      if (navRight) {
-        navRight.classList.remove('active');
-      }
-      hamburger.classList.remove('active');
-    }
-  });
-}
+//     if (hamburger && menuWrapper) {
+//         hamburger.addEventListener('click', () => {
+//             menuWrapper.classList.toggle('active');
+//         });
+//     }
+// });
 
 // ================= Smooth scroll for CTA button =================
 const ctaButton = document.querySelector('.cta-button');

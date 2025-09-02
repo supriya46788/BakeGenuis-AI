@@ -262,3 +262,47 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Feedback page initialization complete
 });
+// Add this code to your feature.js file
+
+/**
+ * Toggles the mobile navigation menu.
+ */
+// function initMobileMenu() {
+//     // Find the hamburger button by its ID
+//     const hamburgerBtn = document.getElementById('hamburger-menu');
+//     // Find the menu container by its ID
+//     const menuWrapper = document.getElementById('menu-wrapper');
+
+//     // Make sure both elements exist before adding the click listener
+//     if (hamburgerBtn && menuWrapper) {
+//         hamburgerBtn.addEventListener('click', () => {
+//             // Add or remove the 'active' class to show/hide the menu
+//             menuWrapper.classList.toggle('active');
+//         });
+//     }
+// }
+
+// /**
+//  * Makes the navbar background appear on scroll.
+//  */
+// function initNavbarScrollEffect() {
+//     const navbar = document.querySelector('.navbar');
+//     if (!navbar) return; // Exit if no navbar is found
+
+//     const handleScroll = () => {
+//         if (window.scrollY > 50) {
+//             navbar.classList.add('navbar-scrolled');
+//         } else {
+//             navbar.classList.remove('navbar-scrolled');
+//         }
+//     };
+//     window.addEventListener('scroll', handleScroll);
+// }
+
+
+// // This runs all initialization functions once the page is loaded
+// document.addEventListener('DOMContentLoaded', function() {
+//     initMobileMenu();
+//     initNavbarScrollEffect();
+//     // You can add other shared functions here in the future
+// });

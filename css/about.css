@@ -18,12 +18,7 @@
 }
 /* === Dark Theme Overrides for About Us === */
 [data-theme="dark"] body {
-  background: linear-gradient(
-    135deg,
-    #121212 0%,
-    #1f1f1f 50%,
-    #2a2a2a 100%
-  ) !important;
+
   color: #eee;
   --navbar-gradient: linear-gradient(90deg, #222222, #111111, #333333);
 }
@@ -122,15 +117,39 @@
   background: rgba(30, 30, 30, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+/* Add this new block to about.css */
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* This is the key: it goes BEHIND everything */
+    
+    /* This is your original light mode gradient */
+    background: linear-gradient(
+        135deg,
+        var(--light-pink) 0%,
+        var(--light-blue) 30%,
+        var(--light-yellow) 60%,
+        var(--light-pink) 100%
+    );
+}
+
+/* Also move the dark mode background to this layer */
+[data-theme="dark"] body::before {
+    background: linear-gradient(
+        135deg,
+        #121212 0%,
+        #1f1f1f 50%,
+        #2a2a2a 100%
+    );
+}
 body {
   font-family: "Comic Neue", cursive;
-  background: linear-gradient(
-    135deg,
-    var(--light-pink) 0%,
-    var(--light-blue) 30%,
-    var(--light-yellow) 60%,
-    var(--light-pink) 100%
-  );
+   background-color: #f8f9fa;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
@@ -199,7 +218,7 @@ body {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1 !important;
 }
 
 .floating-element {
@@ -375,8 +394,7 @@ body {
   transition: width 0.4s ease;
 }
 
-.nav-links li a:hover::after,
-.nav-links li a.active::after {
+.nav-links li a:hover::after {
   width: 100%;
 }
 
@@ -934,65 +952,7 @@ body {
 }
 
 /* Mobile Responsive */
-@media (max-width: 968px) {
-  .navbar {
-    padding: 10px 15px;
-  }
 
-  .navbar-container {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .nav-links {
-    order: 2;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .nav-right {
-    order: 3;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-
-  .hero-title {
-    font-size: 2.5rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.2rem;
-  }
-
-  .section-card {
-    padding: 2rem;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .steps-container {
-    grid-template-columns: 1fr;
-  }
-
-  .creator-avatar {
-    width: 120px;
-    height: 120px;
-    font-size: 3rem;
-  }
-
-  .creator-name {
-    font-size: 2rem;
-  }
-
-  .feedback-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-}
 
 /* Scroll Animations */
 .animate-on-scroll {
@@ -1181,4 +1141,36 @@ body {
 
 .contributor-card:hover {
   transform: translateY(-2px) scale(1.05);
+}
+/* === FIX: Hamburger Menu CSS === */
+
+/* Hide the hamburger button on larger screens */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* --- Responsive styles for mobile view --- */
+/* Add this new rule to your about.css file */
+
+.about-hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    
+    /* The specific gradient style for this page */
+    background: linear-gradient(
+        135deg,
+        var(--candy-red),
+        var(--sky-blue),
+        var(--sunny-yellow)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
