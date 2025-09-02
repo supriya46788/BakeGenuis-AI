@@ -1,0 +1,968 @@
+/* =================================================================== */
+/* BakeGenius.ai - Authentication Stylesheet                         */
+/* Rewritten for Clarity, Maintainability, and Responsiveness        */
+/* =================================================================== */
+
+
+/* =======================
+   Theme Styles
+   ======================= */
+html[data-theme="dark"] {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+html[data-theme="light"] {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* =======================
+   Auth Title Gradient
+   ======================= */
+.auth-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+html[data-theme="dark"] .auth-title {
+    background: linear-gradient(45deg, #FF6B6B, #70A1FF, #FFD700);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =======================
+   General UI Elements
+   ======================= */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: #70A1FF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4A90E2;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --candy-red: #ff4757;
+  --sky-blue: #70a1ff;
+  --sunny-yellow: #ffa502;
+  --white: #ffffff;
+  --light-pink: #ffe0e6;
+  --light-blue: #e8f4ff;
+  --light-yellow: #fff5e0;
+  --dark-gray: #2c3e50;
+  --light-gray: #f8f9fa;
+  --success-green: #2ed573;
+  --error-red: #ff3838;
+}
+
+body {
+  font-family: "Comic Neue", cursive;
+  background: linear-gradient(
+    135deg,
+    var(--light-pink) 0%,
+    var(--light-blue) 50%,
+    var(--light-yellow) 100%
+  );
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* -------------------------------------- */
+/* 2. Animated Background & Overlays      */
+/* -------------------------------------- */
+
+.floating-elements {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-cupcake {
+  position: absolute;
+  font-size: 2rem;
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.floating-cupcake:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+.floating-cupcake:nth-child(2) {
+  top: 20%;
+  right: 15%;
+  animation-delay: 2s;
+}
+.floating-cupcake:nth-child(3) {
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 4s;
+}
+html[data-theme="dark"] .auth-title {
+    background: linear-gradient(45deg, #FF6B6B, #70A1FF, #FFD700);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+/* -------------------------------------- */
+/* 3. Navigation Bar                      */
+/* -------------------------------------- */
+
+.navbar {
+  width: 100%;
+  background: linear-gradient(90deg, #60a5fa, #f9a8d4, #fde68a);
+  padding: 12px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  gap: 1rem;
+}
+
+/* Navigation Right Section */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.2rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  padding: 5px 0;
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #60a5fa, #f9a8d4, #fde68a);
+  border-radius: 5px;
+  transition: width 0.4s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.nav-links li a:hover {
+  transform: translateY(-2px);
+}
+
+.fb-color {
+  padding: 8px 15px;
+  background-color: rgba(238, 255, 0, 0.356);
+  border-radius: 20px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.fb-color:hover {
+  box-shadow: 0 4px 12px rgba(96,165,250,0.5);
+  transform: translateY(-2px);
+}
+
+.fb-color a {
+  color: white;
+  text-decoration: none;
+}
+
+.signup-btn {
+  padding: 8px 15px;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-btn:hover {
+  background-color: #ff5252;
+}
+
+/* -------------------------------------- */
+/* 4. Theme Toggle Switch                 */
+/* -------------------------------------- */
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #6b7043, #fde68a);
+  border-radius: 34px;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.theme-switch input:checked + .slider {
+  background: linear-gradient(45deg, #bf60fa, #fde68a);
+
+}
+
+.theme-switch input:checked + .slider:before {
+  transform: translateX(24px);
+}
+/* Divider line */
+        .divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 12px 0;
+        }
+
+        .divider::before,
+        .divider::after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px solid #e0e0e0;
+        }
+
+        .divider:not(:empty)::before {
+        margin-right: 15px;
+        }
+
+        .divider:not(:empty)::after {
+        margin-left: 15px;
+        }
+
+        .divider span {
+        color: #666;
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+        padding: 0 5px;
+        }
+        /*-candy-red: #FF4757;
+            --sky-blue: #70A1FF;
+            --sunny-yellow: #FFA502;
+            --white: #FFFFFF;
+            --light-pink: #FFE0E6;
+            --light-blue: #E8F4FF;
+            --light-yellow: #FFF5E0;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }*/
+
+        /* Google Button */
+        .google-btn {
+            display: flex;
+            font-family: 'Comic Neue', cursive !important;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 1.3rem;
+            background:rgba(255, 71, 87, 0.8) ;
+            color: white !important;
+            border: none;
+            border-radius: 20px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow:
+                0 8px 20px rgba(66, 133, 244, 0.3),
+                0 4px 10px rgba(15, 157, 88, 0.2);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Shine effect */
+        .google-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.25),
+                transparent
+            );
+            transition: left 0.5s;
+        }
+
+        .google-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Active click */
+        .google-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Google icon */
+        .google-icon {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.2s ease;
+        filter: drop-shadow(0 0 4px rgba(241, 255, 93, 0.8)); /* soft glow */
+        }
+
+        .google-btn:hover .google-icon {
+            transform: scale(1.1);
+        }
+
+        @keyframes spin {
+            0% {
+                transform: translateY(-50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(-50%) rotate(360deg);
+            }
+        }
+/* Animated Background Elements */
+.floating-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+
+/* -------------------------------------- */
+/* 5. Auth Card & Container               */
+/* -------------------------------------- */
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 70px);
+  padding: 2rem 1rem; /* Added horizontal padding */
+  position: relative;
+  z-index: 10;
+}
+
+.auth-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(
+    45deg,
+    var(--candy-red),
+    var(--sky-blue),
+    var(--sunny-yellow)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.auth-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* -------------------------------------- */
+/* 6. Form Styling                        */
+/* -------------------------------------- */
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+  margin-bottom: 0.5rem;
+}
+
+.form-label i {
+  color: var(--sky-blue);
+  width: 16px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 15px;
+  font-family: "Comic Neue", cursive;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  color: var(--dark-gray);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--sky-blue);
+  box-shadow: 0 0 0 3px rgba(112, 161, 255, 0.2);
+  background: #fff;
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.password-input-container {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.password-toggle:hover {
+  background: rgba(112, 161, 255, 0.1);
+  color: var(--sky-blue);
+}
+
+/* -------------------------------------- */
+/* 7. Buttons (Submit, Google, etc.)      */
+/* -------------------------------------- */
+
+.auth-button {
+  width: 100%;
+  padding: 1.2rem;
+  color: var(--white);
+  border: none;
+  border-radius: 20px;
+  font-family: "Comic Neue", cursive;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+#loginButton {
+  background: linear-gradient(45deg, var(--sky-blue), var(--candy-red));
+  box-shadow: 0 8px 25px rgba(112, 161, 255, 0.4);
+}
+
+#loginButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(112, 161, 255, 0.5);
+}
+
+#signupButton {
+  background: linear-gradient(45deg, var(--candy-red), var(--sunny-yellow));
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+#signupButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(255, 107, 107, 0.5);
+}
+
+.auth-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 1.1rem; /* Slightly reduced padding */
+  background: #fff;
+  color: #444;
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.google-btn:hover {
+  transform: translateY(-2px);
+  border-color: #4285f4;
+  box-shadow: 0 8px 15px rgba(66, 133, 244, 0.2);
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* -------------------------------------- */
+/* 8. Divider & Loading Spinner           */
+/* -------------------------------------- */
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 24px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.divider:not(:empty)::before {
+  margin-right: 15px;
+}
+.divider:not(:empty)::after {
+  margin-left: 15px;
+}
+
+.divider span {
+  color: #666;
+  font-size: 14px;
+}
+
+.loading-spinner {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--white);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* -------------------------------------- */
+/* 9. Error & Success Messages            */
+/* -------------------------------------- */
+
+.error-message,
+.success-message {
+  border: 2px solid;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-align: center;
+  display: none;
+}
+
+.error-message {
+  background: rgba(255, 56, 56, 0.1);
+  border-color: var(--error-red);
+  color: var(--error-red);
+  animation: shake 0.5s ease-in-out;
+}
+
+.success-message {
+  background: rgba(46, 213, 115, 0.1);
+  border-color: var(--success-green);
+  color: var(--success-green);
+}
+
+.error-message.show,
+.success-message.show {
+  display: block;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* -------------------------------------- */
+/* 10. Auth Footer (FIX APPLIED)          */
+/* -------------------------------------- */
+
+.auth-footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.auth-footer p {
+  color: #666;
+  font-size: 1rem;
+
+  /* Flexbox for perfect alignment */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Allows clean wrapping on small screens */
+  gap: 10px; /* Provides space between text and button */
+}
+
+.auth-link {
+  color: var(--sky-blue);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.signup-link {
+  /* This styles the link as a proper button */
+  background: linear-gradient(45deg, var(--candy-red), var(--sunny-yellow));
+  color: white;
+  white-space: nowrap; /* Prevents text from splitting */
+
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.auth-link:hover,
+.signup-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  color: var(--candy-red); /* General hover color */
+}
+
+/* Override hover color for the button */
+.signup-link:hover {
+  color: white;
+}
+
+/* -------------------------------------- */
+/* 11. Other UI Elements                  */
+/* -------------------------------------- */
+
+#scrollTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  background: linear-gradient(45deg, #ff6ec7, #ffa07a);
+  color: white;
+  cursor: pointer;
+  width: 50px; /* Set explicit dimensions */
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* -------------------------------------- */
+/* 12. Dark Mode Styles                   */
+/* -------------------------------------- */
+
+html[data-theme="dark"] {
+  background: linear-gradient(135deg, #1c1c1c 0%, #2c2c2c 50%, #0e0e0e 100%);
+  color: #f0f0f0;
+}
+
+html[data-theme="dark"] body {
+  background: none;
+}
+
+/* Navbar */
+[data-theme="dark"] .navbar {
+  background: linear-gradient(90deg, #222222, #111111, #333333);
+  box-shadow: 0 4px 20px rgba(187, 134, 252, 0.4);
+  border-bottom: 1px solid rgba(187, 134, 252, 0.2);
+}
+
+[data-theme="dark"] .nav-links li a {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(187, 134, 252, 0.5);
+}
+
+/* Auth Card & Form */
+html[data-theme="dark"] .auth-card {
+  background: rgba(30, 30, 30, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+html[data-theme="dark"] .auth-subtitle,
+html[data-theme="dark"] .auth-footer p,
+html[data-theme="dark"] .divider span {
+  color: #ccc;
+}
+
+html[data-theme="dark"] .form-label {
+  color: #ddd;
+}
+
+html[data-theme="dark"] .form-input {
+  background: rgba(60, 60, 60, 0.9);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+html[data-theme="dark"] .form-input::placeholder {
+  color: #aaa;
+}
+
+html[data-theme="dark"] .form-input:focus {
+  background: rgba(70, 70, 70, 0.95);
+  border-color: #70a1ff;
+  box-shadow: 0 0 8px rgba(112, 161, 255, 0.5);
+}
+
+html[data-theme="dark"] .password-toggle {
+  color: #ccc;
+}
+
+html[data-theme="dark"] .divider::before,
+html[data-theme="dark"] .divider::after {
+  border-color: #444;
+}
+
+/* Buttons */
+html[data-theme="dark"] #loginButton,
+html[data-theme="dark"] #signupButton {
+  background: linear-gradient(45deg, #70a1ff, #bb86fc);
+  box-shadow: 0 8px 25px rgba(187, 134, 252, 0.4);
+}
+
+html[data-theme="dark"] #loginButton:hover,
+html[data-theme="dark"] #signupButton:hover {
+  box-shadow: 0 12px 35px rgba(187, 134, 252, 0.5);
+}
+
+html[data-theme="dark"] .google-btn {
+  background: #2c2c2c;
+  color: #f0f0f0;
+  border-color: #555;
+}
+
+html[data-theme="dark"] .auth-link {
+  color: #70a1ff;
+}
+
+/* -------------------------------------- */
+/* 13. Responsive Media Queries           */
+/* -------------------------------------- */
+
+/* Tablet Screens */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hiding full nav menu on mobile */
+  }
+
+  .auth-card {
+    padding: 2rem;
+  }
+
+  .auth-title {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile Screens */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+  
+  .navbar-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .nav-links {
+    order: 2;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-right {
+    order: 3;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .auth-card {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+
+  .form-input {
+    padding: 0.8rem 1rem;
+  }
+
+  .auth-button {
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .auth-footer p {
+    font-size: 0.9rem; /* Slightly smaller text on mobile */
+  }
+}
