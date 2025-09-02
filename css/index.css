@@ -35,6 +35,8 @@ box-sizing: border-box;
 .logo,
 .feedback-btn {
   text-decoration: none;
+  color: white;
+  font-weight: bolder;
 }
 [data-theme="dark"] {
 /* Base variables */
