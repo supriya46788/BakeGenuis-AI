@@ -519,11 +519,14 @@ function updateNavigation() {
     ? `<img src="${auth.currentUser.avatarUrl}" alt="avatar" class="user-avatar" style="width:32px;height:32px;border-radius:50%;object-fit:cover;" />`
     : `<div class="user-avatar">${auth.currentUser.name.charAt(0).toUpperCase()}</div>`;
   
-  userInfo.innerHTML = `
-    ${avatarHtml}
-    <span>Hi, ${auth.currentUser.name.split(' ')[0]}!</span>
-    <button class="logout-btn" onclick="handleLogout()">Logout</button>
-  `;
+      userInfo.innerHTML = `
+      <div class="user-row">
+        ${avatarHtml}
+        <span>Hi, ${auth.currentUser.name.split(' ')[0]}!</span>
+      </div>
+      <button class="logout-btn" onclick="handleLogout()">Logout</button>
+    `;
+
 
   // Insert user info in place of CTA button or at the end
   const ctaBtn = navbarContainer.querySelector('.cta-btn');

@@ -13,7 +13,7 @@ html[data-theme="dark"] {
 }
 
 html[data-theme="light"] {
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     color: #000000;
 }
 

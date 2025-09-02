@@ -1,19 +1,14 @@
-// ================= Mobile Navigation Toggle (commented for now) =================
-// const hamburger = document.getElementById('hamburger');
-// const navLinks = document.getElementById('navLinks');
 
-// hamburger.addEventListener('click', () => {
-//     navLinks.classList.toggle('active');
-//     hamburger.classList.toggle('active');
-// });
+// ================= Mobile Navigation Toggle =================
+// document.addEventListener('DOMContentLoaded', function() {
+//     const hamburger = document.querySelector('.hamburger');
+//     const menuWrapper = document.querySelector('.menu-wrapper');
 
-// // Close mobile menu when clicking on a link
-// const navItems = document.querySelectorAll('.nav-links a');
-// navItems.forEach(item => {
-//     item.addEventListener('click', () => {
-//         navLinks.classList.remove('active');
-//         hamburger.classList.remove('active');
-//     });
+//     if (hamburger && menuWrapper) {
+//         hamburger.addEventListener('click', () => {
+//             menuWrapper.classList.toggle('active');
+//         });
+//     }
 // });
 
 // ================= Smooth scroll for CTA button =================

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <link rel="stylesheet" href="../css/toggle.css">
+  <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="../css/about.css">
   <link rel="stylesheet" href="../css/auth.css">
   <link rel="stylesheet" href="../css/feature.css">
@@ -26,29 +27,32 @@
 
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="navbar-container">
-            <div class="logo"><a href="../index.html">🍰 BakeGenius.ai</a></div>
-            <ul class="nav-links">
-                <li><a href="./convert.html">Convert Recipe</a></li>
-                <li><a href="./customize.html">Customize</a></li>
-                <li><a href="./recipe_hub.html">Recipe Hub</a></li>
-                <li><a href="./about.html">About</a></li>
-                </ul>
-            
-            <div class="fb-color">
-                <a href="feedback.html">Feedback</a>
-            </div>
-            <a href="./login.html" class="cta-btn">Login</a>
-            <label class="theme-switch">
-                <input type="checkbox" id="theme-toggle" />
-                <span class="slider">
-                <i class="fas fa-sun"></i>
-                <i class="fas fa-moon"></i>
-                </span>
-            </label>
-        </div>
-    </nav>
+  <div class="navbar-container">
+    <a href="../index.html" class="logo">🍰 BakeGenius.ai</a>
 
+    <button class="hamburger" id="hamburger-menu">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="menu-wrapper" id="menu-wrapper">
+      <ul class="nav-links" style="display: none;">
+      </ul>
+
+      <div class="nav-right">
+        <a href="feedback.html" class="feedback-btn">Feedback</a>
+        <a href="login.html" class="login-btn">Login</a>
+        
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-toggle" />
+          <span class="slider">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>
+</nav>
   <!-- Main Content -->
   <div class="auth-container">
     <div class="auth-card">
@@ -189,6 +193,7 @@
   </script>
   <!-- Mouse Trail Effect -->
 <script src="../js/mouse-trail.js"></script>
+<script src="../js/feature.js"></script>
 
 </body>
 </html>

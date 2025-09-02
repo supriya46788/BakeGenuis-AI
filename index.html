@@ -34,31 +34,39 @@
 
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="navbar-container">
-      <div class="logo"><a href="./index.html">🍰 BakeGenius.ai</a></div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="./html/convert.html">Convert Recipe</a></li>
-        <li><a href="./html/customize.html">Customize</a></li>
-        <li><a href="./html/recipe_hub.html">Recipe Hub</a></li>
-        <li><a href="./html/about.html">About</a></li>
-      </ul>
-      <div class="fb-color">
-        <a href="./html/feedback.html">Feedback</a>
-      </div>
-      <div class="auth-buttons">
-        <a href="./html/login.html" class="login-btn">Login</a>
-        <a href="./html/signup.html" class="signup-btn">Sign Up</a>
-      </div>
-      <a href="./html/scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
-      <label class="theme-switch">
-        <input type="checkbox" id="theme-toggle" />
-        <span class="slider">
-          <i class="fas fa-sun"></i>
-          <i class="fas fa-moon"></i>
-        </span>
-      </label>
+  <div class="navbar-container">
+    <a href="index.html" class="logo">🍰 BakeGenius.ai</a>
+    
+    <div class="hamburger" id="hamburger-menu">
+      <i class="fas fa-bars"></i>
     </div>
-  </nav>
+
+    <div class="menu-wrapper" id="menu-wrapper">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="html/convert.html">Convert Recipe</a></li>
+          <li><a href="html/customize.html">Customize</a></li>
+          <li><a href="html/recipe_hub.html">Recipe Hub</a></li>
+          <li><a href="html/about.html">About</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <a href="html/feedback.html" class="feedback-btn">Feedback</a>
+          <div class="auth-buttons">
+            <a href="html/login.html" class="login-btn">Login</a>
+            <a href="html/signup.html" class="signup-btn">Sign Up</a>
+          </div>
+          <a href="html/scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
+          <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" />
+            <span class="slider">
+              <i class="fas fa-sun"></i>
+              <i class="fas fa-moon"></i>
+            </span>
+          </label>
+        </div>
+    </div>
+  </div>
+</nav>
 
   <!-- Hero -->
   <section class="cupcake-animation">
@@ -156,7 +164,7 @@
   <script src="js/auth.js"></script>
   <script src="https://unpkg.com/lenis@1.1.21/dist/lenis.min.js"></script>
   <script src="./js/feature.js"></script>
-  <script src="../js/mouse-trail.js"></script>
+  <script src="./js/mouse-trail.js"></script>
 
   <script>
     // Newsletter Toast
