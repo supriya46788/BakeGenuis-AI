@@ -1,0 +1,102 @@
+/**
+ * Floating Emoji Footer Fix - CSS Component
+ * Ensures proper z-index stacking and provides fallback styling
+ * for floating emoji elements when they overlap with footer
+ */
+
+/* Ensure footer has higher z-index than floating elements */
+.footer,
+footer {
+    position: relative;
+    z-index: 100 !important;
+}
+
+/* Lower z-index for all floating emoji elements */
+.floating-elements,
+.floating-element,
+.floating-cupcake,
+.animated-bg .floating-element {
+    z-index: 1 !important;
+    transition: opacity 0.3s ease;
+}
+
+/* Specific adjustments for different page layouts */
+
+/* Customize page floating elements */
+.floating-elements .floating-cupcake {
+    z-index: 1 !important;
+}
+
+/* About page animated background elements */
+.animated-bg {
+    z-index: 0;
+}
+
+.animated-bg .floating-element {
+    z-index: 1 !important;
+}
+
+/* Scale page floating elements */
+body .floating-elements {
+    z-index: 1 !important;
+}
+
+body .floating-cupcake {
+    z-index: 1 !important;
+}
+
+/* Backup hiding class for JavaScript control */
+.floating-elements.hidden-for-footer,
+.floating-element.hidden-for-footer,
+.floating-cupcake.hidden-for-footer {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-out;
+}
+
+/* Smooth transitions for emoji visibility changes */
+.floating-elements,
+.floating-element,
+.floating-cupcake {
+    transition: opacity 0.3s ease, z-index 0.3s ease;
+}
+
+/* Media query adjustments for mobile devices */
+@media (max-width: 768px) {
+    .floating-elements,
+    .floating-element,
+    .floating-cupcake {
+        /* Reduce emoji prominence on mobile where footer overlap is more problematic */
+        opacity: 0.6;
+    }
+    
+    .footer,
+    footer {
+        z-index: 200 !important;
+    }
+}
+
+/* Specific fix for back-to-top button positioning */
+#scrollTopBtn,
+#backToTop {
+    z-index: 150 !important;
+}
+
+/* Dark mode considerations */
+[data-theme="dark"] .floating-elements,
+[data-theme="dark"] .floating-element,
+[data-theme="dark"] .floating-cupcake {
+    /* Slightly reduce opacity in dark mode for better footer visibility */
+    opacity: 0.5;
+}
+
+/* Additional safety net: hide emojis when they might be at the bottom of viewport */
+@media (max-height: 600px) {
+    .floating-element:nth-child(3),
+    .floating-element:nth-child(4),
+    .floating-cupcake:nth-child(3),
+    .floating-cupcake:nth-child(4) {
+        /* Hide bottom positioned emojis on short screens */
+        opacity: 0.3;
+    }
+}
