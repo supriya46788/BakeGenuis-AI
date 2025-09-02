@@ -338,6 +338,15 @@ body {
   align-items: center;
   max-width: 1200px;
   margin: auto;
+  gap: 1rem;
+}
+
+/* Navigation Right Section */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
 }
 
 /* Logo */
@@ -357,7 +366,10 @@ body {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 25px;
+  gap: 1.2rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li a {
