@@ -1,3 +1,27 @@
+
+// ================= Mobile Navigation Toggle (commented for now) =================
+
+// ================= Mobile Navigation Toggle =================
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', !expanded);
+  });
+
+  // Close mobile menu when clicking on a link
+  const navItems = navLinks.querySelectorAll('a');
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+
 // ================= Mobile Navigation Toggle =================
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
@@ -33,6 +57,7 @@ if (hamburger && navLinks) {
       }
       hamburger.classList.remove('active');
     }
+
   });
 }
 
