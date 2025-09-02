@@ -39,33 +39,36 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Smooth Scrolling for Navigation Links
-    function initSmoothScrolling() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    }
+    // function initSmoothScrolling() {
+    //     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    //         anchor.addEventListener('click', function (e) {
+    //             e.preventDefault();
+    //             const target = document.querySelector(this.getAttribute('href'));
+    //             if (target) {
+    //                 target.scrollIntoView({
+    //                     behavior: 'smooth',
+    //                     block: 'start'
+    //                 });
+    //             }
+    //         });
+    //     });
+    // }
 
-    // Mobile Menu Toggle (if needed for responsive design)
-    function initMobileMenu() {
-        const navLinks = document.querySelector('.nav-links');
-        const burger = document.querySelector('.burger-menu');
-        
-        if (burger) {
-            burger.addEventListener('click', () => {
-                navLinks.classList.toggle('nav-active');
-                burger.classList.toggle('toggle');
-            });
-        }
-    }
+    // Mobile Menu Toggle (Corrected)
+// function initMobileMenu() {
+//     // 1. Select the button and the menu wrapper using their correct IDs
+//     const hamburgerBtn = document.getElementById('hamburger-menu');
+//     const menuWrapper = document.getElementById('menu-wrapper');
+
+//     // 2. Check if both elements actually exist before adding an event listener
+//     if (hamburgerBtn && menuWrapper) {
+//         hamburgerBtn.addEventListener('click', () => {
+//             // 3. Toggle the 'active' class on the menu-wrapper div
+//             // This matches the CSS rule: .menu-wrapper.active { display: flex; }
+//             menuWrapper.classList.toggle('active');
+//         });
+//     }
+// }
 
     // Add parallax effect to floating elements
     function initParallaxEffect() {

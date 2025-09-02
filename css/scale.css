@@ -23,8 +23,13 @@
 }
 
 /* Body */
-[data-theme="dark"] body {
+/* Add this new block to scale.css */
+
+[data-theme="dark"] body::before {
+    /* This uses the dark gradient variable you already defined */
     background: var(--body-gradient);
+}
+[data-theme="dark"] body {
     color: var(--text-color);
 }
 
@@ -172,9 +177,25 @@
 [data-theme="dark"] .footer-links ul li a:hover {
     color: #ff7f50 !important;
 }
+/* Add this new block to scale.css */
+
+body::before {
+    content: ''; /* Required to make the pseudo-element appear */
+    position: fixed; /* Fixes the background to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* This is your original gradient background */
+    background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 50%, #FFE66D 100%);
+    
+    /* This is the key: it places the background behind all other content */
+    z-index: -1; 
+}
         body {
             font-family: 'Comic Neue', cursive;
-            background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 50%, #FFE66D 100%);
+            background-color: #f4f4f4;
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
@@ -315,13 +336,16 @@
   transition: width 0.4s ease;
 }
 
-.nav-links li a:hover::after,
-.nav-links li a.active::after {
+.nav-links li a:hover::after {
   width: 100%;
 }
 
 .nav-links li a:hover {
   transform: translateY(-2px);
+  -webkit-transform: translateY(-2px);
+  -moz-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  -o-transform: translateY(-2px);
 }
 .fb-color {
     padding: 8px 15px;
@@ -425,6 +449,7 @@
             padding: 1rem 2rem 2rem;
             position: relative;
             z-index: 10;
+            padding-top: 80px; 
         }
 
         /* Header Section */
