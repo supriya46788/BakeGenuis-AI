@@ -1,3 +1,4 @@
+
 // ================= Mobile Navigation Toggle (commented for now) =================
 
 // ================= Mobile Navigation Toggle =================
@@ -20,6 +21,43 @@ if (hamburger && navLinks) {
       hamburger.classList.remove('active');
       hamburger.setAttribute('aria-expanded', 'false');
     });
+
+// ================= Mobile Navigation Toggle =================
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+const navRight = document.querySelector('.nav-right');
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    if (navRight) {
+      navRight.classList.toggle('active');
+    }
+    hamburger.classList.toggle('active');
+  });
+
+  // Close mobile menu when clicking on a link
+  const navItems = document.querySelectorAll('.nav-links a, .nav-right a');
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      if (navRight) {
+        navRight.classList.remove('active');
+      }
+      hamburger.classList.remove('active');
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navLinks.contains(e.target) && (!navRight || !navRight.contains(e.target))) {
+      navLinks.classList.remove('active');
+      if (navRight) {
+        navRight.classList.remove('active');
+      }
+      hamburger.classList.remove('active');
+    }
+
   });
 }
 
@@ -61,25 +99,56 @@ document.querySelectorAll('.feature-card').forEach(card => {
   });
 });
 
-// ================= Scroll-to-Bottom Button =================
+// ================= Scroll-to-Top & Bottom Toggle =================
 const scrollToBottomBtn = document.getElementById("scrollToBottomBtn");
-if (scrollToBottomBtn) {
-  const showThreshold = 200; // px from top to show button
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-  // Toggle visibility
-  function toggleScrollBottomBtn() {
-    if (window.scrollY < document.body.scrollHeight - window.innerHeight - showThreshold) {
+if (scrollToBottomBtn && scrollToTopBtn) {
+  const showThreshold = 300; // px from top
+
+  function toggleScrollBtns() {
+    const scrollY = window.scrollY;
+    const documentHeight = Math.max(
+      document.body.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.clientHeight,
+      document.documentElement.scrollHeight,
+      document.documentElement.offsetHeight
+    );
+    const nearBottom = scrollY >= documentHeight - window.innerHeight - 200;
+
+    if (scrollY <= showThreshold) {
+      // At top → show bottom button, hide top
       scrollToBottomBtn.style.display = "block";
-    } else {
+      scrollToTopBtn.style.display = "none";
+    } else if (nearBottom) {
+      // At bottom → show top button only
       scrollToBottomBtn.style.display = "none";
+      scrollToTopBtn.style.display = "block";
+    } else {
+      // In between → show top button
+      scrollToBottomBtn.style.display = "none";
+      scrollToTopBtn.style.display = "block";
     }
   }
 
-  window.addEventListener("scroll", toggleScrollBottomBtn, { passive: true });
-  toggleScrollBottomBtn();
+  window.addEventListener("scroll", toggleScrollBtns, { passive: true });
+  toggleScrollBtns();
 
   // Scroll smoothly to bottom
   scrollToBottomBtn.addEventListener("click", () => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    const documentHeight = Math.max(
+      document.body.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.clientHeight,
+      document.documentElement.scrollHeight,
+      document.documentElement.offsetHeight
+    );
+    window.scrollTo({ top: documentHeight, behavior: "smooth" });
+  });
+
+  // Scroll smoothly to top
+  scrollToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }

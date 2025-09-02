@@ -11,7 +11,8 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# Configuration files with sensitive data
+# Firebase / API config (to avoid leaking keys)
+firebase.js
 js/google_config.js
 
 # IDE and editor files

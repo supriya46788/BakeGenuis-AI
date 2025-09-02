@@ -36,6 +36,7 @@
   <nav class="navbar">
     <div class="navbar-container">
       <div class="logo"><a href="./index.html">🍰 BakeGenius.ai</a></div>
+
       <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
       <div class="menu" id="menu">
         <ul class="nav-links" id="navLinks">
@@ -49,12 +50,25 @@
           <li class="mobile-only"><a href="./html/scale.html" class="cta-btn scale-nav-btn">Scale Now</a></li>
         </ul>
         <div class="fb-color desktop-only">
+
+      <button class="hamburger" id="hamburger">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="./html/convert.html">Convert Recipe</a></li>
+        <li><a href="./html/customize.html">Customize</a></li>
+        <li><a href="./html/recipe_hub.html">Recipe Hub</a></li>
+        <li><a href="./html/about.html">About</a></li>
+      </ul>
+      
+      <div class="nav-right">
+        <div class="fb-color">
+
           <a href="./html/feedback.html">Feedback</a>
         </div>
         <div class="auth-buttons desktop-only">
           <a href="./html/login.html" class="login-btn">Login</a>
           <a href="./html/signup.html" class="signup-btn">Sign Up</a>
         </div>
+
         <a href="./html/scale.html" class="cta-btn scale-nav-btn desktop-only">Scale Now</a>
       </div>
 
@@ -65,6 +79,17 @@
           <i class="fas fa-moon"></i>
         </span>
       </label>
+
+        <a href="./html/scale.html" class="scale-nav-btn">Scale Now</a>
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-toggle" />
+          <span class="slider">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+          </span>
+        </label>
+      </div>
+
     </div>
   </nav>
 
@@ -156,6 +181,14 @@
   <button id="scrollToBottomBtn" title="Go to bottom">
     <i class="fas fa-arrow-down"></i>
   </button>
+
+<!-- Scroll to Top Button -->
+<button id="scrollToTopBtn" class="scroll-btn">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+
+
 
   <!-- Scripts -->
   <script src="js/theme.js"></script>
