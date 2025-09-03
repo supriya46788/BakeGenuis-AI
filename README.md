@@ -1,3 +1,5 @@
+<a name="top"></a>
+
 <div align="center">
 
  **🍰 BakeGenius AI - Precision Baking for Everyone**
