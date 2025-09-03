@@ -49,38 +49,20 @@ document.querySelectorAll('.feature-card').forEach(card => {
   });
 });
 
-// ================= Scroll-to-Top & Bottom Toggle =================
-const scrollToBottomBtn = document.getElementById("scrollToBottomBtn");
-const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+// Back to Top Button functionality
+        let scrollBtn = document.getElementById("scrollTopBtn");
 
-if (scrollToBottomBtn && scrollToTopBtn) {
-  const showThreshold = 300; // px from top
+        window.onscroll = function () {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
 
-  function toggleScrollBtns() {
-    const scrollY = window.scrollY;
-    const documentHeight = Math.max(
-      document.body.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.clientHeight,
-      document.documentElement.scrollHeight,
-      document.documentElement.offsetHeight
-    );
-    const nearBottom = scrollY >= documentHeight - window.innerHeight - 200;
-
-    if (scrollY <= showThreshold) {
-      // At top → show bottom button, hide top
-      scrollToBottomBtn.style.display = "block";
-      scrollToTopBtn.style.display = "none";
-    } else if (nearBottom) {
-      // At bottom → show top button only
-      scrollToBottomBtn.style.display = "none";
-      scrollToTopBtn.style.display = "block";
-    } else {
-      // In between → show top button
-      scrollToBottomBtn.style.display = "none";
-      scrollToTopBtn.style.display = "block";
-    }
-  }
+        scrollBtn.onclick = function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
 
   window.addEventListener("scroll", toggleScrollBtns, { passive: true });
   toggleScrollBtns();
@@ -101,4 +83,4 @@ if (scrollToBottomBtn && scrollToTopBtn) {
   scrollToTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
-}
+
