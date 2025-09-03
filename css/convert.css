@@ -282,31 +282,34 @@
   gap: 1.5rem;
 }
 
-.nav-links li a {
-  color: #ffffff;
-  font-weight: 500;
-  text-decoration: none;
-  position: relative;
-  transition: all 0.3s ease-in-out;
-  padding: 0.3rem 0;
+.nav-links li a { 
+    color: #fff; 
+    font-weight: 500; 
+    text-decoration: none; 
+    position: relative; 
+    transition: all 0.3s ease-in-out; 
+    padding: 0.3rem 0;
+    /* Note: vendor prefixes like -webkit- are not needed for modern browsers */
 }
 
-/* Hover Gradient Underline */
 .nav-links li a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 3px;
-  background: linear-gradient(90deg, #60a5fa, #f9a8d4, #fde68a);
-  border-radius: 5px;
-  transition: width 0.4s ease;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 3px;
+    background: var(--link-hover-gradient);
+    border-radius: 5px;
+    transition: width 0.4s ease;
 }
 
-.nav-links li a:hover::after,
-.nav-links li a.active::after {
-  width: 100%;
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+.nav-links li a:hover {
+    transform: translateY(-2px);
 }
 
 .nav-links li a:hover {
