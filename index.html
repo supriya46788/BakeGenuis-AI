@@ -24,13 +24,7 @@
   <link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
-  <!-- Loading Screen -->
-  <div id="loading-screen">
-    <div class="loader">
-      <i class="fa-solid fa-spinner"></i>
-      <h2>Ready for some baking<span class="dots"></span></h2>
-    </div>
-  </div>
+  
 
   <!-- Navbar -->
   <nav class="navbar">
@@ -146,11 +140,23 @@
   </footer>
 
   <!-- Toast Notification -->
+  <head>
+  <style>
+    /* Hide the toast notification completely */
+    #toastNotification {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
   <div id="toastNotification" class="toast">
     <div class="toast-icon">✔️</div>
     <div id="toastMessage" class="toast-message">Subscribed successfully!</div>
     <button id="toastClose" class="toast-close">&times;</button>
   </div>
+</body>
+
+
 
   <!-- ✅ Scroll To Bottom -->
   <button id="scrollToBottomBtn" title="Go to bottom">
