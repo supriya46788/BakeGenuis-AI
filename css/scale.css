@@ -142,27 +142,6 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* Feedback button */
-[data-theme="dark"] .fb-color {
-    padding: 8px 18px;
-    background: linear-gradient(135deg, rgba(245,115,197,0.9), rgba(190,8,245,0.7));
-    border-radius: 25px;
-    border: 1px solid rgba(190, 8, 245, 0.3);
-    display: inline-block;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(190, 8, 245, 0.3);
-}
-
-[data-theme="dark"] .fb-color:hover {
-    background: linear-gradient(135deg, rgba(243,19,224,0.85), rgba(190,8,245,0.9));
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(190, 8, 245, 0.6);
-}
-
-[data-theme="dark"] .fb-color a {
-    color: #fff;
-}
-
 /* Footer */
 [data-theme="dark"] .footer {
     background: var(--footer-bg) !important;

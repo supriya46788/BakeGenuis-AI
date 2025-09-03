@@ -35,6 +35,8 @@ box-sizing: border-box;
 .logo,
 .feedback-btn {
   text-decoration: none;
+  color: white;
+  font-weight: bolder;
 }
 [data-theme="dark"] {
 /* Base variables */
@@ -229,6 +231,7 @@ transition: background 0.3s, color 0.3s;
 }
 
 .feature-card {
+padding: 20px;
 background: var(--card-bg);
 box-shadow: 0 20px 60px var(--card-shadow);
 transition: background 0.3s, box-shadow 0.3s, color 0.3s;
@@ -348,6 +351,7 @@ width: 100%;
 /* ADD THIS NEW RULE */
 .logo {
   margin-right: 5rem; /* Pushes everything after the logo to the right */
+  color: white;
 }
 .nav-links li a:hover {
 transform: translateY(-2px);
