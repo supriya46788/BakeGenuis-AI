@@ -213,6 +213,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img src="${contributor.avatar_url}" alt="${contributor.login}">
                 <span>${contributor.login}</span>
             `;
+            // added click event that will forced to open ghithub profile in new window of clicked contributer
+            card.addEventListener("click" , function(){ 
+                window.open(contributor.html_url , "_blank"); 
+            })
             contributorsContainer.appendChild(card);
         });
 
