@@ -484,9 +484,18 @@
             box-shadow: 0 0 20px rgba(255, 231, 195, 0.3);
         }
 
-        .recipe-input::placeholder {
-            color:var(--light-gray);
-        }
+       /* Light-mode placeholder (default) */
+       .recipe-input::placeholder {
+           color: var(--light-gray);
+           opacity: 1;
+}
+
+/* Dark-mode placeholder override */
+          [data-theme="dark"] .recipe-input::placeholder {
+           color: #e6e6e6; /* or #ffffff for pure white */
+            opacity: 1;
+}
+
 
         .file-upload {
             display: none;

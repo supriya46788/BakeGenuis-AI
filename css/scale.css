@@ -87,17 +87,26 @@
     font-family: 'Comic Neue', cursive;
 }
 /* Recipe input / textarea */
+/* Dark mode input styles */
 [data-theme="dark"] .recipe-textarea,
 [data-theme="dark"] .serving-input input {
-    background: #2e2e3f;      /* dark but not black */
-    color: #f0f0f0;           /* white text */
+    background: #2e2e3f;       /* dark but not black */
+    color: #f0f0f0;            /* white typed text */
     border: 2px solid #4ecdc4; /* highlight border */
 }
 
+/* Light mode (default) placeholder */
+.recipe-textarea::placeholder,
+.serving-input input::placeholder {
+    color: #000000; /* gray in light mode */
+}
+
+/* Dark mode placeholder */
 [data-theme="dark"] .recipe-textarea::placeholder,
 [data-theme="dark"] .serving-input input::placeholder {
-    color: #bbbbbb;           /* visible placeholder */
+    color: #ffffff; /* bright white in dark mode */
 }
+
 
 [data-theme="dark"] input::placeholder,
 [data-theme="dark"] textarea::placeholder {
