@@ -11,58 +11,56 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/index.css" />
-  <link rel="stylesheet" href="../css/toggle.css" />
-  <link rel="stylesheet" href="css/auth.css" />
-  <link rel="stylesheet" href="./css/feature.css" />
+  <link rel="stylesheet" href="public/css/index.css" />
+  <link rel="stylesheet" href="../public/css/toggle.css" />
+  <link rel="stylesheet" href="public/css/auth.css" />
+  <link rel="stylesheet" href="./public/css/feature.css" />
   <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.8/dist/lenis.css" />
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="public/css/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="public/css/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="public/css/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
-  <!-- Loading Screen -->
-  <div id="loading-screen">
-    <div class="loader">
-      <i class="fa-solid fa-spinner"></i>
-      <h2>Ready for some baking<span class="dots"></span></h2>
-    </div>
-  </div>
+  
 
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="navbar-container">
-      <div class="logo"><a href="./index.html">🍰 BakeGenius.ai</a></div>
-      <button class="hamburger" id="hamburger">&#9776;</button>
-      <div class="menu" id="menu">
-        <ul class="nav-links" id="navLinks">
-          <li><a href="./html/convert.html">Convert Recipe</a></li>
-          <li><a href="./html/customize.html">Customize</a></li>
-          <li><a href="./html/recipe_hub.html">Recipe Hub</a></li>
-          <li><a href="./html/about.html">About</a></li>
-        </ul>
-        <div class="fb-color">
-          <a href="./html/feedback.html">Feedback</a>
-        </div>
-        <div class="auth-buttons">
-          <a href="./html/login.html" class="login-btn">Login</a>
-          <a href="./html/signup.html" class="signup-btn">Sign Up</a>
-        </div>
-        <a href="./html/scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
-        </div>
-
-      <label class="theme-switch">
-        <input type="checkbox" id="theme-toggle" />
-        <span class="slider">
-          <i class="fas fa-sun"></i>
-          <i class="fas fa-moon"></i>
-        </span>
-      </label>
+  <div class="navbar-container">
+    <a href="index.html" class="logo">🍰 BakeGenius.ai</a>
+    
+    <div class="hamburger" id="hamburger-menu">
+      <i class="fas fa-bars"></i>
     </div>
-  </nav>
+
+    <div class="menu-wrapper" id="menu-wrapper">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="views/convert.html">Convert Recipe</a></li>
+          <li><a href="views/customize.html">Customize</a></li>
+          <li><a href="views/recipe_hub.html">Recipe Hub</a></li>
+          <li><a href="views/about.html">About</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <a href="views/feedback.html" class="feedback-btn">Feedback</a>
+          <div class="auth-buttons">
+            <a href="views/login.html" class="login-btn">Login</a>
+            <a href="views/signup.html" class="signup-btn">Sign Up</a>
+          </div>
+          <a href="views/scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
+          <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" />
+            <span class="slider">
+              <i class="fas fa-sun"></i>
+              <i class="fas fa-moon"></i>
+            </span>
+          </label>
+        </div>
+    </div>
+  </div>
+</nav>
 
   <!-- Hero -->
   <section class="cupcake-animation">
@@ -73,12 +71,12 @@
 
   <main class="main-content">
     <section class="hero-section">
-      <h1 class="hero-title">Welcome to BakeGenius.ai</h1>
+      <h1 class="hero-title typing-active">Welcome to BakeGenius.ai</h1>
       <p class="hero-subtitle">
         From spoon to scale — get exact gram conversions with AI magic ✨<br />
         Transform vague recipe measurements into precise, consistent results every time!
       </p>
-      <a href="html/convert.html" class="cta-button">Start Converting Now 🚀</a>
+      <a href="views/convert.html" class="cta-button">Start Converting Now 🚀</a>
     </section>
 
     <!-- Features -->
@@ -112,11 +110,11 @@
       <div class="footer-links">
         <h3>Links</h3>
         <ul>
-          <li><a href="html/about.html">About Us</a></li>
-          <li><a href="html/convert.html">Convert Recipe</a></li>
-          <li><a href="html/customize.html">Customize</a></li>
-          <li><a href="html/scale.html">Scale Recipes</a></li>
-          <li><a href="html/feedback.html">Feedback</a></li>
+          <li><a href="views/about.html">About Us</a></li>
+          <li><a href="views/convert.html">Convert Recipe</a></li>
+          <li><a href="views/customize.html">Customize</a></li>
+          <li><a href="views/scale.html">Scale Recipes</a></li>
+          <li><a href="views/feedback.html">Feedback</a></li>
         </ul>
       </div>
 
@@ -142,23 +140,25 @@
   </footer>
 
   <!-- Toast Notification -->
+  <head>
+  <style>
+    /* Hide the toast notification completely */
+    #toastNotification {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
   <div id="toastNotification" class="toast">
     <div class="toast-icon">✔️</div>
     <div id="toastMessage" class="toast-message">Subscribed successfully!</div>
     <button id="toastClose" class="toast-close">&times;</button>
   </div>
+</body>
 
-  <!-- ✅ Scroll To Bottom -->
-  <button id="scrollToBottomBtn" title="Go to bottom">
-    <i class="fas fa-arrow-down"></i>
+
+  <button id="scrollTopBtn" title="Go to bottom" style="display: block;">⬆
   </button>
-
-<!-- Scroll to Top Button -->
-<button id="scrollToTopBtn" class="scroll-btn">
-  <i class="fas fa-arrow-up"></i>
-</button>
-
-
 
 
   <!-- Scripts -->
@@ -168,9 +168,26 @@
   <script src="js/auth.js"></script>
   <script src="https://unpkg.com/lenis@1.1.21/dist/lenis.min.js"></script>
   <script src="./js/feature.js"></script>
-  <script src="../js/mouse-trail.js"></script>
+  <script src="./js/mouse-trail.js"></script>
 
   <script>
+
+    
+        // Back to Top Button functionality
+        let scrollBtn = document.getElementById("scrollTopBtn");
+
+        window.onscroll = function () {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
+
+        scrollBtn.onclick = function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+    
     // Newsletter Toast
     const newsletterForm = document.getElementById("newsletterForm");
     const newsletterEmail = document.getElementById("newsletterEmail");

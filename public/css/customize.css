@@ -296,8 +296,7 @@ background: linear-gradient(45deg, #bf60fa, #fde68a);
   transition: width 0.4s ease;
 }
 
-.nav-links li a:hover::after,
-.nav-links li a.active::after {
+.nav-links li a:hover::after {
   width: 100%;
 }
 

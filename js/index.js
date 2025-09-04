@@ -1,19 +1,14 @@
-// ================= Mobile Navigation Toggle (commented for now) =================
-// const hamburger = document.getElementById('hamburger');
-// const navLinks = document.getElementById('navLinks');
 
-// hamburger.addEventListener('click', () => {
-//     navLinks.classList.toggle('active');
-//     hamburger.classList.toggle('active');
-// });
+// ================= Mobile Navigation Toggle =================
+// document.addEventListener('DOMContentLoaded', function() {
+//     const hamburger = document.querySelector('.hamburger');
+//     const menuWrapper = document.querySelector('.menu-wrapper');
 
-// // Close mobile menu when clicking on a link
-// const navItems = document.querySelectorAll('.nav-links a');
-// navItems.forEach(item => {
-//     item.addEventListener('click', () => {
-//         navLinks.classList.remove('active');
-//         hamburger.classList.remove('active');
-//     });
+//     if (hamburger && menuWrapper) {
+//         hamburger.addEventListener('click', () => {
+//             menuWrapper.classList.toggle('active');
+//         });
+//     }
 // });
 
 // ================= Smooth scroll for CTA button =================
@@ -54,42 +49,38 @@ document.querySelectorAll('.feature-card').forEach(card => {
   });
 });
 
-// ================= Scroll-to-Top & Bottom Toggle =================
-const scrollToBottomBtn = document.getElementById("scrollToBottomBtn");
-const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+// Back to Top Button functionality
+        let scrollBtn = document.getElementById("scrollTopBtn");
 
-if (scrollToBottomBtn && scrollToTopBtn) {
-  const showThreshold = 200; // px from top
+        window.onscroll = function () {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
 
-  function toggleScrollBtns() {
-    const scrollY = window.scrollY;
-    const nearBottom = scrollY >= document.body.scrollHeight - window.innerHeight - showThreshold;
-
-    if (scrollY <= showThreshold) {
-      // At top → show bottom button, hide top
-      scrollToBottomBtn.style.display = "block";
-      scrollToTopBtn.style.display = "none";
-    } else if (nearBottom) {
-      // At bottom → show top button only
-      scrollToBottomBtn.style.display = "none";
-      scrollToTopBtn.style.display = "block";
-    } else {
-      // In between → show top button
-      scrollToBottomBtn.style.display = "none";
-      scrollToTopBtn.style.display = "block";
-    }
-  }
+        scrollBtn.onclick = function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
 
   window.addEventListener("scroll", toggleScrollBtns, { passive: true });
   toggleScrollBtns();
 
   // Scroll smoothly to bottom
   scrollToBottomBtn.addEventListener("click", () => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    const documentHeight = Math.max(
+      document.body.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.clientHeight,
+      document.documentElement.scrollHeight,
+      document.documentElement.offsetHeight
+    );
+    window.scrollTo({ top: documentHeight, behavior: "smooth" });
   });
 
   // Scroll smoothly to top
   scrollToTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
-}
+
