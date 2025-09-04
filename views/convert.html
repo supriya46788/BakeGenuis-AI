@@ -117,11 +117,17 @@
         </div>
     </main>
 
+    <!-- Overlay + Warning -->
     <div class="overlay" id="overlay" onclick="closeWarning()"></div>
     <div class="warning-popup" id="warningPopup">
-        <h3>⚠️ Ambiguous Measurement</h3>
+        <h3>⚠️ Ingredient Not Found</h3>
         <p id="warningMessage"></p>
-        <button onclick="closeWarning()">Got it!</button>
+        <div class="density-input" id="densityInputWrapper" style="display:none;">
+            <label for="densityInput">Enter approximate density (g/ml):</label>
+            <input type="number" id="densityInput" step="0.01" placeholder="e.g., 1.0">
+            <button onclick="submitDensity()">Submit</button>
+        </div>
+        <button onclick="closeWarning()">Use Default</button>
     </div>
 
     <footer class="footer">
@@ -192,28 +198,6 @@
             window.scrollTo({ top: 0, behavior: "smooth" });
         };
     </script>
-
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const hamburger = document.getElementById('hamburger-menu');
-            const menuWrapper = document.getElementById('menu-wrapper');
-
-            if (hamburger && menuWrapper) {
-                hamburger.addEventListener('click', () => {
-                    menuWrapper.classList.toggle('active');
-                    // Optional: change hamburger icon
-                    const icon = hamburger.querySelector('i');
-                    if (menuWrapper.classList.contains('active')) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
-                    } else {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-            }
-        });
-    </script> -->
     
     <script src="../js/feature.js"></script>
     <script src="../js/mouse-trail.js"></script>
