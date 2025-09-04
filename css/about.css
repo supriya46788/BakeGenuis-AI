@@ -678,8 +678,7 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
+} 
 .contributor-cards {
   display: flex;
   flex-wrap: wrap;
