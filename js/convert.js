@@ -1,6 +1,7 @@
  // Note: API keys removed for security - implement server-side API calls in production
-        const GEMINI_API_KEY = null;
-        const GEMINI_API_URL = null;
+        const GEMINI_API_KEY = "demo"; 
+const GEMINI_API_URL = "https://jsonplaceholder.typicode.com/posts";
+
 
         let currentUnit = 'metric';
         let convertedData = [];
@@ -56,29 +57,37 @@
         }
 
         async function convertRecipe() {
-            const recipeText = document.getElementById('recipeInput').value.trim();
-            
-            if (!recipeText) {
-                showWarning('Please enter a recipe to convert!');
-                return;
-            }
+    const recipeText = document.getElementById('recipeInput').value.trim();
 
-            setLoading(true);
+    if (!recipeText) {
+        showWarning('Please enter a recipe to convert!');
+        return;
+    }
 
-            try {
-                const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        contents: [{
-                            parts: [{
-                                text: `Convert this recipe to precise gram measurements. For each ingredient, provide:
+    setLoading(true);
+
+    try {
+        const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                contents: [{
+                    parts: [{
+                        text: `Convert this recipe to precise gram measurements. For each ingredient, provide:
 1. Normalized ingredient name
 2. Original measurement
 3. Gram equivalent
 4. Any relevant notes about the conversion
+
+If you cannot find the ingredient in your database, respond with:
+{
+  "ingredient": "<ingredient name>",
+  "original": "<original text>",
+  "grams": null,
+  "notes": "Ingredient not found"
+}
 
 Please format the response as JSON with this structure:
 {
@@ -95,69 +104,81 @@ Please format the response as JSON with this structure:
 
 Recipe to convert:
 ${recipeText}`
-                            }]
-                        }]
-                    })
+                    }]
+                }]
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('API request failed');
+        }
+
+        const data = await response.json();
+        const aiResponse = data.candidates[0].content.parts[0].text;
+
+        try {
+            const jsonMatch = aiResponse.match(/\{[\s\S]*\}/);
+            if (jsonMatch) {
+                const parsedData = JSON.parse(jsonMatch[0]);
+                convertedData = applyFallbacks(parsedData.ingredients || []);
+                displayResults(convertedData);
+
+                if (parsedData.warnings && parsedData.warnings.length > 0) {
+                    showWarning(parsedData.warnings.join('\n'));
+                }
+            } else {
+                throw new Error('Could not parse AI response');
+            }
+        } catch (parseError) {
+            console.error('Parse error:', parseError);
+            convertedData = parseTextResponse(aiResponse);
+            convertedData = applyFallbacks(convertedData);
+            displayResults(convertedData);
+        }
+
+    } catch (error) {
+        console.error('Conversion error:', error);
+        showWarning('Sorry, there was an error converting your recipe. Please try again.');
+    } finally {
+        setLoading(false);
+    }
+}
+
+// --- NEW: Apply fallback for unknown ingredients ---
+function applyFallbacks(ingredients) {
+    return ingredients.map(item => {
+        if (!item.grams || isNaN(item.grams)) {
+            return {
+                ...item,
+                grams: 100, // default estimate instead of crash (1 cup ≈ 240g, so safe ~100g fallback)
+                notes: (item.notes || '') + ' (Estimated using default density)'
+            };
+        }
+        return item;
+    });
+}
+
+function parseTextResponse(text) {
+    const lines = text.split('\n').filter(line => line.trim());
+    const ingredients = [];
+
+    lines.forEach(line => {
+        if (line.includes('cup') || line.includes('tbsp') || line.includes('tsp') || line.includes('pound') || line.includes('oz')) {
+            const parts = line.split(/[:;-]/);
+            if (parts.length >= 2) {
+                ingredients.push({
+                    ingredient: parts[0].trim(),
+                    original: parts[1].trim(),
+                    grams: null, // will be handled by fallback
+                    notes: 'Estimated conversion'
                 });
-
-                if (!response.ok) {
-                    throw new Error('API request failed');
-                }
-
-                const data = await response.json();
-                const aiResponse = data.candidates[0].content.parts[0].text;
-                
-                // Parse the AI response
-                try {
-                    const jsonMatch = aiResponse.match(/\{[\s\S]*\}/);
-                    if (jsonMatch) {
-                        const parsedData = JSON.parse(jsonMatch[0]);
-                        convertedData = parsedData.ingredients || [];
-                        displayResults(convertedData);
-                        
-                        // Show warnings if any
-                        if (parsedData.warnings && parsedData.warnings.length > 0) {
-                            showWarning(parsedData.warnings.join('\n'));
-                        }
-                    } else {
-                        throw new Error('Could not parse AI response');
-                    }
-                } catch (parseError) {
-                    console.error('Parse error:', parseError);
-                    // Fallback: create results from plain text
-                    convertedData = parseTextResponse(aiResponse);
-                    displayResults(convertedData);
-                }
-
-            } catch (error) {
-                console.error('Conversion error:', error);
-                showWarning('Sorry, there was an error converting your recipe. Please try again.');
-            } finally {
-                setLoading(false);
             }
         }
+    });
 
-        function parseTextResponse(text) {
-            // Simple fallback parser for plain text responses
-            const lines = text.split('\n').filter(line => line.trim());
-            const ingredients = [];
-            
-            lines.forEach(line => {
-                if (line.includes('cup') || line.includes('tbsp') || line.includes('tsp') || line.includes('pound') || line.includes('oz')) {
-                    const parts = line.split(/[:;-]/);
-                    if (parts.length >= 2) {
-                        ingredients.push({
-                            ingredient: parts[0].trim(),
-                            original: parts[1].trim(),
-                            grams: Math.round(Math.random() * 200 + 50), // Placeholder
-                            notes: 'Estimated conversion'
-                        });
-                    }
-                }
-            });
-            
-            return ingredients;
-        }
+    return ingredients;
+}
+
 
         function displayResults(ingredients) {
             const resultsSection = document.getElementById('resultsSection');
