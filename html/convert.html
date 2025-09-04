@@ -130,6 +130,55 @@
         <button onclick="closeWarning()">Use Default</button>
     </div>
 
+
+       <!-- Footer Section -->
+<footer class="footer">
+      <div class="footer-container">
+        <div>
+          <h2>BakeGenius.ai</h2>
+          <p>
+            Revolutionizing baking with AI-powered precision. Convert, customize, and scale your recipes with ease.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="./convert.html">Convert Recipe</a></li>
+            <li><a href="./customize.html">Customize</a></li>
+            <li><a href="./recipe_hub.html">Recipe Hub</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./feedback.html">Feedback</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h3>Stay Updated</h3>
+          <p>Subscribe to our newsletter for baking tips & feature updates.</p>
+          <input type="email" placeholder="Enter your email" />
+          <button>Subscribe</button>
+        </div>
+
+        <div>
+          <h3>Connect with Us</h3>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-icon linkedin" target="_blank">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/supriya46788" class="social-icon github" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:supriyadpandey502@gmail.com" class="social-icon email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-text">© 2025 BakeGenius.ai | All Rights Reserved</p>
+      </div>
+
     <footer class="footer">
         <div class="footer-container">
 
@@ -175,28 +224,36 @@
 
         </div>
         <p class="footer-bottom">&copy; 2025 BakeGenius.ai — All rights reserved.</p>
+
     </footer>
 
-    <script src="../js/convert.js"></script>
+    <script src="../js/about.js"></script>
     <script src="../js/theme.js"></script>
-    
+
+    <script src="../js/floating_emoji_footer_fix.js"></script>
+
+    <!-- Back to Top Button -->
+
     <button id="scrollTopBtn" title="Go to top">⬆</button>
-    
+
     <script>
-        // Back to Top Button functionality
-        let scrollBtn = document.getElementById("scrollTopBtn");
+      // Back to Top Button functionality
+      let scrollBtn = document.getElementById("scrollTopBtn");
 
-        window.onscroll = function () {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                scrollBtn.style.display = "block";
-            } else {
-                scrollBtn.style.display = "none";
-            }
-        };
+      window.onscroll = function () {
+        if (
+          document.body.scrollTop > 100 ||
+          document.documentElement.scrollTop > 100
+        ) {
+          scrollBtn.style.display = "block";
+        } else {
+          scrollBtn.style.display = "none";
+        }
+      };
 
-        scrollBtn.onclick = function () {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        };
+      scrollBtn.onclick = function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
     </script>
     
     <script src="../js/feature.js"></script>
