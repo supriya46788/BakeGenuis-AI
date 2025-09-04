@@ -1,6 +1,8 @@
+
 // Note: API keys removed for security - implement server-side API calls in production
 const GEMINI_API_KEY = null; // put your key here
 const GEMINI_API_URL = null; // put your endpoint here
+
 
 let currentUnit = 'metric';
 let convertedData = [];

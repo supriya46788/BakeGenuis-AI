@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scale Recipes - BakeGenius.ai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="../public/css/scale.css">
+    <link rel="stylesheet" href="../public/css/toggle.css">
+    <link rel="stylesheet" href="../public/css/index.css">
+    <link rel="stylesheet" href="../public/css/feature.css">
+    <script src="https://unpkg.com/lenis@1.1.21/dist/lenis.min.js"></script>
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-elements">
+        <div class="floating-cupcake">🧁</div>
+        <div class="floating-cupcake">🍰</div>
+        <div class="floating-cupcake">🥧</div>
+        <div class="floating-cupcake">🍪</div>
+    </div>
+
+    <!-- Navigation -->
+       <nav class="navbar">
+        <div class="navbar-container">
+            <a href="../index.html" class="logo">🍰 BakeGenius.ai</a>
+            
+            <button class="hamburger" id="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="menu-wrapper" id="menu-wrapper">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="convert.html" class="active">Convert Recipe</a></li>
+                    <li><a href="customize.html">Customize</a></li>
+                    <li><a href="recipe_hub.html">Recipe Hub</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+
+                <div class="nav-right">
+                    <a href="feedback.html" class="feedback-btn fb-color">Feedback</a>
+                    <div class="auth-buttons">
+                        <a href="login.html" class="login-btn">Login</a>
+                        <a href="signup.html" class="signup-btn">Sign Up</a>
+                    </div>
+                    <a href="scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
+                    <label class="theme-switch">
+                        <input type="checkbox" id="theme-toggle" />
+                        <span class="slider">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Auth Check Script -->
+    <script src="../js/auth.js"></script>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📏 Scale Your Recipes</h1>
+            <p>Perfect portions for any crowd - from intimate dinners to grand celebrations!</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Input Section -->
+            <div class="input-section">
+                <h2 class="section-title">🎯 Recipe Scaling</h2>
+                
+                <div class="serving-inputs">
+                    <div class="serving-input">
+                        <label for="currentServings">Current Servings</label>
+                        <input type="number" id="currentServings" placeholder="6" min="1" value="6">
+                    </div>
+                    <div class="serving-input">
+                        <label for="desiredServings">Desired Servings</label>
+                        <input type="number" id="desiredServings" placeholder="12" min="1" value="12">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="recipeInput">Paste Your Recipe Ingredients:</label>
+                    <textarea 
+                        id="recipeInput" 
+                        class="recipe-textarea" 
+                        placeholder="Example:
+2 cups all-purpose flour
+1 cup sugar
+1/2 cup butter
+2 eggs
+1 tsp baking powder
+1/2 tsp salt
+1 cup milk"
+                    ></textarea>
+                </div>
+
+                <div class="toggle-container">
+                    <span>Keep Original Units</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="convertToGrams">
+                        <span class="slider"></span>
+                    </label>
+                    <span>Convert to Grams</span>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="scaleRecipe()">
+                        ✨ Scale Recipe Magically
+                    </button>
+                    <button class="btn btn-secondary" onclick="clearInputs()">
+                        🧹 Clear All
+                    </button>
+                </div>
+            </div>
+
+            <!-- Output Section -->
+            <div class="output-section">
+                <h2 class="section-title">📊 Scaled Results</h2>
+                
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Scaling your recipe with AI magic... 🪄</p>
+                </div>
+
+                <div class="results-container" id="resultsContainer">
+                    <div id="scalingInfo" class="scaling-info"></div>
+                    <table class="results-table" id="resultsTable">
+                        <thead>
+                            <tr>
+                                <th>Ingredient</th>
+                                <th>Original</th>
+                                <th>Scaled</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsBody">
+                        </tbody>
+                    </table>
+                    
+                    <div class="suggestions-box" id="suggestionsBox">
+                        <h3>🔮 Smart Baking Tips</h3>
+                        <div id="suggestions"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+       <!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+            <h2>BakeGenius.ai</h2>
+            <p>Baking meets AI — recipes, ideas, and inspiration to make your creations magical!</p>
+        </div>
+
+        <!-- Links -->
+        <div class="footer-links">
+            <h3>Links</h3>
+           <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="convert.html">Convert Recipe</a></li>
+            <li><a href="customize.html">Customize</a></li>
+            <li><a href="scale.html">Scale Recipes</a></li>
+           <li><a href="feedback.html">Feedback</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
+            <h3>Newsletter</h3>
+            <p>Get the latest baking tips & AI recipes!</p>
+            <form id="newsletterForm">
+                <input type="email" id="newsletterEmail" placeholder="Your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+
+        <!-- Social -->
+        <div class="footer-social">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-icon linkedin">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/supriya46788" target="_blank" class="social-icon github">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="mailto:supriyadpandey502@gmail.com" target="_blank" class="social-icon email">
+                    <i class="fa-regular fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <p class="footer-bottom">&copy; 2025 BakeGenius.ai — All rights reserved.</p>
+</footer>
+
+    <script src="../js/scale.js"></script>
+    <script src="../js/theme.js"></script>
+    
+    <!-- Back to Top Button -->
+    <button id="scrollTopBtn" title="Go to top">⬆</button>
+    
+    <script>
+        // Back to Top Button functionality
+        window.onscroll = function () {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
+        let scrollBtn = document.getElementById("scrollTopBtn");
+        scrollBtn.onclick = function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+    </script>
+    <script src="../js/feature.js"></script>
+    <!-- Mouse Trail Effect -->
+<script src="../js/mouse-trail.js"></script>
+
+</body>
+</html>
