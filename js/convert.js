@@ -1,6 +1,6 @@
  // Note: API keys removed for security - implement server-side API calls in production
-        const GEMINI_API_KEY = null;
-        const GEMINI_API_URL = null;
+        const GEMINI_API_KEY = "AIzaSyDiMVOMLY422uH9CUTlTJrMc5-Y2bl0mjQ";
+        const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 
         let currentUnit = 'metric';
         let convertedData = [];
