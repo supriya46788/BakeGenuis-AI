@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const contributorsContainer = document.getElementById(
     "contributors-container"
   );
-
+  let contributorsData = []; // store contributors globally
   async function loadContributors() {
     const contributorsContainer = document.getElementById(
       "contributors-container"
@@ -210,28 +210,52 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      contributorsContainer.innerHTML = ""; // Clear loading
-
-      contributors.forEach((contributor) => {
-        const card = document.createElement("div");
-        card.classList.add("contributor-card");
-        card.innerHTML = `
-                <img src="${contributor.avatar_url}" alt="${contributor.login}">
-                <span>${contributor.login}</span>
-            `;
-        // added click event that will forced to open ghithub profile in new window of clicked contributer
-        card.addEventListener("click", function () {
-          window.open(contributor.html_url, "_blank");
-        });
-        contributorsContainer.appendChild(card);
-      });
+      //store golabally
+      contributorsData = contributors;
+      renderContributers(contributorsData); // intital render
     } catch (error) {
       // Handle contributor loading error gracefully
       contributorsContainer.innerHTML =
         "<p>⚠ Unable to load contributors at this time.</p>";
     }
-  } 
-  
+  }
+
+  function renderContributers(contributer) {
+    contributorsContainer.innerHTML = ""; //clear previus
+
+    if (contributer.length === 0) {
+      contributorsContainer.innerHTML = "<p>😢 No contributors found</p>";
+      return;
+    }
+
+    contributer.forEach((contri) => {
+      const card = document.createElement("div");
+      card.classList.add("contributor-card");
+      card.setAttribute("data-username", contri.login.toLowerCase()); // for searching
+      card.innerHTML = `
+                <img src="${contri.avatar_url}" alt="${contri.login}">
+                <span>${contri.login}</span>
+            `;
+      // added click event that will forced to open ghithub profile in new window of clicked contributer
+      card.addEventListener("click", function () {
+        window.open(contri.html_url, "_blank");
+      });
+      contributorsContainer.appendChild(card);
+    });
+  }
+
+  // search functionality
+  document
+    .getElementById("searchContributer")
+    .addEventListener("keyup", function () {
+      const filter = this.value.toLowerCase();
+      const filtered = contributorsData.filter((contributer) =>
+        contributer.login.toLowerCase().includes(filter)
+      );
+      renderContributers(filtered);
+    });
+
+  //load contributers
   loadContributors();
   // Initialize all functions
   createSparkles();
