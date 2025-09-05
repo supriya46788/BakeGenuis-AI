@@ -903,7 +903,7 @@ body {
   margin-bottom: 2rem;
 }
 
-.social-link {
+.creator-social-link {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -919,7 +919,7 @@ body {
   overflow: hidden;
 }
 
-.social-link::before {
+.creator-social-link::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -932,7 +932,7 @@ body {
   z-index: 0;
 }
 
-.social-link:hover::before {
+.creator-social-link:hover::before {
   width: 300px;
   height: 300px;
   top: 50%;
@@ -940,12 +940,12 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.social-link:hover {
+.creator-social-link:hover {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 15px 35px rgba(112, 161, 255, 0.4);
 }
 
-.social-link span {
+.creator-social-link span {
   position: relative;
   z-index: 1;
 }
