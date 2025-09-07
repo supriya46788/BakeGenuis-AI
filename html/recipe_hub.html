@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Sharing Hub - BakeGenius.ai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../public/css/index.css">
+    <link rel="stylesheet" href="../public/css/recipe_hub.css">
+    <link rel="stylesheet" href="../public/css/feature.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/lenis@1.1.21/dist/lenis.min.js"></script>
+</head>
+<body>
+    <div class="animated-bg">
+        <div class="floating-element">🧁</div>
+        <div class="floating-element">🍰</div>
+        <div class="floating-element">🥧</div>
+        <div class="floating-element">🍪</div>
+        <div class="floating-element">🥄</div>
+        <div class="floating-element">⚖️</div>
+        
+        <div class="sparkles" id="sparkles"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="../index.html" class="logo">🍰 BakeGenius.ai</a>
+            
+            <button class="hamburger" id="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="menu-wrapper" id="menu-wrapper">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="convert.html" class="active">Convert Recipe</a></li>
+                    <li><a href="customize.html">Customize</a></li>
+                    <li><a href="recipe_hub.html">Recipe Hub</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+
+                <div class="nav-right">
+                    <a href="feedback.html" class="feedback-btn fb-color">Feedback</a>
+                    <div class="auth-buttons">
+                        <a href="login.html" class="login-btn">Login</a>
+                        <a href="signup.html" class="signup-btn">Sign Up</a>
+                    </div>
+                    <a href="scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
+                    <label class="theme-switch">
+                        <input type="checkbox" id="theme-toggle" />
+                        <span class="slider">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    
+
+    <main class="main-content">
+       <section class="hero">
+    <h1 class="recipe-hub-title">🌟 Recipe Sharing Hub</h1>
+    <p class="hero-subtitle">Discover, share, and save amazing recipes from our community of baking enthusiasts</p>
+</section>
+
+        <section class="search-section">
+            <div class="container-search">
+                <div class="search-container">
+                    <div class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Search recipes, ingredients, or creators..." class="search-input">
+                        <button class="filter-toggle-btn" id="filterToggle">
+                            <i class="fas fa-filter"></i>
+                            Filters
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filters-panel" id="filtersPanel">
+                <div class="filter-group">
+                    <label>Difficulty:</label>
+                    <select id="difficultyFilter">
+                        <option value="">All Levels</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Cook Time:</label>
+                    <select id="timeFilter">
+                        <option value="">Any Time</option>
+                        <option value="15">Under 15 min</option>
+                        <option value="30">Under 30 min</option>
+                        <option value="60">Under 1 hour</option>
+                        <option value="120">Under 2 hours</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Dietary:</label>
+                    <select id="dietaryFilter">
+                        <option value="">All Diets</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="gluten-free">Gluten-Free</option>
+                        <option value="sugar-free">Sugar-Free</option>
+                        <option value="keto">Keto</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Ingredients:</label>
+                    <input type="text" id="ingredientFilter" placeholder="e.g., chocolate, vanilla">
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-sections">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">🔥 Trending Recipes</h2>
+                    <button class="view-all-btn" id="viewAllTrending">View All</button>
+                </div>
+                <div class="recipe-carousel" id="trendingRecipes">
+                </div>
+
+                <div class="section-header">
+                    <h2 class="section-title">⭐ Featured Recipes</h2>
+                    <button class="view-all-btn" id="viewAllFeatured">View All</button>
+                </div>
+                <div class="recipe-carousel" id="featuredRecipes">
+                </div>
+            </div>
+        </section>
+
+        <section class="recipe-feed">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">🍽️ Community Recipes</h2>
+                    <div class="sort-options">
+                        <select id="sortBy">
+                            <option value="latest">Latest</option>
+                            <option value="popular">Most Popular</option>
+                            <option value="rated">Highest Rated</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="recipe-grid" id="recipeGrid">
+                </div>
+                <div class="load-more-container">
+                    <button class="load-more-btn" id="loadMoreBtn">Load More Recipes</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <template id="recipeCardTemplate">
+        <div class="recipe-card" data-recipe-id="">
+            <div class="recipe-image-container">
+                <img src="" alt="" class="recipe-image">
+                <div class="recipe-overlay">
+                    <div class="recipe-difficulty"></div>
+                    <div class="recipe-time">
+                        <i class="fas fa-clock"></i>
+                        <span></span>
+                    </div>
+                </div>
+                <button class="save-btn" title="Save to Cookbook">
+                    <i class="fas fa-bookmark"></i>
+                </button>
+            </div>
+            <div class="recipe-content">
+                <div class="recipe-header">
+                    <h3 class="recipe-title"></h3>
+                    <div class="recipe-rating">
+                        <div class="stars"></div>
+                        <span class="rating-count"></span>
+                    </div>
+                </div>
+                <p class="recipe-description"></p>
+                <div class="recipe-creator">
+                    <img src="" alt="" class="creator-avatar">
+                    <span class="creator-name"></span>
+                    <button class="follow-btn">Follow</button>
+                </div>
+                <div class="recipe-actions">
+                    <button class="action-btn like-btn" title="Like">
+                        <i class="fas fa-heart"></i>
+                        <span class="count">0</span>
+                    </button>
+                    <button class="action-btn comment-btn" title="Comments">
+                        <i class="fas fa-comment"></i>
+                        <span class="count">0</span>
+                    </button>
+                    <button class="action-btn share-btn" title="Share">
+                        <i class="fas fa-share"></i>
+                    </button>
+                    <button class="action-btn copy-btn" title="Copy Recipe">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                <div class="recipe-tags"></div>
+            </div>
+        </div>
+    </template>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>BakeGenius.ai</h3>
+                <p>Baking meets AI — recipes, ideas, and inspiration to make your creations magical!</p>
+            </div>
+            <div class="footer-links">
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="convert.html">Convert Recipe</a></li>
+                    <li><a href="customize.html">Customize</a></li>
+                    <li><a href="scale.html">Scale Recipes</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Newsletter</h3>
+                <p>Get the latest baking tips & AI recipes!</p>
+                <form id="newsletterForm">
+                    <input type="email" id="newsletterEmail" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-icon linkedin">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/supriya46788" target="_blank" class="social-icon github">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="mailto:supriyadpandey502@gmail.com" target="_blank" class="social-icon email">
+                        <i class="fa-regular fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2025 BakeGenius.ai — All rights reserved.</p>
+    </footer>
+    
+    <button id="tipBtn" class="tip-btn" title="Random Baking Tip">
+    💡
+    </button>
+
+    <div id="tipPopup" class="tip-popup">
+        <p id="tipText">Here’s a random tip!</p>
+        <button id="closeTip" class="close-tip">×</button>
+    </div>
+    
+    <script src="../js/recipe_hub.js"></script>
+    <script src="../js/carousel_autoscroll.js"></script>
+    <script src="../js/theme.js"></script>
+    
+    <button id="scrollTopBtn" title="Go to top">⬆</button>
+    
+    <script>
+        // Back to Top Button functionality
+        let scrollBtn = document.getElementById("scrollTopBtn");
+
+        window.onscroll = function () {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
+
+        scrollBtn.onclick = function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+    </script>
+    
+    <!-- <script>
+        // Hamburger Menu functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger-menu');
+            const menuWrapper = document.getElementById('menu-wrapper');
+
+            if (hamburger && menuWrapper) {
+                hamburger.addEventListener('click', () => {
+                    menuWrapper.classList.toggle('active');
+                    const icon = hamburger.querySelector('i');
+                    if (menuWrapper.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+        });
+    </script> -->
+
+    <script src="../js/feature.js"></script>
+    <script src="../js/mouse-trail.js"></script>
+
+</body>
+</html>
