@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert Recipe - BakeGenius.ai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../public/css/index.css">
+    <link rel="stylesheet" href="../public/css/convert.css">
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/lenis@1.1.21/dist/lenis.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="../index.html" class="logo">🍰 BakeGenius.ai</a>
+            
+            <button class="hamburger" id="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="menu-wrapper" id="menu-wrapper">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="convert.html" class="active">Convert Recipe</a></li>
+                    <li><a href="customize.html">Customize</a></li>
+                    <li><a href="recipe_hub.html">Recipe Hub</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+
+                <div class="nav-right">
+                    <a href="feedback.html" class="feedback-btn fb-color">Feedback</a>
+                    <div class="auth-buttons">
+                        <a href="login.html" class="login-btn">Login</a>
+                        <a href="signup.html" class="signup-btn">Sign Up</a>
+                    </div>
+                    <a href="scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
+                    <label class="theme-switch">
+                        <input type="checkbox" id="theme-toggle" />
+                        <span class="slider">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/firebase.js"></script>
+
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">🧪 Recipe Converter</h1>
+            <p class="page-subtitle">Transform your recipes into precise gram measurements with AI magic</p>
+        </div>
+
+        <div class="converter-container">
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="recipeInput" class="input-label">📝 Paste your recipe here:</label>
+                    <textarea 
+                        id="recipeInput" 
+                        class="recipe-input" 
+                        placeholder="Example:
+2 cups all-purpose flour
+1 cup packed brown sugar
+1/2 cup melted butter
+2 large eggs
+1 tsp vanilla extract
+1/2 tsp baking powder
+1/4 tsp salt"
+                    ></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="fileUpload" class="file-upload-label">
+                        📁 Or upload a recipe file
+                    </label>
+                    <input type="file" id="fileUpload" class="file-upload" accept=".txt,.doc,.docx" onchange="handleFileUpload(event)">
+                </div>
+
+                <button class="convert-button" onclick="convertRecipe()">
+                    <div class="loading-spinner" id="loadingSpinner"></div>
+                    <span id="buttonText">Magically Convert ✨</span>
+                </button>
+                <small style="font-size: 9px; color: #888;">(Press Ctrl + Enter)</small>
+            </div>
+
+            <div class="results-section" id="resultsSection">
+                <div class="results-header">
+                    <h2 class="results-title">🎯 Conversion Results</h2>
+                    <div class="unit-toggle">
+                        <button class="active" onclick="toggleUnits('metric')">Metric (g)</button>
+                        <button onclick="toggleUnits('imperial')">Imperial</button>
+                    </div>
+                </div>
+
+                <table class="results-table" id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Ingredient</th>
+                            <th>Original</th>
+                            <th>Grams</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Overlay + Warning -->
+    <div class="overlay" id="overlay" onclick="closeWarning()"></div>
+    <div class="warning-popup" id="warningPopup">
+        <h3>⚠️ Ingredient Not Found</h3>
+        <p id="warningMessage"></p>
+        <div class="density-input" id="densityInputWrapper" style="display:none;">
+            <label for="densityInput">Enter approximate density (g/ml):</label>
+            <input type="number" id="densityInput" step="0.01" placeholder="e.g., 1.0">
+            <button onclick="submitDensity()">Submit</button>
+        </div>
+        <button onclick="closeWarning()">Use Default</button>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                <h2>BakeGenius.ai</h2>
+                <p>Baking meets AI — recipes, ideas, and inspiration to make your creations magical!</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Links</h3>
+              <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="convert.html">Convert Recipe</a></li>
+                <li><a href="customize.html">Customize</a></li>
+                <li><a href="scale.html">Scale Recipes</a></li>
+               <li><a href="feedback.html">Feedback</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-newsletter">
+                <h3>Newsletter</h3>
+                <p>Get the latest baking tips & AI recipes!</p>
+                <form id="newsletterForm">
+                    <input type="email" id="newsletterEmail" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-icon linkedin">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/supriya46788" target="_blank" class="social-icon github">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="mailto:supriyadpandey502@gmail.com" target="_blank" class="social-icon email">
+                        <i class="fa-regular fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <p class="footer-bottom">&copy; 2025 BakeGenius.ai — All rights reserved.</p>
+    </footer>
+
+    <script src="../js/convert.js"></script>
+    <script src="../js/theme.js"></script>
+    
+    <button id="scrollTopBtn" title="Go to top">⬆</button>
+    
+    <script>
+        // Back to Top Button functionality
+        let scrollBtn = document.getElementById("scrollTopBtn");
+
+        window.onscroll = function () {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        };
+
+        scrollBtn.onclick = function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+    </script>
+    
+    <script src="../js/feature.js"></script>
+    <script src="../js/mouse-trail.js"></script>
+
+</body>
+</html>
