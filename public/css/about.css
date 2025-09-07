@@ -1,3 +1,11 @@
+/* Make the navbar sticky at the top of the viewport */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff; /* Or your navbar background color */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03); /* Optional: subtle shadow */
+}
 * {
   margin: 0;
   padding: 0;
@@ -202,7 +210,7 @@ body {
 /* Advanced Animated Background */
 .page-content {
   position: relative;
-  overflow: hidden;
+  /*overflow: hidden;*/
   z-index: 1;
 }
 
