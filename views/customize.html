@@ -15,6 +15,13 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/lenis@1.1.21/dist/lenis.min.js"></script>
+    
+    <style>
+        /* Hide the toast notification completely */
+        #toastNotification {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
     <div class="floating-elements">
@@ -59,10 +66,6 @@
         </div>
     </nav>
 
-
-    <script src="../js/auth.js"></script>
-    <script src="../js/firebase.js"></script>
-
     <div class="container">
         <div class="page-header">
             <h1 class="page-title">🎨 Customize Your Recipe</h1>
@@ -80,7 +83,7 @@
         </div>
 
         <div class="ingredients-container" id="ingredientsContainer">
-            </div>
+        </div>
         
         <div class="density-editor">
             <h2>⚖️ Ingredient Density Editor</h2>
@@ -109,72 +112,221 @@
         </div>
     </div>
 
+    <!-- Enhanced Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-brand">
-                <h2>BakeGenius.ai</h2>
-                <p>Baking meets AI — recipes, ideas, and inspiration to make your creations magical!</p>
+            <!-- Company Section -->
+            <div class="footer-company">
+                <h2 class="footer-logo">BakeGenius.ai</h2>
+                <p class="footer-description">
+                    Revolutionizing baking with AI-powered precision. Convert, customize, and scale your recipes with ease.
+                </p>
             </div>
+
+            <!-- Quick Links -->
             <div class="footer-links">
-                <h3>Links</h3>
+                <h3 class="footer-section-title">Quick Links</h3>
                 <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="convert.html">Convert Recipe</a></li>
-                    <li><a href="customize.html">Customize</a></li>
-                    <li><a href="scale.html">Scale Recipes</a></li>
-                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="views/about.html">About Us</a></li>
+                    <li><a href="views/convert.html">Convert Recipe</a></li>
+                    <li><a href="views/customize.html">Customize</a></li>
+                    <li><a href="views/scale.html">Scale Recipes</a></li>
+                    <li><a href="views/feedback.html">Feedback</a></li>
                 </ul>
             </div>
+
+            <!-- Newsletter -->
             <div class="footer-newsletter">
-                <h3>Newsletter</h3>
-                <p>Get the latest baking tips & AI recipes!</p>
-                <form id="newsletterForm">
-                    <input type="email" id="newsletterEmail" placeholder="Your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
+                <h3 class="footer-section-title">Stay Updated</h3>
+                <p class="newsletter-description">Subscribe to our newsletter for baking tips & feature updates.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" />
+                    <button type="button">Subscribe</button>
+                </div>
             </div>
+
+            <!-- Social Links -->
             <div class="footer-social">
-                <h3>Follow Us</h3>
+                <h3 class="footer-section-title">Connect with Us</h3>
                 <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-icon linkedin">
-                        <i class="fa-brands fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-icon linkedin" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://github.com/supriya46788" target="_blank" class="social-icon github">
-                        <i class="fa-brands fa-github"></i>
+                    <a href="https://github.com/supriya46788" class="social-icon github" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
                     </a>
-                    <a href="mailto:supriyadpandey502@gmail.com" target="_blank" class="social-icon email">
-                        <i class="fa-regular fa-envelope"></i>
+                    <a href="mailto:supriyadpandey502@gmail.com" class="social-icon email" title="Email">
+                        <i class="fas fa-envelope"></i>
                     </a>
                 </div>
             </div>
         </div>
-        <p class="footer-bottom">&copy; 2025 BakeGenius.ai — All rights reserved.</p>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p class="footer-text">© 2025 BakeGenius.ai | All Rights Reserved</p>
+        </div>
     </footer>
 
-    <script src="../js/customize.js"></script>
-    <script src="../js/theme.js"></script>
-    <script src="../js/floating_emoji_footer_fix.js"></script>
-    
-    <button id="scrollTopBtn" title="Go to top">⬆</button>
-    
+    <!-- Toast Notification -->
+    <div id="toastNotification" class="toast">
+        <div class="toast-icon">✔️</div>
+        <div id="toastMessage" class="toast-message">Subscribed successfully!</div>
+        <button id="toastClose" class="toast-close">&times;</button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/auth.js"></script>
+    <script src="../js/firebase.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/google_config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.21/dist/lenis.min.js"></script>
+    <script src="./js/feature.js"></script>
+    <script src="./js/mouse-trail.js"></script>
+
     <script>
+        // Dark Mode Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        // Set initial theme
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (themeToggle) {
+            themeToggle.checked = currentTheme === 'dark';
+        }
+        
+        // Theme toggle event listener
+        if (themeToggle) {
+            themeToggle.addEventListener('change', function(e) {
+                if (e.target.checked) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        }
+
+        // Enhanced newsletter functionality
+        const newsletterButton = document.querySelector('.newsletter-form button');
+        const newsletterInput = document.querySelector('.newsletter-form input');
+
+        if (newsletterButton && newsletterInput) {
+            newsletterButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                const email = newsletterInput.value;
+                
+                if (email && email.includes('@')) {
+                    this.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
+                    this.style.background = 'linear-gradient(135deg, #4caf50, #66bb6a)';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = 'Subscribe';
+                        this.style.background = 'linear-gradient(135deg, #ff6ec7 0%, #ffa07a 50%, #87cefa 100%)';
+                        newsletterInput.value = '';
+                    }, 3000);
+                } else {
+                    this.innerHTML = '<i class="fas fa-exclamation"></i> Invalid Email';
+                    this.style.background = 'linear-gradient(135deg, #f44336, #ef5350)';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = 'Subscribe';
+                        this.style.background = 'linear-gradient(135deg, #ff6ec7 0%, #ffa07a 50%, #87cefa 100%)';
+                    }, 2000);
+                }
+            });
+        }
+
         // Back to Top Button functionality
         let scrollBtn = document.getElementById("scrollTopBtn");
-        window.onscroll = function () {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                scrollBtn.style.display = "block";
-            } else {
-                scrollBtn.style.display = "none";
+
+        if (scrollBtn) {
+            window.onscroll = function () {
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    scrollBtn.style.display = "block";
+                } else {
+                    scrollBtn.style.display = "none";
+                }
+            };
+
+            scrollBtn.onclick = function () {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            };
+        }
+
+        // Newsletter Toast
+        const toast = document.getElementById("toastNotification");
+        const toastMsg = document.getElementById("toastMessage");
+        const toastClose = document.getElementById("toastClose");
+
+        if (toastClose) {
+            toastClose.addEventListener("click", () => toast.classList.remove("show"));
+        }
+
+        // Loader
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                const loadingScreen = document.getElementById("loading-screen");
+                if (loadingScreen) {
+                    loadingScreen.classList.add("hidden");
+                }
+            }, 2000);
+        });
+
+        // Typing Animation
+        document.addEventListener("DOMContentLoaded", () => {
+            const el = document.querySelector(".hero-title");
+            if (!el) return;
+            const startTyping = () => {
+                el.classList.remove("typing-active");
+                void el.offsetWidth;
+                el.classList.add("typing-active");
+            };
+            const observer = new IntersectionObserver(([entry]) => {
+                if (entry.isIntersecting) startTyping();
+            }, { threshold: 0.5 });
+            observer.observe(el);
+        });
+
+        // Hamburger toggle for mobile
+        document.addEventListener("DOMContentLoaded", () => {
+            const hamburger = document.getElementById("hamburger-menu");
+            const menuWrapper = document.getElementById("menu-wrapper");
+
+            if (hamburger && menuWrapper) {
+                hamburger.addEventListener("click", () => {
+                    menuWrapper.classList.toggle("active");
+                });
             }
-        };
-        scrollBtn.onclick = function () {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        };
+        });
+
+        // Page-specific functionality placeholders
+        function applyChanges(event) {
+            event.preventDefault();
+            // Add your apply changes logic here
+            console.log('Changes applied');
+        }
+
+        function resetToDefaults() {
+            // Add your reset logic here
+            console.log('Reset to defaults');
+        }
+
+        function saveSettings(event) {
+            event.preventDefault();
+            // Add your save settings logic here
+            const successMessage = document.getElementById('successMessage');
+            if (successMessage) {
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000);
+            }
+            console.log('Settings saved');
+        }
     </script>
-    
-
-    <script src="../js/feature.js"></script>
-    <script src="../js/mouse-trail.js"></script>
-
 </body>
 </html>
