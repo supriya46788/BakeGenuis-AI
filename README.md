@@ -82,7 +82,7 @@ Many online recipes list ingredients using vague units like cups, teaspoons, and
   
 ![GSSoC Logo](https://github.com/supriya46788/Research-Paper-Organizer/blob/main/images/gssoc-logo.png)
 </div>
-
+<div>
 📂 Project Structure
 supriya46788/
 ├─ .github/
@@ -152,7 +152,7 @@ supriya46788/
 ├─ scale.html
 ├─ server.js
 └─ site.webmanifest
-
+</div>
 
 
 🌟 **Exciting News...**
