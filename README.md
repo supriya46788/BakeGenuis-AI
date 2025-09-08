@@ -83,6 +83,78 @@ Many online recipes list ingredients using vague units like cups, teaspoons, and
 ![GSSoC Logo](https://github.com/supriya46788/Research-Paper-Organizer/blob/main/images/gssoc-logo.png)
 </div>
 
+📂 Project Structure
+supriya46788/
+├─ .github/
+│  ├─ ISSUE_TEMPLATE/
+│  ├─ workflows/
+│  └─ PULL_REQUEST_TEMPLATE.md
+├─ frontend/
+│  └─ views/
+│     └─ recipe_hub.html
+├─ html/
+│  ├─ about.html
+│  ├─ about_BACKUP_1224.html
+│  ├─ about_BASE_1224.html
+│  ├─ about_LOCAL_1224.html
+│  ├─ about_REMOTE_1224.html
+│  ├─ convert.html
+│  ├─ customize.html
+│  ├─ feedback.html
+│  ├─ login.html
+│  ├─ recipe_hub.html
+│  ├─ scale.html
+│  └─ signup.html
+├─ js/
+│  ├─ about.js
+│  ├─ auth.js
+│  ├─ carousel_autoscroll.js
+│  ├─ config.js
+│  ├─ convert.js
+│  ├─ customize.js
+│  ├─ feature.js
+│  ├─ feedback.js
+│  ├─ floating_emoji_footer_fix.js
+│  ├─ google_config.example.js
+│  ├─ index.js
+│  ├─ mouse-trail.js
+│  ├─ recipe_hub.js
+│  ├─ scale.js
+│  └─ theme.js
+├─ public/
+│  └─ css/
+│     ├─ about.css
+│     ├─ android-chrome-192x192.png
+│     ├─ android-chrome-512x512.png
+│     ├─ apple-touch-icon.png
+│     ├─ auth.css
+│     ├─ convert.css
+│     ├─ customize.css
+│     ├─ favicon-16x16.png
+│     ├─ favicon-32x32.png
+│     ├─ feature.css
+│     ├─ feedback.css
+│     ├─ floating_emoji_fix.css
+│     ├─ index.css
+│     ├─ recipe_hub.css
+│     ├─ scale.css
+│     ├─ toast.css
+│     └─ toggle.css
+├─ .gitignore
+├─ CODE_CLEANUP_SUMMARY.md
+├─ CODE_OF_CONDUCT.md
+├─ CONTRIBUTING.md
+├─ GOOGLE_SETUP.md
+├─ License
+├─ README.md
+├─ gssoc logo.png
+├─ index.html
+├─ scale.html
+├─ server.js
+└─ site.webmanifest
+
+
+
 🌟 **Exciting News...**
 
 🚀 This project is now an official part of GirlScript Summer of Code – GSSoC'25! 💃🎉💻 We're thrilled to welcome contributors from all over India and beyond to collaborate, build, and grow BakeGenuis-AI! Let’s make learning and career development smarter – together! 🌟👨‍💻👩‍💻
