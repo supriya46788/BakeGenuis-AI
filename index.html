@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,19 +24,18 @@
   <link rel="icon" type="image/png" sizes="16x16" href="public/css/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
 </head>
-<body>
-  
 
+<body>
   <!-- Navbar -->
   <nav class="navbar">
-  <div class="navbar-container">
-    <a href="index.html" class="logo">🍰 BakeGenius.ai</a>
-    
-    <div class="hamburger" id="hamburger-menu">
-      <i class="fas fa-bars"></i>
-    </div>
+    <div class="navbar-container">
+      <a href="index.html" class="logo">🍰 BakeGenius.ai</a>
 
-    <div class="menu-wrapper" id="menu-wrapper">
+      <div class="hamburger" id="hamburger-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <div class="menu-wrapper" id="menu-wrapper">
         <ul class="nav-links" id="navLinks">
           <li><a href="html/convert.html">Convert Recipe</a></li>
           <li><a href="html/customize.html">Customize</a></li>
@@ -44,7 +44,6 @@
         </ul>
 
         <div class="nav-right">
-          <a href="html/feedback.html" class="feedback-btn">Feedback</a>
           <div class="auth-buttons">
             <a href="html/login.html" class="login-btn">Login</a>
             <a href="html/signup.html" class="signup-btn">Sign Up</a>
@@ -58,15 +57,13 @@
             </span>
           </label>
         </div>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
   <!-- Hero -->
   <section class="cupcake-animation">
-    <div class="cup">🧁</div>
-    <div class="cake-top">🍒</div>
-    <div class="sprinkles"><span></span><span></span><span></span></div>
+    <div class="cup">&#127856</div>
   </section>
 
   <main class="main-content">
@@ -76,7 +73,7 @@
         From spoon to scale — get exact gram conversions with AI magic ✨<br />
         Transform vague recipe measurements into precise, consistent results every time!
       </p>
-  <a href="/html/convert.html" class="cta-button">Start Converting Now 🚀</a>
+      <a href="/html/convert.html" class="cta-button">Start Converting Now 🚀</a>
     </section>
 
     <!-- Features -->
@@ -99,9 +96,10 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Enhanced Footer -->
   <footer class="footer">
     <div class="footer-container">
+
       <div class="footer-brand">
         <h2><span class="footer-logo">🍰</span> BakeGenius.ai</h2>
         <p>Baking meets AI — recipes, ideas, and inspiration to make your creations magical!</p>
@@ -142,49 +140,117 @@
       
       </div>
 
+
+        <!-- Links -->
+        <div class="footer-links">
+          <h3>Links</h3>
+          <ul>
+            <!-- add icons for each links -->
+            <li>
+              <a href="about.html"
+                ><i class="fa-solid fa-circle-info footer-icon"></i> About Us</a
+              >
+            </li>
+            <li>
+              <a href="convert.html"
+                ><i class="fa-solid fa-arrows-rotate footer-icon"></i> Convert
+                Recipe</a
+              >
+            </li>
+            <li>
+              <a href="customize.html"
+                ><i class="fa-solid fa-sliders footer-icon"></i> Customize</a
+              >
+            </li>
+              <li>
+              <a href="recipe_hub.html"
+                ><i class="fa-solid fa-cookie footer-icon"></i> Recipe Hub</a
+              >
+            </li>
+            <li>
+              <a href="scale.html"
+                ><i class="fa-solid fa-ruler footer-icon"></i> Scale Recipes</a
+              >
+            </li>
+            <li>
+              <a href="feedback.html"
+                ><i class="fa-solid fa-comment-dots footer-icon"></i>Feedback</a
+              >
+            </li>
+          </ul>
+        </div>
+      <!-- Newsletter -->
       <div class="footer-newsletter">
-        <h3>Newsletter</h3>
-        <p>Get the latest baking tips & AI recipes!</p>
-        <form id="newsletterForm">
-          <input type="email" id="newsletterEmail" placeholder="Your email" required />
-          <button type="submit">Subscribe</button>
-        </form>
+        <h3 class="footer-section-title">Stay Updated</h3>
+        <p class="newsletter-description">Subscribe to our newsletter for baking tips & feature updates.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email" />
+          <button type="button">Subscribe</button>
+        </div>
       </div>
 
+      <!-- Social Links -->
       <div class="footer-social">
-        <h3>Follow Us</h3>
+        <h3 class="footer-section-title">Connect with Us</h3>
         <div class="social-icons">
-          <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-icon linkedin"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="https://github.com/supriya46788" target="_blank" class="social-icon github"><i class="fa-brands fa-github"></i></a>
-          <a href="mailto:supriyadpandey502@gmail.com" target="_blank" class="social-icon email"><i class="fa-regular fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-icon linkedin"><i
+              class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/supriya46788" target="_blank" class="social-icon github"><i
+              class="fa-brands fa-github"></i></a>
+          <a href="mailto:supriyadpandey502@gmail.com" target="_blank" class="social-icon email"><i
+              class="fa-regular fa-envelope"></i></a>
         </div>
       </div>
     </div>
-    <p class="footer-bottom">&copy; 2025 BakeGenius.ai — All rights reserved.</p>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p class="footer-text">© 2025 BakeGenius.ai | All Rights Reserved</p>
+    </div>
   </footer>
 
   <!-- Toast Notification -->
+
   <head>
-  <style>
-    /* Hide the toast notification completely */
-    #toastNotification {
-      display: none !important;
-    }
-  </style>
-</head>
-<body>
-  <div id="toastNotification" class="toast">
-    <div class="toast-icon">✔️</div>
-    <div id="toastMessage" class="toast-message">Subscribed successfully!</div>
-    <button id="toastClose" class="toast-close">&times;</button>
-  </div>
-</body>
+    <style>
+      /* Hide the toast notification completely */
+      #toastNotification {
+        display: none !important;
+      }
+    </style>
+  </head>
 
+  <body>
+    <div id="toastNotification" class="toast">
+      <div class="toast-icon">✔️</div>
+      <div id="toastMessage" class="toast-message">Subscribed successfully!</div>
+      <button id="toastClose" class="toast-close">&times;</button>
+    </div>
+  </body>
+ 
+ <!-- Back to Top Button -->
+  <button id="scrollTopBtn" title="Go to top">⬆</button>
 
-  <button id="scrollTopBtn" title="Go to bottom" style="display: block;">⬆
-  </button>
+    <script>
+      // Back to Top Button functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollBtn = document.getElementById("scrollTopBtn");
 
+  if (scrollBtn) {
+    window.addEventListener('scroll', () => {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    });
 
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+});
+    </script>
   <!-- Scripts -->
   <script src="js/theme.js"></script>
   <script src="js/index.js"></script>
@@ -193,47 +259,77 @@
   <script src="https://unpkg.com/lenis@1.1.21/dist/lenis.min.js"></script>
   <script src="./js/feature.js"></script>
   <script src="./js/mouse-trail.js"></script>
-
   <script>
+    // Enhanced newsletter functionality
+    const newsletterButton = document.querySelector('.newsletter-form button');
+    const newsletterInput = document.querySelector('.newsletter-form input');
 
-    
-        // Back to Top Button functionality
-        let scrollBtn = document.getElementById("scrollTopBtn");
+    if (newsletterButton && newsletterInput) {
+      newsletterButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        const email = newsletterInput.value;
+        
+        if (email && email.includes('@')) {
+          this.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
+          this.style.background = 'linear-gradient(135deg, #4caf50, #66bb6a)';
+          
+          setTimeout(() => {
+            this.innerHTML = 'Subscribe';
+            this.style.background = 'linear-gradient(135deg, #ff6ec7 0%, #ffa07a 50%, #87cefa 100%)';
+            newsletterInput.value = '';
+          }, 3000);
+        } else {
+          this.innerHTML = '<i class="fas fa-exclamation"></i> Invalid Email';
+          this.style.background = 'linear-gradient(135deg, #f44336, #ef5350)';
+          
+          setTimeout(() => {
+            this.innerHTML = 'Subscribe';
+            this.style.background = 'linear-gradient(135deg, #ff6ec7 0%, #ffa07a 50%, #87cefa 100%)';
+          }, 2000);
+        }
+      });
+    }
 
-        window.onscroll = function () {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                scrollBtn.style.display = "block";
-            } else {
-                scrollBtn.style.display = "none";
-            }
-        };
+    // Newsletter functionality (if elements exist)
+    const newsletterForm = document.querySelector('.footer-newsletter button');
+    const newsletterEmail = document.querySelector('.footer-newsletter input');
 
-        scrollBtn.onclick = function () {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        };
-    
+
     // Newsletter Toast
     const newsletterForm = document.getElementById("newsletterForm");
     const newsletterEmail = document.getElementById("newsletterEmail");
+
     const toast = document.getElementById("toastNotification");
     const toastMsg = document.getElementById("toastMessage");
     const toastClose = document.getElementById("toastClose");
 
-    newsletterForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      if (!newsletterEmail.value.trim()) return;
-      toast.classList.add("show");
-      toastMsg.textContent = "Subscribed successfully!";
-      toast.classList.remove("toast-error");
-      toast.classList.add("toast-success");
-      newsletterEmail.value = "";
-      setTimeout(() => toast.classList.remove("show"), 4000);
-    });
-    toastClose.addEventListener("click", () => toast.classList.remove("show"));
+    if (newsletterForm && newsletterEmail) {
+      newsletterForm.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (!newsletterEmail.value.trim()) return;
+        if (toast && toastMsg) {
+          toast.classList.add("show");
+          toastMsg.textContent = "Subscribed successfully!";
+          toast.classList.remove("toast-error");
+          toast.classList.add("toast-success");
+          newsletterEmail.value = "";
+          setTimeout(() => toast.classList.remove("show"), 4000);
+        }
+      });
+    }
+
+    if (toastClose) {
+      toastClose.addEventListener("click", () => toast.classList.remove("show"));
+    }
 
     // Loader
     window.addEventListener("load", () => {
-      setTimeout(() => document.getElementById("loading-screen").classList.add("hidden"), 2000);
+      setTimeout(() => {
+        const loadingScreen = document.getElementById("loading-screen");
+        if (loadingScreen) {
+          loadingScreen.classList.add("hidden");
+        }
+      }, 2000);
     });
 
     // Typing Animation
@@ -250,22 +346,24 @@
       }, { threshold: 0.5 });
       observer.observe(el);
     });
+
+
+  </script>
+  <!-- Hamburger in mobile view -->
+  <script>
+    // Hamburger toggle for mobile
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const menu = document.getElementById("menu");
+
+      if (hamburger && menu) {
+        hamburger.addEventListener("click", () => {
+          menu.classList.toggle("active");
+        });
+      }
+    });
   </script>
 
-  <!-- Hamburger in mobile view -->
-   <script>
-    // Hamburger toggle for mobile
-   document.addEventListener("DOMContentLoaded", () => {
-   const hamburger = document.getElementById("hamburger");
-   const menu = document.getElementById("menu");
-
-   if (hamburger && menu) {
-     hamburger.addEventListener("click", () => {
-      menu.classList.toggle("active");
-    });
-    }
-});
-   </script>
-
 </body>
+
 </html>
