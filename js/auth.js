@@ -764,3 +764,26 @@ function initGoogleSignIn(page) {
     }
   }, 100);
 }
+
+// forgot password page
+const resetForm = document.getElementById("fp-form");
+
+resetForm.addEventListener("submit", function (e) {
+  e.preventDefault(); 
+
+  const newPassword = document.getElementById("fp-new-password").value.trim();
+  const confirmPassword = document.getElementById("fp-confirm-password").value.trim();
+
+  if (newPassword.length < 6) {
+    alert("Password should be at least 6 characters long");
+    return;
+  }
+
+  if (newPassword !== confirmPassword) {
+    alert("Passwords do not match");
+    return;
+  }
+
+  alert("Password has been reset successfully!");
+  window.location.href = "login.html"; 
+});

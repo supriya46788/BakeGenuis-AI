@@ -556,6 +556,15 @@ html[data-theme="dark"] .auth-title {
   color: var(--sky-blue);
 }
 
+.forgot_password{
+  display:flex;
+  justify-content: space-between;
+  padding-bottom:1rem;
+}
+.forgot_password a{
+  text-decoration: none;
+  color:rgb(101, 101, 241);
+}
 /* -------------------------------------- */
 /* 7. Buttons (Submit, Google, etc.)      */
 /* -------------------------------------- */
@@ -960,4 +969,269 @@ html[data-theme="dark"] .auth-link {
   .auth-footer p {
     font-size: 0.9rem; /* Slightly smaller text on mobile */
   }
+}
+
+/* -------------------------------------- */
+/* 14. Forgot Password                    */
+/* -------------------------------------- */
+.fp-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.fp-card {
+  background: var(--card-bg, #1e1e1e); 
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+#fp-heading {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.8rem;
+  font-weight: 600;
+}
+
+.fp-card label {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+.fp-input-wrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.fp-input-wrapper input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  padding-right: 2.5rem; 
+  border-radius: 10px;
+  border: 1px solid #444;
+  font-size: 1rem;
+  outline: none;
+  background: var(--input-bg, #2a2a2a);
+  color: var(--text-color, #fff);
+}
+
+.fp-toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#fp-reset-button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 0.8rem;
+}
+
+#fp-reset-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .fp-container {
+  background: #121212; 
+}
+
+[data-theme="dark"] #fp-form {
+  background: #1e1e1e;
+  color: #e0e0e0;
+  padding: 35px 30px;
+  border-radius: 16px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.6);
+  width: 100%;
+  max-width: 420px;
+}
+
+[data-theme="dark"] #fp-heading {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff6ec4, #7873f5, #4ade80);
+  background-clip: text;
+  -webkit-background-clip: text; 
+  color: transparent;
+}
+
+[data-theme="dark"] #fp-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #bbb;
+}
+
+[data-theme="dark"] .fp-input-wrapper {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+[data-theme="dark"] .fp-input-wrapper input {
+  width: 100%;
+  padding: 12px 42px 12px 14px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  background: #2a2a2a;
+  color: #f1f1f1;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+[data-theme="dark"] .fp-input-wrapper input::placeholder {
+  color: #888;
+}
+
+[data-theme="dark"] .fp-input-wrapper input:focus {
+  border-color: #6a5acd;
+  box-shadow: 0 0 0 2px rgba(106, 90, 205, 0.4);
+}
+
+[data-theme="dark"] .fp-toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.1rem;
+  user-select: none;
+  color: #aaa;
+}
+
+[data-theme="dark"] #fp-reset-button {
+  width: 100%;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.2s ease, box-shadow 0.3s;
+  margin-top: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] #fp-reset-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] #fp-email{
+  background-color:#2a2a2a;
+  color:#f1f1f1;
+}
+
+  /* LIGHT THEME STYLES */
+[data-theme="light"] .fp-container {
+  background: #fdfdfd; 
+}
+
+[data-theme="light"] #fp-form {
+  background: #ffffff;
+  color: #333;
+  padding: 35px 30px;
+  border-radius: 16px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 420px;
+}
+
+[data-theme="light"] #fp-heading {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff6ec4, #7873f5, #4ade80);
+  background-clip: text;  
+  color: transparent;     
+}
+
+[data-theme="light"] #fp-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+[data-theme="light"] .fp-input-wrapper {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+[data-theme="light"] .fp-input-wrapper input {
+  width: 100%;
+  padding: 12px 42px 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  background: #fff;
+  color: #222;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+[data-theme="light"] .fp-input-wrapper input::placeholder {
+  color: #999;
+}
+
+[data-theme="light"] .fp-input-wrapper input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+[data-theme="light"] .fp-toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.1rem;
+  user-select: none;
+  color: #666;
+}
+
+[data-theme="light"] #fp-reset-button {
+  width: 100%;
+  background: linear-gradient(90deg, #43cea2, #f3904f);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.2s ease, box-shadow 0.3s;
+  margin-top: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] #fp-reset-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
 }
