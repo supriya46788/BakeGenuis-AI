@@ -96,16 +96,20 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Enhanced Footer -->
   <footer class="footer">
     <div class="footer-container">
-      <div class="footer-brand">
-        <h2><span class="footer-logo">🍰</span> BakeGenius.ai</h2>
-        <p>Baking meets AI — recipes, ideas, and inspiration to make your creations magical!</p>
+      <!-- Company Section -->
+      <div class="footer-company">
+        <h2 class="footer-logo">BakeGenius.ai</h2>
+        <p class="footer-description">
+          Revolutionizing baking with AI-powered precision. Convert, customize, and scale your recipes with ease.
+        </p>
       </div>
 
+      <!-- Quick Links -->
       <div class="footer-links">
-        <h3>Links</h3>
+        <h3 class="footer-section-title">Quick Links</h3>
         <ul>
           <li><a href="html/about.html">About Us</a></li>
           <li><a href="html/convert.html">Convert Recipe</a></li>
@@ -115,17 +119,19 @@
         </ul>
       </div>
 
+      <!-- Newsletter -->
       <div class="footer-newsletter">
-        <h3>Newsletter</h3>
-        <p>Get the latest baking tips & AI recipes!</p>
-        <form id="newsletterForm">
-          <input type="email" id="newsletterEmail" placeholder="Your email" required />
-          <button type="submit">Subscribe</button>
-        </form>
+        <h3 class="footer-section-title">Stay Updated</h3>
+        <p class="newsletter-description">Subscribe to our newsletter for baking tips & feature updates.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Enter your email" />
+          <button type="button">Subscribe</button>
+        </div>
       </div>
 
+      <!-- Social Links -->
       <div class="footer-social">
-        <h3>Follow Us</h3>
+        <h3 class="footer-section-title">Connect with Us</h3>
         <div class="social-icons">
           <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-icon linkedin"><i
               class="fa-brands fa-linkedin"></i></a>
@@ -136,7 +142,11 @@
         </div>
       </div>
     </div>
-    <p class="footer-bottom">&copy; 2025 BakeGenius.ai — All rights reserved.</p>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p class="footer-text">© 2025 BakeGenius.ai | All Rights Reserved</p>
+    </div>
   </footer>
 
   <!-- Toast Notification -->
@@ -158,10 +168,21 @@
     </div>
   </body>
 
-
-  <button id="scrollTopBtn" title="Go to bottom" style="display: block;">⬆
+  <!-- Scroll To Bottom -->
+  <!-- <button id="scrollToBottomBtn" title="Go to bottom">
+    <i class="fas fa-arrow-down"></i>
   </button>
 
+ Scroll to Top Button -->
+<!-- <button id="scrollToTopBtn" class="scroll-btn">
+  <i class="fas fa-arrow-up"></i>
+</button> -->
+
+  <!-- Back to Top Button -->
+  <!-- <button id="scrollTopBtn" title="Go to top">⬆</button> -->
+
+  <!-- <button id="scrollTopBtn" title="Go to bottom" style="display: block;">⬆
+  </button> -->
 
   <!-- Scripts -->
   <script src="js/theme.js"></script>
@@ -172,7 +193,54 @@
   <script src="./js/feature.js"></script>
   <script src="./js/mouse-trail.js"></script>
   <script>
+    // Enhanced newsletter functionality
+    const newsletterButton = document.querySelector('.newsletter-form button');
+    const newsletterInput = document.querySelector('.newsletter-form input');
 
+    if (newsletterButton && newsletterInput) {
+      newsletterButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        const email = newsletterInput.value;
+        
+        if (email && email.includes('@')) {
+          this.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
+          this.style.background = 'linear-gradient(135deg, #4caf50, #66bb6a)';
+          
+          setTimeout(() => {
+            this.innerHTML = 'Subscribe';
+            this.style.background = 'linear-gradient(135deg, #ff6ec7 0%, #ffa07a 50%, #87cefa 100%)';
+            newsletterInput.value = '';
+          }, 3000);
+        } else {
+          this.innerHTML = '<i class="fas fa-exclamation"></i> Invalid Email';
+          this.style.background = 'linear-gradient(135deg, #f44336, #ef5350)';
+          
+          setTimeout(() => {
+            this.innerHTML = 'Subscribe';
+            this.style.background = 'linear-gradient(135deg, #ff6ec7 0%, #ffa07a 50%, #87cefa 100%)';
+          }, 2000);
+        }
+      });
+    }
+
+    // Newsletter functionality (if elements exist)
+    const newsletterForm = document.querySelector('.footer-newsletter button');
+    const newsletterEmail = document.querySelector('.footer-newsletter input');
+
+    // Back to Top Button functionality
+    let scrollBtn = document.getElementById("scrollTopBtn");
+
+    window.onscroll = function () {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollBtn.style.display = "block";
+        } else {
+            scrollBtn.style.display = "none";
+        }
+    };
+
+    scrollBtn.onclick = function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
 
     // Back to Top Button functionality
     let scrollBtn = document.getElementById("scrollTopBtn");
@@ -189,28 +257,42 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
+
     // Newsletter Toast
     const newsletterForm = document.getElementById("newsletterForm");
     const newsletterEmail = document.getElementById("newsletterEmail");
+
     const toast = document.getElementById("toastNotification");
     const toastMsg = document.getElementById("toastMessage");
     const toastClose = document.getElementById("toastClose");
 
-    newsletterForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      if (!newsletterEmail.value.trim()) return;
-      toast.classList.add("show");
-      toastMsg.textContent = "Subscribed successfully!";
-      toast.classList.remove("toast-error");
-      toast.classList.add("toast-success");
-      newsletterEmail.value = "";
-      setTimeout(() => toast.classList.remove("show"), 4000);
-    });
-    toastClose.addEventListener("click", () => toast.classList.remove("show"));
+    if (newsletterForm && newsletterEmail) {
+      newsletterForm.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (!newsletterEmail.value.trim()) return;
+        if (toast && toastMsg) {
+          toast.classList.add("show");
+          toastMsg.textContent = "Subscribed successfully!";
+          toast.classList.remove("toast-error");
+          toast.classList.add("toast-success");
+          newsletterEmail.value = "";
+          setTimeout(() => toast.classList.remove("show"), 4000);
+        }
+      });
+    }
+
+    if (toastClose) {
+      toastClose.addEventListener("click", () => toast.classList.remove("show"));
+    }
 
     // Loader
     window.addEventListener("load", () => {
-      setTimeout(() => document.getElementById("loading-screen").classList.add("hidden"), 2000);
+      setTimeout(() => {
+        const loadingScreen = document.getElementById("loading-screen");
+        if (loadingScreen) {
+          loadingScreen.classList.add("hidden");
+        }
+      }, 2000);
     });
 
     // Typing Animation
@@ -227,6 +309,25 @@
       }, { threshold: 0.5 });
       observer.observe(el);
     });
+
+    // Back to Top Button functionality
+    let scrollBtn = document.getElementById("scrollTopBtn");
+    if (scrollBtn) {
+      window.onscroll = function () {
+        if (
+          document.body.scrollTop > 100 ||
+          document.documentElement.scrollTop > 100
+        ) {
+          scrollBtn.style.display = "block";
+        } else {
+          scrollBtn.style.display = "none";
+        }
+      };
+
+      scrollBtn.onclick = function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+    }
   </script>
 
   <!-- Hamburger in mobile view -->
