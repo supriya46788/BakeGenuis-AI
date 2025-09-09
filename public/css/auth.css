@@ -146,7 +146,7 @@ html[data-theme="dark"] .auth-title {
 .navbar {
   width: 100%;
   background:radial-gradient(circle at center,#e5c5b3, #e9b4b6);
-  padding: 12px 20px;
+  padding: 10px 20px;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -155,9 +155,9 @@ html[data-theme="dark"] .auth-title {
 
 .navbar-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  max-width: 1200px;
+  max-width: 90%;
   margin: auto;
   gap: 1rem;
 }
@@ -167,7 +167,7 @@ html[data-theme="dark"] .auth-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.8rem;
+  gap: 1.2rem;
   flex-wrap: wrap;
 }
 
@@ -175,6 +175,7 @@ html[data-theme="dark"] .auth-title {
   font-size: 2.5rem;
   font-weight: bold;
   align-self: flex-start;
+  margin-top: 10px;
 }
 
 .logo a {
@@ -185,20 +186,21 @@ html[data-theme="dark"] .auth-title {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 1.2rem;
+  gap: 2.5rem;
   align-items: center;
   margin: 0;
   padding: 0;
 }
 
 .nav-links li a {
-  color: #ffffff;
-  font-weight: 500;
+  color: #3e2723;
+  font-weight: 550;
   font-size: large;
   text-decoration: none;
   position: relative;
   transition: all 0.3s ease-in-out;
   padding: 8px 0;
+  gap:2rem;
 }
 
 .nav-links li a::after {
@@ -208,7 +210,7 @@ html[data-theme="dark"] .auth-title {
   bottom: -4px;
   width: 0%;
   height: 3px;
-background: linear-gradient(90deg, #FFD6A5, #F9C5D5, #FAF7F2);
+  background: linear-gradient(90deg, #925d55, #5d4037);
   border-radius: 5px;
   transition: width 0.4s ease;
 }
@@ -241,7 +243,7 @@ background: linear-gradient(90deg, #FFD6A5, #F9C5D5, #FAF7F2);
 
 .signup-btn {
   padding: 8px 15px;
-  background-color: #ff6b6b;
+  background-color: #d18a68;
   color: white;
   border: none;
   border-radius: 20px;
@@ -249,10 +251,6 @@ background: linear-gradient(90deg, #FFD6A5, #F9C5D5, #FAF7F2);
   transition: all 0.3s;
   text-decoration: none;
   font-weight: 500;
-}
-
-.signup-btn:hover {
-  background-color: #ff5252;
 }
 
 /* -------------------------------------- */
@@ -277,7 +275,7 @@ background: linear-gradient(90deg, #FFD6A5, #F9C5D5, #FAF7F2);
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, #6b7043, #fde68a);
+  background: linear-gradient(45deg, #7e5b51, #5d4037);
   border-radius: 34px;
   transition: 0.4s;
   display: flex;
@@ -799,8 +797,8 @@ background: linear-gradient(90deg, #FFD6A5, #F9C5D5, #FAF7F2);
     font-size: 30px;
     border: none;
     outline: none;
-    background: linear-gradient(45deg, #e6b5e2, #c7d9e9);
-    color: black;
+    background: linear-gradient(45deg, #a4766a, #5d4037);
+    color: white;
     cursor: pointer;
     padding: 7px 15px;
     border-radius: 50%;
@@ -942,7 +940,7 @@ html[data-theme="dark"] .auth-link {
   .nav-right {
     order: 3;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 1rem;
   }
 
   .auth-card {
