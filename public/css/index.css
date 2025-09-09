@@ -249,12 +249,6 @@ color: var(--cta-text);
 transition: background 0.3s, color 0.3s;
 }
 
-.footer {
-background: var(--footer-bg);
-color: var(--footer-text);
-transition: background 0.3s, color 0.3s;
-}
-
 @keyframes wobble {
 0% { transform: translateX(0%); }
 15% { transform: translateX(-25px) rotate(-5deg); }
@@ -281,16 +275,6 @@ transition: background 0.3s, color 0.3s;
    ================================= */
 
 /* Navbar Base - Desktop First */
-.navbar {
-width: 100%;
-background: var(--navbar-gradient);
-padding: 0.75rem 1.25rem;
-position: sticky;
-top: 0;
-z-index: 1000;
-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-transition: background 0.3s;
-}
 
 .navbar-container {
 display: flex;
@@ -896,7 +880,7 @@ line-height: 1.5;
 
 /* Footer */
 .footer {
-background: rgba(255, 255, 255, 0.95);
+background: radial-gradient(circle at center,#e9b4b6,#d8c0a7);
 backdrop-filter: blur(10px);
 padding: 2rem;
 position: relative;
@@ -912,11 +896,6 @@ justify-content: space-between;
 align-items: center;
 flex-wrap: wrap;
 gap: 1rem;
-}
-
-.footer-text {
-color: #666;
-font-weight: 600;
 }
 
 .social-links {
@@ -947,39 +926,30 @@ animation: wobble 0.5s ease-in-out;
 
 .social-link.linkedin { background: linear-gradient(45deg, #0077b5, #00a0dc); }
 .social-link.portfolio { background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red)); }
-
-.footer {
-background-color: #ffb6c1;
-color: #fff;
-padding: 40px 20px;
-font-family: sans-serif;
-}
-.footer-logo { font-size: 1.4rem; }
+.footer-logo { font-size: 1.8rem; }
 .footer-container {
 max-width: 1200px;
 margin: 0 auto;
-padding: 0 20px;
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-gap: 40px;
+gap:60px;
 }
 
-.footer h2 { color: #ff7f50; }
-.footer h3 { margin-bottom: 10px; color: #ff7f50; }
-.footer p { font-size: 14px; line-height: 1.5; }
-.footer-links ul { list-style: none; padding: 0; margin: 0; }
-.footer-links ul li { margin-bottom: 6px; }
-.footer-links ul li a { color: #fff; text-decoration: none; transition: color 0.3s; }
-.footer-links ul li a:hover { color: #ff7f50; }
-.footer-icon {
-font-size: 1rem;
-color: #ff7f50;
-margin-right: 6px;
-transition: transform 0.3s ease, color 0.3s ease;
-vertical-align: middle;
+.footer h2 { color: white; }
+.footer h3 { margin-bottom: 10px; color:#af7444}
+.footer-links h3{
+    margin-left:20px;
 }
-.footer-links ul li a:hover i { color: var(--soft-pink); transform: scale(1.2); }
+.footer-links ul { list-style: none; padding: 0; margin-left: 20px; }
+.footer-links ul li { margin-bottom: 6px; }
+.footer-links ul li a { color: white; text-decoration: none; transition: color 0.3s; }
+.footer-links ul li a:hover i { color:#d18a68; transform: scale(1.2); }
 .footer-icon:hover { text-shadow: 0 0 8px rgba(0, 255, 255, 0.6); }
+.footer-brand p{
+    padding:20px;
+    color:white;
+    font-size: large;
+}
 .footer-newsletter input {
 padding: 10px;
 width: 100%;
@@ -988,7 +958,8 @@ border: none;
 border-radius: 4px;
 }
 .footer-newsletter button {
-background-color: #ff7f50;
+background-color: #d18a68;
+box-shadow:white;
 color: white;
 padding: 10px 15px;
 border: none;
@@ -996,7 +967,15 @@ border-radius: 4px;
 cursor: pointer;
 transition: background 0.3s;
 }
-.footer-newsletter button:hover { background-color: #ff956b; }
+.footer-newsletter button:hover { 
+    background: radial-gradient(circle at center, #d86087, #da537e);
+    transform: scale(1.1);
+    transition: transform 0.3s;
+ }
+ .footer-newsletter p{
+    color:white;
+    padding-bottom: 10px;
+ }
 .social-icons { display: flex; gap: 12px; margin-top: 10px; }
 .social-icon {
 display: flex;
@@ -1017,7 +996,6 @@ transition: transform 0.3s, opacity 0.3s;
 text-align: center;
 font-size: 14px;
 margin-top: 30px;
-border-top: 1px solid #333;
 padding-top: 20px;
 }
 
@@ -1031,7 +1009,7 @@ display: none;
     font-size: 25px;
     border: none;
     outline: none;
-    background: linear-gradient(45deg, #ff6ec7, #ffa07a, #87cefa);
+    background: linear-gradient(45deg, #c6d6d6, #c9e0c2, #c7d9e9);
     color: black;
     cursor: pointer;
     width: 50px;

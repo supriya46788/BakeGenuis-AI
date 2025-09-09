@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,19 +24,18 @@
   <link rel="icon" type="image/png" sizes="16x16" href="public/css/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
 </head>
-<body>
-  
 
+<body>
   <!-- Navbar -->
   <nav class="navbar">
-  <div class="navbar-container">
-    <a href="index.html" class="logo">🍰 BakeGenius.ai</a>
-    
-    <div class="hamburger" id="hamburger-menu">
-      <i class="fas fa-bars"></i>
-    </div>
+    <div class="navbar-container">
+      <a href="index.html" class="logo">🍰 BakeGenius.ai</a>
 
-    <div class="menu-wrapper" id="menu-wrapper">
+      <div class="hamburger" id="hamburger-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <div class="menu-wrapper" id="menu-wrapper">
         <ul class="nav-links" id="navLinks">
           <li><a href="html/convert.html">Convert Recipe</a></li>
           <li><a href="html/customize.html">Customize</a></li>
@@ -44,7 +44,6 @@
         </ul>
 
         <div class="nav-right">
-          <a href="html/feedback.html" class="feedback-btn">Feedback</a>
           <div class="auth-buttons">
             <a href="html/login.html" class="login-btn">Login</a>
             <a href="html/signup.html" class="signup-btn">Sign Up</a>
@@ -58,15 +57,13 @@
             </span>
           </label>
         </div>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
   <!-- Hero -->
   <section class="cupcake-animation">
-    <div class="cup">🧁</div>
-    <div class="cake-top">🍒</div>
-    <div class="sprinkles"><span></span><span></span><span></span></div>
+    <div class="cup">&#127856</div>
   </section>
 
   <main class="main-content">
@@ -76,7 +73,7 @@
         From spoon to scale — get exact gram conversions with AI magic ✨<br />
         Transform vague recipe measurements into precise, consistent results every time!
       </p>
-  <a href="/html/convert.html" class="cta-button">Start Converting Now 🚀</a>
+      <a href="/html/convert.html" class="cta-button">Start Converting Now 🚀</a>
     </section>
 
     <!-- Features -->
@@ -130,9 +127,12 @@
       <div class="footer-social">
         <h3>Follow Us</h3>
         <div class="social-icons">
-          <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-icon linkedin"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="https://github.com/supriya46788" target="_blank" class="social-icon github"><i class="fa-brands fa-github"></i></a>
-          <a href="mailto:supriyadpandey502@gmail.com" target="_blank" class="social-icon email"><i class="fa-regular fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-icon linkedin"><i
+              class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/supriya46788" target="_blank" class="social-icon github"><i
+              class="fa-brands fa-github"></i></a>
+          <a href="mailto:supriyadpandey502@gmail.com" target="_blank" class="social-icon email"><i
+              class="fa-regular fa-envelope"></i></a>
         </div>
       </div>
     </div>
@@ -140,21 +140,23 @@
   </footer>
 
   <!-- Toast Notification -->
+
   <head>
-  <style>
-    /* Hide the toast notification completely */
-    #toastNotification {
-      display: none !important;
-    }
-  </style>
-</head>
-<body>
-  <div id="toastNotification" class="toast">
-    <div class="toast-icon">✔️</div>
-    <div id="toastMessage" class="toast-message">Subscribed successfully!</div>
-    <button id="toastClose" class="toast-close">&times;</button>
-  </div>
-</body>
+    <style>
+      /* Hide the toast notification completely */
+      #toastNotification {
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="toastNotification" class="toast">
+      <div class="toast-icon">✔️</div>
+      <div id="toastMessage" class="toast-message">Subscribed successfully!</div>
+      <button id="toastClose" class="toast-close">&times;</button>
+    </div>
+  </body>
 
 
   <button id="scrollTopBtn" title="Go to bottom" style="display: block;">⬆
@@ -169,25 +171,24 @@
   <script src="https://unpkg.com/lenis@1.1.21/dist/lenis.min.js"></script>
   <script src="./js/feature.js"></script>
   <script src="./js/mouse-trail.js"></script>
-
   <script>
 
-    
-        // Back to Top Button functionality
-        let scrollBtn = document.getElementById("scrollTopBtn");
 
-        window.onscroll = function () {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                scrollBtn.style.display = "block";
-            } else {
-                scrollBtn.style.display = "none";
-            }
-        };
+    // Back to Top Button functionality
+    let scrollBtn = document.getElementById("scrollTopBtn");
 
-        scrollBtn.onclick = function () {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        };
-    
+    window.onscroll = function () {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    };
+
+    scrollBtn.onclick = function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
     // Newsletter Toast
     const newsletterForm = document.getElementById("newsletterForm");
     const newsletterEmail = document.getElementById("newsletterEmail");
@@ -229,19 +230,20 @@
   </script>
 
   <!-- Hamburger in mobile view -->
-   <script>
+  <script>
     // Hamburger toggle for mobile
-   document.addEventListener("DOMContentLoaded", () => {
-   const hamburger = document.getElementById("hamburger");
-   const menu = document.getElementById("menu");
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const menu = document.getElementById("menu");
 
-   if (hamburger && menu) {
-     hamburger.addEventListener("click", () => {
-      menu.classList.toggle("active");
+      if (hamburger && menu) {
+        hamburger.addEventListener("click", () => {
+          menu.classList.toggle("active");
+        });
+      }
     });
-    }
-});
-   </script>
+  </script>
 
 </body>
+
 </html>
