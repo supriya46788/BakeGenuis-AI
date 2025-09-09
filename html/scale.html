@@ -237,22 +237,22 @@
     <script src="../js/scale.js"></script>
     <script src="../js/theme.js"></script>
     
-    <!-- Back to Top Button -->
-    <button id="scrollTopBtn" title="Go to top">⬆</button>
-    
+       <button id="scrollTopBtn" title="Go to top" >⬆</button>
+
     <script>
-        // Back to Top Button functionality
-        window.onscroll = function () {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                scrollBtn.style.display = "block";
-            } else {
-                scrollBtn.style.display = "none";
-            }
-        };
-        let scrollBtn = document.getElementById("scrollTopBtn");
-        scrollBtn.onclick = function () {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        };
+      // Back to Top Button functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollBtn = document.getElementById("scrollTopBtn");
+  if (!scrollBtn) return;
+
+  window.onscroll = function() {
+    scrollBtn.style.display = window.scrollY > 0 ? "block" : "none";
+  };
+
+  scrollBtn.onclick = function() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+});
     </script>
     <script src="../js/feature.js"></script>
     <!-- Mouse Trail Effect -->

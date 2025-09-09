@@ -260,22 +260,28 @@
     <script src="../js/feedback.js"></script>
     <script src="../js/theme.js"></script>
 
-    <!-- Back to Top Button -->
-    <button id="scrollTopBtn" title="Go to top">⬆</button>
+     <!-- Back to Top Button -->
+    <button id="scrollTopBtn" title="Go to top" style="display: none;">⬆</button>
 
     <script>
-        // Back to Top Button functionality
-        window.onscroll = function () {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                scrollBtn.style.display = "block";
-            } else {
-                scrollBtn.style.display = "none";
-            }
-        };
-        let scrollBtn = document.getElementById("scrollTopBtn");
-        scrollBtn.onclick = function () {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        };
+      // Back to Top Button functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollBtn = document.getElementById("scrollTopBtn");
+
+  if (scrollBtn) {
+    window.addEventListener('scroll', () => {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    });
+
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+});
     </script>
     <script src="../js/feature.js"></script>
     <script src="../js/mouse-trail.js"></script>
