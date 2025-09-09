@@ -155,21 +155,28 @@
     <script src="../js/theme.js"></script>
     <script src="../js/floating_emoji_footer_fix.js"></script>
     
-    <button id="scrollTopBtn" title="Go to top">⬆</button>
-    
+       <!-- Back to Top Button -->
+    <button id="scrollTopBtn" title="Go to top" style="display: none;">⬆</button>
+
     <script>
-        // Back to Top Button functionality
-        let scrollBtn = document.getElementById("scrollTopBtn");
-        window.onscroll = function () {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                scrollBtn.style.display = "block";
-            } else {
-                scrollBtn.style.display = "none";
-            }
-        };
-        scrollBtn.onclick = function () {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        };
+      // Back to Top Button functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollBtn = document.getElementById("scrollTopBtn");
+
+  if (scrollBtn) {
+    window.addEventListener('scroll', () => {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    });
+
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+});
     </script>
     
 
