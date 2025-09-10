@@ -198,29 +198,82 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     contributorsContainer.innerHTML = "Loading contributors...";
 
-    try {
-      const res = await fetch(
-        `https://api.github.com/repos/supriya46788/BakeGenuis-AI/contributors`
-      );
-      const contributors = await res.json();
+    // Try multiple possible repository URLs
+    const possibleUrls = [
+      `https://api.github.com/repos/Channpreetk/BakeGenuis-AI/contributors`,
+      `https://api.github.com/repos/Channpreetk/BakeGenius-AI/contributors`,
+      `https://api.github.com/repos/channpreetk/BakeGenuis-AI/contributors`
+    ];
 
-      if (!Array.isArray(contributors)) {
-        contributorsContainer.innerHTML =
-          "<p>⚠ Unable to load contributors.</p>";
-        return;
+    for (let url of possibleUrls) {
+      try {
+        console.log('Trying URL:', url);
+        const res = await fetch(url);
+        
+        console.log('Response status:', res.status);
+        console.log('Response ok:', res.ok);
+        
+        if (res.ok) {
+          const contributors = await res.json();
+          console.log('Contributors data:', contributors);
+
+          if (Array.isArray(contributors) && contributors.length > 0) {
+            //store globally
+            contributorsData = contributors;
+            renderContributers(contributorsData);
+            return; // Success, exit the function
+          }
+        }
+      } catch (error) {
+        console.log('Failed with URL:', url, 'Error:', error);
+        continue; // Try next URL
       }
-
-      //store golabally
-      contributorsData = contributors;
-      renderContributers(contributorsData); // intital render
-    } catch (error) {
-      // Handle contributor loading error gracefully
-      contributorsContainer.innerHTML =
-        "<p>⚠ Unable to load contributors at this time.</p>";
     }
+
+    // If all API calls failed, show mock contributors
+    console.log('All API calls failed, showing mock contributors');
+    const mockContributors = [
+      {
+        login: "Channpreetk",
+        avatar_url: "https://github.com/Channpreetk.png",
+        html_url: "https://github.com/Channpreetk",
+        contributions: 50
+      },
+      {
+        login: "contributor1",
+        avatar_url: "https://github.com/github.png",
+        html_url: "https://github.com",
+        contributions: 25
+      },
+      {
+        login: "contributor2", 
+        avatar_url: "https://github.com/github.png",
+        html_url: "https://github.com",
+        contributions: 15
+      },
+      {
+        login: "contributor3",
+        avatar_url: "https://github.com/github.png", 
+        html_url: "https://github.com",
+        contributions: 10
+      }
+    ];
+    
+    contributorsData = mockContributors;
+    renderContributers(contributorsData);
+    
+    // Show a note about mock data
+    const noteDiv = document.createElement('div');
+    noteDiv.style.textAlign = 'center';
+    noteDiv.style.marginTop = '10px';
+    noteDiv.style.fontSize = '12px';
+    noteDiv.style.color = '#666';
+    noteDiv.innerHTML = `<p>📝 Showing sample contributors. Connect your repository to see actual contributors.</p>`;
+    contributorsContainer.appendChild(noteDiv);
   }
 
   function renderContributers(contributer) {
+    console.log('Rendering contributors:', contributer);
     contributorsContainer.innerHTML = ""; //clear previus
 
     if (contributer.length === 0) {
@@ -229,6 +282,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     contributer.forEach((contri) => {
+      console.log('Creating card for:', contri.login);
       const card = document.createElement("div");
       card.classList.add("contributor-card");
       card.setAttribute("data-username", contri.login.toLowerCase()); // for searching
@@ -242,6 +296,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
       contributorsContainer.appendChild(card);
     });
+    
+    console.log('Contributors container after rendering:', contributorsContainer.innerHTML);
   }
 
   // search functionality
@@ -256,7 +312,43 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   //load contributers
-  loadContributors();
+  console.log('About to load contributors...');
+  
+  // Test if the container exists
+  const testContainer = document.getElementById("contributors-container");
+  console.log('Contributors container found:', testContainer);
+  
+  if (!testContainer) {
+    console.error('Contributors container not found!');
+    return;
+  }
+  
+  // Simple immediate display first
+  testContainer.innerHTML = `
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+      <div style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; cursor: pointer;" onclick="window.open('https://github.com/Channpreetk', '_blank')">
+        <img src="https://github.com/Channpreetk.png" alt="Channpreetk" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 10px;">
+        <div style="font-weight: bold;">Channpreetk</div>
+      </div>
+      <div style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; cursor: pointer;" onclick="window.open('https://github.com', '_blank')">
+        <img src="https://github.com/github.png" alt="Contributor 1" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 10px;">
+        <div style="font-weight: bold;">Contributor 1</div>
+      </div>
+      <div style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; cursor: pointer;" onclick="window.open('https://github.com', '_blank')">
+        <img src="https://github.com/github.png" alt="Contributor 2" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 10px;">
+        <div style="font-weight: bold;">Contributor 2</div>
+      </div>
+      <div style="background: white; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; cursor: pointer;" onclick="window.open('https://github.com', '_blank')">
+        <img src="https://github.com/github.png" alt="Contributor 3" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 10px;">
+        <div style="font-weight: bold;">Contributor 3</div>
+      </div>
+    </div>
+  `;
+  
+  // Then try to load the real contributors after a delay
+  setTimeout(() => {
+    loadContributors();
+  }, 1000);
   // Initialize all functions
   createSparkles();
   initScrollAnimations();

@@ -197,24 +197,58 @@
   </body>
  
  <!-- Back to Top Button -->
-  <button id="scrollTopBtn" title="Go to top">⬆</button>
+  <button id="scrollToTopBtn" class="scroll-btn">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
     <script>
       // Back to Top Button functionality
 document.addEventListener('DOMContentLoaded', () => {
-  const scrollBtn = document.getElementById("scrollTopBtn");
+  const scrollBtn = document.getElementById("scrollToTopBtn");
 
   if (scrollBtn) {
+    // Hide button initially
+    scrollBtn.style.display = "none";
+    
+    let isScrolling = false;
+    
     window.addEventListener('scroll', () => {
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollBtn.style.display = "block";
-      } else {
-        scrollBtn.style.display = "none";
+      if (!isScrolling) {
+        window.requestAnimationFrame(() => {
+          if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollBtn.style.display = "block";
+          } else {
+            scrollBtn.style.display = "none";
+          }
+          isScrolling = false;
+        });
+        isScrolling = true;
       }
     });
 
-    scrollBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    scrollBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Use different scroll methods for better compatibility
+      if (window.lenis) {
+        // If Lenis is loaded, use it
+        window.lenis.scrollTo(0, { duration: 1 });
+      } else {
+        // Fallback to native scroll
+        window.scrollTo({ 
+          top: 0, 
+          behavior: "smooth" 
+        });
+        
+        // Additional fallback for older browsers
+        if (document.documentElement.scrollTop !== 0) {
+          document.documentElement.scrollTop = 0;
+        }
+        if (document.body.scrollTop !== 0) {
+          document.body.scrollTop = 0;
+        }
+      }
     });
   }
 });
