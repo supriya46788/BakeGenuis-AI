@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../css/scale.css">
+    <link rel="stylesheet" href="../css/language-selector.css">
 </head>
 <body>
     <!-- Floating Background Elements -->
@@ -22,13 +23,22 @@
   <div class="navbar-container">
     <div class="logo">🍰 BakeGenius.ai</div>
       <ul class="nav-links" id="navLinks">
-      <li><a href="../index.html" >Home</a></li>
-      <li><a href="./convert.html">Convert Recipe</a></li>
-      <li><a href="./customize.html">Customize</a></li>
-      <li><a href="./recipe_hub.html">Recipe Hub</a></li>
-      <li><a href="./about.html">About</a></li>
+      <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="./convert.html" data-i18n="nav.convert">Convert Recipe</a></li>
+      <li><a href="./customize.html" data-i18n="nav.customize">Customize</a></li>
+      <li><a href="./recipe_hub.html" data-i18n="nav.recipehub">Recipe Hub</a></li>
+      <li><a href="./about.html" data-i18n="nav.about">About</a></li>
     </ul>
-    <a href="./scale.html" class="cta-btn">Scale Now</a>
+    <div class="language-selector">
+        <select id="languageSelect" class="language-dropdown">
+            <option value="en">🇺🇸 English</option>
+            <option value="hi">🇮🇳 हिन्दी</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="de">🇩🇪 Deutsch</option>
+        </select>
+    </div>
+    <a href="./scale.html" class="cta-btn" data-i18n="nav.scale">Scale Now</a>
   </div>
 </nav>
 
@@ -39,8 +49,8 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>📏 Scale Your Recipes</h1>
-            <p>Perfect portions for any crowd - from intimate dinners to grand celebrations!</p>
+            <h1 data-i18n="scale.title">⚖️ Scale Your Recipe</h1>
+            <p data-i18n="scale.subtitle">Resize your recipes while maintaining perfect proportions</p>
         </div>
 
         <!-- Main Content -->
@@ -181,6 +191,7 @@
     <p class="footer-bottom">&copy; 2025 BakeGenius.ai — All rights reserved.</p>
 </footer>
 
+    <script src="../js/i18n.js"></script>
     <script src="../js/scale.js"></script>
 </body>
 </html>

@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/language-selector.css">
     <style>
         /* Updated Navbar Styles */
         .navbar {
@@ -119,17 +120,26 @@
         <div class="navbar-container">
             <div class="logo">🍰 BakeGenius.ai</div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="./index.html" class="active">Home</a></li>
-                <li><a href="./html/convert.html">Convert Recipe</a></li>
-                <li><a href="./html/customize.html">Customize</a></li>
-                <li><a href="./html/recipe_hub.html">Recipe Hub</a></li>
-                <li><a href="./html/about.html">About</a></li>
+                <li><a href="./index.html" class="active" data-i18n="nav.home">Home</a></li>
+                <li><a href="./html/convert.html" data-i18n="nav.convert">Convert Recipe</a></li>
+                <li><a href="./html/customize.html" data-i18n="nav.customize">Customize</a></li>
+                <li><a href="./html/recipe_hub.html" data-i18n="nav.recipehub">Recipe Hub</a></li>
+                <li><a href="./html/about.html" data-i18n="nav.about">About</a></li>
             </ul>
-            <div class="auth-buttons">
-                <a href="./html/login.html" class="login-btn">Login</a>
-                <a href="./html/signup.html" class="signup-btn">Sign Up</a>
+            <div class="language-selector">
+                <select id="languageSelect" class="language-dropdown">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="hi">🇮🇳 हिन्दी</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                </select>
             </div>
-            <a href="./html/scale.html" class="cta-btn">Scale Now</a>
+            <div class="auth-buttons">
+                <a href="./html/login.html" class="login-btn" data-i18n="nav.login">Login</a>
+                <a href="./html/signup.html" class="signup-btn" data-i18n="nav.signup">Sign Up</a>
+            </div>
+            <a href="./html/scale.html" class="cta-btn" data-i18n="nav.scale">Scale Now</a>
         </div>
     </nav>
 
@@ -137,28 +147,28 @@
     <main class="main-content">
         <!-- Hero Section -->
         <section class="hero-section">
-            <h1 class="hero-title">Welcome to BakeGenius.ai</h1>
-            <p class="hero-subtitle">From spoon to scale — get exact gram conversions with AI magic ✨<br>
+            <h1 class="hero-title" data-i18n="home.title">Welcome to BakeGenius.ai</h1>
+            <p class="hero-subtitle" data-i18n="home.subtitle">From spoon to scale — get exact gram conversions with AI magic ✨<br>
             Transform vague recipe measurements into precise, consistent results every time!</p>
-            <a href="html/convert.html" class="cta-button">Start Converting Now 🚀</a>
+            <a href="html/convert.html" class="cta-button" data-i18n="home.cta">Start Converting Now 🚀</a>
         </section>
 
         <!-- Features Preview -->
         <section class="features-preview">
             <div class="feature-card">
                 <i class="fas fa-magic feature-icon"></i>
-                <h3 class="feature-title">AI-Powered Precision</h3>
-                <p class="feature-desc">Advanced AI converts "cups" and "spoons" into exact gram measurements for perfect baking every time.</p>
+                <h3 class="feature-title" data-i18n="home.feature1.title">AI-Powered Precision</h3>
+                <p class="feature-desc" data-i18n="home.feature1.desc">Advanced AI converts "cups" and "spoons" into exact gram measurements for perfect baking every time.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-balance-scale feature-icon"></i>
-                <h3 class="feature-title">Smart Recipe Scaling</h3>
-                <p class="feature-desc">Effortlessly scale recipes up or down while maintaining perfect ratios and adjusting rising agents intelligently.</p>
+                <h3 class="feature-title" data-i18n="home.feature2.title">Smart Recipe Scaling</h3>
+                <p class="feature-desc" data-i18n="home.feature2.desc">Effortlessly scale recipes up or down while maintaining perfect ratios and adjusting rising agents intelligently.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-cogs feature-icon"></i>
-                <h3 class="feature-title">Custom Preferences</h3>
-                <p class="feature-desc">Personalize conversions based on your preferred brands and ingredient specifications for consistent results.</p>
+                <h3 class="feature-title" data-i18n="home.feature3.title">Custom Preferences</h3>
+                <p class="feature-desc" data-i18n="home.feature3.desc">Personalize conversions based on your preferred brands and ingredient specifications for consistent results.</p>
             </div>
         </section>
     </main>
@@ -169,7 +179,7 @@
         <!-- Brand -->
         <div class="footer-brand">
           <h2>BakeGenius.ai</h2>
-          <p>
+          <p data-i18n="footer.brand.desc">
             Baking meets AI — recipes, ideas, and inspiration to make your
             creations magical!
           </p>
@@ -177,33 +187,34 @@
 
         <!-- Links -->
         <div class="footer-links">
-          <h3>Links</h3>
+          <h3 data-i18n="footer.links">Links</h3>
           <ul>
-            <li><a href="html/about.html">About Us</a></li>
-            <li><a href="html/convert.html">Convert Recipe</a></li>
-            <li><a href="html/customize.html">Customize</a></li>
-            <li><a href="html/scale.html">Scale Recipes</a></li>
+            <li><a href="html/about.html" data-i18n="nav.about">About Us</a></li>
+            <li><a href="html/convert.html" data-i18n="nav.convert">Convert Recipe</a></li>
+            <li><a href="html/customize.html" data-i18n="nav.customize">Customize</a></li>
+            <li><a href="html/scale.html" data-i18n="nav.scale">Scale Recipes</a></li>
           </ul>
         </div>
 
         <!-- Newsletter -->
         <div class="footer-newsletter">
-          <h3>Newsletter</h3>
-          <p>Get the latest baking tips & AI recipes!</p>
+          <h3 data-i18n="footer.newsletter">Newsletter</h3>
+          <p data-i18n="footer.newsletter.desc">Get the latest baking tips & AI recipes!</p>
           <form id="newsletterForm">
             <input
               type="email"
               id="newsletterEmail"
+              data-i18n="footer.newsletter.placeholder"
               placeholder="Your email"
               required
             />
-            <button type="submit">Subscribe</button>
+            <button type="submit" data-i18n="footer.newsletter.subscribe">Subscribe</button>
           </form>
         </div>
 
         <!-- Social -->
         <div class="footer-social">
-          <h3>Follow Us</h3>
+          <h3 data-i18n="footer.social">Follow Us</h3>
           <div class="social-icons">
             <a
               href="https://www.linkedin.com/in/supriyapandey595/"
@@ -232,11 +243,12 @@
           </div>
         </div>
       </div>
-      <p class="footer-bottom">
+      <p class="footer-bottom" data-i18n="footer.copyright">
         &copy; 2025 BakeGenius.ai — All rights reserved.
       </p>
     </footer>
 
+    <script src="js/i18n.js"></script>
     <script src="js/index.js"></script>
     <script src="js/auth.js"></script>
     <link rel="stylesheet" href="css/auth.css">
