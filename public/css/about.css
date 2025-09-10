@@ -60,7 +60,7 @@
 [data-theme="dark"] .cta-btn,
 [data-theme="dark"] .social-link,
 [data-theme="dark"] .scale-nav-btn {
-  background: linear-gradient(45deg, #bb86fc, #03dac6) !important;
+  background: #d18a68 !important;
   color: #fff !important;
   box-shadow: 0 8px 25px rgba(187, 134, 252, 0.3) !important;
 }
