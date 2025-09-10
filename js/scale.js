@@ -1,5 +1,6 @@
- const API_KEY = 'API_KEY';
-        const API_URL = 'API_URL';
+ // Note: API keys removed for security - implement server-side API calls in production
+const API_KEY = null;
+const API_URL = null;
 
         // Ingredient icons mapping
         const ingredientIcons = {
@@ -279,3 +280,37 @@
             
           
         });
+
+// about.js
+
+// Add this new function to your file
+function initNavbarScrollEffect() {
+  const navbar = document.querySelector('.navbar');
+  
+  // Set a scroll threshold (e.g., 50px)
+  const scrollThreshold = 50; 
+
+  // Function to handle the scroll event
+  const handleScroll = () => {
+    if (window.scrollY > scrollThreshold) {
+      // If scrolled past the threshold, add the class
+      navbar.classList.add('navbar-scrolled');
+    } else {
+      // Otherwise, remove it
+      navbar.classList.remove('navbar-scrolled');
+    }
+  };
+
+  // Listen for the scroll event on the window
+  window.addEventListener('scroll', handleScroll);
+}
+
+
+// --- Inside your DOMContentLoaded event listener, add the call to the new function ---
+document.addEventListener('DOMContentLoaded', function() {
+    // ... (your other functions like createSparkles, initMobileMenu, etc.)
+
+    initNavbarScrollEffect(); // <-- Add this line here
+
+    // ... (rest of your code)
+});

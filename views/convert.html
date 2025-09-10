@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert Recipe - BakeGenius.ai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../public/css/index.css">
+    <link rel="stylesheet" href="../public/css/convert.css">
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/lenis@1.1.21/dist/lenis.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="../index.html" class="logo">🍰 BakeGenius.ai</a>
+            
+            <button class="hamburger" id="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="menu-wrapper" id="menu-wrapper">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="convert.html" class="active">Convert Recipe</a></li>
+                    <li><a href="customize.html">Customize</a></li>
+                    <li><a href="recipe_hub.html">Recipe Hub</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+
+                <div class="nav-right">
+                    <a href="feedback.html" class="feedback-btn fb-color">Feedback</a>
+                    <div class="auth-buttons">
+                        <a href="login.html" class="login-btn">Login</a>
+                        <a href="signup.html" class="signup-btn">Sign Up</a>
+                    </div>
+                    <a href="scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
+                    <label class="theme-switch">
+                        <input type="checkbox" id="theme-toggle" />
+                        <span class="slider">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/firebase.js"></script>
+
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">🧪 Recipe Converter</h1>
+            <p class="page-subtitle">Transform your recipes into precise gram measurements with AI magic</p>
+        </div>
+
+        <div class="converter-container">
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="recipeInput" class="input-label">📝 Paste your recipe here:</label>
+                    <textarea 
+                        id="recipeInput" 
+                        class="recipe-input" 
+                        placeholder="Example:
+2 cups all-purpose flour
+1 cup packed brown sugar
+1/2 cup melted butter
+2 large eggs
+1 tsp vanilla extract
+1/2 tsp baking powder
+1/4 tsp salt"
+                    ></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="fileUpload" class="file-upload-label">
+                        📁 Or upload a recipe file
+                    </label>
+                    <input type="file" id="fileUpload" class="file-upload" accept=".txt,.doc,.docx" onchange="handleFileUpload(event)">
+                </div>
+
+                <button class="convert-button" onclick="convertRecipe()">
+                    <div class="loading-spinner" id="loadingSpinner"></div>
+                    <span id="buttonText">Magically Convert ✨</span>
+                </button>
+                <small style="font-size: 9px; color: #888;">(Press Ctrl + Enter)</small>
+            </div>
+
+            <div class="results-section" id="resultsSection">
+                <div class="results-header">
+                    <h2 class="results-title">🎯 Conversion Results</h2>
+                    <div class="unit-toggle">
+                        <button class="active" onclick="toggleUnits('metric')">Metric (g)</button>
+                        <button onclick="toggleUnits('imperial')">Imperial</button>
+                    </div>
+                </div>
+
+                <table class="results-table" id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Ingredient</th>
+                            <th>Original</th>
+                            <th>Grams</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Overlay + Warning -->
+    <div class="overlay" id="overlay" onclick="closeWarning()"></div>
+    <div class="warning-popup" id="warningPopup">
+        <h3>⚠️ Ingredient Not Found</h3>
+        <p id="warningMessage"></p>
+        <div class="density-input" id="densityInputWrapper" style="display:none;">
+            <label for="densityInput">Enter approximate density (g/ml):</label>
+            <input type="number" id="densityInput" step="0.01" placeholder="e.g., 1.0">
+            <button onclick="submitDensity()">Submit</button>
+        </div>
+        <button onclick="closeWarning()">Use Default</button>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Company Section -->
+            <div class="footer-company">
+                <h2 class="footer-logo">BakeGenius.ai</h2>
+                <p class="footer-description">
+                    Revolutionizing baking with AI-powered precision. Convert, customize, and scale your recipes with ease.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h3 class="footer-section-title">Quick Links</h3>
+                <ul>
+                    <li><a href="views/about.html">About Us</a></li>
+                    <li><a href="views/convert.html">Convert Recipe</a></li>
+                    <li><a href="views/customize.html">Customize</a></li>
+                    <li><a href="views/scale.html">Scale Recipes</a></li>
+                    <li><a href="views/feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer-newsletter">
+                <h3 class="footer-section-title">Stay Updated</h3>
+                <p class="newsletter-description">Subscribe to our newsletter for baking tips & feature updates.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" />
+                    <button type="button">Subscribe</button>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="footer-social">
+                <h3 class="footer-section-title">Connect with Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-icon linkedin" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/supriya46788" class="social-icon github" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:supriyadpandey502@gmail.com" class="social-icon email" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p class="footer-text">© 2025 BakeGenius.ai | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <head>
+        <style>
+            /* Hide the toast notification completely */
+            #toastNotification {
+                display: none !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="toastNotification" class="toast">
+            <div class="toast-icon">✔️</div>
+            <div id="toastMessage" class="toast-message">Subscribed successfully!</div>
+            <button id="toastClose" class="toast-close">&times;</button>
+        </div>
+    </body>
+
+    <!-- Scripts -->
+    <script src="js/theme.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/google_config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.21/dist/lenis.min.js"></script>
+    <script src="./js/feature.js"></script>
+    <script src="./js/mouse-trail.js"></script>
+
+    <script>
+        // Dark Mode Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.checked = true;
+            }
+
+            // Theme toggle event listener
+            themeToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    body.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    body.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            // Hamburger menu functionality
+            const hamburger = document.getElementById('hamburger-menu');
+            const menuWrapper = document.getElementById('menu-wrapper');
+
+            if (hamburger && menuWrapper) {
+                hamburger.addEventListener('click', function() {
+                    menuWrapper.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!hamburger.contains(e.target) && !menuWrapper.contains(e.target)) {
+                        menuWrapper.classList.remove('active');
+                    }
+                });
+            }
+        });
+
+        // Enhanced newsletter functionality
+        const newsletterButton = document.querySelector('.newsletter-form button');
+        const newsletterInput = document.querySelector('.newsletter-form input');
+
+        if (newsletterButton && newsletterInput) {
+            newsletterButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                const email = newsletterInput.value;
+                
+                if (email && email.includes('@')) {
+                    this.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
+                    this.style.background = 'linear-gradient(135deg, #4caf50, #66bb6a)';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = 'Subscribe';
+                        this.style.background = 'linear-gradient(135deg, #ff6ec7 0%, #ffa07a 50%, #87cefa 100%)';
+                        newsletterInput.value = '';
+                    }, 3000);
+                } else {
+                    this.innerHTML = '<i class="fas fa-exclamation"></i> Invalid Email';
+                    this.style.background = 'linear-gradient(135deg, #f44336, #ef5350)';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = 'Subscribe';
+                        this.style.background = 'linear-gradient(135deg, #ff6ec7 0%, #ffa07a 50%, #87cefa 100%)';
+                    }, 2000);
+                }
+            });
+        }
+
+        // Placeholder functions for recipe conversion
+        function convertRecipe() {
+            const recipeInput = document.getElementById('recipeInput');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const buttonText = document.getElementById('buttonText');
+            const resultsSection = document.getElementById('resultsSection');
+            
+            if (!recipeInput.value.trim()) {
+                alert('Please enter a recipe first!');
+                return;
+            }
+
+            // Show loading state
+            loadingSpinner.style.display = 'inline-block';
+            buttonText.textContent = 'Converting...';
+            
+            // Simulate conversion (replace with actual API call)
+            setTimeout(() => {
+                loadingSpinner.style.display = 'none';
+                buttonText.innerHTML = 'Magically Convert ✨';
+                resultsSection.style.display = 'block';
+                
+                // Add sample results
+                const resultsBody = document.getElementById('resultsBody');
+                resultsBody.innerHTML = `
+                    <tr class="ingredient-row">
+                        <td>🌾 All-purpose flour</td>
+                        <td>2 cups</td>
+                        <td>240g</td>
+                        <td>Standard conversion</td>
+                    </tr>
+                    <tr class="ingredient-row">
+                        <td>🍯 Brown sugar</td>
+                        <td>1 cup packed</td>
+                        <td>220g</td>
+                        <td>Packed measurement</td>
+                    </tr>
+                    <tr class="ingredient-row">
+                        <td>🧈 Butter</td>
+                        <td>1/2 cup melted</td>
+                        <td>115g</td>
+                        <td>Melted state</td>
+                    </tr>
+                `;
+            }, 2000);
+        }
+
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('recipeInput').value = e.target.result;
+                };
+                reader.readAsText(file);
+            }
+        }
+
+        function toggleUnits(unit) {
+            const buttons = document.querySelectorAll('.unit-toggle button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Add unit conversion logic here
+            console.log('Switched to:', unit);
+        }
+
+        function closeWarning() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('warningPopup').style.display = 'none';
+        }
+
+        function submitDensity() {
+            const density = document.getElementById('densityInput').value;
+            if (density) {
+                console.log('Density submitted:', density);
+                closeWarning();
+            }
+        }
+
+        // Keyboard shortcut for conversion
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                convertRecipe();
+            }
+        });
+
+        // Rest of your existing JavaScript...
+        window.onscroll = function () {
+            const scrollBtn = document.getElementById("scrollTopBtn");
+            if (scrollBtn) {
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    scrollBtn.style.display = "block";
+                } else {
+                    scrollBtn.style.display = "none";
+                }
+            }
+        };
+
+        // Hamburger toggle for mobile
+        document.addEventListener("DOMContentLoaded", () => {
+            const hamburger = document.getElementById("hamburger");
+            const menu = document.getElementById("menu");
+
+            if (hamburger && menu) {
+                hamburger.addEventListener("click", () => {
+                    menu.classList.toggle("active");
+                });
+            }
+        });
+    </script>
+</body>
+</html>

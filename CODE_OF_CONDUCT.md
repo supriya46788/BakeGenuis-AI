@@ -1,103 +1,92 @@
-# 🌟 Code of Conduct — BakeGenuis AI
+# 🌱 Code of Conduct — BakeGenius AI  
+
+![Welcome Badge](https://img.shields.io/badge/Community-Welcoming-brightgreen?style=for-the-badge)  
+![Respect Badge](https://img.shields.io/badge/Respect-Everyone-blueviolet?style=for-the-badge)  
+![Contribution Badge](https://img.shields.io/badge/Contributions-Encouraged-orange?style=for-the-badge)  
+![Kindness Badge](https://img.shields.io/badge/Be-Kind-ff69b4?style=for-the-badge)  
+
+---
+  
+
+## 🤝 Our Pledge  
+
+We, as members, contributors, and leaders, pledge to make participation in our community a **harassment-free experience for everyone**.  
+We are committed to creating an **inclusive, friendly, and respectful environment** where collaboration thrives. 🌍💜  
+
+We pledge to:  
+- Treat every individual with **respect and empathy**.  
+- Build a culture where **differences are celebrated** and valued.  
+- Ensure our community is a place of **learning, creativity, and growth**.  
 
 ---
 
-## 💌 Our Commitment
+![Standards GIF](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3aXRiaTZ6ZGtoeTlsNjhkOHFjdmZremtoOHVsNG1qaXNxMWQ4NG5udSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/iYdrGlHbC0cAMwqfsL/giphy.gif)  
 
-We, the maintainers, contributors, and community members of **BakeGenuis AI**, pledge to make participation in our project and our community a **harassment-free experience** for everyone, regardless of:
+## 🌟 Our Standards  
 
-- Age    
-- Visible or invisible disability  
-- Ethnicity 
-- Gender identity and expression  
-- Level of experience   
-- Nationality   
-- Personal appearance   
-- Race  
-- Sexual identity and orientation 
+### ✅ Positive behaviors we encourage:  
+- Showing **empathy, kindness, and respect** in all interactions 🤗  
+- Being **open-minded** to different perspectives and ideas 🌈  
+- Giving and **gracefully accepting constructive feedback**  
+- Prioritizing **community success over individual ego** 💪  
+- Helping others learn and grow 📚✨  
 
-We commit to creating an environment where **everyone feels safe, respected, and empowered to contribute**.
-
----
-
-## 🤝 Our Standards
-
-To create a welcoming and positive environment, all participants are expected to follow these guidelines:
-
-### ✅ Positive Examples of Behavior
-- Demonstrating empathy and kindness toward other people.  
-- Being respectful of differing opinions, viewpoints, and experiences.  
-- Giving and gracefully accepting constructive feedback.  
-- Accepting responsibility and apologizing to those affected by mistakes, and learning from the experience.  
-- Focusing on what is best for the community and project.  
-- Acknowledging and crediting the work of others.  
-- Staying on-topic in discussions and avoiding unnecessary arguments.
-
-### 🚫 Unacceptable Behavior
-- The use of sexualized language or imagery, and unwelcome sexual attention or advances ❌.  
-- Trolling, insulting or derogatory comments, and personal or political attacks ⚠️.  
-- Public or private harassment 📛.  
-- Publishing others’ private information (such as a physical or email address) without their explicit permission 🔒.  
-- Other conduct which could reasonably be considered inappropriate in a professional setting 🛑.  
+### ❌ Behaviors that are unacceptable:  
+- Harassment, insults, or discriminatory comments 🚫  
+- Trolling, spreading negativity, or personal attacks  
+- Publishing others' **private information without consent** 🔒  
+- Any kind of **exclusion or disrespectful behavior**  
+- Behavior inappropriate for professional and open communities  
 
 ---
 
-## 📬 Reporting Guidelines
+![Enforcement GIF](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXprMGp0YWJsaDNmZXZmdzduOHY4aHFjNTNtYW42eHN6b2dlazRicCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L1R1tvI9svkIWwpVYr/giphy.gif)  
 
-If you witness or experience unacceptable behavior, please report it as soon as possible:
+## 🛠️ Enforcement Responsibilities  
 
-1. **Contact**: Send an email to **supriyadpandey502@gmail.com**📧.  
-2. **Include details**:  
-   - Description of the incident 📄  
-   - Date, time, and location 🗓️  
-   - Names of individuals involved (if known) 🧾  
-   - Any supporting evidence (screenshots, logs, etc.) 📷  
-3. **Confidentiality**: All reports will be reviewed and investigated promptly and fairly. Your privacy will be respected, and details will be shared only with those who need to know.  
+- Community leaders are responsible for defining and enforcing standards of behavior.  
+- Leaders may take **appropriate and fair corrective actions** in response to violations.  
+- Leaders hold the right to **remove, edit, or reject contributions** that don’t align with this Code of Conduct. ⚖️  
+- Decisions will always be made in the best interest of the **community’s safety and inclusivity**.  
 
 ---
 
-## ⚖️ Enforcement Policy
+![Reporting GIF](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzk0cm5zdjV5bHE2b3hlcDNqb2VxbG5naGU3bzIxcjRzejQzcWk0cyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/qgQUggAC3Pfv687qPC/giphy.gif)  
 
-Community leaders are responsible for clarifying and enforcing our standards of acceptable behavior. They will take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.
+## 📢 Reporting Issues  
 
-### Potential Consequences
-- **Warning** ⚠️ — A private, written warning about the violation.  
-- **Temporary Ban** ⏳ — Suspension from participation in community spaces for a specific period.  
-- **Permanent Ban** 🚫 — Removal from all community participation without the possibility of return.  
-- **Issue Reversal** 🔄 — If an action was taken in error, it will be reversed and an apology issued.  
+If you see behavior that violates this Code of Conduct, please **report it immediately**.  
 
----
+1. 📨 Contact the maintainers through official communication channels.  
+2. 🔒 Reports will be treated with **confidentiality and respect**.  
+3. 🚀 Community leaders will respond promptly and take fair action.  
 
-## 🌱 Our Core Values
-
-Like habit tracking itself, a healthy community thrives on consistent, positive actions:
-
-- **Consistency** — Regularly practicing respect and empathy.  
-- **Growth** — Being open to feedback and continuous learning.  
-- **Support** — Encouraging the success of others.  
-- **Balance** — Respecting time, boundaries, and well-being.  
+We guarantee that **no retaliation will occur** against those who report in good faith. 🙌  
 
 ---
 
-## 📝 Attribution
+## 🌍 Scope  
 
-This Code of Conduct is adapted from the **[Contributor Covenant, version 2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)**, and influenced by welcoming community guidelines from other open-source projects.
+This Code of Conduct applies to:  
+- All community spaces (online & offline).  
+- Public spaces where a person represents the community (e.g., GitHub repos, Discord, conferences, meetups).  
 
----
-
-## 📜 Contributor Pledge
-
-By contributing to this project, you agree to:
-- Uphold the values expressed in this Code of Conduct.  
-- Engage respectfully with all contributors and maintainers.  
-- Accept feedback with an open mind and respond constructively.  
-- Report any violations you witness or experience.  
+Whether you are **contributing code, writing documentation, attending discussions, or representing BakeGenius AI**, you are expected to follow this Code of Conduct.  
 
 ---
 
-## 💖 Final Note
+## 🏆 Acknowledgment  
 
-We believe **open source is more than just code** — it’s about people collaborating, sharing, and growing together.  
-Let’s make **BakeGenuis AI** a place where kindness is the default, respect is mutual, and contributions are celebrated 🎉.  
+This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org/), version 2.1.  
 
-Happy contributing! 🌸✨
+We thank every contributor, maintainer, and member for **making BakeGenius AI a safe, inclusive, and inspiring space**. ✨💡  
+
+---
+
+![Final Note GIF](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZzdpMHNzamV5bGl6cGs1NGZ6ajN5bDIxazlhdTJvdjByYjVnOHdrMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ll61xC3gYPh7C5SPCU/giphy.gif)  
+
+## 🎉 Final Note  
+
+This is more than just rules — it’s about building a community where **creativity, collaboration, and kindness** thrive together.  
+
+Let’s make **BakeGenius AI** a place where everyone feels welcome to **learn, contribute, and innovate**. 🍰🤖💡  

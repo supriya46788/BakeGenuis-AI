@@ -1,24 +1,25 @@
+<a name="top"></a>
+
+<div align="center">
+
  **🍰 BakeGenius AI - Precision Baking for Everyone**
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+![GSSoC'25](https://img.shields.io/badge/GirlScript%20Summer%20of%20Code-2025-orange?style=for-the-badge)
 
-[![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/supriya46788/BakeGenuis-AI)
+</div>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+---
 
 **BakeGenius AI** is an AI-powered tool that transforms vague recipe measurements like "1 cup of flour" or "2 tablespoons of butter" into precise gram-based values. It helps home cooks, professionals, and culinary enthusiasts bake with consistency and accuracy by removing the guesswork from measurements.
 
 > ⚡ *"BakeGenius AI bridges the gap between casual cooking and scientific precision."*
 
-<img width="1053" height="595" alt="image" src="https://github.com/user-attachments/assets/1e8384fc-8da9-4aff-bd9c-3da205f79203" />
-
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+---
 <div align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=00C853&center=true&vCenter=true&width=900&lines=Thanks+for+visiting+BakeGenuis-AI!+🙌;Start+the+repo+✅;Share+it+with+others+🌍;Contribute+and+grow+🛠️;Happy+Coding+✨!" alt="Thanks Banner Typing SVG" />
 </div>
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
 
-**📊 Project Insights**
+---
 
 <table align="center">
     <thead align="center">
@@ -45,7 +46,7 @@
     </tbody>
 </table>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
+---
 
 ## 🧠 Project Objective
 
@@ -57,7 +58,7 @@ Many online recipes list ingredients using vague units like cups, teaspoons, and
 - Supporting **voice-based input**, **real-time AI assistance**, and **visualizations**.
 - Empowering bakers with consistent, professional results every time.
 
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+---
 
 ## 🚀 Features
 
@@ -70,14 +71,91 @@ Many online recipes list ingredients using vague units like cups, teaspoons, and
 ✅ Visualizations: Show side-by-side conversions and measurement charts  
 ✅ Open Source – Easy to contribute and extend
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
+---
 
 <h2 align="center">🎯 Open Source Programmes ⭐</h2>
 <p align="center">
   <b>This project is now OFFICIALLY accepted for:</b>
 </p>
 
-![GSSoC Logo](/BakeGenuis-AI/gssoc%20logo.png)
+<div align="center">
+  
+![GSSoC Logo](https://github.com/supriya46788/Research-Paper-Organizer/blob/main/images/gssoc-logo.png)
+</div>
+
+📂 Project Structure
+  ```
+supriya46788/
+├─ .github/
+│  ├─ ISSUE_TEMPLATE/
+│  ├─ workflows/
+│  └─ PULL_REQUEST_TEMPLATE.md
+├─ frontend/
+│  └─ views/
+│     └─ recipe_hub.html
+├─ html/
+│  ├─ about.html
+│  ├─ about_BACKUP_1224.html
+│  ├─ about_BASE_1224.html
+│  ├─ about_LOCAL_1224.html
+│  ├─ about_REMOTE_1224.html
+│  ├─ convert.html
+│  ├─ customize.html
+│  ├─ feedback.html
+│  ├─ login.html
+│  ├─ recipe_hub.html
+│  ├─ scale.html
+│  └─ signup.html
+├─ js/
+│  ├─ about.js
+│  ├─ auth.js
+│  ├─ carousel_autoscroll.js
+│  ├─ config.js
+│  ├─ convert.js
+│  ├─ customize.js
+│  ├─ feature.js
+│  ├─ feedback.js
+│  ├─ floating_emoji_footer_fix.js
+│  ├─ google_config.example.js
+│  ├─ index.js
+│  ├─ mouse-trail.js
+│  ├─ recipe_hub.js
+│  ├─ scale.js
+│  └─ theme.js
+├─ public/
+│  └─ css/
+│     ├─ about.css
+│     ├─ android-chrome-192x192.png
+│     ├─ android-chrome-512x512.png
+│     ├─ apple-touch-icon.png
+│     ├─ auth.css
+│     ├─ convert.css
+│     ├─ customize.css
+│     ├─ favicon-16x16.png
+│     ├─ favicon-32x32.png
+│     ├─ feature.css
+│     ├─ feedback.css
+│     ├─ floating_emoji_fix.css
+│     ├─ index.css
+│     ├─ recipe_hub.css
+│     ├─ scale.css
+│     ├─ toast.css
+│     └─ toggle.css
+├─ .gitignore
+├─ CODE_CLEANUP_SUMMARY.md
+├─ CODE_OF_CONDUCT.md
+├─ CONTRIBUTING.md
+├─ GOOGLE_SETUP.md
+├─ License
+├─ README.md
+├─ gssoc logo.png
+├─ index.html
+├─ scale.html
+├─ server.js
+└─ site.webmanifest
+  ```
+---
+
 
 🌟 **Exciting News...**
 
@@ -94,14 +172,14 @@ Many online recipes list ingredients using vague units like cups, teaspoons, and
 
 🎉 **I can’t wait to welcome new contributors** from GSSoC 2025 to this BakeGenuis-AI project family! Let's build, learn, and grow together — one commit at a time. 🔥👨‍💻👩‍💻
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
+---
 
 **🔧 Tech Stack**
 
 - **Frontend**: HTML, CSS, JavaScript
 - **AI API**: Gemini API by Google (for language understanding and smart suggestions)
 
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+---
 
 **📊 Example Conversion**
 
@@ -114,8 +192,7 @@ Many online recipes list ingredients using vague units like cups, teaspoons, and
 
 (*values vary depending on the density of ingredients*)
 
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
+---
 **🛠️ How to Run Locally**
 
 1. Clone the repository:
@@ -124,11 +201,33 @@ git clone https://github.com/supriya46788/BakeGenuis-AI.git
 cd BakeGenuis-AI
 ```
 
+## 🔑 Firebase Configuration
+
+Update your Firebase SDK configuration in the file:
+
+```bash
+js/firebase.js
+```
+
+To enable Google Sign-In and other Firebase services, update your Firebase SDK configuration inside the project:
+
+```bash
+// Firebase Config
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",  
+  authDomain: "YOUR_AUTH_DOMAIN",  
+  projectId: "YOUR_PROJECT_ID",  
+  storageBucket: "YOUR_STORAGE_BUCKET",  
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",  
+  appId: "YOUR_APP_ID",  
+  measurementId: "YOUR_MEASUREMENT_ID"  
+};
+```
 2. Open the `index.html` file in any browser to run the app.
 
 3. Ensure Gemini API keys are correctly added in your JS code.
 
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+---
 
 **📥 Submitting a Pull Request**
 
@@ -178,7 +277,7 @@ Follow these steps to contribute your changes to **BakeGenuis-AI**:
 
     Link the related issue (if any) and clearly describe your changes.
 
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+---
 
 **🤝 Contributing**
 
@@ -190,7 +289,7 @@ Here’s how you can help:
 - 🧪 Improve AI prompt engineering or ingredient logic
 - 🎨 Enhance UI/UX
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+---
 
 **🤝👤 Contribution Guidelines**
 
@@ -216,25 +315,25 @@ See the full list of contributors and their contributions on the [`GitHub Contri
 </p>
 </h2>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
+---
 
 **💡 Suggestions & Feedback**
 
 Feel free to open issues or discussions if you have any feedback, feature suggestions, or want to collaborate!
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
+---
 
 **🙌 Support & Star**
 
 ***If you find this project helpful, please give it a star! ⭐ to support more such educational initiatives!***
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+---
 
 **📄 License**
 
 This project is licensed under the MIT License - see the [`License`](https://github.com/supriya46788/BakeGenuis-AI/blob/main/License) file for details.
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
+---
 
 **⭐ Stargazers**
 
@@ -244,7 +343,7 @@ This project is licensed under the MIT License - see the [`License`](https://git
   </a>
 </div>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
+---
 
 **🍴 Forkers**
 
@@ -253,7 +352,7 @@ This project is licensed under the MIT License - see the [`License`](https://git
     <img src="https://reporoster.com/forks/supriya46788/BakeGenuis-AI?type=svg&limit=100&names=false" alt="Forkers" />
   </a>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
+---
 
 <h2>🧑‍💻Project Admin:</h2>
 <table>
@@ -264,20 +363,13 @@ This project is licensed under the MIT License - see the [`License`](https://git
 </tr>
 </table>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
+---
 
-<h1 align="center"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" alt="Glowing Star" width="25" height="25" /> Give us a Star and let's make magic! <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Glowing%20Star.png" alt="Glowing Star" width="25" height="25" /></h1>
-
-<p align="center">
-     <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Mirror%20Ball.png" alt="Mirror Ball" width="150" height="150" />
-</p>
-
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
 
 **👨‍💻 Developed By**
 **❤️ Supriya and Contributors ❤️**  [open an issue](https://github.com/supriya46788/BakeGenuis-AI/issues) | [Watch Demo](https://supriya46788.github.io/BakeGenuis-AI/)
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
+---
 
 <div align="center">
     <a href="#top">
@@ -285,6 +377,6 @@ This project is licensed under the MIT License - see the [`License`](https://git
     </a>
 </div>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=65&section=footer"/>
+---
 
 Ready to show off your coding achievements? Get started with BakeGenuis-AI today! 🚀
