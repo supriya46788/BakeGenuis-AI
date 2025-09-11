@@ -1,337 +1,53 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+// Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BakeGenius.ai - AI-Powered Baking Conversions</title>
-
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="public/css/index.css" />
-  <link rel="stylesheet" href="../public/css/toggle.css" />
-  <link rel="stylesheet" href="public/css/auth.css" />
-  <link rel="stylesheet" href="./public/css/feature.css" />
-  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.8/dist/lenis.css" />
-
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="public/css/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="public/css/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="public/css/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-</head>
-
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="navbar-container">
-      <a href="index.html" class="logo">🍰 BakeGenius.ai</a>
-
-      <div class="hamburger" id="hamburger-menu">
-        <i class="fas fa-bars"></i>
-      </div>
-
-      <div class="menu-wrapper" id="menu-wrapper">
-        <ul class="nav-links" id="navLinks">
-          <li><a href="html/convert.html">Convert Recipe</a></li>
-          <li><a href="html/customize.html">Customize</a></li>
-          <li><a href="html/recipe_hub.html">Recipe Hub</a></li>
-          <li><a href="html/about.html">About</a></li>
-        </ul>
-
-        <div class="nav-right">
-          <div class="auth-buttons">
-            <a href="html/login.html" class="login-btn">Login</a>
-            <a href="html/signup.html" class="signup-btn">Sign Up</a>
-          </div>
-          <a href="html/scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
-          <label class="theme-switch">
-            <input type="checkbox" id="theme-toggle" />
-            <span class="slider">
-              <i class="fas fa-sun"></i>
-              <i class="fas fa-moon"></i>
-            </span>
-          </label>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="cupcake-animation">
-    <div class="cup">&#127856</div>
-  </section>
-
-  <main class="main-content">
-    <section class="hero-section">
-      <h1 class="hero-title typing-active">Welcome to BakeGenius.ai</h1>
-      <p class="hero-subtitle">
-        From spoon to scale — get exact gram conversions with AI magic ✨<br />
-        Transform vague recipe measurements into precise, consistent results every time!
-      </p>
-      <a href="/html/convert.html" class="cta-button">Start Converting Now 🚀</a>
-    </section>
-
-    <!-- Features -->
-    <section class="features-preview">
-      <div class="feature-card">
-        <i class="fas fa-wand-magic-sparkles feature-icon magic"></i>
-        <h3 class="feature-title">AI-Powered Precision</h3>
-        <p class="feature-desc">Advanced AI converts "cups" and "spoons" into exact gram measurements.</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-balance-scale feature-icon scale"></i>
-        <h3 class="feature-title">Smart Recipe Scaling</h3>
-        <p class="feature-desc">Effortlessly scale recipes up or down while keeping ratios perfect.</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-cogs feature-icon gears"></i>
-        <h3 class="feature-title">Custom Preferences</h3>
-        <p class="feature-desc">Personalize conversions for consistent results every time.</p>
-      </div>
-    </section>
-  </main>
-
-  <!-- Enhanced Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <!-- Company Section -->
-      <!-- Brand -->
-        <div class="footer-brand">
-          <h2><span class="footer-logo">🍰</span> BakeGenius.ai</h2>
-          <p>
-            Baking meets AI — recipes, ideas, and inspiration to make your
-            creations magical!
-          </p>
-        </div>
-
-        <!-- Links -->
-        <div class="footer-links">
-          <h3>Links</h3>
-          <ul>
-            <!-- add icons for each links -->
-            <li>
-              <a href="about.html"
-                ><i class="fa-solid fa-circle-info footer-icon"></i> About Us</a
-              >
-            </li>
-            <li>
-              <a href="convert.html"
-                ><i class="fa-solid fa-arrows-rotate footer-icon"></i> Convert
-                Recipe</a
-              >
-            </li>
-            <li>
-              <a href="customize.html"
-                ><i class="fa-solid fa-sliders footer-icon"></i> Customize</a
-              >
-            </li>
-              <li>
-              <a href="recipe_hub.html"
-                ><i class="fa-solid fa-cookie footer-icon"></i> Recipe Hub</a
-              >
-            </li>
-            <li>
-              <a href="scale.html"
-                ><i class="fa-solid fa-ruler footer-icon"></i> Scale Recipes</a
-              >
-            </li>
-            <li>
-              <a href="feedback.html"
-                ><i class="fa-solid fa-comment-dots footer-icon"></i>Feedback</a
-              >
-            </li>
-          </ul>
-        </div>
-      <!-- Newsletter -->
-      <div class="footer-newsletter">
-        <h3 class="footer-section-title">Stay Updated</h3>
-        <p class="newsletter-description">Subscribe to our newsletter for baking tips & feature updates.</p>
-        <div class="newsletter-form">
-          <input type="email" placeholder="Enter your email" />
-          <button type="button">Subscribe</button>
-        </div>
-      </div>
-
-      <!-- Social Links -->
-      <div class="footer-social">
-        <h3 class="footer-section-title">Connect with Us</h3>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-icon linkedin"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <a href="https://github.com/supriya46788" target="_blank" class="social-icon github"><i
-              class="fa-brands fa-github"></i></a>
-          <a href="mailto:supriyadpandey502@gmail.com" target="_blank" class="social-icon email"><i
-              class="fa-regular fa-envelope"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer Bottom -->
-    <div class="footer-bottom">
-      <p class="footer-text">© 2025 BakeGenius.ai | All Rights Reserved</p>
-    </div>
-  </footer>
-
-  <!-- Toast Notification -->
-
-  <head>
-    <style>
-      /* Hide the toast notification completely */
-      #toastNotification {
-        display: none !important;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div id="toastNotification" class="toast">
-      <div class="toast-icon">✔️</div>
-      <div id="toastMessage" class="toast-message">Subscribed successfully!</div>
-      <button id="toastClose" class="toast-close">&times;</button>
-    </div>
-  </body>
- 
- <!-- Back to Top Button -->
-  <button id="scrollTopBtn" title="Go to top">⬆</button>
-
-    <script>
-      // Back to Top Button functionality
-document.addEventListener('DOMContentLoaded', () => {
-  const scrollBtn = document.getElementById("scrollTopBtn");
-
-  if (scrollBtn) {
-    window.addEventListener('scroll', () => {
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollBtn.style.display = "block";
-      } else {
-        scrollBtn.style.display = "none";
-      }
-    });
-
-    scrollBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  }
-});
-    </script>
-  <!-- Scripts -->
-  <script src="js/theme.js"></script>
-  <script src="js/index.js"></script>
-  <script src="js/google_config.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="https://unpkg.com/lenis@1.1.21/dist/lenis.min.js"></script>
-  <script src="./js/feature.js"></script>
-  <script src="./js/mouse-trail.js"></script>
-  <script>
-    // Enhanced newsletter functionality
-    const newsletterButton = document.querySelector('.newsletter-form button');
-    const newsletterInput = document.querySelector('.newsletter-form input');
-
-    if (newsletterButton && newsletterInput) {
-      newsletterButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        const email = newsletterInput.value;
-        
-        if (email && email.includes('@')) {
-          this.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
-          this.style.background = 'linear-gradient(135deg, #4caf50, #66bb6a)';
-          
-          setTimeout(() => {
-            this.innerHTML = 'Subscribe';
-            this.style.background = 'linear-gradient(135deg, #ff6ec7 0%, #ffa07a 50%, #87cefa 100%)';
-            newsletterInput.value = '';
-          }, 3000);
-        } else {
-          this.innerHTML = '<i class="fas fa-exclamation"></i> Invalid Email';
-          this.style.background = 'linear-gradient(135deg, #f44336, #ef5350)';
-          
-          setTimeout(() => {
-            this.innerHTML = 'Subscribe';
-            this.style.background = 'linear-gradient(135deg, #ff6ec7 0%, #ffa07a 50%, #87cefa 100%)';
-          }, 2000);
-        }
-      });
-    }
-
-    // Newsletter functionality (if elements exist)
-    const newsletterForm = document.querySelector('.footer-newsletter button');
-    const newsletterEmail = document.querySelector('.footer-newsletter input');
-
-
-    // Newsletter Toast
-    const ToastnewsletterForm = document.getElementById("newsletterForm");
-    const ToastnewsletterEmail = document.getElementById("newsletterEmail");
-
-    const toast = document.getElementById("toastNotification");
-    const toastMsg = document.getElementById("toastMessage");
-    const toastClose = document.getElementById("toastClose");
-
-    if (newsletterForm && newsletterEmail) {
-      newsletterForm.addEventListener("click", function (e) {
-        e.preventDefault();
-        if (!newsletterEmail.value.trim()) return;
-        if (toast && toastMsg) {
-          toast.classList.add("show");
-          toastMsg.textContent = "Subscribed successfully!";
-          toast.classList.remove("toast-error");
-          toast.classList.add("toast-success");
-          newsletterEmail.value = "";
-          setTimeout(() => toast.classList.remove("show"), 4000);
-        }
-      });
-    }
-
-    if (toastClose) {
-      toastClose.addEventListener("click", () => toast.classList.remove("show"));
-    }
-
-    // Loader
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        const loadingScreen = document.getElementById("loading-screen");
-        if (loadingScreen) {
-          loadingScreen.classList.add("hidden");
-        }
-      }, 2000);
-    });
-
-    // Typing Animation
-    document.addEventListener("DOMContentLoaded", () => {
-      const el = document.querySelector(".hero-title");
-      if (!el) return;
-      const startTyping = () => {
-        el.classList.remove("typing-active");
-        void el.offsetWidth;
-        el.classList.add("typing-active");
-      };
-      const observer = new IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting) startTyping();
-      }, { threshold: 0.5 });
-      observer.observe(el);
-    });
-
-
-  </script>
-  <!-- Hamburger in mobile view -->
-  <script>
-    // Hamburger toggle for mobile
-    document.addEventListener("DOMContentLoaded", () => {
-      const hamburger = document.getElementById("hamburger");
-      const menu = document.getElementById("menu");
-
-      if (hamburger && menu) {
-        hamburger.addEventListener("click", () => {
-          menu.classList.toggle("active");
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
         });
-      }
-    });
-  </script>
 
-</body>
+        // Close mobile menu when clicking on a link
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
 
-</html>
+        // Smooth scroll for CTA button
+        const ctaButton = document.querySelector('.cta-button');
+        ctaButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Add a fun animation on click
+            ctaButton.style.animation = 'bounce 0.5s ease-in-out';
+            setTimeout(() => {
+                ctaButton.style.animation = 'pulse 2s ease-in-out infinite';
+                // Navigate to convert page (in real app)
+                window.location.href = 'html/convert.html';
+            }, 500);
+        });
+
+        // Parallax effect for decorative icons
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = scrolled * 0.5;
+            
+            document.querySelectorAll('.baking-icon').forEach((icon, index) => {
+                icon.style.transform = `translateY(${parallax * (index + 1) * 0.1}px) rotate(${parallax * 0.05}deg)`;
+            });
+        });
+
+        // Add sparkle effect on hover for feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.background = 'rgba(255, 255, 255, 0.95)';
+                card.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.15)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.background = 'rgba(255, 255, 255, 0.8)';
+                card.style.boxShadow = 'none';
+            });
+        });

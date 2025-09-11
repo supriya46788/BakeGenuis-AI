@@ -6,67 +6,53 @@
     <title>Convert Recipe - BakeGenius.ai</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="../public/css/index.css">
-    <link rel="stylesheet" href="../public/css/convert.css">
-
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://unpkg.com/lenis@1.1.21/dist/lenis.min.js"></script>
+    <link rel="stylesheet" href="../css/convert.css">
+    <link rel="stylesheet" href="../css/language-selector.css">
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar">
-        <div class="navbar-container">
-            <a href="../index.html" class="logo">🍰 BakeGenius.ai</a>
-            
-            <button class="hamburger" id="hamburger-menu">
-                <i class="fas fa-bars"></i>
-            </button>
+  <div class="navbar-container">
+    <div class="logo">🍰 BakeGenius.ai</div>
+      <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="./convert.html" class="active" data-i18n="nav.convert">Convert Recipe</a></li>
+      <li><a href="./customize.html" data-i18n="nav.customize">Customize</a></li>
+      <li><a href="./recipe_hub.html" data-i18n="nav.recipehub">Recipe Hub</a></li>
+      <li><a href="./about.html" data-i18n="nav.about">About</a></li>
+    </ul>
+    <div class="language-selector">
+        <select id="languageSelect" class="language-dropdown">
+            <option value="en">🇺🇸 English</option>
+            <option value="hi">🇮🇳 हिन्दी</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="de">🇩🇪 Deutsch</option>
+        </select>
+    </div>
+    <a href="./scale.html" class="cta-btn" data-i18n="nav.scale">Scale Now</a>
+  </div>
+</nav>
 
-            <div class="menu-wrapper" id="menu-wrapper">
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="convert.html" class="active">Convert Recipe</a></li>
-                    <li><a href="customize.html">Customize</a></li>
-                    <li><a href="recipe_hub.html">Recipe Hub</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
-
-                <div class="nav-right">
-                    <a href="feedback.html" class="feedback-btn fb-color">Feedback</a>
-                    <div class="auth-buttons">
-                        <a href="login.html" class="login-btn">Login</a>
-                        <a href="signup.html" class="signup-btn">Sign Up</a>
-                    </div>
-                    <a href="scale.html" class="cta-btn scale-nav-btn">Scale Now</a>
-                    <label class="theme-switch">
-                        <input type="checkbox" id="theme-toggle" />
-                        <span class="slider">
-                            <i class="fas fa-sun"></i>
-                            <i class="fas fa-moon"></i>
-                        </span>
-                    </label>
-                </div>
-            </div>
-        </div>
-    </nav>
-
+    <!-- Auth Check Script -->
     <script src="../js/auth.js"></script>
-    <script src="../js/firebase.js"></script>
 
+    <!-- Main Content -->
     <main>
         <div class="page-header">
-            <h1 class="page-title">🧪 Recipe Converter</h1>
-            <p class="page-subtitle">Transform your recipes into precise gram measurements with AI magic</p>
+            <h1 class="page-title" data-i18n="convert.title">🧪 Recipe Converter</h1>
+            <p class="page-subtitle" data-i18n="convert.subtitle">Transform your recipes into precise gram measurements with AI magic</p>
         </div>
 
         <div class="converter-container">
+            <!-- Input Section -->
             <div class="input-section">
                 <div class="input-group">
-                    <label for="recipeInput" class="input-label">📝 Paste your recipe here:</label>
+                    <label for="recipeInput" class="input-label" data-i18n="convert.input.label">📝 Paste your recipe here:</label>
                     <textarea 
                         id="recipeInput" 
                         class="recipe-input" 
+                        data-i18n="convert.input.placeholder"
                         placeholder="Example:
 2 cups all-purpose flour
 1 cup packed brown sugar
@@ -87,14 +73,14 @@
 
                 <button class="convert-button" onclick="convertRecipe()">
                     <div class="loading-spinner" id="loadingSpinner"></div>
-                    <span id="buttonText">Magically Convert ✨</span>
+                    <span id="buttonText" data-i18n="convert.button">✨ Convert to Grams</span>
                 </button>
-                <small style="font-size: 9px; color: #888;">(Press Ctrl + Enter)</small>
             </div>
 
+            <!-- Results Section -->
             <div class="results-section" id="resultsSection">
                 <div class="results-header">
-                    <h2 class="results-title">🎯 Conversion Results</h2>
+                    <h2 class="results-title" data-i18n="convert.output.title">📊 Converted Recipe</h2>
                     <div class="unit-toggle">
                         <button class="active" onclick="toggleUnits('metric')">Metric (g)</button>
                         <button onclick="toggleUnits('imperial')">Imperial</button>
@@ -111,133 +97,76 @@
                         </tr>
                     </thead>
                     <tbody id="resultsBody">
+                        <!-- Results will be populated here -->
                     </tbody>
                 </table>
             </div>
         </div>
     </main>
 
-    <!-- Overlay + Warning -->
+    <!-- Warning Popup -->
     <div class="overlay" id="overlay" onclick="closeWarning()"></div>
     <div class="warning-popup" id="warningPopup">
-        <h3>⚠️ Ingredient Not Found</h3>
+        <h3>⚠️ Ambiguous Measurement</h3>
         <p id="warningMessage"></p>
-        <div class="density-input" id="densityInputWrapper" style="display:none;">
-            <label for="densityInput">Enter approximate density (g/ml):</label>
-            <input type="number" id="densityInput" step="0.01" placeholder="e.g., 1.0">
-            <button onclick="submitDensity()">Submit</button>
-        </div>
-        <button onclick="closeWarning()">Use Default</button>
+        <button onclick="closeWarning()">Got it!</button>
     </div>
 
-    <footer class="footer">
-        <div class="footer-container">
+       <!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
 
-    <!-- Brand -->
+        <!-- Brand -->
         <div class="footer-brand">
-          <h2><span class="footer-logo">🍰</span> BakeGenius.ai</h2>
-          <p>
-            Baking meets AI — recipes, ideas, and inspiration to make your
-            creations magical!
-          </p>
+            <h2>BakeGenius.ai</h2>
+            <p>Baking meets AI — recipes, ideas, and inspiration to make your creations magical!</p>
         </div>
 
         <!-- Links -->
         <div class="footer-links">
-          <h3>Links</h3>
+            <h3>Links</h3>
           <ul>
-            <!-- add icons for each links -->
-            <li>
-              <a href="about.html"
-                ><i class="fa-solid fa-circle-info footer-icon"></i> About Us</a
-              >
-            </li>
-            <li>
-              <a href="convert.html"
-                ><i class="fa-solid fa-arrows-rotate footer-icon"></i> Convert
-                Recipe</a
-              >
-            </li>
-            <li>
-              <a href="customize.html"
-                ><i class="fa-solid fa-sliders footer-icon"></i> Customize</a
-              >
-            </li>
-              <li>
-              <a href="recipe_hub.html"
-                ><i class="fa-solid fa-cookie footer-icon"></i> Recipe Hub</a
-              >
-            </li>
-            <li>
-              <a href="scale.html"
-                ><i class="fa-solid fa-ruler footer-icon"></i> Scale Recipes</a
-              >
-            </li>
-            <li>
-              <a href="feedback.html"
-                ><i class="fa-solid fa-comment-dots footer-icon"></i>Feedback</a
-              >
-            </li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="convert.html">Convert Recipe</a></li>
+            <li><a href="customize.html">Customize</a></li>
+            <li><a href="scale.html">Scale Recipes</a></li>
           </ul>
         </div>
 
-            <div class="footer-newsletter">
-                <h3>Newsletter</h3>
-                <p>Get the latest baking tips & AI recipes!</p>
-                <form id="newsletterForm">
-                    <input type="email" id="newsletterEmail" placeholder="Your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
-
-            <div class="footer-social">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-icon linkedin">
-                        <i class="fa-brands fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/supriya46788" target="_blank" class="social-icon github">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                    <a href="mailto:supriyadpandey502@gmail.com" target="_blank" class="social-icon email">
-                        <i class="fa-regular fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
-
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
+            <h3>Newsletter</h3>
+            <p>Get the latest baking tips & AI recipes!</p>
+            <form id="newsletterForm">
+                <input type="email" id="newsletterEmail" placeholder="Your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
         </div>
-        <p class="footer-bottom">&copy; 2025 BakeGenius.ai — All rights reserved.</p>
-    </footer>
 
+        <!-- Social -->
+        <div class="footer-social">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-icon linkedin">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/supriya46788" target="_blank" class="social-icon github">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="#" target="_blank" class="social-icon twitter">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="mailto:supriyadpandey502@gmail.com" target="_blank" class="social-icon email">
+                    <i class="fa-regular fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <p class="footer-bottom">&copy; 2025 BakeGenius.ai — All rights reserved.</p>
+</footer>
+
+    <script src="../js/i18n.js"></script>
     <script src="../js/convert.js"></script>
-    <script src="../js/theme.js"></script>
-    
-       <!-- Back to Top Button -->
-    <button id="scrollTopBtn" title="Go to top" style="display: none;">⬆</button>
-
-    <script>
-      // Back to Top Button functionality
-document.addEventListener('DOMContentLoaded', () => {
-  const scrollBtn = document.getElementById("scrollTopBtn");
-
-  if (scrollBtn) {
-    window.addEventListener('scroll', () => {
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollBtn.style.display = "block";
-      } else {
-        scrollBtn.style.display = "none";
-      }
-    });
-
-    scrollBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  }
-});
-    </script>
-    
-    <script src="../js/feature.js"></script>
-    <script src="../js/mouse-trail.js"></script>
-
 </body>
 </html>

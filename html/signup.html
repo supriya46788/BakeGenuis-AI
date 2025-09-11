@@ -1,199 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up - BakeGenius.ai</title>
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <link rel="stylesheet" href="../public/css/toggle.css">
-  <link rel="stylesheet" href="../public/css/index.css">
-  <link rel="stylesheet" href="../public/css/about.css">
-  <link rel="stylesheet" href="../public/css/auth.css">
-  <link rel="stylesheet" href="../public/css/feature.css">
-  <link rel="stylesheet" href="../public/css/toast.css">
-
-   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - BakeGenius.ai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="../css/language-selector.css">
 </head>
 <body>
-  <!-- Animated Background Elements -->
-  <div class="floating-elements">
-    <div class="floating-cupcake">🧁</div>
-    <div class="floating-cupcake">🍰</div>
-    <div class="floating-cupcake">🥧</div>
-    <div class="floating-cupcake">🍪</div>
-  </div>
+    <!-- Animated Background Elements -->
+    <div class="floating-elements">
+        <div class="floating-cupcake">🧁</div>
+        <div class="floating-cupcake">🍰</div>
+        <div class="floating-cupcake">🥧</div>
+        <div class="floating-cupcake">🍪</div>
+    </div>
 
     <!-- Navigation -->
     <nav class="navbar">
-  <div class="navbar-container">
-    <a href="../index.html" class="logo">🍰 BakeGenius.ai</a>
+        <div class="navbar-container">
+            <div class="logo">🍰 BakeGenius.ai</div>
+            <ul class="nav-links">
+                <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="./convert.html" data-i18n="nav.convert">Convert Recipe</a></li>
+                <li><a href="./customize.html" data-i18n="nav.customize">Customize</a></li>
+                <li><a href="./recipe_hub.html" data-i18n="nav.recipehub">Recipe Hub</a></li>
+                <li><a href="./about.html" data-i18n="nav.about">About</a></li>
+            </ul>
+            <div class="language-selector">
+                <select id="languageSelect" class="language-dropdown">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="hi">🇮🇳 हिन्दी</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                </select>
+            </div>
+            <a href="./login.html" class="cta-btn" data-i18n="nav.login">Login</a>
+        </div>
+    </nav>
 
-    <button class="hamburger" id="hamburger-menu">
-      <i class="fas fa-bars"></i>
-    </button>
+    <!-- Main Content -->
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1 class="auth-title" data-i18n="auth.signup.title">🎂 Join BakeGenius.ai</h1>
+                <p class="auth-subtitle">Create your account and start baking with precision</p>
+            </div>
 
-    <div class="menu-wrapper" id="menu-wrapper">
-      <ul class="nav-links" style="display: none;">
-      </ul>
+            <form class="auth-form" id="signupForm">
+                <div class="form-group">
+                    <label for="name" class="form-label">
+                        <i class="fas fa-user"></i>
+                        Full Name
+                    </label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        class="form-input" 
+                        placeholder="Your full name"
+                        required
+                        minlength="2"
+                    >
+                </div>
 
-      <div class="nav-right">
-        <a href="feedback.html" class="feedback-btn fb-color">Feedback</a>
-        <a href="login.html" class="login-btn">Login</a>
-        
-        <label class="theme-switch">
-          <input type="checkbox" id="theme-toggle" />
-          <span class="slider">
-            <i class="fas fa-sun"></i>
-            <i class="fas fa-moon"></i>
-          </span>
-        </label>
-      </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">
+                        <i class="fas fa-envelope"></i>
+                        Email Address
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="form-input" 
+                        placeholder="your@email.com"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">
+                        <i class="fas fa-lock"></i>
+                        Password
+                    </label>
+                    <div class="password-input-container">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            class="form-input" 
+                            placeholder="Create a strong password"
+                            required
+                            minlength="6"
+                        >
+                        <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="password-strength" id="passwordStrength"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword" class="form-label">
+                        <i class="fas fa-lock"></i>
+                        Confirm Password
+                    </label>
+                    <div class="password-input-container">
+                        <input 
+                            type="password" 
+                            id="confirmPassword" 
+                            name="confirmPassword" 
+                            class="form-input" 
+                            placeholder="Confirm your password"
+                            required
+                        >
+                        <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="error-message" id="errorMessage"></div>
+
+                <button type="submit" class="auth-button" id="signupButton">
+                    <span class="button-text" data-i18n="auth.signup.button">🚀 Sign Up</span>
+                    <div class="loading-spinner" id="loadingSpinner"></div>
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Already have an account? <a href="./login.html" class="auth-link login-link" data-i18n="nav.login">🔐 Login</a></p>
+            </div>
+        </div>
     </div>
-  </div>
-</nav>
-  <!-- Main Content -->
-  <div class="auth-container">
-    <div class="auth-card">
-      <div class="auth-header">
-        <h1 class="auth-title">🎂 Join BakeGenius!</h1>
-        <p class="auth-subtitle">Create your account and start baking with precision</p>
-      </div>
 
-      <form class="auth-form" id="signupForm">
-        <div class="form-group">
-          <label for="name" class="form-label">
-            <i class="fas fa-user"></i>
-            Full Name
-          </label>
-          <input 
-            type="text" 
-            id="name" 
-            name="name" 
-            class="form-input" 
-            placeholder="Your full name"
-            required
-            minlength="2"
-          >
-        </div>
+    <script src="../js/i18n.js"></script>
 
-        <div class="form-group">
-          <label for="email" class="form-label">
-            <i class="fas fa-envelope"></i>
-            Email Address
-          </label>
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            class="form-input" 
-            placeholder="your@email.com"
-            required
-          >
-        </div>
-
-        <div class="form-group">
-          <label for="password" class="form-label">
-            <i class="fas fa-lock"></i>
-            Password
-          </label>
-          <div class="password-input-container">
-            <input 
-              type="password" 
-              id="password" 
-              name="password" 
-              class="form-input" 
-              placeholder="Create a strong password"
-              required
-              minlength="6"
-            >
-            <button type="button" class="password-toggle" onclick="togglePassword('password')">
-              <i class="fas fa-eye"></i>
-            </button>
-          </div>
-          <div class="password-strength" id="passwordStrength"></div>
-        </div>
-
-        <div class="form-group">
-          <label for="confirmPassword" class="form-label">
-            <i class="fas fa-lock"></i>
-            Confirm Password
-          </label>
-          <div class="password-input-container">
-            <input 
-              type="password" 
-              id="confirmPassword" 
-              name="confirmPassword" 
-              class="form-input" 
-              placeholder="Confirm your password"
-              required
-            >
-            <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
-              <i class="fas fa-eye"></i>
-            </button>
-          </div>
-        </div>
-
-        <div class="error-message" id="errorMessage"></div>
-
-        <button type="submit" class="auth-button" id="signupButton">
-          <span class="button-text">🚀 Create Account</span>
-          <div class="loading-spinner" id="loadingSpinner"></div>
-        </button>
-      </form>
-
-      <!-- Divider -->
-      <div class="divider"><span>or continue with</span></div>
-
-      <!-- Google Sign Up button -->
-      <button type="button" id="google-login-btn" class="google-btn">
-        <span class="google-logo">
-          <i class="fab fa-google"></i>
-        </span>
-        <span>Sign Up with Google</span>
-      </button>
-
-      <div class="auth-footer">
-        <p>Already have an account? <a href="./login.html" class="auth-link login-link">🔐 Sign In</a></p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-   <script src="../js/google_config.js"></script>
-  <script src="../js/auth.js"></script>
-  <!-- Firebase SDK (modular) -->
-  <script type="module" src="../js/firebase.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      initSignupPage(); // from auth.js
-    });
-  </script>
-  <script src="../js/theme.js"></script>
-
-  <!-- Back to Top Button -->
-  <button id="scrollTopBtn" title="Go to top">⬆</button>
-  
-  <script>
-    // Back to Top Button functionality
-    let scrollBtn = document.getElementById("scrollTopBtn");
-
-    window.onscroll = function () {
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollBtn.style.display = "block";
-      } else {
-        scrollBtn.style.display = "none";
-      }
-    };
-
-    scrollBtn.onclick = function () {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    };
-  </script>
-  <!-- Mouse Trail Effect -->
-<script src="../js/mouse-trail.js"></script>
-<script src="../js/feature.js"></script>
-
+    <script src="../js/auth.js"></script>
+    <script>
+        // Initialize signup page
+        document.addEventListener('DOMContentLoaded', function() {
+            initSignupPage();
+        });
+    </script>
 </body>
 </html>

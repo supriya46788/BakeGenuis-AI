@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Language Support Demo - BakeGenius.ai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/language-selector.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Comic Neue', sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            min-height: 100vh;
+        }
+        
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .demo-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .demo-subtitle {
+            color: #666;
+            font-size: 1.2rem;
+        }
+        
+        .language-demo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+        
+        .feature-demo {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+        }
+        
+        .feature-title {
+            color: #ff6b6b;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .translated-text {
+            background: #fff3cd;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .instructions {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body data-page-title="home.title">
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1 class="demo-title">🌍 Multi-Language Support Demo</h1>
+            <p class="demo-subtitle">Test the language switching functionality for BakeGenius.ai</p>
+        </div>
+        
+        <div class="language-demo">
+            <label for="languageSelect"><strong>🗣️ Select Language:</strong></label>
+            <div class="language-selector">
+                <select id="languageSelect" class="language-dropdown">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="hi">🇮🇳 हिन्दी</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="feature-demo">
+            <h2 class="feature-title">📱 Navigation Elements</h2>
+            <div class="translated-text">
+                <strong data-i18n="nav.home">Home</strong> | 
+                <strong data-i18n="nav.convert">Convert Recipe</strong> | 
+                <strong data-i18n="nav.customize">Customize</strong> | 
+                <strong data-i18n="nav.recipehub">Recipe Hub</strong> | 
+                <strong data-i18n="nav.about">About</strong>
+            </div>
+            <div class="translated-text">
+                <button style="background: #ff6b6b; color: white; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer;" data-i18n="nav.login">Login</button>
+                <button style="background: #4ecdc4; color: white; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; margin-left: 10px;" data-i18n="nav.signup">Sign Up</button>
+            </div>
+        </div>
+        
+        <div class="feature-demo">
+            <h2 class="feature-title">🏠 Home Page Content</h2>
+            <div class="translated-text">
+                <h3 data-i18n="home.title">Welcome to BakeGenius.ai</h3>
+                <p data-i18n="home.subtitle">From spoon to scale — get exact gram conversions with AI magic ✨<br>Transform vague recipe measurements into precise, consistent results every time!</p>
+            </div>
+            <div class="translated-text">
+                <strong data-i18n="home.feature1.title">AI-Powered Precision</strong><br>
+                <small data-i18n="home.feature1.desc">Advanced AI converts "cups" and "spoons" into exact gram measurements for perfect baking every time.</small>
+            </div>
+        </div>
+        
+        <div class="feature-demo">
+            <h2 class="feature-title">🧪 Convert Page Elements</h2>
+            <div class="translated-text">
+                <h3 data-i18n="convert.title">🧪 Recipe Converter</h3>
+                <p data-i18n="convert.subtitle">Transform your recipes into precise gram measurements with AI magic</p>
+                <label data-i18n="convert.input.label">📝 Paste your recipe here:</label><br>
+                <button style="background: #ff6b6b; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; margin-top: 10px;" data-i18n="convert.button">✨ Convert to Grams</button>
+            </div>
+        </div>
+        
+        <div class="feature-demo">
+            <h2 class="feature-title">🎨 Customize Page Elements</h2>
+            <div class="translated-text">
+                <h3 data-i18n="customize.title">🎨 Customize Your Recipe</h3>
+                <p data-i18n="customize.subtitle">Fine-tune ingredient densities and measurement types for perfect baking precision!</p>
+                <strong data-i18n="customize.brand.title">🏷️ Choose Your Preferred Brand</strong>
+            </div>
+        </div>
+        
+        <div class="feature-demo">
+            <h2 class="feature-title">⚖️ Scale Page Elements</h2>
+            <div class="translated-text">
+                <h3 data-i18n="scale.title">⚖️ Scale Your Recipe</h3>
+                <p data-i18n="scale.subtitle">Resize your recipes while maintaining perfect proportions</p>
+            </div>
+        </div>
+        
+        <div class="feature-demo">
+            <h2 class="feature-title">📚 Recipe Hub Elements</h2>
+            <div class="translated-text">
+                <h3 data-i18n="recipehub.title">📚 Recipe Hub</h3>
+                <p data-i18n="recipehub.subtitle">Discover amazing baking recipes powered by AI</p>
+            </div>
+        </div>
+        
+        <div class="feature-demo">
+            <h2 class="feature-title">🔐 Authentication Elements</h2>
+            <div class="translated-text">
+                <h3 data-i18n="auth.login.title">Login to BakeGenius.ai</h3>
+                <h3 data-i18n="auth.signup.title">Join BakeGenius.ai</h3>
+                <label data-i18n="auth.email">Email</label> | 
+                <label data-i18n="auth.password">Password</label><br>
+                <button style="background: #28a745; color: white; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; margin-top: 10px;" data-i18n="auth.login.button">Login</button>
+                <button style="background: #007bff; color: white; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; margin-left: 10px;" data-i18n="auth.signup.button">Sign Up</button>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>📋 Instructions:</h3>
+            <ol>
+                <li>Use the language dropdown above to switch between different languages</li>
+                <li>Watch how all the text content updates dynamically</li>
+                <li>Your language preference is automatically saved in localStorage</li>
+                <li>The system supports 5 languages: English, Hindi, Spanish, French, and German</li>
+                <li>All pages (except About and Contact) will respect the selected language</li>
+                <li>The language selector appears on all pages for easy switching</li>
+            </ol>
+            
+            <h4>🎯 Features Implemented:</h4>
+            <ul>
+                <li>✅ Language selection dropdown with 5 languages</li>
+                <li>✅ Dynamic content switching using data-i18n attributes</li>
+                <li>✅ LocalStorage for remembering user preference</li>
+                <li>✅ Responsive design for mobile and desktop</li>
+                <li>✅ Easy to add more languages in the future</li>
+                <li>✅ Fallback to English for missing translations</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="js/i18n.js"></script>
+</body>
+</html>

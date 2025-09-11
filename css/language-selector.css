@@ -1,0 +1,137 @@
+/* Language Selector Styles */
+.language-selector {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.language-dropdown {
+    background: #fff;
+    border: 2px solid #ff6b6b;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff6b6b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 35px;
+    min-width: 120px;
+}
+
+.language-dropdown:hover {
+    background-color: #fff8f0;
+    border-color: #ff5252;
+    transform: translateY(-1px);
+}
+
+.language-dropdown:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+}
+
+.language-dropdown option {
+    padding: 10px;
+    background: #fff;
+    color: #333;
+}
+
+/* Mobile responsive language selector */
+@media (max-width: 768px) {
+    .language-selector {
+        margin-left: 5px;
+    }
+    
+    .language-dropdown {
+        font-size: 12px;
+        padding: 6px 12px;
+        padding-right: 30px;
+        min-width: 100px;
+    }
+    
+    /* Hide language selector in mobile navigation and create separate mobile version */
+    .navbar .language-selector {
+        display: none;
+    }
+}
+
+/* Mobile menu language selector */
+@media (max-width: 768px) {
+    .mobile-language-selector {
+        width: 100%;
+        margin: 10px 0;
+        display: block;
+    }
+    
+    .mobile-language-selector .language-dropdown {
+        width: 100%;
+        margin: 0;
+        font-size: 16px;
+        padding: 12px 15px;
+        padding-right: 40px;
+    }
+}
+
+/* Show desktop language selector on larger screens */
+@media (min-width: 769px) {
+    .mobile-language-selector {
+        display: none;
+    }
+    
+    .navbar .language-selector {
+        display: inline-block;
+    }
+}
+
+/* Animation for language change */
+.language-transition {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.language-transition.changing {
+    opacity: 0.7;
+}
+
+/* Language flag icons in dropdown */
+.language-dropdown option {
+    font-family: 'Comic Neue', system-ui, -apple-system, sans-serif;
+}
+
+/* Hover effect for better UX */
+.language-selector:hover .language-dropdown {
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.15);
+}
+
+/* Ensure proper positioning in navbar */
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Adjust navbar layout for language selector */
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+
+.navbar .language-selector {
+    order: 2;
+}
+
+.navbar .auth-buttons {
+    order: 3;
+}
+
+.navbar .cta-btn {
+    order: 4;
+}
