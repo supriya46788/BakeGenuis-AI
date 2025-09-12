@@ -19,6 +19,106 @@
             --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             --glass: rgba(255, 255, 255, 0.15);
         }
+         /* Footer Modern Multi-Column */
+        .footer {
+            background: #0a0a3c;
+            color: #fff;
+            border-top: 4px solid #4ECDC4;
+            padding: 3rem 0 1.5rem 0;
+        }
+        .footer-columns {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .footer-logo {
+            flex: 1 1 180px;
+            min-width: 180px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+        .footer-group {
+            flex: 1 1 160px;
+            min-width: 160px;
+            margin-bottom: 1.5rem;
+        }
+        .footer-group-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        .footer-group-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-group-list li {
+            margin-bottom: 0.7em;
+        }
+        .footer-group-list a {
+            color: #b3e6e2;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .footer-group-list a:hover {
+            color: #FFD93D;
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 1rem;
+            color: #b3e6e2;
+            border-top: 1px solid #233;
+            padding-top: 1.2rem;
+        }
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #0077B5, #00A0DC);
+            color: #fff;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .footer-social a.portfolio {
+            background: linear-gradient(45deg, #FFD93D, #FF6B6B);
+        }
+        .footer-social a:hover {
+            transform: scale(1.08) translateY(-2px);
+        }
+        @media (max-width: 900px) {
+            .footer-columns {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
 
         * {
             margin: 0;
@@ -546,6 +646,43 @@
         <p id="warningMessage"></p>
         <button onclick="closeWarning()">Got it!</button>
     </div>
+
+    <!-- footer startes here -->
+    <footer class="footer">
+        <div class="footer-columns">
+            <div class="footer-logo">
+                <span style="font-size:2.1rem; color:var(--candy-red);">🍰</span> BakeGenius.ai
+            </div>
+            <div class="footer-group">
+                <div class="footer-group-title">About</div>
+                <ul class="footer-group-list">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="customize.html">Customize</a></li>
+                </ul>
+            </div>
+            <div class="footer-group">
+                <div class="footer-group-title">Tools</div>
+                <ul class="footer-group-list">
+                    <li><a href="convert.html">Convert</a></li>
+                    <li><a href="scale.html">Scale</a></li>
+                </ul>
+            </div>
+            <div class="footer-group">
+                <div class="footer-group-title">Quick Links</div>
+                <ul class="footer-group-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2025 BakeGenius.ai &mdash; Made with <span style="color:#FF6B6B;">&#10084;&#65039;</span> by Supriya Pandey</span>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/" class="linkedin" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://your-portfolio.com/" class="portfolio" target="_blank" rel="noopener" title="Portfolio"><i class="fas fa-globe"></i></a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         const GEMINI_API_KEY = 'API_KEY';
