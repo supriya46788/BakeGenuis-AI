@@ -6,6 +6,106 @@
     <title>Scale Recipes - BakeGenius.ai</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        /* Footer Modern Multi-Column */
+        .footer {
+            background: #0a0a3c;
+            color: #fff;
+            border-top: 4px solid #4ECDC4;
+            padding: 3rem 0 1.5rem 0;
+        }
+        .footer-columns {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .footer-logo {
+            flex: 1 1 180px;
+            min-width: 180px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+        .footer-group {
+            flex: 1 1 160px;
+            min-width: 160px;
+            margin-bottom: 1.5rem;
+        }
+        .footer-group-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        .footer-group-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-group-list li {
+            margin-bottom: 0.7em;
+        }
+        .footer-group-list a {
+            color: #b3e6e2;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .footer-group-list a:hover {
+            color: #FFD93D;
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 1rem;
+            color: #b3e6e2;
+            border-top: 1px solid #233;
+            padding-top: 1.2rem;
+        }
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #0077B5, #00A0DC);
+            color: #fff;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .footer-social a.portfolio {
+            background: linear-gradient(45deg, #FFD93D, #FF6B6B);
+        }
+        .footer-social a:hover {
+            transform: scale(1.08) translateY(-2px);
+        }
+        @media (max-width: 900px) {
+            .footer-columns {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
         * {
             margin: 0;
             padding: 0;
@@ -106,6 +206,34 @@
             background: #4ECDC4;
             color: white;
         }
+        /* Back to Top Button Styles */
+#backToTop {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    z-index: 2000;
+    background: linear-gradient(135deg, var(--candy-red), var(--sky-blue), var(--sunny-yellow));
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 2rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s, transform 0.2s;
+}
+#backToTop.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-10px) scale(1.08);
+}
+#backToTop:hover {
+    background: linear-gradient(135deg, var(--sunny-yellow), var(--candy-red), var(--sky-blue));
+    transform: scale(1.15);
+}
 
         /* Main Container */
         .container {
@@ -598,10 +726,59 @@
             </div>
         </div>
     </div>
+    <!-- Back to Top Button -->
+<button id="backToTop" title="Back to Top">⬆️</button>
+    
+    <!-- footer startes here -->
+    <footer class="footer">
+        <div class="footer-columns">
+            <div class="footer-logo">
+                <span style="font-size:2.1rem; color:#FF6B6B;">🍰</span> BakeGenius.ai
+            </div>
+            <div class="footer-group">
+                <div class="footer-group-title">About</div>
+                <ul class="footer-group-list">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="customize.html">Customize</a></li>
+                </ul>
+            </div>
+            <div class="footer-group">
+                <div class="footer-group-title">Tools</div>
+                <ul class="footer-group-list">
+                    <li><a href="convert.html">Convert</a></li>
+                    <li><a href="scale.html">Scale</a></li>
+                </ul>
+            </div>
+            <div class="footer-group">
+                <div class="footer-group-title">Quick Links</div>
+                <ul class="footer-group-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2025 BakeGenius.ai &mdash; Made with <span style="color:#FF6B6B;">&#10084;&#65039;</span> by Supriya Pandey</span>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/" class="linkedin" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v5.595z"/>
+                    </svg>
+                </a>
+                <a href="https://your-portfolio.com/" class="portfolio" target="_blank" rel="noopener" title="Portfolio" aria-label="Portfolio">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm0 2c1.657 0 3.156.672 4.242 1.758A5.978 5.978 0 0 0 18 12c0 1.657-.672 3.156-1.758 4.242A5.978 5.978 0 0 0 12 18a5.978 5.978 0 0 0-4.242-1.758A5.978 5.978 0 0 0 6 12c0-1.657.672-3.156 1.758-4.242A5.978 5.978 0 0 0 12 4zm0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         const API_KEY = 'API_KEY';
         const API_URL = 'API_URL';
+
+        
 
         // Ingredient icons mapping
         const ingredientIcons = {
@@ -655,6 +832,8 @@
             return ingredientIcons.default;
         }
 
+
+        
         function parseIngredientLine(line) {
             // Enhanced regex to capture amount, unit, and ingredient
             const patterns = [
@@ -861,6 +1040,18 @@
             document.getElementById('convertToGrams').checked = false;
             document.getElementById('resultsContainer').classList.remove('show');
         }
+        // Back to Top Button Logic
+const backToTopBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+    } else {
+        backToTopBtn.classList.remove('show');
+    }
+});
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
         // Add some example recipes on page load
         window.addEventListener('load', function() {
