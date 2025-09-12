@@ -229,6 +229,38 @@
             box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
         }
 
+        .signup-btn {
+            background: linear-gradient(45deg, var(--sky-blue), var(--mint-green));
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .signup-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+            background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        body.dark-mode .signup-btn {
+            background: linear-gradient(45deg, #16a085, #1abc9c);
+            box-shadow: 0 4px 15px rgba(22, 160, 133, 0.3);
+        }
+
+        body.dark-mode .signup-btn:hover {
+            background: linear-gradient(45deg, #1abc9c, #16a085);
+            box-shadow: 0 8px 25px rgba(22, 160, 133, 0.4);
+        }
+
         .hamburger {
             display: none;
             flex-direction: column;
@@ -266,6 +298,34 @@
         .hamburger.active span:nth-child(3) {
             transform: rotate(45deg) translate(-5px, -6px);
         }
+        /* Back to Top Button Styles */
+#backToTop {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    z-index: 2000;
+    background: linear-gradient(135deg, var(--candy-red), var(--sky-blue), var(--sunny-yellow));
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 2rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s, transform 0.2s;
+}
+#backToTop.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-10px) scale(1.08);
+}
+#backToTop:hover {
+    background: linear-gradient(135deg, var(--sunny-yellow), var(--candy-red), var(--sky-blue));
+    transform: scale(1.15);
+}
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -546,6 +606,7 @@
             --mint-green: #98FB98;
             --lavender: #E6E6FA;*/
         /* Footer */
+ footer
     /*.footer {
             background: white;
           
@@ -583,10 +644,14 @@
             flex: 1 1 160px;
             min-width: 160px;
             margin-bottom: 1.5rem;
+
         }
-        .footer-group-title {
+
+        .footer-section h3.footer-title {
+            color: var(--candy-red);
             font-size: 1.2rem;
             font-weight: 700;
+ footer
             margin-bottom: 1rem;
             color: #333;
         }
@@ -619,41 +684,30 @@
             color: #333;
             border-top: 1px solid #ddd;
             padding-top: 1.2rem;
+
         }
-        .footer-social {
-            display: flex;
-            gap: 1rem;
+
+        .footer-section h3.footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            border-radius: 2px;
         }
-        .footer-social a {
+
+        .footer-logo {
             display: flex;
             align-items: center;
-            justify-content: center;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #0077B5, #00A0DC);
-            color: #fff;
-            font-size: 1.2rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-            transition: background 0.2s, transform 0.2s;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--candy-red);
         }
-        .footer-social a.portfolio {
-            background: linear-gradient(45deg, #FFD93D, #FF6B6B);
-        }
-        .footer-social a:hover {
-            transform: scale(1.08) translateY(-2px);
-        }
-        @media (max-width: 900px) {
-            .footer-columns {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-        }
+ footer
            /* background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 2rem;
@@ -679,37 +733,32 @@
             display: flex;
             align-items: center;
             gap: 0.3em;
+
         }
 
-        .footer-heart {
-            color: #FF6B6B;
-            font-size: 1.2em;
+        body.dark-mode .footer-description {
+            color: #ccc;
         }
 
         .footer-links {
-            display: flex;
-            gap: 1.5rem;
             list-style: none;
-            margin: 0;
             padding: 0;
-        }
-        .footer-links li a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-        .footer-links li a:hover {
-            color: var(--candy-red);
+            margin: 0;
         }
 
+footer
       .social-links {
             display: flex;
             gap: 1rem;
+
         }
-        .social-link {
+
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
             display: flex;
             align-items: center;
+ footer
             justify-content: center;
             width: 42px;
             height: 42px;
@@ -731,27 +780,31 @@
         }
         .social-link.portfolio {
             background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
+
         }
-        .social-link:hover {
-            transform: scale(1.1) translateY(-2px);
+
+        .footer-links a:hover {
+            color: var(--candy-red);
+            transform: translateX(5px);
+            background: rgba(255, 107, 107, 0.1);
+            padding-left: 0.8rem;
         }
+footer
         
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
+
+        body.dark-mode .footer-links a:hover {
+            color: #ff8a80;
+            background: rgba(255, 138, 128, 0.1);
         }
 
-        .footer-text {
-            color: #666;
-            font-weight: 600;
+        .footer-links i {
+            font-size: 0.9rem;
+            width: 16px;
+            opacity: 0.7;
         }
 
+ footer
       .social-link.github {
     background: black !important;   /* black circle */
    /* color: white !important;        /* white logo 
@@ -885,7 +938,79 @@
   
 
 
-   
+
+
+        .social-link.email {
+            background: linear-gradient(45deg, #EA4335, #34A853);
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+        }
+
+        body.dark-mode .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-bottom-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .copyright a {
+            color: var(--candy-red);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        body.dark-mode .copyright {
+            color: #ccc;
+        }
+
+        body.dark-mode .copyright a {
+            color: #ff8a80;
+        }
+
+        .footer-badges {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .badge {
+            background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
+            color: #333;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .badge i {
+            font-size: 0.8rem;
+        }
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -927,8 +1052,36 @@
             }
 
             .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 1rem 1rem;
+                text-align: center;
+            }
+
+            .footer-section h3.footer-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-bottom-content {
                 flex-direction: column;
                 text-align: center;
+                gap: 1rem;
+            }
+
+            .footer-badges {
+                justify-content: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
             }
         }
 
@@ -945,6 +1098,106 @@
                 font-size: 1rem;
                 padding: 0.8rem 2rem;
             }
+        }
+
+        /* Login Modal */
+        #loginModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #loginModal .modal-content {
+            background: #fff;
+            color: #222;
+            border-radius: 18px;
+            max-width: 350px;
+            width: 90%;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+            position: relative;
+        }
+
+        #loginModal #closeLoginModal {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        #loginModal h2 {
+            margin-bottom: 1.2rem;
+            color: #ff6b6b;
+            text-align: center;
+        }
+
+        #loginModal input {
+            width: 100%;
+            padding: 0.7rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        /* Light Colors for Form Inputs */
+        #loginModal input, #loginModal button[type="submit"] {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ddd;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        #loginModal input:focus {
+            background: rgba(255, 255, 255, 1);
+            border-color: var(--sky-blue);
+            box-shadow: 0 0 8px rgba(78, 205, 196, 0.5);
+            outline: none;
+        }
+
+        #loginModal button[type="submit"] {
+            background: linear-gradient(45deg, var(--sky-blue), var(--mint-green));
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        #loginModal button[type="submit"]:hover {
+            background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+        }
+
+        #loginForm, #signUpForm {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        #loginForm:focus-within, #signUpForm:focus-within {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        #toggleForm {
+            color: var(--candy-red);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        #toggleForm:hover {
+            color: var(--sunny-yellow);
         }
     </style>
 </head>
@@ -967,7 +1220,7 @@
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="#" class="login-btn" onclick="alert('Login functionality will be implemented soon!')">
+                <a href="#" class="login-btn" id="openLoginModal">
                     <i class="fas fa-user"></i>
                     Login
                 </a>
@@ -1010,8 +1263,11 @@
             </div>
         </section>
     </main>
+    <!-- Back to Top Button -->
+<button id="backToTop" title="Back to Top">⬆️</button>
 
     <!-- Footer -->
+footer
    <!-- <footer class="footer">
         <div class="footer-columns">
             <div class="footer-logo">
@@ -1019,30 +1275,45 @@
                  <p class="footer-description">
             Baking meets AI - recipes, ideas<br> and inspiration to make your<br> creations magical!
         </p>
+
             </div>
-            <div class="footer-group">
-                <div class="footer-group-title">About</div>
-                <ul class="footer-group-list">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="customize.html">Customize</a></li>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="convert.html"><i class="fas fa-exchange-alt"></i> Convert Recipe</a></li>
+                    <li><a href="customize.html"><i class="fas fa-cog"></i> Customize</a></li>
+                    <li><a href="scale.html"><i class="fas fa-ruler"></i> Scale Recipes</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
                 </ul>
             </div>
-            <div class="footer-group">
-                <div class="footer-group-title">Tools</div>
-                <ul class="footer-group-list">
-                    <li><a href="convert.html">Convert</a></li>
-                    <li><a href="scale.html">Scale</a></li>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Features</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-calculator"></i> Unit Conversion</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Nutritional Analysis</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Recipe Scaling</a></li>
+                    <li><a href="#"><i class="fas fa-magic"></i> AI Optimization</a></li>
+                    <li><a href="#"><i class="fas fa-mobile-alt"></i> Mobile Friendly</a></li>
                 </ul>
             </div>
-            <div class="footer-group">
-                <div class="footer-group-title">Quick Links</div>
-                <ul class="footer-group-list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">Contact</a></li>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Help Center</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i> Feedback</a></li>
+                    <li><a href="#"><i class="fas fa-bug"></i> Report Issue</a></li>
+                    <li><a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    <li><a href="#"><i class="fas fa-gavel"></i> Terms of Service</a></li>
                 </ul>
             </div>
         </div>
+        
         <div class="footer-bottom">
+ footer
             <span>&copy; 2025 BakeGenius.ai &mdash; Made with <span style="color:#FF6B6B;">&#10084;&#65039;</span> by Supriya Pandey</span>
               <div class="footer-social">
         <p class="follow-text">Follow us</p> <!-- 👈 Added text -->
@@ -1058,6 +1329,7 @@
             </a>
         </div>
     </div>
+
         </div>
     </footer>-->
 <footer class="footer">
@@ -1109,6 +1381,36 @@
     <p>© 2025 BakeGenius.ai &#10084;&#65039; — All rights reserved.</p>
   </div>
 </footer>
+
+    <!-- Login/Sign-Up Modal -->
+    <div id="loginModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35); z-index:2000; align-items:center; justify-content:center;">
+      <div style="background:#fff; color:#222; border-radius:18px; max-width:350px; width:90%; padding:2rem 1.5rem; box-shadow:0 8px 32px rgba(0,0,0,0.18); position:relative;">
+        <button id="closeLoginModal" style="position:absolute; top:12px; right:16px; background:none; border:none; font-size:1.3rem; cursor:pointer;">&times;</button>
+        <h2 id="modalTitle" style="margin-bottom:1.2rem; color:#ff6b6b; text-align:center;">Login</h2>
+        
+        <!-- Login Form -->
+        <form id="loginForm">
+          <input type="text" id="loginUsername" placeholder="Username" required style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:8px; border:1px solid #ccc;">
+          <input type="password" id="loginPassword" placeholder="Password" required style="width:100%; padding:0.7rem; margin-bottom:1.2rem; border-radius:8px; border:1px solid #ccc;">
+          <button type="submit" style="width:100%; background:linear-gradient(45deg,#ff6b6b,#ffd93d); color:#fff; font-weight:700; border:none; border-radius:25px; padding:0.8rem 0; font-size:1.1rem; cursor:pointer;">Login</button>
+        </form>
+
+        <!-- Sign-Up Form -->
+        <form id="signUpForm" style="display:none;">
+          <input type="text" id="signUpUsername" placeholder="New Username" required style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:8px; border:1px solid #ccc;">
+          <input type="password" id="signUpPassword" placeholder="New Password" required style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:8px; border:1px solid #ccc;">
+          <input type="password" id="confirmPassword" placeholder="Confirm Password" required style="width:100%; padding:0.7rem; margin-bottom:1.2rem; border-radius:8px; border:1px solid #ccc;">
+          <button type="submit" style="width:100%; background:linear-gradient(45deg,#4ECDC4,#FFD93D); color:#fff; font-weight:700; border:none; border-radius:25px; padding:0.8rem 0; font-size:1.1rem; cursor:pointer;">Sign Up</button>
+        </form>
+
+        <!-- Toggle Between Login and Sign-Up -->
+        <div style="text-align:center; margin-top:1rem;">
+          <span id="toggleForm" style="color:#3498db; cursor:pointer; text-decoration:underline;">Don't have an account? Sign Up</span>
+        </div>
+
+        <div id="formError" style="color:#e74c3c; text-align:center; margin-top:0.7rem; display:none;">Error message here.</div>
+      </div>
+    </div>
 
     <script>
         // Dark Mode Toggle
@@ -1178,6 +1480,19 @@
             }, 500);
         });
 
+        // Back to Top Button Logic
+const backToTopBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+    } else {
+        backToTopBtn.classList.remove('show');
+    }
+});
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
         // Parallax effect for decorative icons
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
@@ -1201,6 +1516,107 @@
             });
         });
 
+        // Login/Sign-Up Modal Logic
+        const loginModal = document.getElementById('loginModal');
+        const openLoginModal = document.getElementById('openLoginModal');
+        const closeLoginModal = document.getElementById('closeLoginModal');
+        const loginForm = document.getElementById('loginForm');
+        const signUpForm = document.getElementById('signUpForm');
+        const toggleForm = document.getElementById('toggleForm');
+        const modalTitle = document.getElementById('modalTitle');
+        const formError = document.getElementById('formError');
+
+        // Open Modal
+        openLoginModal.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.style.display = 'flex';
+            loginForm.style.display = 'block';
+            signUpForm.style.display = 'none';
+            modalTitle.textContent = 'Login';
+            toggleForm.textContent = "Don't have an account? Sign Up";
+            formError.style.display = 'none';
+        });
+
+        // Close Modal
+        closeLoginModal.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+        });
+
+        // Toggle Between Login and Sign-Up
+        toggleForm.addEventListener('click', () => {
+            if (loginForm.style.display === 'block') {
+                loginForm.style.display = 'none';
+                signUpForm.style.display = 'block';
+                modalTitle.textContent = 'Sign Up';
+                toggleForm.textContent = 'Already have an account? Login';
+            } else {
+                loginForm.style.display = 'block';
+                signUpForm.style.display = 'none';
+                modalTitle.textContent = 'Login';
+                toggleForm.textContent = "Don't have an account? Sign Up";
+            }
+            formError.style.display = 'none';
+        });
+
+        // Handle Login Form Submission
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Retrieve users from localStorage
+            const users = JSON.parse(localStorage.getItem('users')) || {};
+
+            // Check if the user exists and the password matches
+            if (users[username] && users[username] === password) {
+                alert(`Welcome back, ${username}!`);
+                loginModal.style.display = 'none';
+            } else {
+                formError.textContent = 'Invalid username or password.';
+                formError.style.display = 'block';
+            }
+        });
+
+        // Handle Sign-Up Form Submission
+        signUpForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('signUpUsername').value;
+            const password = document.getElementById('signUpPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Validate passwords match
+            if (password !== confirmPassword) {
+                formError.textContent = 'Passwords do not match.';
+                formError.style.display = 'block';
+                return;
+            }
+
+            // Retrieve users from localStorage
+            const users = JSON.parse(localStorage.getItem('users')) || {};
+
+            // Check if the username already exists
+            if (users[username]) {
+                formError.textContent = 'Username already exists.';
+                formError.style.display = 'block';
+            } else {
+                // Save the new user
+                users[username] = password;
+                localStorage.setItem('users', JSON.stringify(users));
+                alert('Sign-Up successful! You can now log in.');
+                loginForm.style.display = 'block';
+                signUpForm.style.display = 'none';
+                modalTitle.textContent = 'Login';
+                toggleForm.textContent = "Don't have an account? Sign Up";
+                formError.style.display = 'none';
+            }
+        });
+
+        // Close Modal on Outside Click
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
