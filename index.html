@@ -539,11 +539,17 @@
             color: #666;
             line-height: 1.5;
         }
-
+/*--candy-red: #FF6B6B;
+            --sky-blue: #4ECDC4;
+            --sunny-yellow: #FFD93D;
+            --soft-pink: #FFB6C1;
+            --mint-green: #98FB98;
+            --lavender: #E6E6FA;*/
         /* Footer */
-        .footer {
-            background: #0a0a3c;
-            color: #fff;
+    /*.footer {
+            background: white;
+          
+            color: #333;
             border-top: 4px solid var(--sky-blue);
             padding: 3rem 0 1.5rem 0;
         }
@@ -561,10 +567,18 @@
             min-width: 180px;
             font-size: 2rem;
             font-weight: 700;
-            color: #fff;
+            color: var(--candy-red);
             letter-spacing: 1px;
             margin-bottom: 1.5rem;
         }
+        .footer-description {
+    margin-top: 0.5rem;   /* space below logo */
+   /* color:#333;         /* black text 
+    font-size: 0.8rem;   /* slightly smaller than logo 
+    line-height: 1.4;     /* good spacing for 3 lines 
+    font-weight: 500;
+}
+
         .footer-group {
             flex: 1 1 160px;
             min-width: 160px;
@@ -574,7 +588,7 @@
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: #fff;
+            color: #333;
         }
         .footer-group-list {
             list-style: none;
@@ -585,14 +599,14 @@
             margin-bottom: 0.7em;
         }
         .footer-group-list a {
-            color: #b3e6e2;
+            color: #333;
             text-decoration: none;
             font-weight: 500;
             font-size: 1rem;
             transition: color 0.2s;
         }
         .footer-group-list a:hover {
-            color: var(--sunny-yellow);
+            color: var(--candy-red);
         }
         .footer-bottom {
             max-width: 1200px;
@@ -602,8 +616,8 @@
             align-items: center;
             flex-wrap: wrap;
             font-size: 1rem;
-            color: #b3e6e2;
-            border-top: 1px solid #233;
+            color: #333;
+            border-top: 1px solid #ddd;
             padding-top: 1.2rem;
         }
         .footer-social {
@@ -640,15 +654,15 @@
                 text-align: center;
             }
         }
-            background: rgba(255, 255, 255, 0.95);
+           /* background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 2rem;
             position: relative;
             z-index: 2;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
+        }*/
 
-        .footer-content {
+        /*.footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
@@ -659,7 +673,7 @@
         }
 
         .footer-text {
-            color: #666;
+            color: #333;
             font-weight: 600;
             font-size: 1rem;
             display: flex;
@@ -689,7 +703,7 @@
             color: var(--candy-red);
         }
 
-        .social-links {
+      .social-links {
             display: flex;
             gap: 1rem;
         }
@@ -705,16 +719,23 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.12);
             transition: transform 0.2s;
         }
-        .social-link.linkedin {
+        .social-link.github {
+    background: transparent;
+    color: black;
+    border: 2px solid black; /* optional border for visibility 
+}
+
+
+/*.social-link.linkedin {
             background: linear-gradient(45deg, #0077B5, #00A0DC);
         }
         .social-link.portfolio {
-            background: linear-gradient(45deg, #FFD93D, #FF6B6B);
+            background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
         }
         .social-link:hover {
             transform: scale(1.1) translateY(-2px);
         }
-        }
+        
 
         .footer-content {
             max-width: 1200px;
@@ -731,39 +752,140 @@
             font-weight: 600;
         }
 
-        .social-links {
-            display: flex;
-            gap: 1rem;
+      .social-link.github {
+    background: black !important;   /* black circle */
+   /* color: white !important;        /* white logo 
+    border: 2px solid black;        /* keeps shape consistent 
+}
+
+.social-link.github i {
+    color: white !important;        /* force logo to white 
+}*/
+.footer {
+  background: linear-gradient(
+    90deg, 
+    rgba(255, 118, 118, 0.5), 
+    rgba(255, 177, 153, 0.5)
+) !important;
+
+  color: var(--candy-red);
+  padding: 40px 20px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap:40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-column {
+  flex: 1 1 220px;
+  margin:0;
+  display:flex;
+  flex-direction: column;
+ gap:15px;
+}
+
+.footer h2, .footer h4 {
+  margin-bottom: 8px;
+}
+
+.footer p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer ul li a {
+  color: #333;
+  text-decoration: none;
+
+  transition: opacity 0.3s;
+}
+
+.footer ul li a:hover {
+  opacity: 0.8;
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: 10px;
+  gap:10px;
+}
+
+.newsletter-form input {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  flex: 1;
+}
+
+.newsletter-form button {
+  background: #e74c3c;
+  color: #333;
+  border: none;
+  padding: 10px 25px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.newsletter-form button:hover {
+  background: #c0392b;
+}
+
+.social-icons { margin-top: 10px; } 
+.social-icons a {
+     margin-right: 10px; 
+     color: #333; 
+     font-size: 20px;
+      transition: opacity 0.3s; 
+    } 
+    .social-icons a:hover {
+         opacity: 0.7; 
         }
 
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
-            color: white;
-            text-decoration: none;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  font-size: 13px;
+}
 
-        .social-link:hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            animation: wobble 0.5s ease-in-out;
-        }
 
-        .social-link.linkedin {
-            background: linear-gradient(45deg, #0077B5, #00A0DC);
-        }
+      .social-icons a {
+  margin-right: 10px;
+  font-size: 20px;
+  transition: transform 0.3s;
+}
 
-        .social-link.portfolio {
-            background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
-        }
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Specific colors */
+.social-icons a.linkedin { color: #0077b5; }   /* LinkedIn blue */
+.social-icons a.github { color: #333; }        /* GitHub dark gray */
+.social-icons a.email { color: #d44638; }      /* Gmail red */     
+  
+
+
+   
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -890,10 +1012,13 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+   <!-- <footer class="footer">
         <div class="footer-columns">
             <div class="footer-logo">
                 <span style="font-size:2.1rem; color:var(--candy-red);">🍰</span> BakeGenius.ai
+                 <p class="footer-description">
+            Baking meets AI - recipes, ideas<br> and inspiration to make your<br> creations magical!
+        </p>
             </div>
             <div class="footer-group">
                 <div class="footer-group-title">About</div>
@@ -919,12 +1044,71 @@
         </div>
         <div class="footer-bottom">
             <span>&copy; 2025 BakeGenius.ai &mdash; Made with <span style="color:#FF6B6B;">&#10084;&#65039;</span> by Supriya Pandey</span>
-            <div class="footer-social">
-                <a href="https://www.linkedin.com/" class="linkedin" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://your-portfolio.com/" class="portfolio" target="_blank" rel="noopener" title="Portfolio"><i class="fas fa-globe"></i></a>
-            </div>
+              <div class="footer-social">
+        <p class="follow-text">Follow us</p> <!-- 👈 Added text -->
+       <!-- <div class="social-links">
+            <a href="https://your-github.com/" class="social-link github" target="_blank" rel="noopener" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/" class="social-link linkedin" target="_blank" rel="noopener" title="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://your-portfolio.com/" class="social-link portfolio" target="_blank" rel="noopener" title="Portfolio">
+                <i class="fas fa-globe"></i>
+            </a>
         </div>
-    </footer>
+    </div>
+        </div>
+    </footer>-->
+<footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Left: Brand Info -->
+    <div class="footer-column brand">
+      <h2><span class="logo">🍰 BakeGenius.ai</span></h2>
+      <p>Baking meets AI — recipes, ideas, and inspiration to make your creations magical!</p>
+    </div>
+    
+    <!-- Middle: Links -->
+    <div class="footer-column links">
+      <h4>Links</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Convert Recipe</a></li>
+        <li><a href="#">Customize</a></li>
+        <li><a href="#">Recipe Hub</a></li>
+        <li><a href="#">Scale Recipes</a></li>
+        <li><a href="#">Feedback</a></li>
+      </ul>
+    </div>
+    
+    <!-- Newsletter -->
+    <div class="footer-column newsletter">
+      <h4>Subscribe to our Newsletter</h4>
+      <p>Get the latest baking tips & AI recipes, and exclusive content delivered straight to your inbox!</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    
+    <!-- Social Icons -->
+    <div class="footer-column social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+  <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+  <a href="#" class="github"><i class="fab fa-github"></i></a>
+  <a href="#" class="email"><i class="fas fa-envelope"></i></a>
+</div>
+    </div>
+    
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <p>© 2025 BakeGenius.ai &#10084;&#65039; — All rights reserved.</p>
+  </div>
+</footer>
 
     <script>
         // Dark Mode Toggle
