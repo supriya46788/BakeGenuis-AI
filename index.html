@@ -229,6 +229,38 @@
             box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
         }
 
+        .signup-btn {
+            background: linear-gradient(45deg, var(--sky-blue), var(--mint-green));
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .signup-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+            background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        body.dark-mode .signup-btn {
+            background: linear-gradient(45deg, #16a085, #1abc9c);
+            box-shadow: 0 4px 15px rgba(22, 160, 133, 0.3);
+        }
+
+        body.dark-mode .signup-btn:hover {
+            background: linear-gradient(45deg, #1abc9c, #16a085);
+            box-shadow: 0 8px 25px rgba(22, 160, 133, 0.4);
+        }
+
         .hamburger {
             display: none;
             flex-direction: column;
@@ -857,6 +889,106 @@
                 padding: 0.8rem 2rem;
             }
         }
+
+        /* Login Modal */
+        #loginModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #loginModal .modal-content {
+            background: #fff;
+            color: #222;
+            border-radius: 18px;
+            max-width: 350px;
+            width: 90%;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+            position: relative;
+        }
+
+        #loginModal #closeLoginModal {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        #loginModal h2 {
+            margin-bottom: 1.2rem;
+            color: #ff6b6b;
+            text-align: center;
+        }
+
+        #loginModal input {
+            width: 100%;
+            padding: 0.7rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        /* Light Colors for Form Inputs */
+        #loginModal input, #loginModal button[type="submit"] {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ddd;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        #loginModal input:focus {
+            background: rgba(255, 255, 255, 1);
+            border-color: var(--sky-blue);
+            box-shadow: 0 0 8px rgba(78, 205, 196, 0.5);
+            outline: none;
+        }
+
+        #loginModal button[type="submit"] {
+            background: linear-gradient(45deg, var(--sky-blue), var(--mint-green));
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        #loginModal button[type="submit"]:hover {
+            background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+        }
+
+        #loginForm, #signUpForm {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        #loginForm:focus-within, #signUpForm:focus-within {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        #toggleForm {
+            color: var(--candy-red);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        #toggleForm:hover {
+            color: var(--sunny-yellow);
+        }
     </style>
 </head>
 <body>
@@ -878,7 +1010,7 @@
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="#" class="login-btn" onclick="alert('Login functionality will be implemented soon!')">
+                <a href="#" class="login-btn" id="openLoginModal">
                     <i class="fas fa-user"></i>
                     Login
                 </a>
@@ -997,6 +1129,36 @@
         </div>
     </footer>
 
+    <!-- Login/Sign-Up Modal -->
+    <div id="loginModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35); z-index:2000; align-items:center; justify-content:center;">
+      <div style="background:#fff; color:#222; border-radius:18px; max-width:350px; width:90%; padding:2rem 1.5rem; box-shadow:0 8px 32px rgba(0,0,0,0.18); position:relative;">
+        <button id="closeLoginModal" style="position:absolute; top:12px; right:16px; background:none; border:none; font-size:1.3rem; cursor:pointer;">&times;</button>
+        <h2 id="modalTitle" style="margin-bottom:1.2rem; color:#ff6b6b; text-align:center;">Login</h2>
+        
+        <!-- Login Form -->
+        <form id="loginForm">
+          <input type="text" id="loginUsername" placeholder="Username" required style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:8px; border:1px solid #ccc;">
+          <input type="password" id="loginPassword" placeholder="Password" required style="width:100%; padding:0.7rem; margin-bottom:1.2rem; border-radius:8px; border:1px solid #ccc;">
+          <button type="submit" style="width:100%; background:linear-gradient(45deg,#ff6b6b,#ffd93d); color:#fff; font-weight:700; border:none; border-radius:25px; padding:0.8rem 0; font-size:1.1rem; cursor:pointer;">Login</button>
+        </form>
+
+        <!-- Sign-Up Form -->
+        <form id="signUpForm" style="display:none;">
+          <input type="text" id="signUpUsername" placeholder="New Username" required style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:8px; border:1px solid #ccc;">
+          <input type="password" id="signUpPassword" placeholder="New Password" required style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:8px; border:1px solid #ccc;">
+          <input type="password" id="confirmPassword" placeholder="Confirm Password" required style="width:100%; padding:0.7rem; margin-bottom:1.2rem; border-radius:8px; border:1px solid #ccc;">
+          <button type="submit" style="width:100%; background:linear-gradient(45deg,#4ECDC4,#FFD93D); color:#fff; font-weight:700; border:none; border-radius:25px; padding:0.8rem 0; font-size:1.1rem; cursor:pointer;">Sign Up</button>
+        </form>
+
+        <!-- Toggle Between Login and Sign-Up -->
+        <div style="text-align:center; margin-top:1rem;">
+          <span id="toggleForm" style="color:#3498db; cursor:pointer; text-decoration:underline;">Don't have an account? Sign Up</span>
+        </div>
+
+        <div id="formError" style="color:#e74c3c; text-align:center; margin-top:0.7rem; display:none;">Error message here.</div>
+      </div>
+    </div>
+
     <script>
         // Dark Mode Toggle
         const darkModeToggle = document.getElementById('darkModeToggle');
@@ -1088,6 +1250,107 @@
             });
         });
 
+        // Login/Sign-Up Modal Logic
+        const loginModal = document.getElementById('loginModal');
+        const openLoginModal = document.getElementById('openLoginModal');
+        const closeLoginModal = document.getElementById('closeLoginModal');
+        const loginForm = document.getElementById('loginForm');
+        const signUpForm = document.getElementById('signUpForm');
+        const toggleForm = document.getElementById('toggleForm');
+        const modalTitle = document.getElementById('modalTitle');
+        const formError = document.getElementById('formError');
+
+        // Open Modal
+        openLoginModal.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.style.display = 'flex';
+            loginForm.style.display = 'block';
+            signUpForm.style.display = 'none';
+            modalTitle.textContent = 'Login';
+            toggleForm.textContent = "Don't have an account? Sign Up";
+            formError.style.display = 'none';
+        });
+
+        // Close Modal
+        closeLoginModal.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+        });
+
+        // Toggle Between Login and Sign-Up
+        toggleForm.addEventListener('click', () => {
+            if (loginForm.style.display === 'block') {
+                loginForm.style.display = 'none';
+                signUpForm.style.display = 'block';
+                modalTitle.textContent = 'Sign Up';
+                toggleForm.textContent = 'Already have an account? Login';
+            } else {
+                loginForm.style.display = 'block';
+                signUpForm.style.display = 'none';
+                modalTitle.textContent = 'Login';
+                toggleForm.textContent = "Don't have an account? Sign Up";
+            }
+            formError.style.display = 'none';
+        });
+
+        // Handle Login Form Submission
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Retrieve users from localStorage
+            const users = JSON.parse(localStorage.getItem('users')) || {};
+
+            // Check if the user exists and the password matches
+            if (users[username] && users[username] === password) {
+                alert(`Welcome back, ${username}!`);
+                loginModal.style.display = 'none';
+            } else {
+                formError.textContent = 'Invalid username or password.';
+                formError.style.display = 'block';
+            }
+        });
+
+        // Handle Sign-Up Form Submission
+        signUpForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('signUpUsername').value;
+            const password = document.getElementById('signUpPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Validate passwords match
+            if (password !== confirmPassword) {
+                formError.textContent = 'Passwords do not match.';
+                formError.style.display = 'block';
+                return;
+            }
+
+            // Retrieve users from localStorage
+            const users = JSON.parse(localStorage.getItem('users')) || {};
+
+            // Check if the username already exists
+            if (users[username]) {
+                formError.textContent = 'Username already exists.';
+                formError.style.display = 'block';
+            } else {
+                // Save the new user
+                users[username] = password;
+                localStorage.setItem('users', JSON.stringify(users));
+                alert('Sign-Up successful! You can now log in.');
+                loginForm.style.display = 'block';
+                signUpForm.style.display = 'none';
+                modalTitle.textContent = 'Login';
+                toggleForm.textContent = "Don't have an account? Sign Up";
+                formError.style.display = 'none';
+            }
+        });
+
+        // Close Modal on Outside Click
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
