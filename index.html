@@ -1399,6 +1399,10 @@ footer
             <i class="fas fa-user"></i>
             Login
           </a>
+          <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+          </a>
         </div>
         <div class="hamburger" id="hamburger">
           <span></span>
@@ -1911,6 +1915,11 @@ ToptobackBtn.addEventListener('click', () => {
         if (users[username] && users[username] === password) {
           alert(`Welcome back, ${username}!`);
           loginModal.style.display = "none";
+          
+          // Set login state
+          localStorage.setItem("isLoggedIn", "true");
+          localStorage.setItem("currentUser", username);
+          updateLoginState();
         } else {
           formError.textContent = "Invalid username or password.";
           formError.style.display = "block";
@@ -1950,6 +1959,35 @@ ToptobackBtn.addEventListener('click', () => {
           toggleForm.textContent = "Don't have an account? Sign Up";
           formError.style.display = "none";
         }
+      });
+
+      // Function to update login state
+      function updateLoginState() {
+        const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+        const loginBtn = document.getElementById("openLoginModal");
+        const logoutBtn = document.getElementById("logoutBtn");
+        
+        if (isLoggedIn) {
+          loginBtn.style.display = "none";
+          logoutBtn.style.display = "flex";
+        } else {
+          loginBtn.style.display = "flex";
+          logoutBtn.style.display = "none";
+        }
+      }
+
+      // Logout functionality
+      document.getElementById("logoutBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("currentUser");
+        updateLoginState();
+        alert("You have been logged out successfully!");
+      });
+
+      // Check login state on page load
+      document.addEventListener("DOMContentLoaded", () => {
+        updateLoginState();
       });
 
       // Close Modal on Outside Click
