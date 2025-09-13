@@ -111,10 +111,16 @@
             padding: 0;
             box-sizing: border-box;
         }
+        :root{
+            --candy-red: #FF4757;
+            --light-pink: #FFE0E6;
+            --light-blue: #E8F4FF;
+            --light-yellow: #FFF5E0;
+        }
 
         body {
             font-family: 'Comic Neue', cursive;
-            background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 50%, #FFE66D 100%);
+            background: linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 30%, var(--light-yellow) 60%, var(--light-pink) 100%);
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
@@ -252,8 +258,8 @@
 
         .header h1 {
             font-size: 3rem;
-            color: white;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            color: var(--candy-red);
+            text-shadow: 3px 3px 6px rgba(132, 130, 130, 0.3);
             margin-bottom: 1rem;
             animation: bounce 2s infinite;
         }
@@ -266,7 +272,7 @@
 
         .header p {
             font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: #666;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
 
