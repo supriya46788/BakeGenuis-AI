@@ -624,41 +624,92 @@
             color: #666;
             line-height: 1.5;
         }
-
+/*--candy-red: #FF6B6B;
+            --sky-blue: #4ECDC4;
+            --sunny-yellow: #FFD93D;
+            --soft-pink: #FFB6C1;
+            --mint-green: #98FB98;
+            --lavender: #E6E6FA;*/
         /* Footer */
-        .footer {
-            background: linear-gradient(135deg, rgba(255, 195, 195, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
-            backdrop-filter: blur(15px);
-            position: relative;
-            z-index: 2;
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
-            margin-top: 4rem;
+ footer
+    /*.footer {
+            background: white;
+          
+            color: #333;
+            border-top: 4px solid var(--sky-blue);
+            padding: 3rem 0 1.5rem 0;
         }
-
-        body.dark-mode .footer {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-content {
-            max-width: 1400px;
+        .footer-columns {
+            max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            padding: 3rem 2rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .footer-logo {
+            flex: 1 1 180px;
+            min-width: 180px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--candy-red);
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+        .footer-description {
+    margin-top: 0.5rem;   /* space below logo */
+   /* color:#333;         /* black text 
+    font-size: 0.8rem;   /* slightly smaller than logo 
+    line-height: 1.4;     /* good spacing for 3 lines 
+    font-weight: 500;
+}
+
+        .footer-group {
+            flex: 1 1 160px;
+            min-width: 160px;
+            margin-bottom: 1.5rem;
+
         }
 
         .footer-section h3.footer-title {
             color: var(--candy-red);
             font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
-            position: relative;
+ footer
+            margin-bottom: 1rem;
+            color: #333;
         }
+        .footer-group-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-group-list li {
+            margin-bottom: 0.7em;
+        }
+        .footer-group-list a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .footer-group-list a:hover {
+            color: var(--candy-red);
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 1rem;
+            color: #333;
+            border-top: 1px solid #ddd;
+            padding-top: 1.2rem;
 
-        body.dark-mode .footer-section h3.footer-title {
-            color: #ff8a80;
         }
 
         .footer-section h3.footer-title::after {
@@ -681,20 +732,33 @@
             font-weight: 700;
             color: var(--candy-red);
         }
+ footer
+           /* background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }*/
 
-        .footer-logo-icon {
-            font-size: 2rem;
+        /*.footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
         }
 
-        body.dark-mode .footer-logo {
-            color: #ff8a80;
-        }
+        .footer-text {
+            color: #333;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3em;
 
-        .footer-description {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
         }
 
         body.dark-mode .footer-description {
@@ -707,8 +771,11 @@
             margin: 0;
         }
 
-        .footer-links li {
-            margin-bottom: 0.8rem;
+footer
+      .social-links {
+            display: flex;
+            gap: 1rem;
+
         }
 
         .footer-links a {
@@ -716,11 +783,29 @@
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.3rem 0;
-            border-radius: 5px;
+ footer
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+            transition: transform 0.2s;
+        }
+        .social-link.github {
+    background: transparent;
+    color: black;
+    border: 2px solid black; /* optional border for visibility 
+}
+
+
+/*.social-link.linkedin {
+            background: linear-gradient(45deg, #0077B5, #00A0DC);
+        }
+        .social-link.portfolio {
+            background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
+
         }
 
         .footer-links a:hover {
@@ -729,10 +814,9 @@
             background: rgba(255, 107, 107, 0.1);
             padding-left: 0.8rem;
         }
+footer
+        
 
-        body.dark-mode .footer-links a {
-            color: #ccc;
-        }
 
         body.dark-mode .footer-links a:hover {
             color: #ff8a80;
@@ -745,43 +829,141 @@
             opacity: 0.7;
         }
 
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+ footer
+      .social-link.github {
+    background: black !important;   /* black circle */
+   /* color: white !important;        /* white logo 
+    border: 2px solid black;        /* keeps shape consistent 
+}
+
+.social-link.github i {
+    color: white !important;        /* force logo to white 
+}*/
+.footer {
+  background: linear-gradient(
+    90deg, 
+    rgba(255, 118, 118, 0.5), 
+    rgba(255, 177, 153, 0.5)
+) !important;
+
+  color: var(--candy-red);
+  padding: 40px 20px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap:40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-column {
+  flex: 1 1 220px;
+  margin:0;
+  display:flex;
+  flex-direction: column;
+ gap:15px;
+}
+
+.footer h2, .footer h4 {
+  margin-bottom: 8px;
+}
+
+.footer p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer ul li a {
+  color: #333;
+  text-decoration: none;
+
+  transition: opacity 0.3s;
+}
+
+.footer ul li a:hover {
+  opacity: 0.8;
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: 10px;
+  gap:10px;
+}
+
+.newsletter-form input {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  flex: 1;
+}
+
+.newsletter-form button {
+  background: #e74c3c;
+  color: #333;
+  border: none;
+  padding: 10px 25px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.newsletter-form button:hover {
+  background: #c0392b;
+}
+
+.social-icons { margin-top: 10px; } 
+.social-icons a {
+     margin-right: 10px; 
+     color: #333; 
+     font-size: 20px;
+      transition: opacity 0.3s; 
+    } 
+    .social-icons a:hover {
+         opacity: 0.7; 
         }
 
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
-            color: white;
-            text-decoration: none;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  font-size: 13px;
+}
 
-        .social-link:hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
 
-        .social-link.linkedin {
-            background: linear-gradient(45deg, #0077B5, #00A0DC);
-        }
+      .social-icons a {
+  margin-right: 10px;
+  font-size: 20px;
+  transition: transform 0.3s;
+}
 
-        .social-link.github {
-            background: linear-gradient(45deg, #333, #555);
-        }
+.social-icons a:hover {
+  transform: scale(1.2);
+}
 
-        .social-link.portfolio {
-            background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
-        }
+/* Specific colors */
+.social-icons a.linkedin { color: #0077b5; }   /* LinkedIn blue */
+.social-icons a.github { color: #333; }        /* GitHub dark gray */
+.social-icons a.email { color: #d44638; }      /* Gmail red */     
+  
+
+
+
 
         .social-link.email {
             background: linear-gradient(45deg, #EA4335, #34A853);
@@ -1111,34 +1293,15 @@
 <button id="backToTop" title="Back to Top">⬆️</button>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-<div class="footer-section">
-    <div class="footer-logo">
-        <span class="footer-logo-icon">🍰</span>
-        <span class="footer-logo-text">BakeGenuis.ai</span>
-    </div>
-    <p class="footer-description">
-        Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and delightful for everyone.
-    </p>
-    <div class="social-links">
-        <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" class="social-link linkedin" title="LinkedIn Profile">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/Channpreetk/BakeGenuis-AI" target="_blank" class="social-link github" title="GitHub Repository">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="https://my-portfolio-nine-flame-62.vercel.app/" target="_blank" class="social-link portfolio" title="Portfolio">
-            <i class="fas fa-user"></i>
-        </a>
-        <a href="mailto:contact@bakegenius.ai" class="social-link email" title="Email Us">
-            <i class="fas fa-envelope"></i>
-        </a>
-    </div>
-    <div class="footer-text">
-        Made with ❤️ by Supriya Pandey | BakeGenuis.ai © 2025
-    </div>
- </div>
+ footer
+footer
+   <!-- <footer class="footer">
+        <div class="footer-columns">
+            <div class="footer-logo">
+                <span style="font-size:2.1rem; color:var(--candy-red);">🍰</span> BakeGenius.ai
+                 <p class="footer-description">
+            Baking meets AI - recipes, ideas<br> and inspiration to make your<br> creations magical!
+        </p>
 
             </div>
             
@@ -1177,18 +1340,74 @@
         </div>
         
         <div class="footer-bottom">
-            <div class="footer-bottom-content">
-                <p class="copyright">
-                    © 2025 BakeGenius.ai. Made with ❤️ by <a href="https://my-portfolio-nine-flame-62.vercel.app/" target="_blank">Supriya Pandey</a>
-                </p>
-                <div class="footer-badges">
-                    <span class="badge"><i class="fas fa-heart"></i> Open Source</span>
-                    <span class="badge"><i class="fas fa-leaf"></i> Eco Friendly</span>
-                    <span class="badge"><i class="fas fa-rocket"></i> AI Powered</span>
-                </div>
-            </div>
+ footer
+            <span>&copy; 2025 BakeGenius.ai &mdash; Made with <span style="color:#FF6B6B;">&#10084;&#65039;</span> by Supriya Pandey</span>
+              <div class="footer-social">
+        <p class="follow-text">Follow us</p> <!-- 👈 Added text -->
+       <!-- <div class="social-links">
+            <a href="https://your-github.com/" class="social-link github" target="_blank" rel="noopener" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/" class="social-link linkedin" target="_blank" rel="noopener" title="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://your-portfolio.com/" class="social-link portfolio" target="_blank" rel="noopener" title="Portfolio">
+                <i class="fas fa-globe"></i>
+            </a>
         </div>
-    </footer>
+    </div>
+
+        </div>
+    </footer>-->
+<footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Left: Brand Info -->
+    <div class="footer-column brand">
+      <h2><span class="logo">🍰 BakeGenius.ai</span></h2>
+      <p>Baking meets AI — recipes, ideas, and inspiration to make your creations magical!</p>
+    </div>
+    
+    <!-- Middle: Links -->
+    <div class="footer-column links">
+      <h4>Links</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Convert Recipe</a></li>
+        <li><a href="#">Customize</a></li>
+        <li><a href="#">Recipe Hub</a></li>
+        <li><a href="#">Scale Recipes</a></li>
+        <li><a href="#">Feedback</a></li>
+      </ul>
+    </div>
+    
+    <!-- Newsletter -->
+    <div class="footer-column newsletter">
+      <h4>Subscribe to our Newsletter</h4>
+      <p>Get the latest baking tips & AI recipes, and exclusive content delivered straight to your inbox!</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    
+    <!-- Social Icons -->
+    <div class="footer-column social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+  <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+  <a href="#" class="github"><i class="fab fa-github"></i></a>
+  <a href="#" class="email"><i class="fas fa-envelope"></i></a>
+</div>
+    </div>
+    
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <p>© 2025 BakeGenius.ai &#10084;&#65039; — All rights reserved.</p>
+  </div>
+</footer>
 
     <!-- Login/Sign-Up Modal -->
     <div id="loginModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35); z-index:2000; align-items:center; justify-content:center;">
