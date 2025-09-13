@@ -119,6 +119,7 @@
             --light-pink: #FFE0E6;
             --light-blue: #E8F4FF;
             --light-yellow: #FFF5E0;
+            --sky-blue: #4ECDC4;
         }
 
         body {
@@ -372,6 +373,122 @@
 
         .hamburger.active span:nth-child(3) {
             transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+                /* Responsive Design */
+        @media (max-width: 1100px) {
+            .navbar {
+                padding: 0.8rem 1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                transform: translateX(-100%);
+                gap: 1rem;
+                z-index: 999;
+            }
+
+            body.dark-mode .nav-links {
+                background: rgba(26, 26, 26, 0.98);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links a {
+                width: 80%;
+                text-align: center;
+                padding: 1rem;
+                font-size: 1.1rem;
+                margin: 0.5rem 0;
+            }
+
+            .nav-actions {
+                gap: 0.5rem;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .login-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .dark-mode-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+
+            .hamburger {
+                display: flex;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo-icon {
+                font-size: 1.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 0.5rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .logo-icon {
+                font-size: 1.5rem;
+            }
+
+            .nav-actions {
+                gap: 0.3rem;
+            }
+
+            .login-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .dark-mode-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 0.8rem;
+            }
+        }
+        /* Add this new media query block */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-links {
+                flex-grow: 1; /* Allows links to take up available space */
+                justify-content: space-around; /* Distributes links evenly */
+            }
+        
+            .nav-links a {
+                padding: 0.5rem 0.8rem; /* Reduces padding for a tighter fit */
+            }
+        
+            .nav-actions {
+                gap: 0.8rem; /* Reduces space between buttons */
+            }
         }
 
         /* nav {
