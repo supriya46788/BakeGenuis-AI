@@ -24,32 +24,30 @@
         box-sizing: border-box;
       }
 
-      :root {
-        --candy-red: #ff6b6b;
-        --sky-blue: #4ecdc4;
-        --sunny-yellow: #ffd93d;
-        --soft-pink: #ffb6c1;
-        --mint-green: #98fb98;
-        --lavender: #e6e6fa;
-        --dark-bg: #1a1a1a;
-        --dark-card: #2d2d2d;
-        --dark-text: #ffffff;
-        --dark-border: #404040;
-      }
+        :root {
+            --light-pink: #FFE0E6;
+            --light-blue: #E8F4FF;
+            --light-yellow: #FFF5E0;
+            --candy-red: #FF6B6B;
+            --sky-blue: #4ECDC4;
+            --sunny-yellow: #FFD93D;
+            --soft-pink: #FFB6C1;
+            --mint-green: #98FB98;
+            --lavender: #E6E6FA;
+            --dark-bg: #1a1a1a;
+            --dark-card: #2d2d2d;
+            --dark-text: #ffffff;
+            --dark-border: #404040;
+        }
 
-      body {
-        font-family: "Comic Neue", cursive;
-        overflow-x: hidden;
-        background: linear-gradient(
-          135deg,
-          var(--sky-blue) 0%,
-          var(--soft-pink) 50%,
-          var(--sunny-yellow) 100%
-        );
-        min-height: 100vh;
-        position: relative;
-        transition: all 0.3s ease;
-      }
+        body {
+            font-family: 'Comic Neue', cursive;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 30%, var(--light-yellow) 60%, var(--light-pink) 100%);
+            min-height: 100vh;
+            position: relative;
+            transition: all 0.3s ease;
+        }
 
       body.dark-mode {
         background: linear-gradient(
@@ -999,20 +997,404 @@
         }
 
         .features-preview {
-          grid-template-columns: 1fr;
-          margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            max-width: 1000px;
         }
 
-        .footer-content {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-          padding: 2rem 1rem 1rem;
-          text-align: center;
+        .feature-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--sky-blue);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card:nth-child(1) .feature-icon { color: var(--candy-red); }
+        .feature-card:nth-child(2) .feature-icon { color: var(--sky-blue); }
+        .feature-card:nth-child(3) .feature-icon { color: var(--sunny-yellow); }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .feature-desc {
+            color: #666;
+            line-height: 1.5;
+        }
+/*--candy-red: #FF6B6B;
+            --sky-blue: #4ECDC4;
+            --sunny-yellow: #FFD93D;
+            --soft-pink: #FFB6C1;
+            --mint-green: #98FB98;
+            --lavender: #E6E6FA;*/
+        /* Footer */
+ footer
+    /*.footer {
+            background: white;
+          
+            color: #333;
+            border-top: 4px solid var(--sky-blue);
+            padding: 3rem 0 1.5rem 0;
+        }
+        .footer-columns {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .footer-logo {
+            flex: 1 1 180px;
+            min-width: 180px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--candy-red);
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+        .footer-description {
+    margin-top: 0.5rem;   /* space below logo */
+   /* color:#333;         /* black text 
+    font-size: 0.8rem;   /* slightly smaller than logo 
+    line-height: 1.4;     /* good spacing for 3 lines 
+    font-weight: 500;
+}
+
+        .footer-group {
+            flex: 1 1 160px;
+            min-width: 160px;
+            margin-bottom: 1.5rem;
+
+        }
+
+        .footer-section h3.footer-title {
+            color: var(--candy-red);
+            font-size: 1.2rem;
+            font-weight: 700;
+ footer
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .footer-group-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-group-list li {
+            margin-bottom: 0.7em;
+        }
+        .footer-group-list a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .footer-group-list a:hover {
+            color: var(--candy-red);
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 1rem;
+            color: #333;
+            border-top: 1px solid #ddd;
+            padding-top: 1.2rem;
+
         }
 
         .footer-section h3.footer-title::after {
-          left: 50%;
-          transform: translateX(-50%);
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            border-radius: 2px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--candy-red);
+        }
+ footer
+           /* background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }*/
+
+        /*.footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .footer-text {
+            color: #333;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3em;
+
+        }
+
+        body.dark-mode .footer-description {
+            color: #ccc;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+footer
+      .social-links {
+            display: flex;
+            gap: 1rem;
+
+        }
+
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+ footer
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+            transition: transform 0.2s;
+        }
+        .social-link.github {
+    background: transparent;
+    color: black;
+    border: 2px solid black; /* optional border for visibility 
+}
+
+
+/*.social-link.linkedin {
+            background: linear-gradient(45deg, #0077B5, #00A0DC);
+        }
+        .social-link.portfolio {
+            background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
+
+        }
+
+        .footer-links a:hover {
+            color: var(--candy-red);
+            transform: translateX(5px);
+            background: rgba(255, 107, 107, 0.1);
+            padding-left: 0.8rem;
+        }
+footer
+        
+
+
+        body.dark-mode .footer-links a:hover {
+            color: #ff8a80;
+            background: rgba(255, 138, 128, 0.1);
+        }
+
+        .footer-links i {
+            font-size: 0.9rem;
+            width: 16px;
+            opacity: 0.7;
+        }
+
+ footer
+      .social-link.github {
+    background: black !important;   /* black circle */
+   /* color: white !important;        /* white logo 
+    border: 2px solid black;        /* keeps shape consistent 
+}
+
+.social-link.github i {
+    color: white !important;        /* force logo to white 
+}*/
+.footer {
+  background: linear-gradient(
+    90deg, 
+    rgba(255, 118, 118, 0.5), 
+    rgba(255, 177, 153, 0.5)
+) !important;
+
+  color: var(--candy-red);
+  padding: 40px 20px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap:40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-column {
+  flex: 1 1 220px;
+  margin:0;
+  display:flex;
+  flex-direction: column;
+ gap:15px;
+}
+
+.footer h2, .footer h4 {
+  margin-bottom: 8px;
+}
+
+.footer p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer ul li a {
+  color: #333;
+  text-decoration: none;
+
+  transition: opacity 0.3s;
+}
+
+.footer ul li a:hover {
+  opacity: 0.8;
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: 10px;
+  gap:10px;
+}
+
+.newsletter-form input {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  flex: 1;
+}
+
+.newsletter-form button {
+  background: #e74c3c;
+  color: #333;
+  border: none;
+  padding: 10px 25px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.newsletter-form button:hover {
+  background: #c0392b;
+}
+
+.social-icons { margin-top: 10px; } 
+.social-icons a {
+     margin-right: 10px; 
+     color: #333; 
+     font-size: 20px;
+      transition: opacity 0.3s; 
+    } 
+    .social-icons a:hover {
+         opacity: 0.7; 
+        }
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  font-size: 13px;
+}
+
+
+      .social-icons a {
+  margin-right: 10px;
+  font-size: 20px;
+  transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Specific colors */
+.social-icons a.linkedin { color: #0077b5; }   /* LinkedIn blue */
+.social-icons a.github { color: #333; }        /* GitHub dark gray */
+.social-icons a.email { color: #d44638; }      /* Gmail red */     
+  
+
+
+
+
+        .social-link.email {
+            background: linear-gradient(45deg, #EA4335, #34A853);
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+        }
+
+        body.dark-mode .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
         }
 
         .footer-bottom-content {
@@ -1611,6 +1993,261 @@
           Login
         </h2>
 
+        #loginModal h2 {
+            margin-bottom: 1.2rem;
+            color: #ff6b6b;
+            text-align: center;
+        }
+
+        #loginModal input {
+            width: 100%;
+            padding: 0.7rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        /* Light Colors for Form Inputs */
+        #loginModal input, #loginModal button[type="submit"] {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ddd;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        #loginModal input:focus {
+            background: rgba(255, 255, 255, 1);
+            border-color: var(--sky-blue);
+            box-shadow: 0 0 8px rgba(78, 205, 196, 0.5);
+            outline: none;
+        }
+
+        #loginModal button[type="submit"] {
+            background: linear-gradient(45deg, var(--sky-blue), var(--mint-green));
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        #loginModal button[type="submit"]:hover {
+            background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+        }
+
+        #loginForm, #signUpForm {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        #loginForm:focus-within, #signUpForm:focus-within {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        #toggleForm {
+            color: var(--candy-red);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        #toggleForm:hover {
+            color: var(--sunny-yellow);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🍰</span>
+                <span class="logo-text">BakeGenuis.ai</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="convert.html">Convert Recipe</a></li>
+                <li><a href="customize.html">Customize</a></li>
+                <li><a href="scale.html">Scale Recipes</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#" class="login-btn" id="openLoginModal">
+                    <i class="fas fa-user"></i>
+                    Login
+                </a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">Welcome to BakeGenuis.ai</h1>
+            <p class="hero-subtitle">From spoon to scale — get exact gram conversions with AI magic ✨<br>
+            Transform vague recipe measurements into precise, consistent results every time!</p>
+            <a href="convert.html" class="cta-button">Start Converting Now 🚀</a>
+        </section>
+
+        <!-- Features Preview -->
+        <section class="features-preview">
+            <div class="feature-card">
+                <i class="fas fa-magic feature-icon"></i>
+                <h3 class="feature-title">AI-Powered Precision</h3>
+                <p class="feature-desc">Advanced AI converts "cups" and "spoons" into exact gram measurements for perfect baking every time.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-balance-scale feature-icon"></i>
+                <h3 class="feature-title">Smart Recipe Scaling</h3>
+                <p class="feature-desc">Effortlessly scale recipes up or down while maintaining perfect ratios and adjusting rising agents intelligently.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-cogs feature-icon"></i>
+                <h3 class="feature-title">Custom Preferences</h3>
+                <p class="feature-desc">Personalize conversions based on your preferred brands and ingredient specifications for consistent results.</p>
+            </div>
+        </section>
+    </main>
+    <!-- Back to Top Button -->
+<button id="backToTop" title="Back to Top">⬆️</button>
+
+    <!-- Footer -->
+ footer
+footer
+   <!-- <footer class="footer">
+        <div class="footer-columns">
+            <div class="footer-logo">
+                <span style="font-size:2.1rem; color:var(--candy-red);">🍰</span> BakeGenius.ai
+                 <p class="footer-description">
+            Baking meets AI - recipes, ideas<br> and inspiration to make your<br> creations magical!
+        </p>
+
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="convert.html"><i class="fas fa-exchange-alt"></i> Convert Recipe</a></li>
+                    <li><a href="customize.html"><i class="fas fa-cog"></i> Customize</a></li>
+                    <li><a href="scale.html"><i class="fas fa-ruler"></i> Scale Recipes</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Features</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-calculator"></i> Unit Conversion</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Nutritional Analysis</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Recipe Scaling</a></li>
+                    <li><a href="#"><i class="fas fa-magic"></i> AI Optimization</a></li>
+                    <li><a href="#"><i class="fas fa-mobile-alt"></i> Mobile Friendly</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Help Center</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i> Feedback</a></li>
+                    <li><a href="#"><i class="fas fa-bug"></i> Report Issue</a></li>
+                    <li><a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    <li><a href="#"><i class="fas fa-gavel"></i> Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+ footer
+            <span>&copy; 2025 BakeGenius.ai &mdash; Made with <span style="color:#FF6B6B;">&#10084;&#65039;</span> by Supriya Pandey</span>
+              <div class="footer-social">
+        <p class="follow-text">Follow us</p> <!-- 👈 Added text -->
+       <!-- <div class="social-links">
+            <a href="https://your-github.com/" class="social-link github" target="_blank" rel="noopener" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/" class="social-link linkedin" target="_blank" rel="noopener" title="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://your-portfolio.com/" class="social-link portfolio" target="_blank" rel="noopener" title="Portfolio">
+                <i class="fas fa-globe"></i>
+            </a>
+        </div>
+    </div>
+
+        </div>
+    </footer>-->
+<footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Left: Brand Info -->
+    <div class="footer-column brand">
+      <h2><span class="logo">🍰 BakeGenius.ai</span></h2>
+      <p>Baking meets AI — recipes, ideas, and inspiration to make your creations magical!</p>
+    </div>
+    
+    <!-- Middle: Links -->
+    <div class="footer-column links">
+      <h4>Links</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Convert Recipe</a></li>
+        <li><a href="#">Customize</a></li>
+        <li><a href="#">Recipe Hub</a></li>
+        <li><a href="#">Scale Recipes</a></li>
+        <li><a href="#">Feedback</a></li>
+      </ul>
+    </div>
+    
+    <!-- Newsletter -->
+    <div class="footer-column newsletter">
+      <h4>Subscribe to our Newsletter</h4>
+      <p>Get the latest baking tips & AI recipes, and exclusive content delivered straight to your inbox!</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    
+    <!-- Social Icons -->
+    <div class="footer-column social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+  <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+  <a href="#" class="github"><i class="fab fa-github"></i></a>
+  <a href="#" class="email"><i class="fas fa-envelope"></i></a>
+</div>
+    </div>
+    
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <p>© 2025 BakeGenius.ai &#10084;&#65039; — All rights reserved.</p>
+  </div>
+</footer>
+
+    <!-- Login/Sign-Up Modal -->
+    <div id="loginModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35); z-index:2000; align-items:center; justify-content:center;">
+      <div style="background:#fff; color:#222; border-radius:18px; max-width:350px; width:90%; padding:2rem 1.5rem; box-shadow:0 8px 32px rgba(0,0,0,0.18); position:relative;">
+        <button id="closeLoginModal" style="position:absolute; top:12px; right:16px; background:none; border:none; font-size:1.3rem; cursor:pointer;">&times;</button>
+        <h2 id="modalTitle" style="margin-bottom:1.2rem; color:#ff6b6b; text-align:center;">Login</h2>
+        
         <!-- Login Form -->
         <form id="loginForm">
           <input
