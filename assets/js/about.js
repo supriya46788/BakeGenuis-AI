@@ -255,27 +255,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
   console.log("🍰 BakeGenius.ai About Page Loaded Successfully!");
 });
-
-
- // Dark/Light Mode toggle
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
-        const darkModeIcon = darkModeToggle.querySelector('i');
-        function applyTheme(theme) {
-            if (theme === 'dark') {
-                body.classList.add('dark-mode');
-                darkModeIcon.classList.remove('fa-moon');
-                darkModeIcon.classList.add('fa-sun');
-            } else {
-                body.classList.remove('dark-mode');
-                darkModeIcon.classList.remove('fa-sun');
-                darkModeIcon.classList.add('fa-moon');
-            }
-        }
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        applyTheme(currentTheme);
-        darkModeToggle.addEventListener('click', () => {
-            const theme = body.classList.contains('dark-mode') ? 'light' : 'dark';
-            localStorage.setItem('theme', theme);
-            applyTheme(theme);
-        });
