@@ -391,6 +391,35 @@
         transform: scale(1.15);
       }
 
+           /* Back to Top to Bottom Button Styles */
+#Toptoback {
+    position: fixed;
+    top: 6.5rem;
+    right: 2.5rem;
+    z-index: 2000;
+    background: linear-gradient(135deg, var(--candy-red), var(--sky-blue), var(--sunny-yellow));
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 2rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s, transform 0.2s;
+}
+#Toptoback.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-10px) scale(1.08);
+}
+#Toptoback:hover {
+    background: linear-gradient(135deg, var(--sunny-yellow), var(--candy-red), var(--sky-blue));
+    transform: scale(1.15);
+}
+
       /* Responsive Design */
       @media (max-width: 768px) {
         .navbar {
@@ -1377,6 +1406,8 @@ footer
           <span></span>
         </div>
       </div>
+      <!-- Top to Bottom Button -->
+        <button id="Toptoback" title="Top To Back">⬇️</button>
     </nav>
 
     <!-- Main Content -->
@@ -1785,6 +1816,20 @@ footer
       backToTopBtn.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
+
+            //Top to Bottom Button Logic
+const ToptobackBtn = document.getElementById('Toptoback');
+window.addEventListener('scroll', () => {
+    if (window.scrollY < 100) {
+        ToptobackBtn.classList.add('show');
+    } else {
+        ToptobackBtn.classList.remove('show');
+    }
+});
+ToptobackBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 1000, behavior: 'smooth' });
+});
+
 
       // Parallax effect for decorative icons
       window.addEventListener("scroll", () => {
