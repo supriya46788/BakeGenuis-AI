@@ -318,7 +318,7 @@ nav {
   box-shadow: 0 10px 25px rgba(255, 165, 2, 0.4);
 }
 .nav-links li:nth-child(5) a:hover {
-  background-color: var(--sky-blue);
+  background-color: var(--candy-red);
   color: white;
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 10px 25px rgba(255, 165, 2, 0.4);
@@ -349,7 +349,7 @@ nav {
   box-shadow: 0 8px 25px rgba(255,71,87,0.4);
 }
 .nav-links li:nth-child(5) a.active {
-  background: var(--sky-blue);
+  background: var(--candy-red);
   color: white;
   box-shadow: 0 8px 25px rgba(30,144,255,0.4);
 }
