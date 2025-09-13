@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scale Recipes - BakeGenius.ai</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <style>
         /* Footer Modern Multi-Column */
         .footer {
@@ -114,12 +112,10 @@
             box-sizing: border-box;
         }
         :root{
-            --candy-red: #FF6B6B;
-            --soft-pink: #FFB6C1;
+            --candy-red: #FF4757;
             --light-pink: #FFE0E6;
             --light-blue: #E8F4FF;
             --light-yellow: #FFF5E0;
-            --sky-blue: #4ECDC4;
         }
 
         body {
@@ -158,340 +154,7 @@
         }
 
         /* Navigation */
-        .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            padding: 1rem 2rem;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        body.dark-mode .navbar {
-            background: rgba(26, 26, 26, 0.95);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #ff6b6b;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Comic Neue', cursive;
-        }
-
-        .logo-icon {
-            font-size: 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-text {
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-            color: #ff5252;
-        }
-
-        .logo:hover .logo-icon {
-            transform: rotate(10deg);
-        }
-
-        body.dark-mode .logo {
-            color: #ff8a80;
-        }
-
-        body.dark-mode .logo:hover {
-            color: #ffab91;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 600;
-            padding: 0.7rem 1.2rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid transparent;
-        }
-
-        .nav-links a.active {
-            background: linear-gradient(45deg, var(--candy-red), var(--soft-pink));
-            color: white;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-        }
-
-        body.dark-mode .nav-links a {
-            /* color: var(--dark-text); */
-            color: white;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        body.dark-mode .nav-links a.active {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            color: white;
-        }
-
-        .nav-links a:hover {
-            background: linear-gradient(45deg, var(--sunny-yellow), var(--soft-pink));
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-            color: #333;
-        }
-
-        body.dark-mode .nav-links a:hover {
-            background: linear-gradient(45deg, #3498db, #9b59b6);
-            color: #fff;
-        }
-
-        /* Navigation Actions */
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .dark-mode-btn {
-            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            color: white;
-            padding: 0.7rem;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .dark-mode-btn:hover {
-            transform: scale(1.1) rotate(360deg);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        body.dark-mode .dark-mode-btn {
-            background: linear-gradient(45deg, #f39c12 0%, #f1c40f 100%);
-        }
-
-        .login-btn {
-            background: linear-gradient(45deg, var(--candy-red), #ff8a80);
-            color: white;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-            border: 2px solid transparent;
-        }
-
-        .login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-            background: linear-gradient(45deg, #ff5252, var(--candy-red));
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        body.dark-mode .login-btn {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-        }
-
-        body.dark-mode .login-btn:hover {
-            background: linear-gradient(45deg, #c0392b, #a93226);
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
-            margin: 3px 0;
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-
-        body.dark-mode .hamburger span {
-            background: linear-gradient(45deg, #3498db, #9b59b6);
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-
-                /* Responsive Design */
-        @media (max-width: 1100px) {
-            .navbar {
-                padding: 0.8rem 1rem;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding-top: 2rem;
-                transition: left 0.3s ease;
-                transform: translateX(-100%);
-                gap: 1rem;
-                z-index: 999;
-            }
-
-            body.dark-mode .nav-links {
-                background: rgba(26, 26, 26, 0.98);
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .nav-links a {
-                width: 80%;
-                text-align: center;
-                padding: 1rem;
-                font-size: 1.1rem;
-                margin: 0.5rem 0;
-            }
-
-            .nav-actions {
-                gap: 0.5rem;
-                position: relative;
-                z-index: 1001;
-            }
-
-            .login-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-
-            .dark-mode-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 0.9rem;
-            }
-
-            .hamburger {
-                display: flex;
-                position: relative;
-                z-index: 1001;
-            }
-
-            .logo {
-                font-size: 1.5rem;
-            }
-
-            .logo-icon {
-                font-size: 1.7rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .navbar {
-                padding: 0.5rem;
-            }
-
-            .logo {
-                font-size: 1.3rem;
-            }
-
-            .logo-icon {
-                font-size: 1.5rem;
-            }
-
-            .nav-actions {
-                gap: 0.3rem;
-            }
-
-            .login-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-
-            .dark-mode-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 0.8rem;
-            }
-        }
-        /* Add this new media query block */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .nav-links {
-                flex-grow: 1; /* Allows links to take up available space */
-                justify-content: space-around; /* Distributes links evenly */
-            }
-        
-            .nav-links a {
-                padding: 0.5rem 0.8rem; /* Reduces padding for a tighter fit */
-            }
-        
-            .nav-actions {
-                gap: 0.8rem; /* Reduces space between buttons */
-            }
-        }
-
-        /* nav {
+        nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 0;
@@ -548,7 +211,7 @@
         .nav-links a.active {
             background: #4ECDC4;
             color: white;
-        } */
+        }
         /* Back to Top Button Styles */
 #backToTop {
     position: fixed;
@@ -965,33 +628,16 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <span class="logo-icon">🍰</span>
-                <span class="logo-text">BakeGenius.ai</span>
-            </a>
-            <ul class="nav-links" id="navLinks">
+            <a href="index.html" class="logo">🍰 BakeGenius.ai</a>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="convert.html" >Convert Recipe</a></li>
+                <li><a href="convert.html">Convert Recipe</a></li>
                 <li><a href="customize.html">Customize</a></li>
                 <li><a href="scale.html" class="active">Scale Recipes</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="about.html">About Us</a></li>
             </ul>
-            <div class="nav-actions">
-                <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <a href="#" class="login-btn" onclick="alert('Login functionality will be implemented soon!')">
-                    <i class="fas fa-user"></i>
-                    Login
-                </a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </nav>
 
@@ -1422,30 +1068,6 @@ backToTopBtn.addEventListener('click', () => {
             ];
             
           
-        });
-
-
-         // Dark/Light Mode toggle
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
-        const darkModeIcon = darkModeToggle.querySelector('i');
-        function applyTheme(theme) {
-            if (theme === 'dark') {
-                body.classList.add('dark-mode');
-                darkModeIcon.classList.remove('fa-moon');
-                darkModeIcon.classList.add('fa-sun');
-            } else {
-                body.classList.remove('dark-mode');
-                darkModeIcon.classList.remove('fa-sun');
-                darkModeIcon.classList.add('fa-moon');
-            }
-        }
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        applyTheme(currentTheme);
-        darkModeToggle.addEventListener('click', () => {
-            const theme = body.classList.contains('dark-mode') ? 'light' : 'dark';
-            localStorage.setItem('theme', theme);
-            applyTheme(theme);
         });
     </script>
 </body>
