@@ -5,13 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scale Recipes - BakeGenius.ai</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="public/css/footer.css">
-    <link rel="stylesheet" href="public/css/floating_emoji_fix.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="public/css/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="public/css/favicon/favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="public/css/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="public/css/favicon/favicon-16x16.png">
     <style>
+        /* Footer Modern Multi-Column */
+        .footer {
+            background: #0a0a3c;
+            color: #fff;
+            border-top: 4px solid #4ECDC4;
+            padding: 3rem 0 1.5rem 0;
+        }
+        .footer-columns {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .footer-logo {
+            flex: 1 1 180px;
+            min-width: 180px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+        .footer-group {
+            flex: 1 1 160px;
+            min-width: 160px;
+            margin-bottom: 1.5rem;
+        }
+        .footer-group-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        .footer-group-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-group-list li {
+            margin-bottom: 0.7em;
+        }
+        .footer-group-list a {
+            color: #b3e6e2;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .footer-group-list a:hover {
+            color: #FFD93D;
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 1rem;
+            color: #b3e6e2;
+            border-top: 1px solid #233;
+            padding-top: 1.2rem;
+        }
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #0077B5, #00A0DC);
+            color: #fff;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .footer-social a.portfolio {
+            background: linear-gradient(45deg, #FFD93D, #FF6B6B);
+        }
+        .footer-social a:hover {
+            transform: scale(1.08) translateY(-2px);
+        }
+        @media (max-width: 900px) {
+            .footer-columns {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
         * {
             margin: 0;
             padding: 0;
@@ -112,6 +206,34 @@
             background: #4ECDC4;
             color: white;
         }
+        /* Back to Top Button Styles */
+#backToTop {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    z-index: 2000;
+    background: linear-gradient(135deg, var(--candy-red), var(--sky-blue), var(--sunny-yellow));
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 2rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s, transform 0.2s;
+}
+#backToTop.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-10px) scale(1.08);
+}
+#backToTop:hover {
+    background: linear-gradient(135deg, var(--sunny-yellow), var(--candy-red), var(--sky-blue));
+    transform: scale(1.15);
+}
 
         /* Main Container */
         .container {
@@ -346,14 +468,6 @@
         input:checked + .slider:before {
             transform: translateX(26px);
         }
-         /* dark mode toggle button */
-        .dark-mode-toggle{
-            border: none;
-            margin: 0px;
-            padding-inline: 0px;
-            cursor: pointer;
-            background:none;
-        }
 
         /* Results Section */
         .results-container {
@@ -496,243 +610,6 @@
                 justify-content: center;
             }
         }
-        html.dark-mode {
-  background: linear-gradient(135deg, #2a2a2a 0%, #1c3d3a 50%, #4e4c2c 100%);
-  color: #ddd;
-  overflow-x: hidden;
-}
-
-html.dark-mode body {
-  background: transparent;
-  color: #ddd;
-}
-
-/* Floating Elements */
-html.dark-mode .floating-elements {
-  /* optional: dim emojis or icons */
-  opacity: 0.6;
-}
-
-html.dark-mode nav {
-  background: rgba(30, 30, 30, 0.9);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
-  backdrop-filter: blur(12px);
-  color: #eee;
-  position: relative;
-  z-index: 100;
-}
-
-html.dark-mode .nav-container {
-  padding: 0 2rem;
-}
-
-html.dark-mode .logo {
-  color: #ff6b6b; /* keep that bright coral */
-  text-shadow: 0 0 6px #ff6b6b;
-  animation: wobble 2s infinite;
-}
-
-html.dark-mode .nav-links a {
-  color: #ccc;
-  transition: all 0.3s ease;
-}
-
-html.dark-mode .nav-links a:hover {
-  background: #ff6b6b;
-  color: white;
-  transform: translateY(-2px);
-}
-
-html.dark-mode .nav-links a.active {
-  background: #4ecdc4;
-  color: white;
-}
-
-/* Container */
-html.dark-mode .container {
-  background: transparent;
-  z-index: 10;
-}
-
-/* Header Section */
-html.dark-mode .header h1 {
-  color: #f5f5f5;
-  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
-  animation: bounce 2s infinite;
-}
-
-html.dark-mode .header p {
-  color: rgba(255, 255, 255, 0.8);
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-}
-
-/* Main Content Grid */
-html.dark-mode .main-content {
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-/* Input and Output Sections */
-html.dark-mode .input-section,
-html.dark-mode .output-section {
-  background: rgba(20, 20, 20, 0.85);
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
-  backdrop-filter: blur(15px);
-  color: #ddd;
-}
-
-/* Section Titles */
-html.dark-mode .section-title {
-  color: #ff6b6b;
-  text-align: center;
-  position: relative;
-}
-
-html.dark-mode .section-title::after {
-  background: #4ecdc4;
-}
-
-/* Input Labels */
-html.dark-mode .input-group label {
-  color: #ccc;
-}
-
-/* Serving Inputs */
-html.dark-mode .serving-input input {
-  background: #222;
-  border: 3px solid #bba842; /* muted gold */
-  color: #eee;
-  font-family: 'Comic Neue', cursive;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-html.dark-mode .serving-input input:focus {
-  border-color: #4ecdc4;
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(78, 205, 196, 0.5);
-  outline: none;
-}
-
-/* Textarea */
-html.dark-mode .recipe-textarea {
-  background: #222;
-  border: 3px solid #bba842;
-  color: #eee;
-  font-family: 'Comic Neue', cursive;
-  transition: all 0.3s ease;
-}
-
-html.dark-mode .recipe-textarea:focus {
-  border-color: #4ecdc4;
-  box-shadow: 0 5px 15px rgba(78, 205, 196, 0.5);
-  outline: none;
-}
-
-/* Buttons */
-html.dark-mode .btn-primary {
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-  color: #fff;
-  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.6);
-}
-
-html.dark-mode .btn-primary:hover {
-  box-shadow: 0 10px 25px rgba(255, 107, 107, 0.9);
-  animation: shimmer 1s ease-in-out;
-}
-
-html.dark-mode .btn-secondary {
-  background: #bba842;
-  color: #222;
-  box-shadow: 0 5px 15px rgba(187, 168, 66, 0.6);
-}
-
-html.dark-mode .btn-secondary:hover {
-  background: #9a8e3c;
-  color: #eee;
-}
-
-/* Toggle Switch */
-html.dark-mode .slider {
-  background-color: #444;
-}
-
-html.dark-mode input:checked + .slider {
-  background-color: #4ecdc4;
-}
-
-/* Results Section */
-html.dark-mode .results-container {
-  display: none;
-}
-
-html.dark-mode .results-container.show {
-  display: block;
-  animation: fadeInUp 0.5s ease-out;
-}
-
-html.dark-mode .results-table {
-  background: #222;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.7);
-}
-
-html.dark-mode .results-table th,
-html.dark-mode .results-table td {
-  border-bottom: 1px solid #444;
-  color: #ddd;
-}
-
-html.dark-mode .results-table th {
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-  color: white;
-  font-weight: 600;
-}
-
-html.dark-mode .results-table tr:hover {
-  background-color: #333;
-}
-
-html.dark-mode .ingredient-icon {
-  color: #ff6b6b;
-}
-
-/* Suggestions Box */
-html.dark-mode .suggestions-box {
-  background: rgba(187, 168, 66, 0.2);
-  border: 2px solid #bba842;
-  color: #ddd;
-}
-
-html.dark-mode .suggestions-box h3 {
-  color: #ff6b6b;
-}
-
-html.dark-mode .suggestions-box p {
-  color: #ccc;
-}
-
-/* Loading */
-html.dark-mode .loading {
-  color: #eee;
-}
-
-html.dark-mode .spinner {
-  border: 5px solid #333;
-  border-top: 5px solid #ff6b6b;
-}
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  html.dark-mode .nav-links {
-    /* same flex styles, but dark bg */
-    background: rgba(30, 30, 30, 0.95);
-  }
-}
-
     </style>
 </head>
 <body>
@@ -755,9 +632,6 @@ html.dark-mode .spinner {
                 <li><a href="scale.html" class="active">Scale Recipes</a></li>
                 <li><a href="about.html">About Us</a></li>
             </ul>
-            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
-  <img src="moon.png" width="20" height="20">
-</button>
         </div>
     </nav>
 
@@ -812,20 +686,14 @@ html.dark-mode .spinner {
                 </div>
 
                 <div class="btn-group">
-    <button class="btn btn-primary" onclick="scaleRecipe()">
-        ✨ Scale Recipe Magically
-    </button>
-    <button class="btn btn-secondary" onclick="clearInputs()">
-        🧹 Clear All
-    </button>
-    <button class="btn" style="background-color: #4da6ff; color: white;" onclick="saveCurrentRecipe()">
-    ⭐ Save Recipe
-</button>
-
-
-</div>
-</div>
-
+                    <button class="btn btn-primary" onclick="scaleRecipe()">
+                        ✨ Scale Recipe Magically
+                    </button>
+                    <button class="btn btn-secondary" onclick="clearInputs()">
+                        🧹 Clear All
+                    </button>
+                </div>
+            </div>
 
             <!-- Output Section -->
             <div class="output-section">
@@ -858,39 +726,59 @@ html.dark-mode .spinner {
             </div>
         </div>
     </div>
-
-<!-- back to top button -->
-<button id="backToTop" style="
-  display:none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #f408c1;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 50px;
-  cursor: pointer;
-">
-  ↑ Top
-</button>
+    <!-- Back to Top Button -->
+<button id="backToTop" title="Back to Top">⬆️</button>
+    
+    <!-- footer startes here -->
+    <footer class="footer">
+        <div class="footer-columns">
+            <div class="footer-logo">
+                <span style="font-size:2.1rem; color:#FF6B6B;">🍰</span> BakeGenius.ai
+            </div>
+            <div class="footer-group">
+                <div class="footer-group-title">About</div>
+                <ul class="footer-group-list">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="customize.html">Customize</a></li>
+                </ul>
+            </div>
+            <div class="footer-group">
+                <div class="footer-group-title">Tools</div>
+                <ul class="footer-group-list">
+                    <li><a href="convert.html">Convert</a></li>
+                    <li><a href="scale.html">Scale</a></li>
+                </ul>
+            </div>
+            <div class="footer-group">
+                <div class="footer-group-title">Quick Links</div>
+                <ul class="footer-group-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2025 BakeGenius.ai &mdash; Made with <span style="color:#FF6B6B;">&#10084;&#65039;</span> by Supriya Pandey</span>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/" class="linkedin" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v5.595z"/>
+                    </svg>
+                </a>
+                <a href="https://your-portfolio.com/" class="portfolio" target="_blank" rel="noopener" title="Portfolio" aria-label="Portfolio">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm0 2c1.657 0 3.156.672 4.242 1.758A5.978 5.978 0 0 0 18 12c0 1.657-.672 3.156-1.758 4.242A5.978 5.978 0 0 0 12 18a5.978 5.978 0 0 0-4.242-1.758A5.978 5.978 0 0 0 6 12c0-1.657.672-3.156 1.758-4.242A5.978 5.978 0 0 0 12 4zm0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
 
     <script>
+        const API_KEY = 'API_KEY';
+        const API_URL = 'API_URL';
 
-        // Show button when scrolled down 300px
-  window.onscroll = function() {
-    document.getElementById("backToTop").style.display =
-      document.documentElement.scrollTop > 0 ? "block" : "none";
-  };
-
-  // Scroll smoothly to top
-  document.getElementById("backToTop").onclick = function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-        // Note: API keys removed for security - implement server-side API calls in production
-        const API_KEY = null;
-        const API_URL = null;
+        
 
         // Ingredient icons mapping
         const ingredientIcons = {
@@ -943,6 +831,8 @@ html.dark-mode .spinner {
             }
             return ingredientIcons.default;
         }
+
+
         
         function parseIngredientLine(line) {
             // Enhanced regex to capture amount, unit, and ingredient
@@ -1143,54 +1033,6 @@ html.dark-mode .spinner {
             suggestions.innerHTML = tips.map(tip => `<p>${tip}</p>`).join('');
         }
 
-
-        function saveCurrentRecipe() {
-    const resultsBody = document.getElementById('resultsBody');
-    const scalingInfo = document.getElementById('scalingInfo');
-    const suggestions = document.getElementById('suggestions');
-
-    if (!resultsBody || resultsBody.innerHTML.trim() === "") {
-        alert("⚠️ No recipe results to save yet!");
-        return;
-    }
-
-    let currentServings = document.getElementById('currentServings').value;
-    let desiredServings = document.getElementById('desiredServings').value;
-
-    // Extract ingredients
-    let rows = resultsBody.querySelectorAll("tr");
-    let ingredientsText = "";
-    rows.forEach(row => {
-        let cells = row.querySelectorAll("td");
-        ingredientsText += `Ingredient: ${cells[0].innerText.trim()} | Original: ${cells[1].innerText.trim()} | Scaled: ${cells[2].innerText.trim()}\n`;
-    });
-
-    // Extract tips
-    let tipsText = "";
-    suggestions.querySelectorAll("p").forEach(p => {
-        tipsText += `- ${p.innerText.trim()}\n`;
-    });
-
-    // Build the text content
-    let recipeText = `🍴 Scaled Recipe\n\nCurrent Servings: ${currentServings}\nDesired Servings: ${desiredServings}\n\nIngredients:\n${ingredientsText}\nTips:\n${tipsText}\n\nSaved on: ${new Date().toLocaleString()}`;
-
-    // Create a blob and trigger download
-    let blob = new Blob([recipeText], { type: "text/plain" });
-    let url = URL.createObjectURL(blob);
-
-    let a = document.createElement("a");
-    a.href = url;
-    a.download = `recipe_${Date.now()}.txt`; // filename
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-
-    URL.revokeObjectURL(url);
-
-    alert("✅ Recipe saved as .txt file!");
-}
-
-
         function clearInputs() {
             document.getElementById('currentServings').value = '6';
             document.getElementById('desiredServings').value = '12';
@@ -1198,6 +1040,18 @@ html.dark-mode .spinner {
             document.getElementById('convertToGrams').checked = false;
             document.getElementById('resultsContainer').classList.remove('show');
         }
+        // Back to Top Button Logic
+const backToTopBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+    } else {
+        backToTopBtn.classList.remove('show');
+    }
+});
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
         // Add some example recipes on page load
         window.addEventListener('load', function() {
@@ -1209,42 +1063,6 @@ html.dark-mode .spinner {
             
           
         });
-         const darkModeToggle = document.getElementById('darkModeToggle');
-
-// On page load, check localStorage and apply dark mode if enabled
-if (localStorage.getItem('darkMode') === 'enabled') {
-    document.documentElement.classList.add('dark-mode');
-    if (darkModeToggle) darkModeToggle.innerHTML = `<img src="sun.png" width="20" height="20">`;
-}
-
-if (darkModeToggle) {
-    darkModeToggle.addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark-mode');
-        
-        if (document.documentElement.classList.contains('dark-mode')) {
-            localStorage.setItem('darkMode', 'enabled');
-            darkModeToggle.innerHTML = `<img src="sun.png" width="20" height="20">`;
-        } else {
-            localStorage.setItem('darkMode', 'disabled');
-            darkModeToggle.innerHTML = `<img src="moon.png" width="20" height="20">`;
-        }
-    });
-}
     </script>
-    
-    <!-- Floating Emoji Footer Fix -->
-    <script src="js/floating_emoji_footer_fix.js"></script>
-    
-    <!-- Include Footer -->
-<div id="footer-placeholder"></div>
-<script>
-  fetch("footer.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("footer-placeholder").innerHTML = data;
-    });
-</script>
-<script src="../js/mouse-trail.js"></script>
-
 </body>
 </html>

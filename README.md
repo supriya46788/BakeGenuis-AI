@@ -2,7 +2,7 @@
 
 <div align="center">
 
- **🍰 BakeGenius AI - Precision Baking for Everyone**
+ **🍰 BakeGenuis AI - Precision Baking for Everyone**
 
 ![GSSoC'25](https://img.shields.io/badge/GirlScript%20Summer%20of%20Code-2025-orange?style=for-the-badge)
 
@@ -10,9 +10,9 @@
 
 ---
 
-**BakeGenius AI** is an AI-powered tool that transforms vague recipe measurements like "1 cup of flour" or "2 tablespoons of butter" into precise gram-based values. It helps home cooks, professionals, and culinary enthusiasts bake with consistency and accuracy by removing the guesswork from measurements.
+**BakeGenuis AI** is an AI-powered tool that transforms vague recipe measurements like "1 cup of flour" or "2 tablespoons of butter" into precise gram-based values. It helps home cooks, professionals, and culinary enthusiasts bake with consistency and accuracy by removing the guesswork from measurements.
 
-> ⚡ *"BakeGenius AI bridges the gap between casual cooking and scientific precision."*
+> ⚡ *"BakeGenuis AI bridges the gap between casual cooking and scientific precision."*
 
 ---
 <div align="center">
@@ -52,7 +52,7 @@
 
 Many online recipes list ingredients using vague units like cups, teaspoons, and spoons, which can vary depending on the ingredient and person measuring. This inconsistency often leads to failed recipes.
 
-**BakeGenius AI solves this by:**
+**BakeGenuis AI solves this by:**
 - Converting units like "cups", "tablespoons", etc., into exact grams.
 - Using a built-in database of **ingredient densities**.
 - Supporting **voice-based input**, **real-time AI assistance**, and **visualizations**.
@@ -82,6 +82,80 @@ Many online recipes list ingredients using vague units like cups, teaspoons, and
   
 ![GSSoC Logo](https://github.com/supriya46788/Research-Paper-Organizer/blob/main/images/gssoc-logo.png)
 </div>
+
+📂 Project Structure
+  ```
+supriya46788/
+├─ .github/
+│  ├─ ISSUE_TEMPLATE/
+│  ├─ workflows/
+│  └─ PULL_REQUEST_TEMPLATE.md
+├─ frontend/
+│  └─ views/
+│     └─ recipe_hub.html
+├─ html/
+│  ├─ about.html
+│  ├─ about_BACKUP_1224.html
+│  ├─ about_BASE_1224.html
+│  ├─ about_LOCAL_1224.html
+│  ├─ about_REMOTE_1224.html
+│  ├─ convert.html
+│  ├─ customize.html
+│  ├─ feedback.html
+│  ├─ login.html
+│  ├─ recipe_hub.html
+│  ├─ scale.html
+│  └─ signup.html
+├─ js/
+│  ├─ about.js
+│  ├─ auth.js
+│  ├─ carousel_autoscroll.js
+│  ├─ config.js
+│  ├─ convert.js
+│  ├─ customize.js
+│  ├─ feature.js
+│  ├─ feedback.js
+│  ├─ floating_emoji_footer_fix.js
+│  ├─ google_config.example.js
+│  ├─ index.js
+│  ├─ mouse-trail.js
+│  ├─ recipe_hub.js
+│  ├─ scale.js
+│  └─ theme.js
+├─ public/
+│  └─ css/
+│     ├─ about.css
+│     ├─ android-chrome-192x192.png
+│     ├─ android-chrome-512x512.png
+│     ├─ apple-touch-icon.png
+│     ├─ auth.css
+│     ├─ convert.css
+│     ├─ customize.css
+│     ├─ favicon-16x16.png
+│     ├─ favicon-32x32.png
+│     ├─ feature.css
+│     ├─ feedback.css
+│     ├─ floating_emoji_fix.css
+│     ├─ index.css
+│     ├─ recipe_hub.css
+│     ├─ scale.css
+│     ├─ toast.css
+│     └─ toggle.css
+├─ .gitignore
+├─ CODE_CLEANUP_SUMMARY.md
+├─ CODE_OF_CONDUCT.md
+├─ CONTRIBUTING.md
+├─ GOOGLE_SETUP.md
+├─ License
+├─ README.md
+├─ gssoc logo.png
+├─ index.html
+├─ scale.html
+├─ server.js
+└─ site.webmanifest
+  ```
+---
+
 
 🌟 **Exciting News...**
 
@@ -119,12 +193,15 @@ Many online recipes list ingredients using vague units like cups, teaspoons, and
 (*values vary depending on the density of ingredients*)
 
 ---
-**🛠️ How to Run Locally**
+
+**📥 Setup Instructions**
+
+🛠️ How to Run Locally
 
 1. Clone the repository:
 ```bash
 git clone https://github.com/supriya46788/BakeGenuis-AI.git
-cd BakeGenuis-AI
+cd BakeGenius-AI
 ```
 
 ## 🔑 Firebase Configuration
@@ -205,15 +282,38 @@ Follow these steps to contribute your changes to **BakeGenuis-AI**:
 
 ---
 
-**🤝 Contributing**
+## 📌 How to Get Involved & Contribute
 
-We welcome contributions from the community!  
-Here’s how you can help:
+👩‍💻 Want to contribute to **BakeGenuis AI** and become part of the open-source family? It’s super easy! 🚀  
+We welcome contributions from all levels – beginners and experts alike.
 
-- 📌 Raise issues or bug reports
-- 🌟 Suggest new features
-- 🧪 Improve AI prompt engineering or ingredient logic
-- 🎨 Enhance UI/UX
+### ✅ Steps to Get Started:
+
+1. 🔧 Follow the [📥 Setup Instructions](#📥-setup-instructions) to run the project locally.
+2. 🌐 Explore the live preview:  
+   👉 [BakeGenuis-AI Preview Link](https://supriya46788.github.io/BakeGenuis-AI/)
+3. 🐛 Found a bug or want to suggest UI/UX improvements?  
+   * Open an [Issue](https://github.com/supriya46788/BakeGenuis-AI/issues) in the repository.  
+   * It will be assigned to you for contribution.
+4. 🌟 Want to contribute features or fix bugs?  
+   * Pick issues labeled `good first issue` for easy contributions.  
+   * Suggest or build new features such as:
+     * Improving AI prompt engineering  
+     * Adding ingredient density data  
+     * Enhancing UI components or responsiveness
+5. 🧱 Fork the project, make your changes, and submit a Pull Request.
+
+---
+
+### 💡 Pro Tips:
+
+* Fix typos, improve documentation, or optimize code – every contribution counts!  
+* Write clear and meaningful commit messages to help maintain project clarity.
+
+❤️ Thank you for contributing and making **BakeGenuis AI** awesome!  
+Let’s grow together — one PR at a time. 🌱
+
+
 
 ---
 
@@ -221,7 +321,7 @@ Here’s how you can help:
 
 We love our contributors! If you'd like to help, please check out our [`CONTRIBUTE.md`](https://github.com/supriya46788/BakeGenuis-AI/blob/main/CONTRIBUTING.md) file for guidelines.
 
->Thank you once again to all our contributors who has contributed to **BakeGenuis-AI!** Your efforts are truly appreciated. 💖👏
+>Thank you once again to all our contributors who have contributed to **BakeGenuis-AI!** Your efforts are truly appreciated. 💖👏
 
 <!-- Contributors badge (auto-updating) -->
 
@@ -305,4 +405,4 @@ This project is licensed under the MIT License - see the [`License`](https://git
 
 ---
 
-Ready to show off your coding achievements? Get started with BakeGenuis-AI today! 🚀
+Ready to show off your coding achievements? Get started with **BakeGenuis-AI** today! 🚀
