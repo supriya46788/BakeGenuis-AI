@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --candy-red: #FF4757;
             --sky-blue: #70A1FF;
+            --candy-red: #FF6B6B;
             --sunny-yellow: #FFA502;
             --white: #FFFFFF;
             --light-pink: #FFE0E6;
@@ -21,6 +21,7 @@
             --dark-text: #F4F4FB;
             --dark-accent: #1a5fb4;
             --dark-footer: #10102b;
+            --soft-pink: #FFB6C1;
         }
 
         body {
@@ -30,6 +31,7 @@
             position: relative;
             overflow-x: hidden;
             transition: background 0.3s;
+            margin: 0 auto;
         }
 
         body.dark-mode {
@@ -45,7 +47,342 @@
         .floating-cupcake:nth-child(4) { bottom: 30%; right: 10%; animation-delay: 1s; }
         @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(5deg); } }
 
-        nav {
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 0.8rem 0rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .navbar {
+            background: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #ff6b6b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Comic Neue', cursive;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-text {
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            color: #ff5252;
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(10deg);
+        }
+
+        body.dark-mode .logo {
+            color: #ff8a80;
+        }
+
+        body.dark-mode .logo:hover {
+            color: #ffab91;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 0.7rem 1.2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+        }
+
+        .nav-links a.active {
+            background: linear-gradient(45deg, var(--candy-red), var(--soft-pink));
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        body.dark-mode .nav-links a {
+            color: var(--dark-text);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        body.dark-mode .nav-links a.active {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(45deg, var(--sunny-yellow), var(--soft-pink));
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #333;
+        }
+
+        body.dark-mode .nav-links a:hover {
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            color: #fff;
+        }
+
+        /* Navigation Actions */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .dark-mode-btn {
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 0.7rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark-mode-btn:hover {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .dark-mode-btn {
+            background: linear-gradient(45deg, #f39c12 0%, #f1c40f 100%);
+        }
+
+        .login-btn {
+            background: linear-gradient(45deg, var(--candy-red), #ff8a80);
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            background: linear-gradient(45deg, #ff5252, var(--candy-red));
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        body.dark-mode .login-btn {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        body.dark-mode .login-btn:hover {
+            background: linear-gradient(45deg, #c0392b, #a93226);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        body.dark-mode .hamburger span {
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+                /* Responsive Design */
+        @media (max-width: 1100px) {
+            .navbar {
+                padding: 0.8rem 1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                transform: translateX(-100%);
+                gap: 1rem;
+                z-index: 999;
+            }
+
+            body.dark-mode .nav-links {
+                background: rgba(26, 26, 26, 0.98);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links a {
+                width: 80%;
+                text-align: center;
+                padding: 1rem;
+                font-size: 1.1rem;
+                margin: 0.5rem 0;
+            }
+
+            .nav-actions {
+                gap: 0.5rem;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .login-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .dark-mode-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+
+            .hamburger {
+                margin-right: 2rem;
+                display: flex;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo-icon {
+                font-size: 1.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 0.5rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .logo-icon {
+                font-size: 1.5rem;
+            }
+
+            .nav-actions {
+                gap: 0.3rem;
+            }
+
+            .login-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .dark-mode-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 0.8rem;
+            }
+        }
+        /* Add this new media query block */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-links {
+                flex-grow: 1; /* Allows links to take up available space */
+                justify-content: space-around; /* Distributes links evenly */
+            }
+        
+            .nav-links a {
+                padding: 0.5rem 0.8rem; /* Reduces padding for a tighter fit */
+            }
+        
+            .nav-actions {
+                gap: 0.8rem; /* Reduces space between buttons */
+            }
+        }
+
+
+        /* nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 2rem;
@@ -60,39 +397,39 @@
             color: var(--dark-text);
             box-shadow: 0 4px 20px #000a;
         }
-
-        .nav-container { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;}
-        .logo { font-size:1.8rem; font-weight:700; color:var(--candy-red); text-shadow:2px 2px 4px rgba(0,0,0,0.1);}
-        body.dark-mode .logo { color:var(--sunny-yellow);}
-        .nav-links { display: flex; list-style: none; gap: 2rem;}
+ */
+        /* .nav-container { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;}
+        .logo { font-size:1.8rem; font-weight:700; color:var(--candy-red); text-shadow:2px 2px 4px rgba(0,0,0,0.1);} */
+        /* body.dark-mode .logo { color:var(--sunny-yellow);} */
+        /* .nav-links { display: flex; list-style: none; gap: 2rem;}
         .nav-links a { text-decoration:none; color:#333; font-weight:600; padding:0.5rem 1rem; border-radius:25px; transition:all 0.3s;}
         .nav-links a:hover { background:var(--sunny-yellow); color:#fff;}
-        .nav-links a.active { background:var(--candy-red); color:#fff;}
-        body.dark-mode .nav-links a { color: var(--dark-text); }
-        body.dark-mode .nav-links a:hover { background: var(--sky-blue); color: var(--dark-bg); }
-        body.dark-mode .nav-links a.active { background: var(--sunny-yellow); color: var(--dark-bg); }
+        .nav-links a.active { background:var(--candy-red); color:#fff;} */
+        /* body.dark-mode .nav-links a { color: var(--dark-text); } */
+        /* body.dark-mode .nav-links a:hover { background: var(--sky-blue); color: var(--dark-bg); }
+        body.dark-mode .nav-links a.active { background: var(--sunny-yellow); color: var(--dark-bg); } */
 
-        .nav-actions { display: flex; align-items: center; gap: 1rem;}
-        .dark-mode-btn {
+        /* .nav-actions { display: flex; align-items: center; gap: 1rem;} */
+        /* .dark-mode-btn {
             background: linear-gradient(45deg, var(--sky-blue) 0%, var(--candy-red) 100%);
             border: none; color: white; padding: 0.7rem;
             border-radius: 50%; cursor: pointer; font-size: 1.1rem; width: 45px; height: 45px;
             display: flex; align-items: center; justify-content: center; box-shadow:0 4px 15px #0003;
             transition:all 0.3s;
-        }
-        .dark-mode-btn:hover { transform:scale(1.1) rotate(360deg);}
-        body.dark-mode .dark-mode-btn {background: linear-gradient(45deg, var(--sunny-yellow), var(--sky-blue)); color: var(--dark-bg);}
-        .login-btn {
+        } */
+        /* .dark-mode-btn:hover { transform:scale(1.1) rotate(360deg);} */
+        /* body.dark-mode .dark-mode-btn {background: linear-gradient(45deg, var(--sunny-yellow), var(--sky-blue)); color: var(--dark-bg);} */
+        /* .login-btn {
             background: linear-gradient(45deg, var(--candy-red), var(--sunny-yellow));
             color: white; text-decoration: none; padding:0.7rem 1.5rem; border-radius:25px; font-weight:600;
             display: flex; align-items: center; gap:0.5rem; box-shadow:0 4px 15px rgba(255,71,87,0.3); border:2px solid transparent;
         }
-        .login-btn:hover { background:linear-gradient(45deg, #ff6875, var(--sunny-yellow)); }
-        body.dark-mode .login-btn { background: linear-gradient(45deg, #2323a5, var(--sunny-yellow)); color: var(--dark-text);}
-        body.dark-mode .login-btn:hover { background:linear-gradient(45deg,var(--sky-blue),var(--dark-accent)); color:var(--dark-bg);}
-        .hamburger { display: none; flex-direction: column; cursor: pointer; padding: 0.5rem; }
-        .hamburger span { width: 25px; height: 3px; background:linear-gradient(45deg,var(--candy-red),var(--sky-blue)); margin:3px 0; border-radius:2px;}
-        body.dark-mode .hamburger span { background: linear-gradient(45deg,var(--sunny-yellow),var(--sky-blue)); }
+        .login-btn:hover { background:linear-gradient(45deg, #ff6875, var(--sunny-yellow)); } */
+        /* body.dark-mode .login-btn { background: linear-gradient(45deg, #2323a5, var(--sunny-yellow)); color: var(--dark-text);} */
+        /* body.dark-mode .login-btn:hover { background:linear-gradient(45deg,var(--sky-blue),var(--dark-accent)); color:var(--dark-bg);} */
+        /* .hamburger { display: none; flex-direction: column; cursor: pointer; padding: 0.5rem; }
+        .hamburger span { width: 25px; height: 3px; background:linear-gradient(45deg,var(--candy-red),var(--sky-blue)); margin:3px 0; border-radius:2px;} */
+        /* body.dark-mode .hamburger span { background: linear-gradient(45deg,var(--sunny-yellow),var(--sky-blue)); } */
 
         .container {max-width:1000px; margin:2rem auto; padding:0 1rem; position:relative; z-index:10;}
         .page-header { text-align:center; margin-bottom:3rem;}
@@ -258,21 +595,24 @@
         <div class="floating-cupcake">🍪</div>
     </div>
     <!-- Navigation -->
-    <nav>
+<nav class="navbar">
         <div class="nav-container">
-            <div class="logo">🍰 BakeGenius.ai</div>
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🍰</span>
+                <span class="logo-text">BakeGenius.ai</span>
+            </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" >Home</a></li>
                 <li><a href="convert.html">Convert Recipe</a></li>
                 <li><a href="customize.html" class="active">Customize</a></li>
                 <li><a href="scale.html">Scale Recipes</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
             <div class="nav-actions">
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="#" class="login-btn" id="openLoginModal">
+                <a href="#" class="login-btn" onclick="alert('Login functionality will be implemented soon!')">
                     <i class="fas fa-user"></i>
                     Login
                 </a>
