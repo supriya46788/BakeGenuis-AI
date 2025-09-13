@@ -11,7 +11,8 @@
             --light-pink: #FFE0E6;
             --light-blue: #E8F4FF;
             --light-yellow: #FFF5E0;
-            --candy-red: #ffabab;
+            --candy-red: #FF6B6B;
+            /* --candy-red: #ffabab; */
             --sky-blue: #249e96;
             --sunny-yellow: #fcd124;
             --soft-pink: #FFB6C1;
@@ -365,7 +366,7 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 1100px) {
             .navbar {
                 padding: 0.8rem 1rem;
             }
@@ -373,7 +374,7 @@
             .nav-links {
                 position: fixed;
                 top: 80px;
-                left: -100%;
+                left: 0;
                 width: 100%;
                 height: calc(100vh - 80px);
                 background: rgba(255, 255, 255, 0.98);
@@ -383,6 +384,7 @@
                 align-items: center;
                 padding-top: 2rem;
                 transition: left 0.3s ease;
+                transform: translateX(-100%);
                 gap: 1rem;
                 z-index: 999;
             }
@@ -461,6 +463,21 @@
                 width: 35px;
                 height: 35px;
                 font-size: 0.8rem;
+            }
+        }
+        /* Add this new media query block */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-links {
+                flex-grow: 1; /* Allows links to take up available space */
+                justify-content: space-around; /* Distributes links evenly */
+            }
+        
+            .nav-links a {
+                padding: 0.5rem 0.8rem; /* Reduces padding for a tighter fit */
+            }
+        
+            .nav-actions {
+                gap: 0.8rem; /* Reduces space between buttons */
             }
         }
 
