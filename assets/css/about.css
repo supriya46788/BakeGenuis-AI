@@ -132,6 +132,7 @@ body {
   position: relative;
   overflow-x: hidden;
   line-height: 1.6;
+  margin: 0 auto;
 }
 
 /* Advanced Animated Background */
@@ -244,7 +245,7 @@ body {
         .navbar {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
-            padding: 0.9rem 2rem;
+            padding: 0.68em 2rem;
             position: fixed;
             top: 0;
             width: 100%;
@@ -265,6 +266,7 @@ body {
             align-items: center;
             max-width: 1400px;
             margin: 0 auto;
+            padding-top: 0.08rem;
         }
 
         .logo {
@@ -282,6 +284,7 @@ body {
         .logo-icon {
             font-size: 2rem;
             transition: transform 0.3s ease;
+            padding-top: 0.2rem;
         }
 
         .logo-text {
@@ -310,7 +313,9 @@ body {
             display: flex;
             list-style: none;
             gap: 1.5rem;
-            align-items: center;
+            align-items: center;            
+            padding-right: 0.2rem;
+
         }
 
         .nav-links a {
