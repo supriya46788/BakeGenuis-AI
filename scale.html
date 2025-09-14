@@ -6,155 +6,34 @@
     <title>Scale Recipes - BakeGenius.ai</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <style>
-        /* Footer Modern Multi-Column */
-        .footer {
-            background: #0a0a3c;
-            color: #fff;
-            border-top: 4px solid #4ECDC4;
-            padding: 3rem 0 1.5rem 0;
-        }
-        .footer-columns {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-        .footer-logo {
-            flex: 1 1 180px;
-            min-width: 180px;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
-        }
-        .footer-group {
-            flex: 1 1 160px;
-            min-width: 160px;
-            margin-bottom: 1.5rem;
-        }
-        .footer-group-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-        .footer-group-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .footer-group-list li {
-            margin-bottom: 0.7em;
-        }
-        .footer-group-list a {
-            color: #b3e6e2;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.2s;
-        }
-        .footer-group-list a:hover {
-            color: #FFD93D;
-        }
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 2rem auto 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            font-size: 1rem;
-            color: #b3e6e2;
-            border-top: 1px solid #233;
-            padding-top: 1.2rem;
-        }
-        .footer-social {
-            display: flex;
-            gap: 1rem;
-        }
-        .footer-social a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #0077B5, #00A0DC);
-            color: #fff;
-            font-size: 1.2rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-            transition: background 0.2s, transform 0.2s;
-        }
-        .footer-social a.portfolio {
-            background: linear-gradient(45deg, #FFD93D, #FF6B6B);
-        }
-        .footer-social a:hover {
-            transform: scale(1.08) translateY(-2px);
-        }
-        @media (max-width: 900px) {
-            .footer-columns {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        :root{
+        :root {
             --candy-red: #FF6B6B;
-            --soft-pink: #FFB6C1;
-            --light-pink: #FFE0E6;
-            --light-blue: #E8F4FF;
-            --light-yellow: #FFF5E0;
             --sky-blue: #4ECDC4;
+            --sunny-yellow: #FFD93D;
+            --soft-pink: #FFB6C1;
+            --mint-green: #98FB98;
+            --lavender: #E6E6FA;
+            --dark-bg: #1a1a1a;
+            --dark-card: #2d2d2d;
+            --dark-text: #ffffff;
+            --dark-border: #404040;
         }
 
         body {
             font-family: 'Comic Neue', cursive;
-            background: linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 30%, var(--light-yellow) 60%, var(--light-pink) 100%);
+            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--soft-pink) 50%, var(--sunny-yellow) 100%);
             min-height: 100vh;
             position: relative;
-            overflow-x: hidden;
+            transition: all 0.3s ease;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Animated Background Elements */
-        .floating-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .floating-cupcake {
-            position: absolute;
-            font-size: 2rem;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-cupcake:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-        .floating-cupcake:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
-        .floating-cupcake:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
-        .floating-cupcake:nth-child(4) { bottom: 15%; right: 10%; animation-delay: 1s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+        body.dark-mode {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
+            color: var(--dark-text);
         }
 
         /* Navigation */
@@ -243,20 +122,20 @@
         }
 
         .nav-links a.active {
-            background: linear-gradient(45deg, var(--candy-red), var(--soft-pink));
+            background: linear-gradient(45deg, var(--candy-red), var(--sunny-yellow));
             color: white;
+            transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
         }
 
         body.dark-mode .nav-links a {
-            /* color: var(--dark-text); */
-            color: white;
+            color: var(--dark-text);
             background: rgba(255, 255, 255, 0.05);
         }
 
         body.dark-mode .nav-links a.active {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            color: white;
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            color: #fff;
         }
 
         .nav-links a:hover {
@@ -375,8 +254,8 @@
             transform: rotate(45deg) translate(-5px, -6px);
         }
 
-                /* Responsive Design */
-        @media (max-width: 1100px) {
+        /* Responsive Design */
+        @media (max-width: 768px) {
             .navbar {
                 padding: 0.8rem 1rem;
             }
@@ -384,7 +263,7 @@
             .nav-links {
                 position: fixed;
                 top: 80px;
-                left: 0;
+                left: -100%;
                 width: 100%;
                 height: calc(100vh - 80px);
                 background: rgba(255, 255, 255, 0.98);
@@ -394,7 +273,6 @@
                 align-items: center;
                 padding-top: 2rem;
                 transition: left 0.3s ease;
-                transform: translateX(-100%);
                 gap: 1rem;
                 z-index: 999;
             }
@@ -416,82 +294,164 @@
             }
 
             .nav-actions {
+                display: flex;
                 gap: 0.5rem;
-                position: relative;
-                z-index: 1001;
-            }
-
-            .login-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-
-            .dark-mode-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 0.9rem;
             }
 
             .hamburger {
                 display: flex;
-                position: relative;
-                z-index: 1001;
-            }
-
-            .logo {
-                font-size: 1.5rem;
-            }
-
-            .logo-icon {
-                font-size: 1.7rem;
             }
         }
 
-        @media (max-width: 480px) {
-            .navbar {
-                padding: 0.5rem;
+        /* Footer Modern Multi-Column */
+        .footer {
+            background: #0a0a3c;
+            color: #fff;
+            border-top: 4px solid #4ECDC4;
+            padding: 3rem 0 1.5rem 0;
+        }
+        .footer-columns {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .footer-logo {
+            flex: 1 1 180px;
+            min-width: 180px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+        .footer-group {
+            flex: 1 1 160px;
+            min-width: 160px;
+            margin-bottom: 1.5rem;
+        }
+        .footer-group-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        .footer-group-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-group-list li {
+            margin-bottom: 0.7em;
+        }
+        .footer-group-list a {
+            color: #b3e6e2;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .footer-group-list a:hover {
+            color: #FFD93D;
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 1rem;
+            color: #b3e6e2;
+            border-top: 1px solid #233;
+            padding-top: 1.2rem;
+        }
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #0077B5, #00A0DC);
+            color: #fff;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .footer-social a.portfolio {
+            background: linear-gradient(45deg, #FFD93D, #FF6B6B);
+        }
+        .footer-social a:hover {
+            transform: scale(1.08) translateY(-2px);
+        }
+        @media (max-width: 900px) {
+            .footer-columns {
+                flex-direction: column;
+                gap: 1.5rem;
             }
-
-            .logo {
-                font-size: 1.3rem;
-            }
-
-            .logo-icon {
-                font-size: 1.5rem;
-            }
-
-            .nav-actions {
-                gap: 0.3rem;
-            }
-
-            .login-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-
-            .dark-mode-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 0.8rem;
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
         }
-        /* Add this new media query block */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .nav-links {
-                flex-grow: 1; /* Allows links to take up available space */
-                justify-content: space-around; /* Distributes links evenly */
-            }
-        
-            .nav-links a {
-                padding: 0.5rem 0.8rem; /* Reduces padding for a tighter fit */
-            }
-        
-            .nav-actions {
-                gap: 0.8rem; /* Reduces space between buttons */
-            }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root{
+            --candy-red: #FF4757;
+            --light-pink: #FFE0E6;
+            --light-blue: #E8F4FF;
+            --light-yellow: #FFF5E0;
         }
 
-        /* nav {
+        body {
+            font-family: 'Comic Neue', cursive;
+            background: linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 30%, var(--light-yellow) 60%, var(--light-pink) 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-cupcake {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-cupcake:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .floating-cupcake:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
+        .floating-cupcake:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
+        .floating-cupcake:nth-child(4) { bottom: 15%; right: 10%; animation-delay: 1s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Navigation */
+        nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 0;
@@ -548,7 +508,7 @@
         .nav-links a.active {
             background: #4ECDC4;
             color: white;
-        } */
+        }
         /* Back to Top Button Styles */
 #backToTop {
     position: fixed;
@@ -581,7 +541,7 @@
         /* Main Container */
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 6rem auto 0;
             padding: 2rem;
             position: relative;
             z-index: 10;
@@ -973,7 +933,7 @@
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="convert.html" >Convert Recipe</a></li>
+                <li><a href="convert.html">Convert Recipe</a></li>
                 <li><a href="customize.html">Customize</a></li>
                 <li><a href="scale.html" class="active">Scale Recipes</a></li>
                 <li><a href="about.html">About</a></li>
@@ -982,9 +942,13 @@
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="#" class="login-btn" onclick="alert('Login functionality will be implemented soon!')">
+                <a href="#" class="login-btn" id="openLoginModal">
                     <i class="fas fa-user"></i>
                     Login
+                </a>
+                <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
                 </a>
             </div>
             <div class="hamburger" id="hamburger">
@@ -1135,6 +1099,61 @@
     </footer>
 
     <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const darkModeIcon = darkModeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+            darkModeIcon.classList.remove('fa-moon');
+            darkModeIcon.classList.add('fa-sun');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Update icon
+            if (body.classList.contains('dark-mode')) {
+                darkModeIcon.classList.remove('fa-moon');
+                darkModeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                darkModeIcon.classList.remove('fa-sun');
+                darkModeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+
+        // Scale Recipe Logic
         const API_KEY = 'API_KEY';
         const API_URL = 'API_URL';
 
@@ -1413,6 +1432,38 @@ backToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+        // Function to update login state
+        function updateLoginState() {
+            const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+            const loginBtn = document.getElementById("openLoginModal");
+            const logoutBtn = document.getElementById("logoutBtn");
+            
+            if (isLoggedIn) {
+                loginBtn.style.display = "none";
+                logoutBtn.style.display = "flex";
+            } else {
+                loginBtn.style.display = "flex";
+                logoutBtn.style.display = "none";
+            }
+        }
+
+        // Logout functionality
+        const logoutBtn = document.getElementById("logoutBtn");
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                localStorage.removeItem("isLoggedIn");
+                localStorage.removeItem("currentUser");
+                updateLoginState();
+                alert("You have been logged out successfully!");
+            });
+        }
+
+        // Check login state on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            updateLoginState();
+        });
+
         // Add some example recipes on page load
         window.addEventListener('load', function() {
             const examples = [
@@ -1422,30 +1473,6 @@ backToTopBtn.addEventListener('click', () => {
             ];
             
           
-        });
-
-
-         // Dark/Light Mode toggle
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
-        const darkModeIcon = darkModeToggle.querySelector('i');
-        function applyTheme(theme) {
-            if (theme === 'dark') {
-                body.classList.add('dark-mode');
-                darkModeIcon.classList.remove('fa-moon');
-                darkModeIcon.classList.add('fa-sun');
-            } else {
-                body.classList.remove('dark-mode');
-                darkModeIcon.classList.remove('fa-sun');
-                darkModeIcon.classList.add('fa-moon');
-            }
-        }
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        applyTheme(currentTheme);
-        darkModeToggle.addEventListener('click', () => {
-            const theme = body.classList.contains('dark-mode') ? 'light' : 'dark';
-            localStorage.setItem('theme', theme);
-            applyTheme(theme);
         });
     </script>
 </body>

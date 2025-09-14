@@ -154,20 +154,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Add dynamic color changes to nav links
-  function initNavLinkEffects() {
-    const navLinks = document.querySelectorAll(".nav-links a:not(.active)");
-    const colors = [
-      "var(--candy-red)",
-      "var(--sky-blue)",
-      "var(--sunny-yellow)",
-    ];
+  // function initNavLinkEffects() {
+  //   const navLinks = document.querySelectorAll(".nav-links a:not(.active)");
+  //   const colors = [
+  //     "var(--candy-red)",
+  //     "var(--sky-blue)",
+  //     "var(--sunny-yellow)",
+  //   ];
 
-    navLinks.forEach((link, index) => {
-      link.addEventListener("mouseenter", function () {
-        this.style.backgroundColor = colors[index % colors.length];
-      });
-    });
-  }
+  //   navLinks.forEach((link, index) => {
+  //     link.addEventListener("mouseenter", function () {
+  //       this.style.backgroundColor = colors[index % colors.length];
+  //     });
+  //     link.addEventListener("mouseleave",function () {
+  //       this.style.backgroundColor = "";
+  //     })
+  //   });
+  // }
 
   // Add floating animation to creator avatar
   function initCreatorAvatarEffect() {
@@ -222,20 +225,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+
   // Initialize all functions
-  createSparkles();
-  initScrollAnimations();
-  initSmoothScrolling();
-  initMobileMenu();
-  initParallaxEffect();
-  initCardEffects();
-  initTypingEffect();
-  initProblemItemAnimations();
-  initStepCardAnimations();
-  initNavLinkEffects();
-  initCreatorAvatarEffect();
-  initLoadingAnimation();
-  initScrollProgress();
+//  createSparkles();
+//  initScrollAnimations();
+//  initSmoothScrolling();
+//  initMobileMenu();
+//  initParallaxEffect();
+//  initCardEffects();
+//  initTypingEffect();
+//  initProblemItemAnimations();
+//  initStepCardAnimations();
+//  initCreatorAvatarEffect();
+//  initLoadingAnimation();
+//  initScrollProgress();
 
   // Back to Top Button Logic
   const backToTopBtn = document.getElementById("backToTop");
@@ -250,32 +253,98 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
+
+  // Add scroll progress indicator
+
+  const owner = "supriya46788";
+  const repo = "BakeGenuis-AI";
+  const contributorsContainer = document.getElementById(
+    "contributors-container"
+  );
+  let contributorsData = []; // store contributors globally
+  async function loadContributors() {
+    const contributorsContainer = document.getElementById(
+      "contributors-container"
+    );
+    contributorsContainer.innerHTML = "Loading contributors...";
+
+    try {
+      const res = await fetch(
+        "https://api.github.com/repos/supriya46788/BakeGenuis-AI/contributors"
+      );
+      const contributors = await res.json();
+
+      if (!Array.isArray(contributors)) {
+        contributorsContainer.innerHTML =
+          "<p>⚠ Unable to load contributors.</p>";
+        return;
+      }
+
+      //store golabally
+      contributorsData = contributors;
+      renderContributers(contributorsData); // intital render
+    } catch (error) {
+      // Handle contributor loading error gracefully
+      contributorsContainer.innerHTML =
+        "<p>⚠ Unable to load contributors at this time.</p>";
+    }
+  }
+
+  function renderContributers(contributer) {
+    contributorsContainer.innerHTML = ""; //clear previus
+
+    if (contributer.length === 0) {
+      contributorsContainer.innerHTML = "<p>😢 No contributors found</p>";
+      return;
+    }
+
+    contributer.forEach((contri) => {
+      const card = document.createElement("div");
+      card.classList.add("contributor-card");
+      card.setAttribute("data-username", contri.login.toLowerCase()); // for searching
+      card.innerHTML = `
+                <img src="${contri.avatar_url}" alt="${contri.login}">
+                <span>${contri.login}</span>
+            `;
+      // added click event that will forced to open ghithub profile in new window of clicked contributer
+      card.addEventListener("click", function () {
+        window.open(contri.html_url, "_blank");
+      });
+      contributorsContainer.appendChild(card);
+    });
+  }
+
+  // search functionality
+  document
+    .getElementById("searchContributer")
+    .addEventListener("keyup", function () {
+      const filter = this.value.toLowerCase();
+      const filtered = contributorsData.filter((contributer) =>
+        contributer.login.toLowerCase().includes(filter)
+      );
+      renderContributers(filtered);
+    });
+
+  //load contributers
+  loadContributors();
+  // Initialize all functions
+  createSparkles();
+  initScrollAnimations();
+  initSmoothScrolling();
+  initMobileMenu();
+  initParallaxEffect();
+  initCardEffects();
+  initTypingEffect();
+  initProblemItemAnimations();
+  initStepCardAnimations();
+  initCreatorAvatarEffect();
+  initLoadingAnimation();
+  initScrollProgress();
+ 
+
   // Add some extra sparkle regeneration
   setInterval(createSparkles, 10000);
 
   console.log("🍰 BakeGenius.ai About Page Loaded Successfully!");
 });
 
-
- // Dark/Light Mode toggle
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
-        const darkModeIcon = darkModeToggle.querySelector('i');
-        function applyTheme(theme) {
-            if (theme === 'dark') {
-                body.classList.add('dark-mode');
-                darkModeIcon.classList.remove('fa-moon');
-                darkModeIcon.classList.add('fa-sun');
-            } else {
-                body.classList.remove('dark-mode');
-                darkModeIcon.classList.remove('fa-sun');
-                darkModeIcon.classList.add('fa-moon');
-            }
-        }
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        applyTheme(currentTheme);
-        darkModeToggle.addEventListener('click', () => {
-            const theme = body.classList.contains('dark-mode') ? 'light' : 'dark';
-            localStorage.setItem('theme', theme);
-            applyTheme(theme);
-        });

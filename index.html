@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -462,6 +463,7 @@
 
         body.dark-mode .hero-subtitle {
             color: #ccc;
+
         }
 
         .cta-button {
@@ -1055,6 +1057,7 @@ footer
             }
         }
 
+
         @media (max-width: 480px) {
             .hero-title {
                 font-size: 2rem;
@@ -1169,6 +1172,7 @@ footer
         #toggleForm:hover {
             color: var(--sunny-yellow);
         }
+
     </style>
 </head>
 <body>
@@ -1200,6 +1204,7 @@ footer
                 <span></span>
                 <span></span>
             </div>
+
         </div>
     </nav>
 
@@ -1235,7 +1240,9 @@ footer
         </section>
     </main>
     <!-- Back to Top Button -->
+
 <button id="backToTop" title="Back to Top">⬆️</button>
+
 
     <!-- Footer -->
  <!-- footer
@@ -1355,6 +1362,7 @@ footer -->
 </footer>
 
     <!-- Login/Sign-Up Modal -->
+
     <div id="loginModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35); z-index:2000; align-items:center; justify-content:center;">
       <div style="background:#fff; color:#222; border-radius:18px; max-width:350px; width:90%; padding:2rem 1.5rem; box-shadow:0 8px 32px rgba(0,0,0,0.18); position:relative;">
         <button id="closeLoginModal" style="position:absolute; top:12px; right:16px; background:none; border:none; font-size:1.3rem; cursor:pointer;">&times;</button>
@@ -1373,6 +1381,7 @@ footer -->
           <input type="password" id="signUpPassword" placeholder="New Password" required style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:8px; border:1px solid #ccc;">
           <input type="password" id="confirmPassword" placeholder="Confirm Password" required style="width:100%; padding:0.7rem; margin-bottom:1.2rem; border-radius:8px; border:1px solid #ccc;">
           <button type="submit" style="width:100%; background:linear-gradient(45deg,#4ECDC4,#FFD93D); color:#fff; font-weight:700; border:none; border-radius:25px; padding:0.8rem 0; font-size:1.1rem; cursor:pointer;">Sign Up</button>
+
         </form>
 
         <!-- Toggle Between Login and Sign-Up -->
@@ -1413,6 +1422,7 @@ footer -->
             }
         });
 
+
         // Mobile Navigation Toggle
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
@@ -1429,6 +1439,7 @@ footer -->
                 navLinks.classList.remove('active');
                 hamburger.classList.remove('active');
             });
+
         });
 
         // Close mobile menu when clicking outside
@@ -1589,6 +1600,8 @@ backToTopBtn.addEventListener('click', () => {
                 loginModal.style.display = 'none';
             }
         });
+
+
     </script>
 </body>
 </html>
