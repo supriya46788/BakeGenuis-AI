@@ -253,18 +253,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //Top to Bottom Button Logic
-const ToptobackBtn = document.getElementById('Toptoback');
-window.addEventListener('scroll', () => {
+  const ToptobackBtn = document.getElementById("Toptoback");
+  window.addEventListener("scroll", () => {
     if (window.scrollY < 100) {
-        ToptobackBtn.classList.add('show');
+      ToptobackBtn.classList.add("show");
     } else {
-        ToptobackBtn.classList.remove('show');
+      ToptobackBtn.classList.remove("show");
     }
-});
-ToptobackBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 10000, behavior: 'smooth' });
-});
-
+  });
+  ToptobackBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 10000, behavior: "smooth" });
+  });
 
   // Add some extra sparkle regeneration
   setInterval(createSparkles, 10000);
