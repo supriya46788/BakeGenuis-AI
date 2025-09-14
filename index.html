@@ -1,1584 +1,1274 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BakeGenuis.ai - AI-Powered Baking Conversions</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      :root {
-        --light-pink: #ffe0e6;
-        --light-blue: #e8f4ff;
-        --light-yellow: #fff5e0;
-        --candy-red: #ff6b6b;
-        --sky-blue: #4ecdc4;
-        --sunny-yellow: #ffd93d;
-        --soft-pink: #ffb6c1;
-        --mint-green: #98fb98;
-        --lavender: #e6e6fa;
-        --dark-bg: #1a1a1a;
-        --dark-card: #2d2d2d;
-        --dark-text: #ffffff;
-        --dark-border: #404040;
-      }
-
-      body {
-        font-family: "Comic Neue", cursive;
-        overflow-x: hidden;
-        background: linear-gradient(
-          135deg,
-          var(--light-pink) 0%,
-          var(--light-blue) 30%,
-          var(--light-yellow) 60%,
-          var(--light-pink) 100%
-        );
-        min-height: 100vh;
-        position: relative;
-        transition: all 0.3s ease;
-      }
-
-      body.dark-mode {
-        background: linear-gradient(
-          135deg,
-          #2c3e50 0%,
-          #3498db 50%,
-          #9b59b6 100%
-        );
-        color: var(--dark-text);
-      }
-
-      @keyframes wobble {
-        0% {
-          transform: translateX(0%);
-        }
-        15% {
-          transform: translateX(-25px) rotate(-5deg);
-        }
-        30% {
-          transform: translateX(20px) rotate(3deg);
-        }
-        45% {
-          transform: translateX(-15px) rotate(-3deg);
-        }
-        60% {
-          transform: translateX(10px) rotate(2deg);
-        }
-        75% {
-          transform: translateX(-5px) rotate(-1deg);
-        }
-        100% {
-          transform: translateX(0%);
-        }
-      }
-
-      @keyframes shimmer {
-        0% {
-          background-position: -1000px 0;
-        }
-        100% {
-          background-position: 1000px 0;
-        }
-      }
-
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.05);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
-
-      /* Navigation */
-      .navbar {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(15px);
-        padding: 1rem 2rem;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        transition: all 0.3s ease;
-      }
-
-      body.dark-mode .navbar {
-        background: rgba(26, 26, 26, 0.95);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .nav-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1400px;
-        margin: 0 auto;
-        flex-wrap: wrap;
-      }
-
-      .logo {
-        font-size: 1.8rem;
-        font-weight: 600;
-        color: #ff6b6b;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-family: "Comic Neue", cursive;
-        min-width: 150px;
-      }
-
-      .logo-icon {
-        font-size: 2rem;
-        transition: transform 0.3s ease;
-      }
-
-      .logo-text {
-        font-weight: 600;
-        letter-spacing: -0.5px;
-      }
-
-      .logo:hover {
-        transform: scale(1.05);
-        color: #ff5252;
-      }
-
-      .logo:hover .logo-icon {
-        transform: rotate(10deg);
-      }
-
-      body.dark-mode .logo {
-        color: #ff8a80;
-      }
-
-      body.dark-mode .logo:hover {
-        color: #ffab91;
-      }
-
-      .nav-links {
-        display: flex;
-        list-style: none;
-        gap: 1.5rem;
-        align-items: center;
-        flex-grow: 1; /* Allows it to take up available space */
-        flex-shrink: 1; /* Allows it to shrink if needed */
-        flex-basis: auto; /* Base size is determined by content */
-        min-width: 0; /* Ensures it can shrink below its content size */
-      }
-
-      .nav-links a {
-        text-decoration: none;
-        color: #333;
-        font-weight: 600;
-        padding: 0.7rem 1rem;
-        border-radius: 25px;
-        transition: all 0.3s ease;
-        position: relative;
-        background: rgba(255, 255, 255, 0.1);
-        border: 2px solid transparent;
-      }
-
-      body.dark-mode .nav-links a {
-        color: var(--dark-text);
-        background: rgba(255, 255, 255, 0.05);
-      }
-
-      .nav-links a:hover {
-        background: linear-gradient(
-          45deg,
-          var(--sunny-yellow),
-          var(--soft-pink)
-        );
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        border-color: rgba(255, 255, 255, 0.3);
-        color: #333;
-      }
-
-      body.dark-mode .nav-links a:hover {
-        background: linear-gradient(45deg, #e74c3c, #f39c12);
-        color: #fff;
-      }
-
-      /* Navigation Actions */
-      .nav-actions {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-      }
-
-      .dark-mode-btn {
-        background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-        border: none;
-        color: white;
-        padding: 0.7rem;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-size: 1rem;
-        width: 45px;
-        height: 45px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      .dark-mode-btn:hover {
-        transform: scale(1.1) rotate(360deg);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-      }
-
-      body.dark-mode .dark-mode-btn {
-        background: linear-gradient(45deg, #f39c12 0%, #f1c40f 100%);
-      }
-
-      .login-btn {
-        background: linear-gradient(45deg, var(--candy-red), #ff8a80);
-        color: white;
-        text-decoration: none;
-        padding: 0.7rem 1.5rem;
-        border-radius: 25px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-        border: 2px solid transparent;
-      }
-
-      .login-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-        background: linear-gradient(45deg, #ff5252, var(--candy-red));
-        border-color: rgba(255, 255, 255, 0.3);
-      }
-
-      body.dark-mode .login-btn {
-        background: linear-gradient(45deg, #e74c3c, #c0392b);
-        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-      }
-
-      body.dark-mode .login-btn:hover {
-        background: linear-gradient(45deg, #c0392b, #a93226);
-        box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
-      }
-
-      .signup-btn {
-        background: linear-gradient(45deg, var(--sky-blue), var(--mint-green));
-        color: white;
-        text-decoration: none;
-        padding: 0.7rem 1.5rem;
-        border-radius: 25px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
-        border: 2px solid transparent;
-      }
-
-      .signup-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
-        background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
-        border-color: rgba(255, 255, 255, 0.3);
-      }
-
-      body.dark-mode .signup-btn {
-        background: linear-gradient(45deg, #16a085, #1abc9c);
-        box-shadow: 0 4px 15px rgba(22, 160, 133, 0.3);
-      }
-
-      body.dark-mode .signup-btn:hover {
-        background: linear-gradient(45deg, #1abc9c, #16a085);
-        box-shadow: 0 8px 25px rgba(22, 160, 133, 0.4);
-      }
-
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        padding: 0.5rem;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-      }
-
-      .hamburger:hover {
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      .hamburger span {
-        width: 25px;
-        height: 3px;
-        background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
-        margin: 3px 0;
-        transition: 0.3s;
-        border-radius: 2px;
-      }
-
-      body.dark-mode .hamburger span {
-        background: linear-gradient(45deg, #3498db, #9b59b6);
-      }
-
-      .hamburger.active span:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
-      }
-
-      .hamburger.active span:nth-child(2) {
-        opacity: 0;
-      }
-
-      .hamburger.active span:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
-      }
-      /* Back to Top Button Styles */
-      #backToTop {
-        position: fixed;
-        bottom: 2.5rem;
-        right: 2.5rem;
-        z-index: 2000;
-        background: linear-gradient(
-          135deg,
-          var(--candy-red),
-          var(--sky-blue),
-          var(--sunny-yellow)
-        );
-        color: #fff;
-        border: none;
-        border-radius: 50%;
-        width: 56px;
-        height: 56px;
-        font-size: 2rem;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-        cursor: pointer;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.4s, transform 0.2s;
-      }
-      #backToTop.show {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(-10px) scale(1.08);
-      }
-      #backToTop:hover {
-        background: linear-gradient(
-          135deg,
-          var(--sunny-yellow),
-          var(--candy-red),
-          var(--sky-blue)
-        );
-        transform: scale(1.15);
-      }
-
-      /* Back to Top to Bottom Button Styles */
-      #Toptoback {
-        position: fixed;
-        bottom: 2.5rem;
-        right: 2.5rem;
-        z-index: 2000;
-        background: linear-gradient(
-          135deg,
-          var(--candy-red),
-          var(--sky-blue),
-          var(--sunny-yellow)
-        );
-        color: #fff;
-        border: none;
-        border-radius: 50%;
-        width: 56px;
-        height: 56px;
-        font-size: 2rem;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-        cursor: pointer;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.4s, transform 0.2s;
-      }
-      #Toptoback.show {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(-10px) scale(1.08);
-      }
-      #Toptoback:hover {
-        background: linear-gradient(
-          135deg,
-          var(--sunny-yellow),
-          var(--candy-red),
-          var(--sky-blue)
-        );
-        transform: scale(1.15);
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .navbar {
-          padding: 0.8rem 1rem;
-        }
-
-        .nav-links {
-          position: fixed;
-          top: 80px;
-          left: 0;
-          width: 100%;
-          height: calc(100vh - 80px);
-          background: rgba(255, 255, 255, 0.98);
-          backdrop-filter: blur(20px);
-          flex-direction: column;
-          justify-content: flex-start;
-          align-items: center;
-          padding-top: 2rem;
-          transition: left 0.3s ease;
-          transform: translateX(-100%);
-          gap: 1rem;
-          z-index: 999;
-        }
-
-        body.dark-mode .nav-links {
-          background: rgba(26, 26, 26, 0.98);
-        }
-
-        .nav-links.active {
-          left: 0;
-        }
-
-        .nav-links a {
-          width: 80%;
-          text-align: center;
-          padding: 1rem;
-          font-size: 1.1rem;
-          margin: 0.5rem 0;
-        }
-
-        .nav-actions {
-          gap: 0.5rem;
-          position: relative;
-          z-index: 1001;
-        }
-
-        .login-btn {
-          padding: 0.5rem 1rem;
-          font-size: 0.9rem;
-        }
-
-        .dark-mode-btn {
-          width: 40px;
-          height: 40px;
-          font-size: 0.9rem;
-        }
-
-        .hamburger {
-          display: flex;
-          position: relative;
-          z-index: 1001;
-        }
-
-        .logo {
-          font-size: 1.5rem;
-        }
-
-        .logo-icon {
-          font-size: 1.7rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .navbar {
-          padding: 0.5rem;
-        }
-
-        .logo {
-          font-size: 1.3rem;
-        }
-
-        .logo-icon {
-          font-size: 1.5rem;
-        }
-
-        .nav-actions {
-          gap: 0.3rem;
-        }
-
-        .login-btn {
-          padding: 0.4rem 0.8rem;
-          font-size: 0.8rem;
-        }
-
-        .dark-mode-btn {
-          width: 35px;
-          height: 35px;
-          font-size: 0.8rem;
-        }
-      }
-      /* Add this new media query block */
-      @media (min-width: 769px) and (max-width: 1024px) {
-        .nav-links {
-          flex-grow: 1; /* Allows links to take up available space */
-          justify-content: space-around; /* Distributes links evenly */
-        }
-
-        .nav-links a {
-          padding: 0.5rem 0.8rem; /* Reduces padding for a tighter fit */
-        }
-
-        .nav-actions {
-          gap: 0.8rem; /* Reduces space between buttons */
-        }
-      }
-
-      /* Main Content */
-      .main-content {
-        margin-top: 100px;
-        transition: all 0.3s ease;
-        padding: 2rem;
-        position: relative;
-        z-index: 2;
-        min-height: calc(100vh - 200px);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-      }
-
-      .hero-section {
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(15px);
-        padding: 3rem;
-        border-radius: 30px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        max-width: 800px;
-        margin: 0 auto;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.3s ease;
-      }
-
-      body.dark-mode .hero-section {
-        background: rgba(45, 45, 45, 0.9);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      }
-
-      .hero-section::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(
-          45deg,
-          transparent,
-          rgba(255, 255, 255, 0.1),
-          transparent
-        );
-        animation: shimmer 3s linear infinite;
-      }
-
-      .hero-title {
-        font-size: 3.5rem;
-        font-weight: 700;
-        background: linear-gradient(
-          45deg,
-          var(--candy-red),
-          var(--sky-blue),
-          var(--sunny-yellow)
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 1rem;
-      }
-
-      .hero-subtitle {
-        font-size: 1.3rem;
-        color: #666;
-        margin-bottom: 2rem;
-        font-weight: 400;
-        line-height: 1.6;
-        transition: color 0.3s ease;
-      }
-
-      body.dark-mode .hero-subtitle {
-        color: #ccc;
-      }
-
-      .cta-button {
-        background: linear-gradient(
-          45deg,
-          var(--candy-red),
-          var(--sunny-yellow)
-        );
-        color: white;
-        font-size: 1.2rem;
-        font-weight: 700;
-        padding: 1rem 2.5rem;
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        text-decoration: none;
-        display: inline-block;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
-        animation: pulse 2s ease-in-out infinite;
-      }
-
-      .cta-button:hover {
-        transform: translateY(-5px) scale(1.05);
-        box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
-      }
-
-      .cta-button::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.3),
-          transparent
-        );
-        transition: left 0.5s;
-      }
-
-      .cta-button:hover::before {
-        left: 100%;
-      }
-
-      /* Decorative Elements */
-      .baking-icons {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-      }
-
-      .baking-icon {
-        position: absolute;
-        font-size: 3rem;
-        color: var(--candy-red);
-        opacity: 0.3;
-        animation: wobble 4s ease-in-out infinite;
-      }
-
-      .icon-1 {
-        top: 10%;
-        left: 10%;
-        animation-delay: 0s;
-      }
-      .icon-2 {
-        top: 20%;
-        right: 15%;
-        animation-delay: 1s;
-      }
-      .icon-3 {
-        bottom: 30%;
-        left: 20%;
-        animation-delay: 2s;
-      }
-      .icon-4 {
-        bottom: 20%;
-        right: 10%;
-        animation-delay: 3s;
-      }
-
-      /* Features Preview */
-      .features-preview {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-top: 4rem;
-        max-width: 1000px;
-      }
-
-      .feature-card {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(10px);
-        padding: 2rem;
-        border-radius: 20px;
-        text-align: center;
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
-      }
-
-      .feature-card:hover {
-        transform: translateY(-10px);
-        border-color: var(--sky-blue);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-      }
-
-      .feature-icon {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        display: block;
-      }
-
-      .feature-card:nth-child(1) .feature-icon {
-        color: var(--candy-red);
-      }
-      .feature-card:nth-child(2) .feature-icon {
-        color: var(--sky-blue);
-      }
-      .feature-card:nth-child(3) .feature-icon {
-        color: var(--sunny-yellow);
-      }
-
-      .feature-title {
-        font-size: 1.3rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        color: #333;
-      }
-
-      .feature-desc {
-        color: #666;
-        line-height: 1.5;
-      }
-      /*--candy-red: #FF6B6B;
-            --sky-blue: #4ECDC4;
-            --sunny-yellow: #FFD93D;
-            --soft-pink: #FFB6C1;
-            --mint-green: #98FB98;
-            --lavender: #E6E6FA;*/
-      /* Footer */
-      footer
-    /*.footer {
-            background: white;
-          
-            color: #333;
-            border-top: 4px solid var(--sky-blue);
-            padding: 3rem 0 1.5rem 0;
-        }
-        .footer-columns {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-        .footer-logo {
-            flex: 1 1 180px;
-            min-width: 180px;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--candy-red);
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
-        }
-        .footer-description {
-    margin-top: 0.5rem;   /* space below logo */
-   /* color:#333;         /* black text 
-    font-size: 0.8rem;   /* slightly smaller than logo 
-    line-height: 1.4;     /* good spacing for 3 lines 
-    font-weight: 500;
-}
-
-        .footer-group {
-            flex: 1 1 160px;
-            min-width: 160px;
-            margin-bottom: 1.5rem;
-
-        }
-
-        .footer-section h3.footer-title {
-            color: var(--candy-red);
-            font-size: 1.2rem;
-            font-weight: 700;
- footer
-            margin-bottom: 1rem;
-            color: #333;
-        }
-        .footer-group-list {
-            list-style: none;
-            padding: 0;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .footer-group-list li {
-            margin-bottom: 0.7em;
+
+        :root {
+            --candy-red: #ff6b6b;
+            --sky-blue: #4ecdc4;
+            --sunny-yellow: #ffd93d;
+            --soft-pink: #ffb6c1;
+            --mint-green: #98fb98;
+            --lavender: #e6e6fa;
+            --dark-bg: #1a1a1a;
+            --dark-card: #2d2d2d;
+            --dark-text: #ffffff;
+            --dark-border: #404040;
         }
-        .footer-group-list a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.2s;
+
+        body {
+            font-family: "Comic Neue", cursive;
+            overflow-x: hidden;
+            background-color:#f5f3f1;
+            min-height: 100vh;
+            position: relative;
+            transition: all 0.3s ease;
         }
-        .footer-group-list a:hover {
-            color: var(--candy-red);
+
+        body.dark-mode {
+            background: linear-gradient(135deg,
+                    #2c3e50 0%,
+                    #3498db 50%,
+                    #9b59b6 100%);
+            color: var(--dark-text);
         }
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 2rem auto 0 auto;
+
+        @keyframes wobble {
+            0% {
+                transform: translateX(0%);
+            }
+
+            15% {
+                transform: translateX(-25px) rotate(-5deg);
+            }
+
+            30% {
+                transform: translateX(20px) rotate(3deg);
+            }
+
+            45% {
+                transform: translateX(-15px) rotate(-3deg);
+            }
+
+            60% {
+                transform: translateX(10px) rotate(2deg);
+            }
+
+            75% {
+                transform: translateX(-5px) rotate(-1deg);
+            }
+
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Navigation */
+        .navbar {
+            background: radial-gradient(circle at center,#e5c5b3,#e9b4b6);
+            backdrop-filter: blur(15px);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .navbar {
+            background: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1500px;
+            margin: 0 auto;
             flex-wrap: wrap;
-            font-size: 1rem;
-            color: #333;
-            border-top: 1px solid #ddd;
-            padding-top: 1.2rem;
-
         }
 
-        .footer-section h3.footer-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 30px;
+        .logo {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #3e2723;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: "Comic Neue", cursive;
+            min-width: 150px;
+            padding-right:50px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-text {
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            color: #3e2723;
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(10deg);
+        }
+
+        body.dark-mode .logo {
+            color: #ff8a80;
+        }
+
+        body.dark-mode .logo:hover {
+            color: #ffab91;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+            flex-grow: 1;      /* Allows it to take up available space */
+            flex-shrink: 1;    /* Allows it to shrink if needed */
+            flex-basis: auto;  /* Base size is determined by content */
+            min-width: 0;      /* Ensures it can shrink below its content size */
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #3e2723;
+            font-weight: 600;
+            padding: 0.7rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+        }
+
+        body.dark-mode .nav-links a {
+            color: var(--dark-text);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-links a:hover {
+            background-color:#f3e0d6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(228, 191, 180, 0.3);
+            color: #3e2723;
+        }
+
+        body.dark-mode .nav-links a:hover {
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            color: #fff;
+        }
+
+        /* Navigation Actions */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .dark-mode-btn {
+            background-color:#3e2723;
+            border: none;
+            color: white;
+            padding: 0.7rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark-mode-btn:hover {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .dark-mode-btn {
+            background: linear-gradient(45deg, #f39c12 0%, #f1c40f 100%);
+        }
+
+        .login-btn {
+            background-color:#d18a68;
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px #d18a68;
+            background-color:#d18a68
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        body.dark-mode .login-btn {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        body.dark-mode .login-btn:hover {
+            background: linear-gradient(45deg, #c0392b, #a93226);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        .signup-btn {
+            background: linear-gradient(45deg, var(--sky-blue), var(--mint-green));
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .signup-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+            background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        body.dark-mode .signup-btn {
+            background: linear-gradient(45deg, #16a085, #1abc9c);
+            box-shadow: 0 4px 15px rgba(22, 160, 133, 0.3);
+        }
+
+        body.dark-mode .signup-btn:hover {
+            background: linear-gradient(45deg, #1abc9c, #16a085);
+            box-shadow: 0 8px 25px rgba(22, 160, 133, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hamburger span {
+            width: 25px;
             height: 3px;
             background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            margin: 3px 0;
+            transition: 0.3s;
             border-radius: 2px;
         }
 
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--candy-red);
+        body.dark-mode .hamburger span {
+            background: linear-gradient(45deg, #3498db, #9b59b6);
         }
- footer
-           /* background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Back to Top Button Styles */
+        #backToTop {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            z-index: 2000;
+            background: linear-gradient(45deg,#a4766a,#5d4037);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            font-size: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s, transform 0.2s;
+        }
+
+        #backToTop.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform:scale(1.08);
+        }
+
+        #backToTop:hover {
+            background: linear-gradient(45deg,#a4766a,#5d4037);
+            transform: scale(1.15);
+        }
+
+        /* Back to Top to Bottom Button Styles */
+        #Toptoback {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            z-index: 2000;
+            background:linear-gradient(45deg,#a4766a,#5d4037);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            font-size: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s, transform 0.2s;
+        }
+
+        #Toptoback.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(-10px) scale(1.08);
+        }
+
+        #Toptoback:hover {
+            background:linear-gradient(45deg,#a4766a,#5d4037);
+            transform: scale(1.15);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.8rem 1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                transform: translateX(-100%);
+                gap: 1rem;
+                z-index: 999;
+            }
+
+            body.dark-mode .nav-links {
+                background: rgba(26, 26, 26, 0.98);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links a {
+                width: 80%;
+                text-align: center;
+                padding: 1rem;
+                font-size: 1.1rem;
+                margin: 0.5rem 0;
+            }
+
+            .nav-actions {
+                gap: 0.5rem;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .login-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .dark-mode-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+
+            .hamburger {
+                display: flex;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo-icon {
+                font-size: 1.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 0.5rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .logo-icon {
+                font-size: 1.5rem;
+            }
+
+            .nav-actions {
+                gap: 0.3rem;
+            }
+
+            .login-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .dark-mode-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Add this new media query block */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-links {
+                flex-grow: 1;
+                /* Allows links to take up available space */
+                justify-content: space-around;
+                /* Distributes links evenly */
+            }
+
+            .nav-links a {
+                padding: 0.5rem 0.8rem;
+                /* Reduces padding for a tighter fit */
+            }
+
+            .nav-actions {
+                gap: 0.8rem;
+                /* Reduces space between buttons */
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 100px;
+            transition: all 0.3s ease;
             padding: 2rem;
             position: relative;
             z-index: 2;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }*/
-
-        /*.footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+            min-height: calc(100vh - 200px);
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            gap: 1.5rem;
-        }
-
-        .footer-text {
-            color: #333;
-            font-weight: 600;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.3em;
-
-        }
-
-        body.dark-mode .footer-description {
-            color: #ccc;
-        }
-
-        .footer-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-footer
-      .social-links {
-            display: flex;
-            gap: 1rem;
-
-        }
-
-        .footer-links a {
-            color: #666;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
- footer
             justify-content: center;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            color: #fff;
-            font-size: 1.3rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-            transition: transform 0.2s;
-        }
-        .social-link.github {
-    background: transparent;
-    color: black;
-    border: 2px solid black; /* optional border for visibility 
-}
-
-
-/*.social-link.linkedin {
-            background: linear-gradient(45deg, #0077B5, #00A0DC);
-        }
-        .social-link.portfolio {
-            background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
-
-        }
-
-        .footer-links a:hover {
-            color: var(--candy-red);
-            transform: translateX(5px);
-            background: rgba(255, 107, 107, 0.1);
-            padding-left: 0.8rem;
-        }
-footer
-        
-
-
-        body.dark-mode .footer-links a:hover {
-            color: #ff8a80;
-            background: rgba(255, 138, 128, 0.1);
-        }
-
-        .footer-links i {
-            font-size: 0.9rem;
-            width: 16px;
-            opacity: 0.7;
-        }
-
- footer
-      .social-link.github {
-    background: black !important;   /* black circle */
-   /* color: white !important;        /* white logo 
-    border: 2px solid black;        /* keeps shape consistent 
-}
-
-.social-link.github i {
-    color: white !important;        /* force logo to white 
-}*/
-.footer {
-        background: linear-gradient(
-          90deg,
-          rgba(255, 118, 118, 0.5),
-          rgba(255, 177, 153, 0.5)
-        ) !important;
-
-        color: var(--candy-red);
-        padding: 40px 20px 20px;
-        font-family: Arial, sans-serif;
-      }
-
-      .footer-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 40px;
-        max-width: 1200px;
-        margin: auto;
-      }
-
-      .footer-column {
-        flex: 1 1 220px;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      .footer h2,
-      .footer h4 {
-        margin-bottom: 8px;
-      }
-
-      .footer p {
-        font-size: 14px;
-        line-height: 1.6;
-        color: #333;
-      }
-
-      .footer ul {
-        list-style: none;
-        padding: 0;
-      }
-
-      .footer ul li {
-        margin-bottom: 10px;
-      }
-
-      .footer ul li a {
-        color: #333;
-        text-decoration: none;
-
-        transition: opacity 0.3s;
-      }
-
-      .footer ul li a:hover {
-        opacity: 0.8;
-      }
-
-      .newsletter-form {
-        display: flex;
-        margin-top: 10px;
-        gap: 10px;
-      }
-
-      .newsletter-form input {
-        padding: 10px 15px;
-        border: none;
-        border-radius: 10px;
-        outline: none;
-        flex: 1;
-      }
-
-      .newsletter-form button {
-        background: #e74c3c;
-        color: #333;
-        border: none;
-        padding: 10px 25px;
-        cursor: pointer;
-        border-radius: 10px;
-        transition: background 0.3s;
-      }
-
-      .newsletter-form button:hover {
-        background: #c0392b;
-      }
-
-      .social-icons {
-        margin-top: 10px;
-      }
-      .social-icons a {
-        margin-right: 10px;
-        color: #333;
-        font-size: 20px;
-        transition: opacity 0.3s;
-      }
-      .social-icons a:hover {
-        opacity: 0.7;
-      }
-
-      .footer-bottom {
-        text-align: center;
-        margin-top: 20px;
-        padding-top: 10px;
-        border-top: 1px solid rgba(255, 255, 255, 0.3);
-        font-size: 13px;
-      }
-
-      .social-icons a {
-        margin-right: 10px;
-        font-size: 20px;
-        transition: transform 0.3s;
-      }
-
-      .social-icons a:hover {
-        transform: scale(1.2);
-      }
-
-      /* Specific colors */
-      .social-icons a.linkedin {
-        color: #0077b5;
-      } /* LinkedIn blue */
-      .social-icons a.github {
-        color: #333;
-      } /* GitHub dark gray */
-      .social-icons a.email {
-        color: #d44638;
-      } /* Gmail red */
-
-      .social-link.email {
-        background: linear-gradient(45deg, #ea4335, #34a853);
-      }
-
-      .footer-bottom {
-        background: rgba(0, 0, 0, 0.05);
-        backdrop-filter: blur(10px);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 1.5rem 0;
-      }
-
-      body.dark-mode .footer-bottom {
-        background: rgba(0, 0, 0, 0.3);
-      }
-
-      .footer-bottom-content {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      .copyright {
-        color: #666;
-        font-size: 0.9rem;
-        margin: 0;
-      }
-
-      .copyright a {
-        color: var(--candy-red);
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .copyright a:hover {
-        text-decoration: underline;
-      }
-
-      body.dark-mode .copyright {
-        color: #ccc;
-      }
-
-      body.dark-mode .copyright a {
-        color: #ff8a80;
-      }
-
-      .footer-badges {
-        display: flex;
-        gap: 0.8rem;
-      }
-
-      .badge {
-        background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
-        color: #333;
-        padding: 0.4rem 0.8rem;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .badge i {
-        font-size: 0.8rem;
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .nav-links {
-          position: fixed;
-          top: 80px;
-          left: -100%;
-          width: 100%;
-          height: calc(100vh - 80px);
-          background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(10px);
-          flex-direction: column;
-          justify-content: start;
-          padding-top: 2rem;
-          gap: 1rem;
-          transition: left 0.3s ease;
-        }
-
-        .nav-links.active {
-          left: 0;
-        }
-
-        .hamburger {
-          display: flex;
-        }
-
-        .hero-title {
-          font-size: 2.5rem;
+            text-align: center;
         }
 
         .hero-section {
-          padding: 2rem;
-          margin: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        .features-preview {
-          grid-template-columns: 1fr;
-          margin-top: 2rem;
+        body.dark-mode .hero-section {
+            background: rgba(45, 45, 45, 0.9);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
-        .footer-content {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-          padding: 2rem 1rem 1rem;
-          text-align: center;
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.1),
+                    transparent);
+            animation: shimmer 3s linear infinite;
         }
 
-        .footer-section h3.footer-title::after {
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
-        .footer-bottom-content {
-          flex-direction: column;
-          text-align: center;
-          gap: 1rem;
-        }
-
-        .footer-badges {
-          justify-content: center;
-        }
-
-        .social-links {
-          justify-content: center;
-        }
-      }
-
-      @media (max-width: 1024px) {
-        .footer-content {
-          grid-template-columns: 1fr 1fr;
-          gap: 2.5rem;
-        }
-      }
-
-      @media (max-width: 480px) {
         .hero-title {
-          font-size: 2rem;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
         }
 
         .hero-subtitle {
-          font-size: 1.1rem;
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+
+        body.dark-mode .hero-subtitle {
+            color: #ccc;
         }
 
         .cta-button {
-          font-size: 1rem;
-          padding: 0.8rem 2rem;
+            background: linear-gradient(135deg,#b08968,#3e2723);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            animation: pulse 2s ease-in-out infinite;
         }
-      }
 
-      /* Login Modal */
-      #loginModal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.35);
-        z-index: 2000;
-        align-items: center;
-        justify-content: center;
-      }
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
+        }
 
-      #loginModal .modal-content {
-        background: #fff;
-        color: #222;
-        border-radius: 18px;
-        max-width: 350px;
-        width: 90%;
-        padding: 2rem 1.5rem;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
-        position: relative;
-      }
+        .cta-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            transition: left 0.5s;
+        }
 
-      #loginModal #closeLoginModal {
-        position: absolute;
-        top: 12px;
-        right: 16px;
-        background: none;
-        border: none;
-        font-size: 1.3rem;
-        cursor: pointer;
-      }
+        .cta-button:hover::before {
+            left: 100%;
+        }
 
-      #loginModal h2 {
-        margin-bottom: 1.2rem;
-        color: #ff6b6b;
-        text-align: center;
-      }
+        /* Decorative Elements */
+        .baking-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
 
-      #loginModal input {
-        width: 100%;
-        padding: 0.7rem;
-        margin-bottom: 1rem;
-        border-radius: 8px;
-        border: 1px solid #ccc;
-      }
+        .baking-icon {
+            position: absolute;
+            font-size: 3rem;
+            color: var(--candy-red);
+            opacity: 0.3;
+            animation: wobble 4s ease-in-out infinite;
+        }
 
-      /* Light Colors for Form Inputs */
-      #loginModal input,
-      #loginModal button[type="submit"] {
-        background: rgba(255, 255, 255, 0.9);
-        border: 1px solid #ddd;
-        color: #333;
-        transition: all 0.3s ease;
-      }
+        .icon-1 {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
 
-      #loginModal input:focus {
-        background: rgba(255, 255, 255, 1);
-        border-color: var(--sky-blue);
-        box-shadow: 0 0 8px rgba(78, 205, 196, 0.5);
-        outline: none;
-      }
+        .icon-2 {
+            top: 20%;
+            right: 15%;
+            animation-delay: 1s;
+        }
 
-      #loginModal button[type="submit"] {
-        background: linear-gradient(45deg, var(--sky-blue), var(--mint-green));
-        box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
-      }
+        .icon-3 {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 2s;
+        }
 
-      #loginModal button[type="submit"]:hover {
-        background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
-        box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
-      }
+        .icon-4 {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 3s;
+        }
 
-      #loginForm,
-      #signUpForm {
-        background: rgba(255, 255, 255, 0.8);
-        padding: 1.5rem;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        transition: background 0.3s ease;
-      }
+        /* Features Preview */
+        .features-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            max-width: 1000px;
+        }
 
-      #loginForm:focus-within,
-      #signUpForm:focus-within {
-        background: rgba(255, 255, 255, 1);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-      }
+        .feature-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
 
-      #toggleForm {
-        color: var(--candy-red);
-        font-weight: 600;
-        font-size: 1rem;
-        cursor: pointer;
-        text-decoration: underline;
-        transition: color 0.3s ease;
-      }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--sky-blue);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
 
-      #toggleForm:hover {
-        color: var(--sunny-yellow);
-      }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card:nth-child(1) .feature-icon {
+            color: var(--candy-red);
+        }
+
+        .feature-card:nth-child(2) .feature-icon {
+            color: var(--sky-blue);
+        }
+
+        .feature-card:nth-child(3) .feature-icon {
+            color: var(--sunny-yellow);
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .feature-desc {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .footer {
+            background: radial-gradient(circle at center,#e9b4b6,#e5c5b3);
+            padding: 40px 20px 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            gap: 40px;
+            max-width: 1500px;
+            margin: auto;
+        }
+
+        .footer-column {
+            flex: 1 1 220px;
+            margin: 0;
+            display: flex;
+            
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer h3{
+            margin-bottom: 8px;
+            color:#3e2723;
+        }
+
+        .footer p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .footer ul li a:hover {
+            color:black;
+            font-weight:500;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            flex: 1;
+        }
+
+        .newsletter-form button {
+            background: #d18a68;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #d18a68;
+            transform: scale(1.05);
+            transition:transform 0.3s ease-in-out;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            margin-right: 10px;
+            color: #333;
+            font-size: 20px;
+            transition: opacity 0.3s;
+        }
+
+        .social-icons a:hover {
+            opacity: 0.7;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 13px;
+        }
+
+        .social-icons a {
+            margin-right: 10px;
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Specific colors */
+        .social-icons a.linkedin {
+            color: #0077b5;
+        }
+
+        /* LinkedIn blue */
+        .social-icons a.github {
+            color: #333;
+        }
+
+        /* GitHub dark gray */
+        .social-icons a.email {
+            color: #d44638;
+        }
+
+        /* Gmail red */
+
+        .social-link.email {
+            background: linear-gradient(45deg, #ea4335, #34a853);
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+        }
+
+        body.dark-mode .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-bottom-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .copyright a {
+            color: var(--candy-red);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        body.dark-mode .copyright {
+            color: #ccc;
+        }
+
+        body.dark-mode .copyright a {
+            color: #ff8a80;
+        }
+
+        .footer-badges {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .badge {
+            background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
+            color: #333;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .badge i {
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: start;
+                padding-top: 2rem;
+                gap: 1rem;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-section {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .features-preview {
+                grid-template-columns: 1fr;
+                margin-top: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 1rem 1rem;
+                text-align: center;
+            }
+
+            .footer-section h3.footer-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .footer-badges {
+                justify-content: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .cta-button {
+                font-size: 1rem;
+                padding: 0.8rem 2rem;
+            }
+        }
+
+        /* Login Modal */
+        #loginModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #loginModal .modal-content {
+            background: #fff;
+            color: #222;
+            border-radius: 18px;
+            max-width: 350px;
+            width: 90%;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+            position: relative;
+        }
+
+        #loginModal #closeLoginModal {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        #loginModal h2 {
+            margin-bottom: 1.2rem;
+            color: #ff6b6b;
+            text-align: center;
+        }
+
+        #loginModal input {
+            width: 100%;
+            padding: 0.7rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        /* Light Colors for Form Inputs */
+        #loginModal input,
+        #loginModal button[type="submit"] {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ddd;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        #loginModal input:focus {
+            background: rgba(255, 255, 255, 1);
+            border-color: var(--sky-blue);
+            box-shadow: 0 0 8px rgba(78, 205, 196, 0.5);
+            outline: none;
+        }
+
+        #loginModal button[type="submit"] {
+            background: linear-gradient(45deg, var(--sky-blue), var(--mint-green));
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        #loginModal button[type="submit"]:hover {
+            background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+        }
+
+        #loginForm,
+        #signUpForm {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        #loginForm:focus-within,
+        #signUpForm:focus-within {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        #toggleForm {
+            color: var(--candy-red);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        #toggleForm:hover {
+            color: var(--sunny-yellow);
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <!-- Navigation -->
     <nav class="navbar">
-      <div class="nav-container">
-        <a href="#" class="logo">
-          <span class="logo-icon">🍰</span>
-          <span class="logo-text">BakeGenuis.ai</span>
-        </a>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🍰</span>
+                <span class="logo-text">BakeGenuis.ai</span>
+            </a>
 
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="convert.html">Convert Recipe</a></li>
-          <li><a href="customize.html">Customize</a></li>
-          <li><a href="scale.html">Scale Recipes</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-        <div class="nav-actions">
-          <button
-            id="darkModeToggle"
-            class="dark-mode-btn"
-            title="Toggle Dark Mode"
-          >
-            <i class="fas fa-moon"></i>
-          </button>
-          <a href="#" class="login-btn" id="openLoginModal">
-            <i class="fas fa-user"></i>
-            Login
-          </a>
-          <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
-            <i class="fas fa-sign-out-alt"></i>
-            Logout
-          </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="convert.html">Convert Recipe</a></li>
+                <li><a href="customize.html">Customize</a></li>
+                <li><a href="scale.html">Scale Recipes</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#" class="login-btn" id="openLoginModal">
+                    <i class="fas fa-user"></i>
+                    Login
+                </a>
+                <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
     </nav>
 
     <!-- Main Content -->
     <main class="main-content">
-      <!-- Hero Section -->
-      <section class="hero-section">
-        <h1 class="hero-title">Welcome to BakeGenuis.ai</h1>
-        <p class="hero-subtitle">
-          From spoon to scale — get exact gram conversions with AI magic ✨<br />
-          Transform vague recipe measurements into precise, consistent results
-          every time!
-        </p>
-        <a href="convert.html" class="cta-button">Start Converting Now 🚀</a>
-      </section>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">Welcome to BakeGenuis.ai</h1>
+            <p class="hero-subtitle">
+                From spoon to scale — get exact gram conversions with AI magic ✨<br />
+                Transform vague recipe measurements into precise, consistent results
+                every time!
+            </p>
+            <a href="convert.html" class="cta-button">Start Converting Now 🚀</a>
+        </section>
 
-      <!-- Features Preview -->
-      <section class="features-preview">
-        <div class="feature-card">
-          <i class="fas fa-magic feature-icon"></i>
-          <h3 class="feature-title">AI-Powered Precision</h3>
-          <p class="feature-desc">
-            Advanced AI converts "cups" and "spoons" into exact gram
-            measurements for perfect baking every time.
-          </p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-balance-scale feature-icon"></i>
-          <h3 class="feature-title">Smart Recipe Scaling</h3>
-          <p class="feature-desc">
-            Effortlessly scale recipes up or down while maintaining perfect
-            ratios and adjusting rising agents intelligently.
-          </p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-cogs feature-icon"></i>
-          <h3 class="feature-title">Custom Preferences</h3>
-          <p class="feature-desc">
-            Personalize conversions based on your preferred brands and
-            ingredient specifications for consistent results.
-          </p>
-        </div>
-      </section>
+        <!-- Features Preview -->
+        <section class="features-preview">
+            <div class="feature-card">
+                <i class="fas fa-magic feature-icon"></i>
+                <h3 class="feature-title">AI-Powered Precision</h3>
+                <p class="feature-desc">
+                    Advanced AI converts "cups" and "spoons" into exact gram
+                    measurements for perfect baking every time.
+                </p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-balance-scale feature-icon"></i>
+                <h3 class="feature-title">Smart Recipe Scaling</h3>
+                <p class="feature-desc">
+                    Effortlessly scale recipes up or down while maintaining perfect
+                    ratios and adjusting rising agents intelligently.
+                </p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-cogs feature-icon"></i>
+                <h3 class="feature-title">Custom Preferences</h3>
+                <p class="feature-desc">
+                    Personalize conversions based on your preferred brands and
+                    ingredient specifications for consistent results.
+                </p>
+            </div>
+        </section>
     </main>
     <!-- Back to Top Button -->
-    <button id="backToTop" title="Back to Top">⬆️</button>
+    <button id="backToTop" title="Back to Top">⬆</button>
     <!-- Top to Bottom Button -->
-    <button id="Toptoback" title="Top To Back">⬇️</button>
-
-    <!-- Footer -->
-    footer footer
-    <!-- <footer class="footer">
-        <div class="footer-columns">
-            <div class="footer-logo">
-                <span style="font-size:2.1rem; color:var(--candy-red);">🍰</span> BakeGenius.ai
-                 <p class="footer-description">
-            Baking meets AI - recipes, ideas<br> and inspiration to make your<br> creations magical!
-        </p>
-
-            </div>
-            
-            <div class="footer-section">
-                <h3 class="footer-title">Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="convert.html"><i class="fas fa-exchange-alt"></i> Convert Recipe</a></li>
-                    <li><a href="customize.html"><i class="fas fa-cog"></i> Customize</a></li>
-                    <li><a href="scale.html"><i class="fas fa-ruler"></i> Scale Recipes</a></li>
-                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3 class="footer-title">Features</h3>
-                <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-calculator"></i> Unit Conversion</a></li>
-                    <li><a href="#"><i class="fas fa-chart-line"></i> Nutritional Analysis</a></li>
-                    <li><a href="#"><i class="fas fa-users"></i> Recipe Scaling</a></li>
-                    <li><a href="#"><i class="fas fa-magic"></i> AI Optimization</a></li>
-                    <li><a href="#"><i class="fas fa-mobile-alt"></i> Mobile Friendly</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3 class="footer-title">Support</h3>
-                <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-question-circle"></i> Help Center</a></li>
-                    <li><a href="#"><i class="fas fa-comment"></i> Feedback</a></li>
-                    <li><a href="#"><i class="fas fa-bug"></i> Report Issue</a></li>
-                    <li><a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
-                    <li><a href="#"><i class="fas fa-gavel"></i> Terms of Service</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
- footer
-            <span>&copy; 2025 BakeGenius.ai &mdash; Made with <span style="color:#FF6B6B;">&#10084;&#65039;</span> by Supriya Pandey</span>
-              <div class="footer-social">
-        <p class="follow-text">Follow us</p> <!-- 👈 Added text -->
-    <!-- <div class="social-links">
-            <a href="https://your-github.com/" class="social-link github" target="_blank" rel="noopener" title="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/" class="social-link linkedin" target="_blank" rel="noopener" title="LinkedIn">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://your-portfolio.com/" class="social-link portfolio" target="_blank" rel="noopener" title="Portfolio">
-                <i class="fas fa-globe"></i>
-            </a>
-        </div>
-    </div>
-
-        </div>
-    </footer>-->
+    <button id="Toptoback" title="Top To Back">⬇</button>
     <footer class="footer">
-      <div class="footer-container">
-        <!-- Left: Brand Info -->
-        <div class="footer-column brand">
-          <h2><span class="logo">🍰 BakeGenius.ai</span></h2>
-          <p>
-            Baking meets AI — recipes, ideas, and inspiration to make your
-            creations magical!
-          </p>
+        <div class="footer-container">
+            <!-- Left: Brand Info -->
+            <div class="footer-column brand">
+                <h2><span class="logo">🍰 BakeGenius.ai</span></h2>
+                <p>
+                    Baking meets AI — recipes, ideas, and inspiration to make your
+                    creations magical!
+                </p>
+            </div>
+
+            <!-- Middle: Links -->
+            <div class="footer-column links">
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Convert Recipe</a></li>
+                    <li><a href="#">Customize</a></li>
+                    <li><a href="#">Recipe Hub</a></li>
+                    <li><a href="#">Scale Recipes</a></li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer-column newsletter">
+                <h3>Subscribe to our Newsletter</h3>
+                <p>
+                    Get the latest baking tips & AI recipes, and exclusive content
+                    delivered straight to your inbox!
+                </p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required />
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="footer-column social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="github"><i class="fab fa-github"></i></a>
+                    <a href="#" class="email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
         </div>
 
-        <!-- Middle: Links -->
-        <div class="footer-column links">
-          <h4>Links</h4>
-          <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Convert Recipe</a></li>
-            <li><a href="#">Customize</a></li>
-            <li><a href="#">Recipe Hub</a></li>
-            <li><a href="#">Scale Recipes</a></li>
-            <li><a href="#">Feedback</a></li>
-          </ul>
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p>© 2025 BakeGenius.ai &#10084;&#65039; — All rights reserved.</p>
         </div>
-
-        <!-- Newsletter -->
-        <div class="footer-column newsletter">
-          <h4>Subscribe to our Newsletter</h4>
-          <p>
-            Get the latest baking tips & AI recipes, and exclusive content
-            delivered straight to your inbox!
-          </p>
-          <form class="newsletter-form">
-            <input type="email" placeholder="Your email address" required />
-            <button type="submit">Subscribe</button>
-          </form>
-        </div>
-
-        <!-- Social Icons -->
-        <div class="footer-column social">
-          <h4>Follow Us</h4>
-          <div class="social-icons">
-            <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="github"><i class="fab fa-github"></i></a>
-            <a href="#" class="email"><i class="fas fa-envelope"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bottom Bar -->
-      <div class="footer-bottom">
-        <p>© 2025 BakeGenius.ai &#10084;&#65039; — All rights reserved.</p>
-      </div>
     </footer>
 
     <!-- Login/Sign-Up Modal -->
-    <div
-      id="loginModal"
-      style="
+    <div id="loginModal" style="
         display: none;
         position: fixed;
         top: 0;
@@ -1589,10 +1279,8 @@ footer
         z-index: 2000;
         align-items: center;
         justify-content: center;
-      "
-    >
-      <div
-        style="
+      ">
+        <div style="
           background: #fff;
           color: #222;
           border-radius: 18px;
@@ -1601,11 +1289,8 @@ footer
           padding: 2rem 1.5rem;
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
           position: relative;
-        "
-      >
-        <button
-          id="closeLoginModal"
-          style="
+        ">
+            <button id="closeLoginModal" style="
             position: absolute;
             top: 12px;
             right: 16px;
@@ -1613,48 +1298,30 @@ footer
             border: none;
             font-size: 1.3rem;
             cursor: pointer;
-          "
-        >
-          &times;
-        </button>
-        <h2
-          id="modalTitle"
-          style="margin-bottom: 1.2rem; color: #ff6b6b; text-align: center"
-        >
-          Login
-        </h2>
+          ">
+                &times;
+            </button>
+            <h2 id="modalTitle" style="margin-bottom: 1.2rem; color: #ff6b6b; text-align: center">
+                Login
+            </h2>
 
-        <!-- Login Form -->
-        <form id="loginForm">
-          <input
-            type="text"
-            id="loginUsername"
-            placeholder="Username"
-            required
-            style="
+            <!-- Login Form -->
+            <form id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Username" required style="
               width: 100%;
               padding: 0.7rem;
               margin-bottom: 1rem;
               border-radius: 8px;
               border: 1px solid #ccc;
-            "
-          />
-          <input
-            type="password"
-            id="loginPassword"
-            placeholder="Password"
-            required
-            style="
+            " />
+                <input type="password" id="loginPassword" placeholder="Password" required style="
               width: 100%;
               padding: 0.7rem;
               margin-bottom: 1.2rem;
               border-radius: 8px;
               border: 1px solid #ccc;
-            "
-          />
-          <button
-            type="submit"
-            style="
+            " />
+                <button type="submit" style="
               width: 100%;
               background: linear-gradient(45deg, #ff6b6b, #ffd93d);
               color: #fff;
@@ -1664,56 +1331,35 @@ footer
               padding: 0.8rem 0;
               font-size: 1.1rem;
               cursor: pointer;
-            "
-          >
-            Login
-          </button>
-        </form>
+            ">
+                    Login
+                </button>
+            </form>
 
-        <!-- Sign-Up Form -->
-        <form id="signUpForm" style="display: none">
-          <input
-            type="text"
-            id="signUpUsername"
-            placeholder="New Username"
-            required
-            style="
+            <!-- Sign-Up Form -->
+            <form id="signUpForm" style="display: none">
+                <input type="text" id="signUpUsername" placeholder="New Username" required style="
               width: 100%;
               padding: 0.7rem;
               margin-bottom: 1rem;
               border-radius: 8px;
               border: 1px solid #ccc;
-            "
-          />
-          <input
-            type="password"
-            id="signUpPassword"
-            placeholder="New Password"
-            required
-            style="
+            " />
+                <input type="password" id="signUpPassword" placeholder="New Password" required style="
               width: 100%;
               padding: 0.7rem;
               margin-bottom: 1rem;
               border-radius: 8px;
               border: 1px solid #ccc;
-            "
-          />
-          <input
-            type="password"
-            id="confirmPassword"
-            placeholder="Confirm Password"
-            required
-            style="
+            " />
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required style="
               width: 100%;
               padding: 0.7rem;
               margin-bottom: 1.2rem;
               border-radius: 8px;
               border: 1px solid #ccc;
-            "
-          />
-          <button
-            type="submit"
-            style="
+            " />
+                <button type="submit" style="
               width: 100%;
               background: linear-gradient(45deg, #4ecdc4, #ffd93d);
               color: #fff;
@@ -1723,290 +1369,283 @@ footer
               padding: 0.8rem 0;
               font-size: 1.1rem;
               cursor: pointer;
-            "
-          >
-            Sign Up
-          </button>
-        </form>
+            ">
+                    Sign Up
+                </button>
+            </form>
 
-        <!-- Toggle Between Login and Sign-Up -->
-        <div style="text-align: center; margin-top: 1rem">
-          <span
-            id="toggleForm"
-            style="color: #3498db; cursor: pointer; text-decoration: underline"
-            >Don't have an account? Sign Up</span
-          >
-        </div>
+            <!-- Toggle Between Login and Sign-Up -->
+            <div style="text-align: center; margin-top: 1rem">
+                <span id="toggleForm" style="color: #3498db; cursor: pointer; text-decoration: underline">Don't have an
+                    account? Sign Up</span>
+            </div>
 
-        <div
-          id="formError"
-          style="
+            <div id="formError" style="
             color: #e74c3c;
             text-align: center;
             margin-top: 0.7rem;
             display: none;
-          "
-        >
-          Error message here.
+          ">
+                Error message here.
+            </div>
         </div>
-      </div>
     </div>
 
     <script>
-      // Dark Mode Toggle
-      const darkModeToggle = document.getElementById("darkModeToggle");
-      const body = document.body;
-      const darkModeIcon = darkModeToggle.querySelector("i");
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const body = document.body;
+        const darkModeIcon = darkModeToggle.querySelector("i");
 
-      // Check for saved theme preference or default to light mode
-      const currentTheme = localStorage.getItem("theme") || "light";
-      if (currentTheme === "dark") {
-        body.classList.add("dark-mode");
-        darkModeIcon.classList.remove("fa-moon");
-        darkModeIcon.classList.add("fa-sun");
-      }
-
-      darkModeToggle.addEventListener("click", () => {
-        body.classList.toggle("dark-mode");
-
-        // Update icon
-        if (body.classList.contains("dark-mode")) {
-          darkModeIcon.classList.remove("fa-moon");
-          darkModeIcon.classList.add("fa-sun");
-          localStorage.setItem("theme", "dark");
-        } else {
-          darkModeIcon.classList.remove("fa-sun");
-          darkModeIcon.classList.add("fa-moon");
-          localStorage.setItem("theme", "light");
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem("theme") || "light";
+        if (currentTheme === "dark") {
+            body.classList.add("dark-mode");
+            darkModeIcon.classList.remove("fa-moon");
+            darkModeIcon.classList.add("fa-sun");
         }
-      });
 
-      // Mobile Navigation Toggle
-      const hamburger = document.getElementById("hamburger");
-      const navLinks = document.getElementById("navLinks");
+        darkModeToggle.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
 
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-        hamburger.classList.toggle("active");
-      });
-
-      // Close mobile menu when clicking on a link
-      const navItems = document.querySelectorAll(".nav-links a");
-      navItems.forEach((item) => {
-        item.addEventListener("click", () => {
-          navLinks.classList.remove("active");
-          hamburger.classList.remove("active");
-        });
-      });
-
-      // Close mobile menu when clicking outside
-      document.addEventListener("click", (e) => {
-        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-          navLinks.classList.remove("active");
-          hamburger.classList.remove("active");
-        }
-      });
-
-      // Smooth scroll for CTA button
-      const ctaButton = document.querySelector(".cta-button");
-      ctaButton.addEventListener("click", (e) => {
-        e.preventDefault();
-        // Add a fun animation on click
-        ctaButton.style.animation = "bounce 0.5s ease-in-out";
-        setTimeout(() => {
-          ctaButton.style.animation = "pulse 2s ease-in-out infinite";
-          // Navigate to convert page (in real app)
-          window.location.href = "convert.html";
-        }, 500);
-      });
-
-      // Back to Top Button Logic
-      const backToTopBtn = document.getElementById("backToTop");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          backToTopBtn.classList.add("show");
-        } else {
-          backToTopBtn.classList.remove("show");
-        }
-      });
-      backToTopBtn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-
-      //Top to Bottom Button Logic
-      const ToptobackBtn = document.getElementById("Toptoback");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY < 100) {
-          ToptobackBtn.classList.add("show");
-        } else {
-          ToptobackBtn.classList.remove("show");
-        }
-      });
-      ToptobackBtn.addEventListener("click", () => {
-        window.scrollTo({ top: 10000, behavior: "smooth" });
-      });
-
-      // Parallax effect for decorative icons
-      window.addEventListener("scroll", () => {
-        const scrolled = window.pageYOffset;
-        const parallax = scrolled * 0.5;
-
-        document.querySelectorAll(".baking-icon").forEach((icon, index) => {
-          icon.style.transform = `translateY(${
-            parallax * (index + 1) * 0.1
-          }px) rotate(${parallax * 0.05}deg)`;
-        });
-      });
-
-      // Add sparkle effect on hover for feature cards
-      document.querySelectorAll(".feature-card").forEach((card) => {
-        card.addEventListener("mouseenter", () => {
-          card.style.background = "rgba(255, 255, 255, 0.95)";
-          card.style.boxShadow = "0 20px 60px rgba(0, 0, 0, 0.15)";
+            // Update icon
+            if (body.classList.contains("dark-mode")) {
+                darkModeIcon.classList.remove("fa-moon");
+                darkModeIcon.classList.add("fa-sun");
+                localStorage.setItem("theme", "dark");
+            } else {
+                darkModeIcon.classList.remove("fa-sun");
+                darkModeIcon.classList.add("fa-moon");
+                localStorage.setItem("theme", "light");
+            }
         });
 
-        card.addEventListener("mouseleave", () => {
-          card.style.background = "rgba(255, 255, 255, 0.8)";
-          card.style.boxShadow = "none";
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("navLinks");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+            hamburger.classList.toggle("active");
         });
-      });
 
-      // Login/Sign-Up Modal Logic
-      const loginModal = document.getElementById("loginModal");
-      const openLoginModal = document.getElementById("openLoginModal");
-      const closeLoginModal = document.getElementById("closeLoginModal");
-      const loginForm = document.getElementById("loginForm");
-      const signUpForm = document.getElementById("signUpForm");
-      const toggleForm = document.getElementById("toggleForm");
-      const modalTitle = document.getElementById("modalTitle");
-      const formError = document.getElementById("formError");
+        // Close mobile menu when clicking on a link
+        const navItems = document.querySelectorAll(".nav-links a");
+        navItems.forEach((item) => {
+            item.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+                hamburger.classList.remove("active");
+            });
+        });
 
-      // Open Modal
-      openLoginModal.addEventListener("click", (e) => {
-        e.preventDefault();
-        loginModal.style.display = "flex";
-        loginForm.style.display = "block";
-        signUpForm.style.display = "none";
-        modalTitle.textContent = "Login";
-        toggleForm.textContent = "Don't have an account? Sign Up";
-        formError.style.display = "none";
-      });
+        // Close mobile menu when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove("active");
+                hamburger.classList.remove("active");
+            }
+        });
 
-      // Close Modal
-      closeLoginModal.addEventListener("click", () => {
-        loginModal.style.display = "none";
-      });
+        // Smooth scroll for CTA button
+        const ctaButton = document.querySelector(".cta-button");
+        ctaButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            // Add a fun animation on click
+            ctaButton.style.animation = "bounce 0.5s ease-in-out";
+            setTimeout(() => {
+                ctaButton.style.animation = "pulse 2s ease-in-out infinite";
+                // Navigate to convert page (in real app)
+                window.location.href = "convert.html";
+            }, 500);
+        });
 
-      // Toggle Between Login and Sign-Up
-      toggleForm.addEventListener("click", () => {
-        if (loginForm.style.display === "block") {
-          loginForm.style.display = "none";
-          signUpForm.style.display = "block";
-          modalTitle.textContent = "Sign Up";
-          toggleForm.textContent = "Already have an account? Login";
-        } else {
-          loginForm.style.display = "block";
-          signUpForm.style.display = "none";
-          modalTitle.textContent = "Login";
-          toggleForm.textContent = "Don't have an account? Sign Up";
+        // Back to Top Button Logic
+        const backToTopBtn = document.getElementById("backToTop");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add("show");
+            } else {
+                backToTopBtn.classList.remove("show");
+            }
+        });
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        //Top to Bottom Button Logic
+        const ToptobackBtn = document.getElementById("Toptoback");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY < 100) {
+                ToptobackBtn.classList.add("show");
+            } else {
+                ToptobackBtn.classList.remove("show");
+            }
+        });
+        ToptobackBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 10000, behavior: "smooth" });
+        });
+
+        // Parallax effect for decorative icons
+        window.addEventListener("scroll", () => {
+            const scrolled = window.pageYOffset;
+            const parallax = scrolled * 0.5;
+
+            document.querySelectorAll(".baking-icon").forEach((icon, index) => {
+                icon.style.transform = `translateY(${parallax * (index + 1) * 0.1
+                    }px) rotate(${parallax * 0.05}deg)`;
+            });
+        });
+
+        // Add sparkle effect on hover for feature cards
+        document.querySelectorAll(".feature-card").forEach((card) => {
+            card.addEventListener("mouseenter", () => {
+                card.style.background = "rgba(255, 255, 255, 0.95)";
+                card.style.boxShadow = "0 20px 60px rgba(0, 0, 0, 0.15)";
+            });
+
+            card.addEventListener("mouseleave", () => {
+                card.style.background = "rgba(255, 255, 255, 0.8)";
+                card.style.boxShadow = "none";
+            });
+        });
+
+        // Login/Sign-Up Modal Logic
+        const loginModal = document.getElementById("loginModal");
+        const openLoginModal = document.getElementById("openLoginModal");
+        const closeLoginModal = document.getElementById("closeLoginModal");
+        const loginForm = document.getElementById("loginForm");
+        const signUpForm = document.getElementById("signUpForm");
+        const toggleForm = document.getElementById("toggleForm");
+        const modalTitle = document.getElementById("modalTitle");
+        const formError = document.getElementById("formError");
+
+        // Open Modal
+        openLoginModal.addEventListener("click", (e) => {
+            e.preventDefault();
+            loginModal.style.display = "flex";
+            loginForm.style.display = "block";
+            signUpForm.style.display = "none";
+            modalTitle.textContent = "Login";
+            toggleForm.textContent = "Don't have an account? Sign Up";
+            formError.style.display = "none";
+        });
+
+        // Close Modal
+        closeLoginModal.addEventListener("click", () => {
+            loginModal.style.display = "none";
+        });
+
+        // Toggle Between Login and Sign-Up
+        toggleForm.addEventListener("click", () => {
+            if (loginForm.style.display === "block") {
+                loginForm.style.display = "none";
+                signUpForm.style.display = "block";
+                modalTitle.textContent = "Sign Up";
+                toggleForm.textContent = "Already have an account? Login";
+            } else {
+                loginForm.style.display = "block";
+                signUpForm.style.display = "none";
+                modalTitle.textContent = "Login";
+                toggleForm.textContent = "Don't have an account? Sign Up";
+            }
+            formError.style.display = "none";
+        });
+
+        // Handle Login Form Submission
+        loginForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const username = document.getElementById("loginUsername").value;
+            const password = document.getElementById("loginPassword").value;
+
+            // Retrieve users from localStorage
+            const users = JSON.parse(localStorage.getItem("users")) || {};
+
+            // Check if the user exists and the password matches
+            if (users[username] && users[username] === password) {
+                alert(`Welcome back, ${username}!`);
+                loginModal.style.display = "none";
+
+                // Set login state
+                localStorage.setItem("isLoggedIn", "true");
+                localStorage.setItem("currentUser", username);
+                updateLoginState();
+            } else {
+                formError.textContent = "Invalid username or password.";
+                formError.style.display = "block";
+            }
+        });
+
+        // Handle Sign-Up Form Submission
+        signUpForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const username = document.getElementById("signUpUsername").value;
+            const password = document.getElementById("signUpPassword").value;
+            const confirmPassword =
+                document.getElementById("confirmPassword").value;
+
+            // Validate passwords match
+            if (password !== confirmPassword) {
+                formError.textContent = "Passwords do not match.";
+                formError.style.display = "block";
+                return;
+            }
+
+            // Retrieve users from localStorage
+            const users = JSON.parse(localStorage.getItem("users")) || {};
+
+            // Check if the username already exists
+            if (users[username]) {
+                formError.textContent = "Username already exists.";
+                formError.style.display = "block";
+            } else {
+                // Save the new user
+                users[username] = password;
+                localStorage.setItem("users", JSON.stringify(users));
+                alert("Sign-Up successful! You can now log in.");
+                loginForm.style.display = "block";
+                signUpForm.style.display = "none";
+                modalTitle.textContent = "Login";
+                toggleForm.textContent = "Don't have an account? Sign Up";
+                formError.style.display = "none";
+            }
+        });
+
+        // Function to update login state
+        function updateLoginState() {
+            const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+            const loginBtn = document.getElementById("openLoginModal");
+            const logoutBtn = document.getElementById("logoutBtn");
+
+            if (isLoggedIn) {
+                loginBtn.style.display = "none";
+                logoutBtn.style.display = "flex";
+            } else {
+                loginBtn.style.display = "flex";
+                logoutBtn.style.display = "none";
+            }
         }
-        formError.style.display = "none";
-      });
 
-      // Handle Login Form Submission
-      loginForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const username = document.getElementById("loginUsername").value;
-        const password = document.getElementById("loginPassword").value;
+        // Logout functionality
+        document.getElementById("logoutBtn").addEventListener("click", (e) => {
+            e.preventDefault();
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("currentUser");
+            updateLoginState();
+            alert("You have been logged out successfully!");
+        });
 
-        // Retrieve users from localStorage
-        const users = JSON.parse(localStorage.getItem("users")) || {};
+        // Check login state on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            updateLoginState();
+        });
 
-        // Check if the user exists and the password matches
-        if (users[username] && users[username] === password) {
-          alert(`Welcome back, ${username}!`);
-          loginModal.style.display = "none";
-          
-          // Set login state
-          localStorage.setItem("isLoggedIn", "true");
-          localStorage.setItem("currentUser", username);
-          updateLoginState();
-        } else {
-          formError.textContent = "Invalid username or password.";
-          formError.style.display = "block";
-        }
-      });
-
-      // Handle Sign-Up Form Submission
-      signUpForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const username = document.getElementById("signUpUsername").value;
-        const password = document.getElementById("signUpPassword").value;
-        const confirmPassword =
-          document.getElementById("confirmPassword").value;
-
-        // Validate passwords match
-        if (password !== confirmPassword) {
-          formError.textContent = "Passwords do not match.";
-          formError.style.display = "block";
-          return;
-        }
-
-        // Retrieve users from localStorage
-        const users = JSON.parse(localStorage.getItem("users")) || {};
-
-        // Check if the username already exists
-        if (users[username]) {
-          formError.textContent = "Username already exists.";
-          formError.style.display = "block";
-        } else {
-          // Save the new user
-          users[username] = password;
-          localStorage.setItem("users", JSON.stringify(users));
-          alert("Sign-Up successful! You can now log in.");
-          loginForm.style.display = "block";
-          signUpForm.style.display = "none";
-          modalTitle.textContent = "Login";
-          toggleForm.textContent = "Don't have an account? Sign Up";
-          formError.style.display = "none";
-        }
-      });
-
-      // Function to update login state
-      function updateLoginState() {
-        const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-        const loginBtn = document.getElementById("openLoginModal");
-        const logoutBtn = document.getElementById("logoutBtn");
-        
-        if (isLoggedIn) {
-          loginBtn.style.display = "none";
-          logoutBtn.style.display = "flex";
-        } else {
-          loginBtn.style.display = "flex";
-          logoutBtn.style.display = "none";
-        }
-      }
-
-      // Logout functionality
-      document.getElementById("logoutBtn").addEventListener("click", (e) => {
-        e.preventDefault();
-        localStorage.removeItem("isLoggedIn");
-        localStorage.removeItem("currentUser");
-        updateLoginState();
-        alert("You have been logged out successfully!");
-      });
-
-      // Check login state on page load
-      document.addEventListener("DOMContentLoaded", () => {
-        updateLoginState();
-      });
-
-      // Close Modal on Outside Click
-      window.addEventListener("click", (e) => {
-        if (e.target === loginModal) {
-          loginModal.style.display = "none";
-        }
-      });
+        // Close Modal on Outside Click
+        window.addEventListener("click", (e) => {
+            if (e.target === loginModal) {
+                loginModal.style.display = "none";
+            }
+        });
     </script>
-  </body>
+</body>
+
 </html>
