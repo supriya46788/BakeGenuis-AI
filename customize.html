@@ -20,15 +20,6 @@
             --dark-border: #404040;
         }
 
-        body {
-            font-family: 'Comic Neue', cursive;
-            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--lavender) 50%, var(--soft-pink) 100%);
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            transition: all 0.3s ease;
-        }
-
         body.dark-mode {
             background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
         }
@@ -51,7 +42,7 @@
 
         body {
             font-family: 'Comic Neue', cursive;
-            background: linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 50%, var(--light-yellow) 100%);
+            background:#f5f3f1;
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
@@ -86,7 +77,7 @@
 
         /* Navigation */
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
+            background: radial-gradient(circle at center,#e5c5b3,#e9b4b6);
             backdrop-filter: blur(15px);
             padding: 1rem 2rem;
             position: fixed;
@@ -112,15 +103,17 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 600;
-            color: #ff6b6b;
+            color: #3e2723;
             text-decoration: none;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-family: 'Comic Neue', cursive;
+            font-family: "Comic Neue", cursive;
+            min-width: 150px;
+            padding-right:50px;
         }
 
         .logo-icon {
@@ -135,7 +128,7 @@
 
         .logo:hover {
             transform: scale(1.05);
-            color: #ff5252;
+            color:#3e2723;
         }
 
         .logo:hover .logo-icon {
@@ -159,9 +152,9 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: #3e2723;
             font-weight: 600;
-            padding: 0.7rem 1.2rem;
+            padding: 0.7rem 1rem;
             border-radius: 25px;
             transition: all 0.3s ease;
             position: relative;
@@ -170,9 +163,11 @@
         }
 
         .nav-links a.active {
-            background: linear-gradient(45deg, var(--candy-red), var(--soft-pink));
-            color: white;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            background-color:#f3e0d6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(228, 191, 180, 0.3);
+            color: #3e2723;
         }
 
         body.dark-mode .nav-links a {
@@ -186,11 +181,11 @@
         }
 
         .nav-links a:hover {
-            background: linear-gradient(45deg, var(--sunny-yellow), var(--soft-pink));
+            background-color:#f3e0d6;
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-            color: #333;
+            border-color: rgba(228, 191, 180, 0.3);
+            color: #3e2723;
         }
 
         body.dark-mode .nav-links a:hover {
@@ -206,7 +201,7 @@
         }
 
         .dark-mode-btn {
-            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            background-color:#3e2723;
             border: none;
             color: white;
             padding: 0.7rem;
@@ -232,7 +227,7 @@
         }
 
         .login-btn {
-            background: linear-gradient(45deg, var(--candy-red), #ff8a80);
+            background-color:#d18a68;
             color: white;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
@@ -248,8 +243,8 @@
 
         .login-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-            background: linear-gradient(45deg, #ff5252, var(--candy-red));
+            box-shadow: 0 8px 25px #d18a68;
+            background-color:#d18a68
             border-color: rgba(255, 255, 255, 0.3);
         }
 
@@ -403,7 +398,7 @@
 
         /* Footer Styles */
         .footer {
-            background: linear-gradient(135deg, rgba(255, 195, 195, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+            background: radial-gradient(circle at center,#e9b4b6,#e5c5b3);
             backdrop-filter: blur(15px);
             position: relative;
             z-index: 2;
@@ -412,7 +407,7 @@
         }
 
         .footer-content {
-            max-width: 1400px;
+            max-width: 1500px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -421,7 +416,7 @@
         }
 
         .footer-section h3.footer-title {
-            color: var(--candy-red);
+            color: #3e2723;
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
@@ -435,7 +430,7 @@
             left: 0;
             width: 30px;
             height: 3px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            background:#3e2723;
             border-radius: 2px;
         }
 
@@ -446,7 +441,7 @@
             margin-bottom: 1.5rem;
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--candy-red);
+            color:#3e2723;
         }
 
         .footer-logo-icon {
@@ -471,7 +466,7 @@
         }
 
         .footer-links a {
-            color: #666;
+            color: #333;
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -483,8 +478,8 @@
         }
 
         .footer-links a:hover {
-            color: var(--candy-red);
-            transform: translateX(5px);
+            color: black;
+            transform: translateX(4px);
             background: rgba(255, 107, 107, 0.1);
             padding-left: 0.8rem;
         }
@@ -522,19 +517,19 @@
         }
 
         .social-link.linkedin {
-            background: linear-gradient(45deg, #0077B5, #00A0DC);
+            background:#0a66c2;
         }
 
         .social-link.github {
-            background: linear-gradient(45deg, #333, #555);
+            background:black;
         }
 
         .social-link.portfolio {
-            background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
+            background:navy;
         }
 
         .social-link.email {
-            background: linear-gradient(45deg, #EA4335, #34A853);
+            background:red;
         }
 
         .footer-bottom {
@@ -596,15 +591,15 @@
         }
 
         .badge-green {
-            background: linear-gradient(45deg, #2ED573, #20bf6b);
+            background:radial-gradient(circle at center,#b08968,#3e2723);
         }
 
         .badge-blue {
-            background: linear-gradient(45deg, #3498db, #2980b9);
+            background:radial-gradient(circle at center,#b08968,#3e2723);
         }
 
         .badge-purple {
-            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+            background:radial-gradient(circle at center,#b08968,#3e2723);
         }
 
         @media (max-width: 1024px) {
@@ -718,7 +713,7 @@
 
         .page-title {
             font-size: 3rem;
-            color: var(--candy-red);
+            color: linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
             margin-bottom: 1rem;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
             animation: bounce 2s ease-in-out infinite;
@@ -769,8 +764,8 @@
 
         .ingredient-card:hover {
             transform: translateY(-5px);
-            border-color: var(--sky-blue);
-            box-shadow: 0 12px 40px rgba(112, 161, 255, 0.2);
+            border-color:#3e2723;
+            box-shadow: 0 12px 40px #3e2723;
         }
 
         .ingredient-card:hover::before {
@@ -847,7 +842,7 @@
         .brand-title {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--candy-red);
+            color:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);;
             margin-bottom: 1rem;
             text-align: center;
         }
@@ -870,14 +865,14 @@
         }
 
         .brand-option:hover {
-            border-color: var(--sunny-yellow);
-            background: var(--light-yellow);
+            border-color: #e5b5c3;
+            background:#fae2d4;
             transform: scale(1.05);
         }
 
         .brand-option.selected {
-            border-color: var(--sky-blue);
-            background: var(--light-blue);
+            border-color:#412b28;
+            background:#d5a69e;
         }
 
         /* Action Buttons */
@@ -906,19 +901,19 @@
         }
 
         .btn-primary {
-            background: var(--candy-red);
+            background:radial-gradient(circle at center,#b08968,#3e2723);
             color: white;
             box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
         }
 
         .btn-secondary {
-            background: var(--sky-blue);
+            background:radial-gradient(circle at center,#b08968,#3e2723);
             color: white;
             box-shadow: 0 4px 15px rgba(112, 161, 255, 0.4);
         }
 
         .btn-success {
-            background: #2ED573;
+            background:radial-gradient(circle at center,#b08968,#3e2723);
             color: white;
             box-shadow: 0 4px 15px rgba(46, 213, 115, 0.4);
         }
@@ -968,29 +963,29 @@
         /* Back to Top Button Styles */
 #backToTop {
     position: fixed;
-    bottom: 2.5rem;
-    right: 2.5rem;
-    z-index: 2000;
-    background: linear-gradient(135deg, var(--candy-red), var(--sky-blue), var(--sunny-yellow));
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
-    font-size: 2rem;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s, transform 0.2s;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            z-index: 2000;
+            background: linear-gradient(45deg,#a4766a,#5d4037);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            font-size: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s, transform 0.2s;
 }
 #backToTop.show {
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(-10px) scale(1.08);
+    transform:scale(1.08);
 }
 #backToTop:hover {
-    background: linear-gradient(135deg, var(--sunny-yellow), var(--candy-red), var(--sky-blue));
+    background: linear-gradient(45deg,#a4766a,#5d4037);
     transform: scale(1.15);
 }
 
@@ -1129,7 +1124,7 @@
         </div>
     </div>
     <!-- Back to Top Button -->
-<button id="backToTop" title="Back to Top">⬆️</button>
+<button id="backToTop" title="Back to Top">⬆</button>
 
     <!-- footer startes here -->
     <footer class="footer">
