@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --light-pink: #FFE0E6;
-            --light-blue: #E8F4FF;
-            --light-yellow: #FFF5E0;
             --candy-red: #ffabab;
             --sky-blue: #249e96;
             --sunny-yellow: #fcd124;
@@ -135,8 +132,10 @@
         }
 
         body {
+ recipe.convertor
             font-family: 'Comic Neue', cursive; recipe.convertor
             background:linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 50%, var(--light-yellow) 100%) ;
+
 
             min-height: 100vh;
             color: var(--white);
@@ -353,6 +352,24 @@
             background: linear-gradient(45deg, #3498db, #9b59b6);
         }
 
+        /* Dark Mode Styles for Content */
+        body.dark-mode .input-label {
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .recipe-input {
+            color: var(--dark-text);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .unit-toggle button {
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .unit-toggle {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
         .hamburger.active span:nth-child(1) {
             transform: rotate(-45deg) translate(-5px, 6px);
         }
@@ -482,7 +499,9 @@
             font-weight: 700;
             margin-bottom: 1rem;
  recipe.convertor
+ recipe.convertor
             background: #FF4757;
+
 
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -528,6 +547,7 @@
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
+ recipe.convertor
           recipe.convertor
             color: black;
 
@@ -541,7 +561,9 @@
             border-radius: 15px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+recipe.convertor
             color:black !important ;
+
             font-family: 'Comic Neue', cursive;
             font-size: 1rem;
             resize: vertical;
@@ -556,6 +578,7 @@
         }
 
         .recipe-input::placeholder {
+ recipe.convertor
           recipe.convertor
             color:#6b6767;
            /* color: rgba(255, 255, 255, 0.7);*/
@@ -587,6 +610,7 @@
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(5deg); }
 
+
         }
 
         .file-upload {
@@ -597,7 +621,7 @@
             display: inline-block;
             padding: 1rem 2rem;
             background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
-            color: var(--white);
+            color: white;
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -614,7 +638,7 @@
             width: 100%;
             padding: 1.5rem;
             background: linear-gradient(45deg, var(--candy-red), var(--sunny-yellow));
-            color: var(--white);
+            color: white;
             border: none;
             border-radius: 25px;
             font-size: 1.3rem;
@@ -713,7 +737,7 @@
             padding: 0.5rem 1rem;
             border: none;
             background: transparent;
-            color: var(--white);
+            color: #333;
             border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
