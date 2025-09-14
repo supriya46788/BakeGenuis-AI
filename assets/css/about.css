@@ -292,7 +292,6 @@ nav {
   overflow: hidden;
 }
 
-
 .nav-links li:nth-child(1) a:hover {
   background-color: #d18a68;
   color: white;
@@ -331,27 +330,27 @@ nav {
 .nav-links li:nth-child(1) a.active {
   background: #d18a68;
   color: white;
-  box-shadow: 0 8px 25px rgba(255,71,87,0.4);
+  box-shadow: 0 8px 25px rgba(255, 71, 87, 0.4);
 }
 .nav-links li:nth-child(2) a.active {
   background: #d18a68;
   color: white;
-  box-shadow: 0 8px 25px rgba(30,144,255,0.4);
+  box-shadow: 0 8px 25px rgba(30, 144, 255, 0.4);
 }
 .nav-links li:nth-child(3) a.active {
   background: #d18a68;
   color: white;
-  box-shadow: 0 8px 25px rgba(254,202,87,0.4);
+  box-shadow: 0 8px 25px rgba(254, 202, 87, 0.4);
 }
 .nav-links li:nth-child(4) a.active {
   background: #d18a68;
   color: white;
-  box-shadow: 0 8px 25px rgba(255,71,87,0.4);
+  box-shadow: 0 8px 25px rgba(255, 71, 87, 0.4);
 }
 .nav-links li:nth-child(5) a.active {
   background: #d18a68;
   color: white;
-  box-shadow: 0 8px 25px rgba(30,144,255,0.4);
+  box-shadow: 0 8px 25px rgba(30, 144, 255, 0.4);
 }
 
 /* Hero Section */
@@ -862,6 +861,45 @@ nav {
   transform: translateY(-10px) scale(1.08);
 }
 #backToTop:hover {
+  background: linear-gradient(
+    135deg,
+    var(--sunny-yellow),
+    var(--candy-red),
+    var(--sky-blue)
+  );
+  transform: scale(1.15);
+}
+
+/* Back to Top to Bottom Button Styles */
+#Toptoback {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  z-index: 2000;
+  background: linear-gradient(
+    135deg,
+    var(--candy-red),
+    var(--sky-blue),
+    var(--sunny-yellow)
+  );
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s, transform 0.2s;
+}
+#Toptoback.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-10px) scale(1.08);
+}
+#Toptoback:hover {
   background: linear-gradient(
     135deg,
     var(--sunny-yellow),

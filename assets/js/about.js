@@ -253,6 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
+
   // Add scroll progress indicator
 
   const owner = "supriya46788";
@@ -340,6 +341,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initLoadingAnimation();
   initScrollProgress();
  
+
   // Add some extra sparkle regeneration
   setInterval(createSparkles, 10000);
 

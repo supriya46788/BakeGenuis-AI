@@ -886,9 +886,13 @@
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="#" class="login-btn" onclick="alert('Login functionality will be implemented soon!')">
+                <a href="#" class="login-btn" id="openLoginModal">
                     <i class="fas fa-user"></i>
                     Login
+                </a>
+                <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
                 </a>
             </div>
             <div class="hamburger" id="hamburger">
@@ -1320,10 +1324,40 @@ backToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+        // Function to update login state
+        function updateLoginState() {
+            const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+            const loginBtn = document.getElementById("openLoginModal");
+            const logoutBtn = document.getElementById("logoutBtn");
+            
+            if (isLoggedIn) {
+                loginBtn.style.display = "none";
+                logoutBtn.style.display = "flex";
+            } else {
+                loginBtn.style.display = "flex";
+                logoutBtn.style.display = "none";
+            }
+        }
+
+        // Logout functionality
+        const logoutBtn = document.getElementById("logoutBtn");
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                localStorage.removeItem("isLoggedIn");
+                localStorage.removeItem("currentUser");
+                updateLoginState();
+                alert("You have been logged out successfully!");
+            });
+        }
+
+        // Check login state on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            updateLoginState();
+        });
+
         // Add some sample data for demo purposes
         document.addEventListener('DOMContentLoaded', function() {
-            const textarea = document.getElementById('recipeInput');
-            
             // Add floating animation to page elements
             const animateElements = document.querySelectorAll('.input-section, .results-section');
             animateElements.forEach((el, index) => {
