@@ -8,6 +8,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
+            --candy-red: #FF6B6B;
+            --sky-blue: #4ECDC4;
+            --sunny-yellow: #FFD93D;
+            --soft-pink: #FFB6C1;
+            --mint-green: #98FB98;
+            --lavender: #E6E6FA;
+            --dark-bg: #1a1a1a;
+            --dark-card: #2d2d2d;
+            --dark-text: #ffffff;
+            --dark-border: #404040;
+        }
+
+        body {
+            font-family: 'Comic Neue', cursive;
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--lavender) 50%, var(--soft-pink) 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
             --candy-red: #FF4757;
             --sky-blue: #70A1FF;
             --sunny-yellow: #FFA502;
@@ -15,238 +47,1000 @@
             --light-pink: #FFE0E6;
             --light-blue: #E8F4FF;
             --light-yellow: #FFF5E0;
-            --dark-bg: #131323;
-            --dark-card: #23234a;
-            --dark-border: #333352;
-            --dark-text: #F4F4FB;
-            --dark-accent: #1a5fb4;
-            --dark-footer: #10102b;
         }
 
         body {
             font-family: 'Comic Neue', cursive;
-            background: linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 30%, var(--light-yellow) 60%, var(--light-pink) 100%);
+            background: linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 50%, var(--light-yellow) 100%);
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
-            transition: background 0.3s;
         }
 
-        body.dark-mode {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, #374175 60%, #3d2373 100%);
-            color: var(--dark-text);
+        /* Animated Background Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
         }
 
-        .floating-elements { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;}
-        .floating-cupcake { position: absolute; font-size: 2rem; animation: float 6s ease-in-out infinite;}
+        .floating-cupcake {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
         .floating-cupcake:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
         .floating-cupcake:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
         .floating-cupcake:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 4s; }
         .floating-cupcake:nth-child(4) { bottom: 30%; right: 10%; animation-delay: 1s; }
-        @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(5deg); } }
 
-        nav {
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Navigation */
+        .navbar {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             padding: 1rem 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
-            transition: background 0.4s;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
         }
-        body.dark-mode nav {
-            background: rgba(19,19,35,0.95);
+
+        body.dark-mode .navbar {
+            background: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #ff6b6b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Comic Neue', cursive;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-text {
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            color: #ff5252;
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(10deg);
+        }
+
+        body.dark-mode .logo {
+            color: #ff8a80;
+        }
+
+        body.dark-mode .logo:hover {
+            color: #ffab91;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 0.7rem 1.2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+        }
+
+        .nav-links a.active {
+            background: linear-gradient(45deg, var(--candy-red), var(--soft-pink));
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        body.dark-mode .nav-links a {
             color: var(--dark-text);
-            box-shadow: 0 4px 20px #000a;
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        .nav-container { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;}
-        .logo { font-size:1.8rem; font-weight:700; color:var(--candy-red); text-shadow:2px 2px 4px rgba(0,0,0,0.1);}
-        body.dark-mode .logo { color:var(--sunny-yellow);}
-        .nav-links { display: flex; list-style: none; gap: 2rem;}
-        .nav-links a { text-decoration:none; color:#333; font-weight:600; padding:0.5rem 1rem; border-radius:25px; transition:all 0.3s;}
-        .nav-links a:hover { background:var(--sunny-yellow); color:#fff;}
-        .nav-links a.active { background:var(--candy-red); color:#fff;}
-        body.dark-mode .nav-links a { color: var(--dark-text); }
-        body.dark-mode .nav-links a:hover { background: var(--sky-blue); color: var(--dark-bg); }
-        body.dark-mode .nav-links a.active { background: var(--sunny-yellow); color: var(--dark-bg); }
+        body.dark-mode .nav-links a.active {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+        }
 
-        .nav-actions { display: flex; align-items: center; gap: 1rem;}
+        .nav-links a:hover {
+            background: linear-gradient(45deg, var(--sunny-yellow), var(--soft-pink));
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #333;
+        }
+
+        body.dark-mode .nav-links a:hover {
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            color: #fff;
+        }
+
+        /* Navigation Actions */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
         .dark-mode-btn {
-            background: linear-gradient(45deg, var(--sky-blue) 0%, var(--candy-red) 100%);
-            border: none; color: white; padding: 0.7rem;
-            border-radius: 50%; cursor: pointer; font-size: 1.1rem; width: 45px; height: 45px;
-            display: flex; align-items: center; justify-content: center; box-shadow:0 4px 15px #0003;
-            transition:all 0.3s;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 0.7rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        .dark-mode-btn:hover { transform:scale(1.1) rotate(360deg);}
-        body.dark-mode .dark-mode-btn {background: linear-gradient(45deg, var(--sunny-yellow), var(--sky-blue)); color: var(--dark-bg);}
-        .login-btn {
-            background: linear-gradient(45deg, var(--candy-red), var(--sunny-yellow));
-            color: white; text-decoration: none; padding:0.7rem 1.5rem; border-radius:25px; font-weight:600;
-            display: flex; align-items: center; gap:0.5rem; box-shadow:0 4px 15px rgba(255,71,87,0.3); border:2px solid transparent;
-        }
-        .login-btn:hover { background:linear-gradient(45deg, #ff6875, var(--sunny-yellow)); }
-        body.dark-mode .login-btn { background: linear-gradient(45deg, #2323a5, var(--sunny-yellow)); color: var(--dark-text);}
-        body.dark-mode .login-btn:hover { background:linear-gradient(45deg,var(--sky-blue),var(--dark-accent)); color:var(--dark-bg);}
-        .hamburger { display: none; flex-direction: column; cursor: pointer; padding: 0.5rem; }
-        .hamburger span { width: 25px; height: 3px; background:linear-gradient(45deg,var(--candy-red),var(--sky-blue)); margin:3px 0; border-radius:2px;}
-        body.dark-mode .hamburger span { background: linear-gradient(45deg,var(--sunny-yellow),var(--sky-blue)); }
 
-        .container {max-width:1000px; margin:2rem auto; padding:0 1rem; position:relative; z-index:10;}
-        .page-header { text-align:center; margin-bottom:3rem;}
+        .dark-mode-btn:hover {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .dark-mode-btn {
+            background: linear-gradient(45deg, #f39c12 0%, #f1c40f 100%);
+        }
+
+        .login-btn {
+            background: linear-gradient(45deg, var(--candy-red), #ff8a80);
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            background: linear-gradient(45deg, #ff5252, var(--candy-red));
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        body.dark-mode .login-btn {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        body.dark-mode .login-btn:hover {
+            background: linear-gradient(45deg, #c0392b, #a93226);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        body.dark-mode .hamburger span {
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.8rem 1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                gap: 1rem;
+                z-index: 999;
+            }
+
+            body.dark-mode .nav-links {
+                background: rgba(26, 26, 26, 0.98);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links a {
+                width: 80%;
+                text-align: center;
+                padding: 1rem;
+                font-size: 1.1rem;
+                margin: 0.5rem 0;
+            }
+
+            .nav-actions {
+                gap: 0.5rem;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .login-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .dark-mode-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+
+            .hamburger {
+                display: flex;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo-icon {
+                font-size: 1.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 0.5rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .logo-icon {
+                font-size: 1.5rem;
+            }
+
+            .nav-actions {
+                gap: 0.3rem;
+            }
+
+            .login-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .dark-mode-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: linear-gradient(135deg, rgba(255, 195, 195, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+            backdrop-filter: blur(15px);
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-section h3.footer-title {
+            color: var(--candy-red);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-section h3.footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            border-radius: 2px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--candy-red);
+        }
+
+        .footer-logo-icon {
+            font-size: 2rem;
+        }
+
+        .footer-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.3rem 0;
+            border-radius: 5px;
+        }
+
+        .footer-links a:hover {
+            color: var(--candy-red);
+            transform: translateX(5px);
+            background: rgba(255, 107, 107, 0.1);
+            padding-left: 0.8rem;
+        }
+
+        .footer-links i {
+            font-size: 0.9rem;
+            width: 16px;
+            opacity: 0.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-link.linkedin {
+            background: linear-gradient(45deg, #0077B5, #00A0DC);
+        }
+
+        .social-link.github {
+            background: linear-gradient(45deg, #333, #555);
+        }
+
+        .social-link.portfolio {
+            background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
+        }
+
+        .social-link.email {
+            background: linear-gradient(45deg, #EA4335, #34A853);
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+        }
+
+        .footer-bottom-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .copyright a {
+            color: var(--candy-red);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-badges {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .badge-green {
+            background: linear-gradient(45deg, #2ED573, #20bf6b);
+        }
+
+        .badge-blue {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+        }
+
+        .badge-purple {
+            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .footer-badges {
+                justify-content: center;
+            }
+        }
+
+        /* Dark Mode Styles for Content */
+        body.dark-mode .page-subtitle {
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .ingredient-card {
+            background: rgba(26, 26, 26, 0.9);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .ingredient-name {
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .control-label {
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .custom-select,
+        body.dark-mode .custom-input {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .custom-select:focus,
+        body.dark-mode .custom-input:focus {
+            border-color: var(--candy-red);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        body.dark-mode .footer {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .footer-section h3.footer-title {
+            color: #ff8a80;
+        }
+
+        body.dark-mode .footer-logo {
+            color: #ff8a80;
+        }
+
+        body.dark-mode .footer-description {
+            color: #ccc;
+        }
+
+        body.dark-mode .footer-links a {
+            color: #ccc;
+        }
+
+        body.dark-mode .footer-links a:hover {
+            color: #ff8a80;
+            background: rgba(255, 138, 128, 0.1);
+        }
+
+        body.dark-mode .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .copyright {
+            color: #ccc;
+        }
+
+        body.dark-mode .copyright a {
+            color: #ff8a80;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 6rem auto 2rem;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
         .page-title {
-            font-size:3rem; color:var(--candy-red); margin-bottom:1rem; text-shadow:3px 3px 6px rgba(0,0,0,0.1);
-            animation:bounce 2s ease-in-out infinite;}
-        body.dark-mode .page-title { color: var(--sky-blue);}
-        .page-subtitle { font-size:1.2rem; color:#666; max-width:600px; margin: 0 auto;}
-        body.dark-mode .page-subtitle { color: var(--dark-text);}
-        @keyframes bounce { 0%,20%,50%,80%,100%{transform:translateY(0);} 40%{transform:translateY(-10px);} 60%{transform:translateY(-5px);} }
-        .ingredients-container {display:grid;gap:1.5rem; margin-bottom:2rem;}
+            font-size: 3rem;
+            color: var(--candy-red);
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Ingredient Cards */
+        .ingredients-container {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
         .ingredient-card {
-            background: rgba(255,255,255,0.95);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 1.5rem;
-            box-shadow:0 8px 32px rgba(0,0,0,0.07);
-            border:2px solid transparent; transition:all 0.3s; position:relative; overflow:hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-        body.dark-mode .ingredient-card {
-            background: var(--dark-card);
-            color: var(--dark-text);
-            box-shadow: 0 4px 24px #0005;
-            border-color: var(--dark-border);
+
+        .ingredient-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
         }
-        .ingredient-card:hover {transform:translateY(-5px); border-color:var(--sky-blue);}
-        .ingredient-header {display:flex;align-items:center;margin-bottom:1rem;}
-        .ingredient-icon {font-size:2rem;margin-right:1rem;}
-        .ingredient-name {font-size:1.3rem;font-weight:700;color:#333;flex:1;}
-        body.dark-mode .ingredient-name { color: var(--sunny-yellow);}
-        .ingredient-controls {display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:end;}
-        .control-group { display: flex; flex-direction: column;}
-        .control-label {font-size:0.9rem;font-weight:600;color:#666;margin-bottom:0.5rem;}
-        body.dark-mode .control-label { color: var(--sky-blue);}
+
+        .ingredient-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--sky-blue);
+            box-shadow: 0 12px 40px rgba(112, 161, 255, 0.2);
+        }
+
+        .ingredient-card:hover::before {
+            left: 100%;
+        }
+
+        .ingredient-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .ingredient-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+
+        .ingredient-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #333;
+            flex: 1;
+        }
+
+        .ingredient-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            align-items: end;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .control-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
         .custom-select, .custom-input {
-            padding: 0.75rem; border:2px solid #e0e0e0; border-radius:12px; font-family:'Comic Neue',cursive; font-size:1rem;
-            background:white; transition:all 0.3s; color: #333;
-        }
-        body.dark-mode .custom-select, body.dark-mode .custom-input {
-            background: var(--dark-bg);
-            border-color: var(--dark-border);
-            color: var(--dark-text);
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-family: 'Comic Neue', cursive;
+            font-size: 1rem;
+            background: white;
+            transition: all 0.3s ease;
         }
 
         .custom-select:focus, .custom-input:focus {
-            outline:none;border-color:var(--sky-blue);box-shadow:0 0 0 3px rgba(112,161,255,0.2);
+            outline: none;
+            border-color: var(--sky-blue);
+            box-shadow: 0 0 0 3px rgba(112, 161, 255, 0.2);
         }
-        .custom-input[type="number"] { text-align:center; font-weight:600;}
-        
+
+        .custom-input[type="number"] {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* Brand Selector */
         .brand-selector {
-            background:rgba(255,255,255,0.95);
-            border-radius:20px; padding:1.5rem; margin-bottom:2rem; box-shadow:0 8px 32px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
-        body.dark-mode .brand-selector {
-            background: var(--dark-card);
-            box-shadow: 0 8px 32px #0007;
+
+        .brand-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--candy-red);
+            margin-bottom: 1rem;
+            text-align: center;
         }
-        .brand-title {font-size:1.5rem;font-weight:700;color:var(--candy-red);margin-bottom:1rem;text-align:center;}
-        body.dark-mode .brand-title { color: var(--sky-blue);}
-        .brand-options { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem;}
+
+        .brand-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
         .brand-option {
-            background:white; border:2px solid #e0e0e0;border-radius:12px;padding:1rem;text-align:center;cursor:pointer;
-            transition:all 0.3s; font-weight:600;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
         }
-        body.dark-mode .brand-option {
-            background: var(--dark-bg);
-            border-color: var(--dark-border);
-            color: var(--dark-text);
+
+        .brand-option:hover {
+            border-color: var(--sunny-yellow);
+            background: var(--light-yellow);
+            transform: scale(1.05);
         }
-        .brand-option:hover {border-color:var(--sunny-yellow);background:var(--light-yellow);}
-        body.dark-mode .brand-option:hover {
-            background:var(--dark-footer); border-color:var(--sky-blue); color:var(--sunny-yellow);
+
+        .brand-option.selected {
+            border-color: var(--sky-blue);
+            background: var(--light-blue);
         }
-        .brand-option.selected {border-color:var(--sky-blue);background:var(--light-blue);}
-        body.dark-mode .brand-option.selected {background:var(--dark-accent); color:var(--dark-bg);}
-        
-        .action-buttons {display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;}
-        .btn {padding:1rem 2rem;border:none; border-radius:25px; font-family:'Comic Neue',cursive; font-size:1.1rem; font-weight:700; cursor:pointer; transition:all 0.3s; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem;}
-        .btn-primary {background:var(--candy-red);color:white;box-shadow:0 4px 15px rgba(255,71,87,0.3);}
-        .btn-secondary {background:var(--sky-blue);color:white;box-shadow:0 4px 15px rgba(112,161,255,0.2);}
-        .btn-success {background:#2ED573;color:white;box-shadow:0 4px 15px rgba(46,213,115,0.2);}
-        .btn:hover {transform:translateY(-3px);}
-        body.dark-mode .btn-primary {background:var(--dark-accent); color:var(--dark-text);}
-        body.dark-mode .btn-secondary {background:var(--sky-blue); color: var(--dark-bg);}
-        body.dark-mode .btn-success {background: #1ca862; color: var(--dark-text);}
-        .success-message { background:rgba(46,213,115,0.15);border:2px solid #2ED573;border-radius:15px;padding:1rem;margin:1rem 0;text-align:center;color:#2ED573;font-weight:600;display:none;animation:slideDown 0.5s;}
-        body.dark-mode .success-message { background: #1ca86230; color: #18ffb0;}
-        @keyframes slideDown {from{transform:translateY(-20px);opacity:0;}to{transform:translateY(0);opacity:1;} }
-        
-        .tooltip {position:relative;cursor:help;}
-        .tooltip::after {content: attr(data-tooltip);position: absolute;bottom: 100%;left: 50%;transform: translateX(-50%);background: #333;color: white;padding: 0.5rem;border-radius: 8px;font-size: 0.8rem;white-space: nowrap;opacity: 0;visibility: hidden;transition: all 0.3s ease;z-index: 1000;}
-        .tooltip:hover::after {opacity: 1;visibility: visible;}
-        
-        #backToTop {position:fixed;bottom:2.5rem;right:2.5rem;z-index:2000;background:linear-gradient(135deg,var(--candy-red),var(--sky-blue),var(--sunny-yellow));color:#fff;border:none;border-radius:50%;width:56px;height:56px;font-size:2rem;box-shadow:0 8px 24px rgba(0,0,0,0.18);cursor:pointer;opacity:0;pointer-events:none;transition:opacity 0.4s,transform 0.2s;}
-        #backToTop.show {opacity:1;pointer-events:auto;transform:translateY(-10px) scale(1.08);}
-        #backToTop:hover {background:linear-gradient(135deg,var(--sunny-yellow),var(--candy-red),var(--sky-blue));transform:scale(1.15);}
-        
-        @media (max-width:768px){.nav-links{display:none;} .page-title{font-size:2rem;} .ingredient-controls{grid-template-columns:1fr;} .brand-options{grid-template-columns:1fr;} .action-buttons{flex-direction:column;align-items:center;} .btn{width:100%;max-width:300px;justify-content:center;}}
-        @media (max-width:900px){.footer-columns{flex-direction: column; gap:1.5rem;}}
-        
-        .footer { background: #0a0a3c; color: #fff; border-top: 4px solid #4ECDC4; padding: 3rem 0 1.5rem 0;}
-        body.dark-mode .footer { background: var(--dark-footer); color: var(--dark-text); border-top: 4px solid var(--sky-blue);}
-        .footer-columns { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: space-between; align-items: flex-start;}
-        .footer-logo { flex: 1 1 180px; min-width: 180px; font-size: 2rem; font-weight: 700; color: #fff; letter-spacing: 1px; margin-bottom: 1.5rem;}
-        body.dark-mode .footer-logo { color: var(--sky-blue);}
-        .footer-group { flex: 1 1 160px; min-width: 160px; margin-bottom: 1.5rem;}
-        .footer-group-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: #fff;}
-        body.dark-mode .footer-group-title { color: var(--sky-blue);}
-        .footer-group-list { list-style: none; padding: 0; margin: 0;}
-        .footer-group-list li { margin-bottom: 0.7em;}
-        .footer-group-list a { color: #b3e6e2; text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.2s;}
-        .footer-group-list a:hover { color: #FFD93D; }
-        body.dark-mode .footer-group-list a { color: var(--sky-blue);}
-        .footer-bottom { max-width: 1200px; margin: 2rem auto 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; font-size: 1rem; color: #b3e6e2; border-top: 1px solid #233; padding-top: 1.2rem;}
-        body.dark-mode .footer-bottom { color: var(--sky-blue);}
-        .footer-social { display: flex; gap: 1rem;}
-        .footer-social a { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(45deg, #0077B5, #00A0DC); color: #fff; font-size: 1.2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.10); transition: background 0.2s, transform 0.2s;}
-        body.dark-mode .footer-social a { background: var(--sky-blue); color: var(--dark-bg);}
-        .footer-social .portfolio { background: linear-gradient(45deg, #FFD93D, #FF6B6B);}
-        body.dark-mode .footer-social .portfolio { background: var(--sky-blue);}
-        
-        #loginModal {
-            display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background: rgba(0,0,0,0.35); z-index:2000; align-items:center; justify-content:center;
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
-        #loginModal .modal-content {
-            background: #fff; color: #222; border-radius: 18px; max-width: 350px; width: 90%; padding: 2rem 1.5rem;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.18); position: relative;
-            transition: background 0.3s, color 0.3s;
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Comic Neue', cursive;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
         }
-        body.dark-mode #loginModal .modal-content {
-            background: var(--dark-card); color: var(--dark-text); box-shadow: 0 8px 40px #0008;
+
+        .btn-primary {
+            background: var(--candy-red);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
         }
-        #closeLoginModal { position:absolute; top:12px; right:16px; background:none; border:none; font-size:1.3rem; cursor:pointer; color:#333;}
-        body.dark-mode #closeLoginModal { color:var(--sky-blue);}
-        #loginModal h2 {
-            margin-bottom:1.2rem; color:var(--candy-red); text-align:center;
+
+        .btn-secondary {
+            background: var(--sky-blue);
+            color: white;
+            box-shadow: 0 4px 15px rgba(112, 161, 255, 0.4);
         }
-        body.dark-mode #loginModal h2 {color:var(--sky-blue);}
-        #loginModal input, #loginModal button[type="submit"] {
-            width: 100%; padding: 0.7rem; margin-bottom: 1rem; border-radius: 8px; border: 1px solid #ccc;
-            background: rgba(255,255,255,0.9); color: #333;
-            transition: background 0.3s, color 0.3s;
+
+        .btn-success {
+            background: #2ED573;
+            color: white;
+            box-shadow: 0 4px 15px rgba(46, 213, 115, 0.4);
         }
-        body.dark-mode #loginModal input, body.dark-mode #loginModal button[type="submit"] {
-            background: var(--dark-bg);
-            border: 1px solid var(--dark-border);
-            color: var(--dark-text);
+
+        .btn:hover {
+            transform: translateY(-3px);
+            animation: wobble 0.5s ease-in-out;
         }
-        #loginModal input:focus {background:rgba(255,255,255,1); border-color:var(--sky-blue); box-shadow:0 0 8px rgba(112,161,255,0.5);}
-        body.dark-mode #loginModal input:focus {background:var(--dark-card); border-color:var(--sky-blue);}
-        #loginModal button[type="submit"] {background:linear-gradient(45deg,var(--sky-blue),var(--candy-red)); color:#fff;}
-        body.dark-mode #loginModal button[type="submit"] {background:linear-gradient(45deg,var(--sunny-yellow),var(--dark-accent)); color:var(--dark-bg);}
-        #loginModal #formError {color:#e74c3c; text-align:center; margin-top:0.7rem; display:none;}
-        body.dark-mode #loginModal #formError { color: #FFD93D;}
+
+        @keyframes wobble {
+            0% { transform: translateY(-3px) rotate(0deg); }
+            25% { transform: translateY(-3px) rotate(1deg); }
+            75% { transform: translateY(-3px) rotate(-1deg); }
+            100% { transform: translateY(-3px) rotate(0deg); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .ingredient-controls {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .brand-options {
+                grid-template-columns: 1fr;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+        /* Back to Top Button Styles */
+#backToTop {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    z-index: 2000;
+    background: linear-gradient(135deg, var(--candy-red), var(--sky-blue), var(--sunny-yellow));
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 2rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s, transform 0.2s;
+}
+#backToTop.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-10px) scale(1.08);
+}
+#backToTop:hover {
+    background: linear-gradient(135deg, var(--sunny-yellow), var(--candy-red), var(--sky-blue));
+    transform: scale(1.15);
+}
+
+        /* Success Message */
+        .success-message {
+            background: rgba(46, 213, 115, 0.1);
+            border: 2px solid #2ED573;
+            border-radius: 15px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+            color: #2ED573;
+            font-weight: 600;
+            display: none;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
     </style>
 </head>
 <body>
@@ -257,16 +1051,20 @@
         <div class="floating-cupcake">🥧</div>
         <div class="floating-cupcake">🍪</div>
     </div>
+
     <!-- Navigation -->
-    <nav>
+    <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">🍰 BakeGenius.ai</div>
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🍰</span>
+                <span class="logo-text">BakeGenius.ai</span>
+            </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="convert.html">Convert Recipe</a></li>
                 <li><a href="customize.html" class="active">Customize</a></li>
                 <li><a href="scale.html">Scale Recipes</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
             <div class="nav-actions">
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
@@ -276,6 +1074,10 @@
                     <i class="fas fa-user"></i>
                     Login
                 </a>
+                <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -284,12 +1086,14 @@
             </div>
         </div>
     </nav>
+
     <!-- Main Content -->
     <div class="container">
         <div class="page-header">
             <h1 class="page-title">🎨 Customize Your Recipe</h1>
             <p class="page-subtitle">Fine-tune ingredient densities and measurement types for perfect baking precision!</p>
         </div>
+
         <!-- Brand Selector -->
         <div class="brand-selector">
             <h2 class="brand-title">🏷️ Choose Your Preferred Brand</h2>
@@ -300,231 +1104,214 @@
                 <div class="brand-option" data-brand="gold-medal">Gold Medal</div>
             </div>
         </div>
-        <div class="ingredients-container" id="ingredientsContainer"></div>
+
+        <!-- Ingredients Container -->
+        <div class="ingredients-container" id="ingredientsContainer">
+            <!-- Sample ingredients will be loaded here -->
+        </div>
+
+        <!-- Success Message -->
         <div class="success-message" id="successMessage">
             ✨ Settings saved successfully! Your customizations will be applied to future conversions.
         </div>
+
+        <!-- Action Buttons -->
         <div class="action-buttons">
-            <button class="btn btn-primary" onclick="applyChanges(event)">
+            <button class="btn btn-primary" onclick="applyChanges()">
                 ✨ Apply Changes
             </button>
             <button class="btn btn-secondary" onclick="resetToDefaults()">
                 🔄 Reset to Defaults
             </button>
-            <button class="btn btn-success" onclick="saveSettings(event)">
+            <button class="btn btn-success" onclick="saveSettings()">
                 💾 Save Settings
             </button>
         </div>
     </div>
     <!-- Back to Top Button -->
-    <button id="backToTop" title="Back to Top">⬆️</button>
+<button id="backToTop" title="Back to Top">⬆️</button>
 
-    <!-- Login/Sign-Up Modal -->
-    <div id="loginModal" style="display:none;">
-      <div class="modal-content">
-        <button id="closeLoginModal">&times;</button>
-        <h2 id="modalTitle">Login</h2>
-        <form id="loginForm">
-          <input type="text" id="loginUsername" placeholder="Username" required>
-          <input type="password" id="loginPassword" placeholder="Password" required>
-          <button type="submit">Login</button>
-        </form>
-        <form id="signUpForm" style="display:none;">
-          <input type="text" id="signUpUsername" placeholder="New Username" required>
-          <input type="password" id="signUpPassword" placeholder="New Password" required>
-          <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
-          <button type="submit">Sign Up</button>
-        </form>
-        <div style="text-align:center; margin-top:1rem;">
-          <span id="toggleForm" style="cursor:pointer;text-decoration:underline;color:var(--sky-blue);">Don't have an account? Sign Up</span>
-        </div>
-        <div id="formError" style="color:#e74c3c;text-align:center;margin-top:0.7rem;display:none;"></div>
-      </div>
-    </div>
-    <!-- Footer -->
+    <!-- footer startes here -->
     <footer class="footer">
-        <div class="footer-columns">
-            <div class="footer-logo">
-                <span style="font-size:2.1rem; color:var(--candy-red);">🍰</span> BakeGenius.ai
+        <div class="footer-content">
+            <div class="footer-section footer-brand">
+                <div class="footer-logo">
+                    <span class="footer-logo-icon">🍰</span>
+                    <span class="footer-logo-text">BakeGenius.ai</span>
+                </div>
+                <p class="footer-description">
+                    Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and delightful for everyone.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/" class="social-link linkedin" target="_blank" rel="noopener" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/" class="social-link github" target="_blank" rel="noopener" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://your-portfolio.com/" class="social-link portfolio" target="_blank" rel="noopener" title="Portfolio">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="mailto:contact@bakegenius.ai" class="social-link email" target="_blank" rel="noopener" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
             </div>
-            <div class="footer-group">
-                <div class="footer-group-title">About</div>
-                <ul class="footer-group-list">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="customize.html">Customize</a></li>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="convert.html"><i class="fas fa-exchange-alt"></i>Convert Recipe</a></li>
+                    <li><a href="customize.html"><i class="fas fa-cog"></i>Customize</a></li>
+                    <li><a href="scale.html"><i class="fas fa-balance-scale"></i>Scale Recipes</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
                 </ul>
             </div>
-            <div class="footer-group">
-                <div class="footer-group-title">Tools</div>
-                <ul class="footer-group-list">
-                    <li><a href="convert.html">Convert</a></li>
-                    <li><a href="scale.html">Scale</a></li>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Features</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-calculator"></i>Unit Conversion</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i>Nutritional Analysis</a></li>
+                    <li><a href="#"><i class="fas fa-balance-scale"></i>Recipe Scaling</a></li>
+                    <li><a href="#"><i class="fas fa-magic"></i>AI Optimization</a></li>
+                    <li><a href="#"><i class="fas fa-mobile-alt"></i>Mobile Friendly</a></li>
                 </ul>
             </div>
-            <div class="footer-group">
-                <div class="footer-group-title">Quick Links</div>
-                <ul class="footer-group-list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">Contact</a></li>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-question-circle"></i>Help Center</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i>Feedback</a></li>
+                    <li><a href="#"><i class="fas fa-bug"></i>Report Issue</a></li>
+                    <li><a href="#"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
+                    <li><a href="#"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
                 </ul>
             </div>
         </div>
+        
         <div class="footer-bottom">
-            <span>&copy; 2025 BakeGenius.ai &mdash; Made with <span style="color:#FF6B6B;">&#10084;&#65039;</span> by Supriya Pandey</span>
-            <div class="footer-social">
-                <a href="https://www.linkedin.com/" class="linkedin" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://your-portfolio.com/" class="portfolio" target="_blank" title="Portfolio"><i class="fas fa-globe"></i></a>
+            <div class="footer-bottom-content">
+                <p class="copyright">
+                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <a href="#" target="_blank">Supriya Pandey</a>
+                </p>
+                <div class="footer-badges">
+                    <span class="badge badge-green"><i class="fas fa-heart"></i> Open Source</span>
+                    <span class="badge badge-blue"><i class="fas fa-leaf"></i> Eco Friendly</span>
+                    <span class="badge badge-purple"><i class="fas fa-robot"></i> AI Powered</span>
+                </div>
             </div>
         </div>
     </footer>
+
     <script>
-        // Dark/Light Mode toggle
+        // Dark Mode Toggle
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
         const darkModeIcon = darkModeToggle.querySelector('i');
-        function applyTheme(theme) {
-            if (theme === 'dark') {
-                body.classList.add('dark-mode');
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+            darkModeIcon.classList.remove('fa-moon');
+            darkModeIcon.classList.add('fa-sun');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Update icon
+            if (body.classList.contains('dark-mode')) {
                 darkModeIcon.classList.remove('fa-moon');
                 darkModeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
             } else {
-                body.classList.remove('dark-mode');
                 darkModeIcon.classList.remove('fa-sun');
                 darkModeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
             }
-        }
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        applyTheme(currentTheme);
-        darkModeToggle.addEventListener('click', () => {
-            const theme = body.classList.contains('dark-mode') ? 'light' : 'dark';
-            localStorage.setItem('theme', theme);
-            applyTheme(theme);
         });
+
         // Mobile Navigation Toggle
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
-        if (hamburger && navLinks) {
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                hamburger.classList.toggle('active');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
             });
-        }
-        // Back to Top Button Logic
-        const backToTopBtn = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
             }
         });
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        // Login/Sign-Up Modal Logic
-        const loginModal = document.getElementById('loginModal');
-        const openLoginModal = document.getElementById('openLoginModal');
-        const closeLoginModal = document.getElementById('closeLoginModal');
-        const loginForm = document.getElementById('loginForm');
-        const signUpForm = document.getElementById('signUpForm');
-        const toggleForm = document.getElementById('toggleForm');
-        const modalTitle = document.getElementById('modalTitle');
-        const formError = document.getElementById('formError');
-        if (openLoginModal) {
-            openLoginModal.addEventListener('click', (e) => {
-                e.preventDefault();
-                loginModal.style.display = 'flex';
-                loginForm.style.display = 'block';
-                signUpForm.style.display = 'none';
-                modalTitle.textContent = 'Login';
-                toggleForm.textContent = "Don't have an account? Sign Up";
-                formError.style.display = 'none';
-                applyTheme(localStorage.getItem('theme') || 'light');
-            });
-        }
-        if (closeLoginModal) {
-            closeLoginModal.addEventListener('click', () => {
-                loginModal.style.display = 'none';
-            });
-        }
-        if (toggleForm) {
-            toggleForm.addEventListener('click', () => {
-                if (loginForm.style.display === 'block') {
-                    loginForm.style.display = 'none';
-                    signUpForm.style.display = 'block';
-                    modalTitle.textContent = 'Sign Up';
-                    toggleForm.textContent = 'Already have an account? Login';
-                } else {
-                    loginForm.style.display = 'block';
-                    signUpForm.style.display = 'none';
-                    modalTitle.textContent = 'Login';
-                    toggleForm.textContent = "Don't have an account? Sign Up";
-                }
-                formError.style.display = 'none';
-            });
-        }
-        if (loginForm) {
-            loginForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const username = document.getElementById('loginUsername').value;
-                const password = document.getElementById('loginPassword').value;
-                const users = JSON.parse(localStorage.getItem('users')) || {};
-                if (users[username] && users[username] === password) {
-                    alert(`Welcome back, ${username}!`);
-                    loginModal.style.display = 'none';
-                } else {
-                    formError.textContent = 'Invalid username or password.';
-                    formError.style.display = 'block';
-                }
-            });
-        }
-        if (signUpForm) {
-            signUpForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const username = document.getElementById('signUpUsername').value;
-                const password = document.getElementById('signUpPassword').value;
-                const confirmPassword = document.getElementById('confirmPassword').value;
-                if (password !== confirmPassword) {
-                    formError.textContent = 'Passwords do not match.';
-                    formError.style.display = 'block';
-                    return;
-                }
-                const users = JSON.parse(localStorage.getItem('users')) || {};
-                if (users[username]) {
-                    formError.textContent = 'Username already exists.';
-                    formError.style.display = 'block';
-                } else {
-                    users[username] = password;
-                    localStorage.setItem('users', JSON.stringify(users));
-                    alert('Sign-Up successful! You can now log in.');
-                    loginForm.style.display = 'block';
-                    signUpForm.style.display = 'none';
-                    modalTitle.textContent = 'Login';
-                    toggleForm.textContent = "Don't have an account? Sign Up";
-                    formError.style.display = 'none';
-                }
-            });
-        }
-        window.addEventListener('click', (e) => {
-            if (e.target === loginModal) {
-                loginModal.style.display = 'none';
-            }
-        });
-        // Sample ingredients data
+
+        // Customize Page Logic
+        // Sample ingredients data (in real app, this would come from previous conversion)
         const sampleIngredients = [
-            { name: 'All-Purpose Flour', icon: '🌾', currentGrams: 120, measurementType: 'sifted', originalAmount: '1 cup' },
-            { name: 'Brown Sugar', icon: '🍯', currentGrams: 200, measurementType: 'packed', originalAmount: '1 cup' },
-            { name: 'Butter', icon: '🧈', currentGrams: 226, measurementType: 'softened', originalAmount: '1 cup' },
-            { name: 'Vanilla Extract', icon: '🌟', currentGrams: 4, measurementType: 'liquid', originalAmount: '1 tsp' },
-            { name: 'Baking Powder', icon: '⚡', currentGrams: 4, measurementType: 'leveled', originalAmount: '1 tsp' }
+            {
+                name: 'All-Purpose Flour',
+                icon: '🌾',
+                currentGrams: 120,
+                measurementType: 'sifted',
+                originalAmount: '1 cup'
+            },
+            {
+                name: 'Brown Sugar',
+                icon: '🍯',
+                currentGrams: 200,
+                measurementType: 'packed',
+                originalAmount: '1 cup'
+            },
+            {
+                name: 'Butter',
+                icon: '🧈',
+                currentGrams: 226,
+                measurementType: 'softened',
+                originalAmount: '1 cup'
+            },
+            {
+                name: 'Vanilla Extract',
+                icon: '🌟',
+                currentGrams: 4,
+                measurementType: 'liquid',
+                originalAmount: '1 tsp'
+            },
+            {
+                name: 'Baking Powder',
+                icon: '⚡',
+                currentGrams: 4,
+                measurementType: 'leveled',
+                originalAmount: '1 tsp'
+            }
         ];
+
+        // Load ingredients from localStorage or use sample data
         function loadIngredients() {
             const savedIngredients = localStorage.getItem('bakegenius_ingredients');
             return savedIngredients ? JSON.parse(savedIngredients) : sampleIngredients;
         }
+
+        // Render ingredient cards
         function renderIngredients() {
             const ingredients = loadIngredients();
             const container = document.getElementById('ingredientsContainer');
+            
             container.innerHTML = ingredients.map((ingredient, index) => `
                 <div class="ingredient-card">
                     <div class="ingredient-header">
@@ -556,35 +1343,54 @@
                     </div>
                 </div>
             `).join('');
+
+            // Add event listeners
             addEventListeners();
         }
+
+        // Add event listeners to all controls
         function addEventListeners() {
             const selects = document.querySelectorAll('.custom-select');
             const inputs = document.querySelectorAll('.custom-input');
+            
             [...selects, ...inputs].forEach(element => {
                 element.addEventListener('change', updateIngredient);
             });
+
+            // Brand selector listeners
             document.querySelectorAll('.brand-option').forEach(option => {
                 option.addEventListener('click', selectBrand);
             });
         }
+
+        // Update ingredient data when controls change
         function updateIngredient(event) {
             const ingredientIndex = parseInt(event.target.dataset.ingredient);
             const field = event.target.dataset.field;
             const value = event.target.type === 'number' ? parseFloat(event.target.value) : event.target.value;
+            
             const ingredients = loadIngredients();
             ingredients[ingredientIndex][field] = value;
+            
+            // Auto-save changes
             localStorage.setItem('bakegenius_ingredients', JSON.stringify(ingredients));
         }
+
+        // Brand selection
         function selectBrand(event) {
             document.querySelectorAll('.brand-option').forEach(option => {
                 option.classList.remove('selected');
             });
             event.target.classList.add('selected');
+            
             const selectedBrand = event.target.dataset.brand;
             localStorage.setItem('bakegenius_brand', selectedBrand);
+            
+            // Adjust gram values based on brand (simulation)
             adjustForBrand(selectedBrand);
         }
+
+        // Adjust ingredient weights based on selected brand
         function adjustForBrand(brand) {
             const ingredients = loadIngredients();
             const adjustments = {
@@ -593,56 +1399,74 @@
                 'gold-medal': { 'All-Purpose Flour': 120 },
                 'standard': { 'All-Purpose Flour': 120 }
             };
+
             if (adjustments[brand]) {
                 ingredients.forEach(ingredient => {
                     if (adjustments[brand][ingredient.name]) {
                         ingredient.currentGrams = adjustments[brand][ingredient.name];
                     }
                 });
+                
                 localStorage.setItem('bakegenius_ingredients', JSON.stringify(ingredients));
                 renderIngredients();
             }
         }
-        function applyChanges(event) {
+
+        // Apply changes function
+        function applyChanges() {
             const button = event.target;
             button.style.transform = 'scale(0.95)';
             button.innerHTML = '⏳ Applying...';
+            
             setTimeout(() => {
                 button.style.transform = '';
                 button.innerHTML = '✨ Apply Changes';
                 showSuccessMessage('Changes applied successfully!');
             }, 1000);
         }
+
+        // Reset to defaults
         function resetToDefaults() {
             if (confirm('Are you sure you want to reset all customizations to default values?')) {
                 localStorage.removeItem('bakegenius_ingredients');
                 localStorage.removeItem('bakegenius_brand');
+                
+                // Reset brand selection
                 document.querySelectorAll('.brand-option').forEach(option => {
                     option.classList.remove('selected');
                 });
                 document.querySelector('[data-brand="standard"]').classList.add('selected');
+                
                 renderIngredients();
                 showSuccessMessage('Reset to defaults successfully!');
             }
         }
-        function saveSettings(event) {
+
+        // Save settings
+        function saveSettings() {
             const button = event.target;
             button.style.transform = 'scale(0.95)';
             button.innerHTML = '💾 Saving...';
+            
             setTimeout(() => {
                 button.style.transform = '';
                 button.innerHTML = '💾 Save Settings';
                 showSuccessMessage('Settings saved to your browser!');
             }, 800);
         }
+
+        // Show success message
         function showSuccessMessage(message) {
             const successDiv = document.getElementById('successMessage');
             successDiv.textContent = `✨ ${message}`;
             successDiv.style.display = 'block';
+            
             setTimeout(() => {
                 successDiv.style.display = 'none';
             }, 3000);
         }
+
+        // Load saved brand preference
         function loadBrandPreference() {
             const savedBrand = localStorage.getItem('bakegenius_brand') || 'standard';
             document.querySelectorAll('.brand-option').forEach(option => {
@@ -650,10 +1474,58 @@
             });
             document.querySelector(`[data-brand="${savedBrand}"]`)?.classList.add('selected');
         }
+        // Back to Top Button Logic
+const backToTopBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+    } else {
+        backToTopBtn.classList.remove('show');
+    }
+});
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+        // Function to update login state
+        function updateLoginState() {
+            const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+            const loginBtn = document.getElementById("openLoginModal");
+            const logoutBtn = document.getElementById("logoutBtn");
+            
+            if (isLoggedIn) {
+                loginBtn.style.display = "none";
+                logoutBtn.style.display = "flex";
+            } else {
+                loginBtn.style.display = "flex";
+                logoutBtn.style.display = "none";
+            }
+        }
+
+        // Logout functionality
+        const logoutBtn = document.getElementById("logoutBtn");
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                localStorage.removeItem("isLoggedIn");
+                localStorage.removeItem("currentUser");
+                updateLoginState();
+                alert("You have been logged out successfully!");
+            });
+        }
+
+        // Check login state on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            updateLoginState();
+        });
+
+        // Initialize page
         document.addEventListener('DOMContentLoaded', () => {
             renderIngredients();
             loadBrandPreference();
         });
+
+        // Add some fun interactions
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('ingredient-icon')) {
                 e.target.style.animation = 'none';

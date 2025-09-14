@@ -24,30 +24,36 @@
         box-sizing: border-box;
       }
 
-        :root {
-            --light-pink: #FFE0E6;
-            --light-blue: #E8F4FF;
-            --light-yellow: #FFF5E0;
-            --candy-red: #FF6B6B;
-            --sky-blue: #4ECDC4;
-            --sunny-yellow: #FFD93D;
-            --soft-pink: #FFB6C1;
-            --mint-green: #98FB98;
-            --lavender: #E6E6FA;
-            --dark-bg: #1a1a1a;
-            --dark-card: #2d2d2d;
-            --dark-text: #ffffff;
-            --dark-border: #404040;
-        }
+      :root {
+        --light-pink: #ffe0e6;
+        --light-blue: #e8f4ff;
+        --light-yellow: #fff5e0;
+        --candy-red: #ff6b6b;
+        --sky-blue: #4ecdc4;
+        --sunny-yellow: #ffd93d;
+        --soft-pink: #ffb6c1;
+        --mint-green: #98fb98;
+        --lavender: #e6e6fa;
+        --dark-bg: #1a1a1a;
+        --dark-card: #2d2d2d;
+        --dark-text: #ffffff;
+        --dark-border: #404040;
+      }
 
-        body {
-            font-family: 'Comic Neue', cursive;
-            overflow-x: hidden;
-            background: linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 30%, var(--light-yellow) 60%, var(--light-pink) 100%);
-            min-height: 100vh;
-            position: relative;
-            transition: all 0.3s ease;
-        }
+      body {
+        font-family: "Comic Neue", cursive;
+        overflow-x: hidden;
+        background: linear-gradient(
+          135deg,
+          var(--light-pink) 0%,
+          var(--light-blue) 30%,
+          var(--light-yellow) 60%,
+          var(--light-pink) 100%
+        );
+        min-height: 100vh;
+        position: relative;
+        transition: all 0.3s ease;
+      }
 
       body.dark-mode {
         background: linear-gradient(
@@ -390,6 +396,45 @@
         transform: scale(1.15);
       }
 
+      /* Back to Top to Bottom Button Styles */
+      #Toptoback {
+        position: fixed;
+        bottom: 2.5rem;
+        right: 2.5rem;
+        z-index: 2000;
+        background: linear-gradient(
+          135deg,
+          var(--candy-red),
+          var(--sky-blue),
+          var(--sunny-yellow)
+        );
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        font-size: 2rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s, transform 0.2s;
+      }
+      #Toptoback.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(-10px) scale(1.08);
+      }
+      #Toptoback:hover {
+        background: linear-gradient(
+          135deg,
+          var(--sunny-yellow),
+          var(--candy-red),
+          var(--sky-blue)
+        );
+        transform: scale(1.15);
+      }
+
       /* Responsive Design */
       @media (max-width: 768px) {
         .navbar {
@@ -506,6 +551,30 @@
         }
       }
 
+        .nav-links.active {
+          left: 0;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .hero-section {
+          padding: 2rem;
+          margin: 1rem;
+        }
+
+        .features-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            max-width: 1000px;
+        }
       /* Main Content */
       .main-content {
         margin-top: 100px;
@@ -719,336 +788,14 @@
         color: #666;
         line-height: 1.5;
       }
-
-      /* Footer */
-      .footer {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 195, 195, 0.95) 0%,
-          rgba(248, 249, 250, 0.95) 100%
-        );
-        backdrop-filter: blur(15px);
-        position: relative;
-        z-index: 2;
-        border-top: 1px solid rgba(255, 255, 255, 0.3);
-        margin-top: 4rem;
-      }
-
-      body.dark-mode .footer {
-        background: linear-gradient(
-          135deg,
-          rgba(26, 26, 26, 0.95) 0%,
-          rgba(40, 40, 40, 0.95) 100%
-        );
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .footer-content {
-        max-width: 1400px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: 3rem;
-        padding: 3rem 2rem 2rem;
-      }
-
-      .footer-section h3.footer-title {
-        color: var(--candy-red);
-        font-size: 1.2rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        position: relative;
-      }
-
-      body.dark-mode .footer-section h3.footer-title {
-        color: #ff8a80;
-      }
-
-      .footer-section h3.footer-title::after {
-        content: "";
-        position: absolute;
-        bottom: -8px;
-        left: 0;
-        width: 30px;
-        height: 3px;
-        background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
-        border-radius: 2px;
-      }
-
-      .footer-logo {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        margin-bottom: 1.5rem;
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: var(--candy-red);
-      }
-
-      .footer-logo-icon {
-        font-size: 2rem;
-      }
-
-      body.dark-mode .footer-logo {
-        color: #ff8a80;
-      }
-
-      .footer-description {
-        color: #666;
-        line-height: 1.6;
-        margin-bottom: 2rem;
-        font-size: 0.95rem;
-      }
-
-      body.dark-mode .footer-description {
-        color: #ccc;
-      }
-
-      .footer-links {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .footer-links li {
-        margin-bottom: 0.8rem;
-      }
-
-      .footer-links a {
-        color: #666;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        padding: 0.3rem 0;
-        border-radius: 5px;
-      }
-
-      .footer-links a:hover {
-        color: var(--candy-red);
-        transform: translateX(5px);
-        background: rgba(255, 107, 107, 0.1);
-        padding-left: 0.8rem;
-      }
-
-      body.dark-mode .footer-links a {
-        color: #ccc;
-      }
-
-      body.dark-mode .footer-links a:hover {
-        color: #ff8a80;
-        background: rgba(255, 138, 128, 0.1);
-      }
-
-      .footer-links i {
-        font-size: 0.9rem;
-        width: 16px;
-        opacity: 0.7;
-      }
-
-      .social-links {
-        display: flex;
-        gap: 1rem;
-        margin-top: 1rem;
-      }
-
-      .social-link {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 45px;
-        height: 45px;
-        background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
-        color: white;
-        text-decoration: none;
-        border-radius: 50%;
-        font-size: 1.2rem;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      .social-link:hover {
-        transform: translateY(-3px) scale(1.1);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-      }
-
-      .social-link.linkedin {
-        background: linear-gradient(45deg, #0077b5, #00a0dc);
-      }
-
-      .social-link.github {
-        background: linear-gradient(45deg, #333, #555);
-      }
-
-      .social-link.portfolio {
-        background: linear-gradient(
-          45deg,
-          var(--sunny-yellow),
-          var(--candy-red)
-        );
-      }
-
-      .social-link.email {
-        background: linear-gradient(45deg, #ea4335, #34a853);
-      }
-
-      .footer-bottom {
-        background: rgba(0, 0, 0, 0.05);
-        backdrop-filter: blur(10px);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 1.5rem 0;
-      }
-
-      body.dark-mode .footer-bottom {
-        background: rgba(0, 0, 0, 0.3);
-      }
-
-      .footer-bottom-content {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      .copyright {
-        color: #666;
-        font-size: 0.9rem;
-        margin: 0;
-      }
-
-      .copyright a {
-        color: var(--candy-red);
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .copyright a:hover {
-        text-decoration: underline;
-      }
-
-      body.dark-mode .copyright {
-        color: #ccc;
-      }
-
-      body.dark-mode .copyright a {
-        color: #ff8a80;
-      }
-
-      .footer-badges {
-        display: flex;
-        gap: 0.8rem;
-      }
-
-      .badge {
-        background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
-        color: #333;
-        padding: 0.4rem 0.8rem;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .badge i {
-        font-size: 0.8rem;
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .nav-links {
-          position: fixed;
-          top: 80px;
-          left: -100%;
-          width: 100%;
-          height: calc(100vh - 80px);
-          background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(10px);
-          flex-direction: column;
-          justify-content: start;
-          padding-top: 2rem;
-          gap: 1rem;
-          transition: left 0.3s ease;
-        }
-
-        .nav-links.active {
-          left: 0;
-        }
-
-        .hamburger {
-          display: flex;
-        }
-
-        .hero-title {
-          font-size: 2.5rem;
-        }
-
-        .hero-section {
-          padding: 2rem;
-          margin: 1rem;
-        }
-
-        .features-preview {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-            max-width: 1000px;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--sky-blue);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .feature-card:nth-child(1) .feature-icon { color: var(--candy-red); }
-        .feature-card:nth-child(2) .feature-icon { color: var(--sky-blue); }
-        .feature-card:nth-child(3) .feature-icon { color: var(--sunny-yellow); }
-
-        .feature-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .feature-desc {
-            color: #666;
-            line-height: 1.5;
-        }
-/*--candy-red: #FF6B6B;
+      /*--candy-red: #FF6B6B;
             --sky-blue: #4ECDC4;
             --sunny-yellow: #FFD93D;
             --soft-pink: #FFB6C1;
             --mint-green: #98FB98;
             --lavender: #E6E6FA;*/
-        /* Footer */
- footer
+      /* Footer */
+      footer
     /*.footer {
             background: white;
           
@@ -1257,144 +1004,256 @@ footer
     color: white !important;        /* force logo to white 
 }*/
 .footer {
-  background: linear-gradient(
-    90deg, 
-    rgba(255, 118, 118, 0.5), 
-    rgba(255, 177, 153, 0.5)
-) !important;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 118, 118, 0.5),
+          rgba(255, 177, 153, 0.5)
+        ) !important;
 
-  color: var(--candy-red);
-  padding: 40px 20px 20px;
-  font-family: Arial, sans-serif;
-}
+        color: var(--candy-red);
+        padding: 40px 20px 20px;
+        font-family: Arial, sans-serif;
+      }
 
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap:40px;
-  max-width: 1200px;
-  margin: auto;
-}
+      .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px;
+        max-width: 1200px;
+        margin: auto;
+      }
 
-.footer-column {
-  flex: 1 1 220px;
-  margin:0;
-  display:flex;
-  flex-direction: column;
- gap:15px;
-}
+      .footer-column {
+        flex: 1 1 220px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
 
-.footer h2, .footer h4 {
-  margin-bottom: 8px;
-}
+      .footer h2,
+      .footer h4 {
+        margin-bottom: 8px;
+      }
 
-.footer p {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #333;
-}
+      .footer p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #333;
+      }
 
-.footer ul {
-  list-style: none;
-  padding: 0;
-}
+      .footer ul {
+        list-style: none;
+        padding: 0;
+      }
 
-.footer ul li {
-  margin-bottom: 10px;
-}
+      .footer ul li {
+        margin-bottom: 10px;
+      }
 
-.footer ul li a {
-  color: #333;
-  text-decoration: none;
+      .footer ul li a {
+        color: #333;
+        text-decoration: none;
 
-  transition: opacity 0.3s;
-}
+        transition: opacity 0.3s;
+      }
 
-.footer ul li a:hover {
-  opacity: 0.8;
-}
+      .footer ul li a:hover {
+        opacity: 0.8;
+      }
 
-.newsletter-form {
-  display: flex;
-  margin-top: 10px;
-  gap:10px;
-}
+      .newsletter-form {
+        display: flex;
+        margin-top: 10px;
+        gap: 10px;
+      }
 
-.newsletter-form input {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 10px;
-  outline: none;
-  flex: 1;
-}
+      .newsletter-form input {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 10px;
+        outline: none;
+        flex: 1;
+      }
 
-.newsletter-form button {
-  background: #e74c3c;
-  color: #333;
-  border: none;
-  padding: 10px 25px;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: background 0.3s;
-}
+      .newsletter-form button {
+        background: #e74c3c;
+        color: #333;
+        border: none;
+        padding: 10px 25px;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: background 0.3s;
+      }
 
-.newsletter-form button:hover {
-  background: #c0392b;
-}
+      .newsletter-form button:hover {
+        background: #c0392b;
+      }
 
-.social-icons { margin-top: 10px; } 
-.social-icons a {
-     margin-right: 10px; 
-     color: #333; 
-     font-size: 20px;
-      transition: opacity 0.3s; 
-    } 
-    .social-icons a:hover {
-         opacity: 0.7; 
-        }
+      .social-icons {
+        margin-top: 10px;
+      }
+      .social-icons a {
+        margin-right: 10px;
+        color: #333;
+        font-size: 20px;
+        transition: opacity 0.3s;
+      }
+      .social-icons a:hover {
+        opacity: 0.7;
+      }
 
-.footer-bottom {
-  text-align: center;
-  margin-top: 20px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255,255,255,0.3);
-  font-size: 13px;
-}
-
+      .footer-bottom {
+        text-align: center;
+        margin-top: 20px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        font-size: 13px;
+      }
 
       .social-icons a {
-  margin-right: 10px;
-  font-size: 20px;
-  transition: transform 0.3s;
-}
+        margin-right: 10px;
+        font-size: 20px;
+        transition: transform 0.3s;
+      }
 
-.social-icons a:hover {
-  transform: scale(1.2);
-}
+      .social-icons a:hover {
+        transform: scale(1.2);
+      }
 
-/* Specific colors */
-.social-icons a.linkedin { color: #0077b5; }   /* LinkedIn blue */
-.social-icons a.github { color: #333; }        /* GitHub dark gray */
-.social-icons a.email { color: #d44638; }      /* Gmail red */     
-  
+      /* Specific colors */
+      .social-icons a.linkedin {
+        color: #0077b5;
+      } /* LinkedIn blue */
+      .social-icons a.github {
+        color: #333;
+      } /* GitHub dark gray */
+      .social-icons a.email {
+        color: #d44638;
+      } /* Gmail red */
 
+      .social-link.email {
+        background: linear-gradient(45deg, #ea4335, #34a853);
+      }
 
+      .footer-bottom {
+        background: rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1.5rem 0;
+      }
 
+      body.dark-mode .footer-bottom {
+        background: rgba(0, 0, 0, 0.3);
+      }
 
-        .social-link.email {
-            background: linear-gradient(45deg, #EA4335, #34A853);
+      .footer-bottom-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .copyright {
+        color: #666;
+        font-size: 0.9rem;
+        margin: 0;
+      }
+
+      .copyright a {
+        color: var(--candy-red);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .copyright a:hover {
+        text-decoration: underline;
+      }
+
+      body.dark-mode .copyright {
+        color: #ccc;
+      }
+
+      body.dark-mode .copyright a {
+        color: #ff8a80;
+      }
+
+      .footer-badges {
+        display: flex;
+        gap: 0.8rem;
+      }
+
+      .badge {
+        background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
+        color: #333;
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .badge i {
+        font-size: 0.8rem;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .nav-links {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          justify-content: start;
+          padding-top: 2rem;
+          gap: 1rem;
+          transition: left 0.3s ease;
         }
 
-        .footer-bottom {
-            background: rgba(0, 0, 0, 0.05);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1.5rem 0;
+        .nav-links.active {
+          left: 0;
         }
 
-        body.dark-mode .footer-bottom {
-            background: rgba(0, 0, 0, 0.3);
+        .hamburger {
+          display: flex;
+        }
+
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .hero-section {
+          padding: 2rem;
+          margin: 1rem;
+        }
+
+        .features-preview {
+          grid-template-columns: 1fr;
+          margin-top: 2rem;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          padding: 2rem 1rem 1rem;
+          text-align: center;
+        }
+
+        .footer-section h3.footer-title::after {
+          left: 50%;
+          transform: translateX(-50%);
         }
 
         .footer-bottom-content {
@@ -1993,142 +1852,135 @@ footer
           Login
         </h2>
 
-        #loginModal h2 {
-            margin-bottom: 1.2rem;
-            color: #ff6b6b;
-            text-align: center;
-        }
+      #loginModal button[type="submit"] {
+        background: linear-gradient(45deg, var(--sky-blue), var(--mint-green));
+        box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+      }
 
-        #loginModal input {
-            width: 100%;
-            padding: 0.7rem;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-        }
+      #loginModal button[type="submit"]:hover {
+        background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
+        box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+      }
 
-        /* Light Colors for Form Inputs */
-        #loginModal input, #loginModal button[type="submit"] {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid #ddd;
-            color: #333;
-            transition: all 0.3s ease;
-        }
+      #loginForm,
+      #signUpForm {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s ease;
+      }
 
-        #loginModal input:focus {
-            background: rgba(255, 255, 255, 1);
-            border-color: var(--sky-blue);
-            box-shadow: 0 0 8px rgba(78, 205, 196, 0.5);
-            outline: none;
-        }
+      #loginForm:focus-within,
+      #signUpForm:focus-within {
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
 
-        #loginModal button[type="submit"] {
-            background: linear-gradient(45deg, var(--sky-blue), var(--mint-green));
-            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
-        }
+      #toggleForm {
+        color: var(--candy-red);
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        text-decoration: underline;
+        transition: color 0.3s ease;
+      }
 
-        #loginModal button[type="submit"]:hover {
-            background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
-            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
-        }
-
-        #loginForm, #signUpForm {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: background 0.3s ease;
-        }
-
-        #loginForm:focus-within, #signUpForm:focus-within {
-            background: rgba(255, 255, 255, 1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        #toggleForm {
-            color: var(--candy-red);
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            text-decoration: underline;
-            transition: color 0.3s ease;
-        }
-
-        #toggleForm:hover {
-            color: var(--sunny-yellow);
-        }
+      #toggleForm:hover {
+        color: var(--sunny-yellow);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <span class="logo-icon">🍰</span>
-                <span class="logo-text">BakeGenuis.ai</span>
-            </a>
+      <div class="nav-container">
+        <a href="#" class="logo">
+          <span class="logo-icon">🍰</span>
+          <span class="logo-text">BakeGenuis.ai</span>
+        </a>
 
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="convert.html">Convert Recipe</a></li>
-                <li><a href="customize.html">Customize</a></li>
-                <li><a href="scale.html">Scale Recipes</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-            <div class="nav-actions">
-                <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <a href="#" class="login-btn" id="openLoginModal">
-                    <i class="fas fa-user"></i>
-                    Login
-                </a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="convert.html">Convert Recipe</a></li>
+          <li><a href="customize.html">Customize</a></li>
+          <li><a href="scale.html">Scale Recipes</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            id="darkModeToggle"
+            class="dark-mode-btn"
+            title="Toggle Dark Mode"
+          >
+            <i class="fas fa-moon"></i>
+          </button>
+          <a href="#" class="login-btn" id="openLoginModal">
+            <i class="fas fa-user"></i>
+            Login
+          </a>
+          <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+          </a>
         </div>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </nav>
 
     <!-- Main Content -->
     <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <h1 class="hero-title">Welcome to BakeGenuis.ai</h1>
+        <p class="hero-subtitle">
+          From spoon to scale — get exact gram conversions with AI magic ✨<br />
+          Transform vague recipe measurements into precise, consistent results
+          every time!
+        </p>
+        <a href="convert.html" class="cta-button">Start Converting Now 🚀</a>
+      </section>
 
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <h1 class="hero-title">Welcome to BakeGenuis.ai</h1>
-            <p class="hero-subtitle">From spoon to scale — get exact gram conversions with AI magic ✨<br>
-            Transform vague recipe measurements into precise, consistent results every time!</p>
-            <a href="convert.html" class="cta-button">Start Converting Now 🚀</a>
-        </section>
-
-        <!-- Features Preview -->
-        <section class="features-preview">
-            <div class="feature-card">
-                <i class="fas fa-magic feature-icon"></i>
-                <h3 class="feature-title">AI-Powered Precision</h3>
-                <p class="feature-desc">Advanced AI converts "cups" and "spoons" into exact gram measurements for perfect baking every time.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-balance-scale feature-icon"></i>
-                <h3 class="feature-title">Smart Recipe Scaling</h3>
-                <p class="feature-desc">Effortlessly scale recipes up or down while maintaining perfect ratios and adjusting rising agents intelligently.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-cogs feature-icon"></i>
-                <h3 class="feature-title">Custom Preferences</h3>
-                <p class="feature-desc">Personalize conversions based on your preferred brands and ingredient specifications for consistent results.</p>
-            </div>
-        </section>
+      <!-- Features Preview -->
+      <section class="features-preview">
+        <div class="feature-card">
+          <i class="fas fa-magic feature-icon"></i>
+          <h3 class="feature-title">AI-Powered Precision</h3>
+          <p class="feature-desc">
+            Advanced AI converts "cups" and "spoons" into exact gram
+            measurements for perfect baking every time.
+          </p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-balance-scale feature-icon"></i>
+          <h3 class="feature-title">Smart Recipe Scaling</h3>
+          <p class="feature-desc">
+            Effortlessly scale recipes up or down while maintaining perfect
+            ratios and adjusting rising agents intelligently.
+          </p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-cogs feature-icon"></i>
+          <h3 class="feature-title">Custom Preferences</h3>
+          <p class="feature-desc">
+            Personalize conversions based on your preferred brands and
+            ingredient specifications for consistent results.
+          </p>
+        </div>
+      </section>
     </main>
     <!-- Back to Top Button -->
-<button id="backToTop" title="Back to Top">⬆️</button>
+    <button id="backToTop" title="Back to Top">⬆️</button>
+    <!-- Top to Bottom Button -->
+    <button id="Toptoback" title="Top To Back">⬇️</button>
 
     <!-- Footer -->
- footer
-footer
-   <!-- <footer class="footer">
+    footer footer
+    <!-- <footer class="footer">
         <div class="footer-columns">
             <div class="footer-logo">
                 <span style="font-size:2.1rem; color:var(--candy-red);">🍰</span> BakeGenius.ai
@@ -2177,7 +2029,7 @@ footer
             <span>&copy; 2025 BakeGenius.ai &mdash; Made with <span style="color:#FF6B6B;">&#10084;&#65039;</span> by Supriya Pandey</span>
               <div class="footer-social">
         <p class="follow-text">Follow us</p> <!-- 👈 Added text -->
-       <!-- <div class="social-links">
+    <!-- <div class="social-links">
             <a href="https://your-github.com/" class="social-link github" target="_blank" rel="noopener" title="GitHub">
                 <i class="fab fa-github"></i>
             </a>
@@ -2192,62 +2044,109 @@ footer
 
         </div>
     </footer>-->
-<footer class="footer">
-  <div class="footer-container">
-    
-    <!-- Left: Brand Info -->
-    <div class="footer-column brand">
-      <h2><span class="logo">🍰 BakeGenius.ai</span></h2>
-      <p>Baking meets AI — recipes, ideas, and inspiration to make your creations magical!</p>
-    </div>
-    
-    <!-- Middle: Links -->
-    <div class="footer-column links">
-      <h4>Links</h4>
-      <ul>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Convert Recipe</a></li>
-        <li><a href="#">Customize</a></li>
-        <li><a href="#">Recipe Hub</a></li>
-        <li><a href="#">Scale Recipes</a></li>
-        <li><a href="#">Feedback</a></li>
-      </ul>
-    </div>
-    
-    <!-- Newsletter -->
-    <div class="footer-column newsletter">
-      <h4>Subscribe to our Newsletter</h4>
-      <p>Get the latest baking tips & AI recipes, and exclusive content delivered straight to your inbox!</p>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Your email address" required>
-        <button type="submit">Subscribe</button>
-      </form>
-    </div>
-    
-    <!-- Social Icons -->
-    <div class="footer-column social">
-      <h4>Follow Us</h4>
-      <div class="social-icons">
-  <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
-  <a href="#" class="github"><i class="fab fa-github"></i></a>
-  <a href="#" class="email"><i class="fas fa-envelope"></i></a>
-</div>
-    </div>
-    
-  </div>
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Left: Brand Info -->
+        <div class="footer-column brand">
+          <h2><span class="logo">🍰 BakeGenius.ai</span></h2>
+          <p>
+            Baking meets AI — recipes, ideas, and inspiration to make your
+            creations magical!
+          </p>
+        </div>
 
-  <!-- Bottom Bar -->
-  <div class="footer-bottom">
-    <p>© 2025 BakeGenius.ai &#10084;&#65039; — All rights reserved.</p>
-  </div>
-</footer>
+        <!-- Middle: Links -->
+        <div class="footer-column links">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Convert Recipe</a></li>
+            <li><a href="#">Customize</a></li>
+            <li><a href="#">Recipe Hub</a></li>
+            <li><a href="#">Scale Recipes</a></li>
+            <li><a href="#">Feedback</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-column newsletter">
+          <h4>Subscribe to our Newsletter</h4>
+          <p>
+            Get the latest baking tips & AI recipes, and exclusive content
+            delivered straight to your inbox!
+          </p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="footer-column social">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="github"><i class="fab fa-github"></i></a>
+            <a href="#" class="email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p>© 2025 BakeGenius.ai &#10084;&#65039; — All rights reserved.</p>
+      </div>
+    </footer>
 
     <!-- Login/Sign-Up Modal -->
-    <div id="loginModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35); z-index:2000; align-items:center; justify-content:center;">
-      <div style="background:#fff; color:#222; border-radius:18px; max-width:350px; width:90%; padding:2rem 1.5rem; box-shadow:0 8px 32px rgba(0,0,0,0.18); position:relative;">
-        <button id="closeLoginModal" style="position:absolute; top:12px; right:16px; background:none; border:none; font-size:1.3rem; cursor:pointer;">&times;</button>
-        <h2 id="modalTitle" style="margin-bottom:1.2rem; color:#ff6b6b; text-align:center;">Login</h2>
-        
+    <div
+      id="loginModal"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.35);
+        z-index: 2000;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div
+        style="
+          background: #fff;
+          color: #222;
+          border-radius: 18px;
+          max-width: 350px;
+          width: 90%;
+          padding: 2rem 1.5rem;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+          position: relative;
+        "
+      >
+        <button
+          id="closeLoginModal"
+          style="
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+          "
+        >
+          &times;
+        </button>
+        <h2
+          id="modalTitle"
+          style="margin-bottom: 1.2rem; color: #ff6b6b; text-align: center"
+        >
+          Login
+        </h2>
+
         <!-- Login Form -->
         <form id="loginForm">
           <input
@@ -2457,6 +2356,19 @@ footer
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
+      //Top to Bottom Button Logic
+      const ToptobackBtn = document.getElementById("Toptoback");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY < 100) {
+          ToptobackBtn.classList.add("show");
+        } else {
+          ToptobackBtn.classList.remove("show");
+        }
+      });
+      ToptobackBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 10000, behavior: "smooth" });
+      });
+
       // Parallax effect for decorative icons
       window.addEventListener("scroll", () => {
         const scrolled = window.pageYOffset;
@@ -2537,6 +2449,11 @@ footer
         if (users[username] && users[username] === password) {
           alert(`Welcome back, ${username}!`);
           loginModal.style.display = "none";
+          
+          // Set login state
+          localStorage.setItem("isLoggedIn", "true");
+          localStorage.setItem("currentUser", username);
+          updateLoginState();
         } else {
           formError.textContent = "Invalid username or password.";
           formError.style.display = "block";
@@ -2576,6 +2493,35 @@ footer
           toggleForm.textContent = "Don't have an account? Sign Up";
           formError.style.display = "none";
         }
+      });
+
+      // Function to update login state
+      function updateLoginState() {
+        const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+        const loginBtn = document.getElementById("openLoginModal");
+        const logoutBtn = document.getElementById("logoutBtn");
+        
+        if (isLoggedIn) {
+          loginBtn.style.display = "none";
+          logoutBtn.style.display = "flex";
+        } else {
+          loginBtn.style.display = "flex";
+          logoutBtn.style.display = "none";
+        }
+      }
+
+      // Logout functionality
+      document.getElementById("logoutBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("currentUser");
+        updateLoginState();
+        alert("You have been logged out successfully!");
+      });
+
+      // Check login state on page load
+      document.addEventListener("DOMContentLoaded", () => {
+        updateLoginState();
       });
 
       // Close Modal on Outside Click

@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --light-pink: #FFE0E6;
-            --light-blue: #E8F4FF;
-            --light-yellow: #FFF5E0;
             --candy-red: #ffabab;
             --sky-blue: #249e96;
             --sunny-yellow: #fcd124;
@@ -136,7 +133,7 @@
 
         body {
             font-family: 'Comic Neue', cursive;
-            background: linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 30%, var(--light-yellow) 60%, var(--light-pink) 100%);
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--lavender) 50%, var(--soft-pink) 100%);
             min-height: 100vh;
             color: var(--white);
             transition: all 0.3s ease;
@@ -352,6 +349,24 @@
             background: linear-gradient(45deg, #3498db, #9b59b6);
         }
 
+        /* Dark Mode Styles for Content */
+        body.dark-mode .input-label {
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .recipe-input {
+            color: var(--dark-text);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .unit-toggle button {
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .unit-toggle {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
         .hamburger.active span:nth-child(1) {
             transform: rotate(-45deg) translate(-5px, 6px);
         }
@@ -480,7 +495,7 @@
             font-size: clamp(2rem, 6vw, 3rem);
             font-weight: 700;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, #fff8dc, #ffd700, #daa520, #b8860b);
+            background: linear-gradient(45deg, var(--white), var(--sunny-yellow));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -518,7 +533,7 @@
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: grey;
+            color: #333;
         }
 
         .recipe-input {
@@ -529,7 +544,7 @@
             border-radius: 15px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            color: var(--white);
+            color: #333;
             font-family: 'Comic Neue', cursive;
             font-size: 1rem;
             resize: vertical;
@@ -544,7 +559,7 @@
         }
 
         .recipe-input::placeholder {
-            color: grey;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .file-upload {
@@ -555,7 +570,7 @@
             display: inline-block;
             padding: 1rem 2rem;
             background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
-            color: var(--white);
+            color: white;
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -572,7 +587,7 @@
             width: 100%;
             padding: 1.5rem;
             background: linear-gradient(45deg, var(--candy-red), var(--sunny-yellow));
-            color: var(--white);
+            color: white;
             border: none;
             border-radius: 25px;
             font-size: 1.3rem;
@@ -671,7 +686,7 @@
             padding: 0.5rem 1rem;
             border: none;
             background: transparent;
-            color: var(--white);
+            color: #333;
             border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -871,9 +886,13 @@
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="#" class="login-btn" onclick="alert('Login functionality will be implemented soon!')">
+                <a href="#" class="login-btn" id="openLoginModal">
                     <i class="fas fa-user"></i>
                     Login
+                </a>
+                <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
                 </a>
             </div>
             <div class="hamburger" id="hamburger">
@@ -1305,10 +1324,40 @@ backToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+        // Function to update login state
+        function updateLoginState() {
+            const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+            const loginBtn = document.getElementById("openLoginModal");
+            const logoutBtn = document.getElementById("logoutBtn");
+            
+            if (isLoggedIn) {
+                loginBtn.style.display = "none";
+                logoutBtn.style.display = "flex";
+            } else {
+                loginBtn.style.display = "flex";
+                logoutBtn.style.display = "none";
+            }
+        }
+
+        // Logout functionality
+        const logoutBtn = document.getElementById("logoutBtn");
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                localStorage.removeItem("isLoggedIn");
+                localStorage.removeItem("currentUser");
+                updateLoginState();
+                alert("You have been logged out successfully!");
+            });
+        }
+
+        // Check login state on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            updateLoginState();
+        });
+
         // Add some sample data for demo purposes
         document.addEventListener('DOMContentLoaded', function() {
-            const textarea = document.getElementById('recipeInput');
-            
             // Add floating animation to page elements
             const animateElements = document.querySelectorAll('.input-section, .results-section');
             animateElements.forEach((el, index) => {
