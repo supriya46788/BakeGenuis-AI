@@ -1,8 +1,8 @@
 /* Footer Modern Multi-Column */
 .footer {
-  background: #0a0a3c;
+  background: #3e2723;
   color: #fff;
-  border-top: 4px solid #4ecdc4;
+  border-top: 4px solid #3e2723;
   padding: 3rem 0 1.5rem 0;
 }
 .footer-columns {
@@ -261,7 +261,7 @@ nav {
 .logo {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--candy-red);
+  color: #3e2723;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   animation: logoGlow 3s ease-in-out infinite alternate;
 }
@@ -294,31 +294,31 @@ nav {
 
 
 .nav-links li:nth-child(1) a:hover {
-  background-color: var(--candy-red);
+  background-color: #d18a68;
   color: white;
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 10px 25px rgba(255, 165, 2, 0.4);
 }
 .nav-links li:nth-child(2) a:hover {
-  background-color: var(--sky-blue);
+  background-color: #d18a68;
   color: white;
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 10px 25px rgba(255, 165, 2, 0.4);
 }
 .nav-links li:nth-child(3) a:hover {
-  background-color: var(--sunny-yellow);
+  background-color: #d18a68;
   color: white;
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 10px 25px rgba(255, 165, 2, 0.4);
 }
 .nav-links li:nth-child(4) a:hover {
-  background-color: var(--candy-red);
+  background-color: #d18a68;
   color: white;
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 10px 25px rgba(255, 165, 2, 0.4);
 }
 .nav-links li:nth-child(5) a:hover {
-  background-color: var(--candy-red);
+  background-color: #d18a68;
   color: white;
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 10px 25px rgba(255, 165, 2, 0.4);
@@ -329,27 +329,27 @@ nav {
 }
 
 .nav-links li:nth-child(1) a.active {
-  background: var(--candy-red);
+  background: #d18a68;
   color: white;
   box-shadow: 0 8px 25px rgba(255,71,87,0.4);
 }
 .nav-links li:nth-child(2) a.active {
-  background: var(--sky-blue);
+  background: #d18a68;
   color: white;
   box-shadow: 0 8px 25px rgba(30,144,255,0.4);
 }
 .nav-links li:nth-child(3) a.active {
-  background: var(--sunny-yellow);
+  background: #d18a68;
   color: white;
   box-shadow: 0 8px 25px rgba(254,202,87,0.4);
 }
 .nav-links li:nth-child(4) a.active {
-  background: var(--candy-red);
+  background: #d18a68;
   color: white;
   box-shadow: 0 8px 25px rgba(255,71,87,0.4);
 }
 .nav-links li:nth-child(5) a.active {
-  background: var(--candy-red);
+  background: #d18a68;
   color: white;
   box-shadow: 0 8px 25px rgba(30,144,255,0.4);
 }
@@ -366,10 +366,9 @@ nav {
   font-size: 4rem;
   font-weight: 700;
   background: linear-gradient(
-    135deg,
-    var(--candy-red),
-    var(--sky-blue),
-    var(--sunny-yellow)
+    90deg,
+    #b08968,
+    #3e2723
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -497,7 +496,7 @@ nav {
 .section-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--candy-red);
+  color: #3e2723;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -507,6 +506,71 @@ nav {
   line-height: 1.8;
   position: relative;
   z-index: 1;
+}
+
+/* Contributors Section */
+.contributors {
+  margin: 60px auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.img {
+  font-size: xx-large;
+}
+.contributor-card h3 {
+  text-decoration: underline;
+}
+
+.xyz {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+  background: #3e2723;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.contributor-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contributor-card {
+  background: #fafafa;
+  border-radius: 15px;
+  padding: 20px;
+  width: 220px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contributor-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.contributor-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid #3e2723;
+}
+
+.contributor-card h3 a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+.contributor-card p {
+  font-size: 14px;
+  color: #666;
 }
 
 /* Problem List */
@@ -629,7 +693,7 @@ nav {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--candy-red), var(--sky-blue));
+  background: linear-gradient(90deg, #3e2723, #b08968);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -683,7 +747,7 @@ nav {
 .creator-name {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--candy-red);
+  color: #3e2723;
   margin-bottom: 1rem;
 }
 
@@ -697,7 +761,7 @@ nav {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--sky-blue);
+  background: linear-gradient(135deg,#b08968,#3e2723);
   color: white;
   text-decoration: none;
   padding: 1rem 2rem;
@@ -738,6 +802,35 @@ nav {
 .social-link span {
   position: relative;
   z-index: 1;
+}
+
+/* styles for search input for contributors section */
+.search-contributer-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+#searchContributer {
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #b08968, #3e2723);
+  width: 350px;
+  margin: 1rem 1rem;
+  border-radius: 50px;
+  color: #fff;
+  outline: none;
+  border: none;
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+   transition: all 0.3s ease;     /* smooth transition */
+} 
+#searchContributer::placeholder{
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+} 
+#searchContributer:focus {
+  border-color: #9b5cf6;    
+  box-shadow: 0 4px 10px #9b5cf6;
 }
 /* Back to Top Button Styles */
 #backToTop {
@@ -814,6 +907,52 @@ nav {
     font-size: 2rem;
   }
 }
+
+@media (min-width: 1101px) {
+.menu-wrapper {
+display: flex !important;
+}
+}
+
+#contributors-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.contributor-card {
+  display: flex;
+  align-items: center;
+  background: #3e2723;
+  border-radius: 8px;
+  padding: 4px 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  max-width: 150px; 
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.contributor-card img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.contributor-card span {
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contributor-card:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
 
 /* Scroll Animations */
 .animate-on-scroll {
