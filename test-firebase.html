@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Connection Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #0056b3; }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🔥 Firebase Connection Test</h1>
+        <p>This page will test your Firebase configuration and help identify any issues.</p>
+        
+        <div class="test-section">
+            <h3>1. Firebase Initialization</h3>
+            <div id="initStatus" class="status info">Testing Firebase initialization...</div>
+        </div>
+        
+        <div class="test-section">
+            <h3>2. Authentication Test</h3>
+            <div id="authStatus" class="status info">Testing Authentication...</div>
+            <button onclick="testEmailAuth()">Test Email Auth</button>
+            <button onclick="testGoogleAuth()">Test Google Auth</button>
+        </div>
+        
+        <div class="test-section">
+            <h3>3. Firestore Test</h3>
+            <div id="firestoreStatus" class="status info">Testing Firestore...</div>
+            <button onclick="testFirestore()">Test Firestore Connection</button>
+        </div>
+        
+        <div class="test-section">
+            <h3>4. Configuration Details</h3>
+            <div id="configDetails"></div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        import { getFirestore, doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+        
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "your-project-id.firebaseapp.com",
+            projectId: "your-project-id",
+            storageBucket: "your-project-id.appspot.com",
+            messagingSenderId: "your-sender-id",
+            appId: "your-app-id"
+        };
+        
+        let app, auth, db;
+        
+        // Test Firebase initialization
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            
+            document.getElementById('initStatus').className = 'status success';
+            document.getElementById('initStatus').textContent = '✅ Firebase initialized successfully!';
+            
+            // Show configuration details
+            document.getElementById('configDetails').innerHTML = `
+                <strong>Project ID:</strong> ${firebaseConfig.projectId}<br>
+                <strong>Auth Domain:</strong> ${firebaseConfig.authDomain}<br>
+                <strong>Storage Bucket:</strong> ${firebaseConfig.storageBucket}<br>
+                <strong>App ID:</strong> ${firebaseConfig.appId}
+            `;
+            
+        } catch (error) {
+            document.getElementById('initStatus').className = 'status error';
+            document.getElementById('initStatus').textContent = `❌ Firebase initialization failed: ${error.message}`;
+        }
+        
+        // Test Authentication
+        try {
+            if (auth) {
+                document.getElementById('authStatus').className = 'status success';
+                document.getElementById('authStatus').textContent = '✅ Authentication service loaded successfully!';
+            }
+        } catch (error) {
+            document.getElementById('authStatus').className = 'status error';
+            document.getElementById('authStatus').textContent = `❌ Authentication failed: ${error.message}`;
+        }
+        
+        // Test Firestore
+        try {
+            if (db) {
+                document.getElementById('firestoreStatus').className = 'status success';
+                document.getElementById('firestoreStatus').textContent = '✅ Firestore service loaded successfully!';
+            }
+        } catch (error) {
+            document.getElementById('firestoreStatus').className = 'status error';
+            document.getElementById('firestoreStatus').textContent = `❌ Firestore failed: ${error.message}`;
+        }
+        
+        // Test functions
+        window.testEmailAuth = async () => {
+            try {
+                // Try to create a test user (this will fail if user exists, which is expected)
+                const testEmail = 'test@example.com';
+                const testPassword = 'testpassword123';
+                
+                try {
+                    await createUserWithEmailAndPassword(auth, testEmail, testPassword);
+                    document.getElementById('authStatus').innerHTML += '<br>✅ Email authentication test passed!';
+                } catch (error) {
+                    if (error.code === 'auth/email-already-in-use') {
+                        document.getElementById('authStatus').innerHTML += '<br>✅ Email authentication is working (user already exists)';
+                    } else {
+                        throw error;
+                    }
+                }
+            } catch (error) {
+                document.getElementById('authStatus').innerHTML += `<br>❌ Email auth test failed: ${error.message}`;
+            }
+        };
+        
+        window.testGoogleAuth = async () => {
+            try {
+                const provider = new GoogleAuthProvider();
+                // This will open a popup - user needs to complete the flow
+                const result = await signInWithPopup(auth, provider);
+                document.getElementById('authStatus').innerHTML += '<br>✅ Google authentication test passed!';
+            } catch (error) {
+                if (error.code === 'auth/popup-closed-by-user') {
+                    document.getElementById('authStatus').innerHTML += '<br>ℹ️ Google auth popup was closed by user';
+                } else {
+                    document.getElementById('authStatus').innerHTML += `<br>❌ Google auth test failed: ${error.message}`;
+                }
+            }
+        };
+        
+        window.testFirestore = async () => {
+            try {
+                // Try to write a test document
+                const testDoc = doc(db, 'test', 'connection');
+                await setDoc(testDoc, {
+                    timestamp: new Date(),
+                    test: true
+                });
+                
+                // Try to read it back
+                const docSnap = await getDoc(testDoc);
+                if (docSnap.exists()) {
+                    document.getElementById('firestoreStatus').innerHTML += '<br>✅ Firestore read/write test passed!';
+                } else {
+                    document.getElementById('firestoreStatus').innerHTML += '<br>❌ Firestore read test failed';
+                }
+            } catch (error) {
+                document.getElementById('firestoreStatus').innerHTML += `<br>❌ Firestore test failed: ${error.message}`;
+            }
+        };
+    </script>
+</body>
+</html>
+
+

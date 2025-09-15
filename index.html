@@ -6,6 +6,32 @@
     <title>BakeGenius.ai - AI-Powered Baking Conversions</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        import { getFirestore, doc, setDoc, getDoc, collection, addDoc, getDocs, query, where, orderBy, limit, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+        
+        // Firebase configuration - Your actual config
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "your-project-id.firebaseapp.com",
+            projectId: "your-project-id",
+            storageBucket: "your-project-id.appspot.com",
+            messagingSenderId: "your-sender-id",
+            appId: "your-app-id"
+        };
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        
+        // Make Firebase available globally
+        window.firebase = { auth, db, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, doc, setDoc, getDoc, collection, addDoc, getDocs, query, where, orderBy, limit, serverTimestamp };
+    </script>
     <style>
         * {
             margin: 0;
@@ -1167,14 +1193,20 @@
         
         <!-- Login Form -->
         <form id="loginForm">
-          <input type="text" id="loginUsername" placeholder="Username" required style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:8px; border:1px solid #ccc;">
-          <input type="password" id="loginPassword" placeholder="Password" required style="width:100%; padding:0.7rem; margin-bottom:1.2rem; border-radius:8px; border:1px solid #ccc;">
-          <button type="submit" style="width:100%; background:linear-gradient(45deg,#ff6b6b,#ffd93d); color:#fff; font-weight:700; border:none; border-radius:25px; padding:0.8rem 0; font-size:1.1rem; cursor:pointer;">Login</button>
+          <input type="email" id="loginEmail" placeholder="Email" required style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:8px; border:1px solid #ccc;">
+          <input type="password" id="loginPassword" placeholder="Password" required style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:8px; border:1px solid #ccc;">
+          <button type="submit" style="width:100%; background:linear-gradient(45deg,#ff6b6b,#ffd93d); color:#fff; font-weight:700; border:none; border-radius:25px; padding:0.8rem 0; font-size:1.1rem; cursor:pointer; margin-bottom:1rem;">Login</button>
         </form>
+        
+        <!-- Google Sign-In Button -->
+        <button id="googleSignIn" style="width:100%; background:linear-gradient(45deg,#4285f4,#34a853); color:#fff; font-weight:700; border:none; border-radius:25px; padding:0.8rem 0; font-size:1.1rem; cursor:pointer; margin-bottom:1rem; display:flex; align-items:center; justify-content:center; gap:0.5rem;">
+          <i class="fab fa-google"></i> Sign in with Google
+        </button>
 
         <!-- Sign-Up Form -->
         <form id="signUpForm" style="display:none;">
-          <input type="text" id="signUpUsername" placeholder="New Username" required style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:8px; border:1px solid #ccc;">
+          <input type="text" id="signUpDisplayName" placeholder="Full Name" required style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:8px; border:1px solid #ccc;">
+          <input type="email" id="signUpEmail" placeholder="Email" required style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:8px; border:1px solid #ccc;">
           <input type="password" id="signUpPassword" placeholder="New Password" required style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:8px; border:1px solid #ccc;">
           <input type="password" id="confirmPassword" placeholder="Confirm Password" required style="width:100%; padding:0.7rem; margin-bottom:1.2rem; border-radius:8px; border:1px solid #ccc;">
           <button type="submit" style="width:100%; background:linear-gradient(45deg,#4ECDC4,#FFD93D); color:#fff; font-weight:700; border:none; border-radius:25px; padding:0.8rem 0; font-size:1.1rem; cursor:pointer;">Sign Up</button>
@@ -1336,28 +1368,34 @@ backToTopBtn.addEventListener('click', () => {
         });
 
         // Handle Login Form Submission
-        loginForm.addEventListener('submit', (e) => {
+        loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const username = document.getElementById('loginUsername').value;
+            const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
 
-            // Retrieve users from localStorage
-            const users = JSON.parse(localStorage.getItem('users')) || {};
-
-            // Check if the user exists and the password matches
-            if (users[username] && users[username] === password) {
-                alert(`Welcome back, ${username}!`);
+            try {
+                // Sign in with Firebase
+                const userCredential = await window.firebase.signInWithEmailAndPassword(window.firebase.auth, email, password);
+                const user = userCredential.user;
+                
+                alert(`Welcome back, ${user.displayName || user.email}!`);
                 loginModal.style.display = 'none';
-            } else {
-                formError.textContent = 'Invalid username or password.';
+                
+                // Update UI to show user is logged in
+                updateAuthUI(user);
+                
+            } catch (error) {
+                console.error('Login error:', error);
+                formError.textContent = getFirebaseErrorMessage(error.code);
                 formError.style.display = 'block';
             }
         });
 
         // Handle Sign-Up Form Submission
-        signUpForm.addEventListener('submit', (e) => {
+        signUpForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const username = document.getElementById('signUpUsername').value;
+            const displayName = document.getElementById('signUpDisplayName').value;
+            const email = document.getElementById('signUpEmail').value;
             const password = document.getElementById('signUpPassword').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
 
@@ -1368,24 +1406,112 @@ backToTopBtn.addEventListener('click', () => {
                 return;
             }
 
-            // Retrieve users from localStorage
-            const users = JSON.parse(localStorage.getItem('users')) || {};
-
-            // Check if the username already exists
-            if (users[username]) {
-                formError.textContent = 'Username already exists.';
+            try {
+                // Create user with Firebase
+                const userCredential = await window.firebase.createUserWithEmailAndPassword(window.firebase.auth, email, password);
+                const user = userCredential.user;
+                
+                // Update user profile with display name
+                await user.updateProfile({ displayName: displayName });
+                
+                // Create user document in Firestore
+                await window.firebase.setDoc(window.firebase.doc(window.firebase.db, 'users', user.uid), {
+                    email: user.email,
+                    displayName: displayName,
+                    createdAt: window.firebase.serverTimestamp(),
+                    preferences: {
+                        theme: 'light',
+                        units: 'metric'
+                    }
+                });
+                
+                alert('Sign-Up successful! Welcome to BakeGenius.ai!');
+                loginModal.style.display = 'none';
+                
+                // Update UI to show user is logged in
+                updateAuthUI(user);
+                
+            } catch (error) {
+                console.error('Sign-up error:', error);
+                formError.textContent = getFirebaseErrorMessage(error.code);
                 formError.style.display = 'block';
-            } else {
-                // Save the new user
-                users[username] = password;
-                localStorage.setItem('users', JSON.stringify(users));
-                alert('Sign-Up successful! You can now log in.');
-                loginForm.style.display = 'block';
-                signUpForm.style.display = 'none';
-                modalTitle.textContent = 'Login';
-                toggleForm.textContent = "Don't have an account? Sign Up";
-                formError.style.display = 'none';
             }
+        });
+
+        // Google Sign-In Button
+        const googleSignInBtn = document.getElementById('googleSignIn');
+        googleSignInBtn.addEventListener('click', async () => {
+            try {
+                const provider = new window.firebase.GoogleAuthProvider();
+                const result = await window.firebase.signInWithPopup(window.firebase.auth, provider);
+                const user = result.user;
+                
+                // Check if user document exists, create if not
+                const userDoc = await window.firebase.getDoc(window.firebase.doc(window.firebase.db, 'users', user.uid));
+                if (!userDoc.exists()) {
+                    await window.firebase.setDoc(window.firebase.doc(window.firebase.db, 'users', user.uid), {
+                        email: user.email,
+                        displayName: user.displayName,
+                        photoURL: user.photoURL,
+                        createdAt: window.firebase.serverTimestamp(),
+                        preferences: {
+                            theme: 'light',
+                            units: 'metric'
+                        }
+                    });
+                }
+                
+                alert(`Welcome, ${user.displayName}!`);
+                loginModal.style.display = 'none';
+                updateAuthUI(user);
+                
+            } catch (error) {
+                console.error('Google sign-in error:', error);
+                formError.textContent = getFirebaseErrorMessage(error.code);
+                formError.style.display = 'block';
+            }
+        });
+
+        // Helper function to get user-friendly error messages
+        function getFirebaseErrorMessage(errorCode) {
+            const errorMessages = {
+                'auth/user-not-found': 'No account found with this email address.',
+                'auth/wrong-password': 'Incorrect password.',
+                'auth/email-already-in-use': 'An account with this email already exists.',
+                'auth/weak-password': 'Password should be at least 6 characters.',
+                'auth/invalid-email': 'Please enter a valid email address.',
+                'auth/user-disabled': 'This account has been disabled.',
+                'auth/too-many-requests': 'Too many failed attempts. Please try again later.',
+                'auth/network-request-failed': 'Network error. Please check your connection.',
+                'auth/popup-closed-by-user': 'Sign-in popup was closed.',
+                'auth/cancelled-popup-request': 'Sign-in was cancelled.'
+            };
+            return errorMessages[errorCode] || 'An error occurred. Please try again.';
+        }
+
+        // Helper function to update UI based on auth state
+        function updateAuthUI(user) {
+            const loginBtn = document.getElementById('openLoginModal');
+            if (user) {
+                loginBtn.innerHTML = `<i class="fas fa-user"></i> ${user.displayName || 'Sign Out'}`;
+                loginBtn.onclick = () => {
+                    // Show user menu or sign out
+                    if (confirm('Do you want to sign out?')) {
+                        window.firebase.signOut(window.firebase.auth);
+                    }
+                };
+            } else {
+                loginBtn.innerHTML = '<i class="fas fa-user"></i> Login';
+                loginBtn.onclick = (e) => {
+                    e.preventDefault();
+                    loginModal.style.display = 'flex';
+                };
+            }
+        }
+
+        // Listen for auth state changes
+        window.firebase.onAuthStateChanged(window.firebase.auth, (user) => {
+            updateAuthUI(user);
         });
 
         // Close Modal on Outside Click
