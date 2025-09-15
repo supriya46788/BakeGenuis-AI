@@ -38,10 +38,57 @@
 
         body.dark-mode {
             background: linear-gradient(135deg,
-                    #2c3e50 0%,
-                    #3498db 50%,
-                    #9b59b6 100%);
-            color: var(--dark-text);
+                    #1a1a2e 0%,
+                    #16213e 50%,
+                    #1a1a2e 100%);
+            color: #f8f9fa;
+        }
+        
+        /* Improve text contrast in dark mode */
+        body.dark-mode p,
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4,
+        body.dark-mode h5,
+        body.dark-mode h6,
+        body.dark-mode .feature-card p,
+        body.dark-mode .feature-card h3,
+        body.dark-mode .footer-section p,
+        body.dark-mode .footer-links a {
+            color: #f8f9fa;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        /* Improve card readability in dark mode */
+        body.dark-mode .feature-card,
+        body.dark-mode .card {
+            background: rgba(30, 30, 50, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Improve form elements in dark mode */
+        body.dark-mode input,
+        body.dark-mode select,
+        body.dark-mode textarea {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        body.dark-mode input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Improve link visibility in dark mode */
+        body.dark-mode a {
+            color: #4fc3f7;
+            transition: color 0.2s ease;
+        }
+        
+        body.dark-mode a:hover {
+            color: #81d4fa;
+            text-decoration: underline;
         }
 
         @keyframes wobble {
@@ -559,28 +606,10 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
-        .hero-section::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg,
-                    transparent,
-                    rgba(255, 255, 255, 0.1),
-                    transparent);
-            animation: shimmer 3s linear infinite;
-        }
-
         .hero-title {
             font-size: 3.5rem;
             font-weight: 700;
-            background: linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
+            color: #ffffff;
         }
 
         .hero-subtitle {
@@ -1206,7 +1235,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="convert.html">Convert Recipe</a></li>
-                <li><a href="customize.html">Customize</a></li>
+                <li><a href="customize.html" style="color: #ffffff;">Customize</a></li>
                 <li><a href="scale.html">Scale Recipes</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
@@ -1264,7 +1293,7 @@
             </div>
             <div class="feature-card">
                 <i class="fas fa-cogs feature-icon"></i>
-                <h3 class="feature-title">Custom Preferences</h3>
+                <h3 class="feature-title" style="color: #ffffff;">Custom Preferences</h3>
                 <p class="feature-desc">
                     Personalize conversions based on your preferred brands and
                     ingredient specifications for consistent results.
@@ -1309,7 +1338,7 @@
                 <ul class="footer-links">
                     <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
                     <li><a href="convert.html"><i class="fas fa-exchange-alt"></i>Convert Recipe</a></li>
-                    <li><a href="customize.html"><i class="fas fa-cog"></i>Customize</a></li>
+                    <li><a href="customize.html" style="color: #ffffff;"><i class="fas fa-cog"></i>Customize</a></li>
                     <li><a href="scale.html"><i class="fas fa-balance-scale"></i>Scale Recipes</a></li>
                     <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
                 </ul>

@@ -263,13 +263,10 @@
         }
 
         body {
- recipe.convertor
-            font-family: 'Comic Neue', cursive; recipe.convertor
-            background:linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 50%, var(--light-yellow) 100%) ;
-
-
+            font-family: 'Comic Neue', cursive;
+            background: linear-gradient(135deg, #ffdbdb 0%, #b3e0ff 50%, #fff9c4 100%);
             min-height: 100vh;
-            color: var(--white);
+            color: #333;
             transition: all 0.3s ease;
         }
 
@@ -664,97 +661,93 @@
         }
 
         .page-title {
-            font-size: clamp(2rem, 6vw, 3rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
- recipe.convertor
- recipe.convertor
-            background: #FF4757;
 
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
 
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-             animation: bounce 2s ease-in-out infinite;
-        }
+.converter-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-        .page-subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-            color:#6b6767;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
+.input-section {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
 
-        .converter-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+.input-group {
+    margin-bottom: 1.5rem;
+}
 
-        .input-section {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
+.input-label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: black;
+}
 
-        .input-group {
-            margin-bottom: 1.5rem;
-        }
+.recipe-input {
+    width: 100%;
+    min-height: 200px;
+    padding: 1rem;
+    border: none;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: black !important;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1rem;
+    resize: vertical;
+    border: 2px solid #6b6767;
+    transition: all 0.3s ease;
+}
 
-        .input-label {
-            display: block;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
- recipe.convertor
-          recipe.convertor
-            color: black;
+.recipe-input:focus {
+    outline: none;
+    border-color: var(--sunny-yellow);
+    box-shadow: 0 0 20px rgba(255, 165, 2, 0.3);
+}
 
-        }
+.recipe-input::placeholder {
+    color: #6b6767;
+}
 
-        .recipe-input {
-            width: 100%;
-            min-height: 200px;
-            padding: 1rem;
-            border: none;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-recipe.convertor
-            color:black !important ;
+/* Animated Background Elements */
+.floating-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
 
-            font-family: 'Comic Neue', cursive;
-            font-size: 1rem;
-            resize: vertical;
-            border: 2px solid #6b6767;
-            transition: all 0.3s ease;
-        }
+.floating-cupcake {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 6s ease-in-out infinite;
+}
 
-        .recipe-input:focus {
-            outline: none;
-            border-color:var(--sunny-yellow);
-            box-shadow: 0 0 20px rgba(255, 165, 2, 0.3);
-        }
+.floating-cupcake:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+.floating-cupcake:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
+.floating-cupcake:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 4s; }
+.floating-cupcake:nth-child(4) { bottom: 30%; right: 10%; animation-delay: 1s; }
 
-        .recipe-input::placeholder {
- recipe.convertor
-          recipe.convertor
-            color:#6b6767;
-           /* color: rgba(255, 255, 255, 0.7);*/
-        }
-        
-        /* Animated Background Elements */
-        .floating-elements {
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
             position: fixed;
             top: 0;
             left: 0;
@@ -1133,7 +1126,7 @@ recipe.convertor
     <main>
         <div class="page-header">
             <h1 class="page-title">🧪 Recipe Converter</h1>
-            <p class="page-subtitle">Transform your recipes into precise gram measurements with AI magic</p>
+            <p class="page-subtitle" style="color: #ffffff;">Transform your recipes into precise gram measurements with AI magic</p>
         </div>
 
         <div class="converter-container">
