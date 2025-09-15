@@ -5,116 +5,589 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scale Recipes - BakeGenius.ai</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Footer Modern Multi-Column */
-        .footer {
-            background: #0a0a3c;
-            color: #fff;
-            border-top: 4px solid #4ECDC4;
-            padding: 3rem 0 1.5rem 0;
+        :root {
+            --candy-red: #FF6B6B;
+            --sky-blue: #4ECDC4;
+            --sunny-yellow: #FFD93D;
+            --soft-pink: #FFB6C1;
+            --mint-green: #98FB98;
+            --lavender: #E6E6FA;
+            --dark-bg: #1a1a1a;
+            --dark-card: #2d2d2d;
+            --dark-text: #ffffff;
+            --dark-border: #404040;
         }
-        .footer-columns {
-            max-width: 1200px;
-            margin: 0 auto;
+
+        body {
+            font-family: 'Comic Neue', cursive;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--soft-pink) 50%, var(--sunny-yellow) 100%);
+            min-height: 100vh;
+            position: relative;
+            transition: all 0.3s ease;
+            margin: 0;
+            padding: 0;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
+            color: var(--dark-text);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .navbar {
+            background: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
             display: flex;
-            flex-wrap: wrap;
-            gap: 2.5rem;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
         }
-        .footer-logo {
-            flex: 1 1 180px;
-            min-width: 180px;
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #ff6b6b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Comic Neue', cursive;
+        }
+
+        .logo-icon {
             font-size: 2rem;
-            font-weight: 700;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-text {
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            color: #ff5252;
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(10deg);
+        }
+
+        body.dark-mode .logo {
+            color: #ff8a80;
+        }
+
+        body.dark-mode .logo:hover {
+            color: #ffab91;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 0.7rem 1.2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+        }
+
+        .nav-links a.active {
+            background: linear-gradient(45deg, var(--candy-red), var(--sunny-yellow));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        body.dark-mode .nav-links a {
+            color: var(--dark-text);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        body.dark-mode .nav-links a.active {
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
             color: #fff;
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
         }
-        .footer-group {
-            flex: 1 1 160px;
-            min-width: 160px;
-            margin-bottom: 1.5rem;
+
+        .nav-links a:hover {
+            background: linear-gradient(45deg, var(--sunny-yellow), var(--soft-pink));
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #333;
         }
-        .footer-group-title {
+
+        body.dark-mode .nav-links a:hover {
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            color: #fff;
+        }
+
+        /* Navigation Actions */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .dark-mode-btn {
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 0.7rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark-mode-btn:hover {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .dark-mode-btn {
+            background: linear-gradient(45deg, #f39c12 0%, #f1c40f 100%);
+        }
+
+        .login-btn {
+            background: linear-gradient(45deg, var(--candy-red), #ff8a80);
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            background: linear-gradient(45deg, #ff5252, var(--candy-red));
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        body.dark-mode .login-btn {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        body.dark-mode .login-btn:hover {
+            background: linear-gradient(45deg, #c0392b, #a93226);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        body.dark-mode .hamburger span {
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.8rem 1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                gap: 1rem;
+                z-index: 999;
+            }
+
+            body.dark-mode .nav-links {
+                background: rgba(26, 26, 26, 0.98);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links a {
+                width: 80%;
+                text-align: center;
+                padding: 1rem;
+                font-size: 1.1rem;
+                margin: 0.5rem 0;
+            }
+
+            .nav-actions {
+                display: flex;
+                gap: 0.5rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* Footer Modern Multi-Column */
+       .footer {
+            background: linear-gradient(135deg, rgba(255, 195, 195, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+            backdrop-filter: blur(15px);
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-section h3.footer-title {
+            color: var(--candy-red);
             font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            color: #fff;
+            margin-bottom: 1.5rem;
+            position: relative;
         }
-        .footer-group-list {
+
+        .footer-section h3.footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            border-radius: 2px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--candy-red);
+        }
+
+        .footer-logo-icon {
+            font-size: 2rem;
+        }
+
+        .footer-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-        .footer-group-list li {
-            margin-bottom: 0.7em;
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
         }
-        .footer-group-list a {
-            color: #b3e6e2;
+
+        .footer-links a {
+            color: #666;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
             font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.2s;
+            transition: all 0.3s ease;
+            padding: 0.3rem 0;
+            border-radius: 5px;
         }
-        .footer-group-list a:hover {
-            color: #FFD93D;
+
+        .footer-links a:hover {
+            color: var(--candy-red);
+            transform: translateX(5px);
+            background: rgba(255, 107, 107, 0.1);
+            padding-left: 0.8rem;
         }
+
+        .footer-links i {
+            font-size: 0.9rem;
+            width: 16px;
+            opacity: 0.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-link.linkedin {
+            background: linear-gradient(45deg, #0077B5, #00A0DC);
+        }
+
+        .social-link.github {
+            background: linear-gradient(45deg, #333, #555);
+        }
+
+        .social-link.portfolio {
+            background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
+        }
+
+        .social-link.email {
+            background: linear-gradient(45deg, #EA4335, #34A853);
+        }
+
         .footer-bottom {
-            max-width: 1200px;
-            margin: 2rem auto 0 auto;
+            background: rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+        }
+
+        .footer-bottom-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            font-size: 1rem;
-            color: #b3e6e2;
-            border-top: 1px solid #233;
-            padding-top: 1.2rem;
-        }
-        .footer-social {
-            display: flex;
             gap: 1rem;
         }
-        .footer-social a {
+
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .copyright a {
+            color: var(--candy-red);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-badges {
             display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #0077B5, #00A0DC);
-            color: #fff;
-            font-size: 1.2rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-            transition: background 0.2s, transform 0.2s;
+            gap: 0.4rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
-        .footer-social a.portfolio {
-            background: linear-gradient(45deg, #FFD93D, #FF6B6B);
+
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        .footer-social a:hover {
-            transform: scale(1.08) translateY(-2px);
+
+        .badge-green {
+            background: linear-gradient(45deg, #2ED573, #20bf6b);
         }
-        @media (max-width: 900px) {
-            .footer-columns {
-                flex-direction: column;
-                gap: 1.5rem;
+
+        .badge-blue {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+        }
+
+        .badge-purple {
+            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
             }
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
                 text-align: center;
             }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .footer-badges {
+                justify-content: center;
+            }
         }
+
+/*dark mode*/
+ body.dark-mode .footer {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .footer-section h3.footer-title {
+            color: #ff8a80;
+        }
+
+        body.dark-mode .footer-logo {
+            color: #ff8a80;
+        }
+
+        body.dark-mode .footer-description {
+            color: #ccc;
+        }
+
+        body.dark-mode .footer-links a {
+            color: #ccc;
+        }
+
+        body.dark-mode .footer-links a:hover {
+            color: #ff8a80;
+            background: rgba(255, 138, 128, 0.1);
+        }
+
+        body.dark-mode .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .copyright {
+            color: #ccc;
+        }
+
+        body.dark-mode .copyright a {
+            color: #ff8a80;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        :root{
+            --candy-red: #FF4757;
+            --light-pink: #FFE0E6;
+            --light-blue: #E8F4FF;
+            --light-yellow: #FFF5E0;
+        }
 
         body {
             font-family: 'Comic Neue', cursive;
-            background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 50%, #FFE66D 100%);
+            background: linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 30%, var(--light-yellow) 60%, var(--light-pink) 100%);
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
@@ -206,39 +679,42 @@
             background: #4ECDC4;
             color: white;
         }
-        /* Back to Top Button Styles */
-#backToTop {
+        /* Dual Scroll Buttons */
+.scroll-btn {
     position: fixed;
-    bottom: 2.5rem;
     right: 2.5rem;
     z-index: 2000;
-    background: linear-gradient(135deg, var(--candy-red), var(--sky-blue), var(--sunny-yellow));
+    background: linear-gradient(45deg,#a4766a,#5d4037);
     color: #fff;
     border: none;
     border-radius: 50%;
     width: 56px;
     height: 56px;
     font-size: 2rem;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
     cursor: pointer;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s, transform 0.2s;
 }
-#backToTop.show {
+.scroll-btn.show {
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(-10px) scale(1.08);
+    transform: scale(1.08);
 }
-#backToTop:hover {
-    background: linear-gradient(135deg, var(--sunny-yellow), var(--candy-red), var(--sky-blue));
+.scroll-btn:hover {
     transform: scale(1.15);
+    background: linear-gradient(45deg,#5d4037,#a4766a);
 }
+
+/* Positioning individually */
+#scrollTopBtn { bottom: 6.5rem; }  /* Above bottom button */
+#scrollBottomBtn { bottom: 2.5rem; }
 
         /* Main Container */
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 6rem auto 0;
             padding: 2rem;
             position: relative;
             z-index: 10;
@@ -252,8 +728,8 @@
 
         .header h1 {
             font-size: 3rem;
-            color: white;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            color: var(--candy-red);
+            text-shadow: 3px 3px 6px rgba(132, 130, 130, 0.3);
             margin-bottom: 1rem;
             animation: bounce 2s infinite;
         }
@@ -266,7 +742,7 @@
 
         .header p {
             font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: #666;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
 
@@ -622,16 +1098,37 @@
     </div>
 
     <!-- Navigation -->
-    <nav>
+    <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">🍰 BakeGenius.ai</a>
-            <ul class="nav-links">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🍰</span>
+                <span class="logo-text">BakeGenius.ai</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="convert.html">Convert Recipe</a></li>
                 <li><a href="customize.html">Customize</a></li>
                 <li><a href="scale.html" class="active">Scale Recipes</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
+            <div class="nav-actions">
+                <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#" class="login-btn" id="openLoginModal">
+                    <i class="fas fa-user"></i>
+                    Login
+                </a>
+                <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
@@ -726,55 +1223,139 @@
             </div>
         </div>
     </div>
-    <!-- Back to Top Button -->
-<button id="backToTop" title="Back to Top">⬆️</button>
+    <!-- Dual Scroll Buttons -->
+<button id="scrollTopBtn" class="scroll-btn" title="Back to Top">⬆</button>
+<button id="scrollBottomBtn" class="scroll-btn" title="Scroll to Bottom">⬇</button>
+
     
     <!-- footer startes here -->
     <footer class="footer">
-        <div class="footer-columns">
-            <div class="footer-logo">
-                <span style="font-size:2.1rem; color:#FF6B6B;">🍰</span> BakeGenius.ai
+        <div class="footer-content">
+            <div class="footer-section footer-brand">
+                <div class="footer-logo">
+                    <span class="footer-logo-icon">🍰</span>
+                    <span class="footer-logo-text">BakeGenius.ai</span>
+                </div>
+                <p class="footer-description">
+                    Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and delightful for everyone.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-link linkedin" target="_blank" rel="noopener" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/supriya46788/BakeGenuis-AI" class="social-link github" target="_blank" rel="noopener" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:supriyadpandey502@gmail.com" class="social-link email" target="_blank" rel="noopener" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
             </div>
-            <div class="footer-group">
-                <div class="footer-group-title">About</div>
-                <ul class="footer-group-list">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="customize.html">Customize</a></li>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="convert.html"><i class="fas fa-exchange-alt"></i>Convert Recipe</a></li>
+                    <li><a href="customize.html"><i class="fas fa-cog"></i>Customize</a></li>
+                    <li><a href="scale.html"><i class="fas fa-balance-scale"></i>Scale Recipes</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
                 </ul>
             </div>
-            <div class="footer-group">
-                <div class="footer-group-title">Tools</div>
-                <ul class="footer-group-list">
-                    <li><a href="convert.html">Convert</a></li>
-                    <li><a href="scale.html">Scale</a></li>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Features</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-calculator"></i>Unit Conversion</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i>Nutritional Analysis</a></li>
+                    <li><a href="#"><i class="fas fa-balance-scale"></i>Recipe Scaling</a></li>
+                    <li><a href="#"><i class="fas fa-magic"></i>AI Optimization</a></li>
+                    <li><a href="#"><i class="fas fa-mobile-alt"></i>Mobile Friendly</a></li>
                 </ul>
             </div>
-            <div class="footer-group">
-                <div class="footer-group-title">Quick Links</div>
-                <ul class="footer-group-list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">Contact</a></li>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-question-circle"></i>Help Center</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i>Feedback</a></li>
+                    <li><a href="#"><i class="fas fa-bug"></i>Report Issue</a></li>
+                    <li><a href="#"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
+                    <li><a href="#"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
                 </ul>
             </div>
         </div>
+        
         <div class="footer-bottom">
-            <span>&copy; 2025 BakeGenius.ai &mdash; Made with <span style="color:#FF6B6B;">&#10084;&#65039;</span> by Supriya Pandey</span>
-            <div class="footer-social">
-                <a href="https://www.linkedin.com/" class="linkedin" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v5.595z"/>
-                    </svg>
-                </a>
-                <a href="https://your-portfolio.com/" class="portfolio" target="_blank" rel="noopener" title="Portfolio" aria-label="Portfolio">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm0 2c1.657 0 3.156.672 4.242 1.758A5.978 5.978 0 0 0 18 12c0 1.657-.672 3.156-1.758 4.242A5.978 5.978 0 0 0 12 18a5.978 5.978 0 0 0-4.242-1.758A5.978 5.978 0 0 0 6 12c0-1.657.672-3.156 1.758-4.242A5.978 5.978 0 0 0 12 4zm0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/>
-                    </svg>
-                </a>
+            <div class="footer-bottom-content">
+                <p class="copyright">
+                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <a href="#" target="_blank">Supriya Pandey</a>
+                </p>
+                <div class="footer-badges">
+                    <span class="badge badge-green"><i class="fas fa-heart"></i> Open Source</span>
+                    <span class="badge badge-blue"><i class="fas fa-leaf"></i> Eco Friendly</span>
+                    <span class="badge badge-purple"><i class="fas fa-robot"></i> AI Powered</span>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const darkModeIcon = darkModeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+            darkModeIcon.classList.remove('fa-moon');
+            darkModeIcon.classList.add('fa-sun');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Update icon
+            if (body.classList.contains('dark-mode')) {
+                darkModeIcon.classList.remove('fa-moon');
+                darkModeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                darkModeIcon.classList.remove('fa-sun');
+                darkModeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+
+        // Scale Recipe Logic
         const API_KEY = 'API_KEY';
         const API_URL = 'API_URL';
 
@@ -1040,18 +1621,64 @@
             document.getElementById('convertToGrams').checked = false;
             document.getElementById('resultsContainer').classList.remove('show');
         }
-        // Back to Top Button Logic
-const backToTopBtn = document.getElementById('backToTop');
+        // Dual Scroll Buttons
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+const scrollBottomBtn = document.getElementById('scrollBottomBtn');
+
 window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
-        backToTopBtn.classList.add('show');
+        scrollTopBtn.classList.add('show');
     } else {
-        backToTopBtn.classList.remove('show');
+        scrollTopBtn.classList.remove('show');
+    }
+
+    if (window.innerHeight + window.scrollY < document.body.offsetHeight - 300) {
+        scrollBottomBtn.classList.add('show');
+    } else {
+        scrollBottomBtn.classList.remove('show');
     }
 });
-backToTopBtn.addEventListener('click', () => {
+
+scrollTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+scrollBottomBtn.addEventListener('click', () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+});
+
+
+        // Function to update login state
+        function updateLoginState() {
+            const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+            const loginBtn = document.getElementById("openLoginModal");
+            const logoutBtn = document.getElementById("logoutBtn");
+            
+            if (isLoggedIn) {
+                loginBtn.style.display = "none";
+                logoutBtn.style.display = "flex";
+            } else {
+                loginBtn.style.display = "flex";
+                logoutBtn.style.display = "none";
+            }
+        }
+
+        // Logout functionality
+        const logoutBtn = document.getElementById("logoutBtn");
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                localStorage.removeItem("isLoggedIn");
+                localStorage.removeItem("currentUser");
+                updateLoginState();
+                alert("You have been logged out successfully!");
+            });
+        }
+
+        // Check login state on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            updateLoginState();
+        });
 
         // Add some example recipes on page load
         window.addEventListener('load', function() {

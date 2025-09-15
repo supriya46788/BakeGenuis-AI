@@ -2,7 +2,7 @@
 
 <div align="center">
 
- **🍰 BakeGenius AI - Precision Baking for Everyone**
+ **🍰 BakeGenuis AI - Precision Baking for Everyone**
 
 ![GSSoC'25](https://img.shields.io/badge/GirlScript%20Summer%20of%20Code-2025-orange?style=for-the-badge)
 
@@ -193,7 +193,10 @@ supriya46788/
 (*values vary depending on the density of ingredients*)
 
 ---
-**🛠️ How to Run Locally**
+
+**📥 Setup Instructions**
+
+🛠️ How to Run Locally
 
 1. Clone the repository:
 ```bash
@@ -231,7 +234,7 @@ const firebaseConfig = {
 
 **📥 Submitting a Pull Request**
 
-Follow these steps to contribute your changes to **BakeGenuis-AI**:
+Follow these steps to contribute your changes to **BakeGenius-AI**:
 
 1. **🌟 Star & Fork the Repository**  
    Click the **“Star”** button to support the project, then **“Fork”** the repo to create your own copy:  
@@ -279,15 +282,38 @@ Follow these steps to contribute your changes to **BakeGenuis-AI**:
 
 ---
 
-**🤝 Contributing**
+## 📌 How to Get Involved & Contribute
 
-We welcome contributions from the community!  
-Here’s how you can help:
+👩‍💻 Want to contribute to **BakeGenius AI** and become part of the open-source family? It’s super easy! 🚀  
+We welcome contributions from all levels – beginners and experts alike.
 
-- 📌 Raise issues or bug reports
-- 🌟 Suggest new features
-- 🧪 Improve AI prompt engineering or ingredient logic
-- 🎨 Enhance UI/UX
+### ✅ Steps to Get Started:
+
+1. 🔧 Follow the [📥 Setup Instructions](#📥-setup-instructions) to run the project locally.
+2. 🌐 Explore the live preview:  
+   👉 [BakeGenius-AI Preview Link](https://supriya46788.github.io/BakeGenuis-AI/)
+3. 🐛 Found a bug or want to suggest UI/UX improvements?  
+   * Open an [Issue](https://github.com/supriya46788/BakeGenuis-AI/issues) in the repository.  
+   * It will be assigned to you for contribution.
+4. 🌟 Want to contribute features or fix bugs?  
+   * Pick issues labeled `good first issue` for easy contributions.  
+   * Suggest or build new features such as:
+     * Improving AI prompt engineering  
+     * Adding ingredient density data  
+     * Enhancing UI components or responsiveness
+5. 🧱 Fork the project, make your changes, and submit a Pull Request.
+
+---
+
+### 💡 Pro Tips:
+
+* Fix typos, improve documentation, or optimize code – every contribution counts!  
+* Write clear and meaningful commit messages to help maintain project clarity.
+
+❤️ Thank you for contributing and making **BakeGenius AI** awesome!  
+Let’s grow together — one PR at a time. 🌱
+
+
 
 ---
 
@@ -295,7 +321,7 @@ Here’s how you can help:
 
 We love our contributors! If you'd like to help, please check out our [`CONTRIBUTE.md`](https://github.com/supriya46788/BakeGenuis-AI/blob/main/CONTRIBUTING.md) file for guidelines.
 
->Thank you once again to all our contributors who has contributed to **BakeGenuis-AI!** Your efforts are truly appreciated. 💖👏
+>Thank you once again to all our contributors who have contributed to **BakeGenuis-AI!** Your efforts are truly appreciated. 💖👏
 
 <!-- Contributors badge (auto-updating) -->
 
@@ -379,4 +405,4 @@ This project is licensed under the MIT License - see the [`License`](https://git
 
 ---
 
-Ready to show off your coding achievements? Get started with BakeGenuis-AI today! 🚀
+Ready to show off your coding achievements? Get started with **BakeGenius-AI** today! 🚀
