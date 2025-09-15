@@ -270,6 +270,52 @@
             transition: all 0.3s ease;
         }
 
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .navbar {
+            background: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .nav-links a {
+            color: var(--dark-text);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        body.dark-mode .nav-links a.active {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+        }
+
+        body.dark-mode .nav-links a:hover {
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            color: #fff;
+        }
+
+        body.dark-mode .recipe-input {
+            background: rgba(0, 0, 0, 0.2);
+            color: var(--dark-text);
+            border-color: var(--dark-border);
+        }
+
+        body.dark-mode .results-section,
+        body.dark-mode .input-section {
+            background: rgba(0, 0, 0, 0.2);
+            border-color: var(--dark-border);
+        }
+
+        body.dark-mode .results-table th {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .results-table td {
+            border-bottom-color: var(--dark-border);
+        }
+
         body.dark-mode {
             background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
             color: var(--dark-text);
