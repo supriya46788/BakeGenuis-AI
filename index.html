@@ -123,7 +123,6 @@
             align-items: center;
             max-width: 1500px;
             margin: 0 auto;
-            flex-wrap: wrap;
         }
 
         .logo {
@@ -172,10 +171,6 @@
             list-style: none;
             gap: 1.5rem;
             align-items: center;
-            flex-grow: 1;      /* Allows it to take up available space */
-            flex-shrink: 1;    /* Allows it to shrink if needed */
-            flex-basis: auto;  /* Base size is determined by content */
-            min-width: 0;      /* Ensures it can shrink below its content size */
         }
 
         .nav-links a {
@@ -597,7 +592,7 @@
         }
 
         .cta-button {
-            background: linear-gradient(135deg,#b08968,#3e2723);
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
             color: white;
             font-size: 1.2rem;
             font-weight: 700;
@@ -697,9 +692,9 @@
         }
 
         .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--sky-blue);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            border-color: #3e2723;
+            box-shadow: 0 15px 40px #3e2723;
         }
 
         .feature-icon {
@@ -736,7 +731,7 @@
     
 
          .footer {
-            background: linear-gradient(135deg, rgba(255, 195, 195, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+            background: radial-gradient(circle at center,#e9b4b6,#e5c5b3);
             backdrop-filter: blur(15px);
             position: relative;
             z-index: 2;
@@ -745,7 +740,7 @@
         }
 
         .footer-content {
-            max-width: 1400px;
+            max-width: 1500px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -754,7 +749,7 @@
         }
 
         .footer-section h3.footer-title {
-            color: var(--candy-red);
+            color: #3e2723;
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
@@ -768,14 +763,18 @@
             left: 0;
             width: 30px;
             height: 3px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            background:#3e2723;
             border-radius: 2px;
         }
 
         .footer-logo {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color:#3e2723;
         }
 
         .footer-logo-icon {
@@ -783,7 +782,7 @@
         }
 
         .footer-description {
-            color: #666;
+            color: #333;
             line-height: 1.6;
             margin-bottom: 2rem;
             font-size: 0.95rem;
@@ -800,7 +799,7 @@
         }
 
         .footer-links a {
-            color: #666;
+            color: #333;
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -812,8 +811,8 @@
         }
 
         .footer-links a:hover {
-            color: var(--candy-red);
-            transform: translateX(5px);
+            color:black;
+            transform: translateX(4px);
             background: rgba(255, 107, 107, 0.1);
             padding-left: 0.8rem;
         }
@@ -851,19 +850,19 @@
         }
 
         .social-link.linkedin {
-            background: linear-gradient(45deg, #0077B5, #00A0DC);
+            background:#0a66c2;
         }
 
         .social-link.github {
-            background: linear-gradient(45deg, #333, #555);
+            background:black;
         }
 
         .social-link.portfolio {
-            background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
+            background:navy;
         }
 
         .social-link.email {
-            background: linear-gradient(45deg, #EA4335, #34A853);
+            background:red;
         }
 
         .footer-bottom {
@@ -874,7 +873,7 @@
         }
 
         .footer-bottom-content {
-            max-width: 1400px;
+            max-width: 1500px;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
@@ -885,19 +884,14 @@
         }
 
         .copyright {
-            color: #666;
+            color: #333;
             font-size: 0.9rem;
             margin: 0;
         }
 
-        .copyright a {
-            color: var(--candy-red);
-            text-decoration: none;
+        .copyright .name{
+            color:#3e2723;
             font-weight: 600;
-        }
-
-        .copyright a:hover {
-            text-decoration: underline;
         }
 
         .footer-badges {
@@ -925,15 +919,15 @@
         }
 
         .badge-green {
-            background: linear-gradient(45deg, #2ED573, #20bf6b);
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
         }
 
         .badge-blue {
-            background: linear-gradient(45deg, #3498db, #2980b9);
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
         }
 
         .badge-purple {
-            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
         }
 
         @media (max-width: 1024px) {
@@ -1289,16 +1283,13 @@
                     Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and delightful for everyone.
                 </p>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/" class="social-link linkedin" target="_blank" rel="noopener" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-link linkedin" target="_blank" rel="noopener" title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://github.com/" class="social-link github" target="_blank" rel="noopener" title="GitHub">
+                    <a href="https://github.com/supriya46788/BakeGenuis-AI" class="social-link github" target="_blank" rel="noopener" title="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://your-portfolio.com/" class="social-link portfolio" target="_blank" rel="noopener" title="Portfolio">
-                        <i class="fas fa-globe"></i>
-                    </a>
-                    <a href="mailto:contact@bakegenius.ai" class="social-link email" target="_blank" rel="noopener" title="Email">
+                    <a href="mailto:supriyadpandey502@gmail.com" class="social-link email" target="_blank" rel="noopener" title="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
@@ -1341,7 +1332,7 @@
         <div class="footer-bottom">
             <div class="footer-bottom-content">
                 <p class="copyright">
-                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <a href="#" target="_blank">Supriya Pandey</a>
+                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <span class="name">Supriya Pandey</span>
                 </p>
                 <div class="footer-badges">
                     <span class="badge badge-green"><i class="fas fa-heart"></i> Open Source</span>

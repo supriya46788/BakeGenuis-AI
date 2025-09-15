@@ -1152,3 +1152,41 @@ display: flex !important;
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, var(--sky-blue), var(--sunny-yellow));
 }
+/* Dual Scroll Buttons */
+.scroll-btn {
+  position: fixed;
+  right: 2.5rem;
+  z-index: 2000;
+  background: linear-gradient(45deg, #a4766a, #5d4037);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s, transform 0.2s;
+}
+
+.scroll-btn.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1.08);
+}
+
+.scroll-btn:hover {
+  transform: scale(1.15);
+  background: linear-gradient(45deg, #5d4037, #a4766a);
+}
+
+/* Positioning individually */
+#scrollTopBtn {
+  bottom: 6.5rem;
+}
+
+#scrollBottomBtn {
+  bottom: 2.5rem;
+}

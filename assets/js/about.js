@@ -240,18 +240,31 @@ document.addEventListener("DOMContentLoaded", function () {
 //  initLoadingAnimation();
 //  initScrollProgress();
 
-  // Back to Top Button Logic
-  const backToTopBtn = document.getElementById("backToTop");
-  window.addEventListener("scroll", () => {
+  // Dual Scroll Buttons
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+const scrollBottomBtn = document.getElementById('scrollBottomBtn');
+
+window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
-      backToTopBtn.classList.add("show");
+        scrollTopBtn.classList.add('show');
     } else {
-      backToTopBtn.classList.remove("show");
+        scrollTopBtn.classList.remove('show');
     }
-  });
-  backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+
+    if (window.innerHeight + window.scrollY < document.body.offsetHeight - 300) {
+        scrollBottomBtn.classList.add('show');
+    } else {
+        scrollBottomBtn.classList.remove('show');
+    }
+});
+
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+scrollBottomBtn.addEventListener('click', () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+});
 
 
   // Add scroll progress indicator
