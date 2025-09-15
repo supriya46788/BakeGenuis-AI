@@ -25,103 +25,234 @@
             --glass: rgba(255, 255, 255, 0.15);
         }
          /* Footer Modern Multi-Column */
-        .footer {
-            background: #0a0a3c;
-            color: #fff;
-            border-top: 4px solid #4ECDC4;
-            padding: 3rem 0 1.5rem 0;
+       
+         .footer {
+            background: linear-gradient(135deg, rgba(255, 195, 195, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+            backdrop-filter: blur(15px);
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 4rem;
         }
-        .footer-columns {
-            max-width: 1200px;
+
+        .footer-content {
+            max-width: 1400px;
             margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-            justify-content: space-between;
-            align-items: flex-start;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding: 3rem 2rem 2rem;
         }
-        .footer-logo {
-            flex: 1 1 180px;
-            min-width: 180px;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
-        }
-        .footer-group {
-            flex: 1 1 160px;
-            min-width: 160px;
-            margin-bottom: 1.5rem;
-        }
-        .footer-group-title {
+
+        .footer-section h3.footer-title {
+            color: var(--candy-red);
             font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            color: #fff;
+            margin-bottom: 1.5rem;
+            position: relative;
         }
-        .footer-group-list {
+
+        .footer-section h3.footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            border-radius: 2px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--candy-red);
+        }
+
+        .footer-logo-icon {
+            font-size: 2rem;
+        }
+
+        .footer-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-        .footer-group-list li {
-            margin-bottom: 0.7em;
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
         }
-        .footer-group-list a {
-            color: #b3e6e2;
+
+        .footer-links a {
+            color: #666;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
             font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.2s;
+            transition: all 0.3s ease;
+            padding: 0.3rem 0;
+            border-radius: 5px;
         }
-        .footer-group-list a:hover {
-            color: #FFD93D;
+
+        .footer-links a:hover {
+            color: var(--candy-red);
+            transform: translateX(5px);
+            background: rgba(255, 107, 107, 0.1);
+            padding-left: 0.8rem;
         }
+
+        .footer-links i {
+            font-size: 0.9rem;
+            width: 16px;
+            opacity: 0.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-link.linkedin {
+            background: linear-gradient(45deg, #0077B5, #00A0DC);
+        }
+
+        .social-link.github {
+            background: linear-gradient(45deg, #333, #555);
+        }
+
+        .social-link.portfolio {
+            background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
+        }
+
+        .social-link.email {
+            background: linear-gradient(45deg, #EA4335, #34A853);
+        }
+
         .footer-bottom {
-            max-width: 1200px;
-            margin: 2rem auto 0 auto;
+            background: rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+        }
+
+        .footer-bottom-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            font-size: 1rem;
-            color: #b3e6e2;
-            border-top: 1px solid #233;
-            padding-top: 1.2rem;
-        }
-        .footer-social {
-            display: flex;
             gap: 1rem;
         }
-        .footer-social a {
+
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .copyright a {
+            color: var(--candy-red);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-badges {
             display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #0077B5, #00A0DC);
-            color: #fff;
-            font-size: 1.2rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-            transition: background 0.2s, transform 0.2s;
+            gap: 0.4rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
-        .footer-social a.portfolio {
-            background: linear-gradient(45deg, #FFD93D, #FF6B6B);
+
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        .footer-social a:hover {
-            transform: scale(1.08) translateY(-2px);
+
+        .badge-green {
+            background: linear-gradient(45deg, #2ED573, #20bf6b);
         }
-        @media (max-width: 900px) {
-            .footer-columns {
-                flex-direction: column;
-                gap: 1.5rem;
+
+        .badge-blue {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+        }
+
+        .badge-purple {
+            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
             }
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
                 text-align: center;
+            }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .footer-badges {
+                justify-content: center;
             }
         }
 
@@ -132,8 +263,11 @@
         }
 
         body {
-            font-family: 'Comic Neue', cursive;
-            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--lavender) 50%, var(--soft-pink) 100%);
+ recipe.convertor
+            font-family: 'Comic Neue', cursive; recipe.convertor
+            background:linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 50%, var(--light-yellow) 100%) ;
+
+
             min-height: 100vh;
             color: var(--white);
             transition: all 0.3s ease;
@@ -378,6 +512,44 @@
         .hamburger.active span:nth-child(3) {
             transform: rotate(45deg) translate(-5px, -6px);
         }
+         body.dark-mode .footer {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .footer-section h3.footer-title {
+            color: #ff8a80;
+        }
+
+        body.dark-mode .footer-logo {
+            color: #ff8a80;
+        }
+
+        body.dark-mode .footer-description {
+            color: #ccc;
+        }
+
+        body.dark-mode .footer-links a {
+            color: #ccc;
+        }
+
+        body.dark-mode .footer-links a:hover {
+            color: #ff8a80;
+            background: rgba(255, 138, 128, 0.1);
+        }
+
+        body.dark-mode .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .copyright {
+            color: #ccc;
+        }
+
+        body.dark-mode .copyright a {
+            color: #ff8a80;
+        }
+
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -495,10 +667,15 @@
             font-size: clamp(2rem, 6vw, 3rem);
             font-weight: 700;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, var(--white), var(--sunny-yellow));
+ recipe.convertor
+ recipe.convertor
+            background: #FF4757;
+
+
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+             animation: bounce 2s ease-in-out infinite;
         }
 
         .page-subtitle {
@@ -506,6 +683,12 @@
             opacity: 0.9;
             margin-bottom: 2rem;
             color:#6b6767;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
         }
 
         .converter-container {
@@ -533,7 +716,10 @@
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: #333;
+ recipe.convertor
+          recipe.convertor
+            color: black;
+
         }
 
         .recipe-input {
@@ -544,22 +730,56 @@
             border-radius: 15px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            color: #333;
+recipe.convertor
+            color:black !important ;
+
             font-family: 'Comic Neue', cursive;
             font-size: 1rem;
             resize: vertical;
-            border: 2px solid transparent;
+            border: 2px solid #6b6767;
             transition: all 0.3s ease;
         }
 
         .recipe-input:focus {
             outline: none;
-            border-color: var(--sunny-yellow);
+            border-color:var(--sunny-yellow);
             box-shadow: 0 0 20px rgba(255, 165, 2, 0.3);
         }
 
         .recipe-input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
+ recipe.convertor
+          recipe.convertor
+            color:#6b6767;
+           /* color: rgba(255, 255, 255, 0.7);*/
+        }
+        
+        /* Animated Background Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-cupcake {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-cupcake:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .floating-cupcake:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
+        .floating-cupcake:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 4s; }
+        .floating-cupcake:nth-child(4) { bottom: 30%; right: 10%; animation-delay: 1s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+
+
         }
 
         .file-upload {
@@ -868,6 +1088,12 @@
     </style>
 </head>
 <body>
+     <div class="floating-elements">
+        <div class="floating-cupcake">🧁</div>
+        <div class="floating-cupcake">🍰</div>
+        <div class="floating-cupcake">🥧</div>
+        <div class="floating-cupcake">🍪</div>
+    </div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -979,38 +1205,77 @@
 <!-- Back to Top Button -->
 <button id="backToTop" title="Back to Top">⬆️</button>
     <!-- footer startes here -->
+   
     <footer class="footer">
-        <div class="footer-columns">
-            <div class="footer-logo">
-                <span style="font-size:2.1rem; color:var(--candy-red);">🍰</span> BakeGenius.ai
+        <div class="footer-content">
+            <div class="footer-section footer-brand">
+                <div class="footer-logo">
+                    <span class="footer-logo-icon">🍰</span>
+                    <span class="footer-logo-text">BakeGenius.ai</span>
+                </div>
+                <p class="footer-description">
+                    Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and delightful for everyone.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/" class="social-link linkedin" target="_blank" rel="noopener" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/" class="social-link github" target="_blank" rel="noopener" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://your-portfolio.com/" class="social-link portfolio" target="_blank" rel="noopener" title="Portfolio">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="mailto:contact@bakegenius.ai" class="social-link email" target="_blank" rel="noopener" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
             </div>
-            <div class="footer-group">
-                <div class="footer-group-title">About</div>
-                <ul class="footer-group-list">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="customize.html">Customize</a></li>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="convert.html"><i class="fas fa-exchange-alt"></i>Convert Recipe</a></li>
+                    <li><a href="customize.html"><i class="fas fa-cog"></i>Customize</a></li>
+                    <li><a href="scale.html"><i class="fas fa-balance-scale"></i>Scale Recipes</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
                 </ul>
             </div>
-            <div class="footer-group">
-                <div class="footer-group-title">Tools</div>
-                <ul class="footer-group-list">
-                    <li><a href="convert.html">Convert</a></li>
-                    <li><a href="scale.html">Scale</a></li>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Features</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-calculator"></i>Unit Conversion</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i>Nutritional Analysis</a></li>
+                    <li><a href="#"><i class="fas fa-balance-scale"></i>Recipe Scaling</a></li>
+                    <li><a href="#"><i class="fas fa-magic"></i>AI Optimization</a></li>
+                    <li><a href="#"><i class="fas fa-mobile-alt"></i>Mobile Friendly</a></li>
                 </ul>
             </div>
-            <div class="footer-group">
-                <div class="footer-group-title">Quick Links</div>
-                <ul class="footer-group-list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">Contact</a></li>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-question-circle"></i>Help Center</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i>Feedback</a></li>
+                    <li><a href="#"><i class="fas fa-bug"></i>Report Issue</a></li>
+                    <li><a href="#"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
+                    <li><a href="#"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
                 </ul>
             </div>
         </div>
+        
         <div class="footer-bottom">
-            <span>&copy; 2025 BakeGenius.ai &mdash; Made with <span style="color:#FF6B6B;">&#10084;&#65039;</span> by Supriya Pandey</span>
-            <div class="footer-social">
-                <a href="https://www.linkedin.com/" class="linkedin" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://your-portfolio.com/" class="portfolio" target="_blank" rel="noopener" title="Portfolio"><i class="fas fa-globe"></i></a>
+            <div class="footer-bottom-content">
+                <p class="copyright">
+                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <a href="#" target="_blank">Supriya Pandey</a>
+                </p>
+                <div class="footer-badges">
+                    <span class="badge badge-green"><i class="fas fa-heart"></i> Open Source</span>
+                    <span class="badge badge-blue"><i class="fas fa-leaf"></i> Eco Friendly</span>
+                    <span class="badge badge-purple"><i class="fas fa-robot"></i> AI Powered</span>
+                </div>
             </div>
         </div>
     </footer>
