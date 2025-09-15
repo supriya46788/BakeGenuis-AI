@@ -679,34 +679,37 @@
             background: #4ECDC4;
             color: white;
         }
-        /* Back to Top Button Styles */
-#backToTop {
+        /* Dual Scroll Buttons */
+.scroll-btn {
     position: fixed;
-    bottom: 2.5rem;
     right: 2.5rem;
     z-index: 2000;
-    background: linear-gradient(135deg, var(--candy-red), var(--sky-blue), var(--sunny-yellow));
+    background: linear-gradient(45deg,#a4766a,#5d4037);
     color: #fff;
     border: none;
     border-radius: 50%;
     width: 56px;
     height: 56px;
     font-size: 2rem;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
     cursor: pointer;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s, transform 0.2s;
 }
-#backToTop.show {
+.scroll-btn.show {
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(-10px) scale(1.08);
+    transform: scale(1.08);
 }
-#backToTop:hover {
-    background: linear-gradient(135deg, var(--sunny-yellow), var(--candy-red), var(--sky-blue));
+.scroll-btn:hover {
     transform: scale(1.15);
+    background: linear-gradient(45deg,#5d4037,#a4766a);
 }
+
+/* Positioning individually */
+#scrollTopBtn { bottom: 6.5rem; }  /* Above bottom button */
+#scrollBottomBtn { bottom: 2.5rem; }
 
         /* Main Container */
         .container {
@@ -1220,8 +1223,10 @@
             </div>
         </div>
     </div>
-    <!-- Back to Top Button -->
-<button id="backToTop" title="Back to Top">⬆️</button>
+    <!-- Dual Scroll Buttons -->
+<button id="scrollTopBtn" class="scroll-btn" title="Back to Top">⬆</button>
+<button id="scrollBottomBtn" class="scroll-btn" title="Scroll to Bottom">⬇</button>
+
     
     <!-- footer startes here -->
     <footer class="footer">
@@ -1616,18 +1621,32 @@
             document.getElementById('convertToGrams').checked = false;
             document.getElementById('resultsContainer').classList.remove('show');
         }
-        // Back to Top Button Logic
-const backToTopBtn = document.getElementById('backToTop');
+        // Dual Scroll Buttons
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+const scrollBottomBtn = document.getElementById('scrollBottomBtn');
+
 window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
-        backToTopBtn.classList.add('show');
+        scrollTopBtn.classList.add('show');
     } else {
-        backToTopBtn.classList.remove('show');
+        scrollTopBtn.classList.remove('show');
+    }
+
+    if (window.innerHeight + window.scrollY < document.body.offsetHeight - 300) {
+        scrollBottomBtn.classList.add('show');
+    } else {
+        scrollBottomBtn.classList.remove('show');
     }
 });
-backToTopBtn.addEventListener('click', () => {
+
+scrollTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+scrollBottomBtn.addEventListener('click', () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+});
+
 
         // Function to update login state
         function updateLoginState() {
