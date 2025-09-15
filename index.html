@@ -1481,27 +1481,46 @@
         const darkModeToggle = document.getElementById("darkModeToggle");
         const body = document.body;
         const darkModeIcon = darkModeToggle.querySelector("i");
+        
+        // Set initial ARIA attributes
+        darkModeToggle.setAttribute('aria-label', 'Toggle dark mode');
+        darkModeToggle.setAttribute('role', 'button');
 
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem("theme") || "light";
-        if (currentTheme === "dark") {
-            body.classList.add("dark-mode");
-            darkModeIcon.classList.remove("fa-moon");
-            darkModeIcon.classList.add("fa-sun");
-        }
-
-        darkModeToggle.addEventListener("click", () => {
-            body.classList.toggle("dark-mode");
-
-            // Update icon
-            if (body.classList.contains("dark-mode")) {
-                darkModeIcon.classList.remove("fa-moon");
-                darkModeIcon.classList.add("fa-sun");
+        // Function to update theme
+        function updateTheme(isDark) {
+            if (isDark) {
+                body.classList.add("dark-mode");
+                darkModeIcon.classList.replace("fa-moon", "fa-sun");
+                darkModeToggle.setAttribute("aria-pressed", "true");
                 localStorage.setItem("theme", "dark");
             } else {
-                darkModeIcon.classList.remove("fa-sun");
-                darkModeIcon.classList.add("fa-moon");
+                body.classList.remove("dark-mode");
+                darkModeIcon.classList.replace("fa-sun", "fa-moon");
+                darkModeToggle.setAttribute("aria-pressed", "false");
                 localStorage.setItem("theme", "light");
+            }
+        }
+
+        // Check for saved theme preference or use system preference
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const savedTheme = localStorage.getItem("theme");
+        
+        if (savedTheme === "dark" || (!savedTheme && prefersDarkScheme.matches)) {
+            updateTheme(true);
+        } else {
+            updateTheme(false);
+        }
+
+        // Toggle dark mode on button click
+        darkModeToggle.addEventListener("click", () => {
+            const isDark = !body.classList.contains("dark-mode");
+            updateTheme(isDark);
+        });
+        
+        // Listen for system theme changes
+        prefersDarkScheme.addListener((e) => {
+            if (!localStorage.getItem("theme")) {  // Only if user hasn't set a preference
+                updateTheme(e.matches);
             }
         });
 
