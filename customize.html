@@ -42,7 +42,7 @@
 
         body {
             font-family: 'Comic Neue', cursive;
-            background:#f5f3f1;
+            background-color:#f5f3f1;
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
@@ -98,7 +98,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1400px;
+            max-width: 1500px;
             margin: 0 auto;
         }
 
@@ -449,7 +449,7 @@
         }
 
         .footer-description {
-            color: #666;
+            color: #333;
             line-height: 1.6;
             margin-bottom: 2rem;
             font-size: 0.95rem;
@@ -540,7 +540,7 @@
         }
 
         .footer-bottom-content {
-            max-width: 1400px;
+            max-width: 1500px;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
@@ -551,19 +551,14 @@
         }
 
         .copyright {
-            color: #666;
+            color: #333;
             font-size: 0.9rem;
             margin: 0;
         }
 
-        .copyright a {
-            color: var(--candy-red);
-            text-decoration: none;
+        .copyright .name {
+            color:#3e2723;
             font-weight: 600;
-        }
-
-        .copyright a:hover {
-            text-decoration: underline;
         }
 
         .footer-badges {
@@ -591,15 +586,15 @@
         }
 
         .badge-green {
-            background:radial-gradient(circle at center,#b08968,#3e2723);
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
         }
 
         .badge-blue {
-            background:radial-gradient(circle at center,#b08968,#3e2723);
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
         }
 
         .badge-purple {
-            background:radial-gradient(circle at center,#b08968,#3e2723);
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
         }
 
         @media (max-width: 1024px) {
@@ -901,19 +896,19 @@
         }
 
         .btn-primary {
-            background:radial-gradient(circle at center,#b08968,#3e2723);
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
             color: white;
             box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
         }
 
         .btn-secondary {
-            background:radial-gradient(circle at center,#b08968,#3e2723);
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
             color: white;
             box-shadow: 0 4px 15px rgba(112, 161, 255, 0.4);
         }
 
         .btn-success {
-            background:radial-gradient(circle at center,#b08968,#3e2723);
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
             color: white;
             box-shadow: 0 4px 15px rgba(46, 213, 115, 0.4);
         }
@@ -1193,7 +1188,7 @@
         <div class="footer-bottom">
             <div class="footer-bottom-content">
                 <p class="copyright">
-                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <a href="#" target="_blank">Supriya Pandey</a>
+                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <span class="name">Supriya Pandey</span>
                 </p>
                 <div class="footer-badges">
                     <span class="badge badge-green"><i class="fas fa-heart"></i> Open Source</span>
