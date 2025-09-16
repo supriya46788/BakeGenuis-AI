@@ -21,11 +21,11 @@
         }
 
         body {
-            font-family: 'Comic Neue', cursive;
-            overflow-x: hidden;
-            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--soft-pink) 50%, var(--sunny-yellow) 100%);
+              font-family: 'Comic Neue', cursive;
+            background-color:#f5f3f1;
             min-height: 100vh;
             position: relative;
+            overflow-x: hidden;
             transition: all 0.3s ease;
             margin: 0;
             padding: 0;
@@ -38,7 +38,7 @@
 
         /* Navigation */
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
+             background: radial-gradient(circle at center,#e5c5b3,#e9b4b6);
             backdrop-filter: blur(15px);
             padding: 1rem 2rem;
             position: fixed;
@@ -64,15 +64,17 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 600;
-            color: #ff6b6b;
+            color: #3e2723;
             text-decoration: none;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-family: 'Comic Neue', cursive;
+            font-family: "Comic Neue", cursive;
+            min-width: 150px;
+            padding-right:50px;
         }
 
         .logo-icon {
@@ -86,8 +88,8 @@
         }
 
         .logo:hover {
-            transform: scale(1.05);
-            color: #ff5252;
+             transform: scale(1.05);
+            color:#3e2723;
         }
 
         .logo:hover .logo-icon {
@@ -110,10 +112,10 @@
         }
 
         .nav-links a {
-            text-decoration: none;
-            color: #333;
+             text-decoration: none;
+            color: #3e2723;
             font-weight: 600;
-            padding: 0.7rem 1.2rem;
+            padding: 0.7rem 1rem;
             border-radius: 25px;
             transition: all 0.3s ease;
             position: relative;
@@ -122,10 +124,11 @@
         }
 
         .nav-links a.active {
-            background: linear-gradient(45deg, var(--candy-red), var(--sunny-yellow));
-            color: white;
+            background-color:#f3e0d6;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(228, 191, 180, 0.3);
+            color: #3e2723;
         }
 
         body.dark-mode .nav-links a {
@@ -139,11 +142,11 @@
         }
 
         .nav-links a:hover {
-            background: linear-gradient(45deg, var(--sunny-yellow), var(--soft-pink));
+            background-color:#f3e0d6;
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-            color: #333;
+            border-color: rgba(228, 191, 180, 0.3);
+            color: #3e2723;
         }
 
         body.dark-mode .nav-links a:hover {
@@ -159,7 +162,7 @@
         }
 
         .dark-mode-btn {
-            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+                     background-color:#3e2723;
             border: none;
             color: white;
             padding: 0.7rem;
@@ -185,7 +188,7 @@
         }
 
         .login-btn {
-            background: linear-gradient(45deg, var(--candy-red), #ff8a80);
+            background-color:#d18a68;
             color: white;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
@@ -202,7 +205,7 @@
         .login-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-            background: linear-gradient(45deg, #ff5252, var(--candy-red));
+            background:#d18a68 ;
             border-color: rgba(255, 255, 255, 0.3);
         }
 
@@ -296,6 +299,7 @@
             .nav-actions {
                 display: flex;
                 gap: 0.5rem;
+                z-index:1001;
             }
 
             .hamburger {
@@ -305,7 +309,7 @@
 
         /* Footer Modern Multi-Column */
        .footer {
-            background: linear-gradient(135deg, rgba(255, 195, 195, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+             background: radial-gradient(circle at center,#e9b4b6,#e5c5b3);
             backdrop-filter: blur(15px);
             position: relative;
             z-index: 2;
@@ -314,7 +318,7 @@
         }
 
         .footer-content {
-            max-width: 1400px;
+            max-width: 1500px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -323,24 +327,25 @@
         }
 
         .footer-section h3.footer-title {
-            color: var(--candy-red);
+             color: #3e2723;
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             position: relative;
         }
 
+        
+
         .footer-section h3.footer-title::after {
-            content: '';
+           content: '';
             position: absolute;
             bottom: -8px;
             left: 0;
             width: 30px;
             height: 3px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            background:#3e2723;
             border-radius: 2px;
         }
-
         .footer-logo {
             display: flex;
             align-items: center;
@@ -348,7 +353,7 @@
             margin-bottom: 1.5rem;
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--candy-red);
+            color: #3e2723;
         }
 
         .footer-logo-icon {
@@ -356,7 +361,7 @@
         }
 
         .footer-description {
-            color: #666;
+            color: #333;
             line-height: 1.6;
             margin-bottom: 2rem;
             font-size: 0.95rem;
@@ -373,7 +378,7 @@
         }
 
         .footer-links a {
-            color: #666;
+            color: #333;
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -385,7 +390,7 @@
         }
 
         .footer-links a:hover {
-            color: var(--candy-red);
+            color:black;
             transform: translateX(5px);
             background: rgba(255, 107, 107, 0.1);
             padding-left: 0.8rem;
@@ -424,19 +429,19 @@
         }
 
         .social-link.linkedin {
-            background: linear-gradient(45deg, #0077B5, #00A0DC);
+            background:#0a66c2;
         }
 
         .social-link.github {
-            background: linear-gradient(45deg, #333, #555);
+            background:black;
         }
 
         .social-link.portfolio {
-            background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
+            background: navy;
         }
 
         .social-link.email {
-            background: linear-gradient(45deg, #EA4335, #34A853);
+            background: red;
         }
 
         .footer-bottom {
@@ -447,7 +452,7 @@
         }
 
         .footer-bottom-content {
-            max-width: 1400px;
+            max-width: 1500px;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
@@ -458,13 +463,13 @@
         }
 
         .copyright {
-            color: #666;
+            color: #333;
             font-size: 0.9rem;
             margin: 0;
         }
 
         .copyright a {
-            color: var(--candy-red);
+            color: #3e2723;
             text-decoration: none;
             font-weight: 600;
         }
@@ -498,15 +503,15 @@
         }
 
         .badge-green {
-            background: linear-gradient(45deg, #2ED573, #20bf6b);
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
         }
 
         .badge-blue {
-            background: linear-gradient(45deg, #3498db, #2980b9);
+            background: linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
         }
 
         .badge-purple {
-            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+            background: linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
         }
 
         @media (max-width: 1024px) {
@@ -518,7 +523,7 @@
 
         @media (max-width: 768px) {
             .footer-content {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
                 gap: 2rem;
                 text-align: center;
             }
@@ -620,7 +625,7 @@
             50% { transform: translateY(-20px) rotate(5deg); }
         }
 
-        /* Navigation */
+        /* Navigation 
         nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -728,7 +733,7 @@
 
         .header h1 {
             font-size: 3rem;
-            color: var(--candy-red);
+            color: linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
             text-shadow: 3px 3px 6px rgba(132, 130, 130, 0.3);
             margin-bottom: 1rem;
             animation: bounce 2s infinite;
@@ -764,7 +769,7 @@
 
         .section-title {
             font-size: 1.8rem;
-            color: #FF6B6B;
+            color: #3e2723;
             margin-bottom: 1.5rem;
             text-align: center;
             position: relative;
@@ -778,7 +783,7 @@
             transform: translateX(-50%);
             width: 50px;
             height: 3px;
-            background: #4ECDC4;
+            background: #3e2723;
             border-radius: 2px;
         }
 
@@ -809,7 +814,7 @@
         .serving-input input {
             width: 100%;
             padding: 1rem;
-            border: 3px solid #FFE66D;
+            border: 3px solid #e5c5b3;
             border-radius: 15px;
             font-size: 1.1rem;
             font-family: 'Comic Neue', cursive;
@@ -828,7 +833,7 @@
             width: 100%;
             min-height: 200px;
             padding: 1rem;
-            border: 3px solid #FFE66D;
+            border: 3px solid #e5c5b3;
             border-radius: 15px;
             font-size: 1rem;
             font-family: 'Comic Neue', cursive;
@@ -851,22 +856,26 @@
         }
 
         .btn {
-            padding: 1rem 2rem;
+             padding: 1rem 2rem;
             border: none;
             border-radius: 25px;
-            font-size: 1.1rem;
-            font-weight: 600;
             font-family: 'Comic Neue', cursive;
+            font-size: 1.1rem;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             position: relative;
             overflow: hidden;
         }
 
         .btn-primary {
-            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
             color: white;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
         }
 
         .btn-primary:hover {
@@ -881,13 +890,13 @@
         }
 
         .btn-secondary {
-            background: #FFE66D;
-            color: #333;
-            box-shadow: 0 5px 15px rgba(255, 230, 109, 0.3);
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+            color: white;
+            box-shadow: 0 4px 15px rgba(112, 161, 255, 0.4);
         }
 
         .btn-secondary:hover {
-            background: #FFD93D;
+            background: linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
             transform: translateY(-3px);
         }
 
@@ -938,7 +947,7 @@
         }
 
         input:checked + .slider {
-            background-color: #4ECDC4;
+            background-color: #3e2723;
         }
 
         input:checked + .slider:before {
@@ -1001,7 +1010,7 @@
         /* Suggestions Box */
         .suggestions-box {
             background: rgba(255, 230, 109, 0.2);
-            border: 2px solid #FFE66D;
+            border: 2px solid #666;
             border-radius: 15px;
             padding: 1.5rem;
             margin-top: 1rem;
