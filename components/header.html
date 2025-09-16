@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo-wrapper">
+                <span class="logo-icon"><i class="fas fa-cookie-bite"></i></span>
+                <span class="logo-text">BakeGenius<span class="logo-highlight">.ai</span></span>
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
+                    <li class="nav-item"><a href="convert.html" class="nav-link"><i class="fas fa-exchange-alt"></i><span>Convert Recipe</span></a></li>
+                    <li class="nav-item"><a href="customize.html" class="nav-link"><i class="fas fa-sliders-h"></i><span>Customize</span></a></li>
+                    <li class="nav-item"><a href="scale.html" class="nav-link"><i class="fas fa-balance-scale"></i><span>Scale Recipes</span></a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i><span>About Us</span></a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <button class="theme-toggle" id="darkModeToggle" title="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+                <a href="#" class="user-profile" title="User Profile"><i class="fas fa-user-cog"></i></a>
+                <a href="#" class="btn btn-login" id="openLoginModal"><i class="fas fa-sign-in-alt"></i><span>Login</span></a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.querySelector('.main-nav');
+        const menuLines = document.querySelectorAll('.menu-line');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Initialize dark mode
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            updateDarkModeIcon(true);
+        }
+
+        // Dark mode toggle
+        if (darkModeToggle) {
+            darkModeToggle.addEventListener('click', function() {
+                const isDark = document.body.classList.toggle('dark-mode');
+                localStorage.setItem('darkMode', isDark);
+                updateDarkModeIcon(isDark);
+            });
+        }
+
+        function updateDarkModeIcon(isDark) {
+            const icon = darkModeToggle ? darkModeToggle.querySelector('i') : null;
+            if (icon) {
+                icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+
+        // Mobile menu toggle
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                if (mainNav) mainNav.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
+                
+                // Animate menu icon
+                menuLines.forEach((line, index) => {
+                    if (line && line.style) {
+                        line.style.transform = this.classList.contains('active') ? 
+                            `rotate(${index === 0 ? 45 : index === 1 ? 0 : -45}deg) translate(${index === 0 ? '4px, 4px' : index === 1 ? '0, 0' : '4px, -4px'})` : 
+                            'none';
+                        line.style.opacity = this.classList.contains('active') && index === 1 ? '0' : '1';
+                    }
+                });
+            });
+        }
+
+        // Close mobile menu when clicking on a nav link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mainNav && mainNav.classList.contains('active') && mobileMenuToggle) {
+                    mobileMenuToggle.click();
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (mainNav && mainNav.classList.contains('active') && 
+                mobileMenuToggle &&
+                !e.target.closest('.main-nav') && 
+                !e.target.closest('.mobile-menu-toggle')) {
+                mobileMenuToggle.click();
+            }
+        });
+
+        // Set active link based on current page
+        const currentLocation = window.location.pathname.split('/').pop() || 'index.html';
+        navLinks.forEach(link => {
+            const linkHref = link.getAttribute('href');
+            if (linkHref === currentLocation || 
+                (currentLocation === '' && linkHref === 'index.html')) {
+                link.classList.add('active');
+            }
+        });
+    });
+    </script>
+</body>
+</html>

@@ -8,36 +8,495 @@
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Modern Header Styles */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(18, 18, 18, 0.98);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 1000;
+            padding: 0.8rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
 
-        body {
-            font-family: "Comic Neue", cursive;
-            background-color: #f5f3f1;
-            min-height: 100vh;
-            color: #3e2723;
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+
+        /* Logo Styles */
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+            color: #ff6b6b;
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-highlight {
+            color: #ff6b6b;
+        }
+
+        /* Navigation */
+        .main-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.8rem;
+            border-radius: 6px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.1);
+        }
+
+        .nav-link i {
+            font-size: 1.1rem;
+        }
+
+        /* User Actions */
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-login {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             transition: all 0.3s ease;
         }
 
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Dark mode toggle button */
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Mobile menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-line {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: #fff;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Dark mode styles */
         body.dark-mode {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
+            background: #121212;
+            color: #f0f0f0;
+        }
+
+        body.dark-mode .contact-box {
+            background: rgba(30, 30, 30, 0.9);
+            border: 1px solid #444;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .contact-title,
+        body.dark-mode .contact-desc,
+        body.dark-mode .form-label,
+        body.dark-mode .form-control,
+        body.dark-mode .form-control::placeholder {
+            color: #f0f0f0;
+        }
+
+        body.dark-mode .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #444;
+            color: #f0f0f0;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 280px;
+                height: 100vh;
+                background: rgba(18, 18, 18, 0.98);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                padding: 6rem 2rem 2rem;
+                transition: right 0.3s ease;
+                z-index: 1000;
+            }
+
+            .main-nav.active {
+                right: 0;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-item {
+                width: 100%;
+            }
+
+            .nav-link {
+                padding: 1rem;
+                border-radius: 8px;
+            }
+        }
+
+        /* Body styles */
+        body {
+            font-family: "Comic Neue", cursive;
+            background-color: #fff9f5;
+            min-height: 100vh;
+            color: #3e2723;
+            transition: all 0.3s ease;
+            padding-top: 80px;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+        }
+        
+        /* Dark mode styles */
+        body.dark-mode {
+            background: #121212;
+            color: #f0f0f0;
+        }
+        
+        body.dark-mode .contact-box {
+            background: rgba(30, 30, 30, 0.9);
+            border: 1px solid #444;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        body.dark-mode .contact-title,
+        body.dark-mode .contact-desc,
+        body.dark-mode .form-label,
+        body.dark-mode .form-control,
+        body.dark-mode .form-control::placeholder {
+            color: #f0f0f0;
+        }
+        
+        body.dark-mode .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #444;
+            color: #f0f0f0;
+        }
+        
+        /* Ensure content doesn't go under the fixed header */
+        .main-content {
+            padding-top: 20px;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+        }
+
+        /* Logo Styles */
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-wrapper:hover {
+            transform: translateY(-1px);
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+            color: #ff6b6b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-highlight {
+            color: #ff6b6b;
+            font-weight: 800;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            margin-left: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 0.5rem;
+        }
+
+        .nav-item .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.7rem 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .nav-item .nav-link i {
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.2s ease;
+        }
+
+        .nav-item .nav-link:hover {
+            background: rgba(255, 255, 255, 0.05);
             color: #fff;
         }
 
+        .nav-item .nav-link:hover i {
+            color: #ff6b6b;
+        }
+
+        .nav-item .nav-link.active {
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+
+        .nav-item .nav-link.active i {
+            color: #ff6b6b;
+        }
+
+        /* User Actions */
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-left: auto;
+        }
+
+        .theme-toggle, 
+        .user-profile {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .theme-toggle:hover,
+        .user-profile:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ff6b6b;
+            transform: translateY(-1px);
+        }
+
+        .btn-login {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white !important;
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-login i {
+            color: white !important;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .menu-line {
+            width: 100%;
+            height: 2px;
+            background: #fff;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .main-nav {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .user-actions {
+                margin-left: auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .btn-login span {
+                display: none;
+            }
+            
+            .btn-login {
+                padding: 0.6rem;
+                width: 40px;
+                height: 40px;
+                justify-content: center;
+                border-radius: 50%;
+            }
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: #121212;
+        }
+        
+        body.dark-mode .main-header {
+            background: rgba(18, 18, 18, 0.98);
+        }
+
         .navbar {
-            background: radial-gradient(circle, #e5c5b3, #e9b4b6);
-            backdrop-filter: blur(15px);
-            padding: 1rem 2rem;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 0.8rem 2rem;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
         }
 
         body.dark-mode .navbar {
@@ -80,22 +539,75 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 0.8rem;
             align-items: center;
+            margin: 0;
+            padding: 0;
         }
 
         .nav-links a {
+            position: relative;
             text-decoration: none;
-            color: #3e2723;
-            font-weight: 600;
-            padding: 0.7rem 1rem;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            padding: 0.65rem 1.4rem;
+            border-radius: 8px;
+            background: transparent;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            white-space: nowrap;
+            font-size: 0.95rem;
+            border: 1px solid transparent;
+            letter-spacing: 0.3px;
         }
 
-        body.dark-mode .nav-links a {
-            color: #fff;
+        .nav-links a i {
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .nav-links a:hover {
             background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            transform: translateY(-1px);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a:hover i {
+            color: #ff6b6b;
+        }
+
+        .nav-links a.active {
+            background: rgba(255, 107, 107, 0.15);
+            color: #ff6b6b !important;
+            border-color: rgba(255, 107, 107, 0.2);
+            font-weight: 600;
+        }
+
+        .nav-links a.active i {
+            color: #ff6b6b;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ff8a80;
+        }
+
+        body.dark-mode .nav-links a.active {
+            background: #ff6b6b;
+            color: white !important;
         }
 
         .nav-actions {
@@ -105,38 +617,69 @@
         }
 
         .dark-mode-btn {
-            background-color: #3e2723;
-            border: none;
-            color: white;
-            padding: 0.7rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.9);
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            cursor: pointer;
-            font-size: 1rem;
-            width: 45px;
-            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .dark-mode-btn:hover {
+            background: rgba(255, 107, 107, 0.2);
+            transform: rotate(30deg);
+            color: #ff6b6b;
+            border-color: rgba(255, 107, 107, 0.3);
         }
 
         body.dark-mode .dark-mode-btn {
-            background: linear-gradient(45deg, #f39c12 0%, #f1c40f 100%);
+            background: rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #ff8a80;
+        }
+
+        body.dark-mode .dark-mode-btn:hover {
+            background: rgba(0, 0, 0, 0.3);
         }
 
         .login-btn {
-            background-color: #d18a68;
-            color: white;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white !important;
+            padding: 0.6rem 1.5rem !important;
+            border-radius: 50px;
             font-weight: 600;
-            display: flex;
+            transition: all 0.3s ease;
+            text-decoration: none !important;
+            display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
         }
 
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .login-btn i {
+            font-size: 0.9rem;
+        }
+
+        /* Dark mode specific styles */
         body.dark-mode .login-btn {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white !important;
+        }
+
+        body.dark-mode .login-btn:hover {
+            background: linear-gradient(45deg, #ff8e8e, #ff6b6b);
         }
 
         .hamburger {
@@ -183,7 +726,9 @@
             margin-bottom: 0.6rem;
             background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
+            color: transparent;
             margin-bottom: 1.5rem;
         }
 
@@ -227,73 +772,183 @@
         }
 
         .contact-form-box {
-            background: #fff5ed;
-            padding: 2.5rem 2rem;
-            border-radius: 24px;
-            box-shadow: 0 3px 18px rgba(78, 205, 196, 0.07);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
-        body.dark-mode .contact-form-box {
-            background: #1a1a1a;
+        .contact-form-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
         }
 
         .contact-form-title {
-            font-size: 1.52rem;
+            font-size: 2rem;
+            color: #3e2723;
+            margin-bottom: 2rem;
+            text-align: center;
             font-weight: 700;
-            margin-bottom: 1.25rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .contact-form-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+            border-radius: 3px;
         }
 
         .form-row {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .form-row input {
-            flex: 1;
+        @media (max-width: 600px) {
+            .form-row {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
         }
 
-        .contact-form input,
-        .contact-form textarea {
+        .form-group {
+            position: relative;
             width: 100%;
-            padding: 0.85rem;
-            margin-bottom: 1.1rem;
-            border-radius: 12px;
-            border: 1px solid #ccc;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.2s;
+            margin-bottom: 1.5rem;
         }
 
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: #4ecdc4;
-            outline: none;
+        .form-group label {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0 0.5rem;
+            font-size: 0.95rem;
+            border-radius: 4px;
+            transform-origin: left center;
         }
-
-        .contact-form textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .contact-form button {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            color: #fff;
-            font-size: 1.16rem;
-            font-weight: 700;
-            border: none;
-            border-radius: 25px;
-            padding: 0.85rem 2.7rem;
-            cursor: pointer;
-            box-shadow: 0 3px 14px rgba(255, 107, 107, 0.16);
-            transition: transform 0.2s;
-        }
-
-        .contact-form button:hover {
-            transform: scale(1.05);
-            background: linear-gradient(45deg, #4ecdc4, #ff6b6b);
-        }
-
         
+        input:focus + label,
+        textarea:focus + label,
+        input:not(:placeholder-shown) + label,
+        textarea:not(:placeholder-shown) + label {
+            top: 0;
+            transform: translateY(-50%) scale(0.9);
+            color: #ff6b6b;
+            background: #fff;
+            font-weight: 600;
+        }
+
+        .form-group input:focus + label,
+        .form-group textarea:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:not(:placeholder-shown) + label {
+            transform: translateY(-1.5rem) scale(0.9);
+            color: #ff6b6b;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 1.2rem 1rem;
+            border: 2px solid #f0f0f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Comic Neue', cursive;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: #3e2723;
+        }
+        
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            border: none;
+            padding: 1.1rem 2.8rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 2rem auto 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            width: 100%;
+            max-width: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+            position: relative;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            padding: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group:focus-within {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.3);
+        }
+
         .footer {
             background: radial-gradient(circle at center, #e9b4b6, #e5c5b3);
             backdrop-filter: blur(15px);
@@ -518,40 +1173,170 @@
         .social-link.email {
             background: red;
         }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #f0f0f0;
+        }
+
+        body.dark-mode .contact-box {
+            background: #1e1e1e;
+            border-color: #333;
+        }
+
+        body.dark-mode .contact-title,
+        body.dark-mode .contact-desc,
+        body.dark-mode .form-label,
+        body.dark-mode .form-control,
+        body.dark-mode .form-control::placeholder {
+            color: #f0f0f0;
+        }
+
+        body.dark-mode .form-control {
+            background-color: #2d2d2d;
+            border-color: #444;
+            color: #f0f0f0;
+        }
+
+        body.dark-mode .btn-primary {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+        }
+
+        body.dark-mode .footer {
+            background: #121212;
+            color: #f0f0f0;
+            border-top: 1px solid #333;
+        }
+
+        body.dark-mode .footer-title,
+        body.dark-mode .footer-links a,
+        body.dark-mode .footer-bottom {
+            color: #f0f0f0;
+        }
+
+        body.dark-mode .footer-links a:hover {
+            color: #ff6b6b;
+        }
+
+        .footer-links a:hover {
+            color: black;
+            transform: translateX(4px);
+        }
     </style>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <span class="logo-icon">🍰</span>
-                <span class="logo-text">BakeGenius.ai</span>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo-wrapper">
+                <span class="logo-icon"><i class="fas fa-cookie-bite"></i></span>
+                <span class="logo-text">BakeGenius<span class="logo-highlight">.ai</span></span>
             </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
-                <li><a href="convert.html"><i class="fas fa-exchange-alt"></i>Convert Recipe</a></li>
-                <li><a href="customize.html"><i class="fas fa-cog"></i>Customize</a></li>
-                <li><a href="scale.html"><i class="fas fa-balance-scale"></i>Scale Recipes</a></li>
-                <li><a href="about.html"><i class="fas fa-info-circle"></i>About</a></li>
-                <li><a href="contact.html"><i class="fas fa-envelope"></i>Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode"><i
-                        class="fas fa-moon"></i></button>
-                <a href="#" class="login-btn" id="openLoginModal"><i class="fas fa-user"></i>Login</a>
-                <a href="#" class="login-btn" id="logoutBtn" style="display: none;"><i
-                        class="fas fa-sign-out-alt"></i>Logout</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span><span></span><span></span>
+            <nav class="main-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
+                    <li class="nav-item"><a href="convert.html" class="nav-link"><i class="fas fa-exchange-alt"></i><span>Convert Recipe</span></a></li>
+                    <li class="nav-item"><a href="customize.html" class="nav-link"><i class="fas fa-sliders-h"></i><span>Customize</span></a></li>
+                    <li class="nav-item"><a href="scale.html" class="nav-link"><i class="fas fa-balance-scale"></i><span>Scale Recipes</span></a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i><span>About Us</span></a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <button class="theme-toggle" id="darkModeToggle" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#" class="user-profile" title="User Profile"><i class="fas fa-user-cog"></i></a>
+                <a href="#" class="btn btn-login" id="openLoginModal"><i class="fas fa-sign-in-alt"></i><span>Login</span></a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                </button>
             </div>
         </div>
-    </nav>
+    </header>
+
+    <!-- Dark Mode Script -->
+    <script>
+    // Dark Mode Toggle Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.querySelector('.main-nav');
+        const menuLines = document.querySelectorAll('.menu-line');
+        
+        // Check for saved dark mode preference
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        
+        // Apply dark mode if previously enabled
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+            updateDarkModeIcon(true);
+        }
+        
+        // Set up dark mode toggle
+        if (darkModeToggle) {
+            darkModeToggle.addEventListener('click', function() {
+                const isDark = document.body.classList.toggle('dark-mode');
+                localStorage.setItem('darkMode', isDark);
+                updateDarkModeIcon(isDark);
+            });
+        }
+        
+        // Mobile menu toggle
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                if (mainNav) mainNav.classList.toggle('active');
+                
+                // Animate menu icon
+                menuLines.forEach((line, index) => {
+                    if (line && line.style) {
+                        line.style.transform = this.classList.contains('active') ? 
+                            `rotate(${index === 0 ? 45 : index === 1 ? 0 : -45}deg) translate(${index === 0 ? '4px, 4px' : index === 1 ? '0, 0' : '4px, -4px'})` : 
+                            'none';
+                        line.style.opacity = this.classList.contains('active') && index === 1 ? '0' : '1';
+                    }
+                });
+            });
+        }
+        
+        // Close mobile menu when clicking on a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mainNav && mainNav.classList.contains('active') && mobileMenuToggle) {
+                    mobileMenuToggle.click();
+                }
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (mainNav && mainNav.classList.contains('active') && 
+                mobileMenuToggle &&
+                !e.target.closest('.main-nav') && 
+                !e.target.closest('.mobile-menu-toggle')) {
+                mobileMenuToggle.click();
+            }
+        });
+        
+        // Update the dark mode icon based on current state
+        function updateDarkModeIcon(isDark) {
+            const icon = darkModeToggle ? darkModeToggle.querySelector('i') : null;
+            if (icon) {
+                icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+    });
+    </script>
 
     <!-- Main Content -->
     <main class="main-content">
+        <div class="container">
         <div class="contact-box">
             <div class="contact-title" style="text-align: center;">Contact Us</div>
             <div class="contact-desc">
@@ -559,21 +1344,38 @@
             </div>
 
             <div class="contact-form-box">
-                <center><div class="contact-form-title">Send a Message</div>
+                <div class="contact-form-title">Send a Message</div>
                 <form class="contact-form" id="bakeContactForm" autocomplete="off">
                     <div class="form-row">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
+                        <div class="form-group">
+                            <input type="text" name="name" id="name" placeholder="Your Name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" placeholder="Your Email" required>
+                            <label for="email">Your Email</label>
+                        </div>
                     </div>
-                    <input type="text" name="subject" placeholder="Subject" required>
-                    <textarea name="message" placeholder="Your Message" required></textarea>
-                    <center><button type="submit">Send Message</button>
-
-                    <div id="contactSuccess" style="color:#4ecdc4;padding-top:8px;display:none;">Message sent! Thank you
-                        for contacting us. 🍰</div>
+                    <div class="form-group">
+                        <input type="text" name="subject" id="subject" placeholder="Subject" required>
+                        <label for="subject">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" id="message" placeholder="Your Message" required></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                    <div id="contactSuccess" class="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Message sent! Thank you for contacting us. 🍰</span>
+                    </div>
                 </form>
             </div>
         </div>
+    </div>
     </main>
 
     <!-- Footer (identical to index.html) -->
@@ -644,29 +1446,81 @@
     <!-- Dark Mode Script -->
     <script src="assets/js/dark-mode.js"></script>
     <script>
-        // Mobile Navigation Toggle
-        const hamburger = document.getElementById("hamburger");
-        const navLinks = document.getElementById("navLinks");
-        hamburger.addEventListener("click", (e) => {
-            e.stopPropagation();
-            navLinks.classList.toggle("active");
-            hamburger.classList.toggle("active");
-        });
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll(".nav-links a").forEach(item => {
-            item.addEventListener("click", () => {
-                navLinks.classList.remove("active");
-                hamburger.classList.remove("active");
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mainNav = document.querySelector('.main-nav');
+            const menuLines = document.querySelectorAll('.menu-line');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            
+            // Toggle mobile menu
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    if (mainNav) mainNav.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                    
+                    // Animate menu icon
+                    menuLines.forEach((line, index) => {
+                        if (line && line.style) {
+                            line.style.transform = this.classList.contains('active') ? 
+                                `rotate(${index === 0 ? 45 : index === 1 ? 0 : -45}deg) translate(${index === 0 ? '4px, 4px' : index === 1 ? '0, 0' : '4px, -4px'})` : 
+                                'none';
+                            line.style.opacity = this.classList.contains('active') && index === 1 ? '0' : '1';
+                        }
+                    });
+                });
+            }
+            
+            // Close mobile menu when clicking on a nav link
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav && mainNav.classList.contains('active') && mobileMenuToggle) {
+                        mobileMenuToggle.click();
+                    }
+                });
             });
-        });
-        // Close menu when clicking outside
-        document.addEventListener("click", (e) => {
-            if (navLinks.classList.contains("active") &&
-                !hamburger.contains(e.target) &&
-                !navLinks.contains(e.target)
-            ) {
-                navLinks.classList.remove("active");
-                hamburger.classList.remove("active");
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (mainNav && mainNav.classList.contains('active') && 
+                    mobileMenuToggle &&
+                    !e.target.closest('.main-nav') && 
+                    !e.target.closest('.mobile-menu-toggle')) {
+                    mobileMenuToggle.click();
+                }
+            });
+            
+            // Add active class to current page link
+            const currentLocation = location.href;
+            navLinks.forEach(link => {
+                if (link.href === currentLocation) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Dark mode toggle
+            if (darkModeToggle) {
+                darkModeToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('dark-mode');
+                    const isDarkMode = document.body.classList.contains('dark-mode');
+                    localStorage.setItem('darkMode', isDarkMode);
+                    updateDarkModeIcon(isDarkMode);
+                });
+                
+                // Check for saved dark mode preference
+                if (localStorage.getItem('darkMode') === 'true') {
+                    document.body.classList.add('dark-mode');
+                    updateDarkModeIcon(true);
+                }
+                
+                function updateDarkModeIcon(isDark) {
+                    const icon = darkModeToggle.querySelector('i');
+                    if (icon) {
+                        icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+                    }
+                }
             }
         });
         
