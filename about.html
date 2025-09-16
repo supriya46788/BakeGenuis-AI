@@ -37,13 +37,31 @@
         <a href="index.html" class="logo">
           <div class="logo">🍰 BakeGenius.ai</div>
         </a>
-        <ul class="nav-links">
+        <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Home</a></li>
           <li><a href="convert.html">Convert Recipe</a></li>
           <li><a href="customize.html">Customize</a></li>
           <li><a href="scale.html">Scale Recipes</a></li>
           <li><a href="about.html" class="active">About Us</a></li>
         </ul>
+        <div class="nav-actions">
+          <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+          </button>
+          <a href="#" class="login-btn" id="openLoginModal">
+            <i class="fas fa-user"></i>
+            Login
+          </a>
+          <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+          </a>
+        </div>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </nav>
 
@@ -199,5 +217,34 @@
       </div>
     </footer>
   </body>
+  <script src="assets/js/dark-mode.js"></script>
   <script src="assets/js/about.js"></script>
+  <script>
+    // Mobile Navigation Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    const navItems = document.querySelectorAll('.nav-links a');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      }
+    });
+  </script>
 </html>
