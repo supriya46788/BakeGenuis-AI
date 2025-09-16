@@ -964,33 +964,56 @@
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
-                top: 80px;
-                left: 0;
+                top: 70px;
+                left: -100%;
                 width: 100%;
-                height: calc(100vh - 80px);
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(10px);
+                height: calc(100vh - 70px);
                 flex-direction: column;
-                justify-content: start;
-                padding-top: 2rem;
-                gap: 1rem;
-                transition: left 0.3s ease;
+                background: #fff;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                transition: all 0.3s ease-in-out;
+                padding: 2rem 0;
+                z-index: 1000;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                overflow-y: auto;
+            }
+
+            body.dark-mode .nav-links {
+                background: rgba(26, 26, 26, 0.98);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             }
 
             .nav-links.active {
                 left: 0;
             }
 
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                margin: 0.5rem 0;
+            }
+
+            .nav-links a {
+                width: 80%;
+                margin: 0 auto;
+                padding: 1rem;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            }
+
             .hamburger {
                 display: flex;
+                z-index: 1001;
+                cursor: pointer;
             }
 
-            .hero-title {
-                font-size: 2.5rem;
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
             }
 
-            .hero-section {
-                padding: 2rem;
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
                 margin: 1rem;
             }
 
@@ -1503,7 +1526,8 @@
 
     <!-- Dark Mode Script -->
     <script src="assets/js/dark-mode.js"></script>
-
+    
+    <script>
         // Mobile Navigation Toggle
         const hamburger = document.getElementById("hamburger");
         const navLinks = document.getElementById("navLinks");
@@ -1733,6 +1757,14 @@
             if (e.target === loginModal) {
                 loginModal.style.display = "none";
             }
+        });
+    </script>
+    
+    <!-- Add this script at the end of the body -->
+    <script>
+        // Initialize any necessary functionality when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Your initialization code here
         });
     </script>
 </body>

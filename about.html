@@ -13,6 +13,7 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 />
+    <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/about.css">
 
   </head>
@@ -31,39 +32,83 @@
       <div class="sparkles" id="sparkles"></div>
     </div>
 
-    <!-- Navigation -->
-    <nav>
-      <div class="nav-container">
-        <a href="index.html" class="logo">
-          <div class="logo">🍰 BakeGenius.ai</div>
-        </a>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="convert.html">Convert Recipe</a></li>
-          <li><a href="customize.html">Customize</a></li>
-          <li><a href="scale.html">Scale Recipes</a></li>
-          <li><a href="about.html" class="active">About Us</a></li>
-        </ul>
-        <div class="nav-actions">
-          <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
-            <i class="fas fa-moon"></i>
-          </button>
-          <a href="#" class="login-btn" id="openLoginModal">
-            <i class="fas fa-user"></i>
-            Login
-          </a>
-          <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
-            <i class="fas fa-sign-out-alt"></i>
-            Logout
-          </a>
+    <!-- Load Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Include Header Directly -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo-wrapper">
+                <span class="logo-icon"><i class="fas fa-cookie-bite"></i></span>
+                <span class="logo-text">BakeGenius<span class="logo-highlight">.ai</span></span>
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
+                    <li class="nav-item"><a href="convert.html" class="nav-link"><i class="fas fa-exchange-alt"></i><span>Convert Recipe</span></a></li>
+                    <li class="nav-item"><a href="customize.html" class="nav-link"><i class="fas fa-sliders-h"></i><span>Customize</span></a></li>
+                    <li class="nav-item"><a href="scale.html" class="nav-link"><i class="fas fa-balance-scale"></i><span>Scale Recipes</span></a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i><span>About Us</span></a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <button class="theme-toggle" id="darkModeToggle" title="Toggle Dark Mode" style="background: transparent; border: none; color: #fff; font-size: 1.2rem; cursor: pointer; padding: 8px; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#" class="user-profile" title="User Profile"><i class="fas fa-user-cog"></i></a>
+                <a href="#" class="btn btn-login" id="openLoginModal"><i class="fas fa-sign-in-alt"></i><span>Login</span></a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" style="background: transparent; border: none; padding: 8px; cursor: pointer;">
+                    <span class="menu-line" style="display: block; width: 25px; height: 2px; background: #fff; margin: 5px 0; transition: all 0.3s ease;"></span>
+                    <span class="menu-line" style="display: block; width: 25px; height: 2px; background: #fff; margin: 5px 0; transition: all 0.3s ease;"></span>
+                    <span class="menu-line" style="display: block; width: 25px; height: 2px; background: #fff; margin: 5px 0; transition: all 0.3s ease;"></span>
+                </button>
+            </div>
         </div>
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </nav>
+    </header>
+    
+    <!-- Dark Mode Script -->
+    <script>
+    // Dark Mode Toggle Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.querySelector('.main-nav');
+        
+        // Check for saved dark mode preference
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        
+        // Apply dark mode if previously enabled
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+            updateDarkModeIcon(true);
+        }
+        
+        // Set up dark mode toggle
+        if (darkModeToggle) {
+            darkModeToggle.addEventListener('click', function() {
+                const isDark = document.body.classList.toggle('dark-mode');
+                localStorage.setItem('darkMode', isDark);
+                updateDarkModeIcon(isDark);
+            });
+        }
+        
+        // Mobile menu toggle
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+        }
+        
+        // Update the dark mode icon based on current state
+        function updateDarkModeIcon(isDark) {
+            const icon = darkModeToggle ? darkModeToggle.querySelector('i') : null;
+            if (icon) {
+                icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+    });
+    </script>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -74,7 +119,7 @@
     </section>
 
     <!-- Main Content -->
-    <div class="container">
+    <div class="container main-content">
       <!-- What is BakeGenius.ai Section -->
       <section class="section-card animate-on-scroll">
         <div class="section-header">
@@ -217,34 +262,173 @@
       </div>
     </footer>
   </body>
-  <script src="assets/js/dark-mode.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/header-functions.js"></script>
   <script src="assets/js/about.js"></script>
+  <style>
+    /* Ensure content is properly spaced below the fixed header */
+    .main-content {
+      padding-top: 2rem;
+      min-height: calc(100vh - 200px); /* Adjust based on your footer height */
+    }
+    
+    /* Dark mode styles for about page content */
+    body.dark-mode {
+      background: #121212;
+      color: #f0f0f0;
+    }
+    
+    body.dark-mode .hero-title,
+    body.dark-mode .hero-subtitle,
+    body.dark-mode .section-title,
+    body.dark-mode .creator-name,
+    body.dark-mode .creator-title {
+      color: #ffffff;
+    }
+    
+    body.dark-mode .section-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    body.dark-mode .section-content {
+      color: rgba(255, 255, 255, 0.85);
+    }
+    
+    body.dark-mode .social-link {
+      color: #ff6b6b;
+      border-color: #ff6b6b;
+    }
+    
+    body.dark-mode .social-link:hover {
+      background: rgba(255, 107, 107, 0.1);
+    }
+    
+    body.dark-mode .logo-text {
+      color: #ffffff;
+    }
+    
+    body.dark-mode .nav-link {
+      color: rgba(255, 255, 255, 0.85);
+    }
+    
+    body.dark-mode .nav-link:hover,
+    body.dark-mode .nav-link.active {
+      color: #ff6b6b;
+    }
+    
+    body.dark-mode .theme-toggle,
+    body.dark-mode .user-profile {
+      background: rgba(255, 255, 255, 0.05);
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    body.dark-mode .btn-login {
+      background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+      color: white;
+    }
+  </style>
   <script>
-    // Mobile Navigation Toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-
-    hamburger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      navLinks.classList.toggle('active');
-      hamburger.classList.toggle('active');
-    });
-
-    // Close mobile menu when clicking on a link
-    const navItems = document.querySelectorAll('.nav-links a');
-    navItems.forEach(item => {
-      item.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        hamburger.classList.remove('active');
-      });
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-        navLinks.classList.remove('active');
-        hamburger.classList.remove('active');
-      }
+    // Mobile Menu Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.querySelector('.main-nav');
+        const menuLines = document.querySelectorAll('.menu-line');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        
+        // Toggle mobile menu
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                if (mainNav) mainNav.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
+                
+                // Animate menu icon
+                menuLines.forEach((line, index) => {
+                    if (line && line.style) {
+                        line.style.transform = this.classList.contains('active') ? 
+                            `rotate(${index === 0 ? 45 : index === 1 ? 0 : -45}deg) translate(${index === 0 ? '4px, 4px' : index === 1 ? '0, 0' : '4px, -4px'})` : 
+                            'none';
+                        line.style.opacity = this.classList.contains('active') && index === 1 ? '0' : '1';
+                    }
+                });
+            });
+        }
+        
+        // Close mobile menu when clicking on a nav link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mainNav && mainNav.classList.contains('active') && mobileMenuToggle) {
+                    mobileMenuToggle.click();
+                }
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (mainNav && mainNav.classList.contains('active') && 
+                mobileMenuToggle &&
+                !e.target.closest('.main-nav') && 
+                !e.target.closest('.mobile-menu-toggle')) {
+                mobileMenuToggle.click();
+            }
+        });
+        
+        // Add active class to current page link
+        const currentLocation = location.href;
+        navLinks.forEach(link => {
+            if (link.href === currentLocation) {
+                link.classList.add('active');
+            }
+        });
+        
+        // Dark mode toggle
+        if (darkModeToggle) {
+            darkModeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+                const isDarkMode = document.body.classList.contains('dark-mode');
+                localStorage.setItem('darkMode', isDarkMode);
+                updateDarkModeIcon(isDarkMode);
+            });
+            
+            // Check for saved dark mode preference
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
+                updateDarkModeIcon(true);
+            }
+            
+            function updateDarkModeIcon(isDark) {
+                const icon = darkModeToggle.querySelector('i');
+                if (icon) {
+                    icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+                }
+            }
+        }
+        
+        // Additional navigation items click handler
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+          item.addEventListener('click', () => {
+            const navLinks = document.querySelector('.main-nav');
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            if (navLinks && mobileMenuToggle) {
+              navLinks.classList.remove('active');
+              mobileMenuToggle.classList.remove('active');
+              document.body.classList.remove('menu-open');
+              
+              // Reset menu icon
+              const menuLines = document.querySelectorAll('.menu-line');
+              menuLines.forEach((line, index) => {
+                if (line && line.style) {
+                  line.style.transform = 'none';
+                  line.style.opacity = '1';
+                }
+              });
+            }
+          });
+        });
     });
   </script>
 </html>
