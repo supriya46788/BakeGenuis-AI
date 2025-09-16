@@ -1086,6 +1086,7 @@ display: flex !important;
 #contributors-container {
   display: flex;
   flex-wrap: wrap;
+  color: wheat;
   gap: 10px;
   margin-top: 10px;
 }
