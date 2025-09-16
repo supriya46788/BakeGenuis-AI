@@ -32,7 +32,7 @@
         }
 
         body.dark-mode {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
             color: var(--dark-text);
         }
 
@@ -578,6 +578,156 @@
             color: #ff8a80;
         }
 
+        /* Dark Mode Styles for Main Content */
+        body.dark-mode .input-section,
+        body.dark-mode .output-section {
+            background: linear-gradient(145deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.90));
+            color: var(--dark-text);
+            border: 1px solid rgba(83, 52, 131, 0.3);
+            box-shadow: 0 15px 35px rgba(83, 52, 131, 0.2), 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .section-title {
+            color: #64ffda;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+        }
+
+        body.dark-mode .header h1 {
+            color: #64ffda;
+            text-shadow: 0 0 20px rgba(100, 255, 218, 0.4);
+        }
+
+        body.dark-mode .header p {
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .input-label,
+        body.dark-mode .output-label {
+            color: #bb86fc;
+            font-weight: 600;
+        }
+
+        body.dark-mode .input-field,
+        body.dark-mode .output-field {
+            background: linear-gradient(145deg, rgba(15, 15, 35, 0.8), rgba(26, 26, 46, 0.6));
+            color: var(--dark-text);
+            border: 2px solid rgba(187, 134, 252, 0.3);
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .input-field:focus,
+        body.dark-mode .output-field:focus {
+            border-color: #64ffda;
+            box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.2), inset 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .recipe-textarea {
+            background: linear-gradient(145deg, rgba(15, 15, 35, 0.9), rgba(26, 26, 46, 0.7));
+            color: var(--dark-text);
+            border: 2px solid rgba(187, 134, 252, 0.3);
+            box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .recipe-textarea:focus {
+            border-color: #64ffda;
+            box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.2), inset 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .recipe-textarea::placeholder {
+            color: rgba(187, 134, 252, 0.6);
+        }
+
+        body.dark-mode .scale-button {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53, #ff6b9d);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4), 0 0 20px rgba(255, 142, 83, 0.2);
+        }
+
+        body.dark-mode .scale-button:hover {
+            background: linear-gradient(45deg, #ff5252, #ff7043, #f06292);
+            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6), 0 0 30px rgba(255, 142, 83, 0.3);
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        body.dark-mode .result-item {
+            background: linear-gradient(145deg, rgba(15, 15, 35, 0.8), rgba(22, 33, 62, 0.6));
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            color: var(--dark-text);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .result-item:hover {
+            border-color: #64ffda;
+            box-shadow: 0 12px 30px rgba(100, 255, 218, 0.2), 0 0 15px rgba(100, 255, 218, 0.1);
+            transform: translateY(-2px);
+        }
+
+        body.dark-mode .slider {
+            background: linear-gradient(145deg, #2d2d3a, #1a1a2e);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .slider:before {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode input:checked + .slider {
+            background: linear-gradient(45deg, #ff6b6b, #64ffda);
+            box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+        }
+
+        body.dark-mode .toggle-container label {
+            color: #bb86fc;
+            font-weight: 600;
+        }
+
+        body.dark-mode .results-container {
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .ingredient-item {
+            background: linear-gradient(145deg, rgba(15, 15, 35, 0.7), rgba(26, 26, 46, 0.5));
+            color: var(--dark-text);
+            border: 1px solid rgba(187, 134, 252, 0.2);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .ingredient-item:hover {
+            border-color: #bb86fc;
+            box-shadow: 0 8px 24px rgba(187, 134, 252, 0.2), 0 0 12px rgba(187, 134, 252, 0.1);
+            transform: translateY(-1px);
+        }
+
+        /* Dark Mode Floating Elements */
+        body.dark-mode .floating-cupcake {
+            filter: drop-shadow(0 0 8px rgba(100, 255, 218, 0.3));
+            animation: float 6s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 8px rgba(100, 255, 218, 0.3)); }
+            to { filter: drop-shadow(0 0 15px rgba(187, 134, 252, 0.5)); }
+        }
+
+        /* Dark Mode Scrollbar */
+        body.dark-mode ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        body.dark-mode ::-webkit-scrollbar-track {
+            background: linear-gradient(180deg, #1a1a2e, #16213e);
+        }
+
+        body.dark-mode ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #64ffda, #bb86fc);
+            border-radius: 4px;
+        }
+
+        body.dark-mode ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #4fd3b8, #9c6fff);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -596,6 +746,10 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%) !important;
         }
 
         /* Animated Background Elements */
