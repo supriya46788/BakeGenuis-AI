@@ -887,7 +887,7 @@ nav {
   margin-bottom: 2rem;
 }
 
-.social-link {
+/*.social-link {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -932,7 +932,7 @@ nav {
 .social-link span {
   position: relative;
   z-index: 1;
-}
+} */
 
 /* styles for search input for contributors section */
 .search-contributer-box {
