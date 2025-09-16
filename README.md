@@ -194,7 +194,7 @@ supriya46788/
 
 ---
 
-**📥 Setup Instructions**
+## 📥 Setup Instructions
 
 🛠️ How to Run Locally
 
@@ -289,7 +289,8 @@ We welcome contributions from all levels – beginners and experts alike.
 
 ### ✅ Steps to Get Started:
 
-1. 🔧 Follow the [📥 Setup Instructions](#📥-setup-instructions) to run the project locally.
+1. 🔧 Follow the [Setup Instructions](#📥-setup-instructions)
+ to run the project locally.
 2. 🌐 Explore the live preview:  
    👉 [BakeGenius-AI Preview Link](https://supriya46788.github.io/BakeGenuis-AI/)
 3. 🐛 Found a bug or want to suggest UI/UX improvements?  
