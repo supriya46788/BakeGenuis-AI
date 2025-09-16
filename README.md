@@ -406,3 +406,11 @@ This project is licensed under the MIT License - see the [`License`](https://git
 ---
 
 Ready to show off your coding achievements? Get started with **BakeGenius-AI** today! 🚀
+
+## 🎥 Demo Vid
+
+https://github.com/user-attachments/assets/ea53be5c-8f9f-4a41-b67f-d974b7534282
+
+
+
+
