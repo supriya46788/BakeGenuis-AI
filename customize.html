@@ -3,25 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customize - BakeGenius.ai</title>
+    <title>Convert Recipe - BakeGenius.ai</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --candy-red: #FF6B6B;
-            --sky-blue: #4ECDC4;
-            --sunny-yellow: #FFD93D;
+            --candy-red: #ffabab;
+            --sky-blue: #249e96;
+            --sunny-yellow: #fcd124;
             --soft-pink: #FFB6C1;
-            --mint-green: #98FB98;
+            --mint-green: #9af89a;
             --lavender: #E6E6FA;
             --dark-bg: #1a1a1a;
             --dark-card: #2d2d2d;
-            --dark-text: #ffffff;
+            --dark-text: #e7e3e3;
             --dark-border: #404040;
+            --white: #FFFFFF;
+            --dark-gray: #1A1A1A;
+            --light-gray: #F8F9FA;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --glass: rgba(255, 255, 255, 0.15);
+        }
+         /* Footer Modern Multi-Column */
+       
+         .footer {
+            background: radial-gradient(circle at center,#e9b4b6,#e5c5b3);
+            backdrop-filter: blur(15px);
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding: 3rem 2rem 2rem;
         }
 
-        body.dark-mode {
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+        .footer-section h3.footer-title {
+            color:#3e2723;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-section h3.footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background:#3e2723;
+            border-radius: 2px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color:#3e2723;
+        }
+
+        .footer-logo-icon {
+            font-size: 2rem;
+        }
+
+        .footer-description {
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.3rem 0;
+            border-radius: 5px;
+        }
+
+        .footer-links a:hover {
+            color: black;
+            transform: translateX(4px);
+            background: rgba(255, 107, 107, 0.1);
+            padding-left: 0.8rem;
+        }
+
+        .footer-links i {
+            font-size: 0.9rem;
+            width: 16px;
+            opacity: 0.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-link.linkedin {
+            background:#0a66c2;
+        }
+
+        .social-link.github {
+            background:black;
+        }
+
+        .social-link.portfolio {
+            background:navy;
+        }
+
+        .social-link.email {
+            background:red;
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+        }
+
+        .footer-bottom-content {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .copyright {
+            color: #333;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .copyright .name {
+            color:#3e2723;
+            font-weight: 600;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-badges {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .badge-green {
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+        }
+
+        .badge-blue {
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+        }
+
+        .badge-purple {
+           background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .footer-badges {
+                justify-content: center;
+            }
         }
 
         * {
@@ -30,49 +261,17 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --candy-red: #FF4757;
-            --sky-blue: #70A1FF;
-            --sunny-yellow: #FFA502;
-            --white: #FFFFFF;
-            --light-pink: #FFE0E6;
-            --light-blue: #E8F4FF;
-            --light-yellow: #FFF5E0;
-        }
-
         body {
             font-family: 'Comic Neue', cursive;
-            background-color:#f5f3f1;
+            background-color: #f5f3f1;
             min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
+            color: var(--white);
+            transition: all 0.3s ease;
         }
 
-        /* Animated Background Elements */
-        .floating-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .floating-cupcake {
-            position: absolute;
-            font-size: 2rem;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-cupcake:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-        .floating-cupcake:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
-        .floating-cupcake:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 4s; }
-        .floating-cupcake:nth-child(4) { bottom: 30%; right: 10%; animation-delay: 1s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+        body.dark-mode {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
+            color: var(--dark-text);
         }
 
         /* Navigation */
@@ -128,7 +327,7 @@
 
         .logo:hover {
             transform: scale(1.05);
-            color:#3e2723;
+            color: #3e2723;
         }
 
         .logo:hover .logo-icon {
@@ -284,6 +483,24 @@
             background: linear-gradient(45deg, #3498db, #9b59b6);
         }
 
+        /* Dark Mode Styles for Content */
+        body.dark-mode .input-label {
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .recipe-input {
+            color: var(--dark-text);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .unit-toggle button {
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .unit-toggle {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
         .hamburger.active span:nth-child(1) {
             transform: rotate(-45deg) translate(-5px, 6px);
         }
@@ -295,6 +512,44 @@
         .hamburger.active span:nth-child(3) {
             transform: rotate(45deg) translate(-5px, -6px);
         }
+         body.dark-mode .footer {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .footer-section h3.footer-title {
+            color: #ff8a80;
+        }
+
+        body.dark-mode .footer-logo {
+            color: #ff8a80;
+        }
+
+        body.dark-mode .footer-description {
+            color: #ccc;
+        }
+
+        body.dark-mode .footer-links a {
+            color: #ccc;
+        }
+
+        body.dark-mode .footer-links a:hover {
+            color: #ff8a80;
+            background: rgba(255, 138, 128, 0.1);
+        }
+
+        body.dark-mode .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .copyright {
+            color: #ccc;
+        }
+
+        body.dark-mode .copyright a {
+            color: #ff8a80;
+        }
+
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -396,410 +651,11 @@
             }
         }
 
-        /* Footer Styles */
-        .footer {
-            background: radial-gradient(circle at center,#e9b4b6,#e5c5b3);
-            backdrop-filter: blur(15px);
-            position: relative;
-            z-index: 2;
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1500px;
+        /* Main Content */
+        main {
+            padding: 6rem 2rem 2rem;
+            max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            padding: 3rem 2rem 2rem;
-        }
-
-        .footer-section h3.footer-title {
-            color: #3e2723;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .footer-section h3.footer-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 30px;
-            height: 3px;
-            background:#3e2723;
-            border-radius: 2px;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color:#3e2723;
-        }
-
-        .footer-logo-icon {
-            font-size: 2rem;
-        }
-
-        .footer-description {
-            color: #333;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
-        }
-
-        .footer-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: #333;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.3rem 0;
-            border-radius: 5px;
-        }
-
-        .footer-links a:hover {
-            color: black;
-            transform: translateX(4px);
-            background: rgba(255, 107, 107, 0.1);
-            padding-left: 0.8rem;
-        }
-
-        .footer-links i {
-            font-size: 0.9rem;
-            width: 16px;
-            opacity: 0.7;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
-            color: white;
-            text-decoration: none;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .social-link:hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .social-link.linkedin {
-            background:#0a66c2;
-        }
-
-        .social-link.github {
-            background:black;
-        }
-
-        .social-link.portfolio {
-            background:navy;
-        }
-
-        .social-link.email {
-            background:red;
-        }
-
-        .footer-bottom {
-            background: rgba(0, 0, 0, 0.05);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1.5rem 0;
-        }
-
-        .footer-bottom-content {
-            max-width: 1500px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .copyright {
-            color: #333;
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        .copyright .name {
-            color:#3e2723;
-            font-weight: 600;
-        }
-
-        .footer-badges {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .badge:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .badge-green {
-            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
-        }
-
-        .badge-blue {
-            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
-        }
-
-        .badge-purple {
-            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
-        }
-
-        @media (max-width: 1024px) {
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-
-            .footer-bottom-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            .footer-badges {
-                justify-content: center;
-            }
-        }
-
-        /* Dark Mode Styles for Content */
-        body.dark-mode .page-subtitle {
-            color: rgba(255, 255, 255, 0.8);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        body.dark-mode .page-title {
-            color: #64ffda;
-            text-shadow: 0 0 20px rgba(100, 255, 218, 0.4);
-        }
-
-        body.dark-mode .ingredient-card {
-            background: linear-gradient(145deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.90));
-            border: 1px solid rgba(83, 52, 131, 0.3);
-            color: var(--dark-text);
-            box-shadow: 0 15px 35px rgba(83, 52, 131, 0.2), 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        body.dark-mode .ingredient-card:hover {
-            border-color: #64ffda;
-            box-shadow: 0 20px 45px rgba(100, 255, 218, 0.3), 0 8px 20px rgba(0, 0, 0, 0.4);
-            transform: translateY(-5px) scale(1.02);
-        }
-
-        body.dark-mode .ingredient-name {
-            color: #64ffda;
-            text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
-        }
-
-        body.dark-mode .control-label {
-            color: #bb86fc;
-            font-weight: 600;
-        }
-
-        body.dark-mode .custom-select,
-        body.dark-mode .custom-input {
-            background: linear-gradient(145deg, rgba(15, 15, 35, 0.8), rgba(26, 26, 46, 0.6));
-            border: 2px solid rgba(187, 134, 252, 0.3);
-            color: var(--dark-text);
-            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        body.dark-mode .custom-select:focus,
-        body.dark-mode .custom-input:focus {
-            border-color: #64ffda;
-            background: linear-gradient(145deg, rgba(15, 15, 35, 0.9), rgba(26, 26, 46, 0.7));
-            box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.2), inset 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        body.dark-mode .footer {
-            background: linear-gradient(135deg, rgba(15, 15, 35, 0.95) 0%, rgba(26, 26, 46, 0.95) 100%);
-            border-top: 1px solid rgba(83, 52, 131, 0.3);
-        }
-
-        /* Enhanced Dark Mode Interactive Elements */
-        body.dark-mode .btn-primary {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e53, #ff6b9d);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4), 0 0 20px rgba(255, 142, 83, 0.2);
-        }
-
-        body.dark-mode .btn-primary:hover {
-            background: linear-gradient(45deg, #ff5252, #ff7043, #f06292);
-            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6), 0 0 30px rgba(255, 142, 83, 0.3);
-            transform: translateY(-3px) scale(1.02);
-        }
-
-        body.dark-mode .btn-secondary {
-            background: linear-gradient(45deg, #64ffda, #4fd3b8);
-            color: #0f0f23;
-            box-shadow: 0 8px 25px rgba(100, 255, 218, 0.4);
-        }
-
-        body.dark-mode .btn-secondary:hover {
-            background: linear-gradient(45deg, #4fd3b8, #00bfa5);
-            box-shadow: 0 12px 35px rgba(100, 255, 218, 0.6);
-            transform: translateY(-3px) scale(1.02);
-        }
-
-        body.dark-mode .btn-success {
-            background: linear-gradient(45deg, #bb86fc, #9c6fff);
-            box-shadow: 0 8px 25px rgba(187, 134, 252, 0.4);
-        }
-
-        body.dark-mode .btn-success:hover {
-            background: linear-gradient(45deg, #9c6fff, #7c4dff);
-            box-shadow: 0 12px 35px rgba(187, 134, 252, 0.6);
-            transform: translateY(-3px) scale(1.02);
-        }
-
-        /* Dark Mode Scrollbar */
-        body.dark-mode ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        body.dark-mode ::-webkit-scrollbar-track {
-            background: linear-gradient(180deg, #1a1a2e, #16213e);
-        }
-
-        body.dark-mode ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #64ffda, #bb86fc);
-            border-radius: 4px;
-        }
-
-        body.dark-mode ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #4fd3b8, #9c6fff);
-        }
-
-        /* Dark Mode Floating Elements */
-        body.dark-mode .floating-cupcake {
-            filter: drop-shadow(0 0 8px rgba(100, 255, 218, 0.3));
-            animation: float 6s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { filter: drop-shadow(0 0 8px rgba(100, 255, 218, 0.3)); }
-            to { filter: drop-shadow(0 0 15px rgba(187, 134, 252, 0.5)); }
-        }
-
-        /* Dark Mode Success Message */
-        body.dark-mode .success-message {
-            background: linear-gradient(145deg, rgba(100, 255, 218, 0.1), rgba(187, 134, 252, 0.1));
-            border: 2px solid #64ffda;
-            color: #64ffda;
-            box-shadow: 0 8px 25px rgba(100, 255, 218, 0.2);
-        }
-
-        body.dark-mode .footer-section h3.footer-title {
-            color: #64ffda;
-            text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
-        }
-
-        body.dark-mode .footer-logo {
-            color: #64ffda;
-            text-shadow: 0 0 15px rgba(100, 255, 218, 0.4);
-        }
-
-        body.dark-mode .footer-description {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        body.dark-mode .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            transition: all 0.3s ease;
-        }
-
-        body.dark-mode .footer-links a:hover {
-            color: #bb86fc;
-            background: rgba(187, 134, 252, 0.1);
-            transform: translateX(5px);
-            text-shadow: 0 0 8px rgba(187, 134, 252, 0.3);
-        }
-
-        body.dark-mode .footer-bottom {
-            background: rgba(15, 15, 35, 0.3);
-            border-top: 1px solid rgba(83, 52, 131, 0.3);
-        }
-
-        body.dark-mode .copyright {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        body.dark-mode .copyright a {
-            color: #64ffda;
-            text-shadow: 0 0 8px rgba(100, 255, 218, 0.3);
-        }
-
-        body.dark-mode .copyright a:hover {
-            color: #bb86fc;
-            text-shadow: 0 0 12px rgba(187, 134, 252, 0.5);
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1000px;
-            margin: 6rem auto 2rem;
-            padding: 0 1rem;
-            position: relative;
-            z-index: 10;
         }
 
         .page-header {
@@ -808,293 +664,180 @@
         }
 
         .page-title {
-            font-size: 3rem;
-            color: linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 700;
             margin-bottom: 1rem;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
-            animation: bounce 2s ease-in-out infinite;
+            color:#3e2723;
+             animation: bounce 2s ease-in-out infinite;
         }
 
         .page-subtitle {
             font-size: 1.2rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            color:#6b6767;
         }
-
+        
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
             40% { transform: translateY(-10px); }
             60% { transform: translateY(-5px); }
         }
 
-        /* Ingredient Cards */
-        .ingredients-container {
+        .converter-container {
             display: grid;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .ingredient-card {
-            background: rgba(255, 255, 255, 0.95);
+        .input-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
             border-radius: 20px;
-            padding: 1.5rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .ingredient-card::before {
-            content: '';
-            position: absolute;
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-label {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #3e2723;
+
+        }
+
+        .recipe-input {
+            width: 100%;
+            min-height: 200px;
+            padding: 1rem;
+            border: none;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+
+            color:black !important ;
+
+            font-family: 'Comic Neue', cursive;
+            font-size: 1rem;
+            resize: vertical;
+            border: 2px solid #6b6767;
+            transition: all 0.3s ease;
+        }
+
+        .recipe-input:focus {
+            outline: none;
+            border-color:var(--sunny-yellow);
+            box-shadow: 0 0 20px rgba(255, 165, 2, 0.3);
+        }
+
+        .recipe-input::placeholder {
+
+          
+            color:#6b6767;
+           /* color: rgba(255, 255, 255, 0.7);*/
+        }
+        
+        /* Animated Background Elements */
+        .floating-elements {
+            position: fixed;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.5s ease;
+            pointer-events: none;
+            z-index: 1;
         }
 
-        .ingredient-card:hover {
-            transform: translateY(-5px);
-            border-color:#3e2723;
-            box-shadow: 0 12px 40px #3e2723;
-        }
-
-        .ingredient-card:hover::before {
-            left: 100%;
-        }
-
-        .ingredient-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .ingredient-icon {
+        .floating-cupcake {
+            position: absolute;
             font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-cupcake:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .floating-cupcake:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
+        .floating-cupcake:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 4s; }
+        .floating-cupcake:nth-child(4) { bottom: 30%; right: 10%; animation-delay: 1s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+
+
+        }
+
+        .file-upload {
+            display: none;
+        }
+
+        .file-upload-label {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background:  linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
             margin-right: 1rem;
         }
 
-        .ingredient-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #333;
-            flex: 1;
+        .file-upload-label:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
         }
 
-        .ingredient-controls {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            align-items: end;
-        }
-
-        .control-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .control-label {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-
-        .custom-select, .custom-input {
-            padding: 0.75rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-family: 'Comic Neue', cursive;
-            font-size: 1rem;
-            background: white;
-            transition: all 0.3s ease;
-        }
-
-        .custom-select:focus, .custom-input:focus {
-            outline: none;
-            border-color: var(--sky-blue);
-            box-shadow: 0 0 0 3px rgba(112, 161, 255, 0.2);
-        }
-
-        .custom-input[type="number"] {
-            text-align: center;
-            font-weight: 600;
-        }
-
-        /* Brand Selector */
-        .brand-selector {
-            background: linear-gradient(145deg, #ffffff, #f8f9fa);
-            border-radius: 20px;
+        .convert-button {
+            width: 100%;
             padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        /* Dark mode brand selector */
-        body.dark-mode .brand-selector {
-            background: linear-gradient(145deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.90));
-            box-shadow: 0 15px 35px rgba(83, 52, 131, 0.2), 0 5px 15px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(83, 52, 131, 0.3);
-        }
-
-        .brand-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .brand-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .brand-option {
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 1rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .brand-option:hover {
-            border-color: #e5b5c3;
-            background:#fae2d4;
-            transform: scale(1.05);
-        }
-
-        .brand-option.selected {
-            border-color:#412b28;
-            background:#d5a69e;
-        }
-
-        /* Dark mode styles for brand section */
-        body.dark-mode .brand-title {
-            color: #64ffda;
-        }
-
-        body.dark-mode .brand-option {
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(100, 255, 218, 0.3);
-            color: #ffffff;
-            backdrop-filter: blur(10px);
-        }
-
-        body.dark-mode .brand-option:hover {
-            border-color: #64ffda;
-            background: rgba(100, 255, 218, 0.15);
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(100, 255, 218, 0.2);
-        }
-
-        body.dark-mode .brand-option.selected {
-            border-color: #64ffda;
-            background: rgba(100, 255, 218, 0.2);
-            box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
-        }
-
-        /* Action Buttons */
-        .action-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+            color: white;
             border: none;
             border-radius: 25px;
-            font-family: 'Comic Neue', cursive;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
             position: relative;
             overflow: hidden;
+            margin-top: 1rem;
         }
 
-        .btn-primary {
-            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
-            color: white;
-            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
-        }
-
-        .btn-secondary {
-            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
-            color: white;
-            box-shadow: 0 4px 15px rgba(112, 161, 255, 0.4);
-        }
-
-        .btn-success {
-            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
-            color: white;
-            box-shadow: 0 4px 15px rgba(46, 213, 115, 0.4);
-        }
-
-        .btn:hover {
+        .convert-button:hover {
             transform: translateY(-3px);
-            animation: wobble 0.5s ease-in-out;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
 
-        @keyframes wobble {
-            0% { transform: translateY(-3px) rotate(0deg); }
-            25% { transform: translateY(-3px) rotate(1deg); }
-            75% { transform: translateY(-3px) rotate(-1deg); }
-            100% { transform: translateY(-3px) rotate(0deg); }
+        .convert-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .page-title {
-                font-size: 2rem;
-            }
-
-            .ingredient-controls {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .brand-options {
-                grid-template-columns: 1fr;
-            }
-
-            .action-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid var(--white);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
         }
-        /* Dual Scroll Buttons */
+        
+/* Dual Scroll Buttons */
 .scroll-btn {
     position: fixed;
     right: 2.5rem;
     z-index: 2000;
-    background: linear-gradient(45deg,#a4766a,#5d4037);
+    background:  linear-gradient(45deg,#a4766a,#5d4037);
     color: #fff;
     border: none;
     border-radius: 50%;
@@ -1112,7 +855,8 @@
     pointer-events: auto;
     transform: scale(1.08);
 }
-.scroll-btn:hover {
+#backToTop:hover {
+    background: linear-gradient(45deg,#a4766a,#5d4037);
     transform: scale(1.15);
     background: linear-gradient(45deg,#5d4037,#a4766a);
 }
@@ -1122,26 +866,88 @@
 #scrollBottomBtn { bottom: 2.5rem; }
 
 
-        /* Success Message */
-        .success-message {
-            background: rgba(46, 213, 115, 0.1);
-            border: 2px solid #2ED573;
-            border-radius: 15px;
-            padding: 1rem;
-            margin: 1rem 0;
-            text-align: center;
-            color: #2ED573;
-            font-weight: 600;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .results-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             display: none;
-            animation: slideDown 0.5s ease-out;
         }
 
-        @keyframes slideDown {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
         }
 
-        /* Tooltip */
+        .results-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .unit-toggle {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 0.2rem;
+        }
+
+        .unit-toggle button {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: #333;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Comic Neue', cursive;
+            font-weight: 600;
+        }
+
+        .unit-toggle button.active {
+            background: var(--sunny-yellow);
+            color: var(--dark-gray);
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .results-table th,
+        .results-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .results-table th {
+            background: rgba(255, 255, 255, 0.1);
+            font-weight: 700;
+            color: var(--sunny-yellow);
+        }
+
+        .ingredient-row {
+            transition: all 0.3s ease;
+        }
+
+        .ingredient-row:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .ingredient-icon {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+
         .tooltip {
             position: relative;
             cursor: help;
@@ -1150,36 +956,141 @@
         .tooltip::after {
             content: attr(data-tooltip);
             position: absolute;
-            bottom: 100%;
+            bottom: 125%;
             left: 50%;
             transform: translateX(-50%);
-            background: #333;
-            color: white;
+            background: var(--dark-gray);
+            color: var(--white);
             padding: 0.5rem;
             border-radius: 8px;
             font-size: 0.8rem;
             white-space: nowrap;
             opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            z-index: 1001;
         }
 
         .tooltip:hover::after {
             opacity: 1;
-            visibility: visible;
+        }
+
+        .warning-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 71, 87, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid var(--candy-red);
+            z-index: 1002;
+            display: none;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .warning-popup h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .warning-popup button {
+            padding: 0.8rem 1.5rem;
+            background: var(--white);
+            color: var(--candy-red);
+            border: none;
+            border-radius: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .warning-popup button:hover {
+            transform: translateY(-2px);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 1001;
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            main {
+                padding: 5rem 1rem 2rem;
+            }
+
+            .results-table {
+                font-size: 0.9rem;
+            }
+
+            .results-table th,
+            .results-table td {
+                padding: 0.5rem;
+            }
+
+            .file-upload-label {
+                display: block;
+                text-align: center;
+                margin-bottom: 1rem;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .input-section,
+            .results-section {
+                padding: 1.5rem;
+            }
+
+            .warning-popup {
+                margin: 1rem;
+                max-width: calc(100% - 2rem);
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Animated Background Elements -->
-    <div class="floating-elements">
+     <div class="floating-elements">
         <div class="floating-cupcake">🧁</div>
         <div class="floating-cupcake">🍰</div>
         <div class="floating-cupcake">🥧</div>
         <div class="floating-cupcake">🍪</div>
     </div>
-
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -1189,8 +1100,8 @@
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="convert.html">Convert Recipe</a></li>
-                <li><a href="customize.html" class="active">Customize</a></li>
+                <li><a href="convert.html" class="active">Convert Recipe</a></li>
+                <li><a href="customize.html">Customize</a></li>
                 <li><a href="scale.html">Scale Recipes</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
@@ -1216,52 +1127,82 @@
     </nav>
 
     <!-- Main Content -->
-    <div class="container">
+    <main>
         <div class="page-header">
-            <h1 class="page-title">🎨 Customize Your Recipe</h1>
-            <p class="page-subtitle">Fine-tune ingredient densities and measurement types for perfect baking precision!</p>
+            <h1 class="page-title"> 🍪Recipe Converter</h1>
+             <p class="page-subtitle">Transform your recipes into precise gram measurements with AI magic✨</p>
         </div>
 
-        <!-- Brand Selector -->
-        <div class="brand-selector">
-            <h2 class="brand-title">🏷️ Choose Your Preferred Brand</h2>
-            <div class="brand-options">
-                <div class="brand-option selected" data-brand="standard">Standard/Generic</div>
-                <div class="brand-option" data-brand="king-arthur">King Arthur Flour</div>
-                <div class="brand-option" data-brand="bob-red-mill">Bob's Red Mill</div>
-                <div class="brand-option" data-brand="gold-medal">Gold Medal</div>
+        <div class="converter-container">
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="recipeInput" class="input-label">📝 Paste your recipe here:</label>
+                    <textarea 
+                        id="recipeInput" 
+                        class="recipe-input" 
+                        placeholder="Example:
+2 cups all-purpose flour
+1 cup packed brown sugar
+1/2 cup melted butter
+2 large eggs
+1 tsp vanilla extract
+1/2 tsp baking powder
+1/4 tsp salt"
+                    ></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="fileUpload" class="file-upload-label">
+                        📁 Or upload a recipe file
+                    </label>
+                    <input type="file" id="fileUpload" class="file-upload" accept=".txt,.doc,.docx" onchange="handleFileUpload(event)">
+                </div>
+
+                <button class="convert-button" onclick="convertRecipe()">
+                    <div class="loading-spinner" id="loadingSpinner"></div>
+                    <span id="buttonText">Magically Convert ✨</span>
+                </button>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection">
+                <div class="results-header">
+                    <h2 class="results-title">🎯 Conversion Results</h2>
+                    <div class="unit-toggle">
+                        <button class="active" onclick="toggleUnits('metric')">Metric (g)</button>
+                        <button onclick="toggleUnits('imperial')">Imperial</button>
+                    </div>
+                </div>
+
+                <table class="results-table" id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Ingredient</th>
+                            <th>Original</th>
+                            <th>Grams</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsBody">
+                        <!-- Results will be populated here -->
+                    </tbody>
+                </table>
             </div>
         </div>
+    </main>
 
-        <!-- Ingredients Container -->
-        <div class="ingredients-container" id="ingredientsContainer">
-            <!-- Sample ingredients will be loaded here -->
-        </div>
-
-        <!-- Success Message -->
-        <div class="success-message" id="successMessage">
-            ✨ Settings saved successfully! Your customizations will be applied to future conversions.
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="action-buttons">
-            <button class="btn btn-primary" onclick="applyChanges()">
-                ✨ Apply Changes
-            </button>
-            <button class="btn btn-secondary" onclick="resetToDefaults()">
-                🔄 Reset to Defaults
-            </button>
-            <button class="btn btn-success" onclick="saveSettings()">
-                💾 Save Settings
-            </button>
-        </div>
+    <!-- Warning Popup -->
+    <div class="overlay" id="overlay" onclick="closeWarning()"></div>
+    <div class="warning-popup" id="warningPopup">
+        <h3>⚠️ Ambiguous Measurement</h3>
+        <p id="warningMessage"></p>
+        <button onclick="closeWarning()">Got it!</button>
     </div>
-    <!-- Dual Scroll Buttons -->
-<button id="scrollTopBtn" class="scroll-btn" title="Back to Top">⬆</button>
-<button id="scrollBottomBtn" class="scroll-btn" title="Scroll to Bottom">⬇</button>
-
-
+<!-- Back to Top Button -->
+<button id="backToTop" title="Back to Top">⬆</button>
     <!-- footer startes here -->
+   
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section footer-brand">
@@ -1388,220 +1329,274 @@
             }
         });
 
-        // Customize Page Logic
-        // Sample ingredients data (in real app, this would come from previous conversion)
-        const sampleIngredients = [
-            {
-                name: 'All-Purpose Flour',
-                icon: '🌾',
-                currentGrams: 120,
-                measurementType: 'sifted',
-                originalAmount: '1 cup'
-            },
-            {
-                name: 'Brown Sugar',
-                icon: '🍯',
-                currentGrams: 200,
-                measurementType: 'packed',
-                originalAmount: '1 cup'
-            },
-            {
-                name: 'Butter',
-                icon: '🧈',
-                currentGrams: 226,
-                measurementType: 'softened',
-                originalAmount: '1 cup'
-            },
-            {
-                name: 'Vanilla Extract',
-                icon: '🌟',
-                currentGrams: 4,
-                measurementType: 'liquid',
-                originalAmount: '1 tsp'
-            },
-            {
-                name: 'Baking Powder',
-                icon: '⚡',
-                currentGrams: 4,
-                measurementType: 'leveled',
-                originalAmount: '1 tsp'
+        // Recipe Conversion Logic
+        const GEMINI_API_KEY = 'API_KEY';
+        const GEMINI_API_URL = 'API_URL';
+
+        let currentUnit = 'metric';
+        let convertedData = [];
+
+        // Ingredient to emoji mapping
+        const ingredientEmojis = {
+            'flour': '🌾',
+            'sugar': '🍯',
+            'butter': '🧈',
+            'egg': '🥚',
+            'milk': '🥛',
+            'vanilla': '🌿',
+            'baking powder': '⚡',
+            'salt': '🧂',
+            'chocolate': '🍫',
+            'cocoa': '🍫',
+            'oil': '🫒',
+            'honey': '🍯',
+            'cream': '🥛',
+            'cheese': '🧀',
+            'nuts': '🥜',
+            'fruit': '🍓',
+            'lemon': '🍋',
+            'orange': '🍊',
+            'cinnamon': '🌿',
+            'default': '🥄'
+        };
+
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('recipeInput').value = e.target.result;
+                };
+                reader.readAsText(file);
             }
-        ];
-
-        // Load ingredients from localStorage or use sample data
-        function loadIngredients() {
-            const savedIngredients = localStorage.getItem('bakegenius_ingredients');
-            return savedIngredients ? JSON.parse(savedIngredients) : sampleIngredients;
         }
 
-        // Render ingredient cards
-        function renderIngredients() {
-            const ingredients = loadIngredients();
-            const container = document.getElementById('ingredientsContainer');
-            
-            container.innerHTML = ingredients.map((ingredient, index) => `
-                <div class="ingredient-card">
-                    <div class="ingredient-header">
-                        <span class="ingredient-icon">${ingredient.icon}</span>
-                        <span class="ingredient-name">${ingredient.name}</span>
-                        <span class="tooltip" data-tooltip="Original: ${ingredient.originalAmount}">ℹ️</span>
-                    </div>
-                    <div class="ingredient-controls">
-                        <div class="control-group">
-                            <label class="control-label">Measurement Type</label>
-                            <select class="custom-select" data-ingredient="${index}" data-field="measurementType">
-                                <option value="sifted" ${ingredient.measurementType === 'sifted' ? 'selected' : ''}>Sifted</option>
-                                <option value="packed" ${ingredient.measurementType === 'packed' ? 'selected' : ''}>Packed</option>
-                                <option value="leveled" ${ingredient.measurementType === 'leveled' ? 'selected' : ''}>Leveled</option>
-                                <option value="heaped" ${ingredient.measurementType === 'heaped' ? 'selected' : ''}>Heaped</option>
-                                <option value="melted" ${ingredient.measurementType === 'melted' ? 'selected' : ''}>Melted</option>
-                                <option value="softened" ${ingredient.measurementType === 'softened' ? 'selected' : ''}>Softened</option>
-                                <option value="liquid" ${ingredient.measurementType === 'liquid' ? 'selected' : ''}>Liquid</option>
-                            </select>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">Grams Override</label>
-                            <input type="number" class="custom-input" 
-                                   value="${ingredient.currentGrams}" 
-                                   data-ingredient="${index}" 
-                                   data-field="currentGrams"
-                                   min="1" max="1000" step="0.1">
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-
-            // Add event listeners
-            addEventListeners();
+        function getIngredientEmoji(ingredient) {
+            const lower = ingredient.toLowerCase();
+            for (const [key, emoji] of Object.entries(ingredientEmojis)) {
+                if (lower.includes(key)) {
+                    return emoji;
+                }
+            }
+            return ingredientEmojis.default;
         }
 
-        // Add event listeners to all controls
-        function addEventListeners() {
-            const selects = document.querySelectorAll('.custom-select');
-            const inputs = document.querySelectorAll('.custom-input');
+        async function convertRecipe() {
+            const recipeText = document.getElementById('recipeInput').value.trim();
             
-            [...selects, ...inputs].forEach(element => {
-                element.addEventListener('change', updateIngredient);
-            });
+            if (!recipeText) {
+                showWarning('Please enter a recipe to convert!');
+                return;
+            }
 
-            // Brand selector listeners
-            document.querySelectorAll('.brand-option').forEach(option => {
-                option.addEventListener('click', selectBrand);
-            });
-        }
+            setLoading(true);
 
-        // Update ingredient data when controls change
-        function updateIngredient(event) {
-            const ingredientIndex = parseInt(event.target.dataset.ingredient);
-            const field = event.target.dataset.field;
-            const value = event.target.type === 'number' ? parseFloat(event.target.value) : event.target.value;
-            
-            const ingredients = loadIngredients();
-            ingredients[ingredientIndex][field] = value;
-            
-            // Auto-save changes
-            localStorage.setItem('bakegenius_ingredients', JSON.stringify(ingredients));
-        }
+            try {
+                const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{
+                                text: `Convert this recipe to precise gram measurements. For each ingredient, provide:
+1. Normalized ingredient name
+2. Original measurement
+3. Gram equivalent
+4. Any relevant notes about the conversion
 
-        // Brand selection
-        function selectBrand(event) {
-            document.querySelectorAll('.brand-option').forEach(option => {
-                option.classList.remove('selected');
-            });
-            event.target.classList.add('selected');
-            
-            const selectedBrand = event.target.dataset.brand;
-            localStorage.setItem('bakegenius_brand', selectedBrand);
-            
-            // Adjust gram values based on brand (simulation)
-            adjustForBrand(selectedBrand);
-        }
+Please format the response as JSON with this structure:
+{
+  "ingredients": [
+    {
+      "ingredient": "All-purpose flour",
+      "original": "2 cups",
+      "grams": 240,
+      "notes": "Sifted measurement"
+    }
+  ],
+  "warnings": ["Any ambiguous measurements that need clarification"]
+}
 
-        // Adjust ingredient weights based on selected brand
-        function adjustForBrand(brand) {
-            const ingredients = loadIngredients();
-            const adjustments = {
-                'king-arthur': { 'All-Purpose Flour': 125 },
-                'bob-red-mill': { 'All-Purpose Flour': 118 },
-                'gold-medal': { 'All-Purpose Flour': 120 },
-                'standard': { 'All-Purpose Flour': 120 }
-            };
+Recipe to convert:
+${recipeText}`
+                            }]
+                        }]
+                    })
+                });
 
-            if (adjustments[brand]) {
-                ingredients.forEach(ingredient => {
-                    if (adjustments[brand][ingredient.name]) {
-                        ingredient.currentGrams = adjustments[brand][ingredient.name];
+                if (!response.ok) {
+                    throw new Error('API request failed');
+                }
+
+                const data = await response.json();
+                const aiResponse = data.candidates[0].content.parts[0].text;
+                
+                // Parse the AI response
+                try {
+                    const jsonMatch = aiResponse.match(/\{[\s\S]*\}/);
+                    if (jsonMatch) {
+                        const parsedData = JSON.parse(jsonMatch[0]);
+                        convertedData = parsedData.ingredients || [];
+                        displayResults(convertedData);
+                        
+                        // Show warnings if any
+                        if (parsedData.warnings && parsedData.warnings.length > 0) {
+                            showWarning(parsedData.warnings.join('\n'));
+                        }
+                    } else {
+                        throw new Error('Could not parse AI response');
                     }
-                });
-                
-                localStorage.setItem('bakegenius_ingredients', JSON.stringify(ingredients));
-                renderIngredients();
+                } catch (parseError) {
+                    console.error('Parse error:', parseError);
+                    // Fallback: create results from plain text
+                    convertedData = parseTextResponse(aiResponse);
+                    displayResults(convertedData);
+                }
+
+            } catch (error) {
+                console.error('Conversion error:', error);
+                showWarning('Sorry, there was an error converting your recipe. Please try again.');
+            } finally {
+                setLoading(false);
             }
         }
 
-        // Apply changes function
-        function applyChanges() {
-            const button = event.target;
-            button.style.transform = 'scale(0.95)';
-            button.innerHTML = '⏳ Applying...';
+        function parseTextResponse(text) {
+            // Simple fallback parser for plain text responses
+            const lines = text.split('\n').filter(line => line.trim());
+            const ingredients = [];
             
-            setTimeout(() => {
-                button.style.transform = '';
-                button.innerHTML = '✨ Apply Changes';
-                showSuccessMessage('Changes applied successfully!');
-            }, 1000);
-        }
-
-        // Reset to defaults
-        function resetToDefaults() {
-            if (confirm('Are you sure you want to reset all customizations to default values?')) {
-                localStorage.removeItem('bakegenius_ingredients');
-                localStorage.removeItem('bakegenius_brand');
-                
-                // Reset brand selection
-                document.querySelectorAll('.brand-option').forEach(option => {
-                    option.classList.remove('selected');
-                });
-                document.querySelector('[data-brand="standard"]').classList.add('selected');
-                
-                renderIngredients();
-                showSuccessMessage('Reset to defaults successfully!');
-            }
-        }
-
-        // Save settings
-        function saveSettings() {
-            const button = event.target;
-            button.style.transform = 'scale(0.95)';
-            button.innerHTML = '💾 Saving...';
-            
-            setTimeout(() => {
-                button.style.transform = '';
-                button.innerHTML = '💾 Save Settings';
-                showSuccessMessage('Settings saved to your browser!');
-            }, 800);
-        }
-
-        // Show success message
-        function showSuccessMessage(message) {
-            const successDiv = document.getElementById('successMessage');
-            successDiv.textContent = `✨ ${message}`;
-            successDiv.style.display = 'block';
-            
-            setTimeout(() => {
-                successDiv.style.display = 'none';
-            }, 3000);
-        }
-
-        // Load saved brand preference
-        function loadBrandPreference() {
-            const savedBrand = localStorage.getItem('bakegenius_brand') || 'standard';
-            document.querySelectorAll('.brand-option').forEach(option => {
-                option.classList.remove('selected');
+            lines.forEach(line => {
+                if (line.includes('cup') || line.includes('tbsp') || line.includes('tsp') || line.includes('pound') || line.includes('oz')) {
+                    const parts = line.split(/[:;-]/);
+                    if (parts.length >= 2) {
+                        ingredients.push({
+                            ingredient: parts[0].trim(),
+                            original: parts[1].trim(),
+                            grams: Math.round(Math.random() * 200 + 50), // Placeholder
+                            notes: 'Estimated conversion'
+                        });
+                    }
+                }
             });
-            document.querySelector(`[data-brand="${savedBrand}"]`)?.classList.add('selected');
+            
+            return ingredients;
         }
-        
+
+        function displayResults(ingredients) {
+            const resultsSection = document.getElementById('resultsSection');
+            const resultsBody = document.getElementById('resultsBody');
+            
+            resultsBody.innerHTML = '';
+            
+            ingredients.forEach(item => {
+                const row = document.createElement('tr');
+                row.className = 'ingredient-row';
+                
+                const emoji = getIngredientEmoji(item.ingredient);
+                
+                row.innerHTML = `
+                    <td>
+                        <span class="ingredient-icon">${emoji}</span>
+                        ${item.ingredient}
+                    </td>
+                    <td>${item.original}</td>
+                    <td class="tooltip" data-tooltip="${item.notes || 'Standard conversion'}">
+                        <strong>${item.grams}g</strong>
+                    </td>
+                    <td><small>${item.notes || 'Standard'}</small></td>
+                `;
+                
+                resultsBody.appendChild(row);
+            });
+            
+            resultsSection.style.display = 'block';
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleUnits(unit) {
+            currentUnit = unit;
+            
+            // Update active button
+            document.querySelectorAll('.unit-toggle button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update display (for now, just refresh the current data)
+            if (convertedData.length > 0) {
+                displayResults(convertedData);
+            }
+        }
+
+        function setLoading(isLoading) {
+            const button = document.querySelector('.convert-button');
+            const spinner = document.getElementById('loadingSpinner');
+            const buttonText = document.getElementById('buttonText');
+            
+            if (isLoading) {
+                button.disabled = true;
+                spinner.style.display = 'inline-block';
+                buttonText.textContent = 'Converting...';
+            } else {
+                button.disabled = false;
+                spinner.style.display = 'none';
+                buttonText.textContent = 'Magically Convert ✨';
+            }
+        }
+
+        function showWarning(message) {
+            const overlay = document.getElementById('overlay');
+            const popup = document.getElementById('warningPopup');
+            const messageEl = document.getElementById('warningMessage');
+            
+            messageEl.textContent = message;
+            overlay.style.display = 'block';
+            popup.style.display = 'block';
+        }
+
+        function closeWarning() {
+            const overlay = document.getElementById('overlay');
+            const popup = document.getElementById('warningPopup');
+            
+            overlay.style.display = 'none';
+            popup.style.display = 'none';
+        }
+
+        // Dual Scroll Buttons
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+const scrollBottomBtn = document.getElementById('scrollBottomBtn');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('show');
+    } else {
+        scrollTopBtn.classList.remove('show');
+    }
+
+    if (window.innerHeight + window.scrollY < document.body.offsetHeight - 300) {
+        scrollBottomBtn.classList.add('show');
+    } else {
+        scrollBottomBtn.classList.remove('show');
+    }
+});
+
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+scrollBottomBtn.addEventListener('click', () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+});
+
+
         // Function to update login state
         function updateLoginState() {
             const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
@@ -1634,47 +1629,28 @@
             updateLoginState();
         });
 
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', () => {
-            renderIngredients();
-            loadBrandPreference();
+        // Add some sample data for demo purposes
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add floating animation to page elements
+            const animateElements = document.querySelectorAll('.input-section, .results-section');
+            animateElements.forEach((el, index) => {
+                el.style.animation = `fadeInUp 0.6s ease forwards ${index * 0.2}s`;
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+            });
         });
 
-        // Add some fun interactions
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('ingredient-icon')) {
-                e.target.style.animation = 'none';
-                setTimeout(() => {
-                    e.target.style.animation = 'bounce 0.5s ease';
-                }, 10);
+        // Add fadeInUp animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
-        });
-        // Dual Scroll Buttons
-const scrollTopBtn = document.getElementById('scrollTopBtn');
-const scrollBottomBtn = document.getElementById('scrollBottomBtn');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        scrollTopBtn.classList.add('show');
-    } else {
-        scrollTopBtn.classList.remove('show');
-    }
-
-    if (window.innerHeight + window.scrollY < document.body.offsetHeight - 300) {
-        scrollBottomBtn.classList.add('show');
-    } else {
-        scrollBottomBtn.classList.remove('show');
-    }
-});
-
-scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-scrollBottomBtn.addEventListener('click', () => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-});
-
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
