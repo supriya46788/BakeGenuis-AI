@@ -30,14 +30,14 @@
         body {
             font-family: "Comic Neue", cursive;
             overflow-x: hidden;
-            background-color:#f5f3f1;
+            background-color: #f5f3f1;
             min-height: 100vh;
             position: relative;
             transition: all 0.3s ease;
         }
 
         body.dark-mode {
-            background-color:#0d0d0d;
+            background-color: #0d0d0d;
         }
 
         @keyframes wobble {
@@ -96,7 +96,7 @@
 
         /* Navigation */
         .navbar {
-            background: radial-gradient(circle at center,#e5c5b3,#e9b4b6);
+            background: radial-gradient(circle at center, #e5c5b3, #e9b4b6);
             backdrop-filter: blur(15px);
             padding: 1rem 2rem;
             position: fixed;
@@ -109,7 +109,7 @@
         }
 
         body.dark-mode .navbar {
-            background:#1e1e1e;
+            background: #1e1e1e;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -132,7 +132,7 @@
             gap: 0.5rem;
             font-family: "Comic Neue", cursive;
             min-width: 150px;
-            padding-right:50px;
+            padding-right: 50px;
         }
 
         .logo-icon {
@@ -182,19 +182,13 @@
         }
 
         body.dark-mode .nav-links a {
-            text-decoration: none;
             color: #e0e0e0;
-            font-weight: 600;
-            padding: 0.7rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-            background:rgba(111, 100, 91, 0.133);
-            border: 2px solid transparent; 
+            background: rgba(111, 100, 91, 0.133);
+            border: 2px solid transparent;
         }
 
         .nav-links a:hover {
-            background-color:#f3e0d6;
+            background-color: #f3e0d6;
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             border-color: rgba(228, 191, 180, 0.3);
@@ -202,10 +196,10 @@
         }
 
         body.dark-mode .nav-links a:hover {
-            background-color:#0d0d0d;
+            background-color: #0d0d0d;
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-color:#1e1e1e;
+            border-color: #1e1e1e;
             color: #e0e0e0;
         }
 
@@ -217,7 +211,7 @@
         }
 
         .dark-mode-btn {
-            background-color:#3e2723;
+            background-color: #3e2723;
             border: none;
             color: white;
             padding: 0.7rem;
@@ -239,11 +233,12 @@
         }
 
         body.dark-mode .dark-mode-btn {
-            background-color:#e0e0e0;
-            color:#1e1e1e;
+            background-color: #e0e0e0;
+            color: #1e1e1e;
         }
 
         .login-btn {
+
             background-color:#5C4033;
             color: white;
             text-decoration: none;
@@ -265,7 +260,7 @@
         }
 
         body.dark-mode .login-btn {
-            background-color:#e0e0e0;
+            background-color: #e0e0e0;
             color: #0d0d0d;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
@@ -361,7 +356,7 @@
             bottom: 2.5rem;
             right: 2.5rem;
             z-index: 2000;
-            background: linear-gradient(45deg,#a4766a,#5d4037);
+            background: linear-gradient(45deg, #a4766a, #5d4037);
             color: #fff;
             border: none;
             border-radius: 50%;
@@ -375,19 +370,19 @@
             transition: opacity 0.4s, transform 0.2s;
         }
 
-        body.dark-mode #backToTop{
-            background:#e0e0e0;
-            color:#0d0d0d;
+        body.dark-mode #backToTop {
+            background: #e0e0e0;
+            color: #0d0d0d;
         }
 
         #backToTop.show {
             opacity: 1;
             pointer-events: auto;
-            transform:scale(1.08);
+            transform: scale(1.08);
         }
 
         #backToTop:hover {
-            background: linear-gradient(45deg,#a4766a,#5d4037);
+            background: linear-gradient(45deg, #a4766a, #5d4037);
             transform: scale(1.15);
         }
 
@@ -397,7 +392,7 @@
             bottom: 2.5rem;
             right: 2.5rem;
             z-index: 2000;
-            background:linear-gradient(45deg,#a4766a,#5d4037);
+            background: linear-gradient(45deg, #a4766a, #5d4037);
             color: #fff;
             border: none;
             border-radius: 50%;
@@ -411,9 +406,9 @@
             transition: opacity 0.4s, transform 0.2s;
         }
 
-        body.dark-mode #Toptoback{
-            background:#e0e0e0;
-            color:#0d0d0d;
+        body.dark-mode #Toptoback {
+            background: #e0e0e0;
+            color: #0d0d0d;
         }
 
         #Toptoback.show {
@@ -423,12 +418,12 @@
         }
 
         #Toptoback:hover {
-            background:linear-gradient(45deg,#a4766a,#5d4037);
+            background: linear-gradient(45deg, #a4766a, #5d4037);
             transform: scale(1.15);
         }
 
-        body.dark-mode #Toptoback:hover{
-            background:#e0e0e0; 
+        body.dark-mode #Toptoback:hover {
+            background: #e0e0e0;
             transform: scale(1.15);
         }
 
@@ -460,21 +455,24 @@
             .nav-links.active {
                 transform: translateX(0);
             }
-            .nav-links li{
+
+            .nav-links li {
                 padding: 2rem;
                 border-bottom: solid 1px black;
                 border-radius: 8px;
             }
-            body.dark-mode .nav-links li{
+
+            body.dark-mode .nav-links li {
                 border-bottom: solid 1px white;
             }
+
             .nav-links a {
                 width: 80%;
                 padding: 1rem;
                 font-size: 1.5rem;
                 margin-bottom: 2rem;
                 background-color: transparent !important;
-                
+
             }
 
             .nav-actions {
@@ -587,7 +585,7 @@
         }
 
         body.dark-mode .hero-section {
-            background:#1e1e1e;
+            background: #1e1e1e;
             box-shadow: 0 2px 2px #1e1e1e;
         }
 
@@ -604,17 +602,17 @@
         .hero-title {
             font-size: 3.5rem;
             font-weight: 700;
-            background: linear-gradient(90deg,#3e2723,#4d312b,#3e2723);
+            background: linear-gradient(90deg, #3e2723, #4d312b, #3e2723);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 1rem;
         }
 
-        body.dark-mode .hero-title{
+        body.dark-mode .hero-title {
             font-size: 3.5rem;
             font-weight: 700;
-            background:#e0e0e0;
+            background: #e0e0e0;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -635,7 +633,7 @@
         }
 
         .cta-button {
-            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: white;
             font-size: 1.2rem;
             font-weight: 700;
@@ -656,8 +654,9 @@
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
         }
-        body.dark-mode .cta-button{
-            background:rgba(220, 121, 63, 0.893);
+
+        body.dark-mode .cta-button {
+            background: rgba(220, 121, 63, 0.893);
             color: #e0e0e0;
             font-size: 1.2rem;
             font-weight: 700;
@@ -751,7 +750,7 @@
             border: 2px solid transparent;
         }
 
-        body.dark-mode .feature-card{
+        body.dark-mode .feature-card {
             background-color: #1e1e1e;
         }
 
@@ -786,8 +785,8 @@
             color: #333;
         }
 
-        body.dark-mode .feature-title{
-            color:#e0e0e0;
+        body.dark-mode .feature-title {
+            color: #e0e0e0;
         }
 
         .feature-desc {
@@ -796,13 +795,13 @@
         }
 
         body.dark-mode .feature-desc {
-              color:#e0e0e0;
+            color: #e0e0e0c4;
         }
-       
-    
 
-         .footer {
-            background: radial-gradient(circle at center,#e9b4b6,#e5c5b3);
+
+
+        .footer {
+            background: radial-gradient(circle at center, #e9b4b6, #e5c5b3);
             backdrop-filter: blur(15px);
             position: relative;
             z-index: 2;
@@ -810,8 +809,8 @@
             margin-top: 4rem;
         }
 
-        
-        body.dark-mode .footer{
+
+        body.dark-mode .footer {
             background: #1e1e1e;
         }
 
@@ -839,13 +838,14 @@
             left: 0;
             width: 30px;
             height: 3px;
-            background:#3e2723;
+            background: #3e2723;
             border-radius: 2px;
         }
-        
-        body.dark-mode .footer-section h3.footer-title::after{
-            background:#e0e0e0;
+
+        body.dark-mode .footer-section h3.footer-title::after {
+            background: #e0e0e0;
         }
+
         .footer-logo {
             display: flex;
             align-items: center;
@@ -853,7 +853,7 @@
             margin-bottom: 1.5rem;
             font-size: 1.8rem;
             font-weight: 700;
-            color:#3e2723;
+            color: #3e2723;
         }
 
         .footer-logo-icon {
@@ -890,7 +890,7 @@
         }
 
         .footer-links a:hover {
-            color:black;
+            color: black;
             transform: translateX(4px);
             background: rgba(255, 107, 107, 0.1);
             padding-left: 0.8rem;
@@ -929,19 +929,19 @@
         }
 
         .social-link.linkedin {
-            background:#0a66c2;
+            background: #0a66c2;
         }
 
         .social-link.github {
-            background:black;
+            background: black;
         }
 
         .social-link.portfolio {
-            background:navy;
+            background: navy;
         }
 
         .social-link.email {
-            background:red;
+            background: red;
         }
 
         .footer-bottom {
@@ -968,8 +968,8 @@
             margin: 0;
         }
 
-        .copyright .name{
-            color:#3e2723;
+        .copyright .name {
+            color: #3e2723;
             font-weight: 600;
         }
 
@@ -998,20 +998,30 @@
         }
 
         .badge-green {
-            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
         }
 
         .badge-blue {
-            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
         }
 
         .badge-purple {
-            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
         }
 
-        body.dark-mode .badge-blue, .badge-green, .badge-purple{
-            background:#e0e0e0;
-            color:#0d0d0d;
+        body.dark-mode .badge-blue {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        body.dark-mode .badge-green {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        body.dark-mode .badge-purple {
+            background: #e0e0e0;
+            color: #0d0d0d;
         }
 
 
@@ -1129,9 +1139,9 @@
         }
 
         /*dark mode*/
-        
-         body.dark-mode .footer-content{
-            background-color:#1e1e1e;
+
+        body.dark-mode .footer-content {
+            background-color: #1e1e1e;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -1152,20 +1162,20 @@
         }
 
         body.dark-mode .footer-links a:hover {
-            color:#a0a0a0;
+            color: #a0a0a0;
             background: rgba(255, 138, 128, 0.1);
         }
 
         body.dark-mode .footer-bottom {
-            background:#1e1e1e;
+            background: #1e1e1e;
         }
 
         body.dark-mode .copyright {
             color: #a0a0a0;
         }
 
-        body.dark-mode .copyright .name{
-            color:#ef6154;
+        body.dark-mode .copyright .name {
+            color: #ef6154;
         }
 
 
@@ -1382,8 +1392,8 @@
     <!-- Top to Bottom Button -->
     <button id="Toptoback" title="Top To Back">⬇</button>
 
-     <!-- footer startes here -->
-   <footer class="footer">
+    <!-- footer startes here -->
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-section footer-brand">
                 <div class="footer-logo">
@@ -1391,21 +1401,25 @@
                     <span class="footer-logo-text">BakeGenius.ai</span>
                 </div>
                 <p class="footer-description">
-                    Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and delightful for everyone.
+                    Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and
+                    delightful for everyone.
                 </p>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-link linkedin" target="_blank" rel="noopener" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-link linkedin" target="_blank"
+                        rel="noopener" title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://github.com/supriya46788/BakeGenuis-AI" class="social-link github" target="_blank" rel="noopener" title="GitHub">
+                    <a href="https://github.com/supriya46788/BakeGenuis-AI" class="social-link github" target="_blank"
+                        rel="noopener" title="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="mailto:supriyadpandey502@gmail.com" class="social-link email" target="_blank" rel="noopener" title="Email">
+                    <a href="mailto:supriyadpandey502@gmail.com" class="social-link email" target="_blank"
+                        rel="noopener" title="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
             </div>
-            
+
             <div class="footer-section">
                 <h3 class="footer-title">Quick Links</h3>
                 <ul class="footer-links">
@@ -1416,7 +1430,7 @@
                     <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3 class="footer-title">Features</h3>
                 <ul class="footer-links">
@@ -1427,7 +1441,7 @@
                     <li><a href="javascript:void(0)"><i class="fas fa-mobile-alt"></i>Mobile Friendly</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3 class="footer-title">Support</h3>
                 <ul class="footer-links">
@@ -1439,11 +1453,12 @@
                 </ul>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
             <div class="footer-bottom-content">
                 <p class="copyright">
-                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <span class="name">Supriya Pandey</span>
+                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <span class="name">Supriya
+                        Pandey</span>
                 </p>
                 <div class="footer-badges">
                     <span class="badge badge-green"><i class="fas fa-heart"></i> Open Source</span>
@@ -1840,4 +1855,3 @@
 
 
 </html>
-
