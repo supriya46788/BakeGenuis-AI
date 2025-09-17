@@ -188,7 +188,7 @@
         }
 
         .login-btn {
-            background-color:#d18a68;
+            background-color:#5C4033;
             color: white;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
@@ -204,8 +204,8 @@
 
         .login-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-            background:#d18a68 ;
+            box-shadow: 0 8px 25px #cf622f;
+            background:#5C4033 ;
             border-color: rgba(255, 255, 255, 0.3);
         }
 
@@ -779,24 +779,7 @@
             50% { transform: translateY(-20px) rotate(5deg); }
         }
 
-        /* Navigation 
-        nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
+       
 
         .logo {
             font-size: 1.8rem;
@@ -1263,16 +1246,42 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">
+            <a href="#" class="logo">
                 <span class="logo-icon">🍰</span>
                 <span class="logo-text">BakeGenius.ai</span>
             </a>
+
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="convert.html">Convert Recipe</a></li>
-                <li><a href="customize.html">Customize</a></li>
-                <li><a href="scale.html" class="active">Scale Recipes</a></li>
-                <li><a href="about.html">About</a></li>
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-home" style="margin-right:8px;"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="convert.html">
+                        <i class="fas fa-exchange-alt" style="margin-right:8px;"></i>
+                        Convert Recipe
+                    </a>
+                </li>
+                <li>
+                    <a href="customize.html">
+                        <i class="fas fa-cog" style="margin-right:8px;"></i>
+                        Customize
+                    </a>
+                </li>
+                <li>
+                    <a href="scale.html">
+                        <i class="fas fa-balance-scale" style="margin-right:8px;"></i>
+                        Scale Recipes
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <i class="fas fa-info-circle" style="margin-right:8px;"></i>
+                        About
+                    </a>
+                </li>
             </ul>
             <div class="nav-actions">
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
@@ -1294,6 +1303,7 @@
             </div>
         </div>
     </nav>
+                 
 
     <!-- Main Container -->
     <div class="container">
