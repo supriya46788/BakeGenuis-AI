@@ -21,7 +21,7 @@
         }
 
         body.dark-mode {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
+            background-color: #0d0d0d;
         }
 
         * {
@@ -58,6 +58,10 @@
             pointer-events: none;
             z-index: 1;
         }
+        
+        body.dark-mode .floating-elements {
+            opacity: 0.6;
+        }
 
         .floating-cupcake {
             position: absolute;
@@ -90,7 +94,7 @@
         }
 
         body.dark-mode .navbar {
-            background: rgba(26, 26, 26, 0.95);
+            background: #1e1e1e;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -136,11 +140,11 @@
         }
 
         body.dark-mode .logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .logo:hover {
-            color: #ffab91;
+            color: #e0e0e0;
         }
 
         .nav-links {
@@ -171,8 +175,9 @@
         }
 
         body.dark-mode .nav-links a {
-            color: var(--dark-text);
-            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            background: rgba(111, 100, 91, 0.133);
+            border: 2px solid transparent;
         }
 
         body.dark-mode .nav-links a.active {
@@ -189,8 +194,11 @@
         }
 
         body.dark-mode .nav-links a:hover {
-            background: linear-gradient(45deg, #3498db, #9b59b6);
-            color: #fff;
+            background-color: #0d0d0d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: #1e1e1e;
+            color: #e0e0e0;
         }
 
         /* Navigation Actions */
@@ -223,11 +231,12 @@
         }
 
         body.dark-mode .dark-mode-btn {
-            background: linear-gradient(45deg, #f39c12 0%, #f1c40f 100%);
+            background-color: #e0e0e0;
+            color: #1e1e1e;;
         }
 
         .login-btn {
-            background-color:#d18a68;
+            background-color:#5C4033;
             color: white;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
@@ -243,19 +252,30 @@
 
         .login-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px #d18a68;
-            background-color:#d18a68;
+            box-shadow: 0 8px 25px #cf622f;
+            background-color:#5C4033;
             border-color: rgba(255, 255, 255, 0.3);
         }
 
         body.dark-mode .login-btn {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            background-color: #e0e0e0;
+            color: #0d0d0d;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 2px #e0e0e0;
+            border: 2px solid transparent;
         }
 
         body.dark-mode .login-btn:hover {
-            background: linear-gradient(45deg, #c0392b, #a93226);
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+            transform: translateY(-3px);
+            background: #e0e0e0;
+            box-shadow: 0 2px 2px #e0e0e0;
         }
 
         .hamburger {
@@ -315,7 +335,7 @@
                 align-items: center;
                 padding-top: 2rem;
                 transition: left 0.3s ease;
-                gap: 1rem;
+                gap: 2.8rem;
                 z-index: 999;
             }
 
@@ -432,6 +452,9 @@
             height: 3px;
             background:#3e2723;
             border-radius: 2px;
+        }
+        body.dark-mode .footer-section h3.footer-title::after {
+            background: #e0e0e0;
         }
 
         .footer-logo {
@@ -560,6 +583,10 @@
             color:#3e2723;
             font-weight: 600;
         }
+        
+        body.dark-mode .copyright .name {
+            color: #ef6154;
+        }
 
         .footer-badges {
             display: flex;
@@ -595,6 +622,21 @@
 
         .badge-purple {
             background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+        }
+        
+        body.dark-mode .badge-green {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+        
+        body.dark-mode .badge-blue {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+        
+        body.dark-mode .badge-purple {
+            background: #e0e0e0;
+            color: #0d0d0d;
         }
 
         @media (max-width: 1024px) {
@@ -655,41 +697,40 @@
         }
 
         body.dark-mode .footer {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: #1e1e1e;
         }
 
         body.dark-mode .footer-section h3.footer-title {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .footer-logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .footer-description {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         body.dark-mode .footer-links a {
-            color: #ccc;
+            color: #e0e0e0;
         }
 
         body.dark-mode .footer-links a:hover {
-            color: #ff8a80;
+            color: #a0a0a0;
             background: rgba(255, 138, 128, 0.1);
         }
 
         body.dark-mode .footer-bottom {
-            background: rgba(0, 0, 0, 0.3);
+            background: #1e1e1e;
         }
 
         body.dark-mode .copyright {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
-        body.dark-mode .copyright a {
-            color: #ff8a80;
+        body.dark-mode .copyright .name {
+            color: #ef6154;
         }
 
         /* Main Container */
@@ -712,6 +753,11 @@
             margin-bottom: 1rem;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
             animation: bounce 2s ease-in-out infinite;
+        }
+        
+        body.dark-mode .page-title {
+            color: var(--dark-text);
+            text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.1);
         }
 
         .page-subtitle {
@@ -745,6 +791,12 @@
             position: relative;
             overflow: hidden;
         }
+        
+        body.dark-mode .ingredient-card {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
 
         .ingredient-card::before {
             content: '';
@@ -761,6 +813,11 @@
             transform: translateY(-5px);
             border-color:#3e2723;
             box-shadow: 0 12px 40px #3e2723;
+        }
+        
+        body.dark-mode .ingredient-card:hover {
+            border-color: #9c8d8022;
+            box-shadow: 0 12px 40px #6f645b22;
         }
 
         .ingredient-card:hover::before {
@@ -813,11 +870,25 @@
             background: white;
             transition: all 0.3s ease;
         }
+        
+        body.dark-mode .custom-select, 
+        body.dark-mode .custom-input {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--dark-border);
+            color: var(--dark-text);
+        }
 
         .custom-select:focus, .custom-input:focus {
             outline: none;
             border-color: var(--sky-blue);
             box-shadow: 0 0 0 3px rgba(112, 161, 255, 0.2);
+        }
+        
+        body.dark-mode .custom-select:focus, 
+        body.dark-mode .custom-input:focus {
+            border-color: #ff8a80;
+            box-shadow: 0 0 0 3px rgba(255, 138, 128, 0.2);
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .custom-input[type="number"] {
@@ -833,13 +904,22 @@
             margin-bottom: 2rem;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
+        
+        body.dark-mode .brand-selector {
+            background: rgba(111, 100, 91, 0.133);
+            border: 1px solid rgba(111, 100, 91, 0.133);;
+        }
 
         .brand-title {
             font-size: 1.5rem;
             font-weight: 700;
-            color:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);;
+            color:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
             margin-bottom: 1rem;
             text-align: center;
+        }
+        
+        body.dark-mode .brand-title {
+            color: var(--dark-text);
         }
 
         .brand-options {
@@ -858,16 +938,32 @@
             transition: all 0.3s ease;
             font-weight: 600;
         }
+        
+        body.dark-mode .brand-option {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--dark-border);
+            color: var(--dark-text);
+        }
 
         .brand-option:hover {
             border-color: #e5b5c3;
             background:#fae2d4;
             transform: scale(1.05);
         }
+        
+        body.dark-mode .brand-option:hover {
+            background: #8f8e8e53;
+            border:2px solid #4b4a4a;
+        }
 
         .brand-option.selected {
             border-color:#412b28;
             background:#d5a69e;
+        }
+        
+        body.dark-mode .brand-option.selected {
+            background: #8f8e8e92;
+            border:2px solid #4b4a4a;
         }
 
         /* Action Buttons */
@@ -900,17 +996,35 @@
             color: white;
             box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
         }
+        
+        body.dark-mode .btn-primary {
+            background: rgba(220, 121, 63, 0.893);
+            color: #e0e0e0;
+            box-shadow: 0 2px 2px rgba(220, 121, 63, 0.893);
+        }
 
         .btn-secondary {
             background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
             color: white;
             box-shadow: 0 4px 15px rgba(112, 161, 255, 0.4);
         }
+        
+        body.dark-mode .btn-secondary {
+            background: rgba(220, 121, 63, 0.893);
+            color: #e0e0e0;
+            box-shadow: 0 2px 2px rgba(220, 121, 63, 0.893);
+        }
 
         .btn-success {
             background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
             color: white;
             box-shadow: 0 4px 15px rgba(46, 213, 115, 0.4);
+        }
+        
+        body.dark-mode .btn-success {
+            background: rgba(220, 121, 63, 0.893);
+            color: #e0e0e0;
+            box-shadow: 0 2px 2px rgba(220, 121, 63, 0.893);
         }
 
         .btn:hover {
@@ -927,9 +1041,9 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .nav-links {
+            /* .nav-links {
                 display: none;
-            }
+            } */
 
             .page-title {
                 font-size: 2rem;
@@ -973,14 +1087,26 @@
     pointer-events: none;
     transition: opacity 0.4s, transform 0.2s;
 }
+
+body.dark-mode .scroll-btn {
+    background: #e0e0e0;
+    color: #0d0d0d;
+}
+
 .scroll-btn.show {
     opacity: 1;
     pointer-events: auto;
     transform: scale(1.08);
 }
+
 .scroll-btn:hover {
     transform: scale(1.15);
     background: linear-gradient(45deg,#5d4037,#a4766a);
+}
+
+body.dark-mode .scroll-btn:hover {
+    background: #e0e0e0;
+    color: #0d0d0d;
 }
 
 /* Positioning individually */
@@ -998,6 +1124,12 @@
             text-align: center;
             color: #2ED573;
             font-weight: 600;
+        }
+        
+        body.dark-mode .success-message {
+            background: rgba(46, 213, 115, 0.2);
+            color: #4cd137;
+            border-color: #4cd137;
             display: none;
             animation: slideDown 0.5s ease-out;
         }
@@ -1047,18 +1179,44 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar">
+     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">
+            <a href="#" class="logo">
                 <span class="logo-icon">🍰</span>
                 <span class="logo-text">BakeGenius.ai</span>
             </a>
+
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="convert.html">Convert Recipe</a></li>
-                <li><a href="customize.html" class="active">Customize</a></li>
-                <li><a href="scale.html">Scale Recipes</a></li>
-                <li><a href="about.html">About</a></li>
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-home" style="margin-right:8px;"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="convert.html">
+                        <i class="fas fa-exchange-alt" style="margin-right:8px;"></i>
+                        Convert Recipe
+                    </a>
+                </li>
+                <li>
+                    <a href="customize.html">
+                        <i class="fas fa-cog" style="margin-right:8px;"></i>
+                        Customize
+                    </a>
+                </li>
+                <li>
+                    <a href="scale.html">
+                        <i class="fas fa-balance-scale" style="margin-right:8px;"></i>
+                        Scale Recipes
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <i class="fas fa-info-circle" style="margin-right:8px;"></i>
+                        About
+                    </a>
+                </li>
             </ul>
             <div class="nav-actions">
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
@@ -1080,6 +1238,7 @@
             </div>
         </div>
     </nav>
+         
 
     <!-- Main Content -->
     <div class="container">

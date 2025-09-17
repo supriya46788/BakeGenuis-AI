@@ -32,19 +32,59 @@
     </div>
 
     <!-- Navigation -->
-    <nav>
-      <div class="nav-container">
-        <a href="index.html" class="logo">
-          <div class="logo">🍰 BakeGenius.ai</div>
-        </a>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="convert.html">Convert Recipe</a></li>
-          <li><a href="customize.html">Customize</a></li>
-          <li><a href="scale.html">Scale Recipes</a></li>
-          <li><a href="about.html" class="active">About Us</a></li>
-        </ul>
-      </div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🍰</span>
+                <span class="logo-text">BakeGenius.ai</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-home" style="margin-right:8px;"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="convert.html">
+                        <i class="fas fa-exchange-alt" style="margin-right:8px;"></i>
+                        Convert Recipe
+                    </a>
+                </li>
+                <li>
+                    <a href="customize.html">
+                        <i class="fas fa-cog" style="margin-right:8px;"></i>
+                        Customize
+                    </a>
+                </li>
+                <li>
+                    <a href="scale.html">
+                        <i class="fas fa-balance-scale" style="margin-right:8px;"></i>
+                        Scale Recipes
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <i class="fas fa-info-circle" style="margin-right:8px;"></i>
+                        About
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+            </div>
+           
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
 
     <!-- Hero Section -->

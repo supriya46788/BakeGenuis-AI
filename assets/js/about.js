@@ -53,6 +53,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+
+  // Dark Mode Toggle
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const body = document.body;
+  const darkModeIcon = darkModeToggle.querySelector('i');
+
+  // Check for saved theme preference or default to light mode
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  if (currentTheme === 'dark') {
+    body.classList.add('dark-mode');
+    darkModeIcon.classList.remove('fa-moon');
+    darkModeIcon.classList.add('fa-sun');
+  }
+
+  darkModeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+    // Update icon
+    if (body.classList.contains('dark-mode')) {
+      darkModeIcon.classList.remove('fa-moon');
+      darkModeIcon.classList.add('fa-sun');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      darkModeIcon.classList.remove('fa-sun');
+      darkModeIcon.classList.add('fa-moon');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+
   // Mobile Menu Toggle (if needed for responsive design)
   function initMobileMenu() {
     const navLinks = document.querySelector(".nav-links");
@@ -227,44 +256,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // Initialize all functions
-//  createSparkles();
-//  initScrollAnimations();
-//  initSmoothScrolling();
-//  initMobileMenu();
-//  initParallaxEffect();
-//  initCardEffects();
-//  initTypingEffect();
-//  initProblemItemAnimations();
-//  initStepCardAnimations();
-//  initCreatorAvatarEffect();
-//  initLoadingAnimation();
-//  initScrollProgress();
+  //  createSparkles();
+  //  initScrollAnimations();
+  //  initSmoothScrolling();
+  //  initMobileMenu();
+  //  initParallaxEffect();
+  //  initCardEffects();
+  //  initTypingEffect();
+  //  initProblemItemAnimations();
+  //  initStepCardAnimations();
+  //  initCreatorAvatarEffect();
+  //  initLoadingAnimation();
+  //  initScrollProgress();
 
   // Dual Scroll Buttons
-const scrollTopBtn = document.getElementById('scrollTopBtn');
-const scrollBottomBtn = document.getElementById('scrollBottomBtn');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  const scrollBottomBtn = document.getElementById('scrollBottomBtn');
 
-window.addEventListener('scroll', () => {
+  window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
-        scrollTopBtn.classList.add('show');
+      scrollTopBtn.classList.add('show');
     } else {
-        scrollTopBtn.classList.remove('show');
+      scrollTopBtn.classList.remove('show');
     }
 
     if (window.innerHeight + window.scrollY < document.body.offsetHeight - 300) {
-        scrollBottomBtn.classList.add('show');
+      scrollBottomBtn.classList.add('show');
     } else {
-        scrollBottomBtn.classList.remove('show');
+      scrollBottomBtn.classList.remove('show');
     }
-});
+  });
 
-scrollTopBtn.addEventListener('click', () => {
+  scrollTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+  });
 
-scrollBottomBtn.addEventListener('click', () => {
+  scrollBottomBtn.addEventListener('click', () => {
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-});
+  });
 
 
   // Add scroll progress indicator
@@ -353,7 +382,7 @@ scrollBottomBtn.addEventListener('click', () => {
   initCreatorAvatarEffect();
   initLoadingAnimation();
   initScrollProgress();
- 
+
 
   // Add some extra sparkle regeneration
   setInterval(createSparkles, 10000);
