@@ -395,6 +395,7 @@ nav {
   color: #3e2723;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   animation: logoGlow 3s ease-in-out infinite alternate;
+  text-decoration: none;
 }
 
 @keyframes logoGlow {
@@ -1190,4 +1191,61 @@ display: flex !important;
 
 #scrollBottomBtn {
   bottom: 2.5rem;
+}
+
+
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 1.75rem;
+  height: 1.2rem;
+  cursor: pointer;
+  z-index: 1500;
+}
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+  border-radius: 3px;
+  transition: 0.3s ease;
+}
+/* Burger menu styling for mobile (written here to override previous ones) */
+@media (max-width: 968px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100px;             
+    right: 0.62rem;
+    left: 0.62rem;
+    background: rgba(255,255,255,0.95);
+    border-radius: 10px;
+    padding: 5rem;
+    gap: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  /* show when active */
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Optional X animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px,5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px,-6px);
 }
