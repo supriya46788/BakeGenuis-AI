@@ -71,6 +71,13 @@
                     </a>
                 </li>
             </ul>
+
+            <div class="nav-actions">
+                <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+            </div>
            
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -142,22 +149,41 @@
     <button id="scrollTopBtn" class="scroll-btn" title="Back to Top">⬆</button>
     <button id="scrollBottomBtn" class="scroll-btn" title="Scroll to Bottom">⬇</button>
 
-    <section class="contributors">
-      <span class="img">👩‍💻</span>
-      <span class="xyz"> Our Contributors</span>
-      <!-- search functionality -->
-      <div class="search-contributer-box">
-        <input
-          type="text"
-          id="searchContributer"
-          placeholder="Search contributor..."
-        />
-      </div>
+<section class="contributors">
+  <span class="img">👩‍💻</span>
+  <span class="xyz">Meet the Team</span>
+  <div class="team-leader-card">
+  <div class="leader-img-container">
+    <img src="https://avatars.githubusercontent.com/u/46788?v=4" alt="supriya46788" class="leader-img"/>
+  </div>
+  <div class="leader-details">
+    <h2 class="leader-name">supriya46788</h2>
+    <p class="leader-role">Project Founder & Lead Developer</p>
+    <div class="leader-social">
+      <a href="https://github.com/supriya46788" class="social-link github" aria-label="GitHub" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/supriya46788" class="social-link linkedin" aria-label="LinkedIn" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </div>
+</div>
 
-      <div class="contributor-cards" id="contributors-container">
-        <!-- Contributors will load here dynamically -->
-      </div>
-    </section>
+
+  <h3 class="contributors-title animate-on-scroll">Our Amazing Contributors</h3>
+  <p class="contributors-desc animate-on-scroll">This project is made possible by our incredible open-source community.</p>
+  <div class="search-contributer-box">
+    <input
+      type="text"
+      id="searchContributer"
+      placeholder="Search contributor..."
+    />
+  </div>
+  <div class="contributor-cards" id="contributors-container"></div>
+  <div id="sparkles"></div>
+</section>
+
 
     <!-- footer startes here -->
     <footer class="footer">
