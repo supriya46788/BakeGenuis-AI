@@ -1193,3 +1193,41 @@ display: flex !important;
 #scrollBottomBtn {
   bottom: 2.5rem;
 }
+
+/* changes made in the linkdin logo of About section */
+
+.linkedin-clean {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  color: #0a66c2;             
+  background-color: white;     
+  border: 2px solid #0a66c2;  
+  padding: 10px 16px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.linkedin-clean:hover {
+  background-color: #0a66c2;   
+  color: white;                
+}
+
+.linkedin-icon {
+  width: 20px;
+  height: 20px;
+  transition: filter 0.3s ease;
+}
+
+.linkedin-clean:hover .linkedin-icon {
+  filter: brightness(0) invert(1); 
+}
+
+
+
+
+
+
