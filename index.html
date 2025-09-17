@@ -37,7 +37,7 @@
         }
 
         body.dark-mode {
-            background-color:#0d0d0d;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
         }
 
         @keyframes wobble {
@@ -109,8 +109,10 @@
         }
 
         body.dark-mode .navbar {
-            background:#1e1e1e;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(145deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.90));
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+            box-shadow: 0 8px 32px rgba(83, 52, 131, 0.3);
         }
 
         .nav-container {
@@ -587,8 +589,10 @@
         }
 
         body.dark-mode .hero-section {
-            background:#1e1e1e;
-            box-shadow: 0 2px 2px #1e1e1e;
+            background: linear-gradient(145deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.90));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            box-shadow: 0 20px 60px rgba(83, 52, 131, 0.4), 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .hero-section::before {
@@ -614,11 +618,12 @@
         body.dark-mode .hero-title{
             font-size: 3.5rem;
             font-weight: 700;
-            background:#e0e0e0;
+            background: linear-gradient(90deg, #64ffda, #00e5ff, #64ffda);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 1rem;
+            filter: drop-shadow(0 0 10px rgba(100, 255, 218, 0.3));
         }
 
         .hero-subtitle {
@@ -631,7 +636,8 @@
         }
 
         body.dark-mode .hero-subtitle {
-            color: #e0e0e0;
+            color: #b8e6ff;
+            text-shadow: 0 0 10px rgba(184, 230, 255, 0.3);
         }
 
         .cta-button {
@@ -657,8 +663,8 @@
             box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
         }
         body.dark-mode .cta-button{
-            background:rgba(220, 121, 63, 0.893);
-            color: #e0e0e0;
+            background: linear-gradient(45deg, #64ffda, #00e5ff, #64ffda);
+            color: #0f0f23;
             font-size: 1.2rem;
             font-weight: 700;
             padding: 1rem 2.5rem;
@@ -670,7 +676,7 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 2px 2px rgba(220, 121, 63, 0.893);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.4);
             animation: pulse 2s ease-in-out infinite;
         }
 
@@ -690,6 +696,12 @@
 
         .cta-button:hover::before {
             left: 100%;
+        }
+
+        body.dark-mode .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(100, 255, 218, 0.6);
+            background: linear-gradient(45deg, #00e5ff, #64ffda, #00e5ff);
         }
 
         /* Decorative Elements */
@@ -752,7 +764,16 @@
         }
 
         body.dark-mode .feature-card{
-            background-color: #1e1e1e;
+            background: linear-gradient(145deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.8));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            color: #ffffff;
+        }
+
+        body.dark-mode .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #64ffda;
+            box-shadow: 0 15px 40px rgba(100, 255, 218, 0.3);
         }
 
         .feature-card:hover {
@@ -812,7 +833,8 @@
 
         
         body.dark-mode .footer{
-            background: #1e1e1e;
+            background: linear-gradient(145deg, rgba(15, 15, 35, 0.95), rgba(26, 26, 46, 0.90));
+            border-top: 1px solid rgba(100, 255, 218, 0.2);
         }
 
         .footer-content {
