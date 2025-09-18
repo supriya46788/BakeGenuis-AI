@@ -1709,6 +1709,8 @@ body.dark-mode #sparkles {
  }
  body.dark-mode .nav-links a{
   color: #fff;
+  left: 10px;
+  right: 10px;
  }
 
 /* optional X animation */
