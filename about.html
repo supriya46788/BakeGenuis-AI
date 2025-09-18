@@ -37,13 +37,16 @@
         <a href="index.html" class="logo">
           <div class="logo">🍰 BakeGenius.ai</div>
         </a>
-        <ul class="nav-links">
+        <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Home</a></li>
           <li><a href="convert.html">Convert Recipe</a></li>
           <li><a href="customize.html">Customize</a></li>
           <li><a href="scale.html">Scale Recipes</a></li>
           <li><a href="about.html" class="active">About Us</a></li>
         </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
       </div>
     </nav>
 
@@ -198,6 +201,28 @@
         </div>
       </div>
     </footer>
+    <script>
+    
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.getElementById("hamburger");
+  const navLinks  = document.getElementById("navLinks");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    hamburger.classList.toggle("active");
+  });
+
+  // Close menu when a link is clicked
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      hamburger.classList.remove("active");
+    });
+  });
+});
+
+
+    </script>
   </body>
   <script src="assets/js/about.js"></script>
 </html>

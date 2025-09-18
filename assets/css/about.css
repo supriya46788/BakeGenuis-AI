@@ -1191,3 +1191,62 @@ display: flex !important;
 #scrollBottomBtn {
   bottom: 2.5rem;
 }
+
+/* --- Hamburger --- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1500;
+}
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: #3e2723;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Mobile view hamburger styling ( written here to override previous styles if any ) */
+@media (max-width: 968px) {
+  .nav-links {
+    display: none;                   
+    position: absolute;
+    top: 5.9rem;                       
+    right: 0.75rem;
+    left: 0.625rem;
+    flex-direction: column;
+    background: rgba(255,255,255,0.95);
+    padding: 2.6rem;
+    border-radius: 0.625rem;
+    gap: 1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  .nav-links.active {
+    display: flex;                    
+  }
+  .hamburger {
+    display: flex;                    
+  }
+  .hamburger span {
+    background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+  }
+}
+
+/* optional X animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px,5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px,-6px);
+}
