@@ -37,11 +37,7 @@
         }
 
         body.dark-mode {
-            background: linear-gradient(135deg,
-                    #2c3e50 0%,
-                    #3498db 50%,
-                    #9b59b6 100%);
-            color: var(--dark-text);
+            background-color: #0d0d0d;
         }
 
         /* Navigation */
@@ -59,7 +55,7 @@
         }
 
         body.dark-mode .navbar {
-            background: rgba(26, 26, 26, 0.95);
+            background: #1e1e1e;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -105,11 +101,11 @@
         }
 
         body.dark-mode .logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .logo:hover {
-            color: #ffab91;
+            color: #e0e0e0;
         }
 
         .nav-links {
@@ -132,8 +128,9 @@
         }
 
         body.dark-mode .nav-links a {
-            color: var(--dark-text);
-            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            background: rgba(111, 100, 91, 0.133);
+            border: 2px solid transparent;
         }
 
         .nav-links a:hover {
@@ -145,8 +142,11 @@
         }
 
         body.dark-mode .nav-links a:hover {
-            background: linear-gradient(45deg, #e74c3c, #f39c12);
-            color: #fff;
+            background-color: #0d0d0d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: #1e1e1e;
+            color: #e0e0e0;
         }
 
         .nav-actions {
@@ -178,7 +178,8 @@
         }
 
         body.dark-mode .dark-mode-btn {
-            background: linear-gradient(45deg, #f39c12 0%, #f1c40f 100%);
+            background-color: #e0e0e0;
+            color: #1e1e1e;
         }
 
         .login-btn {
@@ -204,13 +205,24 @@
         }
 
         body.dark-mode .login-btn {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            background-color: #e0e0e0;
+            color: #0d0d0d;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 2px #e0e0e0;
+            border: 2px solid transparent;
         }
 
         body.dark-mode .login-btn:hover {
-            background: linear-gradient(45deg, #c0392b, #a93226);
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+            transform: translateY(-3px);
+            background: #e0e0e0;
+            box-shadow: 0 2px 2px #e0e0e0;
         }
 
         .hamburger {
@@ -260,7 +272,7 @@
         }
 
         body.dark-mode .faq-section {
-            background: rgba(45, 45, 45, 0.9);
+            background: #0d0d0d;
         }
 
         .container {
@@ -273,6 +285,16 @@
             font-size: 3rem;
             font-weight: 700;
             background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 40px;
+        }
+        body.dark-mode h2.faq-title{
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            background: #e0e0e0;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -316,7 +338,7 @@
         }
 
         body.dark-mode .faq-question {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         .faq-question:after {
@@ -336,7 +358,7 @@
         }
 
         body.dark-mode .faq-question:hover {
-            color: #ffab91;
+            color: #a0a0a0;
             background: rgba(255, 255, 255, 0.1);
         }
 
@@ -379,7 +401,7 @@
         }
 
         body.dark-mode .footer {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+            background: #1e1e1e;
         }
 
         .footer-content {
@@ -400,7 +422,7 @@
         }
 
         body.dark-mode .footer-section h3.footer-title {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         .footer-section h3.footer-title::after {
@@ -415,7 +437,7 @@
         }
 
         body.dark-mode .footer-section h3.footer-title::after {
-            background: #ff8a80;
+            background: #e0e0e0;
         }
 
         .footer-logo {
@@ -429,7 +451,7 @@
         }
 
         body.dark-mode .footer-logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         .footer-logo-icon {
@@ -444,7 +466,7 @@
         }
 
         body.dark-mode .footer-description {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         .footer-links {
@@ -470,7 +492,7 @@
         }
 
         body.dark-mode .footer-links a {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         .footer-links a:hover {
@@ -481,7 +503,7 @@
         }
 
         body.dark-mode .footer-links a:hover {
-            color: #ff8a80;
+            color: #a0a0a0;
             background: rgba(255, 138, 128, 0.1);
         }
 
@@ -541,7 +563,7 @@
         }
 
         body.dark-mode .footer-bottom {
-            background: rgba(0, 0, 0, 0.3);
+            background: #1e1e1e;
         }
 
         .footer-bottom-content {
@@ -562,7 +584,7 @@
         }
 
         body.dark-mode .copyright {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         .copyright .name {
@@ -571,7 +593,7 @@
         }
 
         body.dark-mode .copyright .name {
-            color: #ff8a80;
+            color: #ef6154;
         }
 
         .footer-badges {
@@ -608,6 +630,20 @@
 
         .badge-purple {
             background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+        }
+        body.dark-mode .badge-green {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+        
+        body.dark-mode .badge-blue {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+        
+        body.dark-mode .badge-purple {
+            background: #e0e0e0;
+            color: #0d0d0d;
         }
 
         /* Responsive Design */
@@ -757,12 +793,7 @@
             </a>
 
             <ul class="nav-links" id="navLinks">
-                <li>
-                    <a href="index.html">
-                        <i class="fas fa-home" style="margin-right:8px;"></i>
-                        Home
-                    </a>
-                </li>
+                
                 <li>
                     <a href="convert.html">
                         <i class="fas fa-exchange-alt" style="margin-right:8px;"></i>
@@ -787,12 +818,13 @@
                         About
                     </a>
                 </li>
-                <li>
-                    <a href="faq.html" >
+                  <li>
+                    <a href="faq.html">
                         <i class="fas fa-question-circle" style="margin-right:8px;"></i>
-                        FAQ
+                        FAQs
                     </a>
                 </li>
+                
             </ul>
             <div class="nav-actions">
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
