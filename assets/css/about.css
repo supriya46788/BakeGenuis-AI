@@ -154,17 +154,18 @@
 }
 
 .social-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #2c2c2c, #444); /* neutral dark */
-  color: white;
-  font-size: 22px;
-  margin: 0 8px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .social-link:hover {
