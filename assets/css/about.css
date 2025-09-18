@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 /* Footer Modern Multi-Column */
 .footer {
   background: linear-gradient(135deg, rgba(255, 195, 195, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
@@ -91,6 +94,58 @@
   width: 16px;
   opacity: 0.7;
 }
+.login-btn {
+            
+            background-color: #5C4033;
+            color: white;
+            text-decoration: none;
+            padding: 11.2px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            border: 2px solid transparent;
+            
+    height: 43.599999999999994px;
+        }
+
+
+.login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px #cf622f;
+            background-color:#5C4033
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        body.dark-mode .login-btn {
+            background-color: #e0e0e0;
+            color: #0d0d0d;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 2px #e0e0e0;
+            border: 2px solid transparent;
+        }
+
+        body.dark-mode .login-btn:hover {
+            transform: translateY(-3px);
+            background: #e0e0e0;
+            box-shadow: 0 2px 2px #e0e0e0;
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-right: 0px;
+        }
 
 .social-links {
   display: flex;
@@ -452,31 +507,32 @@ body.dark-mode {
 }
 
 /* Navigation Bar */
-nav {
-background: radial-gradient(circle at center,#e5c5b3,#e9b4b6);
-backdrop-filter: blur(15px);
-padding: 1rem 2rem;
-position: fixed;
-top: 0;
-width: 100%;
-z-index: 1000;
-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-transition: all 0.3s ease;
-}
+.navbar {
+            background: radial-gradient(circle at center, #e5c5b3, #e9b4b6);
+            backdrop-filter: blur(15px);
+            padding: 16px 32px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
 
-body.dark-mode .navbar {
-  background: #1e1e1e;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
+        body.dark-mode .navbar {
+            background: #1e1e1e;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
 
 .nav-container {
- display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1500px;
-  margin: 0 auto;
-}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
 
 .logo {
  font-size: 2rem;
@@ -490,6 +546,7 @@ gap: 0.5rem;
 font-family: "Comic Neue", cursive;
  min-width: 150px;
  padding-right:50px;
+ padding-left: 20px;
 }
 
 .logo-icon {
