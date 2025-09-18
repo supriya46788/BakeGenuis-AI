@@ -1281,10 +1281,138 @@
         #toggleForm:hover {
             color: var(--sunny-yellow);
         }
+
+        /* Loading page */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #e5c5b3 0%, #e9b4b6 100%);
+    color: #3e2723;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    font-family: "Comic Neue", cursive;
+}
+
+body.dark-mode #loading-screen {
+    background: #1a1a1a;
+    color: #e0e0e0;
+}
+
+#loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader {
+    text-align: center;
+    background: rgba(255,255,255,0.93);
+    padding: 2.5rem 3rem;
+    border-radius: 30px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.13);
+    border: 2px solid #ffd93d;
+    position: relative;
+}
+
+body.dark-mode .loader {
+    background: #2d2d2d;
+    border: 2px solid #4ecdc4;
+}
+
+.loader i {
+    font-size: 4.5rem;
+    color: #ff6b6b;
+    animation: spin 1.5s linear infinite;
+    margin-bottom: 1.2rem;
+    display: block;
+    filter: drop-shadow(0 2px 8px #ffd93d55);
+}
+
+body.dark-mode .loader i {
+    color: #ffd93d;
+    filter: drop-shadow(0 2px 8px #4ecdc4aa);
+}
+
+.loader h2 {
+    margin-top: 1.5rem;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #3e2723;
+    letter-spacing: 0.5px;
+    background: linear-gradient(90deg, #3e2723, #ff6b6b, #ffd93d, #3e2723);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+body.dark-mode .loader h2 {
+    background: linear-gradient(90deg, #ffd93d, #4ecdc4, #e0e0e0, #ffd93d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dots::after {
+    content: "";
+    display: inline-block;
+    width: 1.5em;
+    animation: dots 1.5s steps(5, end) infinite;
+    vertical-align: middle;
+}
+
+@keyframes dots {
+    0% { content: ""; }
+    20% { content: "."; }
+    40% { content: ".."; }
+    60% { content: "..."; }
+    80% { content: "...."; }
+    100% { content: ""; }
+}
+
+/* Spin Animation */
+@keyframes spin {
+    from { transform: rotate(0deg);}
+    to { transform: rotate(360deg);}
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% { transform: scale(1);}
+    50% { transform: scale(1.05);}
+    100% { transform: scale(1);}
+}
+
+/* Responsive Loading Screen */
+@media (max-width: 600px) {
+    .loader {
+        padding: 1.2rem 1rem;
+        border-radius: 18px;
+    }
+    .loader i {
+        font-size: 2.5rem;
+    }
+    .loader h2 {
+        font-size: 1.2rem;
+    }
+}
     </style>
 </head>
 
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <i class="fa-solid fa-spinner"></i>
+            <h2>Baking Mode On<span class="dots"></span></h2>
+        </div>
+    </div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -1845,6 +1973,23 @@
             if (e.target === loginModal) {
                 loginModal.style.display = "none";
             }
+        });
+
+        document.addEventListener('visibilitychange', function () {
+            if (document.visibilityState === 'visible') {
+                document.title = 'BakeGenius.ai - Perfect Baking Every Time!';
+            } else {
+                document.title = 'Come back to Website';
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const loadingScreen = document.getElementById("loading-screen");
+        
+            // Set a timeout to hide the loading screen
+            setTimeout(() => {
+                loadingScreen.classList.add("hidden");
+            }, 7000); // 7000ms = 7 seconds (adjust as needed)
         });
     </script>
 </body>
