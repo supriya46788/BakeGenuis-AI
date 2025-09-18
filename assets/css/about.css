@@ -510,7 +510,7 @@ body.dark-mode {
 .navbar {
             background: radial-gradient(circle at center, #e5c5b3, #e9b4b6);
             backdrop-filter: blur(15px);
-            padding: 16px 32px;
+            padding: 16px 12px;
             position: fixed;
             top: 0;
             width: 100%;
@@ -546,7 +546,7 @@ gap: 0.5rem;
 font-family: "Comic Neue", cursive;
  min-width: 150px;
  padding-right:50px;
- padding-left: 20px;
+ padding-left: 8px;
 }
 
 .logo-icon {
@@ -1644,3 +1644,81 @@ body.dark-mode .contributor-cards {
 body.dark-mode #sparkles {
   mix-blend-mode: screen;
 }
+
+/* --- Hamburger --- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1500;
+}
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: #3e2723;
+  border-radius: 2px;
+  transition: 0.3s;
+   background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+}
+
+/* --- Mobile menu --- */
+@media (max-width: 968px) {
+  .nav-links {
+    display: none;                   /* hidden by default */
+    position: absolute;
+    top: 100px;                        /* below the navbar */
+    right: 0.625rem;
+    left: 0.625rem;
+    flex-direction: column;
+    background: rgba(255,255,255,0.95);
+    padding: 3rem;
+    border-radius: 10px;
+    gap: 1.3rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    text-align: center;
+    font-size: 1.7rem;
+    ;
+  }
+  
+
+  .nav-links.active {
+    display: flex;                    /* show when active */
+  }
+  .hamburger {
+    display: flex;                    /* show icon on mobile */
+  }
+}
+.login-btn{
+  display: none;
+}
+.dark-mode-btn{
+  margin-right: 0.6rem;
+}
+
+ body.dark-mode .login-btn {
+  display: none;
+ }
+ body.dark-mode .nav-links{
+  background-color: #0d0d0d;
+  color: #EA4335;
+ }
+ body.dark-mode .nav-links a{
+  color: #fff;
+ }
+
+/* optional X animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px,5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px,-6px);
+}
+

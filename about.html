@@ -241,6 +241,42 @@
       </div>
     </div>
   </footer>
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.getElementById("hamburger");
+  const navLinks  = document.getElementById("navLinks");
+  const links     = document.querySelectorAll(".nav-links a");
+
+  // Toggle hamburger menu
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    hamburger.classList.toggle("active");
+  });
+
+  // Add click event to each link
+  links.forEach(link => {
+    link.addEventListener("click", () => {
+      // Close menu
+      navLinks.classList.remove("active");
+      hamburger.classList.remove("active");
+
+      // Highlight the clicked link
+      links.forEach(l => l.classList.remove("active")); // remove from all
+      link.classList.add("active");                     // add to clicked
+    });
+  });
+
+  // Highlight link based on current page (optional)
+  const currentPage = window.location.pathname;
+  links.forEach(link => {
+    if(link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
+    }
+  });
+});
+</script>
+
+
 </body>
 <script src="assets/js/about.js"></script>
 
