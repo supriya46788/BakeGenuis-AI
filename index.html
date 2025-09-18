@@ -268,18 +268,156 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="container header-content">
-      <div class="logo">
-        <i class="fas fa-life-ring"></i>
-        <span>SupportCenter</span>
-      </div>
-      <a href="index.html" class="back-btn">
-        <i class="fas fa-arrow-left"></i>
-        Back to Home
-      </a>
-    </div>
-  </header>
+
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🍰</span>
+                <span class="logo-text">BakeGenius.ai</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                
+                <li>
+                    <a href="convert.html">
+                        <i class="fas fa-exchange-alt" style="margin-right:8px;"></i>
+                        Convert Recipe
+                    </a>
+                </li>
+                <li>
+                    <a href="customize.html">
+                        <i class="fas fa-cog" style="margin-right:8px;"></i>
+                        Customize
+                    </a>
+                </li>
+                <li>
+                    <a href="scale.html">
+                        <i class="fas fa-balance-scale" style="margin-right:8px;"></i>
+                        Scale Recipes
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <i class="fas fa-info-circle" style="margin-right:8px;"></i>
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href="faq.html">
+                        <i class="fas fa-question-circle" style="margin-right:8px;"></i>
+                        FAQs
+                    </a>
+                </li>
+                
+            </ul>
+            <div class="nav-actions">
+                <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#" class="login-btn" id="openLoginModal">
+                    <i class="fas fa-user"></i>
+                    Login
+                </a>
+                <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">Welcome to BakeGenius.ai</h1>
+            <p class="hero-subtitle">
+                From spoon to scale — get exact gram conversions with AI magic ✨<br />
+                Transform vague recipe measurements into precise, consistent results
+                every time!
+            </p>
+            <a href="convert.html" class="cta-button">Start Converting Now 🚀</a>
+        </section>
+
+        <!-- Features Preview -->
+        <section class="features-preview">
+            <div class="feature-card">
+                <i class="fas fa-magic feature-icon"></i>
+                <h3 class="feature-title">AI-Powered Precision</h3>
+                <p class="feature-desc">
+                    Advanced AI converts "cups" and "spoons" into exact gram
+                    measurements for perfect baking every time.
+                </p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-balance-scale feature-icon"></i>
+                <h3 class="feature-title">Smart Recipe Scaling</h3>
+                <p class="feature-desc">
+                    Effortlessly scale recipes up or down while maintaining perfect
+                    ratios and adjusting rising agents intelligently.
+                </p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-cogs feature-icon"></i>
+                <h3 class="feature-title">Custom Preferences</h3>
+                <p class="feature-desc">
+                    Personalize conversions based on your preferred brands and
+                    ingredient specifications for consistent results.
+                </p>
+            </div>
+        </section>
+    </main>
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to Top">⬆</button>
+    <!-- Top to Bottom Button -->
+    <button id="Toptoback" title="Top To Back">⬇</button>
+
+    <!-- footer startes here -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section footer-brand">
+                <div class="footer-logo">
+                    <span class="footer-logo-icon">🍰</span>
+                    <span class="footer-logo-text">BakeGenius.ai</span>
+                </div>
+                <p class="footer-description">
+                    Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and
+                    delightful for everyone.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-link linkedin" target="_blank"
+                        rel="noopener" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/supriya46788/BakeGenuis-AI" class="social-link github" target="_blank"
+                        rel="noopener" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:supriyadpandey502@gmail.com" class="social-link email" target="_blank"
+                        rel="noopener" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="convert.html"><i class="fas fa-exchange-alt"></i>Convert Recipe</a></li>
+                    <li><a href="customize.html"><i class="fas fa-cog"></i>Customize</a></li>
+                    <li><a href="scale.html"><i class="fas fa-balance-scale"></i>Scale Recipes</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+                </ul>
+            </div>
+ main
 
   <div class="container">
     <div class="page-title">

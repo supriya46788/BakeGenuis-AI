@@ -116,7 +116,7 @@
 .login-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px #cf622f;
-            background-color:#5C4033
+            background-color:#5C4033;
             border-color: rgba(255, 255, 255, 0.3);
         }
 
@@ -1536,4 +1536,111 @@ body.dark-mode .scroll-btn {
 
 body.dark-mode .scroll-btn:hover {
   background: linear-gradient(45deg, #9b59b6, #3498db);
+}
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #0f172a; /* Dark background */
+  color: #f8fafc; /* Primary text color */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hero Section */
+body.dark-mode .hero {
+  color: #f8fafc;
+}
+
+body.dark-mode .hero-title {
+  color: #f8fafc;
+}
+
+body.dark-mode .hero-subtitle {
+  color: #090a0a;
+}
+
+
+
+body.dark-mode .section-card {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  color: #f8fafc;
+}
+
+body.dark-mode .section-header .section-title {
+  color: #f8fafc;
+}
+
+body.dark-mode .section-content p {
+  color: #cbd5e1;
+}
+
+/* Scroll Buttons */
+body.dark-mode .scroll-btn {
+  background-color: #334155;
+  color: #f8fafc;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .scroll-btn:hover {
+  background-color: #475569;
+}
+
+/* Contributors Section */
+body.dark-mode .contributors {
+  background-color: #1e293b;
+  color: #f8fafc;
+  padding: 2rem 1rem;
+}
+
+body.dark-mode .contributors .xyz,
+body.dark-mode .contributors-title,
+body.dark-mode .contributors-desc {
+  color: #f1f5f9;
+}
+
+body.dark-mode .contributors .xyz{
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+  background: #e6e2e1;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.dark-mode .team-leader-card {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+}
+
+body.dark-mode .leader-name {
+  color: #f8fafc;
+}
+
+body.dark-mode .leader-role {
+  color: #cbd5e1;
+}
+
+body.dark-mode .leader-social a {
+  color: #f8fafc;
+}
+
+body.dark-mode .search-contributer-box input {
+  background-color: #0f172a;
+  color: #f8fafc;
+  border: 1px solid #334155;
+  padding: 0.5rem;
+}
+
+body.dark-mode .search-contributer-box input::placeholder {
+  color: #94a3b8;
+}
+
+body.dark-mode .contributor-cards {
+  background-color: transparent;
+}
+
+/* Sparkles (optional adjustment for visibility) */
+body.dark-mode #sparkles {
+  mix-blend-mode: screen;
 }
