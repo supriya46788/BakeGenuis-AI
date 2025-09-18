@@ -1669,9 +1669,9 @@ body.dark-mode #sparkles {
 /* --- Mobile menu --- */
 @media (max-width: 968px) {
   .nav-links {
-    display: none;                   /* hidden by default */
+    display: none;                   
     position: absolute;
-    top: 100px;                        /* below the navbar */
+    top: 100px;                        
     right: 0.625rem;
     left: 0.625rem;
     flex-direction: column;
@@ -1682,15 +1682,15 @@ body.dark-mode #sparkles {
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     text-align: center;
     font-size: 1.7rem;
-    ;
+    
   }
   
 
   .nav-links.active {
-    display: flex;                    /* show when active */
+    display: flex;                  
   }
   .hamburger {
-    display: flex;                    /* show icon on mobile */
+    display: flex;                    
   }
 }
 .login-btn{
