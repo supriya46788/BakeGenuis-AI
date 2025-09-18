@@ -157,15 +157,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 45px;
-  height: 45px;
-  background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
-  color: white;
-  text-decoration: none;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #2c2c2c, #444); /* neutral dark */
+  color: white;
+  font-size: 22px;
+  margin: 0 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;;
 }
 
 .social-link:hover {
@@ -173,21 +172,7 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
-.social-link.linkedin {
-  background: linear-gradient(45deg, #0077B5, #00A0DC);
-}
 
-.social-link.github {
-  background: linear-gradient(45deg, #333, #555);
-}
-
-.social-link.portfolio {
-  background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
-}
-
-.social-link.email {
-  background: linear-gradient(45deg, #EA4335, #34A853);
-}
 
 .footer-bottom {
   background: rgba(0, 0, 0, 0.05);
