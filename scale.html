@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,8 +22,8 @@
         }
 
         body {
-              font-family: 'Comic Neue', cursive;
-            background-color:#f5f3f1;
+            font-family: 'Comic Neue', cursive;
+            background-color: #f5f3f1;
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
@@ -32,13 +33,12 @@
         }
 
         body.dark-mode {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
-            color: var(--dark-text);
+            background: #0d0d0d;
         }
 
         /* Navigation */
         .navbar {
-             background: radial-gradient(circle at center,#e5c5b3,#e9b4b6);
+            background: radial-gradient(circle at center, #e5c5b3, #e9b4b6);
             backdrop-filter: blur(15px);
             padding: 1rem 2rem;
             position: fixed;
@@ -51,7 +51,7 @@
         }
 
         body.dark-mode .navbar {
-            background: rgba(26, 26, 26, 0.95);
+            background: #1e1e1e;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -88,8 +88,8 @@
         }
 
         .logo:hover {
-             transform: scale(1.05);
-            color:#3e2723;
+            transform: scale(1.05);
+            color: #3e2723;
         }
 
         .logo:hover .logo-icon {
@@ -97,11 +97,11 @@
         }
 
         body.dark-mode .logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .logo:hover {
-            color: #ffab91;
+            color: #e0e0e0;
         }
 
         .nav-links {
@@ -112,7 +112,7 @@
         }
 
         .nav-links a {
-             text-decoration: none;
+            text-decoration: none;
             color: #3e2723;
             font-weight: 600;
             padding: 0.7rem 1rem;
@@ -124,7 +124,7 @@
         }
 
         .nav-links a.active {
-            background-color:#f3e0d6;
+            background-color: #f3e0d6;
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             border-color: rgba(228, 191, 180, 0.3);
@@ -132,8 +132,9 @@
         }
 
         body.dark-mode .nav-links a {
-            color: var(--dark-text);
-            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            background: rgba(111, 100, 91, 0.133);
+            border: 2px solid transparent;
         }
 
         body.dark-mode .nav-links a.active {
@@ -142,7 +143,7 @@
         }
 
         .nav-links a:hover {
-            background-color:#f3e0d6;
+            background-color: #f3e0d6;
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             border-color: rgba(228, 191, 180, 0.3);
@@ -150,8 +151,11 @@
         }
 
         body.dark-mode .nav-links a:hover {
-            background: linear-gradient(45deg, #3498db, #9b59b6);
-            color: #fff;
+            background-color: #0d0d0d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: #1e1e1e;
+            color: #e0e0e0;
         }
 
         /* Navigation Actions */
@@ -162,7 +166,7 @@
         }
 
         .dark-mode-btn {
-                     background-color:#3e2723;
+            background-color: #3e2723;
             border: none;
             color: white;
             padding: 0.7rem;
@@ -184,11 +188,12 @@
         }
 
         body.dark-mode .dark-mode-btn {
-            background: linear-gradient(45deg, #f39c12 0%, #f1c40f 100%);
+            background-color: #e0e0e0;
+            color: #1e1e1e;
         }
 
         .login-btn {
-            background-color:#d18a68;
+            background-color: #5C4033;
             color: white;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
@@ -204,19 +209,30 @@
 
         .login-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-            background:#d18a68 ;
+            box-shadow: 0 8px 25px #cf622f;
+            background: #5C4033;
             border-color: rgba(255, 255, 255, 0.3);
         }
 
         body.dark-mode .login-btn {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            background-color: #e0e0e0;
+            color: #0d0d0d;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 2px #e0e0e0;
+            border: 2px solid transparent;
         }
 
         body.dark-mode .login-btn:hover {
-            background: linear-gradient(45deg, #c0392b, #a93226);
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+            transform: translateY(-3px);
+            background: #e0e0e0;
+            box-shadow: 0 2px 2px #e0e0e0;
         }
 
         .hamburger {
@@ -281,7 +297,7 @@
             }
 
             body.dark-mode .nav-links {
-                background: rgba(26, 26, 26, 0.98);
+                border-bottom: solid 1px white;
             }
 
             .nav-links.active {
@@ -299,7 +315,7 @@
             .nav-actions {
                 display: flex;
                 gap: 0.5rem;
-                z-index:1001;
+                z-index: 1001;
             }
 
             .hamburger {
@@ -308,8 +324,8 @@
         }
 
         /* Footer Modern Multi-Column */
-       .footer {
-             background: radial-gradient(circle at center,#e9b4b6,#e5c5b3);
+        .footer {
+            background: radial-gradient(circle at center, #e9b4b6, #e5c5b3);
             backdrop-filter: blur(15px);
             position: relative;
             z-index: 2;
@@ -327,25 +343,26 @@
         }
 
         .footer-section h3.footer-title {
-             color: #3e2723;
+            color: #3e2723;
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             position: relative;
         }
 
-        
+
 
         .footer-section h3.footer-title::after {
-           content: '';
+            content: '';
             position: absolute;
             bottom: -8px;
             left: 0;
             width: 30px;
             height: 3px;
-            background:#3e2723;
+            background: #3e2723;
             border-radius: 2px;
         }
+
         .footer-logo {
             display: flex;
             align-items: center;
@@ -390,7 +407,7 @@
         }
 
         .footer-links a:hover {
-            color:black;
+            color: black;
             transform: translateX(5px);
             background: rgba(255, 107, 107, 0.1);
             padding-left: 0.8rem;
@@ -429,11 +446,11 @@
         }
 
         .social-link.linkedin {
-            background:#0a66c2;
+            background: #0a66c2;
         }
 
         .social-link.github {
-            background:black;
+            background: black;
         }
 
         .social-link.portfolio {
@@ -503,15 +520,30 @@
         }
 
         .badge-green {
-            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
         }
 
         .badge-blue {
-            background: linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
         }
 
         .badge-purple {
-            background: linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+        }
+
+        body.dark-mode .badge-blue {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        body.dark-mode .badge-green {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        body.dark-mode .badge-purple {
+            background: #e0e0e0;
+            color: #0d0d0d;
         }
 
         @media (max-width: 1024px) {
@@ -539,43 +571,42 @@
             }
         }
 
-/*dark mode*/
- body.dark-mode .footer {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        /*dark mode*/
+        body.dark-mode .footer {
+            background: #1e1e1e;
         }
 
         body.dark-mode .footer-section h3.footer-title {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .footer-logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .footer-description {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         body.dark-mode .footer-links a {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         body.dark-mode .footer-links a:hover {
-            color: #ff8a80;
+            color: #a0a0a0;
             background: rgba(255, 138, 128, 0.1);
         }
 
         body.dark-mode .footer-bottom {
-            background: rgba(0, 0, 0, 0.3);
+            background: #1e1e1e;
         }
 
         body.dark-mode .copyright {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
-        body.dark-mode .copyright a {
-            color: #ff8a80;
+        body.dark-mode .copyright .name {
+            color: #ef6154;
         }
 
         * {
@@ -583,20 +614,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        :root{
-            --candy-red: #FF4757;
-            --light-pink: #FFE0E6;
-            --light-blue: #E8F4FF;
-            --light-yellow: #FFF5E0;
-        }
-
-        body {
-            font-family: 'Comic Neue', cursive;
-            background: linear-gradient(135deg, var(--light-pink) 0%, var(--light-blue) 30%, var(--light-yellow) 60%, var(--light-pink) 100%);
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
+          
 
         /* Animated Background Elements */
         .floating-elements {
@@ -615,30 +633,56 @@
             animation: float 6s ease-in-out infinite;
         }
 
-        .floating-cupcake:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-        .floating-cupcake:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
-        .floating-cupcake:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
-        .floating-cupcake:nth-child(4) { bottom: 15%; right: 10%; animation-delay: 1s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+        .floating-cupcake:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
         }
 
-       
+        .floating-cupcake:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            animation-delay: 2s;
+        }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #FF6B6B;
-            text-decoration: none;
-            animation: wobble 2s infinite;
+        .floating-cupcake:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .floating-cupcake:nth-child(4) {
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
         }
 
         @keyframes wobble {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(-3deg); }
-            75% { transform: rotate(3deg); }
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(-3deg);
+            }
+
+            75% {
+                transform: rotate(3deg);
+            }
         }
 
         .nav-links {
@@ -657,47 +701,60 @@
             position: relative;
         }
 
-        .nav-links a:hover {
-            background: #FF6B6B;
-            color: white;
-            transform: translateY(-2px);
-        }
-
         .nav-links a.active {
             background: #4ECDC4;
             color: white;
         }
-        /* Dual Scroll Buttons */
-.scroll-btn {
-    position: fixed;
-    right: 2.5rem;
-    z-index: 2000;
-    background: linear-gradient(45deg,#a4766a,#5d4037);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
-    font-size: 2rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s, transform 0.2s;
-}
-.scroll-btn.show {
-    opacity: 1;
-    pointer-events: auto;
-    transform: scale(1.08);
-}
-.scroll-btn:hover {
-    transform: scale(1.15);
-    background: linear-gradient(45deg,#5d4037,#a4766a);
-}
 
-/* Positioning individually */
-#scrollTopBtn { bottom: 6.5rem; }  /* Above bottom button */
-#scrollBottomBtn { bottom: 2.5rem; }
+        /* Dual Scroll Buttons */
+        .scroll-btn {
+            position: fixed;
+            right: 2.5rem;
+            z-index: 2000;
+            background: linear-gradient(45deg, #a4766a, #5d4037);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            font-size: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s, transform 0.2s;
+        }
+
+        .scroll-btn.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1.08);
+        }
+
+        .scroll-btn:hover {
+            transform: scale(1.15);
+            background: linear-gradient(45deg, #5d4037, #a4766a);
+        }
+
+        body.dark-mode .scroll-btn {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        body.dark-mode .scroll-btn:hover {
+            background: #e0e0e0;
+            transform: scale(1.15);
+        }
+
+        /* Positioning individually */
+        #scrollTopBtn {
+            bottom: 6.5rem;
+        }
+
+        /* Above bottom button */
+        #scrollBottomBtn {
+            bottom: 2.5rem;
+        }
 
         /* Main Container */
         .container {
@@ -716,22 +773,43 @@
 
         .header h1 {
             font-size: 3rem;
-            color: linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+            color: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             text-shadow: 3px 3px 6px rgba(132, 130, 130, 0.3);
             margin-bottom: 1rem;
             animation: bounce 2s infinite;
         }
 
+        body.dark-mode .header h1 {
+            color: #e0e0e0;
+        }
+
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
         }
 
         .header p {
             font-size: 1.3rem;
             color: #666;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .header p {
+            color: #a0a0a0;
         }
 
         /* Main Content */
@@ -742,12 +820,21 @@
             margin-bottom: 2rem;
         }
 
-        .input-section, .output-section {
+        .input-section,
+        .output-section {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 2rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
+        }
+
+        body.dark-mode .input-section {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode .output-section {
+            background: #2d2d2d;
         }
 
         .section-title {
@@ -756,6 +843,10 @@
             margin-bottom: 1.5rem;
             text-align: center;
             position: relative;
+        }
+
+        body.dark-mode .section-title {
+            color: #e0e0e0;
         }
 
         .section-title::after {
@@ -769,6 +860,9 @@
             background: #3e2723;
             border-radius: 2px;
         }
+        body.dark-mode .section-title::after{
+            background:#e0e0e0;
+        }
 
         /* Input Elements */
         .input-group {
@@ -781,6 +875,10 @@
             color: #333;
             margin-bottom: 0.5rem;
             font-size: 1.1rem;
+        }
+
+        body.dark-mode .input-group label {
+            color: #a0a0a0;
         }
 
         .serving-inputs {
@@ -805,6 +903,16 @@
             transition: all 0.3s ease;
         }
 
+        body.dark-mode .serving-input label {
+            color: #a0a0a0;
+        }
+
+        body.dark-mode .serving-input input {
+            background: #ffffff34;
+            border: 2px solid #6b6767;
+            color: #0d0d0d;
+        }
+
         .serving-input input:focus {
             outline: none;
             border-color: #4ECDC4;
@@ -816,7 +924,9 @@
             width: 100%;
             min-height: 200px;
             padding: 1rem;
-            border: 3px solid #e5c5b3;
+            border: 2px solid #e5b5c3;
+            background: rgba(255, 255, 255, 0.1);
+            color: black !important;
             border-radius: 15px;
             font-size: 1rem;
             font-family: 'Comic Neue', cursive;
@@ -824,10 +934,22 @@
             transition: all 0.3s ease;
         }
 
+        body.dark-mode .recipe-textarea {
+            background: #ffffff34;
+            border: 2px solid #6b6767;
+        }
+
+
         .recipe-textarea:focus {
             outline: none;
-            border-color: #4ECDC4;
-            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+            border-color: #e5b5c3;
+            box-shadow: 0 5px 4px #e5c5b3;
+        }
+
+        body.dark-mode .recipe-textarea:focus {
+            outline: none;
+            border-color: #0D0D0D;
+            box-shadow: 0 0 2px #0d0d0d;
         }
 
         /* Buttons */
@@ -839,7 +961,7 @@
         }
 
         .btn {
-             padding: 1rem 2rem;
+            padding: 1rem 2rem;
             border: none;
             border-radius: 25px;
             font-family: 'Comic Neue', cursive;
@@ -856,7 +978,7 @@
         }
 
         .btn-primary {
-            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: white;
             box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
         }
@@ -867,19 +989,36 @@
             animation: shimmer 1s ease-in-out;
         }
 
+        body.dark-mode .btn-primary {
+            background: rgba(220, 121, 63, 0.893);
+            color: #e0e0e0;
+            box-shadow: 0 2px 2px rgba(220, 121, 63, 0.893);
+        }
+
+        body.dark-mode .btn-secondary {
+            background: rgba(220, 121, 63, 0.893);
+            color: #e0e0e0;
+            box-shadow: 0 2px 2px rgba(220, 121, 63, 0.893);
+        }
+
         @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
         }
 
         .btn-secondary {
-            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: white;
             box-shadow: 0 4px 15px rgba(112, 161, 255, 0.4);
         }
 
         .btn-secondary:hover {
-            background: linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             transform: translateY(-3px);
         }
 
@@ -890,6 +1029,10 @@
             justify-content: center;
             gap: 1rem;
             margin: 1rem 0;
+        }
+
+        body.dark-mode .toggle-container span {
+            color: #a0a0a0;
         }
 
         .toggle-switch {
@@ -917,6 +1060,10 @@
             border-radius: 34px;
         }
 
+        body.dark-mode .slider {
+            background-color: #a0a0a0;
+        }
+
         .slider:before {
             position: absolute;
             content: "";
@@ -929,11 +1076,15 @@
             border-radius: 50%;
         }
 
-        input:checked + .slider {
+        input:checked+.slider {
             background-color: #3e2723;
         }
 
-        input:checked + .slider:before {
+        body.dark-mode input:checked+.slider {
+            background-color: #0d0d0d;
+        }
+
+        input:checked+.slider:before {
             transform: translateX(26px);
         }
 
@@ -952,6 +1103,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1033,8 +1185,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* Responsive Design */
@@ -1080,6 +1237,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Floating Background Elements -->
     <div class="floating-elements">
@@ -1092,18 +1250,13 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <span class="logo-icon">🍰</span>
                 <span class="logo-text">BakeGenius.ai</span>
             </a>
 
             <ul class="nav-links" id="navLinks">
-                <li>
-                    <a href="index.html">
-                        <i class="fas fa-home" style="margin-right:8px;"></i>
-                        Home
-                    </a>
-                </li>
+                
                 <li>
                     <a href="convert.html">
                         <i class="fas fa-exchange-alt" style="margin-right:8px;"></i>
@@ -1128,6 +1281,12 @@
                         About
                     </a>
                 </li>
+                  <li>
+                    <a href="faq.html">
+                        <i class="fas fa-question-circle" style="margin-right:8px;"></i>
+                        FAQs
+                    </a>
+                </li>
             </ul>
             <div class="nav-actions">
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
@@ -1149,7 +1308,7 @@
             </div>
         </div>
     </nav>
-                 
+
 
     <!-- Main Container -->
     <div class="container">
@@ -1164,7 +1323,7 @@
             <!-- Input Section -->
             <div class="input-section">
                 <h2 class="section-title">🎯 Recipe Scaling</h2>
-                
+
                 <div class="serving-inputs">
                     <div class="serving-input">
                         <label for="currentServings">Current Servings</label>
@@ -1178,18 +1337,14 @@
 
                 <div class="input-group">
                     <label for="recipeInput">Paste Your Recipe Ingredients:</label>
-                    <textarea 
-                        id="recipeInput" 
-                        class="recipe-textarea" 
-                        placeholder="Example:
+                    <textarea id="recipeInput" class="recipe-textarea" placeholder="Example:
 2 cups all-purpose flour
 1 cup sugar
 1/2 cup butter
 2 eggs
 1 tsp baking powder
 1/2 tsp salt
-1 cup milk"
-                    ></textarea>
+1 cup milk"></textarea>
                 </div>
 
                 <div class="toggle-container">
@@ -1214,7 +1369,7 @@
             <!-- Output Section -->
             <div class="output-section">
                 <h2 class="section-title">📊 Scaled Results</h2>
-                
+
                 <div class="loading" id="loading">
                     <div class="spinner"></div>
                     <p>Scaling your recipe with AI magic... 🪄</p>
@@ -1233,7 +1388,7 @@
                         <tbody id="resultsBody">
                         </tbody>
                     </table>
-                    
+
                     <div class="suggestions-box" id="suggestionsBox">
                         <h3>🔮 Smart Baking Tips</h3>
                         <div id="suggestions"></div>
@@ -1243,10 +1398,10 @@
         </div>
     </div>
     <!-- Dual Scroll Buttons -->
-<button id="scrollTopBtn" class="scroll-btn" title="Back to Top">⬆</button>
-<button id="scrollBottomBtn" class="scroll-btn" title="Scroll to Bottom">⬇</button>
+    <button id="scrollTopBtn" class="scroll-btn" title="Back to Top">⬆</button>
+    <button id="scrollBottomBtn" class="scroll-btn" title="Scroll to Bottom">⬇</button>
 
-    
+
     <!-- footer startes here -->
     <footer class="footer">
         <div class="footer-content">
@@ -1256,21 +1411,25 @@
                     <span class="footer-logo-text">BakeGenius.ai</span>
                 </div>
                 <p class="footer-description">
-                    Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and delightful for everyone.
+                    Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and
+                    delightful for everyone.
                 </p>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-link linkedin" target="_blank" rel="noopener" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-link linkedin" target="_blank"
+                        rel="noopener" title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://github.com/supriya46788/BakeGenuis-AI" class="social-link github" target="_blank" rel="noopener" title="GitHub">
+                    <a href="https://github.com/supriya46788/BakeGenuis-AI" class="social-link github" target="_blank"
+                        rel="noopener" title="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="mailto:supriyadpandey502@gmail.com" class="social-link email" target="_blank" rel="noopener" title="Email">
+                    <a href="mailto:supriyadpandey502@gmail.com" class="social-link email" target="_blank"
+                        rel="noopener" title="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
             </div>
-            
+
             <div class="footer-section">
                 <h3 class="footer-title">Quick Links</h3>
                 <ul class="footer-links">
@@ -1281,7 +1440,7 @@
                     <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3 class="footer-title">Features</h3>
                 <ul class="footer-links">
@@ -1292,23 +1451,23 @@
                     <li><a href="#"><i class="fas fa-mobile-alt"></i>Mobile Friendly</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3 class="footer-title">Support</h3>
                 <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-question-circle"></i>Help Center</a></li>
-                    <li><a href="#"><i class="fas fa-comment"></i>Feedback</a></li>
-                    <li><a href="#"><i class="fas fa-bug"></i>Report Issue</a></li>
-                    <li><a href="#"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
-                    <li><a href="#"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
+                    <li><a href="contact.html"><i class="fas fa-question-circle"></i>Contact Us</a></li>
+                    <li><a href="feedback.html"><i class="fas fa-comment"></i>Feedback</a></li>
+                    <li><a href="faq.html"><i class="fas fa-info-circle"></i>FAQ</a></li>
+                    <li><a href="privacypolicy.html"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
+                    <li><a href="toc.html"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
                 </ul>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
             <div class="footer-bottom-content">
                 <p class="copyright">
-                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <a href="#" target="_blank">Supriya Pandey</a>
+                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <span class="name">Supriya Pandey</span>
                 </p>
                 <div class="footer-badges">
                     <span class="badge badge-green"><i class="fas fa-heart"></i> Open Source</span>
@@ -1335,7 +1494,7 @@
 
         darkModeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
-            
+
             // Update icon
             if (body.classList.contains('dark-mode')) {
                 darkModeIcon.classList.remove('fa-moon');
@@ -1378,7 +1537,7 @@
         const API_KEY = 'API_KEY';
         const API_URL = 'API_URL';
 
-        
+
 
         // Ingredient icons mapping
         const ingredientIcons = {
@@ -1433,7 +1592,7 @@
         }
 
 
-        
+
         function parseIngredientLine(line) {
             // Enhanced regex to capture amount, unit, and ingredient
             const patterns = [
@@ -1459,7 +1618,7 @@
                     }
                 }
             }
-            
+
             return {
                 amount: 1,
                 unit: 'unit',
@@ -1470,7 +1629,7 @@
         function convertToGrams(amount, unit, ingredient) {
             const normalizedUnit = unit.toLowerCase();
             const normalizedIngredient = ingredient.toLowerCase();
-            
+
             if (normalizedUnit.includes('cup')) {
                 for (const [key, value] of Object.entries(unitConversions.cup)) {
                     if (normalizedIngredient.includes(key)) {
@@ -1479,7 +1638,7 @@
                 }
                 return Math.round(amount * unitConversions.cup.default);
             }
-            
+
             if (normalizedUnit.includes('tbsp') || normalizedUnit.includes('tablespoon')) {
                 for (const [key, value] of Object.entries(unitConversions.tablespoon)) {
                     if (normalizedIngredient.includes(key)) {
@@ -1488,18 +1647,18 @@
                 }
                 return Math.round(amount * unitConversions.tablespoon.default);
             }
-            
+
             if (normalizedUnit.includes('tsp') || normalizedUnit.includes('teaspoon')) {
                 return Math.round(amount * unitConversions.teaspoon.default);
             }
-            
+
             return null; // Return null if no conversion available
         }
 
         function adjustLeavening(ingredient, originalAmount, scale) {
             const normalizedIngredient = ingredient.toLowerCase();
-            if (normalizedIngredient.includes('baking powder') || 
-                normalizedIngredient.includes('baking soda') || 
+            if (normalizedIngredient.includes('baking powder') ||
+                normalizedIngredient.includes('baking soda') ||
                 normalizedIngredient.includes('yeast')) {
                 // For leavening agents, scale less aggressively
                 const adjustedScale = Math.pow(scale, 0.7);
@@ -1536,9 +1695,9 @@
                 for (const line of lines) {
                     const parsed = parseIngredientLine(line);
                     const scaledAmount = adjustLeavening(parsed.ingredient, parsed.amount, scale);
-                    
+
                     let displayAmount, displayUnit;
-                    
+
                     if (convertToGrams) {
                         const gramsConversion = convertToGrams(scaledAmount, parsed.unit, parsed.ingredient);
                         if (gramsConversion) {
@@ -1563,7 +1722,7 @@
 
                 // Display results
                 displayResults(scaledIngredients, currentServings, desiredServings, scale);
-                
+
                 // Generate suggestions
                 generateSuggestions(scale, desiredServings);
 
@@ -1578,10 +1737,10 @@
         function displayResults(ingredients, currentServings, desiredServings, scale) {
             const resultsBody = document.getElementById('resultsBody');
             const scalingInfo = document.getElementById('scalingInfo');
-            
+
             // Clear previous results
             resultsBody.innerHTML = '';
-            
+
             // Add scaling info
             scalingInfo.innerHTML = `
                 <div style="text-align: center; margin-bottom: 1rem; padding: 1rem; background: rgba(78, 205, 196, 0.1); border-radius: 10px;">
@@ -1589,7 +1748,7 @@
                     <p style="color: #333;">From ${currentServings} servings to ${desiredServings} servings</p>
                 </div>
             `;
-            
+
             // Add ingredients
             ingredients.forEach(item => {
                 const row = document.createElement('tr');
@@ -1603,14 +1762,14 @@
                 `;
                 resultsBody.appendChild(row);
             });
-            
+
             document.getElementById('resultsContainer').classList.add('show');
         }
 
         function generateSuggestions(scale, servings) {
             const suggestions = document.getElementById('suggestions');
             let tips = [];
-            
+
             if (scale > 2) {
                 tips.push('🍳 For large batches, consider using multiple pans to ensure even baking.');
                 tips.push('⏰ Increase baking time by 10-15% and check doneness with a toothpick.');
@@ -1623,13 +1782,13 @@
                 tips.push('✨ This scaling factor is perfect for most recipes!');
                 tips.push('🎯 Keep original baking time and temperature.');
             }
-            
+
             if (servings > 20) {
                 tips.push('🎉 Consider making multiple batches for better quality control.');
             }
-            
+
             tips.push('📏 Always measure ingredients by weight for best results!');
-            
+
             suggestions.innerHTML = tips.map(tip => `<p>${tip}</p>`).join('');
         }
 
@@ -1641,30 +1800,30 @@
             document.getElementById('resultsContainer').classList.remove('show');
         }
         // Dual Scroll Buttons
-const scrollTopBtn = document.getElementById('scrollTopBtn');
-const scrollBottomBtn = document.getElementById('scrollBottomBtn');
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        const scrollBottomBtn = document.getElementById('scrollBottomBtn');
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        scrollTopBtn.classList.add('show');
-    } else {
-        scrollTopBtn.classList.remove('show');
-    }
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
 
-    if (window.innerHeight + window.scrollY < document.body.offsetHeight - 300) {
-        scrollBottomBtn.classList.add('show');
-    } else {
-        scrollBottomBtn.classList.remove('show');
-    }
-});
+            if (window.innerHeight + window.scrollY < document.body.offsetHeight - 300) {
+                scrollBottomBtn.classList.add('show');
+            } else {
+                scrollBottomBtn.classList.remove('show');
+            }
+        });
 
-scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-scrollBottomBtn.addEventListener('click', () => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-});
+        scrollBottomBtn.addEventListener('click', () => {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        });
 
 
         // Function to update login state
@@ -1672,7 +1831,7 @@ scrollBottomBtn.addEventListener('click', () => {
             const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
             const loginBtn = document.getElementById("openLoginModal");
             const logoutBtn = document.getElementById("logoutBtn");
-            
+
             if (isLoggedIn) {
                 loginBtn.style.display = "none";
                 logoutBtn.style.display = "flex";
@@ -1700,15 +1859,16 @@ scrollBottomBtn.addEventListener('click', () => {
         });
 
         // Add some example recipes on page load
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             const examples = [
                 "2 cups all-purpose flour\n1 cup sugar\n1/2 cup butter\n2 eggs\n1 tsp baking powder\n1/2 tsp salt\n1 cup milk",
                 "3 cups flour\n1 cup cocoa powder\n2 cups sugar\n1 tsp baking soda\n1/2 tsp salt\n2 eggs\n1 cup buttermilk",
                 "4 cups flour\n1/2 cup sugar\n1 packet yeast\n1 tsp salt\n1/4 cup olive oil\n1 1/2 cups warm water"
             ];
-            
-          
+
+
         });
     </script>
 </body>
+
 </html>

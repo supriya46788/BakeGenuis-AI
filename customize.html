@@ -21,8 +21,7 @@
         }
 
         body.dark-mode {
-            background-color: #1a1a1a;
-            color: var(--dark-text);
+            background-color: #0d0d0d;
         }
 
         * {
@@ -95,7 +94,7 @@
         }
 
         body.dark-mode .navbar {
-            background: rgba(26, 26, 26, 0.95);
+            background: #1e1e1e;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -141,11 +140,11 @@
         }
 
         body.dark-mode .logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .logo:hover {
-            color: #ffab91;
+            color: #e0e0e0;
         }
 
         .nav-links {
@@ -176,8 +175,9 @@
         }
 
         body.dark-mode .nav-links a {
-            color: var(--dark-text);
-            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            background: rgba(111, 100, 91, 0.133);
+            border: 2px solid transparent;
         }
 
         body.dark-mode .nav-links a.active {
@@ -194,8 +194,11 @@
         }
 
         body.dark-mode .nav-links a:hover {
-            background: linear-gradient(45deg, #3498db, #9b59b6);
-            color: #fff;
+            background-color: #0d0d0d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: #1e1e1e;
+            color: #e0e0e0;
         }
 
         /* Navigation Actions */
@@ -228,11 +231,12 @@
         }
 
         body.dark-mode .dark-mode-btn {
-            background: linear-gradient(45deg, #f39c12 0%, #f1c40f 100%);
+            background-color: #e0e0e0;
+            color: #1e1e1e;
         }
 
         .login-btn {
-            background-color:#d18a68;
+            background-color:#5C4033;
             color: white;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
@@ -248,19 +252,30 @@
 
         .login-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px #d18a68;
-            background-color:#d18a68;
+            box-shadow: 0 8px 25px #cf622f;
+            background-color:#5C4033;
             border-color: rgba(255, 255, 255, 0.3);
         }
 
         body.dark-mode .login-btn {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            background-color: #e0e0e0;
+            color: #0d0d0d;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 2px #e0e0e0;
+            border: 2px solid transparent;
         }
 
         body.dark-mode .login-btn:hover {
-            background: linear-gradient(45deg, #c0392b, #a93226);
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+            transform: translateY(-3px);
+            background: #e0e0e0;
+            box-shadow: 0 2px 2px #e0e0e0;
         }
 
         .hamburger {
@@ -438,6 +453,9 @@
             background:#3e2723;
             border-radius: 2px;
         }
+        body.dark-mode .footer-section h3.footer-title::after {
+            background: #e0e0e0;
+        }
 
         .footer-logo {
             display: flex;
@@ -567,7 +585,7 @@
         }
         
         body.dark-mode .copyright .name {
-            color: #ff8a80;
+            color: #ef6154;
         }
 
         .footer-badges {
@@ -606,22 +624,19 @@
             background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
         }
         
-        body.dark-mode .badge-green,
-        body.dark-mode .badge-blue, 
-        body.dark-mode .badge-purple {
-            color: #ffffff;
-        }
-        
         body.dark-mode .badge-green {
-            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            background: #e0e0e0;
+            color: #0d0d0d;
         }
         
         body.dark-mode .badge-blue {
-            background: linear-gradient(45deg, #3498db, #2980b9);
+            background: #e0e0e0;
+            color: #0d0d0d;
         }
         
         body.dark-mode .badge-purple {
-            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+            background: #e0e0e0;
+            color: #0d0d0d;
         }
 
         @media (max-width: 1024px) {
@@ -682,41 +697,40 @@
         }
 
         body.dark-mode .footer {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: #1e1e1e;
         }
 
         body.dark-mode .footer-section h3.footer-title {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .footer-logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .footer-description {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         body.dark-mode .footer-links a {
-            color: #ccc;
+            color: #e0e0e0;
         }
 
         body.dark-mode .footer-links a:hover {
-            color: #ff8a80;
+            color: #a0a0a0;
             background: rgba(255, 138, 128, 0.1);
         }
 
         body.dark-mode .footer-bottom {
-            background: rgba(0, 0, 0, 0.3);
+            background: #1e1e1e;
         }
 
         body.dark-mode .copyright {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
-        body.dark-mode .copyright a {
-            color: #ff8a80;
+        body.dark-mode .copyright .name {
+            color: #ef6154;
         }
 
         /* Main Container */
@@ -802,8 +816,8 @@
         }
         
         body.dark-mode .ingredient-card:hover {
-            border-color: #ff8a80;
-            box-shadow: 0 12px 40px rgba(255, 138, 128, 0.3);
+            border-color: #9c8d8022;
+            box-shadow: 0 12px 40px #6f645b22;
         }
 
         .ingredient-card:hover::before {
@@ -892,8 +906,8 @@
         }
         
         body.dark-mode .brand-selector {
-            background: var(--dark-card);
-            border: 1px solid var(--dark-border);
+            background: rgba(111, 100, 91, 0.133);
+            border: 1px solid rgba(111, 100, 91, 0.133);;
         }
 
         .brand-title {
@@ -938,8 +952,8 @@
         }
         
         body.dark-mode .brand-option:hover {
-            border-color: #ff8a80;
-            background: rgba(255, 138, 128, 0.2);
+            background: #8f8e8e53;
+            border:2px solid #4b4a4a;
         }
 
         .brand-option.selected {
@@ -948,8 +962,8 @@
         }
         
         body.dark-mode .brand-option.selected {
-            border-color: #ff8a80;
-            background: rgba(255, 138, 128, 0.3);
+            background: #8f8e8e92;
+            border:2px solid #4b4a4a;
         }
 
         /* Action Buttons */
@@ -984,8 +998,9 @@
         }
         
         body.dark-mode .btn-primary {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            background: rgba(220, 121, 63, 0.893);
+            color: #e0e0e0;
+            box-shadow: 0 2px 2px rgba(220, 121, 63, 0.893);
         }
 
         .btn-secondary {
@@ -995,8 +1010,9 @@
         }
         
         body.dark-mode .btn-secondary {
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+            background: rgba(220, 121, 63, 0.893);
+            color: #e0e0e0;
+            box-shadow: 0 2px 2px rgba(220, 121, 63, 0.893);
         }
 
         .btn-success {
@@ -1006,8 +1022,9 @@
         }
         
         body.dark-mode .btn-success {
-            background: linear-gradient(45deg, #2ecc71, #27ae60);
-            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+            background: rgba(220, 121, 63, 0.893);
+            color: #e0e0e0;
+            box-shadow: 0 2px 2px rgba(220, 121, 63, 0.893);
         }
 
         .btn:hover {
@@ -1072,8 +1089,8 @@
 }
 
 body.dark-mode .scroll-btn {
-    background: linear-gradient(45deg, #3498db, #9b59b6);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    background: #e0e0e0;
+    color: #0d0d0d;
 }
 
 .scroll-btn.show {
@@ -1088,7 +1105,8 @@ body.dark-mode .scroll-btn {
 }
 
 body.dark-mode .scroll-btn:hover {
-    background: linear-gradient(45deg, #9b59b6, #3498db);
+    background: #e0e0e0;
+    color: #0d0d0d;
 }
 
 /* Positioning individually */
@@ -1163,18 +1181,13 @@ body.dark-mode .scroll-btn:hover {
     <!-- Navigation -->
      <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <span class="logo-icon">🍰</span>
                 <span class="logo-text">BakeGenius.ai</span>
             </a>
 
             <ul class="nav-links" id="navLinks">
-                <li>
-                    <a href="index.html">
-                        <i class="fas fa-home" style="margin-right:8px;"></i>
-                        Home
-                    </a>
-                </li>
+                
                 <li>
                     <a href="convert.html">
                         <i class="fas fa-exchange-alt" style="margin-right:8px;"></i>
@@ -1197,6 +1210,12 @@ body.dark-mode .scroll-btn:hover {
                     <a href="about.html">
                         <i class="fas fa-info-circle" style="margin-right:8px;"></i>
                         About
+                    </a>
+                </li>
+                  <li>
+                    <a href="faq.html">
+                        <i class="fas fa-question-circle" style="margin-right:8px;"></i>
+                        FAQs
                     </a>
                 </li>
             </ul>
@@ -1317,11 +1336,11 @@ body.dark-mode .scroll-btn:hover {
             <div class="footer-section">
                 <h3 class="footer-title">Support</h3>
                 <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-question-circle"></i>Help Center</a></li>
-                    <li><a href="#"><i class="fas fa-comment"></i>Feedback</a></li>
-                    <li><a href="#"><i class="fas fa-bug"></i>Report Issue</a></li>
-                    <li><a href="#"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
-                    <li><a href="#"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
+                    <li><a href="contact.html"><i class="fas fa-question-circle"></i>Contact Us</a></li>
+                    <li><a href="feedback.html"><i class="fas fa-comment"></i>Feedback</a></li>
+                    <li><a href="faq.html"><i class="fas fa-info-circle"></i>FAQ</a></li>
+                    <li><a href="privacypolicy.html"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
+                    <li><a href="toc.html"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
                 </ul>
             </div>
         </div>

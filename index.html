@@ -238,7 +238,8 @@
         }
 
         .login-btn {
-            background-color: #d18a68;
+
+            background-color:#5C4033;
             color: white;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
@@ -254,8 +255,8 @@
 
         .login-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px #d18a68;
-            background-color: #d18a68;
+            box-shadow: 0 8px 25px #cf622f;
+            background-color:#5C4033;
         }
 
         body.dark-mode .login-btn {
@@ -1404,80 +1405,83 @@
             color: var(--sunny-yellow);
         }
 
-        .toggle-link:hover::after {
-            width: 100%;
-            background: var(--sunny-yellow);
-        }
+.toggle-link:hover::after {
+    width: 100%;
+    background: var(--sunny-yellow);
+}
 
-        /* Show/Hide Password */
-        .password-toggle {
-            background: none;
-            border: none;
-            color: var(--text-light);
-            cursor: pointer;
-            font-size: 1rem;
-            margin-left: 8px;
-            transition: color 0.3s ease;
-            z-index: 2;
-            position: relative;
-        }
+/* Show/Hide Password */
+.password-toggle {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 8px;
+    transition: color 0.3s ease;
+    z-index: 2;
+    position: relative;
+}
 
-        .password-toggle:hover {
-            color: var(--sky-blue);
-        }
+.password-toggle:hover {
+    color: var(--sky-blue);
+}
 
-        .signup-btn {
-            background: linear-gradient(45deg, var(--sky-blue), var(--sunny-yellow));
-            text-align: center !important;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.signup-btn {
+    background: linear-gradient(45deg, var(--sky-blue), var(--sunny-yellow));
+    text-align: center !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .signup-btn:hover {
-            background: linear-gradient(45deg, var(--sunny-yellow), var(--sky-blue));
-            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
-        }
+.signup-btn:hover {
+    background: linear-gradient(45deg, var(--sunny-yellow), var(--sky-blue));
+    box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+}
 
-        /* Responsive */
-        @media (max-width: 480px) {
-            .modal-content {
-                padding: 2rem 1.5rem;
-                margin: 1rem;
-            }
-            
-            .form-container {
-                padding: 1.5rem;
-            }
-            
-            .form-title {
-                font-size: 1.7rem;
-            }
-        }
+/* Responsive */
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
 
-        /* Hidden by default - remove this line to show the modal */
-        #loginModal {
-            display: flex; /* Changed from none to flex for demo */
-        }
+    .form-container {
+        padding: 1.5rem;
+    }
+
+    .form-title {
+        font-size: 1.7rem;
+    }
+}
+
+/* Hidden by default - remove this line to show the modal */
+#loginModal {
+    display: flex; /* Changed from none to flex for demo */
+}
+
     </style>
 </head>
 
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <i class="fa-solid fa-spinner"></i>
+            <h2>Baking Mode On<span class="dots"></span></h2>
+        </div>
+    </div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <span class="logo-icon">🍰</span>
                 <span class="logo-text">BakeGenius.ai</span>
             </a>
 
             <ul class="nav-links" id="navLinks">
-                <li>
-                    <a href="index.html">
-                        <i class="fas fa-home" style="margin-right:8px;"></i>
-                        Home
-                    </a>
-                </li>
+                
                 <li>
                     <a href="convert.html">
                         <i class="fas fa-exchange-alt" style="margin-right:8px;"></i>
@@ -1502,6 +1506,13 @@
                         About
                     </a>
                 </li>
+                <li>
+                    <a href="faq.html">
+                        <i class="fas fa-question-circle" style="margin-right:8px;"></i>
+                        FAQs
+                    </a>
+                </li>
+                
             </ul>
             <div class="nav-actions">
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
@@ -1625,7 +1636,7 @@
                 <ul class="footer-links">
                     <li><a href="contact.html"><i class="fas fa-question-circle"></i>Contact Us</a></li>
                     <li><a href="feedback.html"><i class="fas fa-comment"></i>Feedback</a></li>
-                    <li><a href="reportissue.html"><i class="fas fa-bug"></i>Report Issue</a></li>
+                    <li><a href="faq.html"><i class="fas fa-info-circle"></i>FAQ</a></li>
                     <li><a href="privacypolicy.html"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
                     <li><a href="toc.html"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
                 </ul>
@@ -2029,6 +2040,23 @@
             if (e.target === loginModal) {
                 loginModal.style.display = "none";
             }
+        });
+
+        document.addEventListener('visibilitychange', function () {
+            if (document.visibilityState === 'visible') {
+                document.title = 'BakeGenius.ai - Perfect Baking Every Time!';
+            } else {
+                document.title = 'Come back to Website';
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const loadingScreen = document.getElementById("loading-screen");
+        
+            // Set a timeout to hide the loading screen
+            setTimeout(() => {
+                loadingScreen.classList.add("hidden");
+            }, 7000); // 7000ms = 7 seconds (adjust as needed)
         });
     </script>
 </body>

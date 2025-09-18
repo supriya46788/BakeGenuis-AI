@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Feedback - BakeGenuis.ai</title>
+    <title>FAQ | BakeGenius.ai</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <style>
@@ -37,14 +37,10 @@
         }
 
         body.dark-mode {
-            background: linear-gradient(135deg,
-                    #2c3e50 0%,
-                    #3498db 50%,
-                    #9b59b6 100%);
-            color: var(--dark-text);
+            background-color: #0d0d0d;
         }
 
-        /* Navigation - Same as index.html */
+        /* Navigation */
         .navbar {
             background: radial-gradient(circle at center, #e5c5b3, #e9b4b6);
             backdrop-filter: blur(15px);
@@ -59,7 +55,7 @@
         }
 
         body.dark-mode .navbar {
-            background: rgba(26, 26, 26, 0.95);
+            background: #1e1e1e;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -105,11 +101,11 @@
         }
 
         body.dark-mode .logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .logo:hover {
-            color: #ffab91;
+            color: #e0e0e0;
         }
 
         .nav-links {
@@ -132,8 +128,9 @@
         }
 
         body.dark-mode .nav-links a {
-            color: var(--dark-text);
-            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            background: rgba(111, 100, 91, 0.133);
+            border: 2px solid transparent;
         }
 
         .nav-links a:hover {
@@ -144,19 +141,12 @@
             color: #3e2723;
         }
 
-        .nav-links a.active {
-            background-color: #3e2723;
-            color: white;
-        }
-
         body.dark-mode .nav-links a:hover {
-            background: linear-gradient(45deg, #e74c3c, #f39c12);
-            color: #fff;
-        }
-
-        body.dark-mode .nav-links a.active {
-            background: linear-gradient(45deg, #e74c3c, #f39c12);
-            color: #fff;
+            background-color: #0d0d0d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: #1e1e1e;
+            color: #e0e0e0;
         }
 
         .nav-actions {
@@ -188,7 +178,8 @@
         }
 
         body.dark-mode .dark-mode-btn {
-            background: linear-gradient(45deg, #f39c12 0%, #f1c40f 100%);
+            background-color: #e0e0e0;
+            color: #1e1e1e;
         }
 
         .login-btn {
@@ -214,13 +205,24 @@
         }
 
         body.dark-mode .login-btn {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            background-color: #e0e0e0;
+            color: #0d0d0d;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 2px #e0e0e0;
+            border: 2px solid transparent;
         }
 
         body.dark-mode .login-btn:hover {
-            background: linear-gradient(45deg, #c0392b, #a93226);
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+            transform: translateY(-3px);
+            background: #e0e0e0;
+            box-shadow: 0 2px 2px #e0e0e0;
         }
 
         .hamburger {
@@ -261,293 +263,134 @@
             transform: rotate(45deg) translate(-5px, -6px);
         }
 
-        /* Main Content */
-        .main-content {
-            margin-top: 100px;
-            padding: 2rem;
-            min-height: calc(100vh - 200px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-        }
-
-        .feedback-container {
-            background: rgba(255, 255, 255, 0.9);
+        /* FAQ Styles */
+        .faq-section {
+            padding: 120px 20px 60px;
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(15px);
-            padding: 3rem;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        body.dark-mode .faq-section {
+            background: #0d0d0d;
+        }
+
+        .container {
             max-width: 800px;
-            width: 100%;
             margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
         }
 
-        body.dark-mode .feedback-container {
-            background: rgba(45, 45, 45, 0.9);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .feedback-header {
+        .faq-title {
             text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .feedback-title {
             font-size: 3rem;
             font-weight: 700;
             background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 1rem;
+            margin-bottom: 40px;
+        }
+        body.dark-mode h2.faq-title{
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            background: #e0e0e0;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 40px;
         }
 
-        .feedback-subtitle {
+        .faq-item {
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .faq-item {
+            background: rgba(45, 45, 45, 0.9);
+        }
+
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            outline: none;
+            padding: 20px;
             font-size: 1.2rem;
-            color: #666;
-            font-weight: 400;
-            line-height: 1.6;
-            transition: color 0.3s ease;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #3e2723;
+            font-family: inherit;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        body.dark-mode .feedback-subtitle {
+        body.dark-mode .faq-question {
+            color: #e0e0e0;
+        }
+
+        .faq-question:after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question:after {
+            transform: rotate(45deg);
+        }
+
+        .faq-question:hover {
+            color: #d18a68;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        body.dark-mode .faq-question:hover {
+            color: #a0a0a0;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        body.dark-mode .faq-answer {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .faq-answer p {
+            padding: 15px 0;
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        body.dark-mode .faq-answer p {
             color: #ccc;
         }
 
-        .feedback-form {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 20px;
         }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .form-label {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #3e2723;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        body.dark-mode .form-label {
-            color: #ff8a80;
-        }
-
-        .form-input {
-            padding: 1rem;
-            border: 2px solid #e5c5b3;
-            border-radius: 15px;
-            font-size: 1rem;
-            font-family: inherit;
-            background: rgba(255, 255, 255, 0.8);
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #3e2723;
-            box-shadow: 0 0 20px rgba(62, 39, 35, 0.2);
-            background: rgba(255, 255, 255, 1);
-        }
-
-        body.dark-mode .form-input {
-            background: rgba(45, 45, 45, 0.8);
-            border-color: #666;
-            color: #fff;
-        }
-
-        body.dark-mode .form-input:focus {
-            border-color: #ff8a80;
-            box-shadow: 0 0 20px rgba(255, 138, 128, 0.2);
-            background: rgba(45, 45, 45, 1);
-        }
-
-        .form-textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .rating-container {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .star-rating {
-            display: flex;
-            gap: 0.2rem;
-        }
-
-        .star {
-            font-size: 2rem;
-            color: #ddd;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .star:hover,
-        .star.active {
-            color: #ffd93d;
-            transform: scale(1.1);
-        }
-
-        .star:hover ~ .star {
-            color: #ddd;
-        }
-
-        .rating-text {
-            margin-left: 1rem;
-            font-weight: 600;
-            color: #3e2723;
-        }
-
-        body.dark-mode .rating-text {
-            color: #ff8a80;
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .category-card {
-            background: rgba(255, 255, 255, 0.5);
-            border: 2px solid #e5c5b3;
-            border-radius: 15px;
-            padding: 1.5rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .category-card:hover {
-            background: rgba(62, 39, 35, 0.1);
-            border-color: #3e2723;
-            transform: translateY(-2px);
-        }
-
-        .category-card.selected {
-            background: #3e2723;
-            color: white;
-            border-color: #3e2723;
-        }
-
-        body.dark-mode .category-card {
-            background: rgba(45, 45, 45, 0.5);
-            border-color: #666;
-            color: #fff;
-        }
-
-        body.dark-mode .category-card:hover {
-            background: rgba(255, 138, 128, 0.2);
-            border-color: #ff8a80;
-        }
-
-        body.dark-mode .category-card.selected {
-            background: #ff8a80;
-            color: #1a1a1a;
-            border-color: #ff8a80;
-        }
-
-        .category-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .category-title {
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .submit-btn {
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-            color: white;
-            font-size: 1.3rem;
-            font-weight: 700;
-            padding: 1.2rem 3rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(62, 39, 35, 0.4);
-            align-self: center;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(62, 39, 35, 0.6);
-        }
-
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .submit-btn::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg,
-                    transparent,
-                    rgba(255, 255, 255, 0.3),
-                    transparent);
-            transition: left 0.5s;
-        }
-
-        .submit-btn:hover::before {
-            left: 100%;
-        }
-
-        .success-message {
-            background: linear-gradient(45deg, #98fb98, #90ee90);
-            color: #2d5016;
-            padding: 1rem 2rem;
-            border-radius: 15px;
-            text-align: center;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            display: none;
-        }
-
-        .success-message.show {
-            display: block;
-            animation: slideIn 0.5s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Footer - Same as index.html */
+        /* Footer */
         .footer {
             background: radial-gradient(circle at center, #e9b4b6, #e5c5b3);
             backdrop-filter: blur(15px);
@@ -555,6 +398,10 @@
             z-index: 2;
             border-top: 1px solid rgba(255, 255, 255, 0.3);
             margin-top: 4rem;
+        }
+
+        body.dark-mode .footer {
+            background: #1e1e1e;
         }
 
         .footer-content {
@@ -574,6 +421,10 @@
             position: relative;
         }
 
+        body.dark-mode .footer-section h3.footer-title {
+            color: #e0e0e0;
+        }
+
         .footer-section h3.footer-title::after {
             content: '';
             position: absolute;
@@ -583,6 +434,10 @@
             height: 3px;
             background: #3e2723;
             border-radius: 2px;
+        }
+
+        body.dark-mode .footer-section h3.footer-title::after {
+            background: #e0e0e0;
         }
 
         .footer-logo {
@@ -595,6 +450,10 @@
             color: #3e2723;
         }
 
+        body.dark-mode .footer-logo {
+            color: #e0e0e0;
+        }
+
         .footer-logo-icon {
             font-size: 2rem;
         }
@@ -604,6 +463,10 @@
             line-height: 1.6;
             margin-bottom: 2rem;
             font-size: 0.95rem;
+        }
+
+        body.dark-mode .footer-description {
+            color: #a0a0a0;
         }
 
         .footer-links {
@@ -628,11 +491,20 @@
             border-radius: 5px;
         }
 
+        body.dark-mode .footer-links a {
+            color: #a0a0a0;
+        }
+
         .footer-links a:hover {
             color: black;
             transform: translateX(4px);
             background: rgba(255, 107, 107, 0.1);
             padding-left: 0.8rem;
+        }
+
+        body.dark-mode .footer-links a:hover {
+            color: #a0a0a0;
+            background: rgba(255, 138, 128, 0.1);
         }
 
         .footer-links i {
@@ -675,6 +547,10 @@
             background: black;
         }
 
+        .social-link.portfolio {
+            background: navy;
+        }
+
         .social-link.email {
             background: red;
         }
@@ -684,6 +560,10 @@
             backdrop-filter: blur(10px);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding: 1.5rem 0;
+        }
+
+        body.dark-mode .footer-bottom {
+            background: #1e1e1e;
         }
 
         .footer-bottom-content {
@@ -703,9 +583,17 @@
             margin: 0;
         }
 
+        body.dark-mode .copyright {
+            color: #a0a0a0;
+        }
+
         .copyright .name {
             color: #3e2723;
             font-weight: 600;
+        }
+
+        body.dark-mode .copyright .name {
+            color: #ef6154;
         }
 
         .footer-badges {
@@ -725,7 +613,6 @@
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
         }
 
         .badge:hover {
@@ -733,49 +620,47 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* Dark mode footer styles */
-        body.dark-mode .footer {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        .badge-green {
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
         }
 
-        body.dark-mode .footer-section h3.footer-title {
-            color: #ff8a80;
+        .badge-blue {
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
         }
 
-        body.dark-mode .footer-logo {
-            color: #ff8a80;
+        .badge-purple {
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
         }
-
-        body.dark-mode .footer-description {
-            color: #ccc;
+        body.dark-mode .badge-green {
+            background: #e0e0e0;
+            color: #0d0d0d;
         }
-
-        body.dark-mode .footer-links a {
-            color: #ccc;
+        
+        body.dark-mode .badge-blue {
+            background: #e0e0e0;
+            color: #0d0d0d;
         }
-
-        body.dark-mode .footer-links a:hover {
-            color: #ff8a80;
-            background: rgba(255, 138, 128, 0.1);
-        }
-
-        body.dark-mode .footer-bottom {
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        body.dark-mode .copyright {
-            color: #ccc;
+        
+        body.dark-mode .badge-purple {
+            background: #e0e0e0;
+            color: #0d0d0d;
         }
 
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .navbar {
                 padding: 0.8rem 1rem;
             }
 
             .nav-links {
-                display: inline;
+                display: none;
                 position: fixed;
                 top: 80px;
                 left: 0;
@@ -794,6 +679,7 @@
             }
 
             .nav-links.active {
+                display: flex;
                 transform: translateX(0);
             }
 
@@ -827,30 +713,23 @@
 
             .logo {
                 font-size: 1.5rem;
-                padding-right: 20px;
             }
 
             .logo-icon {
                 font-size: 1.7rem;
             }
 
-            .feedback-container {
-                padding: 2rem;
-                margin: 1rem;
+            .faq-section {
+                padding: 100px 15px 40px;
             }
 
-            .feedback-title {
-                font-size: 2.5rem;
-            }
-
-            .category-grid {
-                grid-template-columns: 1fr;
+            .faq-title {
+                font-size: 2.2rem;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
-                padding: 2rem 1rem 1rem;
                 text-align: center;
             }
 
@@ -875,16 +754,30 @@
         }
 
         @media (max-width: 480px) {
-            .feedback-title {
-                font-size: 2rem;
+            .navbar {
+                padding: 0.5rem;
             }
 
-            .feedback-subtitle {
-                font-size: 1rem;
+            .logo {
+                font-size: 1.3rem;
             }
 
-            .feedback-container {
-                padding: 1.5rem;
+            .logo-icon {
+                font-size: 1.5rem;
+            }
+
+            .faq-title {
+                font-size: 1.8rem;
+            }
+
+            .faq-question {
+                padding: 15px;
+                font-size: 1.1rem;
+            }
+
+            .faq-answer p {
+                padding: 12px 0;
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -896,7 +789,7 @@
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <span class="logo-icon">🍰</span>
-                <span class="logo-text">BakeGenuis.ai</span>
+                <span class="logo-text">BakeGenius.ai</span>
             </a>
 
             <ul class="nav-links" id="navLinks">
@@ -925,7 +818,13 @@
                         About
                     </a>
                 </li>
-
+                  <li>
+                    <a href="faq.html">
+                        <i class="fas fa-question-circle" style="margin-right:8px;"></i>
+                        FAQs
+                    </a>
+                </li>
+                
             </ul>
             <div class="nav-actions">
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
@@ -948,95 +847,68 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="feedback-container">
-            <div class="feedback-header">
-                <h1 class="feedback-title">Share Your Feedback</h1>
-                <p class="feedback-subtitle">
-                    Help us make BakeGenuis.ai even better! Your thoughts and suggestions are invaluable to us.
-                </p>
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <button class="faq-question">What is BakeGenius.ai?</button>
+                <div class="faq-answer">
+                    <p>BakeGenius.ai is an AI-powered baking assistant that helps you convert recipe measurements, scale recipes, and optimize your baking experience with precise, consistent results every time.</p>
+                </div>
             </div>
 
-            <div class="success-message" id="successMessage">
-                <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
-                Thank you for your feedback! We appreciate your input and will review it carefully.
+            <div class="faq-item">
+                <button class="faq-question">How do I use BakeGenius.ai to convert recipes?</button>
+                <div class="faq-answer">
+                    <p>Simply paste your recipe or enter your ingredients with measurements. Our AI will convert cups and spoons to exact gram measurements, making your baking more precise and consistent.</p>
+                </div>
             </div>
 
-            <form class="feedback-form" id="feedbackForm">
-                <div class="form-group">
-                    <label class="form-label">
-                        <i class="fas fa-user"></i>
-                        Your Name
-                    </label>
-                    <input type="text" class="form-input" id="userName" placeholder="Enter your name" required>
+            <div class="faq-item">
+                <button class="faq-question">Can I scale recipes up or down?</button>
+                <div class="faq-answer">
+                    <p>Yes! BakeGenius.ai intelligently scales recipes while maintaining perfect ratios and adjusting rising agents like baking powder and yeast for optimal results.</p>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label class="form-label">
-                        <i class="fas fa-envelope"></i>
-                        Email Address
-                    </label>
-                    <input type="email" class="form-input" id="userEmail" placeholder="your.email@example.com" required>
+            <div class="faq-item">
+                <button class="faq-question">Is BakeGenius.ai free to use?</button>
+                <div class="faq-answer">
+                    <p>Yes, BakeGenius.ai is completely free to use. We believe everyone should have access to precise baking tools and techniques.</p>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label class="form-label">
-                        <i class="fas fa-star"></i>
-                        Overall Rating
-                    </label>
-                    <div class="rating-container">
-                        <div class="star-rating" id="starRating">
-                            <span class="star" data-rating="1">★</span>
-                            <span class="star" data-rating="2">★</span>
-                            <span class="star" data-rating="3">★</span>
-                            <span class="star" data-rating="4">★</span>
-                            <span class="star" data-rating="5">★</span>
-                        </div>
-                        <span class="rating-text" id="ratingText">Select a rating</span>
-                    </div>
+            <div class="faq-item">
+                <button class="faq-question">What should I do if the conversion doesn't work?</button>
+                <div class="faq-answer">
+                    <p>Try refreshing the page or re-entering your recipe. Make sure your ingredients are clearly listed. If issues persist, contact our support team through the contact page.</p>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label class="form-label">
-                        <i class="fas fa-tags"></i>
-                        Feedback Category
-                    </label>
-                    <div class="category-grid">
-                        <div class="category-card" data-category="feature">
-                            <div class="category-icon">🚀</div>
-                            <div class="category-title">Feature Request</div>
-                        </div>
-                        <div class="category-card" data-category="bug">
-                            <div class="category-icon">🐛</div>
-                            <div class="category-title">Bug Report</div>
-                        </div>
-                        <div class="category-card" data-category="ui">
-                            <div class="category-icon">🎨</div>
-                            <div class="category-title">UI/UX Feedback</div>
-                        </div>
-                        <div class="category-card" data-category="general">
-                            <div class="category-icon">💬</div>
-                            <div class="category-title">General Feedback</div>
-                        </div>
-                    </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I save or share converted recipes?</button>
+                <div class="faq-answer">
+                    <p>Yes, you can easily copy the converted recipes or share them directly with friends and family. We're working on account features for saving your favorite conversions.</p>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label class="form-label">
-                        <i class="fas fa-comment-alt"></i>
-                        Your Message
-                    </label>
-                    <textarea class="form-input form-textarea" id="feedbackMessage" placeholder="Tell us about your experience, suggestions, or any issues you've encountered..." required></textarea>
+            <div class="faq-item">
+                <button class="faq-question">Which devices and browsers are supported?</button>
+                <div class="faq-answer">
+                    <p>BakeGenius.ai works best on modern browsers like Chrome, Firefox, Safari, and Edge. It's optimized for both desktop and mobile devices for baking on the go.</p>
                 </div>
+            </div>
 
-                <button type="submit" class="submit-btn" id="submitBtn">
-                    <i class="fas fa-paper-plane"></i>
-                    Send Feedback
-                </button>
-            </form>
+            <div class="faq-item">
+                <button class="faq-question">How accurate are the AI conversions?</button>
+                <div class="faq-answer">
+                    <p>Our AI uses advanced algorithms trained on thousands of recipes and baking data. Conversions are highly accurate, but we recommend testing with small batches first for new recipes.</p>
+                </div>
+            </div>
         </div>
-    </main>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1070,6 +942,7 @@
                     <li><a href="customize.html"><i class="fas fa-cog"></i>Customize</a></li>
                     <li><a href="scale.html"><i class="fas fa-balance-scale"></i>Scale Recipes</a></li>
                     <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+                    
                 </ul>
             </div>
             
@@ -1087,7 +960,7 @@
             <div class="footer-section">
                 <h3 class="footer-title">Support</h3>
                 <ul class="footer-links">
-                    <li><a href="helpcenter.html"><i class="fas fa-question-circle"></i>Help Center</a></li>
+                    <li><a href="contact.html"><i class="fas fa-question-circle"></i>Help Center</a></li>
                     <li><a href="feedback.html"><i class="fas fa-comment"></i>Feedback</a></li>
                     <li><a href="reportissue.html"><i class="fas fa-bug"></i>Report Issue</a></li>
                     <li><a href="privacypolicy.html"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
@@ -1110,13 +983,14 @@
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script>
         // Dark Mode Toggle
         const darkModeToggle = document.getElementById("darkModeToggle");
         const body = document.body;
         const darkModeIcon = darkModeToggle.querySelector("i");
 
-        // Check for saved theme preference or default to light mode
+        
         const currentTheme = localStorage.getItem("theme") || "light";
         if (currentTheme === "dark") {
             body.classList.add("dark-mode");
@@ -1158,7 +1032,7 @@
             });
         });
 
-        // Close mobile menu when clicking outside
+        // Close mobile menu when clicking outside (only if menu is open)
         document.addEventListener("click", (e) => {
             if (
                 navLinks.classList.contains("active") &&
@@ -1170,183 +1044,23 @@
             }
         });
 
-        // Star Rating Functionality
-        const stars = document.querySelectorAll('.star');
-        const ratingText = document.getElementById('ratingText');
-        let currentRating = 0;
-
-        stars.forEach(star => {
-            star.addEventListener('mouseover', () => {
-                const rating = parseInt(star.getAttribute('data-rating'));
-                highlightStars(rating);
-            });
-
-            star.addEventListener('mouseout', () => {
-                highlightStars(currentRating);
-            });
-
-            star.addEventListener('click', () => {
-                currentRating = parseInt(star.getAttribute('data-rating'));
-                highlightStars(currentRating);
-                updateRatingText(currentRating);
-            });
-        });
-
-        function highlightStars(rating) {
-            stars.forEach((star, index) => {
-                if (index < rating) {
-                    star.classList.add('active');
-                } else {
-                    star.classList.remove('active');
-                }
-            });
-        }
-
-        function updateRatingText(rating) {
-            const ratingTexts = [
-                "Select a rating",
-                "Poor",
-                "Fair", 
-                "Good",
-                "Very Good",
-                "Excellent"
-            ];
-            ratingText.textContent = ratingTexts[rating];
-        }
-
-        // Category Selection
-        const categoryCards = document.querySelectorAll('.category-card');
-        let selectedCategory = '';
-
-        categoryCards.forEach(card => {
-            card.addEventListener('click', () => {
-                // Remove active class from all cards
-                categoryCards.forEach(c => c.classList.remove('selected'));
-                // Add active class to clicked card
-                card.classList.add('selected');
-                selectedCategory = card.getAttribute('data-category');
-            });
-        });
-
-        // Form Submission
-        const feedbackForm = document.getElementById('feedbackForm');
-        const successMessage = document.getElementById('successMessage');
-        const submitBtn = document.getElementById('submitBtn');
-
-        feedbackForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                name: document.getElementById('userName').value,
-                email: document.getElementById('userEmail').value,
-                rating: currentRating,
-                category: selectedCategory,
-                message: document.getElementById('feedbackMessage').value,
-                timestamp: new Date().toISOString()
-            };
-
-            // Validate form
-            if (!formData.name || !formData.email || !formData.message) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-
-            if (currentRating === 0) {
-                alert('Please select a rating.');
-                return;
-            }
-
-            if (!selectedCategory) {
-                alert('Please select a feedback category.');
-                return;
-            }
-
-            // Disable submit button and show loading
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-            // Simulate form submission (in real app, this would be an API call)
-            setTimeout(() => {
-                // Store feedback in localStorage (in real app, this would be sent to a server)
-                const existingFeedback = JSON.parse(localStorage.getItem('userFeedback') || '[]');
-                existingFeedback.push(formData);
-                localStorage.setItem('userFeedback', JSON.stringify(existingFeedback));
-
-                // Show success message
-                successMessage.classList.add('show');
+        // FAQ Toggle Functionality
+        document.querySelectorAll(".faq-question").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const item = btn.parentElement;
                 
-                // Reset form
-                feedbackForm.reset();
-                currentRating = 0;
-                selectedCategory = '';
-                highlightStars(0);
-                updateRatingText(0);
-                categoryCards.forEach(c => c.classList.remove('selected'));
-
-                // Reset submit button
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Feedback';
-
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    successMessage.classList.remove('show');
-                }, 5000);
-
-                // Scroll to top to show success message
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }, 1500);
-        });
-
-        // Login functionality (basic implementation)
-        const loginBtn = document.getElementById('openLoginModal');
-        const logoutBtn = document.getElementById('logoutBtn');
-
-        // Check if user is logged in
-        function updateLoginState() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-            if (isLoggedIn) {
-                loginBtn.style.display = 'none';
-                logoutBtn.style.display = 'flex';
-            } else {
-                loginBtn.style.display = 'flex';
-                logoutBtn.style.display = 'none';
-            }
-        }
-
-        // Simple login (just for demo)
-        loginBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const username = prompt('Enter username:');
-            if (username) {
-                localStorage.setItem('isLoggedIn', 'true');
-                localStorage.setItem('currentUser', username);
-                updateLoginState();
-                alert(`Welcome, ${username}!`);
-            }
-        });
-
-        // Logout functionality
-        logoutBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            localStorage.removeItem('isLoggedIn');
-            localStorage.removeItem('currentUser');
-            updateLoginState();
-            alert('You have been logged out successfully!');
-        });
-
-        // Initialize login state
-        updateLoginState();
-
-        // Auto-fill user name if logged in
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentUser = localStorage.getItem('currentUser');
-            if (currentUser) {
-                document.getElementById('userName').value = currentUser;
-            }
+                // Close all other items
+                document.querySelectorAll(".faq-item").forEach((otherItem) => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove("active");
+                    }
+                });
+                
+                
+                item.classList.toggle("active");
+            });
         });
     </script>
 </body>
 
 </html>
-
