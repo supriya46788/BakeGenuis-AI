@@ -1678,7 +1678,8 @@ body.about-page.dark-mode .section-content ::before,
 body.about-page.dark-mode .section-content ::after,
 body.about-page.dark-mode .section-card .animated,
 body.about-page.dark-mode .about-section,
-body.about-page.dark-mode .about-wrapper {
+body.about-page.dark-mode .about-wrapper,
+body.about-page.dark-mode .contributor-card {
   background-color: #090a0a !important;
   color: #ffffff !important;
   background-image: none !important;
@@ -1691,11 +1692,5 @@ body.about-page.dark-mode a,
 body.about-page.dark-mode span,
 body.about-page.dark-mode li {
   color: #ffffff !important;
-}
-body.about-page.dark-mode .contributor-card p,
-body.about-page.dark-mode .contributor-card span,
-body.about-page.dark-mode .contributor-card a,
-body.about-page.dark-mode .contributor-card li {
-  color: #000000 !important;
 }
 
