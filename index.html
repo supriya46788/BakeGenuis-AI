@@ -1162,7 +1162,39 @@
         body.dark-mode .copyright .name {
             color: #ef6154;
         }
+/* 📱 Mobile Responsive Tweaks */
+@media (max-width: 768px) {
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columns on tablet */
+    gap: 20px;
+  }
 
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-content {
+    grid-template-columns: 1fr; /* stack sections on mobile */
+    text-align: center;
+  }
+
+  .footer-logo {
+    justify-content: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .footer-badges {
+    justify-content: center;
+  }
+}
 
         /* Login Modal */
         #loginModal {
