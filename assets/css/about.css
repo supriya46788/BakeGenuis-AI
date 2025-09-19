@@ -1034,10 +1034,7 @@ body.dark-mode .dark-mode-btn {
   bottom: 0;
   border-radius: 20px;
   padding: 2px;
-  background: linear-gradient(135deg,
-      var(--sky-blue),
-      var(--sunny-yellow),
-      var(--candy-red));
+  background: linear-gradient(45deg, #a4766a, #5d4037);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   opacity: 0;
@@ -1465,11 +1462,11 @@ body.dark-mode .dark-mode-btn {
 .contributor-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 26px; margin-top: 6px; }
 .contributor-card { background: #f5f6fa; border-radius: 15px; padding: 14px 14px; width: 180px; display: flex; flex-direction: column; align-items: center; box-shadow: 0 4px 14px rgba(59,71,87,0.09); border: 1.5px solid #e0e6ef; transition: transform 0.23s, box-shadow 0.23s; cursor: pointer; min-height: 140px; position: relative; }
 .contributor-card:hover { transform: translateY(-7px) scale(1.03); box-shadow: 0 8px 25px rgba(255,71,87,0.11); background: #fffbe6; }
-.contributor-card img { width: 48px; height: 48px; border-radius: 50%; margin-bottom: 8px; border: 2.5px solid #70a1ff; object-fit: cover; box-shadow: 0 2px 8px rgba(33,33,33,0.11); }
+.contributor-card img { width: 48px; height: 48px; border-radius: 50%; margin-bottom: 8px; border: 2.5px solid #3e2723; object-fit: cover; box-shadow: 0 2px 8px rgba(33,33,33,0.11); }
 .contributor-info { display: flex; flex-direction: column; align-items: center; }
 .contributor-username { font-size: 1rem; font-weight: 600; color: #3e2723; margin-bottom: 2px; }
 .contributor-handle { color: #888; font-size:0.92rem; margin-bottom: 4px;}
-.contributor-badge { font-size: 0.87rem; font-weight: 700; background: linear-gradient(45deg, #2ed573, #70a1ff); color: #fff; border-radius: 13px; padding: 4px 13px; margin-top: 4px; box-shadow: 0 2px 9px rgba(59,71,87,0.09); }
+.contributor-badge { font-size: 0.87rem; font-weight: 700; background: linear-gradient(45deg, #a4766a, #5d4037); color: #fff; border-radius: 13px; padding: 4px 13px; margin-top: 4px; box-shadow: 0 2px 9px rgba(59,71,87,0.09); }
 @media (max-width: 900px) { .contributors { padding: 15px; } .team-leader-card { padding: 14px; max-width: 96vw; } .contributor-cards { gap: 14px; } .contributor-card { width: 130px; min-height: 110px; padding: 8px 7px; } }
 @media (max-width: 600px) { .contributors { margin: 22px auto; padding: 7px; } .team-leader-card { padding: 8px 4px 8px; } .xyz { font-size: 1.3rem; } .contributors-title { font-size: 1.1rem; } .search-contributer-box { margin-bottom: 8px; } .contributor-cards { gap: 7px; margin-top:1px; } .contributor-card { width: 95px; min-height: 90px; padding: 3px 2px; } }
 
