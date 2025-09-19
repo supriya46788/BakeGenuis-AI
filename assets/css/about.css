@@ -1630,3 +1630,46 @@ body.dark-mode .contributor-cards {
 body.dark-mode #sparkles {
   mix-blend-mode: screen;
 }
+html.dark-mode,
+body.dark-mode
+{
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+}
+body.about-page.dark-mode,
+body.about-page.dark-mode main,
+body.about-page.dark-mode section,
+body.about-page.dark-mode .container,
+body.about-page.dark-mode .section,
+body.about-page.dark-mode .content,
+body.about-page.dark-mode .main,
+body.about-page.dark-mode .wrap,
+body.about-page.dark-mode .animate-on-scroll,
+body.about-page.dark-mode .animated,
+body.about-page.dark-mode .section-card,
+body.about-page.dark-mode .section-card .animate-on-scroll,
+body.about-page.dark-mode .section-content ::before,
+body.about-page.dark-mode .section-content ::after,
+body.about-page.dark-mode .section-card .animated,
+body.about-page.dark-mode .about-section,
+body.about-page.dark-mode .about-wrapper {
+  background-color: #090a0a !important;
+  color: #ffffff !important;
+  background-image: none !important;
+}
+body.about-page.dark-mode h1,
+body.about-page.dark-mode h2,
+body.about-page.dark-mode h3,
+body.about-page.dark-mode p,
+body.about-page.dark-mode a,
+body.about-page.dark-mode span,
+body.about-page.dark-mode li {
+  color: #ffffff !important;
+}
+body.about-page.dark-mode .contributor-card p,
+body.about-page.dark-mode .contributor-card span,
+body.about-page.dark-mode .contributor-card a,
+body.about-page.dark-mode .contributor-card li {
+  color: #000000 !important;
+}
+
