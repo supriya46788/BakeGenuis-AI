@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy Policy - BakeGenius.ai</title>
+    <title>FAQ | BakeGenius.ai</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <style>
@@ -37,8 +37,7 @@
         }
 
         body.dark-mode {
-          
-               background-color: #0d0d0d;
+            background-color: #0d0d0d;
         }
 
         /* Navigation */
@@ -56,7 +55,7 @@
         }
 
         body.dark-mode .navbar {
-            background: rgba(26, 26, 26, 0.95);
+            background: #1e1e1e;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -102,11 +101,11 @@
         }
 
         body.dark-mode .logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .logo:hover {
-            color: #ffab91;
+            color: #e0e0e0;
         }
 
         .nav-links {
@@ -129,8 +128,9 @@
         }
 
         body.dark-mode .nav-links a {
-            color: var(--dark-text);
-            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            background: rgba(111, 100, 91, 0.133);
+            border: 2px solid transparent;
         }
 
         .nav-links a:hover {
@@ -142,11 +142,13 @@
         }
 
         body.dark-mode .nav-links a:hover {
-            background: linear-gradient(45deg, #e74c3c, #f39c12);
-            color: #fff;
+            background-color: #0d0d0d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: #1e1e1e;
+            color: #e0e0e0;
         }
 
-        /* Navigation Actions */
         .nav-actions {
             display: flex;
             align-items: center;
@@ -176,8 +178,8 @@
         }
 
         body.dark-mode .dark-mode-btn {
-             background-color: #e0e0e0;
-            color: #0d0d0d;
+            background-color: #e0e0e0;
+            color: #1e1e1e;
         }
 
         .login-btn {
@@ -203,7 +205,7 @@
         }
 
         body.dark-mode .login-btn {
-           background-color: #e0e0e0;
+            background-color: #e0e0e0;
             color: #0d0d0d;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
@@ -217,8 +219,11 @@
             border: 2px solid transparent;
         }
 
-       
-        
+        body.dark-mode .login-btn:hover {
+            transform: translateY(-3px);
+            background: #e0e0e0;
+            box-shadow: 0 2px 2px #e0e0e0;
+        }
 
         .hamburger {
             display: none;
@@ -258,169 +263,131 @@
             transform: rotate(45deg) translate(-5px, -6px);
         }
 
-        /* Main Content */
-        .main-content {
-            margin-top: 100px;
-            transition: all 0.3s ease;
-            padding: 2rem;
-            position: relative;
-            z-index: 2;
-            min-height: calc(100vh - 200px);
-        }
-
-        .privacy-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.9);
+        /* FAQ Styles */
+        .faq-section {
+            padding: 120px 20px 60px;
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(15px);
-            padding: 3rem;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            margin-top: 20px;
         }
 
-        body.dark-mode .privacy-container {
-            background: rgba(45, 45, 45, 0.9);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        body.dark-mode .faq-section {
+            background: #0d0d0d;
         }
 
-        .privacy-header {
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-title {
             text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .privacy-title {
             font-size: 3rem;
             font-weight: 700;
             background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 1rem;
+            margin-bottom: 40px;
         }
-
-        body.dark-mode .privacy-title {
-            background: linear-gradient(90deg, #ff8a80, #ffab91, #ff8a80);
+        body.dark-mode h2.faq-title{
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            background: #e0e0e0;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin-bottom: 40px;
         }
 
-        .privacy-subtitle {
+        .faq-item {
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .faq-item {
+            background: rgba(45, 45, 45, 0.9);
+        }
+
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            outline: none;
+            padding: 20px;
             font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 1rem;
-            transition: color 0.3s ease;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #3e2723;
+            font-family: inherit;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        body.dark-mode .privacy-subtitle {
+        body.dark-mode .faq-question {
+            color: #e0e0e0;
+        }
+
+        .faq-question:after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question:after {
+            transform: rotate(45deg);
+        }
+
+        .faq-question:hover {
+            color: #d18a68;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        body.dark-mode .faq-question:hover {
+            color: #a0a0a0;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        body.dark-mode .faq-answer {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .faq-answer p {
+            padding: 15px 0;
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        body.dark-mode .faq-answer p {
             color: #ccc;
         }
 
-        .last-updated {
-            font-size: 1rem;
-            color: #888;
-            font-style: italic;
-        }
-
-        body.dark-mode .last-updated {
-            color: #aaa;
-        }
-
-        .privacy-content {
-            line-height: 1.8;
-            color: #333;
-        }
-
-        body.dark-mode .privacy-content {
-            color: #ddd;
-        }
-
-        .privacy-section {
-            margin-bottom: 2.5rem;
-        }
-
-        .privacy-section h2 {
-            font-size: 1.8rem;
-            color: #3e2723;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid #d18a68;
-            position: relative;
-        }
-
-        body.dark-mode .privacy-section h2 {
-            color: #ff8a80;
-            border-bottom-color: #ff8a80;
-        }
-
-        .privacy-section h3 {
-            font-size: 1.4rem;
-            color: #5d4037;
-            margin-bottom: 0.8rem;
-            margin-top: 1.5rem;
-        }
-
-        body.dark-mode .privacy-section h3 {
-            color: #ffab91;
-        }
-
-        .privacy-section p {
-            margin-bottom: 1rem;
-            text-align: justify;
-        }
-
-        .privacy-section ul, .privacy-section ol {
-            margin-left: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .privacy-section li {
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-info {
-            background: rgba(255, 255, 255, 0.7);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border-left: 4px solid #d18a68;
-            margin-top: 2rem;
-        }
-
-        body.dark-mode .contact-info {
-            background: rgba(255, 255, 255, 0.1);
-            border-left-color: #ff8a80;
-        }
-
-        .back-to-home {
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .back-btn {
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .back-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        body.dark-mode .back-btn {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 20px;
         }
 
         /* Footer */
@@ -434,8 +401,7 @@
         }
 
         body.dark-mode .footer {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: #1e1e1e;
         }
 
         .footer-content {
@@ -456,7 +422,7 @@
         }
 
         body.dark-mode .footer-section h3.footer-title {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         .footer-section h3.footer-title::after {
@@ -471,7 +437,7 @@
         }
 
         body.dark-mode .footer-section h3.footer-title::after {
-            background: #ff8a80;
+            background: #e0e0e0;
         }
 
         .footer-logo {
@@ -485,7 +451,7 @@
         }
 
         body.dark-mode .footer-logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         .footer-logo-icon {
@@ -500,7 +466,7 @@
         }
 
         body.dark-mode .footer-description {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         .footer-links {
@@ -526,7 +492,7 @@
         }
 
         body.dark-mode .footer-links a {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         .footer-links a:hover {
@@ -537,7 +503,7 @@
         }
 
         body.dark-mode .footer-links a:hover {
-            color: #ff8a80;
+            color: #a0a0a0;
             background: rgba(255, 138, 128, 0.1);
         }
 
@@ -573,7 +539,6 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
-
         .footer-bottom {
             background: rgba(0, 0, 0, 0.05);
             backdrop-filter: blur(10px);
@@ -582,7 +547,7 @@
         }
 
         body.dark-mode .footer-bottom {
-            background: rgba(0, 0, 0, 0.3);
+            background: #1e1e1e;
         }
 
         .footer-bottom-content {
@@ -603,7 +568,7 @@
         }
 
         body.dark-mode .copyright {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         .copyright .name {
@@ -612,7 +577,7 @@
         }
 
         body.dark-mode .copyright .name {
-            color: #ff8a80;
+            color: #ef6154;
         }
 
         .footer-badges {
@@ -632,21 +597,47 @@
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
-            
         }
 
         .badge:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        body.dark-mode .badge {
+
+        .badge-green {
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+        }
+
+        .badge-blue {
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+        }
+
+        .badge-purple {
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+        }
+        body.dark-mode .badge-green {
             background: #e0e0e0;
             color: #0d0d0d;
         }
         
+        body.dark-mode .badge-blue {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
         
+        body.dark-mode .badge-purple {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
 
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .navbar {
                 padding: 0.8rem 1rem;
@@ -671,21 +662,19 @@
                 z-index: 999;
             }
 
-            body.dark-mode .nav-links {
-                background: #1a1a1a;
-            }
-
             .nav-links.active {
                 display: flex;
                 transform: translateX(0);
             }
 
             .nav-links li {
-                padding: 1rem;
+                padding: 2rem;
                 border-bottom: solid 1px black;
                 border-radius: 8px;
-                width: 80%;
-                text-align: center;
+            }
+
+            body.dark-mode .nav-links {
+                background: #1a1a1a;
             }
 
             body.dark-mode .nav-links li {
@@ -693,38 +682,38 @@
             }
 
             .nav-links a {
-                width: 100%;
+                width: 80%;
                 padding: 1rem;
-                font-size: 1.2rem;
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
                 background-color: transparent !important;
             }
 
             .hamburger {
                 display: flex;
+                position: relative;
+                z-index: 1001;
             }
 
             .logo {
                 font-size: 1.5rem;
-                padding-right: 0;
             }
 
             .logo-icon {
                 font-size: 1.7rem;
             }
 
-            .privacy-container {
-                padding: 2rem;
-                margin: 1rem;
+            .faq-section {
+                padding: 100px 15px 40px;
             }
 
-            .privacy-title {
+            .faq-title {
                 font-size: 2.2rem;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
-                padding: 2rem 1rem 1rem;
                 text-align: center;
             }
 
@@ -748,24 +737,31 @@
             }
         }
 
-        @media (max-width: 1024px) {
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 2.5rem;
-            }
-        }
-
         @media (max-width: 480px) {
-            .privacy-title {
+            .navbar {
+                padding: 0.5rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .logo-icon {
+                font-size: 1.5rem;
+            }
+
+            .faq-title {
                 font-size: 1.8rem;
             }
 
-            .privacy-container {
-                padding: 1.5rem;
+            .faq-question {
+                padding: 15px;
+                font-size: 1.1rem;
             }
 
-            .privacy-section h2 {
-                font-size: 1.5rem;
+            .faq-answer p {
+                padding: 12px 0;
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -781,12 +777,7 @@
             </a>
 
             <ul class="nav-links" id="navLinks">
-                <li>
-                    <a href="index.html">
-                        <i class="fas fa-home" style="margin-right:8px;"></i>
-                        Home
-                    </a>
-                </li>
+                
                 <li>
                     <a href="convert.html">
                         <i class="fas fa-exchange-alt" style="margin-right:8px;"></i>
@@ -811,6 +802,13 @@
                         About
                     </a>
                 </li>
+                  <li>
+                    <a href="faq.html">
+                        <i class="fas fa-question-circle" style="margin-right:8px;"></i>
+                        FAQs
+                    </a>
+                </li>
+                
             </ul>
             <div class="nav-actions">
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
@@ -833,138 +831,68 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="privacy-container">
-            <div class="privacy-header">
-                <h1 class="privacy-title">Privacy Policy</h1>
-                <p class="privacy-subtitle">Your privacy is important to us at BakeGenius.ai</p>
-                <p class="last-updated">Last updated: January 2025</p>
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <button class="faq-question">What is BakeGenius.ai?</button>
+                <div class="faq-answer">
+                    <p>BakeGenius.ai is an AI-powered baking assistant that helps you convert recipe measurements, scale recipes, and optimize your baking experience with precise, consistent results every time.</p>
+                </div>
             </div>
 
-            <div class="privacy-content">
-                <div class="privacy-section">
-                    <h2>1. Information We Collect</h2>
-                    <p>At BakeGenius.ai, we are committed to protecting your privacy. We collect minimal information necessary to provide you with the best baking conversion experience:</p>
-                    
-                    <h3>Information You Provide</h3>
-                    <ul>
-                        <li><strong>Recipe Data:</strong> Ingredients, measurements, and recipes you input for conversion</li>
-                        <li><strong>Account Information:</strong> Username and password if you choose to create an account</li>
-                        <li><strong>Preferences:</strong> Your custom ingredient preferences and measurement settings</li>
-                        <li><strong>Feedback:</strong> Comments, suggestions, and issue reports you submit</li>
-                    </ul>
-
-                    <h3>Automatically Collected Information</h3>
-                    <ul>
-                        <li><strong>Usage Data:</strong> How you interact with our AI conversion tools</li>
-                        <li><strong>Device Information:</strong> Browser type, device type, and operating system</li>
-                        <li><strong>Log Data:</strong> IP address, access times, and pages visited</li>
-                    </ul>
+            <div class="faq-item">
+                <button class="faq-question">How do I use BakeGenius.ai to convert recipes?</button>
+                <div class="faq-answer">
+                    <p>Simply paste your recipe or enter your ingredients with measurements. Our AI will convert cups and spoons to exact gram measurements, making your baking more precise and consistent.</p>
                 </div>
+            </div>
 
-                <div class="privacy-section">
-                    <h2>2. How We Use Your Information</h2>
-                    <p>We use the collected information to:</p>
-                    <ul>
-                        <li>Provide accurate AI-powered recipe conversions and scaling</li>
-                        <li>Personalize your baking experience with custom preferences</li>
-                        <li>Improve our AI algorithms and conversion accuracy</li>
-                        <li>Respond to your feedback and support requests</li>
-                        <li>Ensure the security and functionality of our platform</li>
-                        <li>Send important updates about our service (if you opt-in)</li>
-                    </ul>
+            <div class="faq-item">
+                <button class="faq-question">Can I scale recipes up or down?</button>
+                <div class="faq-answer">
+                    <p>Yes! BakeGenius.ai intelligently scales recipes while maintaining perfect ratios and adjusting rising agents like baking powder and yeast for optimal results.</p>
                 </div>
+            </div>
 
-                <div class="privacy-section">
-                    <h2>3. Information Sharing and Disclosure</h2>
-                    <p>We respect your privacy and do not sell, trade, or rent your personal information to third parties. We may share information only in the following circumstances:</p>
-                    <ul>
-                        <li><strong>Service Providers:</strong> Trusted partners who help us operate our platform (with strict confidentiality agreements)</li>
-                        <li><strong>Legal Requirements:</strong> When required by law or to protect our rights and safety</li>
-                        <li><strong>Business Transfers:</strong> In the event of a merger or acquisition (with continued privacy protection)</li>
-                        <li><strong>Consent:</strong> When you explicitly give us permission to share specific information</li>
-                    </ul>
+            <div class="faq-item">
+                <button class="faq-question">Is BakeGenius.ai free to use?</button>
+                <div class="faq-answer">
+                    <p>Yes, BakeGenius.ai is completely free to use. We believe everyone should have access to precise baking tools and techniques.</p>
                 </div>
+            </div>
 
-                <div class="privacy-section">
-                    <h2>4. Data Security</h2>
-                    <p>We implement industry-standard security measures to protect your information:</p>
-                    <ul>
-                        <li>Secure Socket Layer (SSL) encryption for data transmission</li>
-                        <li>Regular security audits and updates</li>
-                        <li>Limited access to personal data on a need-to-know basis</li>
-                        <li>Secure servers with robust firewall protection</li>
-                        <li>Password hashing and encryption for account security</li>
-                    </ul>
+            <div class="faq-item">
+                <button class="faq-question">What should I do if the conversion doesn't work?</button>
+                <div class="faq-answer">
+                    <p>Try refreshing the page or re-entering your recipe. Make sure your ingredients are clearly listed. If issues persist, contact our support team through the contact page.</p>
                 </div>
+            </div>
 
-                <div class="privacy-section">
-                    <h2>5. Cookies and Tracking</h2>
-                    <p>We use cookies and similar technologies to enhance your experience:</p>
-                    <ul>
-                        <li><strong>Essential Cookies:</strong> Required for basic functionality and security</li>
-                        <li><strong>Preference Cookies:</strong> Remember your settings and customizations</li>
-                        <li><strong>Analytics Cookies:</strong> Help us understand how you use our platform</li>
-                        <li><strong>Dark Mode Preference:</strong> Remember your theme choice</li>
-                    </ul>
-                    <p>You can control cookies through your browser settings, though some features may not work properly if disabled.</p>
+            <div class="faq-item">
+                <button class="faq-question">Can I save or share converted recipes?</button>
+                <div class="faq-answer">
+                    <p>Yes, you can easily copy the converted recipes or share them directly with friends and family. We're working on account features for saving your favorite conversions.</p>
                 </div>
+            </div>
 
-                <div class="privacy-section">
-                    <h2>6. Your Rights and Choices</h2>
-                    <p>You have the right to:</p>
-                    <ul>
-                        <li><strong>Access:</strong> Request information about the data we have about you</li>
-                        <li><strong>Update:</strong> Correct or update your personal information</li>
-                        <li><strong>Delete:</strong> Request deletion of your account and associated data</li>
-                        <li><strong>Export:</strong> Download your recipe data and preferences</li>
-                        <li><strong>Opt-out:</strong> Unsubscribe from non-essential communications</li>
-                        <li><strong>Restrict:</strong> Limit how we process your information</li>
-                    </ul>
+            <div class="faq-item">
+                <button class="faq-question">Which devices and browsers are supported?</button>
+                <div class="faq-answer">
+                    <p>BakeGenius.ai works best on modern browsers like Chrome, Firefox, Safari, and Edge. It's optimized for both desktop and mobile devices for baking on the go.</p>
                 </div>
+            </div>
 
-                <div class="privacy-section">
-                    <h2>7. Children's Privacy</h2>
-                    <p>BakeGenius.ai is designed for general audiences and does not knowingly collect personal information from children under 13. If we become aware that we have collected information from a child under 13, we will take immediate steps to delete such information.</p>
-                </div>
-
-                <div class="privacy-section">
-                    <h2>8. International Users</h2>
-                    <p>BakeGenius.ai is operated from [Country]. If you are accessing our service from outside this region, please be aware that your information may be transferred to, stored, and processed in our servers located in [Country]. By using our service, you consent to this transfer.</p>
-                </div>
-
-                <div class="privacy-section">
-                    <h2>9. Changes to This Policy</h2>
-                    <p>We may update this privacy policy from time to time to reflect changes in our practices or legal requirements. We will notify you of any material changes by:</p>
-                    <ul>
-                        <li>Posting the updated policy on this page</li>
-                        <li>Updating the "Last updated" date</li>
-                        <li>Sending a notification if you have an account with us</li>
-                        <li>Displaying a prominent notice on our homepage for significant changes</li>
-                    </ul>
-                </div>
-
-                <div class="contact-info">
-                    <h2>10. Contact Us</h2>
-                    <p>If you have any questions, concerns, or requests regarding this privacy policy or your personal information, please contact us:</p>
-                    <ul>
-                        <li><strong>Email:</strong> privacy@bakegenius.ai</li>
-                        <li><strong>Support:</strong> <a href="mailto:supriyadpandey502@gmail.com" style="color: #d18a68;">supriyadpandey502@gmail.com</a></li>
-                        <li><strong>GitHub:</strong> <a href="https://github.com/supriya46788/BakeGenuis-AI" style="color: #d18a68;" target="_blank">BakeGenuis-AI Repository</a></li>
-                        <li><strong>Response Time:</strong> We aim to respond to all privacy-related inquiries within 48 hours</li>
-                    </ul>
-                </div>
-
-                <div class="back-to-home">
-                    <a href="index.html" class="back-btn">
-                        <i class="fas fa-arrow-left"></i>
-                        Back to Home
-                    </a>
+            <div class="faq-item">
+                <button class="faq-question">How accurate are the AI conversions?</button>
+                <div class="faq-answer">
+                    <p>Our AI uses advanced algorithms trained on thousands of recipes and baking data. Conversions are highly accurate, but we recommend testing with small batches first for new recipes.</p>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -998,6 +926,7 @@
                     <li><a href="customize.html"><i class="fas fa-cog"></i>Customize</a></li>
                     <li><a href="scale.html"><i class="fas fa-balance-scale"></i>Scale Recipes</a></li>
                     <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+                    
                 </ul>
             </div>
             
@@ -1015,7 +944,7 @@
             <div class="footer-section">
                 <h3 class="footer-title">Support</h3>
                 <ul class="footer-links">
-                    <li><a href="helpcenter.html"><i class="fas fa-question-circle"></i>Help Center</a></li>
+                    <li><a href="contact.html"><i class="fas fa-question-circle"></i>Help Center</a></li>
                     <li><a href="feedback.html"><i class="fas fa-comment"></i>Feedback</a></li>
                     <li><a href="reportissue.html"><i class="fas fa-bug"></i>Report Issue</a></li>
                     <li><a href="privacypolicy.html"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
@@ -1030,21 +959,22 @@
                     © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <span class="name">Supriya Pandey</span>
                 </p>
                 <div class="footer-badges">
-                    <span class="badge"><i class="fas fa-heart"></i> Open Source</span>
-                    <span class="badge"><i class="fas fa-leaf"></i> Eco Friendly</span>
-                    <span class="badge"><i class="fas fa-robot"></i> AI Powered</span>
+                    <span class="badge badge-green"><i class="fas fa-heart"></i> Open Source</span>
+                    <span class="badge badge-blue"><i class="fas fa-leaf"></i> Eco Friendly</span>
+                    <span class="badge badge-purple"><i class="fas fa-robot"></i> AI Powered</span>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script>
         // Dark Mode Toggle
         const darkModeToggle = document.getElementById("darkModeToggle");
         const body = document.body;
         const darkModeIcon = darkModeToggle.querySelector("i");
 
-        // Check for saved theme preference or default to light mode
+        
         const currentTheme = localStorage.getItem("theme") || "light";
         if (currentTheme === "dark") {
             body.classList.add("dark-mode");
@@ -1098,34 +1028,23 @@
             }
         });
 
-        // Login/logout state management (placeholder)
-        const loginBtn = document.getElementById("openLoginModal");
-        const logoutBtn = document.getElementById("logoutBtn");
-
-        // Check login state from localStorage
-        const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-        if (isLoggedIn) {
-            loginBtn.style.display = "none";
-            logoutBtn.style.display = "flex";
-        }
-
-        // Logout functionality
-        logoutBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            localStorage.removeItem("isLoggedIn");
-            localStorage.removeItem("currentUser");
-            loginBtn.style.display = "flex";
-            logoutBtn.style.display = "none";
-            alert("You have been logged out successfully!");
-        });
-
-        // Login button click (placeholder - would need to implement full modal)
-        loginBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            // For demo purposes, just redirect to home page
-            window.location.href = "index.html";
+        // FAQ Toggle Functionality
+        document.querySelectorAll(".faq-question").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const item = btn.parentElement;
+                
+                // Close all other items
+                document.querySelectorAll(".faq-item").forEach((otherItem) => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove("active");
+                    }
+                });
+                
+                
+                item.classList.toggle("active");
+            });
         });
     </script>
 </body>
-</html>
 
+</html>

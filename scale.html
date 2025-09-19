@@ -52,7 +52,7 @@
         }
 
         body.dark-mode .navbar {
-            background: rgba(26, 26, 26, 0.95);
+            background: #1e1e1e;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -98,11 +98,11 @@
         }
 
         body.dark-mode .logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .logo:hover {
-            color: #ffab91;
+            color: #e0e0e0;
         }
 
         .nav-links {
@@ -133,8 +133,9 @@
         }
 
         body.dark-mode .nav-links a {
-            color: var(--dark-text);
-            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            background: rgba(111, 100, 91, 0.133);
+            border: 2px solid transparent;
         }
 
         body.dark-mode .nav-links a.active {
@@ -151,8 +152,11 @@
         }
 
         body.dark-mode .nav-links a:hover {
-            background: linear-gradient(45deg, #3498db, #9b59b6);
-            color: #fff;
+            background-color: #0d0d0d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: #1e1e1e;
+            color: #e0e0e0;
         }
 
         /* Navigation Actions */
@@ -185,7 +189,8 @@
         }
 
         body.dark-mode .dark-mode-btn {
-            background: linear-gradient(45deg, #f39c12 0%, #f1c40f 100%);
+            background-color: #e0e0e0;
+            color: #1e1e1e;
         }
 
         .login-btn {
@@ -211,13 +216,24 @@
         }
 
         body.dark-mode .login-btn {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            background-color: #e0e0e0;
+            color: #0d0d0d;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 2px #e0e0e0;
+            border: 2px solid transparent;
         }
 
         body.dark-mode .login-btn:hover {
-            background: linear-gradient(45deg, #c0392b, #a93226);
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+            transform: translateY(-3px);
+            background: #e0e0e0;
+            box-shadow: 0 2px 2px #e0e0e0;
         }
 
         .hamburger {
@@ -282,7 +298,7 @@
             }
 
             body.dark-mode .nav-links {
-                background: rgba(26, 26, 26, 0.98);
+                border-bottom: solid 1px white;
             }
 
             .nav-links.active {
@@ -416,7 +432,7 @@
             justify-content: center;
             width: 45px;
             height: 45px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: white;
             text-decoration: none;
             border-radius: 50%;
@@ -429,6 +445,7 @@
             transform: translateY(-3px) scale(1.1);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
+
 
         .social-link.linkedin {
             background: #0a66c2;
@@ -514,7 +531,23 @@
 
         .badge-purple {
             background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+                    }
+
+        body.dark-mode .badge-blue {
+            background: #e0e0e0;
+            color: #0d0d0d;
         }
+
+        body.dark-mode .badge-green {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        body.dark-mode .badge-purple {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
 
         @media (max-width: 1024px) {
             .footer-content {
@@ -543,41 +576,42 @@
 
         /*dark mode*/
         body.dark-mode .footer {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+            background: #1e1e1e;
+
         }
 
         body.dark-mode .footer-section h3.footer-title {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .footer-logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .footer-description {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         body.dark-mode .footer-links a {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         body.dark-mode .footer-links a:hover {
-            color: #ff8a80;
+            color: #a0a0a0;
             background: rgba(255, 138, 128, 0.1);
         }
 
         body.dark-mode .footer-bottom {
-            background: rgba(0, 0, 0, 0.3);
+            background: #1e1e1e;
         }
 
         body.dark-mode .copyright {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
-        body.dark-mode .copyright a {
-            color: #ff8a80;
+        body.dark-mode .copyright .name {
+            color: #ef6154;
         }
 
         * {
@@ -585,8 +619,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-        :root {
+       :root {
             --candy-red: #FF4757;
             --light-pink: #FFE0E6;
             --light-blue: #E8F4FF;
@@ -600,6 +633,7 @@
             position: relative;
             overflow-x: hidden;
         }
+
 
         /* Animated Background Elements */
         .floating-elements {
@@ -623,8 +657,7 @@
             left: 10%;
             animation-delay: 0s;
         }
-
-        .floating-cupcake:nth-child(2) {
+                .floating-cupcake:nth-child(2) {
             top: 20%;
             right: 15%;
             animation-delay: 2s;
@@ -643,6 +676,22 @@
         }
 
         @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+
+        .floating-cupcake:nth-child(4) {
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
 
             0%,
             100% {
@@ -652,16 +701,6 @@
             50% {
                 transform: translateY(-20px) rotate(5deg);
             }
-        }
-
-
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #FF6B6B;
-            text-decoration: none;
-            animation: wobble 2s infinite;
         }
 
         @keyframes wobble {
@@ -694,12 +733,6 @@
             border-radius: 25px;
             transition: all 0.3s ease;
             position: relative;
-        }
-
-        .nav-links a:hover {
-            background: #FF6B6B;
-            color: white;
-            transform: translateY(-2px);
         }
 
         .nav-links a.active {
@@ -737,6 +770,15 @@
             background: linear-gradient(45deg, #5d4037, #a4766a);
         }
 
+        body.dark-mode .scroll-btn {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        body.dark-mode .scroll-btn:hover {
+            background: #e0e0e0;
+            transform: scale(1.15);
+        }
         /* Positioning individually */
         #scrollTopBtn {
             bottom: 6.5rem;
@@ -777,6 +819,7 @@
             text-shadow: 3px 3px 6px rgba(132, 130, 130, 0.3);
 
 
+
         }
 
 
@@ -784,6 +827,10 @@
             font-size: 1.3rem;
             color: #9a9999;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .header p {
+            color: #a0a0a0;
         }
 
         /* Main Content */
@@ -794,6 +841,7 @@
             margin-bottom: 2rem;
         }
 
+
         body.dark-mode .main-content {
             color: #f1f5f9;
         }
@@ -802,6 +850,7 @@
         .input-section,
         .output-section {
             background: rgba(255, 255, 255, 0.9);
+
             border-radius: 20px;
             padding: 2rem;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
@@ -843,9 +892,6 @@
             display: inline-block;
         }
 
-
-
-        /* Section Titles */
         .section-title {
             font-size: 1.9rem;
             font-weight: 700;
@@ -855,6 +901,10 @@
             position: relative;
             letter-spacing: 0.5px;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        body.dark-mode .section-title {
+            color: #e0e0e0;
         }
 
         .section-title::after {
@@ -867,6 +917,9 @@
             height: 3px;
             background: linear-gradient(90deg, #4ECDC4, #ff6b6b);
             border-radius: 2px;
+        }
+        body.dark-mode .section-title::after{
+            background:#e0e0e0;
         }
 
         body.dark-mode .section-title {
@@ -893,7 +946,10 @@
             color: #94a3b8;
         }
 
-        /* Serving Inputs */
+
+        body.dark-mode .input-group label {
+            color: #a0a0a0;
+        }
         .serving-inputs {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -919,6 +975,16 @@
 
         .serving-input input::placeholder {
             color: #4b4a4a;
+        }
+
+        body.dark-mode .serving-input label {
+            color: #a0a0a0;
+        }
+
+        body.dark-mode .serving-input input {
+            background: #ffffff34;
+            border: 2px solid #6b6767;
+            color: #0d0d0d;
         }
 
         .serving-input input:focus {
@@ -966,6 +1032,12 @@
         .recipe-textarea::placeholder {
             color: #777;
         }
+
+        body.dark-mode .recipe-textarea {
+            background: #ffffff34;
+            border: 2px solid #6b6767;
+        }
+
 
         .recipe-textarea:focus {
             outline: none;
@@ -1101,6 +1173,7 @@
             box-shadow: 0 2px 8px rgba(255, 70, 70, 0.10);
             transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
             cursor: pointer;
+
         }
 
         .btn-primary:hover {
@@ -1166,8 +1239,7 @@
             }
         }
 
-
-        /* Results Section */
+                /* Results Section */
         .output-section {
             display: flex;
             flex-direction: column;
@@ -1186,10 +1258,17 @@
             opacity: 0.9;
         }
 
+        body.dark-mode .btn-primary {
+            background: rgba(220, 121, 63, 0.893);
+            color: #e0e0e0;
+            box-shadow: 0 2px 2px rgba(220, 121, 63, 0.893);
+        }
 
-
-
-
+        body.dark-mode .btn-secondary {
+            background: rgba(220, 121, 63, 0.893);
+            color: #e0e0e0;
+            box-shadow: 0 2px 2px rgba(220, 121, 63, 0.893);
+        }
 
         @keyframes shimmer {
             0% {
@@ -1221,6 +1300,10 @@
             margin: 1rem 0;
         }
 
+        body.dark-mode .toggle-container span {
+            color: #a0a0a0;
+        }
+
         .toggle-switch {
             position: relative;
             display: inline-block;
@@ -1246,6 +1329,10 @@
             border-radius: 34px;
         }
 
+        body.dark-mode .slider {
+            background-color: #a0a0a0;
+        }
+
         .slider:before {
             position: absolute;
             content: "";
@@ -1260,6 +1347,11 @@
 
         input:checked+.slider {
             background-color: #3e2723;
+        }
+
+
+        body.dark-mode input:checked+.slider {
+            background-color: #0d0d0d;
         }
 
         input:checked+.slider:before {
@@ -1428,18 +1520,13 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <span class="logo-icon">🍰</span>
                 <span class="logo-text">BakeGenius.ai</span>
             </a>
 
             <ul class="nav-links" id="navLinks">
-                <li>
-                    <a href="index.html">
-                        <i class="fas fa-home" style="margin-right:8px;"></i>
-                        Home
-                    </a>
-                </li>
+                
                 <li>
                     <a href="convert.html">
                         <i class="fas fa-exchange-alt" style="margin-right:8px;"></i>
@@ -1462,6 +1549,12 @@
                     <a href="about.html">
                         <i class="fas fa-info-circle" style="margin-right:8px;"></i>
                         About
+                    </a>
+                </li>
+                  <li>
+                    <a href="faq.html">
+                        <i class="fas fa-question-circle" style="margin-right:8px;"></i>
+                        FAQs
                     </a>
                 </li>
             </ul>
@@ -1646,11 +1739,11 @@
             <div class="footer-section">
                 <h3 class="footer-title">Support</h3>
                 <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-question-circle"></i>Help Center</a></li>
-                    <li><a href="#"><i class="fas fa-comment"></i>Feedback</a></li>
-                    <li><a href="#"><i class="fas fa-bug"></i>Report Issue</a></li>
-                    <li><a href="#"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
-                    <li><a href="#"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
+                    <li><a href="contact.html"><i class="fas fa-question-circle"></i>Contact Us</a></li>
+                    <li><a href="feedback.html"><i class="fas fa-comment"></i>Feedback</a></li>
+                    <li><a href="faq.html"><i class="fas fa-info-circle"></i>FAQ</a></li>
+                    <li><a href="privacypolicy.html"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
+                    <li><a href="toc.html"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
                 </ul>
             </div>
         </div>
@@ -1658,8 +1751,8 @@
         <div class="footer-bottom">
             <div class="footer-bottom-content">
                 <p class="copyright">
-                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <a href="#"
-                        target="_blank">Supriya Pandey</a>
+
+                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <span class="name">Supriya Pandey</span>
                 </p>
                 <div class="footer-badges">
                     <span class="badge badge-green"><i class="fas fa-heart"></i> Open Source</span>

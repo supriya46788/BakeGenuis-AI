@@ -141,7 +141,7 @@
             justify-content: center;
             width: 45px;
             height: 45px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: white;
             text-decoration: none;
             border-radius: 50%;
@@ -155,21 +155,7 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
-        .social-link.linkedin {
-            background: #0a66c2;
-        }
 
-        .social-link.github {
-            background: black;
-        }
-
-        .social-link.portfolio {
-            background: navy;
-        }
-
-        .social-link.email {
-            background: red;
-        }
 
         .footer-bottom {
             background: rgba(0, 0, 0, 0.05);
@@ -452,7 +438,8 @@
         }
 
         .login-btn {
-            background-color: #d18a68;
+
+            background-color: #5C4033;
             color: white;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
@@ -468,8 +455,8 @@
 
         .login-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px #d18a68;
-            background-color: #d18a68;
+            box-shadow: 0 8px 25px #cf622f;
+            background-color:#5C4033;
             border-color: rgba(255, 255, 255, 0.3);
         }
 
@@ -782,9 +769,7 @@
             border-radius: 15px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-
             color: black !important;
-
             font-family: 'Comic Neue', cursive;
             font-size: 1rem;
             resize: vertical;
@@ -1148,10 +1133,11 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: rgba(0, 0, 0, 0.9);
+                /* background: rgba(0, 0, 0, 0.9); */
                 flex-direction: column;
                 padding: 2rem;
                 gap: 2.8rem;
+                color: 5c4033;
             }
 
             .nav-links.active {
@@ -1211,18 +1197,13 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <span class="logo-icon">🍰</span>
                 <span class="logo-text">BakeGenius.ai</span>
             </a>
 
             <ul class="nav-links" id="navLinks">
-                <li>
-                    <a href="index.html">
-                        <i class="fas fa-home" style="margin-right:8px;"></i>
-                        Home
-                    </a>
-                </li>
+                
                 <li>
                     <a href="convert.html">
                         <i class="fas fa-exchange-alt" style="margin-right:8px;"></i>
@@ -1245,6 +1226,12 @@
                     <a href="about.html">
                         <i class="fas fa-info-circle" style="margin-right:8px;"></i>
                         About
+                    </a>
+                </li>
+                  <li>
+                    <a href="faq.html">
+                        <i class="fas fa-question-circle" style="margin-right:8px;"></i>
+                        FAQs
                     </a>
                 </li>
             </ul>
@@ -1396,11 +1383,11 @@
             <div class="footer-section">
                 <h3 class="footer-title">Support</h3>
                 <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-question-circle"></i>Help Center</a></li>
-                    <li><a href="#"><i class="fas fa-comment"></i>Feedback</a></li>
-                    <li><a href="#"><i class="fas fa-bug"></i>Report Issue</a></li>
-                    <li><a href="#"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
-                    <li><a href="#"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
+                    <li><a href="contact.html"><i class="fas fa-question-circle"></i>Contact Us</a></li>
+                    <li><a href="feedback.html"><i class="fas fa-comment"></i>Feedback</a></li>
+                    <li><a href="faq.html"><i class="fas fa-info-circle"></i>FAQ</a></li>
+                    <li><a href="privacypolicy.html"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
+                    <li><a href="toc.html"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
                 </ul>
             </div>
         </div>
