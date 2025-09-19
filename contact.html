@@ -24,8 +24,7 @@
         }
 
         body.dark-mode {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
-            color: #fff;
+            background-color: #0d0d0d;
         }
 
         .navbar {
@@ -41,7 +40,7 @@
         }
 
         body.dark-mode .navbar {
-            background: rgba(26, 26, 26, 0.95);
+             background: #1e1e1e;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -65,7 +64,7 @@
         }
 
         body.dark-mode .logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         .logo-icon {
@@ -94,8 +93,16 @@
         }
 
         body.dark-mode .nav-links a {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            background: rgba(111, 100, 91, 0.133);
+            border: 2px solid transparent;
+        }
+        body.dark-mode .nav-links a:hover {
+            background-color: #0d0d0d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: #1e1e1e;
+            color: #e0e0e0;
         }
 
         .nav-actions {
@@ -120,7 +127,8 @@
         }
 
         body.dark-mode .dark-mode-btn {
-            background: linear-gradient(45deg, #f39c12 0%, #f1c40f 100%);
+           background-color: #e0e0e0;
+            color: #1e1e1e;
         }
 
         .login-btn {
@@ -136,7 +144,23 @@
         }
 
         body.dark-mode .login-btn {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            background-color: #e0e0e0;
+            color: #0d0d0d;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 2px #e0e0e0;
+            border: 2px solid transparent;
+        }
+        body.dark-mode .login-btn:hover {
+            transform: translateY(-3px);
+            background: #e0e0e0;
+            box-shadow: 0 2px 2px #e0e0e0;
         }
 
         .hamburger {
@@ -174,7 +198,8 @@
         }
 
         body.dark-mode .contact-box {
-            background: rgba(45, 45, 45, 0.95);
+           background: #1e1e1e;
+            box-shadow: 0 2px 2px #1e1e1e;
         }
 
         .contact-title {
@@ -187,6 +212,15 @@
             -webkit-text-fill-color: transparent;
             margin-bottom: 1.5rem;
         }
+        body.dark-mode .contact-title{
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: #e0e0e0;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
 
         .contact-desc {
             font-size: 1.3rem;
@@ -195,7 +229,7 @@
         }
 
         body.dark-mode .contact-desc {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         .contact-details-row {
@@ -235,13 +269,16 @@
         }
 
         body.dark-mode .contact-form-box {
-            background: #1a1a1a;
+            background: #ffffff1a;
         }
 
         .contact-form-title {
             font-size: 1.52rem;
             font-weight: 700;
             margin-bottom: 1.25rem;
+        }
+        body.dark-mode .contact-form-title{
+            color:#e0e0e0;
         }
 
         .form-row {
@@ -270,6 +307,15 @@
             border-color: #4ecdc4;
             outline: none;
         }
+        body.dark-mode .contact-form input,
+        .contact-form textarea {
+            background-color: #e0e0e0;
+        }
+        body.dark-mode .contact-form input:focus,
+        .contact-form textarea:focus{
+            border-color: #0d0d0d;
+            outline: none;
+        }
 
         .contact-form textarea {
             min-height: 120px;
@@ -288,6 +334,23 @@
             box-shadow: 0 3px 14px rgba(255, 107, 107, 0.16);
             transition: transform 0.2s;
         }
+        body.dark-mode .contact-form button{
+            background: rgba(220, 121, 63, 0.893);
+            color: #e0e0e0;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 2px rgba(220, 121, 63, 0.893);
+            animation: pulse 2s ease-in-out infinite;
+        }
 
         .contact-form button:hover {
             transform: scale(1.05);
@@ -303,7 +366,7 @@
         }
 
         body.dark-mode .footer {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+            background: #1e1e1e;
         }
 
         .footer-content {
@@ -336,9 +399,22 @@
             font-weight: 700;
             margin-bottom: 1.5rem;
         }
+        .footer-section h3.footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: #3e2723;
+            border-radius: 2px;
+        }
 
         body.dark-mode .footer-section h3.footer-title {
-            color: #ff8a80;
+            color:#e0e0e0;
+        }
+        body.dark-mode .footer-section h3.footer-title::after {
+            background: #e0e0e0;
         }
 
         .footer-logo {
@@ -352,7 +428,7 @@
         }
 
         body.dark-mode .footer-logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         .footer-logo-icon {
@@ -367,7 +443,7 @@
         }
 
         body.dark-mode .footer-description {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         .footer-links {
@@ -393,7 +469,7 @@
         }
 
         body.dark-mode .footer-links a {
-            color: #ccc;
+            color: #e0e0e0;
         }
 
         .footer-links a:hover {
@@ -404,7 +480,7 @@
         }
 
         body.dark-mode .footer-links a:hover {
-            color: #ff8a80;
+            color: #a0a0a0;
             background: rgba(255, 138, 128, 0.1);
         }
 
@@ -415,7 +491,7 @@
         }
 
         body.dark-mode .footer-bottom {
-            background: rgba(0, 0, 0, 0.3);
+             background: #1e1e1e;
         }
 
         .footer-bottom-content {
@@ -447,7 +523,7 @@
         }
 
         body.dark-mode .copyright {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         .copyright .name {
@@ -456,7 +532,7 @@
         }
 
         body.dark-mode .copyright .name {
-            color: #ff8a80;
+            color: #ef6154;
         }
 
         .footer-badges {
@@ -488,6 +564,21 @@
         .badge-purple {
             background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
         }
+        body.dark-mode .badge-blue {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        body.dark-mode .badge-green {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        body.dark-mode .badge-purple {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+        
 
         .social-links {
             display: flex;
@@ -509,6 +600,10 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
 
     
     </style>
@@ -523,12 +618,11 @@
                 <span class="logo-text">BakeGenius.ai</span>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
-                <li><a href="convert.html"><i class="fas fa-exchange-alt"></i>Convert Recipe</a></li>
-                <li><a href="customize.html"><i class="fas fa-cog"></i>Customize</a></li>
-                <li><a href="scale.html"><i class="fas fa-balance-scale"></i>Scale Recipes</a></li>
-                <li><a href="about.html"><i class="fas fa-info-circle"></i>About</a></li>
-                <li><a href="contact.html"><i class="fas fa-envelope"></i>Contact</a></li>
+                <li><a href="convert.html"><i class="fas fa-exchange-alt"></i>&nbsp;Convert Recipe</a></li>
+                <li><a href="customize.html"><i class="fas fa-cog"></i>&nbsp;Customize</a></li>
+                <li><a href="scale.html"><i class="fas fa-balance-scale"></i>&nbsp;Scale Recipes</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i>&nbsp;About</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i>&nbsp;Contact</a></li>
             </ul>
             <div class="nav-actions">
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode"><i
