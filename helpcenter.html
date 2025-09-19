@@ -1,13 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Help Center</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - BakeGenuis.AI</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <h1>Help Center</h1>
-  <p>Welcome to the Help Center. Here you’ll find FAQs and support resources.</p>
-  <a href="index.html">Back to Home</a>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="./assets/images/logo.png" alt="logo" class="logo-img">
+                <a href="index.html" class="logo-text">BakeGenuis.ai</a>
+            </div>
+            <div class="nav-items">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="convert.html" class="nav-link">Convert Recipe</a>
+                <a href="customize.html" class="nav-link">Customize</a>
+                <a href="scale.html" class="nav-link">Scale Recipes</a>
+                <a href="about.html" class="nav-link">About</a>
+                <div class="theme-toggle" id="theme-toggle-button">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <button class="login-btn"><a href="login.html" class="login-btn-text">Login</a></button>
+                <div class="menu-icon" id="menu-icon">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main style="padding: 60px 20px;">
+        <div class="container" style="max-width: 800px; margin: auto; text-align: left;">
+            <h1>Help Center</h1>
+            <hr style="margin: 20px 0;">
+
+            <h2>What is BakeGenuis.ai?</h2>
+            <p>BakeGenuis.ai is an AI-powered tool that transforms vague recipe measurements into precise, gram-based values for better baking results.</p>
+
+            <h2 style="margin-top: 30px;">How do I convert a recipe?</h2>
+            <p>To convert a recipe, navigate to the 'Convert Recipe' page, enter your ingredients and their measurements, and the AI will provide a precise conversion.</p>
+
+            <h2 style="margin-top: 30px;">Is this service free?</h2>
+            <p>Yes, BakeGenuis.ai is currently free to use for all users.</p>
+
+            <a href="index.html" style="text-decoration: underline; color: #c08497; margin-top: 40px; display: inline-block;">Back to Home</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>BakeGenuis.ai</h3>
+                <p>Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and delightful for everyone.</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/supriya-pandey-3105a2212/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/supriya46788" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:pandeysupriya1510@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="convert.html">Convert Recipe</a></li>
+                        <li><a href="customize.html">Customize</a></li>
+                        <li><a href="scale.html">Scale Recipes</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Features</h4>
+                    <ul>
+                        <li>Unit Conversion</li>
+                        <li>Nutritional Analysis</li>
+                        <li>Recipe Scaling</li>
+                        <li>AI Optimization</li>
+                        <li>Mobile Friendly</li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="helpcenter.html">Help Center</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="reportissue.html">Report Issue</a></li>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="toc.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-bottom">
+            <p>&copy; 2025 BakeGenuis.ai. Made with ❤️ by Supriya Pandey</p>
+            <div class="extra-links">
+                <a href="https://github.com/supriya46788/BakeGenuis-AI" target="_blank">Open Source</a>
+                <a href="#">Eco Friendly</a>
+                <a href="#">AI Powered</a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
