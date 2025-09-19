@@ -162,24 +162,25 @@ body.dark-mode .footer-section h3.footer-title::after {
 }
 
 .social-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 45px;
-  height: 45px;
-  background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
-  color: white;
-  text-decoration: none;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .social-link:hover {
   transform: translateY(-3px) scale(1.1);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
+
 
 .social-link.linkedin {
   background: #0a66c2;
@@ -196,6 +197,7 @@ body.dark-mode .footer-section h3.footer-title::after {
 .social-link.email {
   background: red;
 }
+
 
 .footer-bottom {
   background: rgba(0, 0, 0, 0.05);
@@ -1657,3 +1659,46 @@ body.dark-mode .contributor-cards {
 body.dark-mode #sparkles {
   mix-blend-mode: screen;
 }
+html.dark-mode,
+body.dark-mode
+{
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+}
+body.about-page.dark-mode,
+body.about-page.dark-mode main,
+body.about-page.dark-mode section,
+body.about-page.dark-mode .container,
+body.about-page.dark-mode .section,
+body.about-page.dark-mode .content,
+body.about-page.dark-mode .main,
+body.about-page.dark-mode .wrap,
+body.about-page.dark-mode .animate-on-scroll,
+body.about-page.dark-mode .animated,
+body.about-page.dark-mode .section-card,
+body.about-page.dark-mode .section-card .animate-on-scroll,
+body.about-page.dark-mode .section-content ::before,
+body.about-page.dark-mode .section-content ::after,
+body.about-page.dark-mode .section-card .animated,
+body.about-page.dark-mode .about-section,
+body.about-page.dark-mode .about-wrapper {
+  background-color: #090a0a !important;
+  color: #ffffff !important;
+  background-image: none !important;
+}
+body.about-page.dark-mode h1,
+body.about-page.dark-mode h2,
+body.about-page.dark-mode h3,
+body.about-page.dark-mode p,
+body.about-page.dark-mode a,
+body.about-page.dark-mode span,
+body.about-page.dark-mode li {
+  color: #ffffff !important;
+}
+body.about-page.dark-mode .contributor-card p,
+body.about-page.dark-mode .contributor-card span,
+body.about-page.dark-mode .contributor-card a,
+body.about-page.dark-mode .contributor-card li {
+  color: #000000 !important;
+}
+
