@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize - BakeGenius.ai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/customize.css">
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="floating-elements">
+        <div class="floating-cupcake">🧁</div>
+        <div class="floating-cupcake">🍰</div>
+        <div class="floating-cupcake">🥧</div>
+        <div class="floating-cupcake">🍪</div>
+    </div>
+
+    <!-- Navigation -->
+     <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🍰</span>
+                <span class="logo-text">BakeGenius.ai</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                
+                <li>
+                    <a href="convert.html">
+                        <i class="fas fa-exchange-alt" style="margin-right:8px;"></i>
+                        Convert Recipe
+                    </a>
+                </li>
+                <li>
+                    <a href="customize.html">
+                        <i class="fas fa-cog" style="margin-right:8px;"></i>
+                        Customize
+                    </a>
+                </li>
+                <li>
+                    <a href="scale.html">
+                        <i class="fas fa-balance-scale" style="margin-right:8px;"></i>
+                        Scale Recipes
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <i class="fas fa-info-circle" style="margin-right:8px;"></i>
+                        About
+                    </a>
+                </li>
+                  <li>
+                    <a href="faq.html">
+                        <i class="fas fa-question-circle" style="margin-right:8px;"></i>
+                        FAQs
+                    </a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#" class="login-btn" id="openLoginModal">
+                    <i class="fas fa-user"></i>
+                    Login
+                </a>
+                <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+         
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">🎨 Customize Your Recipe</h1>
+            <p class="page-subtitle">Fine-tune ingredient densities and measurement types for perfect baking precision!</p>
+        </div>
+
+        <!-- Brand Selector -->
+        <div class="brand-selector">
+            <h2 class="brand-title">🏷️ Choose Your Preferred Brand</h2>
+            <div class="brand-options">
+                <div class="brand-option selected" data-brand="standard">Standard/Generic</div>
+                <div class="brand-option" data-brand="king-arthur">King Arthur Flour</div>
+                <div class="brand-option" data-brand="bob-red-mill">Bob's Red Mill</div>
+                <div class="brand-option" data-brand="gold-medal">Gold Medal</div>
+            </div>
+        </div>
+
+        <!-- Ingredients Container -->
+        <div class="ingredients-container" id="ingredientsContainer">
+            <!-- Sample ingredients will be loaded here -->
+        </div>
+
+        <!-- Success Message -->
+        <div class="success-message" id="successMessage">
+            ✨ Settings saved successfully! Your customizations will be applied to future conversions.
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="btn btn-primary" onclick="applyChanges()">
+                ✨ Apply Changes
+            </button>
+            <button class="btn btn-secondary" onclick="resetToDefaults()">
+                🔄 Reset to Defaults
+            </button>
+            <button class="btn btn-success" onclick="saveSettings()">
+                💾 Save Settings
+            </button>
+        </div>
+    </div>
+    <!-- Dual Scroll Buttons -->
+<button id="scrollTopBtn" class="scroll-btn" title="Back to Top">⬆</button>
+<button id="scrollBottomBtn" class="scroll-btn" title="Scroll to Bottom">⬇</button>
+
+
+    <!-- footer startes here -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section footer-brand">
+                <div class="footer-logo">
+                    <span class="footer-logo-icon">🍰</span>
+                    <span class="footer-logo-text">BakeGenius.ai</span>
+                </div>
+                <p class="footer-description">
+                    Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and delightful for everyone.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-link linkedin" target="_blank" rel="noopener" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/supriya46788/BakeGenuis-AI" class="social-link github" target="_blank" rel="noopener" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:supriyadpandey502@gmail.com" class="social-link email" target="_blank" rel="noopener" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="convert.html"><i class="fas fa-exchange-alt"></i>Convert Recipe</a></li>
+                    <li><a href="customize.html"><i class="fas fa-cog"></i>Customize</a></li>
+                    <li><a href="scale.html"><i class="fas fa-balance-scale"></i>Scale Recipes</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Features</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-calculator"></i>Unit Conversion</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i>Nutritional Analysis</a></li>
+                    <li><a href="#"><i class="fas fa-balance-scale"></i>Recipe Scaling</a></li>
+                    <li><a href="#"><i class="fas fa-magic"></i>AI Optimization</a></li>
+                    <li><a href="#"><i class="fas fa-mobile-alt"></i>Mobile Friendly</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="contact.html"><i class="fas fa-question-circle"></i>Contact Us</a></li>
+                    <li><a href="feedback.html"><i class="fas fa-comment"></i>Feedback</a></li>
+                    <li><a href="faq.html"><i class="fas fa-info-circle"></i>FAQ</a></li>
+                    <li><a href="privacypolicy.html"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
+                    <li><a href="toc.html"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p class="copyright">
+                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <span class="name">Supriya Pandey</span>
+                </p>
+                <div class="footer-badges">
+                    <span class="badge badge-green"><i class="fas fa-heart"></i> Open Source</span>
+                    <span class="badge badge-blue"><i class="fas fa-leaf"></i> Eco Friendly</span>
+                    <span class="badge badge-purple"><i class="fas fa-robot"></i> AI Powered</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/customize.js"></script>
+</body>
+</html>

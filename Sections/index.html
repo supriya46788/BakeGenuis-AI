@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BakeGenius.ai - AI-Powered Baking Conversions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/index.css">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <i class="fa-solid fa-spinner"></i>
+            <h2>Baking Mode On<span class="dots"></span></h2>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🍰</span>
+                <span class="logo-text">BakeGenius.ai</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                
+                <li>
+                    <a href="convert.html">
+                        <i class="fas fa-exchange-alt" style="margin-right:8px;"></i>
+                        Convert Recipe
+                    </a>
+                </li>
+                <li>
+                    <a href="customize.html">
+                        <i class="fas fa-cog" style="margin-right:8px;"></i>
+                        Customize
+                    </a>
+                </li>
+                <li>
+                    <a href="scale.html">
+                        <i class="fas fa-balance-scale" style="margin-right:8px;"></i>
+                        Scale Recipes
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <i class="fas fa-info-circle" style="margin-right:8px;"></i>
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href="faq.html">
+                        <i class="fas fa-question-circle" style="margin-right:8px;"></i>
+                        FAQs
+                    </a>
+                </li>
+                
+            </ul>
+            <div class="nav-actions">
+                <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#" class="login-btn" id="openLoginModal">
+                    <i class="fas fa-user"></i>
+                    Login
+                </a>
+                <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">Welcome to BakeGenius.ai</h1>
+            <p class="hero-subtitle">
+                From spoon to scale — get exact gram conversions with AI magic ✨<br />
+                Transform vague recipe measurements into precise, consistent results
+                every time!
+            </p>
+            <a href="convert.html" class="cta-button">Start Converting Now 🚀</a>
+        </section>
+
+        <!-- Features Preview -->
+        <section class="features-preview">
+            <div class="feature-card">
+                <i class="fas fa-magic feature-icon"></i>
+                <h3 class="feature-title">AI-Powered Precision</h3>
+                <p class="feature-desc">
+                    Advanced AI converts "cups" and "spoons" into exact gram
+                    measurements for perfect baking every time.
+                </p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-balance-scale feature-icon"></i>
+                <h3 class="feature-title">Smart Recipe Scaling</h3>
+                <p class="feature-desc">
+                    Effortlessly scale recipes up or down while maintaining perfect
+                    ratios and adjusting rising agents intelligently.
+                </p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-cogs feature-icon"></i>
+                <h3 class="feature-title">Custom Preferences</h3>
+                <p class="feature-desc">
+                    Personalize conversions based on your preferred brands and
+                    ingredient specifications for consistent results.
+                </p>
+            </div>
+        </section>
+    </main>
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to Top">⬆</button>
+    <!-- Top to Bottom Button -->
+    <button id="Toptoback" title="Top To Back">⬇</button>
+
+    <!-- footer startes here -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section footer-brand">
+                <div class="footer-logo">
+                    <span class="footer-logo-icon">🍰</span>
+                    <span class="footer-logo-text">BakeGenius.ai</span>
+                </div>
+                <p class="footer-description">
+                    Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and
+                    delightful for everyone.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-link linkedin" target="_blank"
+                        rel="noopener" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/supriya46788/BakeGenuis-AI" class="social-link github" target="_blank"
+                        rel="noopener" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:supriyadpandey502@gmail.com" class="social-link email" target="_blank"
+                        rel="noopener" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="convert.html"><i class="fas fa-exchange-alt"></i>Convert Recipe</a></li>
+                    <li><a href="customize.html"><i class="fas fa-cog"></i>Customize</a></li>
+                    <li><a href="scale.html"><i class="fas fa-balance-scale"></i>Scale Recipes</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">Features</h3>
+                <ul class="footer-links">
+                    <li><a href="javascript:void(0)"><i class="fas fa-calculator"></i>Unit Conversion</a></li>
+                    <li><a href="javascript:void(0)"><i class="fas fa-chart-line"></i>Nutritional Analysis</a></li>
+                    <li><a href="javascript:void(0)"><i class="fas fa-balance-scale"></i>Recipe Scaling</a></li>
+                    <li><a href="javascript:void(0)"><i class="fas fa-magic"></i>AI Optimization</a></li>
+                    <li><a href="javascript:void(0)"><i class="fas fa-mobile-alt"></i>Mobile Friendly</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="contact.html"><i class="fas fa-question-circle"></i>Contact Us</a></li>
+                    <li><a href="feedback.html"><i class="fas fa-comment"></i>Feedback</a></li>
+                    <li><a href="faq.html"><i class="fas fa-info-circle"></i>FAQ</a></li>
+                    <li><a href="privacypolicy.html"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
+                    <li><a href="toc.html"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p class="copyright">
+                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <span class="name">Supriya
+                        Pandey</span>
+                </p>
+                <div class="footer-badges">
+                    <span class="badge badge-green"><i class="fas fa-heart"></i> Open Source</span>
+                    <span class="badge badge-blue"><i class="fas fa-leaf"></i> Eco Friendly</span>
+                    <span class="badge badge-purple"><i class="fas fa-robot"></i> AI Powered</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="loginModal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeLoginModal">&times;</button>
+            
+            <h2 class="form-title">Welcome Back</h2>
+            
+            <div class="form-container">
+                <!-- Login Form -->
+                <form id="loginForm">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-user input-icon"></i>
+                            <input 
+                                type="text" 
+                                id="loginUsername" 
+                                class="form-input"
+                                placeholder="Username" 
+                                required
+                            />
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-lock input-icon"></i>
+                            <input 
+                                type="password" 
+                                id="loginPassword" 
+                                class="form-input"
+                                placeholder="Password" 
+                                required
+                            />
+                            <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        Login
+                    </button>
+                </form>
+
+                <!-- Sign-Up Form -->
+                <form id="signUpForm" style="display: none;">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-user input-icon"></i>
+                            <input 
+                                type="text" 
+                                id="signUpUsername" 
+                                class="form-input"
+                                placeholder="New Username" 
+                                required
+                            />
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-lock input-icon"></i>
+                            <input 
+                                type="password" 
+                                id="signUpPassword" 
+                                class="form-input"
+                                placeholder="New Password" 
+                                required
+                            />
+                            <button type="button" class="password-toggle" onclick="togglePassword('signUpPassword')">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-lock-open input-icon"></i>
+                            <input 
+                                type="password" 
+                                id="confirmPassword" 
+                                class="form-input"
+                                placeholder="Confirm Password" 
+                                required
+                            />
+                            <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn signup-btn" style="text-align: center;" >
+                        Sign Up
+                    </button>
+                </form>
+                
+                <div class="toggle-form">
+                    <span id="toggleText">Don't have an account?</span>
+                    <span class="toggle-link" id="toggleForm">Sign Up</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/index.js"></script>
+</body>
+
+
+</html>
