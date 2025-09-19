@@ -3,7 +3,7 @@
 }
 /* Footer Modern Multi-Column */
 .footer {
-  background: linear-gradient(135deg, rgba(255, 195, 195, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+  background: radial-gradient(circle at center, #e9b4b6, #e5c5b3);
   backdrop-filter: blur(15px);
   position: relative;
   z-index: 2;
@@ -11,8 +11,12 @@
   margin-top: 4rem;
 }
 
+body.dark-mode .footer {
+            background: #1e1e1e;
+        }
+
 .footer-content {
-  max-width: 1400px;
+  max-width: 1500px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -21,7 +25,7 @@
 }
 
 .footer-section h3.footer-title {
-  color: var(--candy-red);
+  color: #3e2723;
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
@@ -35,9 +39,13 @@
   left: 0;
   width: 30px;
   height: 3px;
-  background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+  background: #3e2723;
   border-radius: 2px;
 }
+
+body.dark-mode .footer-section h3.footer-title::after {
+            background: #e0e0e0;
+        }
 
 .footer-logo {
   display: flex;
@@ -46,7 +54,7 @@
   margin-bottom: 1.5rem;
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--candy-red);
+  color: #3e2723;
 }
 
 .footer-logo-icon {
@@ -54,7 +62,7 @@
 }
 
 .footer-description {
-  color: #666;
+  color: #333;
   line-height: 1.6;
   margin-bottom: 2rem;
   font-size: 0.95rem;
@@ -71,7 +79,7 @@
 }
 
 .footer-links a {
-  color: #666;
+  color: #333;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -83,7 +91,7 @@
 }
 
 .footer-links a:hover {
-  color: var(--candy-red);
+  color: black;
   transform: translateX(5px);
   background: rgba(255, 107, 107, 0.1);
   padding-left: 0.8rem;
@@ -99,7 +107,7 @@
             background-color: #5C4033;
             color: white;
             text-decoration: none;
-            padding: 11.2px 24px;
+            padding: 0.7rem 1.5rem;
             border-radius: 25px;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -117,7 +125,7 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 25px #cf622f;
             background-color:#5C4033;
-            border-color: rgba(255, 255, 255, 0.3);
+            
         }
 
         body.dark-mode .login-btn {
@@ -173,6 +181,22 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
+
+.social-link.linkedin {
+  background: #0a66c2;
+}
+
+.social-link.github {
+  background: black
+}
+
+.social-link.portfolio {
+  background: navy
+}
+
+.social-link.email {
+  background: red;
+}
 
 
 .footer-bottom {
@@ -240,21 +264,29 @@ body.dark-mode .copyright .name {
 }
 
 .badge-green {
-  background: linear-gradient(45deg, #2ED573, #20bf6b);
+  background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 .badge-blue {
-  background: linear-gradient(45deg, #3498db, #2980b9);
+  background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 .badge-purple {
-  background: linear-gradient(45deg, #9b59b6, #8e44ad);
+  background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
-body.dark-mode .badge-green,
-body.dark-mode .badge-blue,
+body.dark-mode .badge-green{
+  background: #e0e0e0;
+            color: #0d0d0d;
+
+}
+body.dark-mode .badge-blue{
+  background: #e0e0e0;
+            color: #0d0d0d;
+}
 body.dark-mode .badge-purple {
-  color: #ffffff;
+  background: #e0e0e0;
+            color: #0d0d0d;
 }
 
 body.dark-mode .badge-green {
@@ -358,15 +390,12 @@ body.dark-mode .copyright a {
 
 body {
   font-family: "Comic Neue", cursive;
-  background: linear-gradient(135deg,
-      var(--light-pink) 0%,
-      var(--light-blue) 30%,
-      var(--light-yellow) 60%,
-      var(--light-pink) 100%);
+  background: #f5f3f1;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
   line-height: 1.6;
+  transition: all 0.3s ease;
 }
 
 body.dark-mode {
@@ -1007,10 +1036,7 @@ body.dark-mode .dark-mode-btn {
   bottom: 0;
   border-radius: 20px;
   padding: 2px;
-  background: linear-gradient(135deg,
-      var(--sky-blue),
-      var(--sunny-yellow),
-      var(--candy-red));
+  background: linear-gradient(45deg, #a4766a, #5d4037);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   opacity: 0;
@@ -1438,11 +1464,11 @@ body.dark-mode .dark-mode-btn {
 .contributor-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 26px; margin-top: 6px; }
 .contributor-card { background: #f5f6fa; border-radius: 15px; padding: 14px 14px; width: 180px; display: flex; flex-direction: column; align-items: center; box-shadow: 0 4px 14px rgba(59,71,87,0.09); border: 1.5px solid #e0e6ef; transition: transform 0.23s, box-shadow 0.23s; cursor: pointer; min-height: 140px; position: relative; }
 .contributor-card:hover { transform: translateY(-7px) scale(1.03); box-shadow: 0 8px 25px rgba(255,71,87,0.11); background: #fffbe6; }
-.contributor-card img { width: 48px; height: 48px; border-radius: 50%; margin-bottom: 8px; border: 2.5px solid #70a1ff; object-fit: cover; box-shadow: 0 2px 8px rgba(33,33,33,0.11); }
+.contributor-card img { width: 48px; height: 48px; border-radius: 50%; margin-bottom: 8px; border: 2.5px solid #3e2723; object-fit: cover; box-shadow: 0 2px 8px rgba(33,33,33,0.11); }
 .contributor-info { display: flex; flex-direction: column; align-items: center; }
 .contributor-username { font-size: 1rem; font-weight: 600; color: #3e2723; margin-bottom: 2px; }
 .contributor-handle { color: #888; font-size:0.92rem; margin-bottom: 4px;}
-.contributor-badge { font-size: 0.87rem; font-weight: 700; background: linear-gradient(45deg, #2ed573, #70a1ff); color: #fff; border-radius: 13px; padding: 4px 13px; margin-top: 4px; box-shadow: 0 2px 9px rgba(59,71,87,0.09); }
+.contributor-badge { font-size: 0.87rem; font-weight: 700; background: linear-gradient(45deg, #a4766a, #5d4037); color: #fff; border-radius: 13px; padding: 4px 13px; margin-top: 4px; box-shadow: 0 2px 9px rgba(59,71,87,0.09); }
 @media (max-width: 900px) { .contributors { padding: 15px; } .team-leader-card { padding: 14px; max-width: 96vw; } .contributor-cards { gap: 14px; } .contributor-card { width: 130px; min-height: 110px; padding: 8px 7px; } }
 @media (max-width: 600px) { .contributors { margin: 22px auto; padding: 7px; } .team-leader-card { padding: 8px 4px 8px; } .xyz { font-size: 1.3rem; } .contributors-title { font-size: 1.1rem; } .search-contributer-box { margin-bottom: 8px; } .contributor-cards { gap: 7px; margin-top:1px; } .contributor-card { width: 95px; min-height: 90px; padding: 3px 2px; } }
 
