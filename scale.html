@@ -1295,123 +1295,95 @@
 
 
     <!-- Main Container -->
-<div class="container">
-    <!-- Header -->
-    <div class="header">
-        <h1>📏 Scale Your Recipes</h1>
-        <p>Perfect portions for any crowd - from intimate dinners to grand celebrations!</p>
-    </div>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📏 Scale Your Recipes</h1>
+            <p>Perfect portions for any crowd - from intimate dinners to grand celebrations!</p>
+        </div>
 
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Input Section -->
+            <div class="input-section">
+                <h2 class="section-title">🎯 Recipe Scaling</h2>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Input Section -->
-        <div class="input-section">
-            <h2 class="section-title">🎯 Recipe Scaling</h2>
-            
-            <div class="serving-inputs">
-                <div class="serving-input">
-                    <label for="currentServings">Current Servings</label>
-                    <input type="number" id="currentServings" placeholder="6" min="1" value="6">
+                <div class="serving-inputs">
+                    <div class="serving-input">
+                        <label for="currentServings">Current Servings</label>
+                        <input type="number" id="currentServings" placeholder="6" min="1" value="6">
+                    </div>
+                    <div class="serving-input">
+                        <label for="desiredServings">Desired Servings</label>
+                        <input type="number" id="desiredServings" placeholder="12" min="1" value="12">
+                    </div>
                 </div>
-                <div class="serving-input">
-                    <label for="desiredServings">Desired Servings</label>
-                    <input type="number" id="desiredServings" placeholder="12" min="1" value="12">
 
-                </div>
-            </div>
-
-
-            <div class="input-group">
-                <label for="recipeInput">Paste Your Recipe Ingredients:</label>
-                <textarea 
-                    id="recipeInput" 
-                    class="recipe-textarea" 
-                    placeholder="Example:
-
+                <div class="input-group">
+                    <label for="recipeInput">Paste Your Recipe Ingredients:</label>
+                    <textarea id="recipeInput" class="recipe-textarea" placeholder="Example:
 2 cups all-purpose flour
 1 cup sugar
 1/2 cup butter
 2 eggs
 1 tsp baking powder
 1/2 tsp salt
-
-1 cup milk"
-                ></textarea>
-                <!-- Live conversion results -->
-                <div id="liveResults" class="live-results"></div>
-            </div>
-
-
-            <!-- Scaling Slider -->
-            <div class="scaling-slider">
-                <label for="scaleRange">Scale Recipe: <span id="scaleValue">1x</span></label>
-                <input type="range" id="scaleRange" min="0.5" max="5" step="0.1" value="1">
-            </div>
-
-            <div class="toggle-container">
-                <span>Keep Original Units</span>
-                <label class="toggle-switch">
-                    <input type="checkbox" id="convertToGrams">
-                    <span class="slider"></span>
-                </label>
-                <span>Convert to Grams</span>
-            </div>
-
-            <div class="btn-group">
-                <button class="btn btn-primary" onclick="scaleRecipe()">
-                    ✨ Scale Recipe Magically
-                </button>
-                <button class="btn btn-secondary" onclick="clearInputs()">
-                    🧹 Clear All
-                </button>
-            </div>
-        </div>
-
-
-        <!-- Output Section -->
-        <div class="output-section">
-            <h2 class="section-title">📊 Scaled Results</h2>
-            
-            <div class="loading" id="loading">
-                <div class="spinner"></div>
-                <p>Scaling your recipe with AI magic... 🪄</p>
-            </div>
-
-            <div class="results-container" id="resultsContainer">
-                <div id="scalingInfo" class="scaling-info"></div>
-                <table class="results-table" id="resultsTable">
-                    <thead>
-                        <tr>
-                            <th>Ingredient</th>
-                            <th>Original</th>
-                            <th>Scaled</th>
-                        </tr>
-                    </thead>
-                    <tbody id="resultsBody">
-                    </tbody>
-                </table>
-                
-                <div class="suggestions-box" id="suggestionsBox">
-                    <h3>🔮 Smart Baking Tips</h3>
-                    <div id="suggestions"></div>
+1 cup milk"></textarea>
                 </div>
 
-                <!-- Checklist Mode -->
-                <div class="checklist-box">
-                    <h3>✅ Checklist</h3>
-                    <ul id="checklist"></ul>
+                <div class="toggle-container">
+                    <span>Keep Original Units</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="convertToGrams">
+                        <span class="slider"></span>
+                    </label>
+                    <span>Convert to Grams</span>
+                </div>
 
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="scaleRecipe()">
+                        ✨ Scale Recipe Magically
+                    </button>
+                    <button class="btn btn-secondary" onclick="clearInputs()">
+                        🧹 Clear All
+                    </button>
+                </div>
+            </div>
+
+            <!-- Output Section -->
+            <div class="output-section">
+                <h2 class="section-title">📊 Scaled Results</h2>
+
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Scaling your recipe with AI magic... 🪄</p>
+                </div>
+
+                <div class="results-container" id="resultsContainer">
+                    <div id="scalingInfo" class="scaling-info"></div>
+                    <table class="results-table" id="resultsTable">
+                        <thead>
+                            <tr>
+                                <th>Ingredient</th>
+                                <th>Original</th>
+                                <th>Scaled</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsBody">
+                        </tbody>
+                    </table>
+
+                    <div class="suggestions-box" id="suggestionsBox">
+                        <h3>🔮 Smart Baking Tips</h3>
+                        <div id="suggestions"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-</div>
-
-<!-- Dual Scroll Buttons -->
-<button id="scrollTopBtn" class="scroll-btn" title="Back to Top">⬆</button>
-<button id="scrollBottomBtn" class="scroll-btn" title="Scroll to Bottom">⬇</button>
+    <!-- Dual Scroll Buttons -->
+    <button id="scrollTopBtn" class="scroll-btn" title="Back to Top">⬆</button>
+    <button id="scrollBottomBtn" class="scroll-btn" title="Scroll to Bottom">⬇</button>
 
 
     <!-- footer startes here -->
@@ -1880,76 +1852,6 @@
 
 
         });
-
-        function generateChecklist(ingredients) {
-    let checklistContainer = document.getElementById('checklist');
-    if (!checklistContainer) return; // if checklist div not added, skip
-    checklistContainer.innerHTML = '';
-    const savedState = JSON.parse(localStorage.getItem('checklistState') || '{}');
-
-    ingredients.forEach(item => {
-        const li = document.createElement('li');
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.checked = savedState[item.ingredient] || false;
-        checkbox.addEventListener('change', () => {
-            const state = JSON.parse(localStorage.getItem('checklistState') || '{}');
-            state[item.ingredient] = checkbox.checked;
-            localStorage.setItem('checklistState', JSON.stringify(state));
-        });
-        li.appendChild(checkbox);
-        li.appendChild(document.createTextNode(' ' + item.ingredient));
-        checklistContainer.appendChild(li);
-    });
-}
-
-const substitutions = {
-    'buttermilk': 'milk + lemon juice',
-    'milk': 'water + milk powder',
-    'sugar': 'honey or maple syrup',
-    'butter': 'margarine or coconut oil',
-    'egg': 'flaxseed + water'
-};
-
-function generateSubstitutions() {
-    const suggestionsBox = document.getElementById('suggestions');
-    const lines = document.getElementById('recipeInput').value.split('\n');
-    let tips = [];
-
-    lines.forEach(line => {
-        for (const key in substitutions) {
-            if (line.toLowerCase().includes(key)) {
-                tips.push(`🔄 You can substitute ${key} with ${substitutions[key]}.`);
-            }
-        }
-    });
-
-    suggestionsBox.innerHTML += tips.map(t => `<p>${t}</p>`).join('');
-}
-const scaleSlider = document.getElementById('scaleRange');
-const scaleValueDisplay = document.getElementById('scaleValue');
-
-if (scaleSlider) {
-    scaleSlider.addEventListener('input', () => {
-        const value = parseFloat(scaleSlider.value);
-        if (scaleValueDisplay) scaleValueDisplay.textContent = value.toFixed(1) + 'x';
-        scaleRecipe(value); // call your existing scaleRecipe function with slider value
-    });
-}
-document.getElementById('recipeInput').addEventListener('input', () => {
-    const liveResults = document.getElementById('liveResults');
-    if (!liveResults) return;
-    const lines = document.getElementById('recipeInput').value.split('\n');
-    liveResults.innerHTML = '';
-    lines.forEach(line => {
-        if (!line.trim()) return;
-        const parsed = parseIngredientLine(line);
-        const grams = convertToGrams(parsed.amount, parsed.unit, parsed.ingredient);
-        if (grams) liveResults.innerHTML += `<p>${parsed.amount} ${parsed.unit} ${parsed.ingredient} → ${grams} g</p>`;
-    });
-});
-
-
     </script>
 </body>
 
