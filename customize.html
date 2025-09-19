@@ -80,341 +80,120 @@
         }
 
         /* Navigation */
-        .navbar {
-            background: radial-gradient(circle at center,#e5c5b3,#e9b4b6);
-            backdrop-filter: blur(15px);
-            padding: 1rem 2rem;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
+       /* YEH NAYA CSS PASTE KARNA HAI */
+.navbar {
+    background: radial-gradient(circle at center, #e5c5b3, #e9b4b6);
+    backdrop-filter: blur(15px);
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+body.dark-mode .navbar {
+    background: #1e1e1e;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+.logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #3e2723;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+.logo-icon { font-size: 1.8rem; }
+body.dark-mode .logo { color: #e0e0e0; }
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.2rem;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+    margin: 0 2rem;
+    padding: 0;
+}
+.nav-links li {
+    padding: 0;
+    border: none;
+}
+.nav-links a {
+    text-decoration: none;
+    color: #3e2723;
+    font-weight: 600;
+    padding: 0.6rem 1rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.nav-links a:hover {
+    background-color: #f3e0d6;
+    transform: translateY(-2px);
+}
+body.dark-mode .nav-links a { color: #e0e0e0; }
+body.dark-mode .nav-links a:hover { background-color: #2f2f2f; }
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+.dark-mode-btn {
+    background-color: #3e2723; border: none; color: white; padding: 0.7rem;
+    border-radius: 50%; cursor: pointer; width: 45px; height: 45px;
+    display: flex; align-items: center; justify-content: center;
+}
+body.dark-mode .dark-mode-btn { background-color: #e0e0e0; color: #1e1e1e; }
+.login-btn {
+    background-color: #5C4033; color: white; text-decoration: none;
+    padding: 0.7rem 1.5rem; border-radius: 25px; font-weight: 600; white-space: nowrap;
+}
+body.dark-mode .login-btn { background-color: #e0e0e0; color: #0d0d0d; }
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 0;
+}
+.hamburger span {
+    display: block; width: 25px; height: 3px; margin: 0;
+    background: #3e2723; transition: all 0.3s ease-in-out; border-radius: 2px;
+}
+body.dark-mode .hamburger span { background: #e0e0e0; }
+.hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-        body.dark-mode .navbar {
-            background: #1e1e1e;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1500px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #3e2723;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: "Comic Neue", cursive;
-            min-width: 150px;
-            padding-right:50px;
-        }
-
-        .logo-icon {
-            font-size: 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-text {
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-            color:#3e2723;
-        }
-
-        .logo:hover .logo-icon {
-            transform: rotate(10deg);
-        }
-
-        body.dark-mode .logo {
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .logo:hover {
-            color: #e0e0e0;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #3e2723;
-            font-weight: 600;
-            padding: 0.7rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid transparent;
-        }
-
-        .nav-links a.active {
-            background-color:#f3e0d6;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-color: rgba(228, 191, 180, 0.3);
-            color: #3e2723;
-        }
-
-        body.dark-mode .nav-links a {
-            color: #e0e0e0;
-            background: rgba(111, 100, 91, 0.133);
-            border: 2px solid transparent;
-        }
-
-        body.dark-mode .nav-links a.active {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            color: white;
-        }
-
-        .nav-links a:hover {
-            background-color:#f3e0d6;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-color: rgba(228, 191, 180, 0.3);
-            color: #3e2723;
-        }
-
-        body.dark-mode .nav-links a:hover {
-            background-color: #0d0d0d;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-color: #1e1e1e;
-            color: #e0e0e0;
-        }
-
-        /* Navigation Actions */
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .dark-mode-btn {
-            background-color:#3e2723;
-            border: none;
-            color: white;
-            padding: 0.7rem;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .dark-mode-btn:hover {
-            transform: scale(1.1) rotate(360deg);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        body.dark-mode .dark-mode-btn {
-            background-color: #e0e0e0;
-            color: #1e1e1e;
-        }
-
-        .login-btn {
-            background-color:#5C4033;
-            color: white;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-            border: 2px solid transparent;
-        }
-
-        .login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px #cf622f;
-            background-color:#5C4033;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        body.dark-mode .login-btn {
-            background-color: #e0e0e0;
-            color: #0d0d0d;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 2px 2px #e0e0e0;
-            border: 2px solid transparent;
-        }
-
-        body.dark-mode .login-btn:hover {
-            transform: translateY(-3px);
-            background: #e0e0e0;
-            box-shadow: 0 2px 2px #e0e0e0;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
-            margin: 3px 0;
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-
-        body.dark-mode .hamburger span {
-            background: linear-gradient(45deg, #3498db, #9b59b6);
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 0.8rem 1rem;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding-top: 2rem;
-                transition: left 0.3s ease;
-                gap: 2.8rem;
-                z-index: 999;
-            }
-
-            body.dark-mode .nav-links {
-                background: rgba(26, 26, 26, 0.98);
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .nav-links a {
-                width: 80%;
-                text-align: center;
-                padding: 1rem;
-                font-size: 1.1rem;
-                margin: 0.5rem 0;
-            }
-
-            .nav-actions {
-                gap: 0.5rem;
-                position: relative;
-                z-index: 1001;
-            }
-
-            .login-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-
-            .dark-mode-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 0.9rem;
-            }
-
-            .hamburger {
-                display: flex;
-                position: relative;
-                z-index: 1001;
-            }
-
-            .logo {
-                font-size: 1.5rem;
-            }
-
-            .logo-icon {
-                font-size: 1.7rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .navbar {
-                padding: 0.5rem;
-            }
-
-            .logo {
-                font-size: 1.3rem;
-            }
-
-            .logo-icon {
-                font-size: 1.5rem;
-            }
-
-            .nav-actions {
-                gap: 0.3rem;
-            }
-
-            .login-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-
-            .dark-mode-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 0.8rem;
-            }
-        }
+@media (max-width: 1100px) {
+    .nav-links, .nav-actions { display: none; }
+    .nav-links {
+        position: fixed; top: 67px; left: -100%; width: 100%; height: calc(100vh - 67px);
+        background: rgba(245, 243, 241, 0.95); backdrop-filter: blur(10px);
+        flex-direction: column; align-items: center; justify-content: flex-start;
+        padding-top: 3rem; gap: 2rem; transition: left 0.3s ease-in-out;
+    }
+    .nav-links.active { display: flex; left: 0; }
+    .nav-links a { font-size: 1.5rem; }
+    body.dark-mode .nav-links { background: rgba(13, 13, 13, 0.95); }
+    .hamburger { display: flex; }
+}
 
         /* Footer Styles */
         .footer {
@@ -1165,66 +944,37 @@ body.dark-mode .scroll-btn:hover {
     </div>
 
     <!-- Navigation -->
-     <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <span class="logo-icon">🍰</span>
-                <span class="logo-text">BakeGenius.ai</span>
+    <nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🍰</span>
+            <span class="logo-text">BakeGenius.ai</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="convert.html"><i class="fas fa-exchange-alt" style="margin-right:8px;"></i>Convert Recipe</a></li>
+            <li><a href="customize.html"><i class="fas fa-cog" style="margin-right:8px;"></i>Customize</a></li>
+            <li><a href="scale.html"><i class="fas fa-balance-scale" style="margin-right:8px;"></i>Scale Recipes</a></li>
+            <li><a href="about.html"><i class="fas fa-info-circle" style="margin-right:8px;"></i>About</a></li>
+            <li><a href="faq.html"><i class="fas fa-question-circle" style="margin-right:8px;"></i>FAQs</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="#" class="login-btn" id="openLoginModal">
+                <i class="fas fa-user"></i> Login
             </a>
-
-            <ul class="nav-links" id="navLinks">
-                
-                <li>
-                    <a href="convert.html">
-                        <i class="fas fa-exchange-alt" style="margin-right:8px;"></i>
-                        Convert Recipe
-                    </a>
-                </li>
-                <li>
-                    <a href="customize.html">
-                        <i class="fas fa-cog" style="margin-right:8px;"></i>
-                        Customize
-                    </a>
-                </li>
-                <li>
-                    <a href="scale.html">
-                        <i class="fas fa-balance-scale" style="margin-right:8px;"></i>
-                        Scale Recipes
-                    </a>
-                </li>
-                <li>
-                    <a href="about.html">
-                        <i class="fas fa-info-circle" style="margin-right:8px;"></i>
-                        About
-                    </a>
-                </li>
-                  <li>
-                    <a href="faq.html">
-                        <i class="fas fa-question-circle" style="margin-right:8px;"></i>
-                        FAQs
-                    </a>
-                </li>
-            </ul>
-            <div class="nav-actions">
-                <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <a href="#" class="login-btn" id="openLoginModal">
-                    <i class="fas fa-user"></i>
-                    Login
-                </a>
-                <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Logout
-                </a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
         </div>
-    </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
          
 
     <!-- Main Content -->
@@ -1375,30 +1125,23 @@ body.dark-mode .scroll-btn:hover {
         });
 
         // Mobile Navigation Toggle
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a link
-        const navItems = document.querySelectorAll('.nav-links a');
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-            }
-        });
+       // YEH NAYA SCRIPT PASTE KARNA HAI
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+});
+const navItems = document.querySelectorAll('.nav-links a');
+navItems.forEach(item => {
+    item.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    });
+});
 
         // Customize Page Logic
         // Sample ingredients data (in real app, this would come from previous conversion)

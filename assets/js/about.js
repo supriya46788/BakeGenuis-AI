@@ -107,26 +107,44 @@ document.addEventListener("DOMContentLoaded", function () {
   // ...Leave other imported/scroll/hero logic unchanged
 });
 // ===== Dark Mode Toggle Logic =====
-const darkModeBtn = document.getElementById("darkModeToggle");
-const darkModeIcon = darkModeBtn.querySelector("i");
-
-// Apply saved preference on page load
-if (localStorage.getItem("darkMode") === "enabled") {
-  document.body.classList.add("dark-mode");
-  darkModeIcon.classList.remove("fa-moon");
-  darkModeIcon.classList.add("fa-sun");
-}
-
-darkModeBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-
-  if (document.body.classList.contains("dark-mode")) {
-    localStorage.setItem("darkMode", "enabled");
+// YEH NAYA SCRIPT PASTE KARNA HAI
+// ================================== START: MASTER HEADER SCRIPT ==================================
+const darkModeToggle = document.getElementById("darkModeToggle");
+const body = document.body;
+const darkModeIcon = darkModeToggle.querySelector("i");
+const currentTheme = localStorage.getItem("theme") || "light";
+if (currentTheme === "dark") {
+    body.classList.add("dark-mode");
     darkModeIcon.classList.remove("fa-moon");
     darkModeIcon.classList.add("fa-sun");
-  } else {
-    localStorage.setItem("darkMode", "disabled");
-    darkModeIcon.classList.remove("fa-sun");
-    darkModeIcon.classList.add("fa-moon");
-  }
+}
+darkModeToggle.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+    if (body.classList.contains("dark-mode")) {
+        darkModeIcon.classList.remove("fa-moon");
+        darkModeIcon.classList.add("fa-sun");
+        localStorage.setItem("theme", "dark");
+    } else {
+        darkModeIcon.classList.remove("fa-sun");
+        darkModeIcon.classList.add("fa-moon");
+        localStorage.setItem("theme", "light");
+    }
 });
+
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+hamburger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    navLinks.classList.toggle("active");
+    hamburger.classList.toggle("active");
+});
+const navItems = document.querySelectorAll(".nav-links a");
+navItems.forEach((item) => {
+    item.addEventListener("click", () => {
+        if (navLinks.classList.contains("active")) {
+            navLinks.classList.remove("active");
+            hamburger.classList.remove("active");
+        }
+    });
+});
+// =================================== END: MASTER HEADER SCRIPT ===================================
