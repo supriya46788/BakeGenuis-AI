@@ -276,30 +276,32 @@ body.dark-mode .copyright .name {
 }
 
 body.dark-mode .badge-green{
-  background: #e0e0e0;
-            color: #0d0d0d;
+  background: #e0e0e0 !important;
+  color: #0d0d0d !important;
 
 }
 body.dark-mode .badge-blue{
-  background: #e0e0e0;
-            color: #0d0d0d;
+  background: #e0e0e0 !important;
+  color: #0d0d0d !important;
 }
 body.dark-mode .badge-purple {
-  background: #e0e0e0;
-            color: #0d0d0d;
+  background: #e0e0e0 !important;
+  color: #0d0d0d !important;
 }
 
-body.dark-mode .badge-green {
+/*body.dark-mode .badge-green {
   background: linear-gradient(45deg, #2ecc71, #27ae60);
 }
 
 body.dark-mode .badge-blue {
-  background: linear-gradient(45deg, #3498db, #2980b9);
+    background: #e0e0e0;
+    color: #0d0d0d;
 }
 
 body.dark-mode .badge-purple {
-  background: linear-gradient(45deg, #9b59b6, #8e44ad);
-}
+     background: #e0e0e0;
+     color: #0d0d0d;
+} */
 
 @media (max-width: 1024px) {
   .footer-content {
@@ -1614,8 +1616,8 @@ body.dark-mode #sparkles {
 html.dark-mode,
 body.dark-mode
 {
-  background-color: #0f172a !important;
-  color: #ffffff !important;
+  background-color: #0f172a ;
+  color: #ffffff ;
 }
 body.about-page.dark-mode,
 body.about-page.dark-mode main,
@@ -1646,7 +1648,7 @@ body.about-page.dark-mode p,
 body.about-page.dark-mode a,
 body.about-page.dark-mode span,
 body.about-page.dark-mode li {
-  color: #ffffff !important;
+  color: #ffffff ;
 }
 
         .nav-links {
@@ -1688,6 +1690,17 @@ body.about-page.dark-mode li {
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             border-color: #1e1e1e;
             color: #e0e0e0;
+        }
+        body.dark-mode .social-link{
+          background-color: #e0e0e0;
+          color: #0d0d0d !important;
+        }
+        body.dark-mode .social-link a:hover {
+            filter: brightness(1.14);
+            transform: scale(1.11);
+            box-shadow: 0 5px 16px 0 rgba(44, 68, 186, 0.13);
+
+
         }
 
         /* Navigation Actions */
@@ -1748,7 +1761,7 @@ body.about-page.dark-mode li {
 
         body.dark-mode .login-btn {
             background-color: #e0e0e0;
-            color: #0d0d0d;
+            color: #0d0d0d !important;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
             border-radius: 25px;
