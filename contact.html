@@ -826,6 +826,38 @@
             this.reset();
             setTimeout(() => { document.getElementById("contactSuccess").style.display = "none"; }, 4000);
         });
+
+        // check logined or logout
+        function updateLoginState() {
+        const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+        const loginBtn = document.getElementById("openLoginModal");
+        const logoutBtn = document.getElementById("logoutBtn");
+
+        if (isLoggedIn) {
+          loginBtn.style.display = "none";
+          logoutBtn.style.display = "flex";
+          document.getElementById("loginModal").style.display = "none";
+        } else {
+          loginBtn.style.display = "flex";
+          logoutBtn.style.display = "none";
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        updateLoginState();
+      });
+
+       // Logout functionality
+        const logoutBtn = document.getElementById("logoutBtn");
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                localStorage.removeItem("isLoggedIn");
+                localStorage.removeItem("currentUser");
+                updateLoginState();
+                alert("You have been logged out successfully!");
+            });
+        }
     </script>
 </body>
 
