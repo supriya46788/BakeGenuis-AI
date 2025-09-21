@@ -722,12 +722,10 @@ body.dark-mode .dark-mode-btn {
 .hero-title {
   font-size: 4rem;
   font-weight: 700;
-  background: linear-gradient(90deg,
-      #b08968,
-      #3e2723);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: linear-gradient(90deg, #5a381e, #b8865b, #5a381e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
   margin-bottom: 1rem;
   animation: heroAnimation 3s ease-out;
 }
@@ -1520,7 +1518,10 @@ body.dark-mode .hero {
 }
 
 body.dark-mode .hero-title {
-  color: #f8fafc;
+  background: linear-gradient(90deg, #5a381e, #b8865b, #5a381e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
 }
 
 body.dark-mode .hero-subtitle {
@@ -2103,21 +2104,21 @@ body.about-page.dark-mode li {
         .hero-title {
             font-size: 3.5rem;
             font-weight: 700;
-            background: linear-gradient(90deg, #3e2723, #4d312b, #3e2723);
+            background: linear-gradient(90deg, #5a381e, #b8865b, #5a381e);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 1rem;
+            margin-block: 1rem;
         }
 
         body.dark-mode .hero-title {
             font-size: 3.5rem;
             font-weight: 700;
-            background: #e0e0e0;
+            background: linear-gradient(90deg, #5a381e, #b8865b, #5a381e);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 1rem;
+            margin-block: 1rem;
         }
 
         .hero-subtitle {
