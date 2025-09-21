@@ -213,7 +213,7 @@
 
         /* Left Column */
         .contact-info {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ffafaf, #ef8888);
             color: #fff;
             padding: 50px 40px;
             flex: 1;
@@ -223,6 +223,7 @@
 
 
         .contact-info h2 {
+            color: #3e2723;
             margin-top: 0;
             font-size: 2.5rem;
             margin-bottom: 25px;
@@ -232,7 +233,7 @@
         }
 
         .contact-info p {
-            color: rgb(227, 225, 225);
+            color: #593832;
             margin-bottom: 40px;
             line-height: 1.6;
             font-size: 1.1rem;
@@ -251,7 +252,8 @@
             padding: 10px 0;
             border-radius: 8px;
             transition: all 0.3s ease;
-            
+            color: #32211e;
+            font-weight: 500;
             
         }
 
@@ -267,8 +269,8 @@
             justify-content: center;
             width: 33px;
             height: 33px;
-            background:rgb(36, 36, 36);
-            color: white;
+            background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+            color: rgb(59, 59, 59);
             text-decoration: none;
             border-radius: 50%;
             font-size: 0.8rem;
@@ -297,6 +299,9 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
+        .contact-info .social-links{
+            color: #4b4a4a;
+        }
 
         /* Right Column */
         .contact-form-box {
@@ -309,7 +314,7 @@
             font-size: 2rem;
             margin-bottom: 30px;
             font-weight: 600;
-            color: #333;
+            color:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             text-align: center;
         }
 
@@ -335,7 +340,7 @@
         .contact-form input:focus,
         .contact-form textarea:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #ea6683;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
             transform: translateY(-2px);
         }
@@ -358,8 +363,7 @@
         }
 
         .contact-form button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #fff;
+            background:linear-gradient(20deg, #3e2723, #6e463e, #3e2723);
             padding: 25px 35px;
             border: none;
             border-radius: 20px;
@@ -370,7 +374,7 @@
             position: relative;
             overflow: hidden;
             letter-spacing: 1px;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            color: white;
         }
 
         .contact-form button::before {
@@ -389,9 +393,9 @@
         }
 
         .contact-form button:hover {
-            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+            background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
         }
 
         .contact-form button:active {
@@ -492,17 +496,15 @@
         }
 
         body.dark-mode .contact-box {
-            background: #1e1e2e;
+            background: #2e1e2a;
             box-shadow: 0 8px 20px rgba(115, 115, 115, 0.25);
 
         }
 
-        body.dark-mode .contact-info {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
+        
 
         body.dark-mode .contact-form-box {
-            background: linear-gradient(145deg, #1e1e2e 0%, #2a2a3e 100%);
+            background: linear-gradient(120deg, #0d0d0d, #282727, #181818);
         }
 
         body.dark-mode .contact-form-title {
@@ -511,16 +513,16 @@
 
         body.dark-mode .contact-form input,
         body.dark-mode .contact-form textarea {
-            background: #2a2a3e;
-            border: 2px solid #3a3a4e;
+            background: #0c0c10;
+            border: 2px solid #6d6d6d;
             color: #e0e0e0;
         }
 
         body.dark-mode .contact-form input:focus,
         body.dark-mode .contact-form textarea:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
-            background: #323248;
+            border-color: #000000;
+            box-shadow: 0 0 0 3px rgba(122, 122, 122, 0.2);
+            background: #1f1f20;
         }
 
         body.dark-mode .contact-form input::placeholder,
