@@ -7,6 +7,7 @@
     
     <!-- Primary Meta Tags -->
     <title>Contact Us | BakeGenius.ai | Get in Touch</title>
+    <link rel="icon" href="Favicon.png" type="image/x-icon" />
     <meta name="title" content="Contact Us | BakeGenius.ai | Get in Touch" />
     <meta name="description" content="Contact BakeGenius.ai for support, feedback, or questions about our AI-powered baking conversion tool. We're here to help you with your baking needs." />
     <meta name="keywords" content="contact bakegenius, baking support, recipe converter help, baking tool contact, AI baking support, baking questions" />
@@ -219,185 +220,365 @@
         }
 
         /* Main content styles */
-        .main-content {
-            margin-top: 120px;
-            padding: 2rem;
-            min-height: calc(100vh - 200px);
+       .main-content {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            min-height: 100vh;
+            padding: 20px;
         }
 
         .contact-box {
-            background: rgba(255, 255, 255, 0.92);
-            max-width: 720px;
-            width: 100%;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            padding: 2.5rem 2rem;
-            margin-bottom: 2rem;
-        }
-
-        body.dark-mode .contact-box {
-           background: #1e1e1e;
-            box-shadow: 0 2px 2px #1e1e1e;
-        }
-
-        .contact-title {
-            font-size: 2.9rem;
-            font-weight: 700;
-            margin-bottom: 0.6rem;
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem;
-        }
-        body.dark-mode .contact-title{
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: #e0e0e0;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        .contact-desc {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 2.2rem;
-        }
-
-        body.dark-mode .contact-desc {
-            color: #a0a0a0;
-        }
-
-        .contact-details-row {
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            width: 90%;
+            height: auto;
+            min-height: 600px;
+            max-width: 1200px;
+            background: #fff;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            animation: slideUp 0.8s ease-out;
         }
 
-        .contact-detail {
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Left Column */
+        .contact-info {
+            background: linear-gradient(135deg, #ffafaf, #ef8888);
+            color: #fff;
+            padding: 50px 40px;
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .contact-info h2 {
+            color: #3e2723;
+            margin-top: 0;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-info p {
+            color: #593832;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-info .info-item {
             display: flex;
             align-items: center;
-            gap: 1.1rem;
-            background: #f8f8f8;
-            padding: 1.2rem 1.4rem;
-            border-radius: 18px;
-            font-size: 1.07rem;
-            box-shadow: 0 2px 13px rgba(255, 107, 107, 0.09);
+            margin-bottom: 20px;
+            font-size: 1rem;
+            position: relative;
+            z-index: 2;
+            padding: 10px 0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            color: #32211e;
+            font-weight: 500;
+            
         }
 
-        body.dark-mode .contact-detail {
-            background: #292929;
-            color: #fff;
+        .contact-info .info-item:hover {
+            background: rgba(255,255,255,0.1);
+            padding-left: 10px;
+            transform: translateX(10px);
         }
 
-        .contact-detail i {
-            font-size: 1.8rem;
-            color: #ff6b6b;
+        .contact-info .info-item i {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 33px;
+            height: 33px;
+            background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+            color: rgb(59, 59, 59);
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            margin-right: 20px;
+            color: #ffffff;
+            transition: transform 0.3s ease;
+            
         }
 
+        .contact-info .info-item:hover i {
+            transform: scale(1.2);
+        }
+        .contact-info .social-link{
+            margin-top: 3.5rem;
+            margin-right: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 65px;
+            height: 65px;
+            background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .contact-info .social-links{
+            color: #4b4a4a;
+        }
+
+        /* Right Column */
         .contact-form-box {
-            background: #fff5ed;
-            padding: 2.5rem 2rem;
-            border-radius: 24px;
-            box-shadow: 0 3px 18px rgba(78, 205, 196, 0.07);
-        }
-
-        body.dark-mode .contact-form-box {
-            background: #ffffff1a;
+            flex: 1;
+            padding: 50px 40px;
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
         }
 
         .contact-form-title {
-            font-size: 1.52rem;
-            font-weight: 700;
-            margin-bottom: 1.25rem;
-        }
-        body.dark-mode .contact-form-title{
-            color:#e0e0e0;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+            text-align: center;
         }
 
-        .form-row {
+        .contact-form .form-row {
             display: flex;
-            gap: 1rem;
+            gap: 25px;
+            margin-bottom: 20px;
         }
 
-        .form-row input {
-            flex: 1;
-        }
 
         .contact-form input,
         .contact-form textarea {
             width: 100%;
-            padding: 0.85rem;
-            margin-bottom: 1.1rem;
+            padding: 15px 18px;
+            border: 2px solid #e1e5e9;
             border-radius: 12px;
-            border: 1px solid #ccc;
             font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fff;
             font-family: inherit;
-            transition: border-color 0.2s;
         }
 
         .contact-form input:focus,
         .contact-form textarea:focus {
-            border-color: #4ecdc4;
             outline: none;
+            border-color: #ea6683;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
         }
-        body.dark-mode .contact-form input,
-        .contact-form textarea {
-            background-color: #e0e0e0;
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #999;
+            transition: opacity 0.3s ease;
         }
-        body.dark-mode .contact-form input:focus,
-        .contact-form textarea:focus{
-            border-color: #0d0d0d;
-            outline: none;
+
+        .contact-form input:focus::placeholder,
+        .contact-form textarea:focus::placeholder {
+            opacity: 0.7;
         }
 
         .contact-form textarea {
-            min-height: 120px;
             resize: vertical;
+            min-height: 120px;
+            font-family: inherit;
         }
 
         .contact-form button {
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-            color: #fff;
-            font-size: 1.16rem;
-            font-weight: 700;
+            background:linear-gradient(20deg, #3e2723, #6e463e, #3e2723);
+            padding: 25px 35px;
             border: none;
-            border-radius: 25px;
-            padding: 0.85rem 2.7rem;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 3px 14px rgba(255, 107, 107, 0.16);
-            transition: transform 0.2s;
-        }
-        body.dark-mode .contact-form button{
-            background: rgba(220, 121, 63, 0.893);
-            color: #e0e0e0;
-            font-size: 1.2rem;
-            font-weight: 700;
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 2px 2px rgba(220, 121, 63, 0.893);
-            animation: pulse 2s ease-in-out infinite;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .contact-form button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .contact-form button:hover::before {
+            left: 100%;
         }
 
         .contact-form button:hover {
-            transform: scale(1.05);
-            background: linear-gradient(45deg, #4ecdc4, #ff6b6b);
+            background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
         }
 
+        .contact-form button:active {
+            transform: translateY(0px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        #contactSuccess {
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: rgb(255, 247, 247);
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: center;
+            transform: translateY(-10px);
+            transition: all 0.5s ease;
+            font-weight: 500;
+            display: none;
+        }
+
+        
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            margin-bottom: 0;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #3c3c3c;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-box {
+                flex-direction: column;
+                width: 95%;
+            }
+
+            .contact-info,
+            .contact-form-box {
+                padding: 30px 20px;
+            }
+
+            .contact-form .form-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .contact-info h2 {
+                font-size: 2rem;
+            }
+
+            .contact-form-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Loading animation for button */
+        .contact-form button.loading {
+            pointer-events: none;
+            position: relative;
+        }
+
+        .contact-form button.loading::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            margin: auto;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s linear infinite;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: linear-gradient(135deg, #0f0f0f, #2b2b2b, #000000);
+
+        }
+
+        body.dark-mode .contact-box {
+            background: #2e1e2a;
+            box-shadow: 0 8px 20px rgba(115, 115, 115, 0.25);
+
+        }
+
+        
+
+        body.dark-mode .contact-form-box {
+            background: linear-gradient(120deg, #0d0d0d, #282727, #181818);
+        }
+
+        body.dark-mode .contact-form-title {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .contact-form input,
+        body.dark-mode .contact-form textarea {
+            background: #0c0c10;
+            border: 2px solid #6d6d6d;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .contact-form input:focus,
+        body.dark-mode .contact-form textarea:focus {
+            border-color: #000000;
+            box-shadow: 0 0 0 3px rgba(122, 122, 122, 0.2);
+            background: #1f1f20;
+        }
+
+        body.dark-mode .contact-form input::placeholder,
+        body.dark-mode .contact-form textarea::placeholder {
+            color: #888;
+        }
+
+        body.dark-mode .input-group label {
+            color: #ccc;
+        }
+
+        body.dark-mode .success-message {
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+        }
         
         .footer {
             background: radial-gradient(circle at center, #e9b4b6, #e5c5b3);
@@ -680,29 +861,71 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="contact-box">
-            <div class="contact-title" style="text-align: center;">Contact Us</div>
-            <div class="contact-desc">
-                Got questions, feedback, or ideas? Let’s bake something amazing together!
+    <div class="contact-box">
+            <div class="contact-info">
+                <h2>Let's get in touch</h2>
+                <p>We’re here to help! Reach out anytime and we’ll respond as quickly as we can.</p>
+                
+                
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    +1 235 2355 98
+                </div>
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    sup34914@gmail.com
+                </div>
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-globe"></i>
+                    https://supriya46788.github.io/BakeGenuis-AI
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-link linkedin" target="_blank"
+                        title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/supriya46788/BakeGenuis-AI" class="social-link github" target="_blank"
+                        title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:supriyadpandey502@gmail.com" class="social-link email" target="_blank"
+                        title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
-
+            
             <div class="contact-form-box">
-                <center><div class="contact-form-title">Send a Message</div>
-                <form class="contact-form" id="bakeContactForm" autocomplete="off">
+                <h3 class="contact-form-title">Get in touch</h3>
+                
+                <form class="contact-form" id="bakeContactForm">
                     <div class="form-row">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
+                        <div class="input-group">
+                            <label>Full Name</label>
+                            <input type="text" name="fullName" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Email Address</label>
+                            <input type="email" name="email" placeholder="Enter your email address" required>
+                        </div>
                     </div>
-                    <input type="text" name="subject" placeholder="Subject" required>
-                    <textarea name="message" placeholder="Your Message" required></textarea>
-                    <center><button type="submit">Send Message</button>
-
-                    <div id="contactSuccess" style="color:#4ecdc4;padding-top:8px;display:none;">Message sent! Thank you
-                        for contacting us. 🍰</div>
+                    
+                    <div class="input-group">
+                        <label>Subject</label>
+                        <input type="text" name="subject" placeholder="Enter the subject" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Message</label>
+                        <textarea name="message" placeholder="Enter your message" required></textarea>
+                    </div>
+                    
+                    <button type="submit">Send Message</button>
+                    
+                    <div class="success-message" id="contactSuccess">
+                        Message sent! Thank you for contacting us. 🚀
+                    </div>
                 </form>
             </div>
         </div>
-    </main>
+</main>
 
     <!-- Footer (identical to index.html) -->
     <footer class="footer">
@@ -823,6 +1046,7 @@
         document.getElementById("bakeContactForm").addEventListener("submit", function (e) {
             e.preventDefault();
             document.getElementById("contactSuccess").style.display = "block";
+            console.log("printed")
             this.reset();
             setTimeout(() => { document.getElementById("contactSuccess").style.display = "none"; }, 4000);
         });
