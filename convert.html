@@ -442,6 +442,28 @@
             background: #f3e0d6;
             color: #3e2723;
         }
+        
+        .nav-links a.active,
+        .nav-links a:active {
+            background-color: #f6e4d8;  /* slightly lighter beige to pop more */
+            color: #3e2723;
+            border-color: rgba(228, 191, 180, 0.8);
+            /* Stronger Glow effect */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25),
+                0 0 15px rgba(255, 220, 200, 1),
+                0 0 30px rgba(255, 220, 200, 0.9),
+                0 0 45px rgba(255, 220, 200, 0.7);
+                transition: all 0.3s ease;
+            }
+            
+            /* Dark mode glow */
+            body.dark-mode .nav-links a.active {
+                background: linear-gradient(45deg, #e74c3c, #f39c12);
+                color: #fff;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6),
+                0 0 12px rgba(255, 255, 255, 0.5),
+                0 0 20px rgba(255, 255, 255, 0.3);
+            }
 
         body.dark-mode .nav-links a {
             color: #e0e0e0;
@@ -1771,30 +1793,29 @@ ${recipeText}`
         }
 
         // Dual Scroll Buttons
-        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        const scrollTopBtn = document.getElementById('scrollTopBtn') || document.getElementById('backToTop');
         const scrollBottomBtn = document.getElementById('scrollBottomBtn');
 
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollTopBtn.classList.add('show');
-            } else {
-                scrollTopBtn.classList.remove('show');
+            if (scrollTopBtn) {
+                if (window.scrollY > 300) scrollTopBtn.classList.add('show');
+                else scrollTopBtn.classList.remove('show');
             }
-
-            if (window.innerHeight + window.scrollY < document.body.offsetHeight - 300) {
-                scrollBottomBtn.classList.add('show');
-            } else {
-                scrollBottomBtn.classList.remove('show');
+            if (scrollBottomBtn) {
+                if (window.innerHeight + window.scrollY < document.body.offsetHeight - 300) scrollBottomBtn.classList.add('show');
+                else scrollBottomBtn.classList.remove('show');
             }
         });
-
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        scrollBottomBtn.addEventListener('click', () => {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-        });
+        if (scrollTopBtn) {
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+        if (scrollBottomBtn) {
+            scrollBottomBtn.addEventListener('click', () => {
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            });
+        }
 
 
         // Function to update login state
@@ -1851,6 +1872,18 @@ ${recipeText}`
             }
         `;
         document.head.appendChild(style);
+
+        // --- Active navbar highlight ---
+       const currentPage = window.location.pathname.split("/").pop() || "convert.html";
+       const navLinksHighlight = document.querySelectorAll(".nav-links a");
+
+       navLinksHighlight.forEach(link => {
+        const linkPage = link.getAttribute("href");
+        if (linkPage === currentPage) {
+            console.log("Matched link:", linkPage); // Debugging line
+            link.classList.add("active");
+        }
+    });
     </script>
 </body>
 

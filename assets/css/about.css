@@ -622,6 +622,29 @@ align-items: center;
             border: 2px solid transparent;
 }
 
+        
+        .nav-links a.active,
+        .nav-links a:active {
+            background-color: #f6e4d8;  /* slightly lighter beige to pop more */
+            color: #3e2723;
+            border-color: rgba(228, 191, 180, 0.8);
+            /* Stronger Glow effect */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25),
+                0 0 15px rgba(255, 220, 200, 1),
+                0 0 30px rgba(255, 220, 200, 0.9),
+                0 0 45px rgba(255, 220, 200, 0.7);
+                transition: all 0.3s ease;
+            }
+            
+            /* Dark mode glow */
+            body.dark-mode .nav-links a.active {
+                background: linear-gradient(45deg, #e74c3c, #f39c12);
+                color: #fff;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6),
+                0 0 12px rgba(255, 255, 255, 0.5),
+                0 0 20px rgba(255, 255, 255, 0.3);
+              }
+
 body.dark-mode .nav-links a {
   text-decoration: none;
   color: #e0e0e0;

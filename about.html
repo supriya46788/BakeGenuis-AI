@@ -302,5 +302,18 @@
   </footer>
 </body>
 <script src="assets/js/about.js"></script>
+<script>
+  
+        // --- Active navbar highlight ---
+       const currentPage = window.location.pathname.split("/").pop() || "convert.html";
+       const navLinksHighlight = document.querySelectorAll(".nav-links a");
 
+       navLinksHighlight.forEach(link => {
+        const linkPage = link.getAttribute("href");
+        if (linkPage === currentPage) {
+            console.log("Matched link:", linkPage); // Debugging line
+            link.classList.add("active");
+        }
+    });
+</script>
 </html>
