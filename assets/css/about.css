@@ -745,7 +745,7 @@ body.dark-mode .dark-mode-btn {
 
 .hero-subtitle {
   font-size: 1.5rem;
-  color: #666;
+  color: #e0e0e0c4;
   margin-bottom: 2rem;
   animation: fadeInUp 1s ease-out 0.5s both;
 }
@@ -1526,7 +1526,7 @@ body.dark-mode .hero-title {
 }
 
 body.dark-mode .hero-subtitle {
-  color: #090a0a;
+  color: #e0e0e0c4;
 }
 
 
@@ -2124,15 +2124,15 @@ body.about-page.dark-mode li {
 
         .hero-subtitle {
             font-size: 1.3rem;
-            color: #333;
+            color: #6b6767;
             margin-bottom: 2rem;
             font-weight: 400;
             line-height: 1.6;
             transition: color 0.3s ease;
         }
 
-        body.dark-mode .hero-subtitle {
-            color: #e0e0e0;
+        body.about-page.dark-mode .hero-subtitle {
+            color: #e0e0e0c4;
         }
 
         .cta-button {
