@@ -1572,6 +1572,34 @@
     box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
 }
 
+    /* Tip Section */
+    .tip-section {
+      margin: 40px auto;
+      padding: 20px;
+      max-width: 800px;
+      background: #fff8f0;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    body.dark-mode .tip-section {
+      background: #2c2c2c;
+      color: #f1f1f1;
+    }
+
+    .tip-title {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #e67e22;
+    }
+
+    .tip-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+
 /* Responsive */
 @media (max-width: 480px) {
     .modal-content {
@@ -1666,6 +1694,12 @@
             </div>
         </div>
     </nav>
+
+    <!-- Tip of the Day Section -->
+  <section class="tip-section">
+    <h2 class="tip-title">🍪 Baking Tip of the Day</h2>
+    <p id="bakingTip" class="tip-text"></p>
+  </section>
 
     <!-- Main Content -->
     <main class="main-content">
@@ -2041,6 +2075,28 @@
         closeLoginModal.addEventListener("click", () => {
             loginModal.style.display = "none";
         });
+
+        // Baking Tips Array
+    const bakingTips = [
+      "Always preheat your oven for at least 10 minutes before baking.",
+      "Use room temperature ingredients for better texture in cakes.",
+      "Weigh your ingredients for the most accurate results.",
+      "Do not open the oven door frequently while baking.",
+      "Use parchment paper to prevent sticking and ensure even baking.",
+      "Cool cakes completely before frosting to avoid melting the icing.",
+      "For fluffier whipped cream, chill your bowl and whisk first."
+    ];
+
+    // Function to get a random tip
+    function getRandomTip() {
+      const index = Math.floor(Math.random() * bakingTips.length);
+      return bakingTips[index];
+    }
+
+    // Display random tip on each refresh
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("bakingTip").textContent = getRandomTip();
+    });
 
         /// Toggle between login and signup
         document.getElementById('toggleForm').addEventListener('click', function() {
