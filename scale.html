@@ -76,6 +76,7 @@
 
         body.dark-mode {
             background: black;
+
         }
 
         /* Navigation */
@@ -200,6 +201,15 @@
             color: #e0e0e0;
         }
 
+        body.dark-mode .social-link{
+          background-color: #e0e0e0;
+          color: #0d0d0d !important;
+        }
+        body.dark-mode .social-link a:hover {
+            filter: brightness(1.14);
+            transform: scale(1.11);
+            box-shadow: 0 5px 16px 0 rgba(44, 68, 186, 0.13);
+        }
         /* Navigation Actions */
         .nav-actions {
             display: flex;
@@ -668,13 +678,14 @@
         }
 
         body {
+
             font-family: 'Comic Neue', cursive;
             background-color: #f5f3f1;
             min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
+            color: var(--white);
+            transition: all 0.3s ease;
         }
-
+     
 
         /* Animated Background Elements */
         .floating-elements {
@@ -855,15 +866,15 @@
 
 
         .header h1 {
+
             font-size: 3rem;
             font-weight: 700;
             color: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             animation: bounce 2s ease-in-out infinite;
                 margin-block: 1rem;
 
-
-
         }
+
         @keyframes bounce {
 
             0%,
@@ -889,11 +900,13 @@
             color: #666;
             max-width: 600px;
             margin: 0 auto;
+
         }
 
         body.dark-mode .header p {
-            color: #a0a0a0;
+            color: var(--dark-text)
         }
+         
 
         /* Main Content */
         .main-content {
@@ -940,9 +953,11 @@
 
         /* Header */
         body.dark-mode .header h1 {
+
             font-size: 3rem;
             font-weight: 700;
             
+
             position: relative;
             display: inline-block;
         }
@@ -1697,6 +1712,7 @@
         <!-- Header -->
         <div class="header">
             <div class="heading">
+
                 
                 <h1>⚖️ <span style="
                     background: linear-gradient(90deg, #5a381e, #b8865b, #5a381e);
@@ -1704,6 +1720,7 @@
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
                 ">Scale Your Recipes</span></h1>
+
             </div>
             <p>Perfect portions for any crowd - from intimate dinners to grand celebrations!</p>
         </div>

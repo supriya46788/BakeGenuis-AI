@@ -384,6 +384,49 @@
             box-shadow: 0 8px 25px rgba(22, 160, 133, 0.4);
         }
 
+        /* Dark mode base */
+        body.dark-mode {
+        background: #3b3b3b;
+        color: #ffffff;
+        }
+
+        /* Dark mode for modal */
+        body.dark-mode .modal-content {
+            background: #1e1e1e;
+            color: #ffffff;
+        }
+
+        /* Dark mode for inputs */
+        body.dark-mode input {
+            background: #fefcfce6;
+            color: #ffffff;
+
+        }
+
+        /* Dark mode for login button */
+        body.dark-mode .login-btn {
+            background-color: #e0e0e0;
+            color: #0d0d0d;
+            box-shadow: 0 2px 2px #e0e0e0;
+        }
+
+        body.dark-mode .login-btn:hover {
+            background: #e0e0e0;
+            box-shadow: 0 2px 2px #e0e0e0;
+        }
+
+        /* Dark mode for signup button */
+        body.dark-mode .signup-btn {
+            background: linear-gradient(45deg, #16a085, #1abc9c);
+            box-shadow: 0 4px 15px rgba(22, 160, 133, 0.3);
+        }
+
+        body.dark-mode .signup-btn:hover {
+            background: linear-gradient(45deg, #1abc9c, #16a085);
+            box-shadow: 0 8px 25px rgba(22, 160, 133, 0.4);
+        }
+
+
         .hamburger {
             display: none;
             flex-direction: column;
@@ -1832,6 +1875,9 @@
                         </div>
                     </div>
                     
+                    <!-- Error message for password mismatch in Sign-Up -->
+                    <div id="signUpError" style="color:red; font-size:14px; display:none;"></div>
+
                     <button type="submit" class="submit-btn signup-btn" style="text-align: center;" >
                         Sign Up
                     </button>
@@ -2055,6 +2101,9 @@
             }
         });
 
+        // Get the signup-specific error element
+        const signUpError = document.getElementById("signUpError");
+
         // Handle Sign-Up Form Submission
         signUpForm.addEventListener("submit", (e) => {
             e.preventDefault();
@@ -2065,18 +2114,21 @@
 
             // Validate passwords match
             if (password !== confirmPassword) {
-                formError.textContent = "Passwords do not match.";
-                formError.style.display = "block";
+                signUpError.textContent = "Passwords do not match.";
+                signUpError.style.display = "block";
                 return;
+            }   else {
+                signUpError.style.display = "none"; // hide warning if fixed
             }
+
 
             // Retrieve users from localStorage
             const users = JSON.parse(localStorage.getItem("users")) || {};
 
             // Check if the username already exists
             if (users[username]) {
-                formError.textContent = "Username already exists.";
-                formError.style.display = "block";
+                signUpError.textContent = "Username already exists.";
+                signUpError.style.display = "block";
             } else {
                 // Save the new user
                 users[username] = password;
@@ -2086,7 +2138,7 @@
                 signUpForm.style.display = "none";
                 modalTitle.textContent = "Login";
                 toggleForm.textContent = "Don't have an account? Sign Up";
-                formError.style.display = "none";
+                signUpError.style.display = "none";
             }
         });
 
