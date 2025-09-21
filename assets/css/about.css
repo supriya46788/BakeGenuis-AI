@@ -727,6 +727,7 @@ body.dark-mode .dark-mode-btn {
             -webkit-text-fill-color: transparent;
             background-clip: text;
   margin-bottom: 1rem;
+  margin-top: 2rem;
   animation: heroAnimation 3s ease-out;
 }
 
