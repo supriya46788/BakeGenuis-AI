@@ -111,9 +111,31 @@ document.addEventListener("DOMContentLoaded", function () {
   const hamburger = document.getElementById("hamburger");
   const navLinks = document.getElementById("navLinks");
 
-  hamburger.addEventListener("click", () => {
+  hamburger.addEventListener("click", (e) => {
+    e.stopPropagation();
     navLinks.classList.toggle("active");
-    hamburger.classList.toggle("open");
+    hamburger.classList.toggle("active");
+  });
+
+  // Close mobile menu when clicking on a link
+  const navItems = document.querySelectorAll(".nav-links a");
+  navItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      hamburger.classList.remove("active");
+    });
+  });
+
+  // Close mobile menu when clicking outside (only if menu is open)
+  document.addEventListener("click", (e) => {
+    if (
+      navLinks.classList.contains("active") &&
+      !hamburger.contains(e.target) &&
+      !navLinks.contains(e.target)
+    ) {
+      navLinks.classList.remove("active");
+      hamburger.classList.remove("active");
+    }
   });
 });
 
@@ -122,7 +144,8 @@ const darkModeBtn = document.getElementById("darkModeToggle");
 const darkModeIcon = darkModeBtn.querySelector("i");
 
 // Apply saved preference on page load
-if (localStorage.getItem("darkMode") === "enabled") {
+const currentTheme = localStorage.getItem("theme") || "light";
+if (currentTheme === "dark") {
   document.body.classList.add("dark-mode");
   darkModeIcon.classList.remove("fa-moon");
   darkModeIcon.classList.add("fa-sun");
@@ -132,12 +155,13 @@ darkModeBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
 
   if (document.body.classList.contains("dark-mode")) {
-    localStorage.setItem("darkMode", "enabled");
+    localStorage.setItem("theme", "dark");
     darkModeIcon.classList.remove("fa-moon");
     darkModeIcon.classList.add("fa-sun");
   } else {
-    localStorage.setItem("darkMode", "disabled");
+    localStorage.setItem("theme", "light");
     darkModeIcon.classList.remove("fa-sun");
     darkModeIcon.classList.add("fa-moon");
   }
 });
+
