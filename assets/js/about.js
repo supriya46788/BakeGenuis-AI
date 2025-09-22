@@ -137,6 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
       hamburger.classList.remove("active");
     }
   });
+  
    // ================= Dark Mode Toggle =================
   const darkModeBtn = document.getElementById("darkModeToggle");
   const darkModeIcon = darkModeBtn.querySelector("i");
@@ -188,10 +189,3 @@ document.addEventListener("DOMContentLoaded", function () {
         scrollBottomBtn.addEventListener('click', () => {
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         });
-
-
-
-
-
-
-
