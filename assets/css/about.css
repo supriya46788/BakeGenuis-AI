@@ -1799,7 +1799,7 @@ body.about-page.dark-mode .section-card .animated,
 body.about-page.dark-mode .about-section,
 body.about-page.dark-mode .about-wrapper,
 body.about-page.dark-mode .contributor-card {
-  background-color: #0d0d0d;
+  background-color: #0d0d0d !important;
   color: #e0e0e0 !important;
   background-image: none !important;
 }
