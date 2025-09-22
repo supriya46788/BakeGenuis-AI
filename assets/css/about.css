@@ -1816,7 +1816,7 @@ body.about-page.dark-mode li {
         }
         body.dark-mode .social-link{
           background-color: #e0e0e0;
-          color: #0d0d0d !important;
+          color: #0d0d0d;
         }
         body.dark-mode .social-link a:hover {
             filter: brightness(1.14);
