@@ -183,19 +183,19 @@ body.dark-mode .footer-section h3.footer-title::after {
 
 
 .social-link.linkedin {
-  background: #0a66c2;
+  background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 .social-link.github {
-  background: black
+  background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 .social-link.portfolio {
-  background: navy
+  background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 .social-link.email {
-  background: red;
+  background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 
