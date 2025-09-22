@@ -585,6 +585,78 @@
           width: 40px;
           height: 40px;
           font-size: 0.9rem;
+
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow:  0 4px 15px  #402a26;
+            border: 2px solid transparent;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px #624844;
+            background-color:linear-gradient(90deg, #543732, #3d2b28, #341d19);
+        }
+
+        body.dark-mode .login-btn {
+            background: #e0e0e0;
+            color: #0d0d0d;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 2px #e0e0e0;
+            border: 2px solid transparent;
+        }
+
+        body.dark-mode .login-btn:hover {
+            transform: translateY(-3px);
+            background: #e0e0e0;
+            box-shadow: 0 2px 2px #e0e0e0;
+        }
+
+        .signup-btn {
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px  #402a26;
+            border: 2px solid transparent;
+        }
+
+        .signup-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px #624844;
+            background:linear-gradient(90deg, #543732, #3d2b28, #341d19);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        body.dark-mode .signup-btn {
+            background:linear-gradient(90deg, #543732, #3d2b28, #341d19);
+            box-shadow: 0 4px 15px  #402a26;
+        }
+
+        body.dark-mode .signup-btn:hover {
+            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
+            box-shadow: 0 8px 25px #402a26;
         }
 
         /* Dark mode base */
@@ -608,7 +680,7 @@
 
         /* Dark mode for login button */
         body.dark-mode .login-btn {
-            background-color: #e0e0e0;
+            background: #e0e0e0;
             color: #0d0d0d;
             box-shadow: 0 2px 2px #e0e0e0;
         }
@@ -620,13 +692,13 @@
 
         /* Dark mode for signup button */
         body.dark-mode .signup-btn {
-            background: linear-gradient(45deg, #16a085, #1abc9c);
-            box-shadow: 0 4px 15px rgba(22, 160, 133, 0.3);
+            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
+            box-shadow: 0 4px 15px #402a26;
         }
 
         body.dark-mode .signup-btn:hover {
-            background: linear-gradient(45deg, #1abc9c, #16a085);
-            box-shadow: 0 8px 25px rgba(22, 160, 133, 0.4);
+            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
+            box-shadow: 0 8px 25px #402a26;
         }
 
 
@@ -1627,6 +1699,70 @@
         .modal-content {
           padding: 2rem 1.5rem;
           margin: 1rem;
+            background: white;
+            border-radius: 20px;
+            max-width: 550px;
+            width: 90%;
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 107, 107, 0.1);
+            color: var(--candy-red);
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            background: linear-gradient(90deg, #3e2723, #4d312b, #3e2723);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        body.dark-mode .form-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            background: #e0e0e0;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+
         }
 
         .form-container {
@@ -1635,6 +1771,57 @@
 
         .form-title {
           font-size: 1.7rem;
+        .form-input::placeholder {
+            color: #3f3f3f;
+            
+        }
+
+        .form-input:focus::placeholder {
+            opacity: 0.7;
+            transform: translateY(-2px);
+            transition: all 0.1s ease;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+            color: white;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            padding: 1rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
+            transition: left 0.5s;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px #402a26;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
         }
       }
 
@@ -1642,6 +1829,92 @@
       #loginModal {
         display: flex; /* Changed from none to flex for demo */
       }
+        .toggle-form {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .toggle-link {
+            color: #734e47;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .toggle-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #734e47;
+            transition: width 0.3s ease;
+        }
+
+        .toggle-link:hover {
+            color: #835951;
+        }
+
+.toggle-link:hover::after {
+    width: 100%;
+    background: #835951;
+}
+
+/* Show/Hide Password */
+.password-toggle {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 8px;
+    transition: color 0.3s ease;
+    z-index: 2;
+    position: relative;
+}
+
+.password-toggle:hover {
+    color: var(--sky-blue);
+}
+
+.signup-btn {
+    background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+    text-align: center !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-btn:hover {
+    background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+    box-shadow: 0 4px 15px #402a26;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+
+    .form-container {
+        padding: 1.5rem;
+    }
+
+    .form-title {
+        font-size: 1.7rem;
+    }
+}
+
+/* Hidden by default - remove this line to show the modal */
+#loginModal {
+    display: flex; /* Changed from none to flex for demo */
+}
+
     </style>
   </head>
 
