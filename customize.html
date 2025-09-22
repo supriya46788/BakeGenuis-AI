@@ -6,6 +6,7 @@
     
     <!-- Primary Meta Tags -->
     <title>Customize - BakeGenius.ai | Personalize Your Baking Experience</title>
+    <link rel="icon" href="Favicon.png" type="image/x-icon" />
     <meta name="title" content="Customize - BakeGenius.ai | Personalize Your Baking Experience" />
     <meta name="description" content="Customize your baking preferences with BakeGenius.ai. Set your preferred brands, ingredient specifications, and measurement units for consistent, personalized baking results." />
     <meta name="keywords" content="baking customization, recipe preferences, baking settings, ingredient brands, measurement units, personalized baking, baking tools" />
@@ -121,8 +122,9 @@
         }
 
         /* Navigation */
+        /* ===== STANDARDIZED NAVIGATION BAR ===== */
         .navbar {
-            background: radial-gradient(circle at center,#e5c5b3,#e9b4b6);
+            background: radial-gradient(circle at center, #e5c5b3, #e9b4b6);
             backdrop-filter: blur(15px);
             padding: 1rem 2rem;
             position: fixed;
@@ -135,8 +137,8 @@
         }
 
         body.dark-mode .navbar {
-            background: #1e1e1e;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: #1e1e1e !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
         }
 
         .nav-container {
@@ -145,6 +147,202 @@
             align-items: center;
             max-width: 1500px;
             margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #3e2723;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: "Comic Neue", cursive;
+            min-width: 150px;
+            padding-right: 50px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-text {
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            color: #3e2723;
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(10deg);
+        }
+
+        body.dark-mode .logo {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .logo:hover {
+            color: #e0e0e0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #3e2723;
+            font-weight: 600;
+            padding: 0.7rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+        }
+
+        body.dark-mode .nav-links a {
+            color: #e0e0e0 !important;
+            background: rgba(111, 100, 91, 0.133) !important;
+            border: 2px solid transparent !important;
+        }
+
+        .nav-links a:hover {
+            background-color: #f3e0d6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(228, 191, 180, 0.3);
+            color: #3e2723;
+        }
+
+        body.dark-mode .nav-links a:hover {
+            background-color: #0d0d0d !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: #1e1e1e !important;
+            color: #e0e0e0 !important;
+        }
+
+        /* Navigation Actions */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .dark-mode-btn {
+            background-color: #3e2723;
+            border: none;
+            color: white;
+            padding: 0.7rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark-mode-btn:hover {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .dark-mode-btn {
+            background-color: #e0e0e0;
+            color: #1e1e1e;
+        }
+
+        .login-btn {
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px #402a26;
+            border: 2px solid transparent;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px #624844;
+            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
+        }
+
+        body.dark-mode .login-btn {
+            background: #e0e0e0;
+            color: #0d0d0d;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 2px #e0e0e0;
+            border: 2px solid transparent;
+        }
+
+        body.dark-mode .login-btn:hover {
+            transform: translateY(-3px);
+            background: #e0e0e0;
+            box-shadow: 0 2px 2px #e0e0e0;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: linear-gradient(45deg, #a4766a, #5d4037);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        body.dark-mode .hamburger span {
+            background: #e0e0e0;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
         }
 
         .logo {
@@ -188,59 +386,6 @@
             color: #e0e0e0;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #3e2723;
-            font-weight: 600;
-            padding: 0.7rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid transparent;
-        }
-
-        .nav-links a.active {
-            background-color:#f3e0d6;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-color: rgba(228, 191, 180, 0.3);
-            color: #3e2723;
-        }
-
-        body.dark-mode .nav-links a {
-            color: #e0e0e0;
-            background: rgba(111, 100, 91, 0.133);
-            border: 2px solid transparent;
-        }
-
-        body.dark-mode .nav-links a.active {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            color: white;
-        }
-
-        .nav-links a:hover {
-            background-color:#f3e0d6;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-color: rgba(228, 191, 180, 0.3);
-            color: #3e2723;
-        }
-
-        body.dark-mode .nav-links a:hover {
-            background-color: #0d0d0d;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-color: #1e1e1e;
-            color: #e0e0e0;
-        }
 
         /* Navigation Actions */
         .nav-actions {
@@ -357,43 +502,66 @@
             transform: rotate(45deg) translate(-5px, -6px);
         }
 
-        /* Responsive Design */
+        /* ===== STANDARDIZED MOBILE NAVIGATION ===== */
         @media (max-width: 768px) {
             .navbar {
                 padding: 0.8rem 1rem;
             }
 
             .nav-links {
+                display: flex;
                 position: fixed;
-                top: 80px;
-                left: -100%;
+                top: 0;
+                left: 0;
                 width: 100%;
-                height: calc(100vh - 80px);
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(20px);
+                height: 100vh;
+                background: #1a1a1a;
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: center;
-                padding-top: 2rem;
-                transition: left 0.3s ease;
-                gap: 2.8rem;
+                padding-top: 6rem;
+                transition: transform 0.3s ease;
+                transform: translateX(-100%);
+                gap: 0;
                 z-index: 999;
             }
 
             body.dark-mode .nav-links {
-                background: rgba(26, 26, 26, 0.98);
+                background: #1a1a1a !important;
             }
 
             .nav-links.active {
-                left: 0;
+                transform: translateX(0);
+            }
+
+            .nav-links li {
+                width: 90%;
+                margin: 0;
+                padding: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            body.dark-mode .nav-links li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
 
             .nav-links a {
-                width: 80%;
-                text-align: center;
-                padding: 1rem;
-                font-size: 1.1rem;
-                margin: 0.5rem 0;
+                width: 100%;
+                padding: 1.5rem 2rem;
+                font-size: 1.2rem;
+                margin-bottom: 0;
+                background: #2a2a2a !important;
+                color: #e0e0e0 !important;
+                border-radius: 0;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                background: #3a3a3a !important;
+                color: #ffffff !important;
             }
 
             .nav-actions {
@@ -428,6 +596,7 @@
             }
         }
 
+        /* ===== STANDARDIZED SMALL MOBILE NAVIGATION ===== */
         @media (max-width: 480px) {
             .navbar {
                 padding: 0.5rem;
@@ -693,7 +862,7 @@
 
         /* Dark Mode Styles for Content */
         body.dark-mode .page-subtitle {
-            color: var(--dark-text);
+            color: #e0e0e0 !important;
         }
 
         body.dark-mode .ingredient-card {
@@ -783,7 +952,7 @@
         }
         
         body.dark-mode .page-title {
-            color: var(--dark-text);
+            color: #e0e0e0 !important;
             text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.1);
         }
 
@@ -1206,6 +1375,7 @@ body.dark-mode .scroll-btn:hover {
             opacity: 1;
             visibility: visible;
         }
+
     </style>
 </head>
 <body>
