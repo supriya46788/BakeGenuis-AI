@@ -16,12 +16,12 @@ body.dark-mode .footer {
         }
 
 .footer-content {
-  max-width: 1500px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
-  padding: 3rem 2rem 2rem;
+    max-width: 1500px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding: 3rem 2rem 2rem;
 }
 
 .footer-section h3.footer-title {
@@ -230,7 +230,7 @@ body.dark-mode .footer-section h3.footer-title::after {
 }
 
 .footer-bottom-content {
-  max-width: 1400px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
@@ -622,6 +622,9 @@ body.dark-mode {
         }
 
         .nav-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-decoration: none;
             color: #3e2723;
             font-weight: 600;
@@ -1796,7 +1799,7 @@ body.about-page.dark-mode .section-card .animated,
 body.about-page.dark-mode .about-section,
 body.about-page.dark-mode .about-wrapper,
 body.about-page.dark-mode .contributor-card {
-  background-color: #0d0d0d !important;
+  background-color: #0d0d0d;
   color: #e0e0e0 !important;
   background-image: none !important;
 }
@@ -1807,7 +1810,7 @@ body.about-page.dark-mode p,
 body.about-page.dark-mode a,
 body.about-page.dark-mode span,
 body.about-page.dark-mode li {
-  color: #e0e0e0 !important;
+  color: #e0e0e0;
 }
 
         body.dark-mode .navbar {
@@ -2367,20 +2370,19 @@ body.about-page.dark-mode li {
                 margin-top: 2rem;
             }
 
-            .footer-content {
+            /* .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
                 padding: 2rem 1rem 1rem;
                 text-align: center;
-            }
+            } */
 
             .footer-section h3.footer-title::after {
-                left: 50%;
+                left: 6%;
                 transform: translateX(-50%);
             }
 
             .footer-bottom-content {
-                flex-direction: column;
                 text-align: center;
                 gap: 1rem;
             }
@@ -2392,7 +2394,7 @@ body.about-page.dark-mode li {
             .social-links {
                 justify-content: center;
             }
-        }
+        
 
         @media (max-width: 1024px) {
             .footer-content {
