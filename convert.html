@@ -1143,29 +1143,44 @@
         }
 
         /* Dual Scroll Buttons */
-        .scroll-btn {
-            position: fixed;
-            right: 2.5rem;
-            z-index: 2000;
-            background: linear-gradient(45deg, #a4766a, #5d4037);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 56px;
-            height: 56px;
-            font-size: 2rem;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-            cursor: pointer;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s, transform 0.2s;
-        }
+.scroll-btn {
+    position: fixed;
+    right: 2.5rem;
+    z-index: 2000;
+    background: linear-gradient(45deg,#a4766a,#5d4037);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 2rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s, transform 0.2s;
+}
 
-        .scroll-btn.show {
-            opacity: 1;
-            pointer-events: auto;
-            transform: scale(1.08);
-        }
+body.dark-mode .scroll-btn {
+    background: #e0e0e0;
+    color: #0d0d0d;
+}
+
+.scroll-btn.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1.08);
+}
+
+.scroll-btn:hover {
+    transform: scale(1.15);
+    background: linear-gradient(45deg,#5d4037,#a4766a);
+}
+
+body.dark-mode .scroll-btn:hover {
+    background: #e0e0e0;
+    color: #0d0d0d;
+}
 
         #backToTop:hover {
             background: linear-gradient(45deg, #a4766a, #5d4037);
@@ -1174,14 +1189,8 @@
         }
 
         /* Positioning individually */
-        #scrollTopBtn {
-            bottom: 6.5rem;
-        }
-
-        /* Above bottom button */
-        #scrollBottomBtn {
-            bottom: 2.5rem;
-        }
+#scrollTopBtn { bottom: 6.5rem; }  /* Above bottom button */
+#scrollBottomBtn { bottom: 2.5rem; }
 
 
         @keyframes spin {
@@ -1529,8 +1538,9 @@
         <p id="warningMessage"></p>
         <button onclick="closeWarning()">Got it!</button>
     </div>
-    <!-- Back to Top Button -->
-    <button id="backToTop" title="Back to Top">⬆</button>
+    <!-- Dual Scroll Buttons -->
+<button id="scrollTopBtn" class="scroll-btn" title="Back to Top">⬆</button>
+<button id="scrollBottomBtn" class="scroll-btn" title="Scroll to Bottom">⬇</button>
     <!-- footer startes here -->
 
     <footer class="footer">
@@ -1910,13 +1920,13 @@ ${recipeText}`
         const scrollBottomBtn = document.getElementById('scrollBottomBtn');
 
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
+            if (window.scrollY > 50) {
                 scrollTopBtn.classList.add('show');
             } else {
                 scrollTopBtn.classList.remove('show');
             }
 
-            if (window.innerHeight + window.scrollY < document.body.offsetHeight - 300) {
+            if (window.innerHeight + window.scrollY < document.body.offsetHeight - 50) {
                 scrollBottomBtn.classList.add('show');
             } else {
                 scrollBottomBtn.classList.remove('show');
@@ -1930,6 +1940,7 @@ ${recipeText}`
         scrollBottomBtn.addEventListener('click', () => {
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         });
+
 
 
         // Function to update login state
