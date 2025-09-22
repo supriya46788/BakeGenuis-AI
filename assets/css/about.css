@@ -104,7 +104,7 @@ body.dark-mode .footer-section h3.footer-title::after {
 }
 .login-btn {
             
-            background-color: #5C4033;
+            background-color: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: white;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
@@ -114,7 +114,7 @@ body.dark-mode .footer-section h3.footer-title::after {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            box-shadow:  0 4px 15px  #402a26;
             border: 2px solid transparent;
             
     height: 43.599999999999994px;
@@ -123,8 +123,8 @@ body.dark-mode .footer-section h3.footer-title::after {
 
 .login-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px #cf622f;
-            background-color:#5C4033;
+            box-shadow: 0 4px 15px #402a26;
+            background-color:linear-gradient(90deg, #543732, #3d2b28, #341d19);
             
         }
 
@@ -183,19 +183,19 @@ body.dark-mode .footer-section h3.footer-title::after {
 
 
 .social-link.linkedin {
-  background: #0a66c2;
+  background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 .social-link.github {
-  background: black
+  background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 .social-link.portfolio {
-  background: navy
+  background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 .social-link.email {
-  background: red;
+  background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 
@@ -1740,7 +1740,7 @@ body.about-page.dark-mode li {
 
         .login-btn {
 
-            background-color:#5C4033;
+            background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: white;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
@@ -1750,18 +1750,18 @@ body.about-page.dark-mode li {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 4px 15px  #402a26;
             border: 2px solid transparent;
         }
 
         .login-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px #cf622f;
-            background-color:#5C4033;
+            box-shadow: 0 8px 25px #624844;
+            background-color: linear-gradient(90deg, #543732, #3d2b28, #341d19);
         }
 
         body.dark-mode .login-btn {
-            background-color: #e0e0e0;
+            background: #e0e0e0;
             color: #0d0d0d !important;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
@@ -1782,7 +1782,7 @@ body.about-page.dark-mode li {
         }
 
         .signup-btn {
-            background: linear-gradient(45deg, var(--sky-blue), var(--mint-green));
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: white;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
@@ -1792,25 +1792,25 @@ body.about-page.dark-mode li {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+            box-shadow: 0 4px 15px  #402a26;
             border: 2px solid transparent;
         }
 
         .signup-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
-            background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
+            box-shadow: 0 8px 25px #624844;
+            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
             border-color: rgba(255, 255, 255, 0.3);
         }
 
         body.dark-mode .signup-btn {
-            background: linear-gradient(45deg, #16a085, #1abc9c);
-            box-shadow: 0 4px 15px rgba(22, 160, 133, 0.3);
+            background: #e0e0e0; 
+            box-shadow: 0 2px 2px #e0e0e0;
         }
 
         body.dark-mode .signup-btn:hover {
-            background: linear-gradient(45deg, #1abc9c, #16a085);
-            box-shadow: 0 8px 25px rgba(22, 160, 133, 0.4);
+            background:  #e0e0e0;
+            box-shadow: 0 2px 2px #e0e0e0;
         }
 
         .hamburger {
@@ -2415,7 +2415,7 @@ body.about-page.dark-mode li {
             max-width: 550px;
             width: 90%;
             padding: 2.5rem 2rem;
-            box-shadow: var(--shadow-medium);
+            box-shadow: 0 4px 15px #402a26;
             position: relative;
             overflow: hidden;
         }
@@ -2427,7 +2427,7 @@ body.about-page.dark-mode li {
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--sky-blue), var(--candy-red), var(--sunny-yellow), var(--mint-green));
+            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
         }
 
         .close-btn {
@@ -2458,7 +2458,18 @@ body.about-page.dark-mode li {
             font-size: 2rem;
             font-weight: 600;
             color: var(--text-dark);
-            background: linear-gradient(135deg, var(--candy-red), var(--sky-blue));
+            background: linear-gradient(90deg, #3e2723, #4d312b, #3e2723);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        body.dark-mode .form-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            background: #e0e0e0;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -2550,7 +2561,7 @@ body.about-page.dark-mode li {
 
         .submit-btn {
             width: 100%;
-            background: linear-gradient(45deg, var(--candy-red), var(--sunny-yellow));
+            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
             color: white;
             font-weight: 600;
             border: none;
@@ -2572,14 +2583,14 @@ body.about-page.dark-mode li {
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
             transition: left 0.5s;
         }
 
         .submit-btn:hover {
-            background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
+            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 8px 25px #402a26;
         }
 
         .submit-btn:hover::before {
@@ -2597,7 +2608,7 @@ body.about-page.dark-mode li {
         }
 
         .toggle-link {
-            color: var(--candy-red);
+            color: #734e47;
             font-weight: 600;
             cursor: pointer;
             text-decoration: none;
@@ -2612,17 +2623,17 @@ body.about-page.dark-mode li {
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--candy-red);
+            background: #734e47;
             transition: width 0.3s ease;
         }
 
         .toggle-link:hover {
-            color: var(--sunny-yellow);
+            color: #835951;
         }
 
 .toggle-link:hover::after {
     width: 100%;
-    background: var(--sunny-yellow);
+    background: #835951;
 }
 
 /* Show/Hide Password */
@@ -2643,7 +2654,7 @@ body.about-page.dark-mode li {
 }
 
 .signup-btn {
-    background: linear-gradient(45deg, var(--sky-blue), var(--sunny-yellow));
+    background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
     text-align: center !important;
     display: flex;
     justify-content: center;
@@ -2651,7 +2662,7 @@ body.about-page.dark-mode li {
 }
 
 .signup-btn:hover {
-    background: linear-gradient(45deg, var(--sunny-yellow), var(--sky-blue));
+    background:linear-gradient(90deg, #543732, #3d2b28, #341d19);
     box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
 }
 
