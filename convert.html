@@ -4,7 +4,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convert Recipe - BakeGenius.ai</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Convert Recipe - BakeGenius.ai | AI-Powered Recipe Conversion Tool</title>
+    <link rel="icon" href="Favicon.png" type="image/x-icon" />
+    <meta name="title" content="Convert Recipe - BakeGenius.ai | AI-Powered Recipe Conversion Tool" />
+    <meta name="description" content="Convert your baking recipes with AI precision. Transform cups to grams, scale recipes, and get exact measurements for perfect baking results. Free recipe conversion tool." />
+    <meta name="keywords" content="recipe converter, baking conversion, cups to grams, recipe scaling, AI recipe tool, baking calculator, convert measurements, precise baking" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="author" content="Supriya Pandey" />
+    <meta name="theme-color" content="#3e2723" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bakegenius-ai.vercel.app/convert.html" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bakegenius-ai.vercel.app/convert.html" />
+    <meta property="og:title" content="Convert Recipe - BakeGenius.ai | AI-Powered Recipe Conversion Tool" />
+    <meta property="og:description" content="Convert your baking recipes with AI precision. Transform cups to grams, scale recipes, and get exact measurements for perfect baking results." />
+    <meta property="og:image" content="https://bakegenius-ai.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="BakeGenius.ai" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://bakegenius-ai.vercel.app/convert.html" />
+    <meta property="twitter:title" content="Convert Recipe - BakeGenius.ai | AI-Powered Recipe Conversion Tool" />
+    <meta property="twitter:description" content="Convert your baking recipes with AI precision. Transform cups to grams, scale recipes, and get exact measurements for perfect baking results." />
+    <meta property="twitter:image" content="https://bakegenius-ai.vercel.app/og-image.png" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="application-name" content="BakeGenius.ai" />
+    <meta name="apple-mobile-web-app-title" content="BakeGenius.ai" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="msapplication-TileColor" content="#3e2723" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "BakeGenius.ai Recipe Converter",
+        "description": "AI-powered recipe conversion tool for precise baking measurements",
+        "url": "https://bakegenius-ai.vercel.app/convert.html",
+        "applicationCategory": "FoodApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Recipe conversion",
+            "Cups to grams conversion",
+            "Recipe scaling",
+            "AI-powered precision",
+            "Custom measurements"
+        ]
+    }
+    </script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -141,7 +208,7 @@
             justify-content: center;
             width: 45px;
             height: 45px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: white;
             text-decoration: none;
             border-radius: 50%;
@@ -155,21 +222,7 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
-        .social-link.linkedin {
-            background: #0a66c2;
-        }
 
-        .social-link.github {
-            background: black;
-        }
-
-        .social-link.portfolio {
-            background: navy;
-        }
-
-        .social-link.email {
-            background: red;
-        }
 
         .footer-bottom {
             background: rgba(0, 0, 0, 0.05);
@@ -299,6 +352,7 @@
         }
 
         /* Navigation */
+        /* ===== STANDARDIZED NAVIGATION BAR ===== */
         .navbar {
             background: radial-gradient(circle at center, #e5c5b3, #e9b4b6);
             backdrop-filter: blur(15px);
@@ -313,8 +367,8 @@
         }
 
         body.dark-mode .navbar {
-            background: #1e1e1e;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: #1e1e1e !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
         }
 
         .nav-container {
@@ -377,6 +431,7 @@
             text-decoration: none;
             color: #3e2723;
             font-weight: 600;
+            font-size: 1.1rem;
             padding: 0.7rem 1rem;
             border-radius: 25px;
             transition: all 0.3s ease;
@@ -385,15 +440,10 @@
             border: 2px solid transparent;
         }
 
-        .nav-links a:active {
-            background: #f3e0d6;
-            color: #3e2723;
-        }
-
         body.dark-mode .nav-links a {
-            color: #e0e0e0;
-            background: rgba(111, 100, 91, 0.133);
-            border: 2px solid transparent;
+            color: #e0e0e0 !important;
+            background: rgba(111, 100, 91, 0.133) !important;
+            border: 2px solid transparent !important;
         }
 
         .nav-links a:hover {
@@ -405,16 +455,11 @@
         }
 
         body.dark-mode .nav-links a:hover {
-            background-color: #0d0d0d;
+            background-color: #0d0d0d !important;
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-color: #1e1e1e;
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .nav-links a:active {
-            background: #0d0d0d;
-            color: #e0e0e0;
+            border-color: #1e1e1e !important;
+            color: #e0e0e0 !important;
         }
 
         /* Navigation Actions */
@@ -422,6 +467,278 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+        }
+
+        .dark-mode-btn {
+            background-color: #3e2723;
+            border: none;
+            color: white;
+            padding: 0.7rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark-mode-btn:hover {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .dark-mode-btn {
+            background-color: #e0e0e0;
+            color: #1e1e1e;
+        }
+
+        .login-btn {
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px #402a26;
+            border: 2px solid transparent;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px #624844;
+            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
+        }
+
+        body.dark-mode .login-btn {
+            background: #e0e0e0;
+            color: #0d0d0d;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 2px #e0e0e0;
+            border: 2px solid transparent;
+        }
+
+        body.dark-mode .login-btn:hover {
+            transform: translateY(-3px);
+            background: #e0e0e0;
+            box-shadow: 0 2px 2px #e0e0e0;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: linear-gradient(45deg, #a4766a, #5d4037);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        body.dark-mode .hamburger span {
+            background: #e0e0e0;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* ===== STANDARDIZED MOBILE NAVIGATION ===== */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.8rem 1rem;
+            }
+
+            .nav-links {
+                display: flex;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: #1a1a1a;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 6rem;
+                transition: transform 0.3s ease;
+                transform: translateX(-100%);
+                gap: 0;
+                z-index: 999;
+            }
+
+            body.dark-mode .nav-links {
+                background: #1a1a1a !important;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links li {
+                width: 90%;
+                margin: 0;
+                padding: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            body.dark-mode .nav-links li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-links a {
+                width: 100%;
+                padding: 1.5rem 2rem;
+                font-size: 1.2rem;
+                margin-bottom: 0;
+                background: #2a2a2a !important;
+                color: #e0e0e0 !important;
+                border-radius: 0;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                background: #3a3a3a !important;
+                color: #ffffff !important;
+            }
+
+            .nav-actions {
+                gap: 0.5rem;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .login-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .dark-mode-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+
+            .hamburger {
+                display: flex;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo-icon {
+                font-size: 1.7rem;
+            }
+        }
+
+        /* ===== STANDARDIZED SMALL MOBILE NAVIGATION ===== */
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 0.5rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .logo-icon {
+                font-size: 1.5rem;
+            }
+
+            .nav-actions {
+                gap: 0.3rem;
+            }
+
+            .login-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .dark-mode-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 0.8rem;
+            }
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #3e2723;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: "Comic Neue", cursive;
+            min-width: 150px;
+            padding-right: 50px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-text {
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            color: #3e2723;
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(10deg);
+        }
+
+        body.dark-mode .logo {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .logo:hover {
+            color: #e0e0e0;
         }
 
         .dark-mode-btn {
@@ -496,32 +813,6 @@
         }
 
 
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
-            margin: 3px 0;
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-
-        body.dark-mode .hamburger span {
-            background: linear-gradient(45deg, #3498db, #9b59b6);
-        }
-
         /* Dark Mode Styles for Content */
         body.dark-mode .input-label {
             color: #e0e0e0;
@@ -537,18 +828,6 @@
 
         body.dark-mode .unit-toggle {
             background: rgba(255, 255, 255, 0.1);
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
         }
 
         /*dark mode*/
@@ -591,78 +870,7 @@
             color: #ef6154;
         }
 
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 0.8rem 1rem;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding-top: 2rem;
-                transition: left 0.3s ease;
-                gap: 1rem;
-                z-index: 999;
-            }
-
-            body.dark-mode .nav-links {
-                background: rgba(26, 26, 26, 0.98);
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .nav-links a {
-                width: 80%;
-                text-align: center;
-                padding: 1rem;
-                font-size: 1.1rem;
-                margin: 0.5rem 0;
-            }
-
-            .nav-actions {
-                gap: 0.5rem;
-                position: relative;
-                z-index: 1001;
-            }
-
-            .login-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-
-            .dark-mode-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 0.9rem;
-            }
-
-            .hamburger {
-                display: flex;
-                position: relative;
-                z-index: 1001;
-            }
-
-            .logo {
-                font-size: 1.5rem;
-            }
-
-            .logo-icon {
-                font-size: 1.7rem;
-            }
-        }
-
+        /* ===== STANDARDIZED SMALL MOBILE NAVIGATION ===== */
         @media (max-width: 480px) {
             .navbar {
                 padding: 0.5rem;
@@ -713,7 +921,7 @@
         }
 
         body.dark-mode .page-title {
-            color: #e0e0e0;
+            color: #e0e0e0 !important;
         }
 
         .page-subtitle {
@@ -724,7 +932,7 @@
         }
 
         body.dark-mode .page-subtitle {
-            color: #e0e0e0c4;
+            color: #e0e0e0 !important;
         }
 
         @keyframes bounce {
@@ -934,13 +1142,12 @@
             margin-right: 10px;
         }
 
-    /* Back to Top Button Styles */
-        #backToTop {
+        /* Dual Scroll Buttons */
+        .scroll-btn {
             position: fixed;
-            bottom: 2.5rem;
             right: 2.5rem;
             z-index: 2000;
-            background: linear-gradient(45deg,#a4766a,#5d4037);
+            background: linear-gradient(45deg, #a4766a, #5d4037);
             color: #fff;
             border: none;
             border-radius: 50%;
@@ -954,45 +1161,27 @@
             transition: opacity 0.4s, transform 0.2s;
         }
 
-        #backToTop.show {
+        .scroll-btn.show {
             opacity: 1;
             pointer-events: auto;
-            transform:scale(1.08);
+            transform: scale(1.08);
         }
 
         #backToTop:hover {
-            background: linear-gradient(45deg,#a4766a,#5d4037);
+            background: linear-gradient(45deg, #a4766a, #5d4037);
             transform: scale(1.15);
+            background: linear-gradient(45deg, #5d4037, #a4766a);
         }
-        
-/* Dual Scroll Buttons */
-.scroll-btn {
-    position: fixed;
-    right: 2.5rem;
-    z-index: 2000;
-    background:  linear-gradient(45deg,#a4766a,#5d4037);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
-    font-size: 2rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s, transform 0.2s;
-}
-.scroll-btn.show {
-    opacity: 1;
-    pointer-events: auto;
-    transform: scale(1.08);
-}
 
+        /* Positioning individually */
+        #scrollTopBtn {
+            bottom: 6.5rem;
+        }
 
-/* Positioning individually */
-/* #scrollTopBtn { bottom: 6.5rem; } 
-#scrollBottomBtn { bottom: 2.5rem; } */
+        /* Above bottom button */
+        #scrollBottomBtn {
+            bottom: 2.5rem;
+        }
 
 
         @keyframes spin {
@@ -1160,26 +1349,6 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(0, 0, 0, 0.9);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 2.8rem;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
             main {
                 padding: 5rem 1rem 2rem;
             }
@@ -1216,6 +1385,7 @@
                 max-width: calc(100% - 2rem);
             }
         }
+
     </style>
 </head>
 
@@ -1736,44 +1906,30 @@ ${recipeText}`
         }
 
         // Dual Scroll Buttons
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        const scrollBottomBtn = document.getElementById('scrollBottomBtn');
 
-    // Back to Top Button Logic
-        const backToTopBtn = document.getElementById("backToTop");
-        window.addEventListener("scroll", () => {
+        window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
-                backToTopBtn.classList.add("show");
+                scrollTopBtn.classList.add('show');
             } else {
-                backToTopBtn.classList.remove("show");
+                scrollTopBtn.classList.remove('show');
+            }
+
+            if (window.innerHeight + window.scrollY < document.body.offsetHeight - 300) {
+                scrollBottomBtn.classList.add('show');
+            } else {
+                scrollBottomBtn.classList.remove('show');
             }
         });
-        backToTopBtn.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-// const scrollTopBtn = document.getElementById('scrollTopBtn');
-// const scrollBottomBtn = document.getElementById('scrollBottomBtn');
-
-// window.addEventListener('scroll', () => {
-//     if (window.scrollY > 300) {
-//         scrollTopBtn.classList.add('show');
-//     } else {
-//         scrollTopBtn.classList.remove('show');
-//     }
-
-//     if (window.innerHeight + window.scrollY < document.body.offsetHeight - 300) {
-//         scrollBottomBtn.classList.add('show');
-//     } else {
-//         scrollBottomBtn.classList.remove('show');
-//     }
-// });
-
-// scrollTopBtn.addEventListener('click', () => {
-//     window.scrollTo({ top: 0, behavior: 'smooth' });
-// });
-
-// scrollBottomBtn.addEventListener('click', () => {
-//     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-// });
+        scrollBottomBtn.addEventListener('click', () => {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        });
 
 
         // Function to update login state

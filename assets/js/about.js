@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Sparkle generator for background accent
+  // ================= Sparkle generator =================
   function createSparkles() {
     const sparklesContainer = document.getElementById("sparkles");
-    sparklesContainer.innerHTML = '';
+    sparklesContainer.innerHTML = "";
     const sparkleCount = 20;
     for (let i = 0; i < sparkleCount; i++) {
       const sparkle = document.createElement("div");
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Animate sections on scroll
+  // ================= Scroll animations =================
   function initScrollAnimations() {
     const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
     const observer = new IntersectionObserver((entries) => {
@@ -23,23 +23,25 @@ document.addEventListener("DOMContentLoaded", function () {
         if (entry.isIntersecting) entry.target.classList.add("animated");
       });
     }, observerOptions);
+
     document.querySelectorAll(".animate-on-scroll").forEach((el) => {
       observer.observe(el);
     });
   }
 
-  // Contributor logic
+  // ================= Contributors logic =================
   const owner = "supriya46788";
   const repo = "BakeGenuis-AI";
   const founderLogin = "supriya46788";
   const contributorsContainer = document.getElementById("contributors-container");
   let contributorsData = [];
+
   fetch("https://api.github.com/users/supriya46788")
-  .then(response => response.json())
-  .then(data => {
-    const imgUrl = data.avatar_url; // this is the personal photo if set
-    document.querySelector(".leader-img").src = imgUrl;
-  });
+    .then((response) => response.json())
+    .then((data) => {
+      const imgUrl = data.avatar_url;
+      document.querySelector(".leader-img").src = imgUrl;
+    });
 
   async function loadContributors() {
     contributorsContainer.innerHTML = "Loading contributors...";
@@ -49,10 +51,13 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       const contributors = await res.json();
       if (!Array.isArray(contributors)) {
-        contributorsContainer.innerHTML = "<p>⚠ Unable to load contributors.</p>";
+        contributorsContainer.innerHTML =
+          "<p>⚠ Unable to load contributors.</p>";
         return;
       }
-      contributorsData = contributors.filter(contri => contri.login.toLowerCase() !== founderLogin.toLowerCase());
+      contributorsData = contributors.filter(
+        (contri) => contri.login.toLowerCase() !== founderLogin.toLowerCase()
+      );
       renderContributors(contributorsData);
     } catch (error) {
       contributorsContainer.innerHTML =
@@ -60,7 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Render contributor cards as per screenshot style
   function renderContributors(contributors) {
     contributorsContainer.innerHTML = "";
     if (contributors.length === 0) {
@@ -86,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Search bar logic
+  // ================= Contributor search =================
   document
     .getElementById("searchContributer")
     .addEventListener("keyup", function () {
@@ -97,36 +101,71 @@ document.addEventListener("DOMContentLoaded", function () {
       renderContributors(filtered);
     });
 
-  // Visual features
+  // ================= Visual features =================
   createSparkles();
-  setInterval(createSparkles, 10000); // Renew sparkles occasionally
+  setInterval(createSparkles, 10000);
   initScrollAnimations();
   loadContributors();
 
-  // UNCHANGED: Other animation/scroll logic for the page
-  // ...Leave other imported/scroll/hero logic unchanged
-});
-// ===== Dark Mode Toggle Logic =====
-const darkModeBtn = document.getElementById("darkModeToggle");
-const darkModeIcon = darkModeBtn.querySelector("i");
+  // ================= Navbar Hamburger Menu =================
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
 
-// Apply saved preference on page load
-if (localStorage.getItem("darkMode") === "enabled") {
-  document.body.classList.add("dark-mode");
-  darkModeIcon.classList.remove("fa-moon");
-  darkModeIcon.classList.add("fa-sun");
-}
+  hamburger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    navLinks.classList.toggle("active");
+    hamburger.classList.toggle("active");
+  });
 
-darkModeBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
+  // Close mobile menu when clicking on a link
+  const navItems = document.querySelectorAll(".nav-links a");
+  navItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      hamburger.classList.remove("active");
+    });
+  });
 
-  if (document.body.classList.contains("dark-mode")) {
-    localStorage.setItem("darkMode", "enabled");
+  // Close mobile menu when clicking outside (only if menu is open)
+  document.addEventListener("click", (e) => {
+    if (
+      navLinks.classList.contains("active") &&
+      !hamburger.contains(e.target) &&
+      !navLinks.contains(e.target)
+    ) {
+      navLinks.classList.remove("active");
+      hamburger.classList.remove("active");
+    }
+  });
+   // ================= Dark Mode Toggle =================
+  const darkModeBtn = document.getElementById("darkModeToggle");
+  const darkModeIcon = darkModeBtn.querySelector("i");
+
+  // Apply saved preference on page load
+  if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
     darkModeIcon.classList.remove("fa-moon");
     darkModeIcon.classList.add("fa-sun");
-  } else {
-    localStorage.setItem("darkMode", "disabled");
-    darkModeIcon.classList.remove("fa-sun");
-    darkModeIcon.classList.add("fa-moon");
   }
+
+  darkModeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+      localStorage.setItem("darkMode", "enabled");
+      darkModeIcon.classList.remove("fa-moon");
+      darkModeIcon.classList.add("fa-sun");
+    } else {
+      localStorage.setItem("darkMode", "disabled");
+      darkModeIcon.classList.remove("fa-sun");
+      darkModeIcon.classList.add("fa-moon");
+    }
+  });
 });
+
+
+
+
+
+
+
