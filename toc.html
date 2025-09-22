@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service - BakeGenuis.ai</title>
+    <link rel="icon" href="Favicon.png" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --candy-red: #ff6b6b;
+            --sky-blue: #4ecdc4;
+            --sunny-yellow: #ffd93d;
+            --soft-pink: #ffb6c1;
+            --mint-green: #98fb98;
+            --lavender: #e6e6fa;
+            --dark-bg: #1a1a1a;
+            --dark-card: #2d2d2d;
+            --dark-text: #ffffff;
+            --dark-border: #404040;
+        }
+
+        body {
+            font-family: "Comic Neue", cursive;
+            overflow-x: hidden;
+            background-color: #f5f3f1;
+            min-height: 100vh;
+            position: relative;
+            transition: all 0.3s ease;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        body.dark-mode {
+             background-color: #0d0d0d;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: radial-gradient(circle at center, #e5c5b3, #e9b4b6);
+            backdrop-filter: blur(15px);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .navbar {
+            background: #1e1e1e;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #3e2723;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: "Comic Neue", cursive;
+            min-width: 150px;
+            padding-right: 50px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-text {
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            color: #3e2723;
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(10deg);
+        }
+
+        body.dark-mode .logo {
+           color: #e0e0e0;
+        }
+
+        body.dark-mode .logo:hover {
+            color: #e0e0e0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #3e2723;
+            font-weight: 600;
+            padding: 0.7rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+        }
+
+        body.dark-mode .nav-links a {
+            color: #e0e0e0;
+            background: rgba(111, 100, 91, 0.133);
+            border: 2px solid transparent;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #f3e0d6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(228, 191, 180, 0.3);
+            color: #3e2723;
+        }
+
+        body.dark-mode .nav-links a:hover,
+        body.dark-mode .nav-links a.active {
+            background-color: #0d0d0d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .dark-mode-btn {
+            background-color: #3e2723;
+            border: none;
+            color: white;
+            padding: 0.7rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark-mode-btn:hover {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .dark-mode-btn {
+            background-color: #e0e0e0;
+            color: #1e1e1e;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        body.dark-mode .hamburger span {
+            background: #e0e0e0;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 100px;
+            padding: 2rem;
+            min-height: calc(100vh - 200px);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tos-container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .tos-container {
+            background: #1e1e1e;
+            box-shadow: 0 2px 2px #1e1e1e;
+        }
+
+        .tos-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        body.dark-mode .tos-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: #e0e0e0;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        body.dark-mode .last-updated {
+            color: #a0a0a0;
+        }
+
+        .tos-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .tos-section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #3e2723;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #d18a68;
+            padding-bottom: 0.5rem;
+        }
+
+        body.dark-mode .tos-section h2 {
+            color: #e0e0e0;
+            border-bottom-color: #e0e0e0;
+        }
+
+        .tos-section h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #5d4037;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+
+        body.dark-mode .tos-section h3 {
+            color: #d3d3d3;
+        }
+
+        .tos-section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            font-size: 1.05rem;
+        }
+
+        body.dark-mode .tos-section p{
+            color:#a0a0a0;
+        }
+
+        .tos-section ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .tos-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        body.dark-mode .tos-section li{
+            color:#a0a0a0;
+        }
+        body.dark-mode .tos-section a{
+            color:#d3d3d3;
+        }
+
+        .contact-info {
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 5px solid #d18a68;
+            margin: 1.5rem 0;
+        }
+
+        body.dark-mode .contact-info {
+            background: #ffffff1a;
+            border-left-color: #a0a0a0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            box-shadow: 0 4px 15px rgba(62, 39, 35, 0.3);
+        }
+
+        .back-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(62, 39, 35, 0.4);
+        }
+
+        body.dark-mode .back-link {
+            background: rgba(220, 121, 63, 0.893);
+            color: #e0e0e0;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        body.dark-mode .back-link:hover {
+            background: rgba(220, 121, 63, 0.893);
+            color: #e0e0e0;
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: radial-gradient(circle at center, #e9b4b6, #e5c5b3);
+            backdrop-filter: blur(15px);
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 4rem;
+        }
+
+        body.dark-mode .footer {
+            background: #1e1e1e;
+        }
+
+        .footer-content {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-section h3.footer-title {
+            color: #3e2723;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        body.dark-mode .footer-section h3.footer-title {
+            color: #e0e0e0;
+        }
+
+        .footer-section h3.footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: #3e2723;
+            border-radius: 2px;
+        }
+
+        body.dark-mode .footer-section h3.footer-title::after {
+            background: #e0e0e0;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #3e2723;
+        }
+
+        body.dark-mode .footer-logo {
+            color: #e0e0e0;
+        }
+
+        .footer-logo-icon {
+            font-size: 2rem;
+        }
+
+        .footer-description {
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        body.dark-mode .footer-description {
+            color: #a0a0a0;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.3rem 0;
+            border-radius: 5px;
+        }
+
+        body.dark-mode .footer-links a {
+            color: #e0e0e0;
+        }
+
+        .footer-links a:hover {
+            color: black;
+            transform: translateX(4px);
+            background: rgba(255, 107, 107, 0.1);
+            padding-left: 0.8rem;
+        }
+
+        body.dark-mode .footer-links a:hover {
+            color: #a0a0a0;
+            background: rgba(255, 138, 128, 0.1);
+        }
+
+        .footer-links a.active {
+            color: #d18a68;
+            font-weight: 700;
+        }
+
+        .footer-links i {
+            font-size: 0.9rem;
+            width: 16px;
+            opacity: 0.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+        }
+
+        body.dark-mode .footer-bottom {
+            background: #1e1e1e;
+        }
+
+        .footer-bottom-content {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .copyright {
+            color: #333;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        body.dark-mode .copyright {
+            color: #a0a0a0;
+        }
+
+        .copyright .name {
+            color: #3e2723;
+            font-weight: 600;
+        }
+
+        body.dark-mode .copyright .name {
+            color: #ef6154;
+        }
+
+        .footer-badges {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+        }
+
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        body.dark-mode .badge-blue {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        body.dark-mode .badge-green {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        body.dark-mode .badge-purple {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.8rem 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(40px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: transform 0.3s ease;
+                transform: translateX(-100%);
+                gap: 1rem;
+                z-index: 999;
+            }
+
+            body.dark-mode .nav-links {
+                background: #1a1a1a;
+            }
+
+            .nav-links.active {
+                display: flex;
+                transform: translateX(0);
+            }
+
+            .nav-links li {
+                padding: 2rem;
+                border-bottom: solid 1px black;
+                border-radius: 8px;
+            }
+
+            body.dark-mode .nav-links li {
+                border-bottom: solid 1px white;
+            }
+
+            .nav-links a {
+                width: 80%;
+                padding: 1rem;
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+                background-color: transparent !important;
+            }
+
+            .nav-actions {
+                gap: 0.5rem;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .dark-mode-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+
+            .hamburger {
+                display: flex;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+                padding-right: 0;
+            }
+
+            .logo-icon {
+                font-size: 1.7rem;
+            }
+
+            .tos-title {
+                font-size: 2.5rem;
+            }
+
+            .tos-container {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 1rem 1rem;
+                text-align: center;
+            }
+
+            .footer-section h3.footer-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .footer-badges {
+                justify-content: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tos-title {
+                font-size: 2rem;
+            }
+
+            .tos-container {
+                padding: 1.5rem;
+            }
+
+            .tos-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🍰</span>
+                <span class="logo-text">BakeGenuis.ai</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-home" style="margin-right:8px;"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="convert.html">
+                        <i class="fas fa-exchange-alt" style="margin-right:8px;"></i>
+                        Convert Recipe
+                    </a>
+                </li>
+                <li>
+                    <a href="customize.html">
+                        <i class="fas fa-cog" style="margin-right:8px;"></i>
+                        Customize
+                    </a>
+                </li>
+                <li>
+                    <a href="scale.html">
+                        <i class="fas fa-balance-scale" style="margin-right:8px;"></i>
+                        Scale Recipes
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <i class="fas fa-info-circle" style="margin-right:8px;"></i>
+                        About
+                    </a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="tos-container">
+            <h1 class="tos-title">Terms of Service</h1>
+            <p class="last-updated">Last updated: January 2025</p>
+
+            <div class="tos-section">
+                <h2>1. Acceptance of Terms</h2>
+                <p>
+                    By accessing and using BakeGenuis.ai ("the Service"), you accept and agree to be bound by the terms and provision of this agreement. These Terms of Service ("Terms") apply to all users of the service.
+                </p>
+                <p>
+                    BakeGenuis.ai is an AI-powered platform designed to help bakers convert recipe measurements with precision and scale recipes intelligently. Our service is provided to assist with baking calculations and should be used as a guide alongside your baking expertise.
+                </p>
+            </div>
+
+            <div class="tos-section">
+                <h2>2. Use License</h2>
+                <p>
+                    Permission is granted to temporarily use BakeGenuis.ai for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+                </p>
+                <ul>
+                    <li>Modify or copy the materials</li>
+                    <li>Use the materials for any commercial purpose or for any public display</li>
+                    <li>Attempt to reverse engineer any software contained on the website</li>
+                    <li>Remove any copyright or other proprietary notations from the materials</li>
+                    <li>Use automated systems or bots to access the service beyond normal usage</li>
+                </ul>
+                <p>
+                    This license shall automatically terminate if you violate any of these restrictions and may be terminated by us at any time.
+                </p>
+            </div>
+
+            <div class="tos-section">
+                <h2>3. AI-Generated Content Disclaimer</h2>
+                <p>
+                    BakeGenuis.ai uses artificial intelligence to provide recipe conversions and baking calculations. While we strive for accuracy, please note:
+                </p>
+                <ul>
+                    <li>AI-generated conversions should be reviewed and verified before use</li>
+                    <li>Results may vary based on ingredient brands, humidity, and other factors</li>
+                    <li>We recommend cross-referencing critical measurements with reliable baking resources</li>
+                    <li>The service is intended as a helpful tool, not a replacement for baking knowledge and experience</li>
+                </ul>
+                <p>
+                    Users are responsible for validating all conversions and recipes before use, especially for commercial purposes or special dietary requirements.
+                </p>
+            </div>
+
+            <div class="tos-section">
+                <h2>4. User Accounts and Data</h2>
+                <h3>Account Creation</h3>
+                <p>
+                    You may be required to create an account to access certain features. You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account.
+                </p>
+                <h3>User-Generated Content</h3>
+                <p>
+                    Any recipes, measurements, or content you submit to our service may be used to improve our AI algorithms. By submitting content, you grant us a non-exclusive license to use, modify, and display this content for service improvement purposes.
+                </p>
+                <h3>Data Privacy</h3>
+                <p>
+                    Your privacy is important to us. Please review our Privacy Policy to understand how we collect, use, and protect your information.
+                </p>
+            </div>
+
+            <div class="tos-section">
+                <h2>5. Prohibited Uses</h2>
+                <p>You may not use BakeGenuis.ai:</p>
+                <ul>
+                    <li>For any unlawful purpose or to solicit others to unlawful acts</li>
+                    <li>To violate any international, federal, provincial, or state regulations, rules, laws, or local ordinances</li>
+                    <li>To infringe upon or violate our intellectual property rights or the intellectual property rights of others</li>
+                    <li>To harass, abuse, insult, harm, defame, slander, disparage, intimidate, or discriminate</li>
+                    <li>To submit false or misleading information</li>
+                    <li>To upload or transmit viruses or any other type of malicious code</li>
+                    <li>To spam, phish, pharm, pretext, spider, crawl, or scrape</li>
+                    <li>For any obscene or immoral purpose</li>
+                    <li>To interfere with or circumvent the security features of our service</li>
+                </ul>
+            </div>
+
+            <div class="tos-section">
+                <h2>6. Service Availability</h2>
+                <p>
+                    BakeGenuis.ai strives to maintain service availability but cannot guarantee uninterrupted access. The service may be temporarily unavailable due to:
+                </p>
+                <ul>
+                    <li>Scheduled maintenance and updates</li>
+                    <li>Technical difficulties or server issues</li>
+                    <li>Third-party service dependencies</li>
+                    <li>Force majeure events</li>
+                </ul>
+                <p>
+                    We reserve the right to modify or discontinue the service (or any part thereof) with or without notice at any time.
+                </p>
+            </div>
+
+            <div class="tos-section">
+                <h2>7. Disclaimer of Warranties</h2>
+                <p>
+                    The information on this website is provided on an "as is" basis. To the fullest extent permitted by law, BakeGenuis.ai excludes all representations, warranties, conditions and terms including:
+                </p>
+                <ul>
+                    <li>Accuracy of recipe conversions and calculations</li>
+                    <li>Suitability for specific baking applications</li>
+                    <li>Compatibility with all ingredient brands or types</li>
+                    <li>Results from following AI-generated recommendations</li>
+                </ul>
+                <p>
+                    Users acknowledge that baking is both an art and science, and many factors beyond measurement conversions affect final results.
+                </p>
+            </div>
+
+            <div class="tos-section">
+                <h2>8. Limitation of Liability</h2>
+                <p>
+                    In no event shall BakeGenuis.ai or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on BakeGenuis.ai's website, even if BakeGenius.ai or its authorized representative has been notified orally or in writing of the possibility of such damage.
+                </p>
+                <p>
+                    This includes but is not limited to damages from baking failures, ingredient waste, or commercial losses resulting from recipe conversions.
+                </p>
+            </div>
+
+            <div class="tos-section">
+                <h2>9. Intellectual Property</h2>
+                <p>
+                    The service and its original content, features, and functionality are and will remain the exclusive property of BakeGenuis.ai and its licensors. The service is protected by copyright, trademark, and other laws.
+                </p>
+                <p>
+                    Our trademarks and trade dress may not be used in connection with any product or service without our prior written consent.
+                </p>
+            </div>
+
+            <div class="tos-section">
+                <h2>10. Modifications to Terms</h2>
+                <p>
+                    BakeGenuis.ai may revise these terms of service at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of service.
+                </p>
+                <p>
+                    We will notify users of significant changes through the website or via email when applicable. Continued use of the service after such modifications constitutes acceptance of the updated terms.
+                </p>
+            </div>
+
+            <div class="tos-section">
+                <h2>11. Governing Law</h2>
+                <p>
+                    These terms and conditions are governed by and construed in accordance with applicable laws, and you irrevocably submit to the exclusive jurisdiction of the courts in that state or location.
+                </p>
+            </div>
+
+            <div class="tos-section">
+                <h2>12. Contact Information</h2>
+                <div class="contact-info">
+                    <p><strong>Questions about these Terms?</strong></p>
+                    <p>
+                        If you have any questions about these Terms of Service, please contact us:
+                    </p>
+                    <ul>
+                        <li><strong>Email:</strong> supriyadpandey502@gmail.com</li>
+                        <li><strong>GitHub:</strong> <a href="https://github.com/supriya46788/BakeGenuis-AI" target="_blank" rel="noopener">BakeGenuis-AI Repository</a></li>
+                        <li><strong>Help Center:</strong> <a href="helpcenter.html">Visit our Help Center</a></li>
+                    </ul>
+                    <p>
+                        We're here to help you bake with confidence using our AI-powered tools!
+                    </p>
+                </div>
+            </div>
+
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section footer-brand">
+                <div class="footer-logo">
+                    <span class="footer-logo-icon">🍰</span>
+                    <span class="footer-logo-text">BakeGenius.ai</span>
+                </div>
+                <p class="footer-description">
+                    Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and delightful for everyone.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-link linkedin" target="_blank" rel="noopener" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/supriya46788/BakeGenuis-AI" class="social-link github" target="_blank" rel="noopener" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:supriyadpandey502@gmail.com" class="social-link email" target="_blank" rel="noopener" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="convert.html"><i class="fas fa-exchange-alt"></i>Convert Recipe</a></li>
+                    <li><a href="customize.html"><i class="fas fa-cog"></i>Customize</a></li>
+                    <li><a href="scale.html"><i class="fas fa-balance-scale"></i>Scale Recipes</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Features</h3>
+                <ul class="footer-links">
+                    <li><a href="javascript:void(0)"><i class="fas fa-calculator"></i>Unit Conversion</a></li>
+                    <li><a href="javascript:void(0)"><i class="fas fa-chart-line"></i>Nutritional Analysis</a></li>
+                    <li><a href="javascript:void(0)"><i class="fas fa-balance-scale"></i>Recipe Scaling</a></li>
+                    <li><a href="javascript:void(0)"><i class="fas fa-magic"></i>AI Optimization</a></li>
+                    <li><a href="javascript:void(0)"><i class="fas fa-mobile-alt"></i>Mobile Friendly</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="helpcenter.html"><i class="fas fa-question-circle"></i>Help Center</a></li>
+                    <li><a href="feedback.html"><i class="fas fa-comment"></i>Feedback</a></li>
+                    <li><a href="reportissue.html"><i class="fas fa-bug"></i>Report Issue</a></li>
+                    <li><a href="privacypolicy.html"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
+                    <li><a href="toc.html" class="active"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p class="copyright">
+                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <span class="name">Supriya Pandey</span>
+                </p>
+                <div class="footer-badges">
+                    <span class="badge badge-green"><i class="fas fa-heart"></i> Open Source</span>
+                    <span class="badge badge-blue"><i class="fas fa-leaf"></i> Eco Friendly</span>
+                    <span class="badge badge-purple"><i class="fas fa-robot"></i> AI Powered</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/theme.js"></script>
+    <script>
+
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("navLinks");
+
+        hamburger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle("active");
+            hamburger.classList.toggle("active");
+        });
+
+        // Close mobile menu when clicking on a link
+        const navItems = document.querySelectorAll(".nav-links a");
+        navItems.forEach((item) => {
+            item.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+                hamburger.classList.remove("active");
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener("click", (e) => {
+            if (
+                navLinks.classList.contains("active") &&
+                !hamburger.contains(e.target) &&
+                !navLinks.contains(e.target)
+            ) {
+                navLinks.classList.remove("active");
+                hamburger.classList.remove("active");
+            }
+        });
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
+
