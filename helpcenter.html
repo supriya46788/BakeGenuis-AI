@@ -236,48 +236,7 @@
             color: #1e1e1e;
         }
 
-        .login-btn {
-            background-color:#5C4033;
-            color: white;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-            border: 2px solid transparent;
-        }
-
-        .login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px #cf622f;
-            background-color:#5C4033;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        body.dark-mode .login-btn {
-            background-color: #e0e0e0;
-            color: #0d0d0d;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 2px 2px #e0e0e0;
-            border: 2px solid transparent;
-        }
-
-        body.dark-mode .login-btn:hover {
-            transform: translateY(-3px);
-            background: #e0e0e0;
-            box-shadow: 0 2px 2px #e0e0e0;
-        }
+        
 
         .hamburger {
             display: none;
@@ -362,10 +321,7 @@
                 z-index: 1001;
             }
 
-            .login-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
+            
 
             .dark-mode-btn {
                 width: 40px;
@@ -405,10 +361,7 @@
                 gap: 0.3rem;
             }
 
-            .login-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
+           
 
             .dark-mode-btn {
                 width: 35px;
@@ -877,14 +830,7 @@ body.dark-mode .faq h2 i {
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="#" class="login-btn" id="openLoginModal">
-                    <i class="fas fa-user"></i>
-                    Login
-                </a>
-                <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Logout
-                </a>
+                
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span>

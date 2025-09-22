@@ -2392,7 +2392,7 @@ body.about-page.dark-mode li {
             .social-links {
                 justify-content: center;
             }
-        }
+        
 
         @media (max-width: 1024px) {
             .footer-content {

@@ -338,81 +338,9 @@
             color: #1e1e1e;
         }
 
-        .login-btn {
+        
 
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-            color: white;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow:  0 4px 15px  #402a26;
-            border: 2px solid transparent;
-        }
-
-        .login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px #624844;
-            background-color:linear-gradient(90deg, #543732, #3d2b28, #341d19);
-        }
-
-        body.dark-mode .login-btn {
-            background: #e0e0e0;
-            color: #0d0d0d;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 2px 2px #e0e0e0;
-            border: 2px solid transparent;
-        }
-
-        body.dark-mode .login-btn:hover {
-            transform: translateY(-3px);
-            background: #e0e0e0;
-            box-shadow: 0 2px 2px #e0e0e0;
-        }
-
-        .signup-btn {
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-            color: white;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 15px  #402a26;
-            border: 2px solid transparent;
-        }
-
-        .signup-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px #624844;
-            background:linear-gradient(90deg, #543732, #3d2b28, #341d19);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        body.dark-mode .signup-btn {
-            background:linear-gradient(90deg, #543732, #3d2b28, #341d19);
-            box-shadow: 0 4px 15px  #402a26;
-        }
-
-        body.dark-mode .signup-btn:hover {
-            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
-            box-shadow: 0 8px 25px #402a26;
-        }
-
+        
         /* Dark mode base */
         body.dark-mode {
         background: #3b3b3b;
@@ -432,28 +360,7 @@
 
         }
 
-        /* Dark mode for login button */
-        body.dark-mode .login-btn {
-            background: #e0e0e0;
-            color: #0d0d0d;
-            box-shadow: 0 2px 2px #e0e0e0;
-        }
-
-        body.dark-mode .login-btn:hover {
-            background: #e0e0e0;
-            box-shadow: 0 2px 2px #e0e0e0;
-        }
-
-        /* Dark mode for signup button */
-        body.dark-mode .signup-btn {
-            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
-            box-shadow: 0 4px 15px #402a26;
-        }
-
-        body.dark-mode .signup-btn:hover {
-            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
-            box-shadow: 0 8px 25px #402a26;
-        }
+        
 
 
         .hamburger {
@@ -639,11 +546,7 @@
                 z-index: 1001;
             }
 
-            .login-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-
+            
             .dark-mode-btn {
                 width: 40px;
                 height: 40px;
@@ -683,10 +586,7 @@
                 gap: 0.3rem;
             }
 
-            .login-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
+           
 
             .dark-mode-btn {
                 width: 35px;
@@ -1334,21 +1234,7 @@
   }
 }
 
-        /* Login Modal */
-        #loginModal {
-            display: flex;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(5, 4, 4, 0.715);
-            backdrop-filter: blur(5px);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-
+        
         .modal-content {
             background: white;
             border-radius: 20px;
@@ -1623,9 +1509,6 @@
 }
 
 /* Hidden by default - remove this line to show the modal */
-#loginModal {
-    display: flex; /* Changed from none to flex for demo */
-}
 
     </style>
 </head>
@@ -1684,14 +1567,7 @@
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="#" class="login-btn" id="openLoginModal">
-                    <i class="fas fa-user"></i>
-                    Login
-                </a>
-                <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Logout
-                </a>
+                
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -1824,111 +1700,7 @@
         </div>
     </footer>
 
-    <div id="loginModal">
-        <div class="modal-content">
-            <button class="close-btn" id="closeLoginModal">&times;</button>
-            
-            <h2 class="form-title">Welcome Back</h2>
-            
-            <div class="form-container">
-                <!-- Login Form -->
-                <form id="loginForm">
-                    <div class="input-group">
-                        <div class="input-wrapper">
-                            <i class="fa-regular fa-user input-icon"></i>
-                            <input 
-                                type="text" 
-                                id="loginUsername" 
-                                class="form-input"
-                                placeholder="Username" 
-                                required
-                            />
-                        </div>
-                    </div>
-                    
-                    <div class="input-group">
-                        <div class="input-wrapper">
-                            <i class="fa-solid fa-lock input-icon"></i>
-                            <input 
-                                type="password" 
-                                id="loginPassword" 
-                                class="form-input"
-                                placeholder="Password" 
-                                required
-                            />
-                            <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">
-                                <i class="fa-regular fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">
-                        Login
-                    </button>
-                </form>
-
-                <!-- Sign-Up Form -->
-                <form id="signUpForm" style="display: none;">
-                    <div class="input-group">
-                        <div class="input-wrapper">
-                            <i class="fa-regular fa-user input-icon"></i>
-                            <input 
-                                type="text" 
-                                id="signUpUsername" 
-                                class="form-input"
-                                placeholder="New Username" 
-                                required
-                            />
-                        </div>
-                    </div>
-                    
-                    <div class="input-group">
-                        <div class="input-wrapper">
-                            <i class="fa-solid fa-lock input-icon"></i>
-                            <input 
-                                type="password" 
-                                id="signUpPassword" 
-                                class="form-input"
-                                placeholder="New Password" 
-                                required
-                            />
-                            <button type="button" class="password-toggle" onclick="togglePassword('signUpPassword')">
-                                <i class="fa-regular fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="input-group">
-                        <div class="input-wrapper">
-                            <i class="fa-solid fa-lock-open input-icon"></i>
-                            <input 
-                                type="password" 
-                                id="confirmPassword" 
-                                class="form-input"
-                                placeholder="Confirm Password" 
-                                required
-                            />
-                            <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
-                                <i class="fa-regular fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Error message for password mismatch in Sign-Up -->
-                    <div id="signUpError" style="color:red; font-size:14px; display:none;"></div>
-
-                    <button type="submit" class="submit-btn signup-btn" style="text-align: center;" >
-                        Sign Up
-                    </button>
-                </form>
-                
-                <div class="toggle-form">
-                    <span id="toggleText">Don't have an account?</span>
-                    <span class="toggle-link" id="toggleForm">Sign Up</span>
-                </div>
-            </div>
-        </div>
-    </div>
+   
     <script>
         // Dark Mode Toggle
         const darkModeToggle = document.getElementById("darkModeToggle");
@@ -2050,172 +1822,10 @@
             });
         });
 
-        // Login/Sign-Up Modal Logic
-        const loginModal = document.getElementById("loginModal");
-        const openLoginModal = document.getElementById("openLoginModal");
-        const closeLoginModal = document.getElementById("closeLoginModal");
-        const loginForm = document.getElementById("loginForm");
-        const signUpForm = document.getElementById("signUpForm");
-        const toggleForm = document.getElementById("toggleForm");
-        const modalTitle = document.getElementById("modalTitle");
-        const formError = document.getElementById("formError");
+        
 
         // Open Modal
-        openLoginModal.addEventListener("click", (e) => {
-            e.preventDefault();
-            loginModal.style.display = "flex";
-            loginForm.style.display = "block";
-            signUpForm.style.display = "none";
-            modalTitle.textContent = "Login";
-            toggleForm.textContent = "Don't have an account? Sign Up";
-            formError.style.display = "none";
-        });
-
-        // Close Modal
-        closeLoginModal.addEventListener("click", () => {
-            loginModal.style.display = "none";
-        });
-
-        /// Toggle between login and signup
-        document.getElementById('toggleForm').addEventListener('click', function() {
-            const loginForm = document.getElementById('loginForm');
-            const signUpForm = document.getElementById('signUpForm');
-            const toggleText = document.getElementById('toggleText');
-            const toggleLink = document.getElementById('toggleForm');
-            const formTitle = document.querySelector('.form-title');
-            
-            if (loginForm.style.display !== 'none') {
-                // Switch to Sign Up
-                loginForm.style.display = 'none';
-                signUpForm.style.display = 'block';
-                toggleText.textContent = 'Already have an account?';
-                toggleLink.textContent = 'Login';
-                formTitle.textContent = 'Create Account';
-            } else {
-                // Switch to Login
-                loginForm.style.display = 'block';
-                signUpForm.style.display = 'none';
-                toggleText.textContent = 'Don\'t have an account?';
-                toggleLink.textContent = 'Sign Up';
-                formTitle.textContent = 'Welcome Back';
-            }
-        });
-
-        // Toggle password visibility
-        function togglePassword(inputId) {
-            const passwordInput = document.getElementById(inputId);
-            const toggleIcon = passwordInput.parentElement.querySelector('.password-toggle i');
-            
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                toggleIcon.className = 'fa-regular fa-eye-slash';
-            } else {
-                passwordInput.type = 'password';
-                toggleIcon.className = 'fa-regular fa-eye';
-            }
-        }
-
-
-        // Handle Login Form Submission
-        loginForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const username = document.getElementById("loginUsername").value;
-            const password = document.getElementById("loginPassword").value;
-
-            // Retrieve users from localStorage
-            const users = JSON.parse(localStorage.getItem("users")) || {};
-
-            // Check if the user exists and the password matches
-            if (users[username] && users[username] === password) {
-                alert(`Welcome back, ${username}!`);
-                loginModal.style.display = "none";
-
-                // Set login state
-                localStorage.setItem("isLoggedIn", "true");
-                localStorage.setItem("currentUser", username);
-                updateLoginState();
-            } else {
-                formError.textContent = "Invalid username or password.";
-                formError.style.display = "block";
-            }
-        });
-
-        // Get the signup-specific error element
-        const signUpError = document.getElementById("signUpError");
-
-        // Handle Sign-Up Form Submission
-        signUpForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const username = document.getElementById("signUpUsername").value;
-            const password = document.getElementById("signUpPassword").value;
-            const confirmPassword =
-                document.getElementById("confirmPassword").value;
-
-            // Validate passwords match
-            if (password !== confirmPassword) {
-                signUpError.textContent = "Passwords do not match.";
-                signUpError.style.display = "block";
-                return;
-            }   else {
-                signUpError.style.display = "none"; // hide warning if fixed
-            }
-
-
-            // Retrieve users from localStorage
-            const users = JSON.parse(localStorage.getItem("users")) || {};
-
-            // Check if the username already exists
-            if (users[username]) {
-                signUpError.textContent = "Username already exists.";
-                signUpError.style.display = "block";
-            } else {
-                // Save the new user
-                users[username] = password;
-                localStorage.setItem("users", JSON.stringify(users));
-                alert("Sign-Up successful! You can now log in.");
-                loginForm.style.display = "block";
-                signUpForm.style.display = "none";
-                modalTitle.textContent = "Login";
-                toggleForm.textContent = "Don't have an account? Sign Up";
-                signUpError.style.display = "none";
-            }
-        });
-
-        // Function to update login state
-        function updateLoginState() {
-            const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-            const loginBtn = document.getElementById("openLoginModal");
-            const logoutBtn = document.getElementById("logoutBtn");
-
-            if (isLoggedIn) {
-                loginBtn.style.display = "none";
-                logoutBtn.style.display = "flex";
-            } else {
-                loginBtn.style.display = "flex";
-                logoutBtn.style.display = "none";
-            }
-        }
-
-        // Logout functionality
-        document.getElementById("logoutBtn").addEventListener("click", (e) => {
-            e.preventDefault();
-            localStorage.removeItem("isLoggedIn");
-            localStorage.removeItem("currentUser");
-            updateLoginState();
-            alert("You have been logged out successfully!");
-        });
-
-        // Check login state on page load
-        document.addEventListener("DOMContentLoaded", () => {
-            updateLoginState();
-        });
-
-        // Close Modal on Outside Click
-        window.addEventListener("click", (e) => {
-            if (e.target === loginModal) {
-                loginModal.style.display = "none";
-            }
-        });
+        
 
         document.addEventListener('visibilitychange', function () {
             if (document.visibilityState === 'visible') {
