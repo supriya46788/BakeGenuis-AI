@@ -1038,35 +1038,9 @@
             </div>
         </div>
     </footer>
-
+    
+    <script src="assets/js/theme.js"></script>
     <script>
-        // Dark Mode Toggle
-        const darkModeToggle = document.getElementById("darkModeToggle");
-        const body = document.body;
-        const darkModeIcon = darkModeToggle.querySelector("i");
-
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem("theme") || "light";
-        if (currentTheme === "dark") {
-            body.classList.add("dark-mode");
-            darkModeIcon.classList.remove("fa-moon");
-            darkModeIcon.classList.add("fa-sun");
-        }
-
-        darkModeToggle.addEventListener("click", () => {
-            body.classList.toggle("dark-mode");
-
-            // Update icon
-            if (body.classList.contains("dark-mode")) {
-                darkModeIcon.classList.remove("fa-moon");
-                darkModeIcon.classList.add("fa-sun");
-                localStorage.setItem("theme", "dark");
-            } else {
-                darkModeIcon.classList.remove("fa-sun");
-                darkModeIcon.classList.add("fa-moon");
-                localStorage.setItem("theme", "light");
-            }
-        });
 
         // Mobile Navigation Toggle
         const hamburger = document.getElementById("hamburger");
