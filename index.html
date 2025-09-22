@@ -7,7 +7,40 @@
     
     <!-- Primary Meta Tags -->
     <title>BakeGenius.ai - AI-Powered Baking Conversions | Perfect Baking Every Time</title>
-    <link rel="icon" href="Favicon.png" type="image/x-icon" />
+    <!-- Comprehensive Favicon System -->
+    <!-- Standard favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon/favicon-512x512.png">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon-180x180.png">
+    
+    <!-- Windows Tiles -->
+    <meta name="msapplication-TileColor" content="#3e2723">
+    <meta name="msapplication-TileImage" content="favicon/mstile-144x144.png">
+    <meta name="msapplication-config" content="favicon/browserconfig.xml">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="favicon/site.webmanifest">
+    
+    <!-- Additional mobile optimization -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="BakeGenius.ai">
     <meta name="title" content="BakeGenius.ai - AI-Powered Baking Conversions | Perfect Baking Every Time" />
     <meta name="description" content="Transform your baking with AI-powered recipe conversions. Convert cups to grams, scale recipes, and get precise measurements for perfect baking results every time. Free baking conversion tool." />
     <meta name="keywords" content="baking conversion, recipe converter, cups to grams, baking calculator, AI baking, recipe scaling, baking measurements, cooking conversion, baking tools, precise baking" />
@@ -39,12 +72,7 @@
     
     <!-- Additional SEO Meta Tags -->
     <meta name="application-name" content="BakeGenius.ai" />
-    <meta name="apple-mobile-web-app-title" content="BakeGenius.ai" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="format-detection" content="telephone=no" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="msapplication-TileColor" content="#3e2723" />
     <meta name="msapplication-tap-highlight" content="no" />
     
     <!-- Structured Data -->
@@ -166,7 +194,7 @@
             }
         }
 
-        /* Navigation */
+        /* ===== STANDARDIZED NAVIGATION BAR ===== */
         .navbar {
             background: radial-gradient(circle at center, #e5c5b3, #e9b4b6);
             backdrop-filter: blur(15px);
@@ -181,8 +209,8 @@
         }
 
         body.dark-mode .navbar {
-            background: #1e1e1e;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: #1e1e1e !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
         }
 
         .nav-container {
@@ -245,6 +273,7 @@
             text-decoration: none;
             color: #3e2723;
             font-weight: 600;
+            font-size: 1.1rem;
             padding: 0.7rem 1rem;
             border-radius: 25px;
             transition: all 0.3s ease;
@@ -254,9 +283,9 @@
         }
 
         body.dark-mode .nav-links a {
-            color: #e0e0e0;
-            background: rgba(111, 100, 91, 0.133);
-            border: 2px solid transparent;
+            color: #e0e0e0 !important;
+            background: rgba(111, 100, 91, 0.133) !important;
+            border: 2px solid transparent !important;
         }
 
         .nav-links a:hover {
@@ -268,11 +297,11 @@
         }
 
         body.dark-mode .nav-links a:hover {
-            background-color: #0d0d0d;
+            background-color: #0d0d0d !important;
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-color: #1e1e1e;
-            color: #e0e0e0;
+            border-color: #1e1e1e !important;
+            color: #e0e0e0 !important;
         }
 
         /* Navigation Actions */
@@ -311,7 +340,7 @@
 
         .login-btn {
 
-            background-color:#5C4033;
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: white;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
@@ -321,18 +350,18 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            box-shadow:  0 4px 15px  #402a26;
             border: 2px solid transparent;
         }
 
         .login-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px #cf622f;
-            background-color:#5C4033;
+            box-shadow: 0 8px 25px #624844;
+            background-color:linear-gradient(90deg, #543732, #3d2b28, #341d19);
         }
 
         body.dark-mode .login-btn {
-            background-color: #e0e0e0;
+            background: #e0e0e0;
             color: #0d0d0d;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
@@ -353,7 +382,7 @@
         }
 
         .signup-btn {
-            background: linear-gradient(45deg, var(--sky-blue), var(--mint-green));
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: white;
             text-decoration: none;
             padding: 0.7rem 1.5rem;
@@ -363,25 +392,25 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+            box-shadow: 0 4px 15px  #402a26;
             border: 2px solid transparent;
         }
 
         .signup-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
-            background: linear-gradient(45deg, var(--mint-green), var(--sky-blue));
+            box-shadow: 0 8px 25px #624844;
+            background:linear-gradient(90deg, #543732, #3d2b28, #341d19);
             border-color: rgba(255, 255, 255, 0.3);
         }
 
         body.dark-mode .signup-btn {
-            background: linear-gradient(45deg, #16a085, #1abc9c);
-            box-shadow: 0 4px 15px rgba(22, 160, 133, 0.3);
+            background:linear-gradient(90deg, #543732, #3d2b28, #341d19);
+            box-shadow: 0 4px 15px  #402a26;
         }
 
         body.dark-mode .signup-btn:hover {
-            background: linear-gradient(45deg, #1abc9c, #16a085);
-            box-shadow: 0 8px 25px rgba(22, 160, 133, 0.4);
+            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
+            box-shadow: 0 8px 25px #402a26;
         }
 
         /* Dark mode base */
@@ -405,7 +434,7 @@
 
         /* Dark mode for login button */
         body.dark-mode .login-btn {
-            background-color: #e0e0e0;
+            background: #e0e0e0;
             color: #0d0d0d;
             box-shadow: 0 2px 2px #e0e0e0;
         }
@@ -417,13 +446,13 @@
 
         /* Dark mode for signup button */
         body.dark-mode .signup-btn {
-            background: linear-gradient(45deg, #16a085, #1abc9c);
-            box-shadow: 0 4px 15px rgba(22, 160, 133, 0.3);
+            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
+            box-shadow: 0 4px 15px #402a26;
         }
 
         body.dark-mode .signup-btn:hover {
-            background: linear-gradient(45deg, #1abc9c, #16a085);
-            box-shadow: 0 8px 25px rgba(22, 160, 133, 0.4);
+            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
+            box-shadow: 0 8px 25px #402a26;
         }
 
 
@@ -542,29 +571,32 @@
             transform: scale(1.15);
         }
 
-        /* Responsive Design */
+        /* ===== STANDARDIZED MOBILE NAVIGATION ===== */
         @media (max-width: 768px) {
             .navbar {
                 padding: 0.8rem 1rem;
             }
 
             .nav-links {
-                display: inline;
+                display: flex;
                 position: fixed;
-                top: 80px;
+                top: 0;
                 left: 0;
                 width: 100%;
-                height: calc(100vh - 80px);
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(40px);
+                height: 100vh;
+                background: #1a1a1a;
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: center;
-                padding-top: 2rem;
+                padding-top: 6rem;
                 transition: transform 0.3s ease;
                 transform: translateX(-100%);
-                gap: 1rem;
+                gap: 0;
                 z-index: 999;
+            }
+
+            body.dark-mode .nav-links {
+                background: #1a1a1a !important;
             }
 
             .nav-links.active {
@@ -572,22 +604,33 @@
             }
 
             .nav-links li {
-                padding: 2rem;
-                border-bottom: solid 1px black;
-                border-radius: 8px;
+                width: 90%;
+                margin: 0;
+                padding: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
 
             body.dark-mode .nav-links li {
-                border-bottom: solid 1px white;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
 
             .nav-links a {
-                width: 80%;
-                padding: 1rem;
-                font-size: 1.5rem;
-                margin-bottom: 2rem;
-                background-color: transparent !important;
+                width: 100%;
+                padding: 1.5rem 2rem;
+                font-size: 1.2rem;
+                margin-bottom: 0;
+                background: #2a2a2a !important;
+                color: #e0e0e0 !important;
+                border-radius: 0;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                transition: all 0.3s ease;
+            }
 
+            .nav-links a:hover {
+                background: #3a3a3a !important;
+                color: #ffffff !important;
             }
 
             .nav-actions {
@@ -622,6 +665,7 @@
             }
         }
 
+        /* ===== STANDARDIZED SMALL MOBILE NAVIGATION ===== */
         @media (max-width: 480px) {
             .navbar {
                 padding: 0.5rem;
@@ -744,7 +788,7 @@
         }
 
         body.dark-mode .hero-subtitle {
-            color: #e0e0e0;
+            color: #e0e0e0 !important;
         }
 
         .cta-button {
@@ -901,7 +945,7 @@
         }
 
         body.dark-mode .feature-title {
-            color: #e0e0e0;
+            color: #e0e0e0 !important;
         }
 
         .feature-desc {
@@ -910,7 +954,7 @@
         }
 
         body.dark-mode .feature-desc {
-            color: #e0e0e0c4;
+            color: #e0e0e0 !important;
         }
 
 
@@ -1150,30 +1194,9 @@
             }
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                justify-content: start;
-                padding-top: 2rem;
-                gap: 1rem;
-                transition: left 0.3s ease;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .hamburger {
-                display: flex;
-            }
+            /* ensure hamburger only appears under mobile media queries */
+            /* removed stray desktop display override */
 
             .hero-title {
                 font-size: 2.5rem;
@@ -1344,7 +1367,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--sky-blue), var(--candy-red), var(--sunny-yellow), var(--mint-green));
+            
         }
 
         .close-btn {
@@ -1375,7 +1398,18 @@
             font-size: 2rem;
             font-weight: 600;
             color: var(--text-dark);
-            background: linear-gradient(135deg, var(--candy-red), var(--sky-blue));
+            background: linear-gradient(90deg, #3e2723, #4d312b, #3e2723);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        body.dark-mode .form-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            background: #e0e0e0;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1467,7 +1501,7 @@
 
         .submit-btn {
             width: 100%;
-            background: linear-gradient(45deg, var(--candy-red), var(--sunny-yellow));
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: white;
             font-weight: 600;
             border: none;
@@ -1489,14 +1523,14 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
             transition: left 0.5s;
         }
 
         .submit-btn:hover {
-            background: linear-gradient(45deg, var(--sunny-yellow), var(--candy-red));
+            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 8px 25px #402a26;
         }
 
         .submit-btn:hover::before {
@@ -1514,7 +1548,7 @@
         }
 
         .toggle-link {
-            color: var(--candy-red);
+            color: #734e47;
             font-weight: 600;
             cursor: pointer;
             text-decoration: none;
@@ -1529,17 +1563,17 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--candy-red);
+            background: #734e47;
             transition: width 0.3s ease;
         }
 
         .toggle-link:hover {
-            color: var(--sunny-yellow);
+            color: #835951;
         }
 
 .toggle-link:hover::after {
     width: 100%;
-    background: var(--sunny-yellow);
+    background: #835951;
 }
 
 /* Show/Hide Password */
@@ -1560,7 +1594,7 @@
 }
 
 .signup-btn {
-    background: linear-gradient(45deg, var(--sky-blue), var(--sunny-yellow));
+    background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
     text-align: center !important;
     display: flex;
     justify-content: center;
@@ -1568,8 +1602,8 @@
 }
 
 .signup-btn:hover {
-    background: linear-gradient(45deg, var(--sunny-yellow), var(--sky-blue));
-    box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+    background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+    box-shadow: 0 4px 15px #402a26;
 }
 
 /* Responsive */
