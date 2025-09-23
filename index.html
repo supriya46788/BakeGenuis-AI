@@ -2176,6 +2176,8 @@
             localStorage.removeItem("isLoggedIn");
             localStorage.removeItem("currentUser");
             updateLoginState();
+            document.getElementById("loginUsername").value = "";
+            document.getElementById("loginPassword").value = "";
             alert("You have been logged out successfully!");
         });
 
