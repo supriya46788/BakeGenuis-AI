@@ -164,28 +164,28 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Dual Scroll Buttons
-        const scrollTopBtn = document.getElementById('scrollTopBtn');
-        const scrollBottomBtn = document.getElementById('scrollBottomBtn');
-
-        window.addEventListener('scroll', () => {
+// Back to Top Button Logic
+        const backToTopBtn = document.getElementById("backToTop");
+        window.addEventListener("scroll", () => {
             if (window.scrollY > 300) {
-                scrollTopBtn.classList.add('show');
+                backToTopBtn.classList.add("show");
             } else {
-                scrollTopBtn.classList.remove('show');
-            }
-
-            if (window.innerHeight + window.scrollY < document.body.offsetHeight - 300) {
-                scrollBottomBtn.classList.add('show');
-            } else {
-                scrollBottomBtn.classList.remove('show');
+                backToTopBtn.classList.remove("show");
             }
         });
-
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
         });
 
-        scrollBottomBtn.addEventListener('click', () => {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        //Top to Bottom Button Logic
+        const ToptobackBtn = document.getElementById("Toptoback");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY < 100) {
+                ToptobackBtn.classList.add("show");
+            } else {
+                ToptobackBtn.classList.remove("show");
+            }
+        });
+        ToptobackBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 10000, behavior: "smooth" });
         });
