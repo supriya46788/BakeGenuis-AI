@@ -137,4 +137,55 @@ document.addEventListener("DOMContentLoaded", function () {
       hamburger.classList.remove("active");
     }
   });
+  
+   // ================= Dark Mode Toggle =================
+  const darkModeBtn = document.getElementById("darkModeToggle");
+  const darkModeIcon = darkModeBtn.querySelector("i");
+
+  // Apply saved preference on page load
+  if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+    darkModeIcon.classList.remove("fa-moon");
+    darkModeIcon.classList.add("fa-sun");
+  }
+
+  darkModeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+      localStorage.setItem("darkMode", "enabled");
+      darkModeIcon.classList.remove("fa-moon");
+      darkModeIcon.classList.add("fa-sun");
+    } else {
+      localStorage.setItem("darkMode", "disabled");
+      darkModeIcon.classList.remove("fa-sun");
+      darkModeIcon.classList.add("fa-moon");
+    }
+  });
 });
+
+// Back to Top Button Logic
+        const backToTopBtn = document.getElementById("backToTop");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add("show");
+            } else {
+                backToTopBtn.classList.remove("show");
+            }
+        });
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        //Top to Bottom Button Logic
+        const ToptobackBtn = document.getElementById("Toptoback");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY < 100) {
+                ToptobackBtn.classList.add("show");
+            } else {
+                ToptobackBtn.classList.remove("show");
+            }
+        });
+        ToptobackBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 10000, behavior: "smooth" });
+        });
