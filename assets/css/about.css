@@ -1132,6 +1132,26 @@ body.dark-mode .dark-mode-btn {
   color: #666;
 }
 
+/* 📱 Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .contributor-card {
+    flex: 1 1 calc(33.33% - 20px); /* 3 cards per row */
+  }
+}
+
+@media (max-width: 900px) {
+  .contributor-card {
+    flex: 1 1 calc(50% - 20px); /* 2 cards per row */
+  }
+}
+
+@media (max-width: 600px) {
+  .contributor-card {
+    flex: 1 1 100%; /* 1 card per row */
+    max-width: 100%;
+  }
+}
+
 /* Problem List */
 .problem-list {
   list-style: none;
