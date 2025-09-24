@@ -216,32 +216,102 @@ body.dark-mode .form-title {
     body.dark-mode .logo:hover{color:#e0e0e0}
 
     .nav-links{display:flex; list-style:none; gap:1.5rem; align-items:center}
-    .nav-links a{
-      text-decoration:none; color:#3e2723; font-weight:600; font-size:1.1rem;
-      padding:.7rem 1rem; border-radius:25px; transition:all .3s ease;
-      position:relative; background:rgba(255,255,255,0.1); border:2px solid transparent;
+    .nav-links a {
+        text-decoration: none;
+        color: #3e2723;
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 0.7rem 1rem;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        position: relative;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid transparent;
     }
-    body.dark-mode .nav-links a{color:#e0e0e0 !important; background:rgba(111,100,91,0.133) !important}
-    .nav-links a:hover{
-      background-color:#f3e0d6; transform:translateY(-2px);
-      box-shadow:0 4px 15px rgba(0,0,0,0.2);
-      border-color:rgba(228,191,180,0.3); color:#3e2723;
+
+    body.dark-mode .nav-links a {
+        color: #e0e0e0 !important;
+        background: rgba(111, 100, 91, 0.133) !important;
+        border: 2px solid transparent !important;
     }
-    body.dark-mode .nav-links a:hover{background-color:#0d0d0d !important; border-color:#1e1e1e !important; color:#e0e0e0 !important}
+
+    .nav-links a:hover {
+        background-color: #f3e0d6;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        border-color: rgba(228, 191, 180, 0.3);
+        color: #3e2723;
+    }
+
+    body.dark-mode .nav-links a:hover {
+        background-color: #0d0d0d !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        border-color: #1e1e1e !important;
+        color: #e0e0e0 !important;
+    }
+
+    /* Active navigation link styles */
+    .nav-links a.active {
+        background-color: #0d0d0d !important;
+        color: #ffffff !important;
+        border-color: #1e1e1e !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    body.dark-mode .nav-links a.active {
+        background-color: #0d0d0d !important;
+        color: #ffffff !important;
+        border-color: #1e1e1e !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
 
     .nav-actions{display:flex; align-items:center; gap:1rem}
     .dark-mode-btn{
-      background-color:#3e2723; border:none; color:white; padding:.7rem; border-radius:50%;
-      cursor:pointer; transition:all .3s ease; font-size:1rem; width:45px; height:45px;
+      background:linear-gradient(135deg, #3e2723, #4d312b); border:none; color:white; padding:.7rem; border-radius:50%;
+      cursor:pointer; transition:all .4s cubic-bezier(0.4, 0, 0.2, 1); font-size:1rem; width:45px; height:45px;
       display:flex; align-items:center; justify-content:center; box-shadow:0 4px 15px rgba(0,0,0,0.2);
+      position:relative; overflow:hidden;
     }
-    .dark-mode-btn:hover{transform:scale(1.1) rotate(360deg); box-shadow:0 6px 20px rgba(0,0,0,0.3)}
-    body.dark-mode .dark-mode-btn{background-color:#e0e0e0; color:#1e1e1e}
+    .dark-mode-btn::before{
+      content:''; position:absolute; top:50%; left:50%; width:0; height:0;
+      background:rgba(255,255,255,0.2); border-radius:50%; transition:all .4s ease;
+      transform:translate(-50%, -50%);
+    }
+    .dark-mode-btn:hover::before{width:100%; height:100%}
+    .dark-mode-btn:hover{
+      transform:scale(1.15) rotate(360deg); 
+      box-shadow:0 8px 25px rgba(0,0,0,0.3), 0 4px 12px rgba(62,39,35,0.2);
+      background:linear-gradient(135deg, #4d312b, #3e2723);
+    }
+    body.dark-mode .dark-mode-btn{
+      background:linear-gradient(135deg, #e0e0e0, #d0d0d0); 
+      color:#1e1e1e;
+      box-shadow:0 4px 15px rgba(224,224,224,0.2);
+    }
+    body.dark-mode .dark-mode-btn:hover{
+      background:linear-gradient(135deg, #f0f0f0, #e0e0e0);
+      box-shadow:0 8px 25px rgba(224,224,224,0.3), 0 4px 12px rgba(30,30,30,0.2);
+    }
 
-    .hamburger{display:none; flex-direction:column; cursor:pointer; padding:.5rem; border-radius:8px; transition:all .3s ease}
-    .hamburger:hover{background:rgba(255,255,255,0.1)}
-    .hamburger span{width:25px; height:3px; background:linear-gradient(45deg,#a4766a,#5d4037); margin:3px 0; transition:.3s; border-radius:2px}
-    body.dark-mode .hamburger span{background:#e0e0e0}
+    .hamburger{
+      display:none; flex-direction:column; cursor:pointer; padding:.5rem; border-radius:8px; 
+      transition:all .4s cubic-bezier(0.4, 0, 0.2, 1); position:relative; overflow:hidden;
+    }
+    .hamburger::before{
+      content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+      background:rgba(255,255,255,0.1); border-radius:8px; opacity:0;
+      transition:opacity .3s ease;
+    }
+    .hamburger:hover::before{opacity:1}
+    .hamburger:hover{transform:scale(1.05)}
+    .hamburger span{
+      width:25px; height:3px; background:linear-gradient(45deg,#a4766a,#5d4037); 
+      margin:3px 0; transition:all .3s cubic-bezier(0.4, 0, 0.2, 1); border-radius:2px;
+      position:relative; z-index:1;
+    }
+    .hamburger:hover span{transform:scale(1.1)}
+    body.dark-mode .hamburger span{background:linear-gradient(45deg,#e0e0e0,#c0c0c0)}
     .hamburger.active span:nth-child(1){transform:rotate(-45deg) translate(-5px,6px)}
     .hamburger.active span:nth-child(2){opacity:0}
     .hamburger.active span:nth-child(3){transform:rotate(45deg) translate(-5px,-6px)}
@@ -352,8 +422,30 @@ body.dark-mode .form-title {
       body.dark-mode .nav-links{background:#1a1a1a !important}
       .nav-links.active{transform:translateX(0)}
       .nav-links li{width:90%; border-bottom:1px solid rgba(255,255,255,0.1)}
-      .nav-links a{width:100%; padding:1.5rem 2rem; font-size:1.2rem; margin-bottom:0; background:#2a2a2a !important; color:#e0e0e0 !important; border-radius:0; display:flex; align-items:center; gap:1rem}
-      .nav-links a:hover{background:#3a3a3a !important; color:#ffffff !important}
+      .nav-links a {
+        width: 100%;
+        padding: 1.5rem 2rem;
+        font-size: 1.2rem;
+        margin-bottom: 0;
+        background: #2a2a2a !important;
+        color: #e0e0e0 !important;
+        border-radius: 0;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        background: #3a3a3a !important;
+        color: #ffffff !important;
+      }
+
+      /* Mobile navigation active state */
+      .nav-links a.active {
+        background: #0d0d0d !important;
+        color: #ffffff !important;
+      }
       .nav-actions{gap:.5rem; z-index:1001}
       .dark-mode-btn{width:40px; height:40px; font-size:.9rem}
       .hamburger{display:flex; position:relative; z-index:1001}
@@ -685,11 +777,29 @@ body.dark-mode .form-title{
         : "Come back to Website";
     });
 
-    // Hide loading screen
+    // Hide loading screen and set active navigation
     document.addEventListener("DOMContentLoaded", function () {
       const loadingScreen = document.getElementById("loading-screen");
       setTimeout(() => { loadingScreen.classList.add("hidden"); }, 1500);
+      
+      // Set active navigation link based on current page
+      setActiveNavigation();
     });
+
+    // Function to set active navigation link
+    function setActiveNavigation() {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const navLinks = document.querySelectorAll('.nav-links a');
+      
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
   </script>
 </body>
 </html>

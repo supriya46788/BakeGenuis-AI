@@ -209,6 +209,21 @@
             color: #e0e0e0 !important;
         }
 
+        /* Active navigation link styles */
+        .nav-links a.active {
+            background-color: #0d0d0d !important;
+            color: #ffffff !important;
+            border-color: #1e1e1e !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .nav-links a.active {
+            background-color: #0d0d0d !important;
+            color: #ffffff !important;
+            border-color: #1e1e1e !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
         /* Navigation Actions */
         .nav-actions {
             display: flex;
@@ -372,18 +387,6 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
-            margin: 3px 0;
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-
-        body.dark-mode .hamburger span {
-            background: linear-gradient(45deg, #3498db, #9b59b6);
-        }
 
         .hamburger.active span:nth-child(1) {
             transform: rotate(-45deg) translate(-5px, 6px);
@@ -834,6 +837,12 @@
                 color: #ffffff !important;
             }
 
+            /* Mobile navigation active state */
+            .nav-links a.active {
+                background: #0d0d0d !important;
+                color: #ffffff !important;
+            }
+
             .nav-actions {
                 gap: 0.5rem;
                 position: relative;
@@ -1150,53 +1159,72 @@
     <!-- JavaScript -->
     <script src="assets/js/theme.js"></script>
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mobile Navigation Toggle
+            const hamburger = document.getElementById("hamburger");
+            const navLinks = document.getElementById("navLinks");
 
-        // Mobile Navigation Toggle
-        const hamburger = document.getElementById("hamburger");
-        const navLinks = document.getElementById("navLinks");
+            if (hamburger && navLinks) {
+                hamburger.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    navLinks.classList.toggle("active");
+                    hamburger.classList.toggle("active");
+                });
 
-        hamburger.addEventListener("click", (e) => {
-            e.stopPropagation();
-            navLinks.classList.toggle("active");
-            hamburger.classList.toggle("active");
-        });
+                // Close mobile menu when clicking on a link
+                const navItems = document.querySelectorAll(".nav-links a");
+                navItems.forEach((item) => {
+                    item.addEventListener("click", () => {
+                        navLinks.classList.remove("active");
+                        hamburger.classList.remove("active");
+                    });
+                });
 
-        // Close mobile menu when clicking on a link
-        const navItems = document.querySelectorAll(".nav-links a");
-        navItems.forEach((item) => {
-            item.addEventListener("click", () => {
-                navLinks.classList.remove("active");
-                hamburger.classList.remove("active");
-            });
-        });
-
-        // Close mobile menu when clicking outside (only if menu is open)
-        document.addEventListener("click", (e) => {
-            if (
-                navLinks.classList.contains("active") &&
-                !hamburger.contains(e.target) &&
-                !navLinks.contains(e.target)
-            ) {
-                navLinks.classList.remove("active");
-                hamburger.classList.remove("active");
-            }
-        });
-
-        // FAQ Toggle Functionality
-        document.querySelectorAll(".faq-question").forEach((btn) => {
-            btn.addEventListener("click", () => {
-                const item = btn.parentElement;
-                
-                // Close all other items
-                document.querySelectorAll(".faq-item").forEach((otherItem) => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove("active");
+                // Close mobile menu when clicking outside (only if menu is open)
+                document.addEventListener("click", (e) => {
+                    if (
+                        navLinks.classList.contains("active") &&
+                        !hamburger.contains(e.target) &&
+                        !navLinks.contains(e.target)
+                    ) {
+                        navLinks.classList.remove("active");
+                        hamburger.classList.remove("active");
                     }
                 });
-                
-                
-                item.classList.toggle("active");
+            }
+
+            // Set active navigation link based on current page
+            setActiveNavigation();
+            
+            // FAQ Toggle Functionality
+            document.querySelectorAll(".faq-question").forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    const item = btn.parentElement;
+                    
+                    // Close all other items
+                    document.querySelectorAll(".faq-item").forEach((otherItem) => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove("active");
+                        }
+                    });
+                    
+                    item.classList.toggle("active");
+                });
             });
+            
+            function setActiveNavigation() {
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                const navLinks = document.querySelectorAll('.nav-links a');
+                
+                navLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
         });
 
     </script>

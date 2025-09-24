@@ -625,6 +625,7 @@ body.dark-mode {
             text-decoration: none;
             color: #3e2723;
             font-weight: 600;
+            font-size: 1.1rem;
             padding: 0.7rem 1rem;
             border-radius: 25px;
             transition: all 0.3s ease;
@@ -655,6 +656,21 @@ body.dark-mode {
             color: #e0e0e0 !important;
         }
 
+        /* Active navigation link styles */
+        .nav-links a.active {
+            background-color: #0d0d0d !important;
+            color: #ffffff !important;
+            border-color: #1e1e1e !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .nav-links a.active {
+            background-color: #0d0d0d !important;
+            color: #ffffff !important;
+            border-color: #1e1e1e !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
         /* Navigation Actions */
         .nav-actions {
             display: flex;
@@ -663,13 +679,13 @@ body.dark-mode {
         }
 
         .dark-mode-btn {
-            background-color: #3e2723;
+            background: linear-gradient(135deg, #3e2723, #4d312b);
             border: none;
             color: white;
             padding: 0.7rem;
             border-radius: 50%;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 1rem;
             width: 45px;
             height: 45px;
@@ -677,16 +693,43 @@ body.dark-mode {
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark-mode-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .dark-mode-btn:hover::before {
+            width: 100%;
+            height: 100%;
         }
 
         .dark-mode-btn:hover {
-            transform: scale(1.1) rotate(360deg);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transform: scale(1.15) rotate(360deg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(62, 39, 35, 0.2);
+            background: linear-gradient(135deg, #4d312b, #3e2723);
         }
 
         body.dark-mode .dark-mode-btn {
-            background-color: #e0e0e0;
+            background: linear-gradient(135deg, #e0e0e0, #d0d0d0);
             color: #1e1e1e;
+            box-shadow: 0 4px 15px rgba(224, 224, 224, 0.2);
+        }
+
+        body.dark-mode .dark-mode-btn:hover {
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            box-shadow: 0 8px 25px rgba(224, 224, 224, 0.3), 0 4px 12px rgba(30, 30, 30, 0.2);
         }
 
         .login-btn {
@@ -1834,13 +1877,13 @@ body.about-page.dark-mode li {
         }
 
         .dark-mode-btn {
-            background-color: #3e2723;
+            background: linear-gradient(135deg, #3e2723, #4d312b);
             border: none;
             color: white;
             padding: 0.7rem;
             border-radius: 50%;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 1rem;
             width: 45px;
             height: 45px;
@@ -1848,16 +1891,43 @@ body.about-page.dark-mode li {
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark-mode-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .dark-mode-btn:hover::before {
+            width: 100%;
+            height: 100%;
         }
 
         .dark-mode-btn:hover {
-            transform: scale(1.1) rotate(360deg);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transform: scale(1.15) rotate(360deg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(62, 39, 35, 0.2);
+            background: linear-gradient(135deg, #4d312b, #3e2723);
         }
 
         body.dark-mode .dark-mode-btn {
-            background-color: #e0e0e0;
+            background: linear-gradient(135deg, #e0e0e0, #d0d0d0);
             color: #1e1e1e;
+            box-shadow: 0 4px 15px rgba(224, 224, 224, 0.2);
+        }
+
+        body.dark-mode .dark-mode-btn:hover {
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            box-shadow: 0 8px 25px rgba(224, 224, 224, 0.3), 0 4px 12px rgba(30, 30, 30, 0.2);
         }
 
         .login-btn {
@@ -2088,6 +2158,12 @@ body.about-page.dark-mode li {
 
             .nav-links a:hover {
                 background: #3a3a3a !important;
+                color: #ffffff !important;
+            }
+
+            /* Mobile navigation active state */
+            .nav-links a.active {
+                background: #0d0d0d !important;
                 color: #ffffff !important;
             }
 
@@ -2665,6 +2741,12 @@ body.about-page.dark-mode li {
 
             .nav-links a:hover {
                 background: #3a3a3a !important;
+                color: #ffffff !important;
+            }
+
+            /* Mobile navigation active state */
+            .nav-links a.active {
+                background: #0d0d0d !important;
                 color: #ffffff !important;
             }
 
