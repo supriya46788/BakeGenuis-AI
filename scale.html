@@ -188,6 +188,21 @@
             color: #e0e0e0 !important;
         }
 
+        /* Active navigation link styles */
+        .nav-links a.active {
+            background-color: #0d0d0d !important;
+            color: #ffffff !important;
+            border-color: #1e1e1e !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .nav-links a.active {
+            background-color: #0d0d0d !important;
+            color: #ffffff !important;
+            border-color: #1e1e1e !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
         /* Navigation Actions */
         .nav-actions {
             display: flex;
@@ -222,48 +237,7 @@
             color: #1e1e1e;
         }
 
-        .login-btn {
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-            color: white;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 15px #402a26;
-            border: 2px solid transparent;
-        }
-
-        .login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px #624844;
-            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
-        }
-
-        body.dark-mode .login-btn {
-            background: #e0e0e0;
-            color: #0d0d0d;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 2px 2px #e0e0e0;
-            border: 2px solid transparent;
-        }
-
-        body.dark-mode .login-btn:hover {
-            transform: translateY(-3px);
-            background: #e0e0e0;
-            box-shadow: 0 2px 2px #e0e0e0;
-        }
-
+        
         .hamburger {
             display: none;
             flex-direction: column;
@@ -346,48 +320,7 @@
             color: #1e1e1e;
         }
 
-        .login-btn {
-            background-color: #d18a68;
-            color: white;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-            border: 2px solid transparent;
-        }
-
-        .login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-            background: #d18a68;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        body.dark-mode .login-btn {
-            background-color: #e0e0e0;
-            color: #0d0d0d;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 2px 2px #e0e0e0;
-            border: 2px solid transparent;
-        }
-
-        body.dark-mode .login-btn:hover {
-            transform: translateY(-3px);
-            background: #e0e0e0;
-            box-shadow: 0 2px 2px #e0e0e0;
-        }
+        
 
 
         /* ===== STANDARDIZED MOBILE NAVIGATION ===== */
@@ -452,17 +385,19 @@
                 color: #ffffff !important;
             }
 
+            /* Mobile navigation active state */
+            .nav-links a.active {
+                background: #0d0d0d !important;
+                color: #ffffff !important;
+            }
+
             .nav-actions {
                 gap: 0.5rem;
                 position: relative;
                 z-index: 1001;
             }
 
-            .login-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-
+           
             .dark-mode-btn {
                 width: 40px;
                 height: 40px;
@@ -502,10 +437,7 @@
                 gap: 0.3rem;
             }
 
-            .login-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
+           
 
             .dark-mode-btn {
                 width: 35px;
@@ -909,10 +841,10 @@
             }
         }
 
-
-        /* Dual Scroll Buttons */
-        .scroll-btn {
+        /* Back to Top Button Styles */
+        #backToTop {
             position: fixed;
+            bottom: 2.5rem;
             right: 2.5rem;
             z-index: 2000;
             background: linear-gradient(45deg, #a4766a, #5d4037);
@@ -929,34 +861,61 @@
             transition: opacity 0.4s, transform 0.2s;
         }
 
-        .scroll-btn.show {
+        body.dark-mode #backToTop {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        #backToTop.show {
             opacity: 1;
             pointer-events: auto;
             transform: scale(1.08);
         }
 
-        .scroll-btn:hover {
+        #backToTop:hover {
+            background: linear-gradient(45deg, #a4766a, #5d4037);
             transform: scale(1.15);
-            background: linear-gradient(45deg, #5d4037, #a4766a);
         }
 
-        body.dark-mode .scroll-btn {
+        /* Back to Top to Bottom Button Styles */
+        #Toptoback {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            z-index: 2000;
+            background: linear-gradient(45deg, #a4766a, #5d4037);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            font-size: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s, transform 0.2s;
+        }
+
+        body.dark-mode #Toptoback {
             background: #e0e0e0;
             color: #0d0d0d;
         }
 
-        body.dark-mode .scroll-btn:hover {
-            background: #e0e0e0;
-            transform: scale(1.15);
-        }
-        /* Positioning individually */
-        #scrollTopBtn {
-            bottom: 6.5rem;
+        #Toptoback.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(-10px) scale(1.08);
         }
 
-        /* Above bottom button */
-        #scrollBottomBtn {
-            bottom: 2.5rem;
+        #Toptoback:hover {
+            background: linear-gradient(45deg, #a4766a, #5d4037);
+            transform: scale(1.15);
+        }
+
+        body.dark-mode #Toptoback:hover {
+            background: #e0e0e0;
+            transform: scale(1.15);
         }
 
         /* Main Container */
@@ -1810,14 +1769,7 @@
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="#" class="login-btn" id="openLoginModal">
-                    <i class="fas fa-user"></i>
-                    Login
-                </a>
-                <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Logout
-                </a>
+                
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -1919,10 +1871,11 @@
             </div>
         </div>
     </div>
-    <!-- Dual Scroll Buttons -->
-    <button id="scrollTopBtn" class="scroll-btn" title="Back to Top">⬆</button>
-    <button id="scrollBottomBtn" class="scroll-btn" title="Scroll to Bottom">⬇</button>
-
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to Top">⬆</button>
+    <!-- Top to Bottom Button -->
+    <button id="Toptoback" title="Top To Back">⬇</button>
 
     <!-- footer startes here -->
     <footer class="footer">
@@ -2003,35 +1956,55 @@
 
     <script src="assets/js/theme.js"></script>
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mobile Navigation Toggle
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
 
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
 
-        // Mobile Navigation Toggle
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
+                // Close mobile menu when clicking on a link
+                const navItems = document.querySelectorAll('.nav-links a');
+                navItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    });
+                });
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                        navLinks.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    }
+                });
+            }
 
-        // Close mobile menu when clicking on a link
-        const navItems = document.querySelectorAll('.nav-links a');
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
+            // Set active navigation link based on current page
+            setActiveNavigation();
+            
+            function setActiveNavigation() {
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                const navLinks = document.querySelectorAll('.nav-links a');
+                
+                navLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
             }
         });
 
         // Scale Recipe Logic
+        document.addEventListener("DOMContentLoaded", function () {
         const API_KEY = 'API_KEY';
         const API_URL = 'API_URL';
 
@@ -2297,63 +2270,31 @@
             document.getElementById('convertToGrams').checked = false;
             document.getElementById('resultsContainer').classList.remove('show');
         }
-        // Dual Scroll Buttons
-        const scrollTopBtn = document.getElementById('scrollTopBtn');
-        const scrollBottomBtn = document.getElementById('scrollBottomBtn');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollTopBtn.classList.add('show');
+        
+        // Back to Top Button Logic
+        const backToTopBtn = document.getElementById("backToTop");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 100) {
+                backToTopBtn.classList.add("show");
             } else {
-                scrollTopBtn.classList.remove('show');
-            }
-
-            if (window.innerHeight + window.scrollY < document.body.offsetHeight - 300) {
-                scrollBottomBtn.classList.add('show');
-            } else {
-                scrollBottomBtn.classList.remove('show');
+                backToTopBtn.classList.remove("show");
             }
         });
-
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
         });
 
-        scrollBottomBtn.addEventListener('click', () => {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-        });
-
-
-        // Function to update login state
-        function updateLoginState() {
-            const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-            const loginBtn = document.getElementById("openLoginModal");
-            const logoutBtn = document.getElementById("logoutBtn");
-
-            if (isLoggedIn) {
-                loginBtn.style.display = "none";
-                logoutBtn.style.display = "flex";
+        //Top to Bottom Button Logic
+        const ToptobackBtn = document.getElementById("Toptoback");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY < 100) {
+                ToptobackBtn.classList.add("show");
             } else {
-                loginBtn.style.display = "flex";
-                logoutBtn.style.display = "none";
+                ToptobackBtn.classList.remove("show");
             }
-        }
-
-        // Logout functionality
-        const logoutBtn = document.getElementById("logoutBtn");
-        if (logoutBtn) {
-            logoutBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                localStorage.removeItem("isLoggedIn");
-                localStorage.removeItem("currentUser");
-                updateLoginState();
-                alert("You have been logged out successfully!");
-            });
-        }
-
-        // Check login state on page load
-        document.addEventListener("DOMContentLoaded", () => {
-            updateLoginState();
+        });
+        ToptobackBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 10000, behavior: "smooth" });
         });
 
         // Add some example recipes on page load
@@ -2364,8 +2305,10 @@
                 "4 cups flour\n1/2 cup sugar\n1 packet yeast\n1 tsp salt\n1/4 cup olive oil\n1 1/2 cups warm water"
             ];
 
+        });
 
         });
+
     </script>
 </body>
 

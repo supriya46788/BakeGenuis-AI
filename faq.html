@@ -209,6 +209,21 @@
             color: #e0e0e0 !important;
         }
 
+        /* Active navigation link styles */
+        .nav-links a.active {
+            background-color: #0d0d0d !important;
+            color: #ffffff !important;
+            border-color: #1e1e1e !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .nav-links a.active {
+            background-color: #0d0d0d !important;
+            color: #ffffff !important;
+            border-color: #1e1e1e !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
         /* Navigation Actions */
         .nav-actions {
             display: flex;
@@ -243,48 +258,7 @@
             color: #1e1e1e;
         }
 
-        .login-btn {
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-            color: white;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 15px #402a26;
-            border: 2px solid transparent;
-        }
-
-        .login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px #624844;
-            background: linear-gradient(90deg, #543732, #3d2b28, #341d19);
-        }
-
-        body.dark-mode .login-btn {
-            background: #e0e0e0;
-            color: #0d0d0d;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 2px 2px #e0e0e0;
-            border: 2px solid transparent;
-        }
-
-        body.dark-mode .login-btn:hover {
-            transform: translateY(-3px);
-            background: #e0e0e0;
-            box-shadow: 0 2px 2px #e0e0e0;
-        }
-
+        
         .hamburger {
             display: none;
             flex-direction: column;
@@ -398,48 +372,7 @@
             color: #1e1e1e;
         }
 
-        .login-btn {
-            background-color: #5C4033;
-            color: white;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-            border: 2px solid transparent;
-        }
-
-        .login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px #cf622f;
-            background-color: #5C4033;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        body.dark-mode .login-btn {
-            background-color: #e0e0e0;
-            color: #0d0d0d;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 2px 2px #e0e0e0;
-            border: 2px solid transparent;
-        }
-
-        body.dark-mode .login-btn:hover {
-            transform: translateY(-3px);
-            background: #e0e0e0;
-            box-shadow: 0 2px 2px #e0e0e0;
-        }
+        
 
         .hamburger {
             display: none;
@@ -454,18 +387,6 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
-            margin: 3px 0;
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-
-        body.dark-mode .hamburger span {
-            background: linear-gradient(45deg, #3498db, #9b59b6);
-        }
 
         .hamburger.active span:nth-child(1) {
             transform: rotate(-45deg) translate(-5px, 6px);
@@ -604,6 +525,83 @@
         .faq-item.active .faq-answer {
             max-height: 300px;
             padding: 0 20px;
+        }
+
+        /* Back to Top Button Styles */
+        #backToTop {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            z-index: 2000;
+            background: linear-gradient(45deg, #a4766a, #5d4037);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            font-size: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s, transform 0.2s;
+        }
+
+        body.dark-mode #backToTop {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        #backToTop.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1.08);
+        }
+
+        #backToTop:hover {
+            background: linear-gradient(45deg, #a4766a, #5d4037);
+            transform: scale(1.15);
+        }
+
+        /* Back to Top to Bottom Button Styles */
+        #Toptoback {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            z-index: 2000;
+            background: linear-gradient(45deg, #a4766a, #5d4037);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            font-size: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s, transform 0.2s;
+        }
+
+        body.dark-mode #Toptoback {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        #Toptoback.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(-10px) scale(1.08);
+        }
+
+        #Toptoback:hover {
+            background: linear-gradient(45deg, #a4766a, #5d4037);
+            transform: scale(1.15);
+        }
+
+        body.dark-mode #Toptoback:hover {
+            background: #e0e0e0;
+            transform: scale(1.15);
         }
 
         /* Footer */
@@ -916,16 +914,19 @@
                 color: #ffffff !important;
             }
 
+            /* Mobile navigation active state */
+            .nav-links a.active {
+                background: #0d0d0d !important;
+                color: #ffffff !important;
+            }
+
             .nav-actions {
                 gap: 0.5rem;
                 position: relative;
                 z-index: 1001;
             }
 
-            .login-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
+           
 
             .dark-mode-btn {
                 width: 40px;
@@ -964,11 +965,6 @@
 
             .nav-actions {
                 gap: 0.3rem;
-            }
-
-            .login-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
             }
 
             .dark-mode-btn {
@@ -1091,14 +1087,7 @@
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="#" class="login-btn" id="openLoginModal">
-                    <i class="fas fa-user"></i>
-                    Login
-                </a>
-                <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Logout
-                </a>
+                
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -1170,6 +1159,11 @@
             </div>
         </div>
     </section>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to Top">⬆</button>
+    <!-- Top to Bottom Button -->
+    <button id="Toptoback" title="Top To Back">⬇</button>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1247,53 +1241,98 @@
     <!-- JavaScript -->
     <script src="assets/js/theme.js"></script>
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mobile Navigation Toggle
+            const hamburger = document.getElementById("hamburger");
+            const navLinks = document.getElementById("navLinks");
 
-        // Mobile Navigation Toggle
-        const hamburger = document.getElementById("hamburger");
-        const navLinks = document.getElementById("navLinks");
+            if (hamburger && navLinks) {
+                hamburger.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    navLinks.classList.toggle("active");
+                    hamburger.classList.toggle("active");
+                });
 
-        hamburger.addEventListener("click", (e) => {
-            e.stopPropagation();
-            navLinks.classList.toggle("active");
-            hamburger.classList.toggle("active");
-        });
+                // Close mobile menu when clicking on a link
+                const navItems = document.querySelectorAll(".nav-links a");
+                navItems.forEach((item) => {
+                    item.addEventListener("click", () => {
+                        navLinks.classList.remove("active");
+                        hamburger.classList.remove("active");
+                    });
+                });
 
-        // Close mobile menu when clicking on a link
-        const navItems = document.querySelectorAll(".nav-links a");
-        navItems.forEach((item) => {
-            item.addEventListener("click", () => {
-                navLinks.classList.remove("active");
-                hamburger.classList.remove("active");
+                // Close mobile menu when clicking outside (only if menu is open)
+                document.addEventListener("click", (e) => {
+                    if (
+                        navLinks.classList.contains("active") &&
+                        !hamburger.contains(e.target) &&
+                        !navLinks.contains(e.target)
+                    ) {
+                        navLinks.classList.remove("active");
+                        hamburger.classList.remove("active");
+                    }
+                });
+            }
+
+            // Set active navigation link based on current page
+            setActiveNavigation();
+            
+            // FAQ Toggle Functionality
+            document.querySelectorAll(".faq-question").forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    const item = btn.parentElement;
+                    
+                    // Close all other items
+                    document.querySelectorAll(".faq-item").forEach((otherItem) => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove("active");
+                        }
+                    });
+                    
+                    item.classList.toggle("active");
+                });
             });
-        });
-
-        // Close mobile menu when clicking outside (only if menu is open)
-        document.addEventListener("click", (e) => {
-            if (
-                navLinks.classList.contains("active") &&
-                !hamburger.contains(e.target) &&
-                !navLinks.contains(e.target)
-            ) {
-                navLinks.classList.remove("active");
-                hamburger.classList.remove("active");
+            
+            function setActiveNavigation() {
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                const navLinks = document.querySelectorAll('.nav-links a');
+                
+                navLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
             }
         });
 
-        // FAQ Toggle Functionality
-        document.querySelectorAll(".faq-question").forEach((btn) => {
-            btn.addEventListener("click", () => {
-                const item = btn.parentElement;
-                
-                // Close all other items
-                document.querySelectorAll(".faq-item").forEach((otherItem) => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove("active");
-                    }
-                });
-                
-                
-                item.classList.toggle("active");
-            });
+        // Back to Top Button Logic
+        const backToTopBtn = document.getElementById("backToTop");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 100) {
+                backToTopBtn.classList.add("show");
+            } else {
+                backToTopBtn.classList.remove("show");
+            }
+        });
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        //Top to Bottom Button Logic
+        const ToptobackBtn = document.getElementById("Toptoback");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY < 100) {
+                ToptobackBtn.classList.add("show");
+            } else {
+                ToptobackBtn.classList.remove("show");
+            }
+        });
+        ToptobackBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 10000, behavior: "smooth" });
         });
 
     </script>
