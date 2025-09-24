@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -2049,15 +2049,43 @@
             /* Changed from none to flex for demo */
         }
     </style>
+
 </head>
 
 <body>
-    <!-- Loading Screen -->
-    <div id="loading-screen">
-        <div class="loader">
-            <i class="fa-solid fa-spinner"></i>
-            <h2>Baking Mode On<span class="dots"></span></h2>
-        </div>
+  <!-- Loading Screen -->
+  <div id="loading-screen" aria-live="polite">
+    <div class="loader">
+      <i class="fa-solid fa-spinner" aria-hidden="true"></i>
+      <h2>Baking Mode On<span class="dots"></span></h2>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo" aria-label="BakeGenius.ai home">
+        <span class="logo-icon">🍰</span>
+        <span class="logo-text">BakeGenius.ai</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="convert.html"><i class="fas fa-exchange-alt" style="margin-right:8px;"></i>Convert Recipe</a></li>
+        <li><a href="customize.html"><i class="fas fa-cog" style="margin-right:8px;"></i>Customize</a></li>
+        <li><a href="scale.html"><i class="fas fa-balance-scale" style="margin-right:8px;"></i>Scale Recipes</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle" style="margin-right:8px;"></i>About</a></li>
+        <li><a href="faq.html"><i class="fas fa-question-circle" style="margin-right:8px;"></i>FAQs</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode" aria-label="Toggle dark mode">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
     </div>
     <!-- Navigation -->
     <nav class="navbar">
@@ -2068,53 +2096,53 @@
             </a>
 
             <ul class="nav-links" id="navLinks">
-
                 <li>
                     <a href="convert.html">
-                        <i class="fas fa-exchange-alt" style="margin-right:8px;"></i>
+                        <i class="fas fa-exchange-alt" style="margin-right:8px;" aria-hidden="true"></i>
                         Convert Recipe
                     </a>
                 </li>
                 <li>
                     <a href="customize.html">
-                        <i class="fas fa-cog" style="margin-right:8px;"></i>
+                        <i class="fas fa-cog" style="margin-right:8px;" aria-hidden="true"></i>
                         Customize
                     </a>
                 </li>
                 <li>
                     <a href="scale.html">
-                        <i class="fas fa-balance-scale" style="margin-right:8px;"></i>
+                        <i class="fas fa-balance-scale" style="margin-right:8px;" aria-hidden="true"></i>
                         Scale Recipes
                     </a>
                 </li>
                 <li>
                     <a href="about.html">
-                        <i class="fas fa-info-circle" style="margin-right:8px;"></i>
+                        <i class="fas fa-info-circle" style="margin-right:8px;" aria-hidden="true"></i>
                         About
                     </a>
                 </li>
                 <li>
                     <a href="faq.html">
-                        <i class="fas fa-question-circle" style="margin-right:8px;"></i>
+                        <i class="fas fa-question-circle" style="margin-right:8px;" aria-hidden="true"></i>
                         FAQs
                     </a>
                 </li>
-
             </ul>
+
             <div class="nav-actions">
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
-                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-moon" aria-hidden="true"></i>
                 </button>
                 <a href="#" class="login-btn" id="openLoginModal">
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-user" aria-hidden="true"></i>
                     Login
                 </a>
                 <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
-                    <i class="fas fa-sign-out-alt"></i>
+                    <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
                     Logout
                 </a>
             </div>
-            <div class="hamburger" id="hamburger">
+
+            <div class="hamburger" id="hamburger" aria-label="Menu toggle">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -2129,8 +2157,7 @@
             <h1 class="hero-title">Welcome to BakeGenius.ai</h1>
             <p class="hero-subtitle">
                 From spoon to scale — get exact gram conversions with AI magic ✨<br />
-                Transform vague recipe measurements into precise, consistent results
-                every time!
+                Transform vague recipe measurements into precise, consistent results every time!
             </p>
             <a href="convert.html" class="cta-button">Start Converting Now 🚀</a>
         </section>
@@ -2138,30 +2165,28 @@
         <!-- Features Preview -->
         <section class="features-preview">
             <div class="feature-card">
-                <i class="fas fa-magic feature-icon"></i>
+                <i class="fas fa-magic feature-icon" aria-hidden="true"></i>
                 <h3 class="feature-title">AI-Powered Precision</h3>
                 <p class="feature-desc">
-                    Advanced AI converts "cups" and "spoons" into exact gram
-                    measurements for perfect baking every time.
+                    Advanced AI converts "cups" and "spoons" into exact gram measurements for perfect baking every time.
                 </p>
             </div>
             <div class="feature-card">
-                <i class="fas fa-balance-scale feature-icon"></i>
+                <i class="fas fa-balance-scale feature-icon" aria-hidden="true"></i>
                 <h3 class="feature-title">Smart Recipe Scaling</h3>
                 <p class="feature-desc">
-                    Effortlessly scale recipes up or down while maintaining perfect
-                    ratios and adjusting rising agents intelligently.
+                    Effortlessly scale recipes up or down while maintaining perfect ratios and adjusting rising agents intelligently.
                 </p>
             </div>
             <div class="feature-card">
-                <i class="fas fa-cogs feature-icon"></i>
+                <i class="fas fa-cogs feature-icon" aria-hidden="true"></i>
                 <h3 class="feature-title">Custom Preferences</h3>
                 <p class="feature-desc">
-                    Personalize conversions based on your preferred brands and
-                    ingredient specifications for consistent results.
+                    Personalize conversions based on your preferred brands and ingredient specifications for consistent results.
                 </p>
             </div>
         </section>
+
         <!-- Stats Section -->
         <section class="stats-section">
             <div class="stats-container">
@@ -2183,40 +2208,38 @@
                 </div>
             </div>
         </section>
+
         <!-- How It Works Section -->
         <section class="how-it-works">
             <h2 class="section-title">How It Works</h2>
             <div class="steps-container">
                 <div class="step-card">
                     <div class="step-icon">
-                        <i class="fas fa-file-upload"></i>
+                        <i class="fas fa-file-upload" aria-hidden="true"></i>
                     </div>
                     <h3 class="step-title">Upload Your Recipe</h3>
                     <p class="step-desc">
                         Simply paste your recipe text or upload an image.
-                        Our AI understands various formats and even
-                        handwritten recipes with advanced OCR technology.
+                        Our AI understands various formats and even handwritten recipes with advanced OCR technology.
                     </p>
                 </div>
                 <div class="step-card">
                     <div class="step-icon">
-                        <i class="fas fa-brain"></i>
+                        <i class="fas fa-brain" aria-hidden="true"></i>
                     </div>
                     <h3 class="step-title">AI Analysis</h3>
                     <p class="step-desc">
-                        Our advanced AI analyzes ingredients, quantities, and
-                        cooking methods to ensure perfect conversions.
+                        Our advanced AI analyzes ingredients, quantities, and cooking methods to ensure perfect conversions.
                         Machine learning improves accuracy continuously.
                     </p>
                 </div>
                 <div class="step-card">
                     <div class="step-icon">
-                        <i class="fas fa-balance-scale"></i>
+                        <i class="fas fa-balance-scale" aria-hidden="true"></i>
                     </div>
                     <h3 class="step-title">Get Precise Results</h3>
                     <p class="step-desc">
-                        Receive your converted recipe with exact gram
-                        measurements and scaling options for any serving size.
+                        Receive your converted recipe with exact gram measurements and scaling options for any serving size.
                         Export to your favorite recipe apps.
                     </p>
                 </div>
@@ -2230,30 +2253,28 @@
                     <h2>Why Professional Bakers Use Grams</h2>
                     <div class="benefits-list">
                         <div class="benefit-item">
-                            <i class="fa-solid fa-scale-balanced"></i>
+                            <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
                             <div>
                                 <h4>Precision & Consistency</h4>
-                                <p>Weight measurements are 5x more accurate than volume, ensuring identical results
-                                    every time</p>
+                                <p>Weight measurements are 5x more accurate than volume, ensuring identical results every time</p>
                             </div>
                         </div>
                         <div class="benefit-item">
-                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-check-circle" aria-hidden="true"></i>
                             <div>
                                 <h4>Easy Scaling</h4>
                                 <p>Double or halve recipes effortlessly with mathematical precision</p>
                             </div>
                         </div>
                         <div class="benefit-item">
-                            <i class="fa-solid fa-bullseye"></i>
+                            <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
                             <div>
                                 <h4>No Guesswork</h4>
-                                <p>Eliminate variations from different cup sizes, packing methods, or measurement errors
-                                </p>
+                                <p>Eliminate variations from different cup sizes, packing methods, or measurement errors</p>
                             </div>
                         </div>
                         <div class="benefit-item">
-                            <i class="fa-solid fa-award"></i>
+                            <i class="fa-solid fa-award" aria-hidden="true"></i>
                             <div>
                                 <h4>Professional Results</h4>
                                 <p>Achieve bakery-quality consistency in your home kitchen</p>
@@ -2264,12 +2285,12 @@
                 <div class="why-grams-visual">
                     <div class="measurement-comparison">
                         <div class="measurement-item problem">
-                            <i class="fa-solid fa-mug-saucer"></i>
+                            <i class="fa-solid fa-mug-saucer" aria-hidden="true"></i>
                             <p>1 cup flour = 120-150g<br><span class="variance">±25% variance</span></p>
                         </div>
                         <div class="vs">VS</div>
                         <div class="measurement-item solution">
-                            <i class="fas fa-weight"></i>
+                            <i class="fas fa-weight" aria-hidden="true"></i>
                             <p>125g flour = 125g<br><span class="accuracy">100% accurate</span></p>
                         </div>
                     </div>
@@ -2277,12 +2298,12 @@
             </div>
         </section>
     </main>
-    <!-- Back to Top Button -->
-    <button id="backToTop" title="Back to Top">⬆</button>
-    <!-- Top to Bottom Button -->
-    <button id="Toptoback" title="Top To Back">⬇</button>
 
-    <!-- footer startes here -->
+    <!-- Scroll buttons -->
+    <button id="backToTop" title="Back to Top" aria-label="Back to top">⬆</button>
+    <button id="Toptoback" title="Top To Back" aria-label="Scroll to bottom">⬇</button>
+
+    <!-- footer starts here -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section footer-brand">
@@ -2291,21 +2312,17 @@
                     <span class="footer-logo-text">BakeGenius.ai</span>
                 </div>
                 <p class="footer-description">
-                    Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and
-                    delightful for everyone.
+                    Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and delightful for everyone.
                 </p>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-link linkedin" target="_blank"
-                        rel="noopener" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-link linkedin" target="_blank" rel="noopener" title="LinkedIn">
+                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
                     </a>
-                    <a href="https://github.com/supriya46788/BakeGenuis-AI" class="social-link github" target="_blank"
-                        rel="noopener" title="GitHub">
-                        <i class="fab fa-github"></i>
+                    <a href="https://github.com/supriya46788/BakeGenuis-AI" class="social-link github" target="_blank" rel="noopener" title="GitHub">
+                        <i class="fab fa-github" aria-hidden="true"></i>
                     </a>
-                    <a href="mailto:supriyadpandey502@gmail.com" class="social-link email" target="_blank"
-                        rel="noopener" title="Email">
-                        <i class="fas fa-envelope"></i>
+                    <a href="mailto:supriyadpandey502@gmail.com" class="social-link email" target="_blank" rel="noopener" title="Email">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
@@ -2313,437 +2330,546 @@
             <div class="footer-section">
                 <h3 class="footer-title">Quick Links</h3>
                 <ul class="footer-links">
-                    <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
-                    <li><a href="convert.html"><i class="fas fa-exchange-alt"></i>Convert Recipe</a></li>
-                    <li><a href="customize.html"><i class="fas fa-cog"></i>Customize</a></li>
-                    <li><a href="scale.html"><i class="fas fa-balance-scale"></i>Scale Recipes</a></li>
-                    <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+                    <li><a href="index.html"><i class="fas fa-home" aria-hidden="true"></i>Home</a></li>
+                    <li><a href="convert.html"><i class="fas fa-exchange-alt" aria-hidden="true"></i>Convert Recipe</a></li>
+                    <li><a href="customize.html"><i class="fas fa-cog" aria-hidden="true"></i>Customize</a></li>
+                    <li><a href="scale.html"><i class="fas fa-balance-scale" aria-hidden="true"></i>Scale Recipes</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle" aria-hidden="true"></i>About Us</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
                 <h3 class="footer-title">Features</h3>
                 <ul class="footer-links">
-                    <li><a href="javascript:void(0)"><i class="fas fa-calculator"></i>Unit Conversion</a></li>
-                    <li><a href="javascript:void(0)"><i class="fas fa-chart-line"></i>Nutritional Analysis</a></li>
-                    <li><a href="javascript:void(0)"><i class="fas fa-balance-scale"></i>Recipe Scaling</a></li>
-                    <li><a href="javascript:void(0)"><i class="fas fa-magic"></i>AI Optimization</a></li>
-                    <li><a href="javascript:void(0)"><i class="fas fa-mobile-alt"></i>Mobile Friendly</a></li>
+                    <li><a href="#"><i class="fas fa-calculator" aria-hidden="true"></i>Unit Conversion</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line" aria-hidden="true"></i>Nutritional Analysis</a></li>
+                    <li><a href="#"><i class="fas fa-balance-scale" aria-hidden="true"></i>Recipe Scaling</a></li>
+                    <li><a href="#"><i class="fas fa-magic" aria-hidden="true"></i>AI Optimization</a></li>
+                    <li><a href="#"><i class="fas fa-mobile-alt" aria-hidden="true"></i>Mobile Friendly</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
                 <h3 class="footer-title">Support</h3>
                 <ul class="footer-links">
-                    <li><a href="contact.html"><i class="fas fa-question-circle"></i>Contact Us</a></li>
-                    <li><a href="feedback.html"><i class="fas fa-comment"></i>Feedback</a></li>
-                    <li><a href="faq.html"><i class="fas fa-info-circle"></i>FAQ</a></li>
-                    <li><a href="privacypolicy.html"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
-                    <li><a href="toc.html"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
+                    <li><a href="contact.html"><i class="fas fa-question-circle" aria-hidden="true"></i>Contact Us</a></li>
+                    <li><a href="feedback.html"><i class="fas fa-comment" aria-hidden="true"></i>Feedback</a></li>
+                    <li><a href="faq.html"><i class="fas fa-info-circle" aria-hidden="true"></i>FAQ</a></li>
+                    <li><a href="privacypolicy.html"><i class="fas fa-shield-alt" aria-hidden="true"></i>Privacy Policy</a></li>
+                    <li><a href="toc.html"><i class="fas fa-file-contract" aria-hidden="true"></i>Terms of Service</a></li>
                 </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <div class="footer-bottom-content">
-                <p class="copyright">
-                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <span class="name">Supriya
-                        Pandey</span>
-                </p>
-                <div class="footer-badges">
-                    <span class="badge badge-green"><i class="fas fa-heart"></i> Open Source</span>
-                    <span class="badge badge-blue"><i class="fas fa-leaf"></i> Eco Friendly</span>
-                    <span class="badge badge-purple"><i class="fas fa-robot"></i> AI Powered</span>
-                </div>
             </div>
         </div>
     </footer>
 
-    <div id="loginModal">
-        <div class="modal-content">
-            <button class="close-btn" id="closeLoginModal">&times;</button>
+        </div>
+      </div>
 
-            <h2 class="form-title">Welcome Back</h2>
 
-            <div class="form-container">
-                <!-- Login Form -->
-                <form id="loginForm">
-                    <div class="input-group">
-                        <div class="input-wrapper">
-                            <i class="fa-regular fa-user input-icon"></i>
-                            <input type="text" id="loginUsername" class="form-input" placeholder="Username" required />
-                        </div>
-                    </div>
+      <div class="footer-section">
+        <h3 class="footer-title">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+          <li><a href="convert.html"><i class="fas fa-exchange-alt"></i>Convert Recipe</a></li>
+          <li><a href="customize.html"><i class="fas fa-cog"></i>Customize</a></li>
+          <li><a href="scale.html"><i class="fas fa-balance-scale"></i>Scale Recipes</a></li>
+          <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+        </ul>
+      </div>
 
-                    <div class="input-group">
-                        <div class="input-wrapper">
-                            <i class="fa-solid fa-lock input-icon"></i>
-                            <input type="password" id="loginPassword" class="form-input" placeholder="Password"
-                                required />
-                            <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">
-                                <i class="fa-regular fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
+      <div class="footer-section">
+        <h3 class="footer-title">Features</h3>
+        <ul class="footer-links">
+          <li><a href="javascript:void(0)"><i class="fas fa-calculator"></i>Unit Conversion</a></li>
+          <li><a href="javascript:void(0)"><i class="fas fa-chart-line"></i>Nutritional Analysis</a></li>
+          <li><a href="javascript:void(0)"><i class="fas fa-balance-scale"></i>Recipe Scaling</a></li>
+          <li><a href="javascript:void(0)"><i class="fas fa-magic"></i>AI Optimization</a></li>
+          <li><a href="javascript:void(0)"><i class="fas fa-mobile-alt"></i>Mobile Friendly</a></li>
+        </ul>
+      </div>
 
-                    <button type="submit" class="submit-btn">
-                        Login
-                    </button>
-                </form>
+      <div class="footer-section">
+        <h3 class="footer-title">Support</h3>
+        <ul class="footer-links">
+          <li><a href="contact.html"><i class="fas fa-question-circle"></i>Contact Us</a></li>
+          <li><a href="feedback.html"><i class="fas fa-comment"></i>Feedback</a></li>
+          <li><a href="faq.html"><i class="fas fa-info-circle"></i>FAQ</a></li>
+          <li><a href="privacypolicy.html"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
+          <li><a href="toc.html"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
 
-                <!-- Sign-Up Form -->
-                <form id="signUpForm" style="display: none;">
-                    <div class="input-group">
-                        <div class="input-wrapper">
-                            <i class="fa-regular fa-user input-icon"></i>
-                            <input type="text" id="signUpUsername" class="form-input" placeholder="New Username"
-                                required />
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <div class="input-wrapper">
-                            <i class="fa-solid fa-lock input-icon"></i>
-                            <input type="password" id="signUpPassword" class="form-input" placeholder="New Password"
-                                required />
-                            <button type="button" class="password-toggle" onclick="togglePassword('signUpPassword')">
-                                <i class="fa-regular fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <div class="input-wrapper">
-                            <i class="fa-solid fa-lock-open input-icon"></i>
-                            <input type="password" id="confirmPassword" class="form-input"
-                                placeholder="Confirm Password" required />
-                            <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
-                                <i class="fa-regular fa-eye"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Error message for password mismatch in Sign-Up -->
-                    <div id="signUpError" style="color:red; font-size:14px; display:none;"></div>
-
-                    <button type="submit" class="submit-btn signup-btn" style="text-align: center;">
-                        Sign Up
-                    </button>
-                </form>
-
-                <div class="toggle-form">
-                    <span id="toggleText">Don't have an account?</span>
-                    <span class="toggle-link" id="toggleForm">Sign Up</span>
-                </div>
+    <div class="footer-bottom">
+        <div class="footer-bottom-content">
+            <p class="copyright">
+                © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <span class="name">Supriya
+                    Pandey</span>
+            </p>
+            <div class="footer-badges">
+                <span class="badge badge-green"><i class="fas fa-heart"></i> Open Source</span>
+                <span class="badge badge-blue"><i class="fas fa-leaf"></i> Eco Friendly</span>
+                <span class="badge badge-purple"><i class="fas fa-robot"></i> AI Powered</span>
             </div>
         </div>
     </div>
-    <script>
-        // Dark Mode Toggle
-        const darkModeToggle = document.getElementById("darkModeToggle");
-        const body = document.body;
-        const darkModeIcon = darkModeToggle.querySelector("i");
+</footer>
 
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem("theme") || "light";
-        if (currentTheme === "dark") {
-            body.classList.add("dark-mode");
-            darkModeIcon.classList.remove("fa-moon");
-            darkModeIcon.classList.add("fa-sun");
+<!-- Login / Sign-Up Modal -->
+<div id="loginModal">
+    <div class="modal-content">
+        <button class="close-btn" id="closeLoginModal">&times;</button>
+
+        <h2 class="form-title">Welcome Back</h2>
+
+        <div class="form-container">
+            <!-- Login Form -->
+            <form id="loginForm">
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-user input-icon"></i>
+                        <input type="text" id="loginUsername" class="form-input" placeholder="Username" required />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock input-icon"></i>
+                        <input type="password" id="loginPassword" class="form-input" placeholder="Password" required />
+                        <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Login
+                </button>
+            </form>
+
+            <!-- Sign-Up Form -->
+            <form id="signUpForm" style="display: none;">
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-user input-icon"></i>
+                        <input type="text" id="signUpUsername" class="form-input" placeholder="New Username" required />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock input-icon"></i>
+                        <input type="password" id="signUpPassword" class="form-input" placeholder="New Password" required />
+                        <button type="button" class="password-toggle" onclick="togglePassword('signUpPassword')">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock-open input-icon"></i>
+                        <input type="password" id="confirmPassword" class="form-input" placeholder="Confirm Password" required />
+                        <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Error message for password mismatch in Sign-Up -->
+                <div id="signUpError" style="color:red; font-size:14px; display:none;"></div>
+
+                <button type="submit" class="submit-btn signup-btn" style="text-align: center;">
+                    Sign Up
+                </button>
+            </form>
+
+            <div class="toggle-form">
+                <span id="toggleText">Don't have an account?</span>
+                <span class="toggle-link" id="toggleForm">Sign Up</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    const body = document.body;
+    const darkModeIcon = darkModeToggle.querySelector("i");
+
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem("theme") || "light";
+    if (currentTheme === "dark") {
+        body.classList.add("dark-mode");
+        darkModeIcon.classList.replace("fa-moon", "fa-sun");
+    }
+
+    darkModeToggle.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+
+        // Update icon
+        if (body.classList.contains("dark-mode")) {
+            darkModeIcon.classList.replace("fa-moon", "fa-sun");
+            localStorage.setItem("theme", "dark");
+        } else {
+            darkModeIcon.classList.replace("fa-sun", "fa-moon");
+            localStorage.setItem("theme", "light");
+        }
+    });
+
+    // Mobile Navigation Toggle
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+
+    hamburger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        navLinks.classList.toggle("active");
+        hamburger.classList.toggle("active");
+    });
+
+    // Close mobile menu when clicking on a link
+    const navItems = document.querySelectorAll(".nav-links a");
+    navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+            hamburger.classList.remove("active");
+        });
+    });
+
+    // Close mobile menu when clicking outside (only if menu is open)
+    document.addEventListener("click", (e) => {
+        if (
+            navLinks.classList.contains("active") &&
+            !hamburger.contains(e.target) &&
+            !navLinks.contains(e.target)
+        ) {
+            navLinks.classList.remove("active");
+            hamburger.classList.remove("active");
+        }
+    });
+
+    // Smooth scroll for CTA button
+    const ctaButton = document.querySelector(".cta-button");
+    ctaButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        ctaButton.style.animation = "bounce 0.5s ease-in-out";
+        setTimeout(() => {
+            ctaButton.style.animation = "pulse 2s ease-in-out infinite";
+            window.location.href = "convert.html";
+        }, 500);
+    });
+
+    // Back to Top Button Logic
+    const backToTopBtn = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add("show");
+        } else {
+            backToTopBtn.classList.remove("show");
+        }
+    });
+    backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Top to Bottom Button Logic
+    const ToptobackBtn = document.getElementById("Toptoback");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY < 100) {
+            ToptobackBtn.classList.add("show");
+        } else {
+            ToptobackBtn.classList.remove("show");
+        }
+    });
+    ToptobackBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 10000, behavior: "smooth" });
+    });
+
+    // Parallax effect for decorative icons
+    window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const parallax = scrolled * 0.5;
+
+        document.querySelectorAll(".baking-icon").forEach((icon, index) => {
+            icon.style.transform = `translateY(${parallax * (index + 1) * 0.1}px) rotate(${parallax * 0.05}deg)`;
+        });
+    });
+
+    // Add sparkle effect on hover for feature cards
+    document.querySelectorAll(".feature-card").forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+            card.style.boxShadow = "0 20px 60px rgba(0, 0, 0, 0.15)";
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.boxShadow = "none";
+        });
+    });
+
+    // Login/Sign-Up Modal Logic
+    const loginModal = document.getElementById("loginModal");
+    const openLoginModal = document.getElementById("openLoginModal");
+    const closeLoginModal = document.getElementById("closeLoginModal");
+    const loginForm = document.getElementById("loginForm");
+    const signUpForm = document.getElementById("signUpForm");
+    const toggleForm = document.getElementById("toggleForm");
+    const modalTitle = document.getElementById("modalTitle");
+    const formError = document.getElementById("formError");
+
+    // Open Modal
+    openLoginModal.addEventListener("click", (e) => {
+        e.preventDefault();
+        loginModal.style.display = "flex";
+        loginForm.style.display = "block";
+        signUpForm.style.display = "none";
+        modalTitle.textContent = "Login";
+        toggleForm.textContent = "Don't have an account? Sign Up";
+        formError.style.display = "none";
+    });
+
+    // Close Modal
+    closeLoginModal.addEventListener("click", () => {
+        loginModal.style.display = "none";
+    });
+
+    // Toggle between login and signup
+    document.getElementById('toggleForm').addEventListener('click', function () {
+        const loginForm = document.getElementById('loginForm');
+        const signUpForm = document.getElementById('signUpForm');
+        const toggleText = document.getElementById('toggleText');
+        const toggleLink = document.getElementById('toggleForm');
+        const formTitle = document.querySelector('.form-title');
+
+        if (loginForm.style.display !== 'none') {
+            loginForm.style.display = 'none';
+            signUpForm.style.display = 'block';
+            toggleText.textContent = 'Already have an account?';
+            toggleLink.textContent = 'Login';
+            formTitle.textContent = 'Create Account';
+        } else {
+            loginForm.style.display = 'block';
+            signUpForm.style.display = 'none';
+            toggleText.textContent = 'Don\'t have an account?';
+            toggleLink.textContent = 'Sign Up';
+            formTitle.textContent = 'Welcome Back';
+        }
+    });
+
+    // Toggle password visibility
+    function togglePassword(inputId) {
+        const passwordInput = document.getElementById(inputId);
+        const toggleIcon = passwordInput.parentElement.querySelector('.password-toggle i');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            toggleIcon.className = 'fa-regular fa-eye-slash';
+        } else {
+            passwordInput.type = 'password';
+            toggleIcon.className = 'fa-regular fa-eye';
+        }
+    }
+
+    // Handle Login Form Submission
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const username = document.getElementById("loginUsername").value;
+        const password = document.getElementById("loginPassword").value;
+
+        const users = JSON.parse(localStorage.getItem("users")) || {};
+
+        if (users[username] && users[username] === password) {
+            alert(`Welcome back, ${username}!`);
+            loginModal.style.display = "none";
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("currentUser", username);
+            updateLoginState();
+        } else {
+            formError.textContent = "Invalid username or password.";
+            formError.style.display = "block";
+        }
+    });
+
+    const signUpError = document.getElementById("signUpError");
+
+    // Handle Sign-Up Form Submission
+    signUpForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const username = document.getElementById("signUpUsername").value;
+        const password = document.getElementById("signUpPassword").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (password !== confirmPassword) {
+            signUpError.textContent = "Passwords do not match.";
+            signUpError.style.display = "block";
+            return;
+        } else {
+            signUpError.style.display = "none";
         }
 
-        darkModeToggle.addEventListener("click", () => {
-            body.classList.toggle("dark-mode");
+        const users = JSON.parse(localStorage.getItem("users")) || {};
 
-            // Update icon
-            if (body.classList.contains("dark-mode")) {
-                darkModeIcon.classList.remove("fa-moon");
-                darkModeIcon.classList.add("fa-sun");
-                localStorage.setItem("theme", "dark");
-            } else {
-                darkModeIcon.classList.remove("fa-sun");
-                darkModeIcon.classList.add("fa-moon");
-                localStorage.setItem("theme", "light");
-            }
-        });
-
-        // Mobile Navigation Toggle
-        const hamburger = document.getElementById("hamburger");
-        const navLinks = document.getElementById("navLinks");
-
-        hamburger.addEventListener("click", (e) => {
-            e.stopPropagation();
-            navLinks.classList.toggle("active");
-            hamburger.classList.toggle("active");
-        });
-
-        // Close mobile menu when clicking on a link
-        const navItems = document.querySelectorAll(".nav-links a");
-        navItems.forEach((item) => {
-            item.addEventListener("click", () => {
-                navLinks.classList.remove("active");
-                hamburger.classList.remove("active");
-            });
-        });
-
-        // Close mobile menu when clicking outside (only if menu is open)
-        document.addEventListener("click", (e) => {
-            if (
-                navLinks.classList.contains("active") &&
-                !hamburger.contains(e.target) &&
-                !navLinks.contains(e.target)
-            ) {
-                navLinks.classList.remove("active");
-                hamburger.classList.remove("active");
-            }
-        });
-
-        // Smooth scroll for CTA button
-        const ctaButton = document.querySelector(".cta-button");
-        ctaButton.addEventListener("click", (e) => {
-            e.preventDefault();
-            // Add a fun animation on click
-            ctaButton.style.animation = "bounce 0.5s ease-in-out";
-            setTimeout(() => {
-                ctaButton.style.animation = "pulse 2s ease-in-out infinite";
-                // Navigate to convert page (in real app)
-                window.location.href = "convert.html";
-            }, 500);
-        });
-
-        // Back to Top Button Logic
-        const backToTopBtn = document.getElementById("backToTop");
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.add("show");
-            } else {
-                backToTopBtn.classList.remove("show");
-            }
-        });
-        backToTopBtn.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-
-        //Top to Bottom Button Logic
-        const ToptobackBtn = document.getElementById("Toptoback");
-        window.addEventListener("scroll", () => {
-            if (window.scrollY < 100) {
-                ToptobackBtn.classList.add("show");
-            } else {
-                ToptobackBtn.classList.remove("show");
-            }
-        });
-        ToptobackBtn.addEventListener("click", () => {
-            window.scrollTo({ top: 10000, behavior: "smooth" });
-        });
-
-        // Parallax effect for decorative icons
-        window.addEventListener("scroll", () => {
-            const scrolled = window.pageYOffset;
-            const parallax = scrolled * 0.5;
-
-            document.querySelectorAll(".baking-icon").forEach((icon, index) => {
-                icon.style.transform = `translateY(${parallax * (index + 1) * 0.1
-                    }px) rotate(${parallax * 0.05}deg)`;
-            });
-        });
-
-        // Add sparkle effect on hover for feature cards
-        document.querySelectorAll(".feature-card").forEach((card) => {
-            card.addEventListener("mouseenter", () => {
-                card.style.boxShadow = "0 20px 60px rgba(0, 0, 0, 0.15)";
-            });
-
-            card.addEventListener("mouseleave", () => {
-                card.style.boxShadow = "none";
-            });
-        });
-
-        // Login/Sign-Up Modal Logic
-        const loginModal = document.getElementById("loginModal");
-        const openLoginModal = document.getElementById("openLoginModal");
-        const closeLoginModal = document.getElementById("closeLoginModal");
-        const loginForm = document.getElementById("loginForm");
-        const signUpForm = document.getElementById("signUpForm");
-        const toggleForm = document.getElementById("toggleForm");
-        const modalTitle = document.getElementById("modalTitle");
-        const formError = document.getElementById("formError");
-
-        // Open Modal
-        openLoginModal.addEventListener("click", (e) => {
-            e.preventDefault();
-            loginModal.style.display = "flex";
+        if (users[username]) {
+            signUpError.textContent = "Username already exists.";
+            signUpError.style.display = "block";
+        } else {
+            users[username] = password;
+            localStorage.setItem("users", JSON.stringify(users));
+            alert("Sign-Up successful! You can now log in.");
             loginForm.style.display = "block";
             signUpForm.style.display = "none";
             modalTitle.textContent = "Login";
             toggleForm.textContent = "Don't have an account? Sign Up";
-            formError.style.display = "none";
-        });
+            signUpError.style.display = "none";
+        }
+    });
 
-        // Close Modal
-        closeLoginModal.addEventListener("click", () => {
+    // Function to update login state
+    function updateLoginState() {
+        const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+        const loginBtn = document.getElementById("openLoginModal");
+        const logoutBtn = document.getElementById("logoutBtn");
+
+        if (isLoggedIn) {
+            loginBtn.style.display = "none";
+            logoutBtn.style.display = "flex";
+        } else {
+            loginBtn.style.display = "flex";
+            logoutBtn.style.display = "none";
+        }
+    }
+
+    // Logout functionality
+    document.getElementById("logoutBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("currentUser");
+        updateLoginState();
+        alert("You have been logged out successfully!");
+    });
+
+    // Check login state on page load
+    document.addEventListener("DOMContentLoaded", () => {
+        updateLoginState();
+    });
+
+    // Close Modal on Outside Click
+    window.addEventListener("click", (e) => {
+        if (e.target === loginModal) {
             loginModal.style.display = "none";
-        });
-
-        /// Toggle between login and signup
-        document.getElementById('toggleForm').addEventListener('click', function () {
-            const loginForm = document.getElementById('loginForm');
-            const signUpForm = document.getElementById('signUpForm');
-            const toggleText = document.getElementById('toggleText');
-            const toggleLink = document.getElementById('toggleForm');
-            const formTitle = document.querySelector('.form-title');
-
-            if (loginForm.style.display !== 'none') {
-                // Switch to Sign Up
-                loginForm.style.display = 'none';
-                signUpForm.style.display = 'block';
-                toggleText.textContent = 'Already have an account?';
-                toggleLink.textContent = 'Login';
-                formTitle.textContent = 'Create Account';
-            } else {
-                // Switch to Login
-                loginForm.style.display = 'block';
-                signUpForm.style.display = 'none';
-                toggleText.textContent = 'Don\'t have an account?';
-                toggleLink.textContent = 'Sign Up';
-                formTitle.textContent = 'Welcome Back';
-            }
-        });
-
-        // Toggle password visibility
-        function togglePassword(inputId) {
-            const passwordInput = document.getElementById(inputId);
-            const toggleIcon = passwordInput.parentElement.querySelector('.password-toggle i');
-
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                toggleIcon.className = 'fa-regular fa-eye-slash';
-            } else {
-                passwordInput.type = 'password';
-                toggleIcon.className = 'fa-regular fa-eye';
-            }
         }
+    });
 
-
-        // Handle Login Form Submission
-        loginForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const username = document.getElementById("loginUsername").value;
-            const password = document.getElementById("loginPassword").value;
-
-            // Retrieve users from localStorage
-            const users = JSON.parse(localStorage.getItem("users")) || {};
-
-            // Check if the user exists and the password matches
-            if (users[username] && users[username] === password) {
-                alert(`Welcome back, ${username}!`);
-                loginModal.style.display = "none";
-
-                // Set login state
-                localStorage.setItem("isLoggedIn", "true");
-                localStorage.setItem("currentUser", username);
-                updateLoginState();
-            } else {
-                formError.textContent = "Invalid username or password.";
-                formError.style.display = "block";
-            }
-        });
-
-        // Get the signup-specific error element
-        const signUpError = document.getElementById("signUpError");
-
-        // Handle Sign-Up Form Submission
-        signUpForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const username = document.getElementById("signUpUsername").value;
-            const password = document.getElementById("signUpPassword").value;
-            const confirmPassword =
-                document.getElementById("confirmPassword").value;
-
-            // Validate passwords match
-            if (password !== confirmPassword) {
-                signUpError.textContent = "Passwords do not match.";
-                signUpError.style.display = "block";
-                return;
-            } else {
-                signUpError.style.display = "none"; // hide warning if fixed
-            }
-
-
-            // Retrieve users from localStorage
-            const users = JSON.parse(localStorage.getItem("users")) || {};
-
-            // Check if the username already exists
-            if (users[username]) {
-                signUpError.textContent = "Username already exists.";
-                signUpError.style.display = "block";
-            } else {
-                // Save the new user
-                users[username] = password;
-                localStorage.setItem("users", JSON.stringify(users));
-                alert("Sign-Up successful! You can now log in.");
-                loginForm.style.display = "block";
-                signUpForm.style.display = "none";
-                modalTitle.textContent = "Login";
-                toggleForm.textContent = "Don't have an account? Sign Up";
-                signUpError.style.display = "none";
-            }
-        });
-
-        // Function to update login state
-        function updateLoginState() {
-            const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-            const loginBtn = document.getElementById("openLoginModal");
-            const logoutBtn = document.getElementById("logoutBtn");
-
-            if (isLoggedIn) {
-                loginBtn.style.display = "none";
-                logoutBtn.style.display = "flex";
-            } else {
-                loginBtn.style.display = "flex";
-                logoutBtn.style.display = "none";
-            }
+    // Page visibility change
+    document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'visible') {
+            document.title = 'BakeGenius.ai - Perfect Baking Every Time!';
+        } else {
+            document.title = 'Come back to Website';
         }
+    });
 
-        // Logout functionality
-        document.getElementById("logoutBtn").addEventListener("click", (e) => {
-            e.preventDefault();
-            localStorage.removeItem("isLoggedIn");
-            localStorage.removeItem("currentUser");
-            updateLoginState();
-            alert("You have been logged out successfully!");
-        });
-
-        // Check login state on page load
-        document.addEventListener("DOMContentLoaded", () => {
-            updateLoginState();
-        });
-
-        // Close Modal on Outside Click
-        window.addEventListener("click", (e) => {
-            if (e.target === loginModal) {
-                loginModal.style.display = "none";
-            }
-        });
-
-        document.addEventListener('visibilitychange', function () {
-            if (document.visibilityState === 'visible') {
-                document.title = 'BakeGenius.ai - Perfect Baking Every Time!';
-            } else {
-                document.title = 'Come back to Website';
-            }
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const loadingScreen = document.getElementById("loading-screen");
-
-            // Set a timeout to hide the loading screen
-            setTimeout(() => {
-                loadingScreen.classList.add("hidden");
-            }, 7000); // 7000ms = 7 seconds (adjust as needed)
-        });
-    </script>
+    // Loading screen logic
+    document.addEventListener("DOMContentLoaded", function () {
+        const loadingScreen = document.getElementById("loading-screen");
+        setTimeout(() => {
+            loadingScreen.classList.add("hidden");
+        }, 7000);
+    });
+  </script>
 </body>
 
 
+    darkModeToggle.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+      if (body.classList.contains("dark-mode")) {
+        darkModeIcon.classList.replace("fa-moon","fa-sun");
+        localStorage.setItem("theme","dark");
+      } else {
+        darkModeIcon.classList.replace("fa-sun","fa-moon");
+        localStorage.setItem("theme","light");
+      }
+    });
+
+    // Mobile Navigation Toggle
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+    const toggleNav = () => {
+      navLinks.classList.toggle("active");
+      hamburger.classList.toggle("active");
+      const expanded = hamburger.getAttribute("aria-expanded") === "true";
+      hamburger.setAttribute("aria-expanded", (!expanded).toString());
+    };
+    hamburger.addEventListener("click", (e) => { e.stopPropagation(); toggleNav(); });
+    hamburger.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleNav(); } });
+    document.querySelectorAll(".nav-links a").forEach((item) => {
+      item.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        hamburger.classList.remove("active");
+        hamburger.setAttribute("aria-expanded","false");
+      });
+    });
+    document.addEventListener("click", (e) => {
+      if (navLinks.classList.contains("active") && !hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove("active");
+        hamburger.classList.remove("active");
+        hamburger.setAttribute("aria-expanded","false");
+      }
+    });
+
+    // CTA button animation + nav
+    const ctaButton = document.querySelector(".cta-button");
+    ctaButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      ctaButton.style.animation = "bounce 0.5s ease-in-out";
+      setTimeout(() => {
+        ctaButton.style.animation = "pulse 2s ease-in-out infinite";
+        window.location.href = "convert.html";
+      }, 500);
+    });
+
+    // Scroll buttons logic
+    const backToTopBtn = document.getElementById("backToTop");
+    const ToptobackBtn = document.getElementById("Toptoback");
+    window.addEventListener("scroll", () => {
+      backToTopBtn.classList.toggle("show", window.scrollY > 300);
+      ToptobackBtn.classList.toggle("show", window.scrollY < 100);
+    });
+    backToTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    ToptobackBtn.addEventListener("click", () => window.scrollTo({ top: 10000, behavior: "smooth" }));
+
+    // Decorative parallax (safe if icons exist)
+    window.addEventListener("scroll", () => {
+      const scrolled = window.pageYOffset;
+      const parallax = scrolled * 0.5;
+      document.querySelectorAll(".baking-icon").forEach((icon, index) => {
+        icon.style.transform = `translateY(${parallax * (index + 1) * 0.1}px) rotate(${parallax * 0.05}deg)`;
+      });
+    });
+
+    // Feature hover sparkle
+    document.querySelectorAll(".feature-card").forEach((card) => {
+      card.addEventListener("mouseenter", () => { card.style.boxShadow = "0 20px 60px rgba(0,0,0,0.15)"; });
+      card.addEventListener("mouseleave", () => { card.style.boxShadow = "none"; });
+    });
+
+    // Tab title change
+    document.addEventListener("visibilitychange", function () {
+      document.title = document.visibilityState === "visible"
+        ? "BakeGenius.ai - Perfect Baking Every Time!"
+        : "Come back to Website";
+    });
+
+    // Hide loading screen
+    document.addEventListener("DOMContentLoaded", function () {
+      const loadingScreen = document.getElementById("loading-screen");
+      setTimeout(() => { loadingScreen.classList.add("hidden"); }, 1500);
+    });
+  </script>
+</body>
 </html>
