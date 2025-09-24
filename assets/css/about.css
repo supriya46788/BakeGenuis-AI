@@ -2831,7 +2831,7 @@ body.about-page.dark-mode li {
 
         body.dark-mode .copyright .name {
             color: #ef6154;
-        }
+        }}
 /* 📱 Mobile Responsive Tweaks */
 @media (max-width: 768px) {
   .footer-content {
