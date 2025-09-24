@@ -452,6 +452,60 @@
     .copyright { color:#333; font-size:.9rem; margin:0; }
     .copyright .name { color:#3e2723; font-weight:600; }
 
+.footer-badges {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .badge-green {
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+        }
+
+        .badge-blue {
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+        }
+
+        .badge-purple {
+            background:linear-gradient(90deg,#3e2723,#6e463e,#3e2723);
+        }
+           
+        body.dark-mode .badge-green {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+        
+        body.dark-mode .badge-blue {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+        
+        body.dark-mode .badge-purple {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+          .footer-badges {
+                justify-content: center;
+            }
+        }
     @media (max-width:1024px){
       .footer-content{ grid-template-columns:1fr 1fr; gap:2rem; }
     }
