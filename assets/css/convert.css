@@ -438,6 +438,51 @@ body.dark-mode .badge-purple {
     .copyright { color:#333; font-size:.9rem; margin:0; }
     .copyright .name { color:#3e2723; font-weight:600; }
 
+        /*dark mode*/
+        body.dark-mode .footer {
+
+            background: #1e1e1e;
+
+        }
+
+        body.dark-mode .footer-section h3.footer-title {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .footer-logo {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .footer-description {
+            color: #a0a0a0;
+        }
+
+        body.dark-mode .footer-links a {
+            color: #a0a0a0;
+        }
+
+        body.dark-mode .footer-links a:hover {
+            color: #a0a0a0;
+            background: rgba(255, 138, 128, 0.1);
+        }
+
+        body.dark-mode .footer-bottom {
+            background: #1e1e1e;
+        }
+
+        body.dark-mode .copyright {
+            color: #a0a0a0;
+        }
+
+        body.dark-mode .copyright .name {
+            color: #ef6154;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
     @media (max-width:1024px){
       .footer-content{ grid-template-columns:1fr 1fr; gap:2rem; }
     }
