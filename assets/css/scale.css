@@ -138,7 +138,7 @@
 
         /* Active navigation link styles */
         .nav-links a.active {
-            background-color: #0d0d0d !important;
+            background: linear-gradient(90deg, #3e2723, #573730, #3e2723)  !important;
             color: #ffffff !important;
             border-color: #1e1e1e !important;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -335,7 +335,7 @@
 
             /* Mobile navigation active state */
             .nav-links a.active {
-                background: #0d0d0d !important;
+                background: linear-gradient(90deg, #3e2723, #573730, #3e2723) !important;
                 color: #ffffff !important;
             }
 
