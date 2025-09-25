@@ -1261,11 +1261,11 @@
         /* Primary Button */
         .btn-primary {
             width: 50%;
-            background: #FF4C4C;
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: #fff;
             border: none;
-            padding: 16px 32px;
-            border-radius: 12px;
+            padding: 1rem 2rem;
+            border-radius: 25px;
             font-weight: bold;
             font-size: 1.1rem;
             box-shadow: 0 2px 8px rgba(255, 70, 70, 0.10);
@@ -1275,18 +1275,18 @@
         }
 
         .btn-primary:hover {
-            background: #d73838;
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             box-shadow: 0 4px 16px rgba(255, 76, 76, 0.22);
             transform: translateY(-2px) scale(1.04);
         }
 
         /* Secondary Button */
         .btn-secondary {
-            background: #FF4C4C;
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: #fff;
             border: none;
-            padding: 16px 32px;
-            border-radius: 12px;
+            padding: 1rem 2rem;
+            border-radius: 25px;
             font-weight: bold;
             font-size: 1.1rem;
             box-shadow: 0 2px 8px rgba(255, 70, 70, 0.10);
@@ -1295,7 +1295,7 @@
         }
 
         .btn-secondary:hover {
-            background: #d73838;
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             box-shadow: 0 4px 16px rgba(255, 76, 76, 0.22);
             transform: translateY(-2px) scale(1.04);
         }
