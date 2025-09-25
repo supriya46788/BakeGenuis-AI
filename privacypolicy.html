@@ -8,758 +8,7 @@
     <link rel="icon" href="Favicon.png" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --candy-red: #ff6b6b;
-            --sky-blue: #4ecdc4;
-            --sunny-yellow: #ffd93d;
-            --soft-pink: #ffb6c1;
-            --mint-green: #98fb98;
-            --lavender: #e6e6fa;
-            --dark-bg: #1a1a1a;
-            --dark-card: #2d2d2d;
-            --dark-text: #ffffff;
-            --dark-border: #404040;
-        }
-
-        body {
-            font-family: "Comic Neue", cursive;
-            overflow-x: hidden;
-            background-color: #f5f3f1;
-            min-height: 100vh;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        body.dark-mode {  
-               background-color: #0d0d0d;
-        }
-
-        /* Navigation */
-        .navbar {
-            background: radial-gradient(circle at center, #e5c5b3, #e9b4b6);
-            backdrop-filter: blur(15px);
-            padding: 1rem 2rem;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        body.dark-mode .navbar {
-            background: rgba(26, 26, 26, 0.95);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1500px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #3e2723;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: "Comic Neue", cursive;
-            min-width: 150px;
-            padding-right: 50px;
-        }
-
-        .logo-icon {
-            font-size: 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-text {
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-            color: #3e2723;
-        }
-
-        .logo:hover .logo-icon {
-            transform: rotate(10deg);
-        }
-
-        body.dark-mode .logo {
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .logo:hover {
-            color: #e0e0e0;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #3e2723;
-            font-weight: 600;
-            padding: 0.7rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid transparent;
-        }
-
-        body.dark-mode .nav-links a {
-            color: #e0e0e0;
-            background: rgba(111, 100, 91, 0.133);
-            border: 2px solid transparent;
-        }
-
-        .nav-links a:hover {
-            background-color: #f3e0d6;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-color: rgba(228, 191, 180, 0.3);
-            color: #3e2723;
-        }
-
-        body.dark-mode .nav-links a:hover {
-            background-color: #0d0d0d;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-color: #1e1e1e;
-            color: #e0e0e0;
-        }
-
-        /* Navigation Actions */
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .dark-mode-btn {
-            background-color: #3e2723;
-            border: none;
-            color: white;
-            padding: 0.7rem;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .dark-mode-btn:hover {
-            transform: scale(1.1) rotate(360deg);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        body.dark-mode .dark-mode-btn {
-             background-color: #e0e0e0;
-            color: #1e1e1e;
-        }
-
-        
-       
-        
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
-            margin: 3px 0;
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-
-        body.dark-mode .hamburger span {
-            background: #e0e0e0;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-
-        /* Main Content */
-        .main-content {
-            margin-top: 100px;
-            transition: all 0.3s ease;
-            padding: 2rem;
-            position: relative;
-            z-index: 2;
-            min-height: calc(100vh - 200px);
-        }
-
-        .privacy-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(15px);
-            padding: 3rem;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        body.dark-mode .privacy-container {
-            background: rgba(45, 45, 45, 0.9);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .privacy-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .privacy-title {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        body.dark-mode .privacy-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: #e0e0e0;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        .privacy-subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        body.dark-mode .privacy-subtitle {
-            color: #e0e0e0;
-        }
-
-        .last-updated {
-            font-size: 1rem;
-            color: #888;
-            font-style: italic;
-        }
-
-        body.dark-mode .last-updated {
-            color: #aaa;
-        }
-
-        .privacy-content {
-            line-height: 1.8;
-            color: #333;
-        }
-
-        body.dark-mode .privacy-content {
-            color: #ddd;
-        }
-
-        .privacy-section {
-            margin-bottom: 2.5rem;
-        }
-
-        .privacy-section h2 {
-            font-size: 1.8rem;
-            color: #3e2723;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid #d18a68;
-            position: relative;
-        }
-
-        body.dark-mode .privacy-section h2 {
-            color: #e0e0e0;
-            border-bottom-color: #e0e0e0;
-        }
-
-        .privacy-section h3 {
-            font-size: 1.4rem;
-            color: #5d4037;
-            margin-bottom: 0.8rem;
-            margin-top: 1.5rem;
-        }
-
-        body.dark-mode .privacy-section h3 {
-            color: #a0a0a0;
-        }
-
-        .privacy-section p {
-            margin-bottom: 1rem;
-            text-align: justify;
-        }
-
-        .privacy-section ul, .privacy-section ol {
-            margin-left: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .privacy-section li {
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-info {
-            background: rgba(255, 255, 255, 0.7);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border-left: 4px solid #d18a68;
-            margin-top: 2rem;
-        }
-
-        body.dark-mode .contact-info {
-            background: rgba(255, 255, 255, 0.1);
-            border-left-color: #e0e0e0;
-        }
-
-        .back-to-home {
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .back-btn {
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .back-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        body.dark-mode .back-btn {
-            background: rgba(220, 121, 63, 0.893);
-            color: #e0e0e0;
-        }
-
-        /* Footer */
-        .footer {
-            background: radial-gradient(circle at center, #e9b4b6, #e5c5b3);
-            backdrop-filter: blur(15px);
-            position: relative;
-            z-index: 2;
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
-            margin-top: 4rem;
-        }
-
-        body.dark-mode .footer {
-            background: #1e1e1e;
-        }
-
-        .footer-content {
-            max-width: 1500px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            padding: 3rem 2rem 2rem;
-        }
-
-        .footer-section h3.footer-title {
-            color: #3e2723;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        body.dark-mode .footer-section h3.footer-title {
-            color: #e0e0e0;
-        }
-
-        .footer-section h3.footer-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 30px;
-            height: 3px;
-            background: #3e2723;
-            border-radius: 2px;
-        }
-
-        body.dark-mode .footer-section h3.footer-title::after {
-            background: #e0e0e0;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #3e2723;
-        }
-
-        body.dark-mode .footer-logo {
-            color: #e0e0e0;
-        }
-
-        .footer-logo-icon {
-            font-size: 2rem;
-        }
-
-        .footer-description {
-            color: #333;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
-        }
-
-        body.dark-mode .footer-description {
-            color: #a0a0a0;
-        }
-
-        .footer-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: #333;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.3rem 0;
-            border-radius: 5px;
-        }
-
-        body.dark-mode .footer-links a {
-            color: #a0a0a0;
-        }
-
-        .footer-links a:hover {
-            color: black;
-            transform: translateX(4px);
-            background: rgba(255, 107, 107, 0.1);
-            padding-left: 0.8rem;
-        }
-
-        body.dark-mode .footer-links a:hover {
-            color: #a0a0a0;
-            background: rgba(255, 138, 128, 0.1);
-        }
-
-        .footer-links i {
-            font-size: 0.9rem;
-            width: 16px;
-            opacity: 0.7;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-            color: white;
-            text-decoration: none;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .social-link:hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
-
-        .footer-bottom {
-            background: rgba(0, 0, 0, 0.05);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1.5rem 0;
-        }
-
-        body.dark-mode .footer-bottom {
-            background: #1e1e1e;
-        }
-
-        .footer-bottom-content {
-            max-width: 1500px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .copyright {
-            color: #333;
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        body.dark-mode .copyright {
-            color: #a0a0a0;
-        }
-
-        .copyright .name {
-            color: #3e2723;
-            font-weight: 600;
-        }
-
-        body.dark-mode .copyright .name {
-            color: #ef6154;
-        }
-
-        .footer-badges {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-        }
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            
-        }
-        .badge:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        .badge-green {
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-        }
-
-        .badge-blue {
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-        }
-
-        .badge-purple {
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-        }
-
-        body.dark-mode .badge-blue {
-            background: #e0e0e0;
-            color: #0d0d0d;
-        }
-
-        body.dark-mode .badge-green {
-            background: #e0e0e0;
-            color: #0d0d0d;
-        }
-
-        body.dark-mode .badge-purple {
-            background: #e0e0e0;
-            color: #0d0d0d;
-        }
-        
-        
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 0.8rem 1rem;
-            }
-
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(40px);
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding-top: 2rem;
-                transition: transform 0.3s ease;
-                transform: translateX(-100%);
-                gap: 1rem;
-                z-index: 999;
-            }
-
-            body.dark-mode .nav-links {
-                background: #1a1a1a;
-            }
-
-            .nav-links.active {
-                display: flex;
-                transform: translateX(0);
-            }
-
-            .nav-links li {
-                padding: 1rem;
-                border-bottom: solid 1px black;
-                border-radius: 8px;
-                width: 80%;
-                text-align: center;
-            }
-
-            body.dark-mode .nav-links li {
-                border-bottom: solid 1px white;
-            }
-
-            .nav-links a {
-                width: 100%;
-                padding: 1rem;
-                font-size: 1.2rem;
-                background-color: transparent !important;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .logo {
-                font-size: 1.5rem;
-                padding-right: 0;
-            }
-
-            .logo-icon {
-                font-size: 1.7rem;
-            }
-
-            .privacy-container {
-                padding: 2rem;
-                margin: 1rem;
-            }
-
-            .privacy-title {
-                font-size: 2.2rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                padding: 2rem 1rem 1rem;
-                text-align: center;
-            }
-
-            .footer-section h3.footer-title::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .footer-bottom-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            .footer-badges {
-                justify-content: center;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 2.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .privacy-title {
-                font-size: 1.8rem;
-            }
-
-            .privacy-container {
-                padding: 1.5rem;
-            }
-
-            .privacy-section h2 {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/privacypolicy.css">
 </head>
 
 <body>
@@ -807,7 +56,7 @@
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                
+
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -829,13 +78,17 @@
             <div class="privacy-content">
                 <div class="privacy-section">
                     <h2>1. Information We Collect</h2>
-                    <p>At BakeGenius.ai, we are committed to protecting your privacy. We collect minimal information necessary to provide you with the best baking conversion experience:</p>
-                    
+                    <p>At BakeGenius.ai, we are committed to protecting your privacy. We collect minimal information
+                        necessary to provide you with the best baking conversion experience:</p>
+
                     <h3>Information You Provide</h3>
                     <ul>
-                        <li><strong>Recipe Data:</strong> Ingredients, measurements, and recipes you input for conversion</li>
-                        <li><strong>Account Information:</strong> Username and password if you choose to create an account</li>
-                        <li><strong>Preferences:</strong> Your custom ingredient preferences and measurement settings</li>
+                        <li><strong>Recipe Data:</strong> Ingredients, measurements, and recipes you input for
+                            conversion</li>
+                        <li><strong>Account Information:</strong> Username and password if you choose to create an
+                            account</li>
+                        <li><strong>Preferences:</strong> Your custom ingredient preferences and measurement settings
+                        </li>
                         <li><strong>Feedback:</strong> Comments, suggestions, and issue reports you submit</li>
                     </ul>
 
@@ -862,12 +115,17 @@
 
                 <div class="privacy-section">
                     <h2>3. Information Sharing and Disclosure</h2>
-                    <p>We respect your privacy and do not sell, trade, or rent your personal information to third parties. We may share information only in the following circumstances:</p>
+                    <p>We respect your privacy and do not sell, trade, or rent your personal information to third
+                        parties. We may share information only in the following circumstances:</p>
                     <ul>
-                        <li><strong>Service Providers:</strong> Trusted partners who help us operate our platform (with strict confidentiality agreements)</li>
-                        <li><strong>Legal Requirements:</strong> When required by law or to protect our rights and safety</li>
-                        <li><strong>Business Transfers:</strong> In the event of a merger or acquisition (with continued privacy protection)</li>
-                        <li><strong>Consent:</strong> When you explicitly give us permission to share specific information</li>
+                        <li><strong>Service Providers:</strong> Trusted partners who help us operate our platform (with
+                            strict confidentiality agreements)</li>
+                        <li><strong>Legal Requirements:</strong> When required by law or to protect our rights and
+                            safety</li>
+                        <li><strong>Business Transfers:</strong> In the event of a merger or acquisition (with continued
+                            privacy protection)</li>
+                        <li><strong>Consent:</strong> When you explicitly give us permission to share specific
+                            information</li>
                     </ul>
                 </div>
 
@@ -892,7 +150,8 @@
                         <li><strong>Analytics Cookies:</strong> Help us understand how you use our platform</li>
                         <li><strong>Dark Mode Preference:</strong> Remember your theme choice</li>
                     </ul>
-                    <p>You can control cookies through your browser settings, though some features may not work properly if disabled.</p>
+                    <p>You can control cookies through your browser settings, though some features may not work properly
+                        if disabled.</p>
                 </div>
 
                 <div class="privacy-section">
@@ -910,17 +169,22 @@
 
                 <div class="privacy-section">
                     <h2>7. Children's Privacy</h2>
-                    <p>BakeGenius.ai is designed for general audiences and does not knowingly collect personal information from children under 13. If we become aware that we have collected information from a child under 13, we will take immediate steps to delete such information.</p>
+                    <p>BakeGenius.ai is designed for general audiences and does not knowingly collect personal
+                        information from children under 13. If we become aware that we have collected information from a
+                        child under 13, we will take immediate steps to delete such information.</p>
                 </div>
 
                 <div class="privacy-section">
                     <h2>8. International Users</h2>
-                    <p>BakeGenius.ai is operated from [Country]. If you are accessing our service from outside this region, please be aware that your information may be transferred to, stored, and processed in our servers located in [Country]. By using our service, you consent to this transfer.</p>
+                    <p>BakeGenius.ai is operated from [Country]. If you are accessing our service from outside this
+                        region, please be aware that your information may be transferred to, stored, and processed in
+                        our servers located in [Country]. By using our service, you consent to this transfer.</p>
                 </div>
 
                 <div class="privacy-section">
                     <h2>9. Changes to This Policy</h2>
-                    <p>We may update this privacy policy from time to time to reflect changes in our practices or legal requirements. We will notify you of any material changes by:</p>
+                    <p>We may update this privacy policy from time to time to reflect changes in our practices or legal
+                        requirements. We will notify you of any material changes by:</p>
                     <ul>
                         <li>Posting the updated policy on this page</li>
                         <li>Updating the "Last updated" date</li>
@@ -931,12 +195,16 @@
 
                 <div class="contact-info">
                     <h2>10. Contact Us</h2>
-                    <p>If you have any questions, concerns, or requests regarding this privacy policy or your personal information, please contact us:</p>
+                    <p>If you have any questions, concerns, or requests regarding this privacy policy or your personal
+                        information, please contact us:</p>
                     <ul>
                         <li><strong>Email:</strong> privacy@bakegenius.ai</li>
-                        <li><strong>Support:</strong> <a href="mailto:supriyadpandey502@gmail.com" style="color: #d18a68;">supriyadpandey502@gmail.com</a></li>
-                        <li><strong>GitHub:</strong> <a href="https://github.com/supriya46788/BakeGenuis-AI" style="color: #d18a68;" target="_blank">BakeGenuis-AI Repository</a></li>
-                        <li><strong>Response Time:</strong> We aim to respond to all privacy-related inquiries within 48 hours</li>
+                        <li><strong>Support:</strong> <a href="mailto:supriyadpandey502@gmail.com"
+                                style="color: #d18a68;">supriyadpandey502@gmail.com</a></li>
+                        <li><strong>GitHub:</strong> <a href="https://github.com/supriya46788/BakeGenuis-AI"
+                                style="color: #d18a68;" target="_blank">BakeGenuis-AI Repository</a></li>
+                        <li><strong>Response Time:</strong> We aim to respond to all privacy-related inquiries within 48
+                            hours</li>
                     </ul>
                 </div>
 
@@ -959,21 +227,25 @@
                     <span class="footer-logo-text">BakeGenius.ai</span>
                 </div>
                 <p class="footer-description">
-                    Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and delightful for everyone.
+                    Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and
+                    delightful for everyone.
                 </p>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-link linkedin" target="_blank" rel="noopener" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-link linkedin" target="_blank"
+                        rel="noopener" title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://github.com/supriya46788/BakeGenuis-AI" class="social-link github" target="_blank" rel="noopener" title="GitHub">
+                    <a href="https://github.com/supriya46788/BakeGenuis-AI" class="social-link github" target="_blank"
+                        rel="noopener" title="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="mailto:supriyadpandey502@gmail.com" class="social-link email" target="_blank" rel="noopener" title="Email">
+                    <a href="mailto:supriyadpandey502@gmail.com" class="social-link email" target="_blank"
+                        rel="noopener" title="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
             </div>
-            
+
             <div class="footer-section">
                 <h3 class="footer-title">Quick Links</h3>
                 <ul class="footer-links">
@@ -984,7 +256,7 @@
                     <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3 class="footer-title">Features</h3>
                 <ul class="footer-links">
@@ -995,7 +267,7 @@
                     <li><a href="javascript:void(0)"><i class="fas fa-mobile-alt"></i>Mobile Friendly</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3 class="footer-title">Support</h3>
                 <ul class="footer-links">
@@ -1007,11 +279,12 @@
                 </ul>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
             <div class="footer-bottom-content">
                 <p class="copyright">
-                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <span class="name">Supriya Pandey</span>
+                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <span class="name">Supriya
+                        Pandey</span>
                 </p>
                 <div class="footer-badges">
                     <span class="badge badge-green"><i class="fas fa-heart"></i> Open Source</span>
@@ -1021,44 +294,9 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="assets/js/theme.js"></script>
-    <script>
-
-        // Mobile Navigation Toggle
-        const hamburger = document.getElementById("hamburger");
-        const navLinks = document.getElementById("navLinks");
-
-        hamburger.addEventListener("click", (e) => {
-            e.stopPropagation();
-            navLinks.classList.toggle("active");
-            hamburger.classList.toggle("active");
-        });
-
-        // Close mobile menu when clicking on a link
-        const navItems = document.querySelectorAll(".nav-links a");
-        navItems.forEach((item) => {
-            item.addEventListener("click", () => {
-                navLinks.classList.remove("active");
-                hamburger.classList.remove("active");
-            });
-        });
-
-        // Close mobile menu when clicking outside (only if menu is open)
-        document.addEventListener("click", (e) => {
-            if (
-                navLinks.classList.contains("active") &&
-                !hamburger.contains(e.target) &&
-                !navLinks.contains(e.target)
-            ) {
-                navLinks.classList.remove("active");
-                hamburger.classList.remove("active");
-            }
-        });
-
-        
-        
-    </script>
+    <script src="assets/js/privacypolicy.js"></script>
 </body>
-</html>
 
+</html>
