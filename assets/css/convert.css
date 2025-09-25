@@ -365,6 +365,55 @@
             transform: scale(1.15);
         }
 
+        /*badges*/
+        .footer-badges {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.badge-green {
+    background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+}
+
+.badge-blue {
+    background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+}
+
+.badge-purple {
+    background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+}
+body.dark-mode .badge-green {
+    background: #e0e0e0;
+    color: #0d0d0d;
+}
+
+body.dark-mode .badge-blue {
+    background: #e0e0e0;
+    color: #0d0d0d;
+}
+
+body.dark-mode .badge-purple {
+    background: #e0e0e0;
+    color: #0d0d0d;
+}
+
     /* ===== FOOTER ===== */
     .footer { background: radial-gradient(circle at center, #e9b4b6, #e5c5b3); backdrop-filter: blur(15px); position:relative; z-index:2; border-top:1px solid rgba(255,255,255,0.3); margin-top:4rem; }
     body.dark-mode .footer { background:#1e1e1e; }
