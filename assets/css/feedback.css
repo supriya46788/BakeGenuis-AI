@@ -221,6 +221,58 @@ body.dark-mode .hamburger span {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
+/* Tablet nav tweaks */
+@media (min-width:769px) and (max-width:1024px) {
+  
+
+  .nav-links a {
+    padding: .5rem .8rem
+  }
+
+  .nav-actions {
+    gap: .8rem
+  }
+  
+  .logo-icon{
+    font-size: 1.2rem;
+  }
+  .logo-text{
+    font-size: 1rem;
+  }
+  .nav-links{
+    width: 80%;
+  }
+   .navbar {
+    padding: 0.8rem 0.2rem;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0.3rem; 
+    flex-wrap: wrap; 
+  }
+
+  .nav-links li a {
+    font-size: 0.6rem; 
+    padding: 3px 5px;
+    margin-left: 1rem;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    margin-left: 0.4rem;
+  }
+
+  
+}
+
 /* Main Content */
 .main-content {
     margin-top: 100px;
