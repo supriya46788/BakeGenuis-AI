@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Privacy Policy - BakeGenius.ai</title>
+    <link rel="icon" href="Favicon.png" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <style>
@@ -36,8 +37,7 @@
             transition: all 0.3s ease;
         }
 
-        body.dark-mode {
-          
+        body.dark-mode {  
                background-color: #0d0d0d;
         }
 
@@ -102,11 +102,11 @@
         }
 
         body.dark-mode .logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .logo:hover {
-            color: #ffab91;
+            color: #e0e0e0;
         }
 
         .nav-links {
@@ -129,8 +129,9 @@
         }
 
         body.dark-mode .nav-links a {
-            color: var(--dark-text);
-            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            background: rgba(111, 100, 91, 0.133);
+            border: 2px solid transparent;
         }
 
         .nav-links a:hover {
@@ -142,8 +143,11 @@
         }
 
         body.dark-mode .nav-links a:hover {
-            background: linear-gradient(45deg, #e74c3c, #f39c12);
-            color: #fff;
+            background-color: #0d0d0d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: #1e1e1e;
+            color: #e0e0e0;
         }
 
         /* Navigation Actions */
@@ -177,46 +181,10 @@
 
         body.dark-mode .dark-mode-btn {
              background-color: #e0e0e0;
-            color: #0d0d0d;
+            color: #1e1e1e;
         }
 
-        .login-btn {
-            background-color: #d18a68;
-            color: white;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-            border: 2px solid transparent;
-        }
-
-        .login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px #d18a68;
-            background-color: #d18a68;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        body.dark-mode .login-btn {
-           background-color: #e0e0e0;
-            color: #0d0d0d;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 2px 2px #e0e0e0;
-            border: 2px solid transparent;
-        }
-
+        
        
         
 
@@ -243,7 +211,7 @@
         }
 
         body.dark-mode .hamburger span {
-            background: linear-gradient(45deg, #3498db, #9b59b6);
+            background: #e0e0e0;
         }
 
         .hamburger.active span:nth-child(1) {
@@ -300,10 +268,13 @@
         }
 
         body.dark-mode .privacy-title {
-            background: linear-gradient(90deg, #ff8a80, #ffab91, #ff8a80);
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: #e0e0e0;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin-bottom: 1rem;
         }
 
         .privacy-subtitle {
@@ -314,7 +285,7 @@
         }
 
         body.dark-mode .privacy-subtitle {
-            color: #ccc;
+            color: #e0e0e0;
         }
 
         .last-updated {
@@ -350,8 +321,8 @@
         }
 
         body.dark-mode .privacy-section h2 {
-            color: #ff8a80;
-            border-bottom-color: #ff8a80;
+            color: #e0e0e0;
+            border-bottom-color: #e0e0e0;
         }
 
         .privacy-section h3 {
@@ -362,7 +333,7 @@
         }
 
         body.dark-mode .privacy-section h3 {
-            color: #ffab91;
+            color: #a0a0a0;
         }
 
         .privacy-section p {
@@ -389,7 +360,7 @@
 
         body.dark-mode .contact-info {
             background: rgba(255, 255, 255, 0.1);
-            border-left-color: #ff8a80;
+            border-left-color: #e0e0e0;
         }
 
         .back-to-home {
@@ -420,7 +391,8 @@
         }
 
         body.dark-mode .back-btn {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            background: rgba(220, 121, 63, 0.893);
+            color: #e0e0e0;
         }
 
         /* Footer */
@@ -434,8 +406,7 @@
         }
 
         body.dark-mode .footer {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: #1e1e1e;
         }
 
         .footer-content {
@@ -456,7 +427,7 @@
         }
 
         body.dark-mode .footer-section h3.footer-title {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         .footer-section h3.footer-title::after {
@@ -471,7 +442,7 @@
         }
 
         body.dark-mode .footer-section h3.footer-title::after {
-            background: #ff8a80;
+            background: #e0e0e0;
         }
 
         .footer-logo {
@@ -485,7 +456,7 @@
         }
 
         body.dark-mode .footer-logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         .footer-logo-icon {
@@ -500,7 +471,7 @@
         }
 
         body.dark-mode .footer-description {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         .footer-links {
@@ -526,7 +497,7 @@
         }
 
         body.dark-mode .footer-links a {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         .footer-links a:hover {
@@ -537,7 +508,7 @@
         }
 
         body.dark-mode .footer-links a:hover {
-            color: #ff8a80;
+            color: #a0a0a0;
             background: rgba(255, 138, 128, 0.1);
         }
 
@@ -582,7 +553,7 @@
         }
 
         body.dark-mode .footer-bottom {
-            background: rgba(0, 0, 0, 0.3);
+            background: #1e1e1e;
         }
 
         .footer-bottom-content {
@@ -603,7 +574,7 @@
         }
 
         body.dark-mode .copyright {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         .copyright .name {
@@ -612,7 +583,7 @@
         }
 
         body.dark-mode .copyright .name {
-            color: #ff8a80;
+            color: #ef6154;
         }
 
         .footer-badges {
@@ -620,7 +591,6 @@
             gap: 0.8rem;
             flex-wrap: wrap;
         }
-
         .badge {
             display: inline-flex;
             align-items: center;
@@ -634,12 +604,33 @@
             transition: all 0.3s ease;
             
         }
-
         .badge:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        body.dark-mode .badge {
+        .badge-green {
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+        }
+
+        .badge-blue {
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+        }
+
+        .badge-purple {
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+        }
+
+        body.dark-mode .badge-blue {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        body.dark-mode .badge-green {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        body.dark-mode .badge-purple {
             background: #e0e0e0;
             color: #0d0d0d;
         }
@@ -816,14 +807,7 @@
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="#" class="login-btn" id="openLoginModal">
-                    <i class="fas fa-user"></i>
-                    Login
-                </a>
-                <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Logout
-                </a>
+                
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -1030,42 +1014,16 @@
                     © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <span class="name">Supriya Pandey</span>
                 </p>
                 <div class="footer-badges">
-                    <span class="badge"><i class="fas fa-heart"></i> Open Source</span>
-                    <span class="badge"><i class="fas fa-leaf"></i> Eco Friendly</span>
-                    <span class="badge"><i class="fas fa-robot"></i> AI Powered</span>
+                    <span class="badge badge-green"><i class="fas fa-heart"></i> Open Source</span>
+                    <span class="badge badge-blue"><i class="fas fa-leaf"></i> Eco Friendly</span>
+                    <span class="badge badge-purple"><i class="fas fa-robot"></i> AI Powered</span>
                 </div>
             </div>
         </div>
     </footer>
-
+    
+    <script src="assets/js/theme.js"></script>
     <script>
-        // Dark Mode Toggle
-        const darkModeToggle = document.getElementById("darkModeToggle");
-        const body = document.body;
-        const darkModeIcon = darkModeToggle.querySelector("i");
-
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem("theme") || "light";
-        if (currentTheme === "dark") {
-            body.classList.add("dark-mode");
-            darkModeIcon.classList.remove("fa-moon");
-            darkModeIcon.classList.add("fa-sun");
-        }
-
-        darkModeToggle.addEventListener("click", () => {
-            body.classList.toggle("dark-mode");
-
-            // Update icon
-            if (body.classList.contains("dark-mode")) {
-                darkModeIcon.classList.remove("fa-moon");
-                darkModeIcon.classList.add("fa-sun");
-                localStorage.setItem("theme", "dark");
-            } else {
-                darkModeIcon.classList.remove("fa-sun");
-                darkModeIcon.classList.add("fa-moon");
-                localStorage.setItem("theme", "light");
-            }
-        });
 
         // Mobile Navigation Toggle
         const hamburger = document.getElementById("hamburger");
@@ -1098,33 +1056,8 @@
             }
         });
 
-        // Login/logout state management (placeholder)
-        const loginBtn = document.getElementById("openLoginModal");
-        const logoutBtn = document.getElementById("logoutBtn");
-
-        // Check login state from localStorage
-        const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-        if (isLoggedIn) {
-            loginBtn.style.display = "none";
-            logoutBtn.style.display = "flex";
-        }
-
-        // Logout functionality
-        logoutBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            localStorage.removeItem("isLoggedIn");
-            localStorage.removeItem("currentUser");
-            loginBtn.style.display = "flex";
-            logoutBtn.style.display = "none";
-            alert("You have been logged out successfully!");
-        });
-
-        // Login button click (placeholder - would need to implement full modal)
-        loginBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            // For demo purposes, just redirect to home page
-            window.location.href = "index.html";
-        });
+        
+        
     </script>
 </body>
 </html>

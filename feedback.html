@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feedback - BakeGenuis.ai</title>
+    <link rel="icon" href="Favicon.png" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <style>
@@ -37,11 +38,7 @@
         }
 
         body.dark-mode {
-            background: linear-gradient(135deg,
-                    #2c3e50 0%,
-                    #3498db 50%,
-                    #9b59b6 100%);
-            color: var(--dark-text);
+            background-color: #0d0d0d;
         }
 
         /* Navigation - Same as index.html */
@@ -59,7 +56,7 @@
         }
 
         body.dark-mode .navbar {
-            background: rgba(26, 26, 26, 0.95);
+            background: #1e1e1e;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -105,11 +102,11 @@
         }
 
         body.dark-mode .logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .logo:hover {
-            color: #ffab91;
+            color: #e0e0e0;
         }
 
         .nav-links {
@@ -132,8 +129,9 @@
         }
 
         body.dark-mode .nav-links a {
-            color: var(--dark-text);
-            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            background: rgba(111, 100, 91, 0.133);
+            border: 2px solid transparent;
         }
 
         .nav-links a:hover {
@@ -150,8 +148,11 @@
         }
 
         body.dark-mode .nav-links a:hover {
-            background: linear-gradient(45deg, #e74c3c, #f39c12);
-            color: #fff;
+            background-color: #0d0d0d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: #1e1e1e;
+            color: #e0e0e0;
         }
 
         body.dark-mode .nav-links a.active {
@@ -188,41 +189,11 @@
         }
 
         body.dark-mode .dark-mode-btn {
-            background: linear-gradient(45deg, #f39c12 0%, #f1c40f 100%);
+            background-color: #e0e0e0;
+            color: #1e1e1e;
         }
 
-        .login-btn {
-            background-color: #d18a68;
-            color: white;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-            border: 2px solid transparent;
-        }
-
-        .login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px #d18a68;
-            background-color: #d18a68;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        body.dark-mode .login-btn {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-        }
-
-        body.dark-mode .login-btn:hover {
-            background: linear-gradient(45deg, #c0392b, #a93226);
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
-        }
-
+        
         .hamburger {
             display: none;
             flex-direction: column;
@@ -246,7 +217,7 @@
         }
 
         body.dark-mode .hamburger span {
-            background: linear-gradient(45deg, #3498db, #9b59b6);
+            background: #e0e0e0;
         }
 
         .hamburger.active span:nth-child(1) {
@@ -287,8 +258,8 @@
         }
 
         body.dark-mode .feedback-container {
-            background: rgba(45, 45, 45, 0.9);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            background: #1e1e1e;
+            box-shadow: 0 2px 2px #1e1e1e;
         }
 
         .feedback-header {
@@ -305,6 +276,15 @@
             background-clip: text;
             margin-bottom: 1rem;
         }
+        body.dark-mode .feedback-title{
+            font-size: 3rem;
+            font-weight: 700;
+            background: #e0e0e0;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
 
         .feedback-subtitle {
             font-size: 1.2rem;
@@ -315,7 +295,7 @@
         }
 
         body.dark-mode .feedback-subtitle {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         .feedback-form {
@@ -340,7 +320,7 @@
         }
 
         body.dark-mode .form-label {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         .form-input {
@@ -367,8 +347,8 @@
         }
 
         body.dark-mode .form-input:focus {
-            border-color: #ff8a80;
-            box-shadow: 0 0 20px rgba(255, 138, 128, 0.2);
+            border-color: #0d0d0d;
+            box-shadow: 0 0 10px rgba(77, 76, 76, 0.2);
             background: rgba(45, 45, 45, 1);
         }
 
@@ -412,7 +392,7 @@
         }
 
         body.dark-mode .rating-text {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         .category-grid {
@@ -450,14 +430,13 @@
         }
 
         body.dark-mode .category-card:hover {
-            background: rgba(255, 138, 128, 0.2);
-            border-color: #ff8a80;
+            background: rgba(81, 81, 81, 0.5);
+            border-color: gray;
         }
 
         body.dark-mode .category-card.selected {
-            background: #ff8a80;
-            color: #1a1a1a;
-            border-color: #ff8a80;
+            background: rgba(81, 81, 81, 0.5);
+            border-color: #544f4f;
         }
 
         .category-icon {
@@ -494,6 +473,10 @@
         .submit-btn:hover {
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 15px 40px rgba(62, 39, 35, 0.6);
+        }
+        body.dark-mode .submit-btn{
+            background: rgba(220, 121, 63, 0.893);
+            color: #e0e0e0;
         }
 
         .submit-btn:disabled {
@@ -584,7 +567,9 @@
             background: #3e2723;
             border-radius: 2px;
         }
-
+        body.dark-mode .footer-section h3.footer-title::after{
+            background: #e0e0e0;
+        }
         .footer-logo {
             display: flex;
             align-items: center;
@@ -722,40 +707,56 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
+        body.dark-mode .badge-blue {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        body.dark-mode .badge-green {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        body.dark-mode .badge-purple {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
 
         /* Dark mode footer styles */
         body.dark-mode .footer {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: #1e1e1e;
         }
 
         body.dark-mode .footer-section h3.footer-title {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .footer-logo {
-            color: #ff8a80;
+            color: #e0e0e0;
         }
 
         body.dark-mode .footer-description {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         body.dark-mode .footer-links a {
-            color: #ccc;
+            color: #a0a0a0;
         }
 
         body.dark-mode .footer-links a:hover {
-            color: #ff8a80;
+            color: #a0a0a0;
             background: rgba(255, 138, 128, 0.1);
         }
 
         body.dark-mode .footer-bottom {
-            background: rgba(0, 0, 0, 0.3);
+            background: #1e1e1e;
         }
 
         body.dark-mode .copyright {
-            color: #ccc;
+            color: #a0a0a0;
+        }
+        body.dark-mode .copyright .name {
+            color: #ef6154;
         }
 
         /* Responsive Design */
@@ -927,14 +928,7 @@
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="#" class="login-btn" id="openLoginModal">
-                    <i class="fas fa-user"></i>
-                    Login
-                </a>
-                <a href="#" class="login-btn" id="logoutBtn" style="display: none;">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Logout
-                </a>
+                
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -1105,35 +1099,9 @@
             </div>
         </div>
     </footer>
-
+    
+    <script src="assets/js/theme.js"></script>
     <script>
-        // Dark Mode Toggle
-        const darkModeToggle = document.getElementById("darkModeToggle");
-        const body = document.body;
-        const darkModeIcon = darkModeToggle.querySelector("i");
-
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem("theme") || "light";
-        if (currentTheme === "dark") {
-            body.classList.add("dark-mode");
-            darkModeIcon.classList.remove("fa-moon");
-            darkModeIcon.classList.add("fa-sun");
-        }
-
-        darkModeToggle.addEventListener("click", () => {
-            body.classList.toggle("dark-mode");
-
-            // Update icon
-            if (body.classList.contains("dark-mode")) {
-                darkModeIcon.classList.remove("fa-moon");
-                darkModeIcon.classList.add("fa-sun");
-                localStorage.setItem("theme", "dark");
-            } else {
-                darkModeIcon.classList.remove("fa-sun");
-                darkModeIcon.classList.add("fa-moon");
-                localStorage.setItem("theme", "light");
-            }
-        });
 
         // Mobile Navigation Toggle
         const hamburger = document.getElementById("hamburger");
@@ -1294,46 +1262,7 @@
             }, 1500);
         });
 
-        // Login functionality (basic implementation)
-        const loginBtn = document.getElementById('openLoginModal');
-        const logoutBtn = document.getElementById('logoutBtn');
-
-        // Check if user is logged in
-        function updateLoginState() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-            if (isLoggedIn) {
-                loginBtn.style.display = 'none';
-                logoutBtn.style.display = 'flex';
-            } else {
-                loginBtn.style.display = 'flex';
-                logoutBtn.style.display = 'none';
-            }
-        }
-
-        // Simple login (just for demo)
-        loginBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const username = prompt('Enter username:');
-            if (username) {
-                localStorage.setItem('isLoggedIn', 'true');
-                localStorage.setItem('currentUser', username);
-                updateLoginState();
-                alert(`Welcome, ${username}!`);
-            }
-        });
-
-        // Logout functionality
-        logoutBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            localStorage.removeItem('isLoggedIn');
-            localStorage.removeItem('currentUser');
-            updateLoginState();
-            alert('You have been logged out successfully!');
-        });
-
-        // Initialize login state
-        updateLoginState();
-
+       
         // Auto-fill user name if logged in
         document.addEventListener('DOMContentLoaded', () => {
             const currentUser = localStorage.getItem('currentUser');

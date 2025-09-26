@@ -4,7 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scale Recipes - BakeGenius.ai</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Scale Recipes - BakeGenius.ai | Smart Recipe Scaling Tool</title>
+    <link rel="icon" href="Favicon.png" type="image/x-icon" />
+    <meta name="title" content="Scale Recipes - BakeGenius.ai | Smart Recipe Scaling Tool" />
+    <meta name="description" content="Scale your baking recipes up or down with AI precision. Maintain perfect ratios and adjust rising agents intelligently. Free recipe scaling tool for bakers." />
+    <meta name="keywords" content="recipe scaling, scale recipes, baking calculator, recipe multiplier, baking proportions, recipe adjustment, baking scaling tool" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="author" content="Supriya Pandey" />
+    <meta name="theme-color" content="#3e2723" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bakegenius-ai.vercel.app/scale.html" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bakegenius-ai.vercel.app/scale.html" />
+    <meta property="og:title" content="Scale Recipes - BakeGenius.ai | Smart Recipe Scaling Tool" />
+    <meta property="og:description" content="Scale your baking recipes up or down with AI precision. Maintain perfect ratios and adjust rising agents intelligently. Free recipe scaling tool for bakers." />
+    <meta property="og:image" content="https://bakegenius-ai.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="BakeGenius.ai" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://bakegenius-ai.vercel.app/scale.html" />
+    <meta property="twitter:title" content="Scale Recipes - BakeGenius.ai | Smart Recipe Scaling Tool" />
+    <meta property="twitter:description" content="Scale your baking recipes up or down with AI precision. Maintain perfect ratios and adjust rising agents intelligently. Free recipe scaling tool for bakers." />
+    <meta property="twitter:image" content="https://bakegenius-ai.vercel.app/og-image.png" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="application-name" content="BakeGenius.ai" />
+    <meta name="apple-mobile-web-app-title" content="BakeGenius.ai" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="msapplication-TileColor" content="#3e2723" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -33,7 +75,7 @@
         }
 
         body.dark-mode {
-            background: #0d0d0d;
+            background-color: #0d0d0d;
         }
 
         /* Navigation */
@@ -52,14 +94,15 @@
         }
 
         body.dark-mode .navbar {
-            background: #1e1e1e;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: #1e1e1e !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1500px;
             max-width: 1500px;
             margin: 0 auto;
         }
@@ -242,8 +285,52 @@
                 background: rgba(13, 13, 13, 0.95);
             }
 
+           
+            .dark-mode-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+
             .hamburger {
                 display: flex;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo-icon {
+                font-size: 1.7rem;
+            }
+        }
+
+        /* ===== STANDARDIZED SMALL MOBILE NAVIGATION ===== */
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 0.5rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .logo-icon {
+                font-size: 1.5rem;
+            }
+
+            .nav-actions {
+                gap: 0.3rem;
+            }
+
+           
+
+            .dark-mode-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 0.8rem;
             }
         }
 
@@ -369,6 +456,23 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
+
+        .social-link.linkedin {
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+        }
+
+        .social-link.github {
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+        }
+
+        .social-link.portfolio {
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+        }
+
+        .social-link.email {
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+        }
+
         .footer-bottom {
             background: rgba(0, 0, 0, 0.05);
             backdrop-filter: blur(10px);
@@ -437,7 +541,7 @@
 
         .badge-purple {
             background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-        }
+                    }
 
         body.dark-mode .badge-blue {
             background: #e0e0e0;
@@ -453,6 +557,7 @@
             background: #e0e0e0;
             color: #0d0d0d;
         }
+
 
         @media (max-width: 1024px) {
             .footer-content {
@@ -481,7 +586,9 @@
 
         /*dark mode*/
         body.dark-mode .footer {
+
             background: #1e1e1e;
+
         }
 
         body.dark-mode .footer-section h3.footer-title {
@@ -546,8 +653,7 @@
             left: 10%;
             animation-delay: 0s;
         }
-
-        .floating-cupcake:nth-child(2) {
+                .floating-cupcake:nth-child(2) {
             top: 20%;
             right: 15%;
             animation-delay: 2s;
@@ -558,6 +664,22 @@
             left: 20%;
             animation-delay: 4s;
         }
+
+        .floating-cupcake:nth-child(4) {
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
 
         .floating-cupcake:nth-child(4) {
             bottom: 15%;
@@ -593,30 +715,10 @@
             }
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a.active {
-            background: #4ECDC4;
-            color: white;
-        }
-
-        /* Dual Scroll Buttons */
-        .scroll-btn {
+        /* Back to Top Button Styles */
+        #backToTop {
             position: fixed;
+            bottom: 2.5rem;
             right: 2.5rem;
             z-index: 2000;
             background: linear-gradient(45deg, #a4766a, #5d4037);
@@ -633,35 +735,61 @@
             transition: opacity 0.4s, transform 0.2s;
         }
 
-        .scroll-btn.show {
+        body.dark-mode #backToTop {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        #backToTop.show {
             opacity: 1;
             pointer-events: auto;
             transform: scale(1.08);
         }
 
-        .scroll-btn:hover {
+        #backToTop:hover {
+            background: linear-gradient(45deg, #a4766a, #5d4037);
             transform: scale(1.15);
-            background: linear-gradient(45deg, #5d4037, #a4766a);
         }
 
-        body.dark-mode .scroll-btn {
+        /* Back to Top to Bottom Button Styles */
+        #Toptoback {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            z-index: 2000;
+            background: linear-gradient(45deg, #a4766a, #5d4037);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            font-size: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s, transform 0.2s;
+        }
+
+        body.dark-mode #Toptoback {
             background: #e0e0e0;
             color: #0d0d0d;
         }
 
-        body.dark-mode .scroll-btn:hover {
-            background: #e0e0e0;
+        #Toptoback.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(-10px) scale(1.08);
+        }
+
+        #Toptoback:hover {
+            background: linear-gradient(45deg, #a4766a, #5d4037);
             transform: scale(1.15);
         }
 
-        /* Positioning individually */
-        #scrollTopBtn {
-            bottom: 6.5rem;
-        }
-
-        /* Above bottom button */
-        #scrollBottomBtn {
-            bottom: 2.5rem;
+        body.dark-mode #Toptoback:hover {
+            background: #e0e0e0;
+            transform: scale(1.15);
         }
 
         /* Main Container */
@@ -1178,7 +1306,11 @@ input:checked+.slider:before {
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>📏 Scale Your Recipes</h1>
+            <div class="heading">
+
+                 
+                <h1>⚖️ Scale Your Recipes</h1>
+            </div>
             <p>Perfect portions for any crowd - from intimate dinners to grand celebrations!</p>
         </div>
 
@@ -1261,10 +1393,11 @@ input:checked+.slider:before {
             </div>
         </div>
     </div>
-    <!-- Dual Scroll Buttons -->
-    <button id="scrollTopBtn" class="scroll-btn" title="Back to Top">⬆</button>
-    <button id="scrollBottomBtn" class="scroll-btn" title="Scroll to Bottom">⬇</button>
-
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to Top">⬆</button>
+    <!-- Top to Bottom Button -->
+    <button id="Toptoback" title="Top To Back">⬇</button>
 
     <!-- footer startes here -->
     <footer class="footer">
@@ -1308,11 +1441,11 @@ input:checked+.slider:before {
             <div class="footer-section">
                 <h3 class="footer-title">Features</h3>
                 <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-calculator"></i>Unit Conversion</a></li>
-                    <li><a href="#"><i class="fas fa-chart-line"></i>Nutritional Analysis</a></li>
-                    <li><a href="#"><i class="fas fa-balance-scale"></i>Recipe Scaling</a></li>
-                    <li><a href="#"><i class="fas fa-magic"></i>AI Optimization</a></li>
-                    <li><a href="#"><i class="fas fa-mobile-alt"></i>Mobile Friendly</a></li>
+                    <li><a href="javascript:void(0)"><i class="fas fa-calculator"></i>Unit Conversion</a></li>
+                    <li><a href="javascript:void(0)"><i class="fas fa-chart-line"></i>Nutritional Analysis</a></li>
+                    <li><a href="javascript:void(0)"><i class="fas fa-balance-scale"></i>Recipe Scaling</a></li>
+                    <li><a href="javascript:void(0)"><i class="fas fa-magic"></i>AI Optimization</a></li>
+                    <li><a href="javascript:void(0)"><i class="fas fa-mobile-alt"></i>Mobile Friendly</a></li>
                 </ul>
             </div>
 
@@ -1343,6 +1476,7 @@ input:checked+.slider:before {
         </div>
     </footer>
 
+    <script src="assets/js/theme.js"></script>
     <script>
         // Dark Mode Toggle
         const darkModeToggle = document.getElementById('darkModeToggle');
@@ -1392,6 +1526,7 @@ input:checked+.slider:before {
         });
 
         // Scale Recipe Logic
+        document.addEventListener("DOMContentLoaded", function () {
         const API_KEY = 'API_KEY';
         const API_URL = 'API_URL';
 
@@ -1657,63 +1792,31 @@ input:checked+.slider:before {
             document.getElementById('convertToGrams').checked = false;
             document.getElementById('resultsContainer').classList.remove('show');
         }
-        // Dual Scroll Buttons
-        const scrollTopBtn = document.getElementById('scrollTopBtn');
-        const scrollBottomBtn = document.getElementById('scrollBottomBtn');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollTopBtn.classList.add('show');
+        
+        // Back to Top Button Logic
+        const backToTopBtn = document.getElementById("backToTop");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 100) {
+                backToTopBtn.classList.add("show");
             } else {
-                scrollTopBtn.classList.remove('show');
-            }
-
-            if (window.innerHeight + window.scrollY < document.body.offsetHeight - 300) {
-                scrollBottomBtn.classList.add('show');
-            } else {
-                scrollBottomBtn.classList.remove('show');
+                backToTopBtn.classList.remove("show");
             }
         });
-
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
         });
 
-        scrollBottomBtn.addEventListener('click', () => {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-        });
-
-
-        // Function to update login state
-        function updateLoginState() {
-            const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-            const loginBtn = document.getElementById("openLoginModal");
-            const logoutBtn = document.getElementById("logoutBtn");
-
-            if (isLoggedIn) {
-                loginBtn.style.display = "none";
-                logoutBtn.style.display = "flex";
+        //Top to Bottom Button Logic
+        const ToptobackBtn = document.getElementById("Toptoback");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY < 100) {
+                ToptobackBtn.classList.add("show");
             } else {
-                loginBtn.style.display = "flex";
-                logoutBtn.style.display = "none";
+                ToptobackBtn.classList.remove("show");
             }
-        }
-
-        // Logout functionality
-        const logoutBtn = document.getElementById("logoutBtn");
-        if (logoutBtn) {
-            logoutBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                localStorage.removeItem("isLoggedIn");
-                localStorage.removeItem("currentUser");
-                updateLoginState();
-                alert("You have been logged out successfully!");
-            });
-        }
-
-        // Check login state on page load
-        document.addEventListener("DOMContentLoaded", () => {
-            updateLoginState();
+        });
+        ToptobackBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 10000, behavior: "smooth" });
         });
 
         // Add some example recipes on page load
@@ -1724,8 +1827,10 @@ input:checked+.slider:before {
                 "4 cups flour\n1/2 cup sugar\n1 packet yeast\n1 tsp salt\n1/4 cup olive oil\n1 1/2 cups warm water"
             ];
 
+        });
 
         });
+
     </script>
 </body>
 
