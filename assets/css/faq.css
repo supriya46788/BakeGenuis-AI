@@ -1,4 +1,5 @@
 * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -1020,3 +1021,4 @@ body.dark-mode .badge-purple {
         font-size: 0.95rem;
     }
 }
+

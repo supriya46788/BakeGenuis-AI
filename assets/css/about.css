@@ -549,6 +549,7 @@ body.dark-mode {
 
 /* ===== STANDARDIZED NAVIGATION BAR ===== */
 .navbar {
+
   background: radial-gradient(circle at center, #e5c5b3, #e9b4b6);
   backdrop-filter: blur(15px);
   padding: 1rem 2rem;
@@ -573,6 +574,7 @@ body.dark-mode .navbar {
   max-width: 1500px;
   margin: 0 auto;
 }
+
 
 .logo {
   font-size: 2rem;
@@ -1708,6 +1710,7 @@ body.dark-mode .dark-mode-btn {
   margin-bottom: 12px;
 }
 
+
 .contributors-desc {
   font-size: 1.03rem;
   color: #666;
@@ -1899,6 +1902,7 @@ body.dark-mode .dark-mode-btn {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, var(--sky-blue), var(--sunny-yellow));
 }
+
 
 /* Dual Scroll Buttons */
 .scroll-btn {
