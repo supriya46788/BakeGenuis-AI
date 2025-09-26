@@ -774,7 +774,7 @@
     border-radius: 10px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1242px) {
     /* Hides the desktop navigation links */
     .nav-links {
         display: flex;
@@ -793,7 +793,12 @@
         gap: 0;
         z-index: 999;
     }
-
+    .nav-actions {
+    gap: 0.5rem;
+    z-index: 1001;
+    position: absolute;
+    right: 5rem;
+  }
     /* This rule makes the menu slide in when it's active */
     .nav-links.active {
         transform: translateX(0);

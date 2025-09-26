@@ -267,7 +267,7 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 1242px) {
             .navbar {
                 padding: 0.8rem 1rem;
             }
@@ -305,14 +305,8 @@
                 margin: 0.5rem 0;
             }
 
-            .nav-actions {
-                gap: 0.5rem;
-                position: relative;
-                z-index: 1001;
-            }
-
+            .nav-actions{gap:.5rem; z-index:1001; position: absolute; right:5rem;}
             
-
             .dark-mode-btn {
                 width: 40px;
                 height: 40px;
