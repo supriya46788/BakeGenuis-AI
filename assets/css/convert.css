@@ -84,7 +84,7 @@
 
     /* Active navigation link styles */
     .nav-links a.active {
-      background-color: #0d0d0d !important;
+      background: linear-gradient(90deg, #3e2723, #573730, #3e2723)  !important;
       color: #ffffff !important;
       border-color: #1e1e1e !important;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -438,7 +438,6 @@ body.dark-mode .badge-purple {
     .copyright { color:#333; font-size:.9rem; margin:0; }
     .copyright .name { color:#3e2723; font-weight:600; }
 
-
       body.dark-mode .footer-section h3.footer-title {
           color: #e0e0e0;
       }
@@ -474,7 +473,6 @@ body.dark-mode .badge-purple {
       body.dark-mode .copyright .name {
           color: #ef6154;
       }
-
 
     @media (max-width:1024px){
       .footer-content{ grid-template-columns:1fr 1fr; gap:2rem; }
