@@ -103,15 +103,24 @@
 
   <!-- MAIN -->
   <main>
-    <div class="page-header">
-      <h1 class="page-title">🍪 Recipe Converter</h1>
-      <p class="page-subtitle">Transform your recipes into precise gram measurements with AI magic ✨</p>
+    <div class="page-title">
+      <div class="logo">
+        <div class="cookie-icon">
+          <div class="cookie-dot"></div>
+        </div>
+        <h1>Recipe Converter</h1>
+      </div>
+      <p class="subtitle">Transform your recipes into precise gram measurements with AI magic ✨</p>
+
     </div>
 
     <div class="converter-container">
       <div class="input-section">
         <div class="input-group">
-          <label for="recipeInput" class="input-label">📝 Paste your recipe here:</label>
+          <div class="input-label">
+            <div class="clipboard-icon"><i class="fa-regular fa-clipboard"></i></div>
+            Paste your recipe here:
+          </div>
           <textarea id="recipeInput" class="recipe-input" placeholder="Example:
 2 cups all-purpose flour
 1 cup packed brown sugar
@@ -122,8 +131,10 @@
 1/4 tsp salt"></textarea>
         </div>
 
-        <div class="input-group">
-          <label for="fileUpload" class="file-upload-label">📁 Or upload a recipe file</label>
+        <div class="input-group file-upload-input">
+
+          <div class="file-icon">📄</div>
+
           <input type="file" id="fileUpload" class="file-upload" accept=".txt,.doc,.docx"
             onchange="handleFileUpload(event)">
         </div>
