@@ -756,7 +756,7 @@ body.dark-mode .copyright .name {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1242px) {
     .navbar {
         padding: 0.8rem 1rem;
     }
@@ -783,6 +783,7 @@ body.dark-mode .copyright .name {
     .nav-links.active {
         transform: translateX(0);
     }
+    .nav-actions{gap:.5rem; z-index:1001; position: absolute; right:5rem;}
 
     .nav-links li {
         padding: 2rem;
