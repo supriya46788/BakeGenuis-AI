@@ -1,3 +1,13 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const successDiv = document.getElementById('successMessage');
+    if (successDiv) {
+        successDiv.style.display = 'none';
+    }
+
+    renderIngredients();
+    loadBrandPreference();
+});
+
 document.addEventListener("DOMContentLoaded", function () {
             // Mobile Navigation Toggle
             const hamburger = document.getElementById('hamburger');
