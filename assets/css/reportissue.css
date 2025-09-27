@@ -254,7 +254,7 @@
         .hamburger span {
             width: 25px;
             height: 3px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            background: linear-gradient(45deg, #a4766a, #5d4037);
             margin: 3px 0;
             transition: 0.3s;
             border-radius: 2px;
@@ -606,7 +606,6 @@
             background: rgba(255, 107, 107, 0.1);
             padding-left: 0.8rem;
         }
-
         .footer-links i {
             font-size: 0.9rem;
             width: 16px;

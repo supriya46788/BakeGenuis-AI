@@ -192,7 +192,7 @@
         .hamburger span {
             width: 25px;
             height: 3px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            background: linear-gradient(45deg, #a4766a, #5d4037);
             margin: 3px 0;
             transition: 0.3s;
             border-radius: 2px;
@@ -490,12 +490,6 @@
             color: #a0a0a0;
             background: rgba(255, 138, 128, 0.1);
         }
-
-        .footer-links a.active {
-            color: #d18a68;
-            font-weight: 700;
-        }
-
         .footer-links i {
             font-size: 0.9rem;
             width: 16px;

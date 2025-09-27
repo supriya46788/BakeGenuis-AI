@@ -627,7 +627,6 @@
             background: rgba(255, 107, 107, 0.1);
             padding-left: 0.8rem;
         }
-
         body.dark-mode .footer-links a:hover {
             color: #a0a0a0;
             background: rgba(255, 138, 128, 0.1);
