@@ -749,7 +749,7 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 1242px) {
             .navbar {
                 padding: 0.8rem 1rem;
             }
@@ -782,6 +782,7 @@
                 border-bottom: solid 1px black;
                 border-radius: 8px;
             }
+            .nav-actions{gap:.5rem; z-index:1001; position: absolute; right:5rem;}
 
             body.dark-mode .nav-links {
                 background: #1a1a1a;
