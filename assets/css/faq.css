@@ -347,17 +347,20 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
+            
         }
 
         .faq-title {
             text-align: center;
             font-size: 3rem;
-            font-weight: 700;
+           font-weight: 700;
             background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-            -webkit-background-clip: text;
+           -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 40px;
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            animation: bounce 2s ease-in-out infinite;
         }
         body.dark-mode h2.faq-title{
             text-align: center;
@@ -368,7 +371,26 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 40px;
+            animation: bounce 2s ease-in-out infinite;
         }
+        @keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
 
         .faq-item {
             margin-bottom: 20px;
