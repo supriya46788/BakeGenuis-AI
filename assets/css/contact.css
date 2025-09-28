@@ -160,7 +160,7 @@
             width: 90%;
             height: auto;
             min-height: 600px;
-            max-width: 1200px;
+            max-width: 1100px;
             background: #fff;
             box-shadow: 0 20px 60px rgba(0,0,0,0.15);
             border-radius: 20px;
@@ -182,7 +182,7 @@
 
         /* Left Column */
         .contact-info {
-            background: linear-gradient(135deg, #ffafaf, #ef8888);
+            background: #f3e0d6 /*linear-gradient(135deg, #ffafaf, #ef8888)*/;
             color: #fff;
             padding: 50px 40px;
             flex: 1;
@@ -252,26 +252,7 @@
         .contact-info .info-item:hover i {
             transform: scale(1.2);
         }
-        .contact-info .social-link{
-            margin-top: 3.5rem;
-            margin-right: 1rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 65px;
-            height: 65px;
-            background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-            color: white;
-            text-decoration: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        .contact-info .social-links{
-            color: #4b4a4a;
-        }
-
+      
         /* Right Column */
         .contact-form-box {
             flex: 1;
@@ -280,9 +261,9 @@
         }
 
         .contact-form-title {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 30px;
-            font-weight: 600;
+            font-weight: 800;
             color:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             text-align: center;
         }
@@ -309,7 +290,7 @@
         .contact-form input:focus,
         .contact-form textarea:focus {
             outline: none;
-            border-color: #ea6683;
+            border-color: #3e2723 ;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
             transform: translateY(-2px);
         }
@@ -333,7 +314,7 @@
 
         .contact-form button {
             background:linear-gradient(20deg, #3e2723, #6e463e, #3e2723);
-            padding: 25px 35px;
+            padding: 15px 25px;
             border: none;
             border-radius: 20px;
             font-size: 1.1rem;
