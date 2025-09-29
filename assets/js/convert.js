@@ -56,11 +56,15 @@
       'chocolate':'🍫','cocoa':'🍫','oil':'🫒','honey':'🍯','cream':'🥛','cheese':'🧀','nuts':'🥜','fruit':'🍓',
       'lemon':'🍋','orange':'🍊','cinnamon':'🌿','default':'🥄'
     };
-    function getIngredientEmoji(ing){
+      // Issue: If the ingredient name contains multiple keys, the wrong emoji may be returned.
+      // For example, if the ingredient name is "flour sugar", the code will return the emoji for "flour".
+      // To fix this, we need to check if the ingredient name starts with the key, not just contains it.
       const lower = ing.toLowerCase();
-      for (const [key, emoji] of Object.entries(ingredientEmojis)) if (lower.includes(key)) return emoji;
+      for (const [key, emoji] of Object.entries(ingredientEmojis)) {
+        if (lower.startsWith(key)) return emoji;
+      }
       return ingredientEmojis.default;
-    }
+
 
     // Convert logic (wire up to your backend)
     const GEMINI_API_KEY = 'API_KEY';
@@ -97,7 +101,7 @@ ${recipeText}` }]}]
         });
         if (!response.ok) throw new Error('API request failed');
         const data = await response.json();
-        const aiResponse = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
+        const aiResponse = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
 
         try{
           const jsonMatch = aiResponse.match(/\{[\s\S]*\}/);
