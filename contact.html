@@ -4,521 +4,52 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us | BakeGenius.ai</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Contact Us | BakeGenius.ai | Get in Touch</title>
+    <link rel="icon" href="Favicon.png" type="image/x-icon" />
+    <meta name="title" content="Contact Us | BakeGenius.ai | Get in Touch" />
+    <meta name="description" content="Contact BakeGenius.ai for support, feedback, or questions about our AI-powered baking conversion tool. We're here to help you with your baking needs." />
+    <meta name="keywords" content="contact bakegenius, baking support, recipe converter help, baking tool contact, AI baking support, baking questions" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="author" content="Supriya Pandey" />
+    <meta name="theme-color" content="#3e2723" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bakegenius-ai.vercel.app/contact.html" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bakegenius-ai.vercel.app/contact.html" />
+    <meta property="og:title" content="Contact Us | BakeGenius.ai | Get in Touch" />
+    <meta property="og:description" content="Contact BakeGenius.ai for support, feedback, or questions about our AI-powered baking conversion tool. We're here to help you with your baking needs." />
+    <meta property="og:image" content="https://bakegenius-ai.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="BakeGenius.ai" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://bakegenius-ai.vercel.app/contact.html" />
+    <meta property="twitter:title" content="Contact Us | BakeGenius.ai | Get in Touch" />
+    <meta property="twitter:description" content="Contact BakeGenius.ai for support, feedback, or questions about our AI-powered baking conversion tool. We're here to help you with your baking needs." />
+    <meta property="twitter:image" content="https://bakegenius-ai.vercel.app/og-image.png" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="application-name" content="BakeGenius.ai" />
+    <meta name="apple-mobile-web-app-title" content="BakeGenius.ai" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="msapplication-TileColor" content="#3e2723" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Comic Neue", cursive;
-            background-color: #f5f3f1;
-            min-height: 100vh;
-            color: #3e2723;
-            transition: all 0.3s ease;
-        }
-
-        body.dark-mode {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #9b59b6 100%);
-            color: #fff;
-        }
-
-        .navbar {
-            background: radial-gradient(circle, #e5c5b3, #e9b4b6);
-            backdrop-filter: blur(15px);
-            padding: 1rem 2rem;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        body.dark-mode .navbar {
-            background: rgba(26, 26, 26, 0.95);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1500px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #3e2723;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            min-width: 150px;
-        }
-
-        body.dark-mode .logo {
-            color: #ff8a80;
-        }
-
-        .logo-icon {
-            font-size: 2rem;
-        }
-
-        .logo-text {
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #3e2723;
-            font-weight: 600;
-            padding: 0.7rem 1rem;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        body.dark-mode .nav-links a {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .dark-mode-btn {
-            background-color: #3e2723;
-            border: none;
-            color: white;
-            padding: 0.7rem;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1rem;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        body.dark-mode .dark-mode-btn {
-            background: linear-gradient(45deg, #f39c12 0%, #f1c40f 100%);
-        }
-
-        .login-btn {
-            background-color: #d18a68;
-            color: white;
-            text-decoration: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        body.dark-mode .login-btn {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            margin: 3px 0;
-            border-radius: 2px;
-        }
-
-        /* Main content styles */
-        .main-content {
-            margin-top: 120px;
-            padding: 2rem;
-            min-height: calc(100vh - 200px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .contact-box {
-            background: rgba(255, 255, 255, 0.92);
-            max-width: 720px;
-            width: 100%;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            padding: 2.5rem 2rem;
-            margin-bottom: 2rem;
-        }
-
-        body.dark-mode .contact-box {
-            background: rgba(45, 45, 45, 0.95);
-        }
-
-        .contact-title {
-            font-size: 2.9rem;
-            font-weight: 700;
-            margin-bottom: 0.6rem;
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-desc {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 2.2rem;
-        }
-
-        body.dark-mode .contact-desc {
-            color: #ccc;
-        }
-
-        .contact-details-row {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-detail {
-            display: flex;
-            align-items: center;
-            gap: 1.1rem;
-            background: #f8f8f8;
-            padding: 1.2rem 1.4rem;
-            border-radius: 18px;
-            font-size: 1.07rem;
-            box-shadow: 0 2px 13px rgba(255, 107, 107, 0.09);
-        }
-
-        body.dark-mode .contact-detail {
-            background: #292929;
-            color: #fff;
-        }
-
-        .contact-detail i {
-            font-size: 1.8rem;
-            color: #ff6b6b;
-        }
-
-        .contact-form-box {
-            background: #fff5ed;
-            padding: 2.5rem 2rem;
-            border-radius: 24px;
-            box-shadow: 0 3px 18px rgba(78, 205, 196, 0.07);
-        }
-
-        body.dark-mode .contact-form-box {
-            background: #1a1a1a;
-        }
-
-        .contact-form-title {
-            font-size: 1.52rem;
-            font-weight: 700;
-            margin-bottom: 1.25rem;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .form-row input {
-            flex: 1;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 0.85rem;
-            margin-bottom: 1.1rem;
-            border-radius: 12px;
-            border: 1px solid #ccc;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.2s;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: #4ecdc4;
-            outline: none;
-        }
-
-        .contact-form textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .contact-form button {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            color: #fff;
-            font-size: 1.16rem;
-            font-weight: 700;
-            border: none;
-            border-radius: 25px;
-            padding: 0.85rem 2.7rem;
-            cursor: pointer;
-            box-shadow: 0 3px 14px rgba(255, 107, 107, 0.16);
-            transition: transform 0.2s;
-        }
-
-        .contact-form button:hover {
-            transform: scale(1.05);
-            background: linear-gradient(45deg, #4ecdc4, #ff6b6b);
-        }
-
-        
-        .footer {
-            background: radial-gradient(circle at center, #e9b4b6, #e5c5b3);
-            backdrop-filter: blur(15px);
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
-            margin-top: 4rem;
-        }
-
-        body.dark-mode .footer {
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
-        }
-
-        .footer-content {
-            max-width: 1500px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            padding: 3rem 2rem 2rem;
-        }
-
-        @media (max-width:1024px) {
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width:768px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-        }
-
-        .footer-section h3.footer-title {
-            color: #3e2723;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        body.dark-mode .footer-section h3.footer-title {
-            color: #ff8a80;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #3e2723;
-        }
-
-        body.dark-mode .footer-logo {
-            color: #ff8a80;
-        }
-
-        .footer-logo-icon {
-            font-size: 2rem;
-        }
-
-        .footer-description {
-            color: #333;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
-        }
-
-        body.dark-mode .footer-description {
-            color: #ccc;
-        }
-
-        .footer-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: #333;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.3rem 0;
-            border-radius: 5px;
-        }
-
-        body.dark-mode .footer-links a {
-            color: #ccc;
-        }
-
-        .footer-links a:hover {
-            color: black;
-            transform: translateX(4px);
-            background: rgba(255, 107, 107, 0.1);
-            padding-left: 0.8rem;
-        }
-
-        body.dark-mode .footer-links a:hover {
-            color: #ff8a80;
-            background: rgba(255, 138, 128, 0.1);
-        }
-
-        .footer-bottom {
-            background: rgba(0, 0, 0, 0.05);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1.5rem 0;
-        }
-
-        body.dark-mode .footer-bottom {
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        .footer-bottom-content {
-            max-width: 1500px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        @media (max-width:768px) {
-            .footer-bottom-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            .footer-badges {
-                justify-content: center;
-            }
-        }
-
-        .copyright {
-            color: #333;
-            font-size: 0.9rem;
-        }
-
-        body.dark-mode .copyright {
-            color: #ccc;
-        }
-
-        .copyright .name {
-            color: #3e2723;
-            font-weight: 600;
-        }
-
-        body.dark-mode .copyright .name {
-            color: #ff8a80;
-        }
-
-        .footer-badges {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .badge-green {
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-        }
-
-        .badge-blue {
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-        }
-
-        .badge-purple {
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            color: white;
-            text-decoration: none;
-            border-radius: 50%;
-            font-size: 1.2rem;
-        }
-
-        .social-link.linkedin {
-            background: #0a66c2;
-        }
-
-        .social-link.github {
-            background: black;
-        }
-
-        .social-link.email {
-            background: red;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/contact.css">
 </head>
 
 <body>
@@ -529,52 +60,92 @@
                 <span class="logo-icon">🍰</span>
                 <span class="logo-text">BakeGenius.ai</span>
             </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
-                <li><a href="convert.html"><i class="fas fa-exchange-alt"></i>Convert Recipe</a></li>
-                <li><a href="customize.html"><i class="fas fa-cog"></i>Customize</a></li>
-                <li><a href="scale.html"><i class="fas fa-balance-scale"></i>Scale Recipes</a></li>
-                <li><a href="about.html"><i class="fas fa-info-circle"></i>About</a></li>
-                <li><a href="contact.html"><i class="fas fa-envelope"></i>Contact</a></li>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="convert.html"><i class="fas fa-exchange-alt"></i>&nbsp;Convert Recipe</a></li>
+                <li><a href="customize.html"><i class="fas fa-cog"></i>&nbsp;Customize</a></li>
+                <li><a href="scale.html"><i class="fas fa-balance-scale"></i>&nbsp;Scale Recipes</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i>&nbsp;About</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i>&nbsp;Contact</a></li>
             </ul>
             <div class="nav-actions">
                 <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode"><i
                         class="fas fa-moon"></i></button>
-                <a href="#" class="login-btn" id="openLoginModal"><i class="fas fa-user"></i>Login</a>
-                <a href="#" class="login-btn" id="logoutBtn" style="display: none;"><i
-                        class="fas fa-sign-out-alt"></i>Logout</a>
             </div>
-            <div class="hamburger" id="hamburger">
-                <span></span><span></span><span></span>
+            <div class="hamburger-icon" id="hamburger-icon">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
     </nav>
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="contact-box">
-            <div class="contact-title" style="text-align: center;">Contact Us</div>
-            <div class="contact-desc">
-                Got questions, feedback, or ideas? Let’s bake something amazing together!
+    <div class="contact-box">
+            <div class="contact-info">
+                <h2>Let's get in touch</h2>
+                <p>We’re here to help! Reach out anytime and we’ll respond as quickly as we can.</p>
+                
+                
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    +1 235 2355 98
+                </div>
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    sup34914@gmail.com
+                </div>
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-globe"></i>
+                    https://supriya46788.github.io/BakeGenuis-AI
+                </div>
+               <!-- <div class="social-links">
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-link linkedin" target="_blank"
+                        title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/supriya46788/BakeGenuis-AI" class="social-link github" target="_blank"
+                        title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:supriyadpandey502@gmail.com" class="social-link email" target="_blank"
+                        title="Email"><i class="fas fa-envelope"></i></a>
+                </div>-->
             </div>
-
+            
             <div class="contact-form-box">
-                <center><div class="contact-form-title">Send a Message</div>
-                <form class="contact-form" id="bakeContactForm" autocomplete="off">
+                <h3 class="contact-form-title">Get in touch</h3>
+                
+                <form class="contact-form" id="bakeContactForm">
                     <div class="form-row">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
+                        <div class="input-group">
+                            <label>Full Name</label>
+                            <input type="text" name="fullName" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Email Address</label>
+                            <input type="email" name="email" placeholder="Enter your email address" required>
+                        </div>
                     </div>
-                    <input type="text" name="subject" placeholder="Subject" required>
-                    <textarea name="message" placeholder="Your Message" required></textarea>
-                    <center><button type="submit">Send Message</button>
-
-                    <div id="contactSuccess" style="color:#4ecdc4;padding-top:8px;display:none;">Message sent! Thank you
-                        for contacting us. 🍰</div>
+                    
+                    <div class="input-group">
+                        <label>Subject</label>
+                        <input type="text" name="subject" placeholder="Enter the subject" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Message</label>
+                        <textarea name="message" placeholder="Enter your message" required></textarea>
+                    </div>
+                    
+                    <button type="submit">Send Message</button>
+                    
+                    <div class="success-message" id="contactSuccess">
+                        Message sent! Thank you for contacting us. 🚀
+                    </div>
                 </form>
             </div>
         </div>
-    </main>
+</main>
 
     <!-- Footer (identical to index.html) -->
     <footer class="footer">
@@ -642,63 +213,9 @@
         </div>
     </footer>
     <!-- JS for dark mode and nav toggle -->
-    <script>
-        // Dark Mode Toggle
-        const darkModeToggle = document.getElementById("darkModeToggle");
-        const body = document.body;
-        const darkModeIcon = darkModeToggle.querySelector("i");
-        const currentTheme = localStorage.getItem("theme") || "light";
-        if (currentTheme === "dark") {
-            body.classList.add("dark-mode");
-            darkModeIcon.classList.remove("fa-moon");
-            darkModeIcon.classList.add("fa-sun");
-        }
-        darkModeToggle.addEventListener("click", () => {
-            body.classList.toggle("dark-mode");
-            if (body.classList.contains("dark-mode")) {
-                darkModeIcon.classList.remove("fa-moon");
-                darkModeIcon.classList.add("fa-sun");
-                localStorage.setItem("theme", "dark");
-            } else {
-                darkModeIcon.classList.remove("fa-sun");
-                darkModeIcon.classList.add("fa-moon");
-                localStorage.setItem("theme", "light");
-            }
-        });
-        // Mobile Navigation Toggle
-        const hamburger = document.getElementById("hamburger");
-        const navLinks = document.getElementById("navLinks");
-        hamburger.addEventListener("click", (e) => {
-            e.stopPropagation();
-            navLinks.classList.toggle("active");
-            hamburger.classList.toggle("active");
-        });
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll(".nav-links a").forEach(item => {
-            item.addEventListener("click", () => {
-                navLinks.classList.remove("active");
-                hamburger.classList.remove("active");
-            });
-        });
-        // Close menu when clicking outside
-        document.addEventListener("click", (e) => {
-            if (navLinks.classList.contains("active") &&
-                !hamburger.contains(e.target) &&
-                !navLinks.contains(e.target)
-            ) {
-                navLinks.classList.remove("active");
-                hamburger.classList.remove("active");
-            }
-        });
-        
-        // Contact form "sent" animation
-        document.getElementById("bakeContactForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-            document.getElementById("contactSuccess").style.display = "block";
-            this.reset();
-            setTimeout(() => { document.getElementById("contactSuccess").style.display = "none"; }, 4000);
-        });
-    </script>
+     
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/contact.js"></script>
 </body>
 
 </html>
