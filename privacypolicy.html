@@ -9,6 +9,60 @@
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/privacypolicy.css">
+    <style>
+        /* Single Scroll Button Styles */
+        .scroll-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #3e2723, #6e463e);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .scroll-btn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(45deg, #6e463e, #3e2723);
+        }
+
+        body.dark-mode .scroll-btn {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+        }
+
+        body.dark-mode .scroll-btn:hover {
+            background: linear-gradient(45deg, #c0392b, #a93226);
+        }
+
+        /* Responsive design for scroll button */
+        @media (max-width: 768px) {
+            .scroll-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -295,8 +349,66 @@
         </div>
     </footer>
 
+    <!-- Single Scroll Button -->
+    <div id="scrollBtn" class="scroll-btn" title="Scroll to Bottom">
+        <i class="fas fa-arrow-down"></i>
+    </div>
+
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/privacypolicy.js"></script>
+    <script>
+        // Single Scroll Button Functionality
+        const scrollBtn = document.getElementById("scrollBtn");
+        const scrollIcon = scrollBtn.querySelector("i");
+
+        // Show/hide button based on scroll position
+        window.addEventListener("scroll", () => {
+            const scrollPosition = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            // Show button when scrolled down more than 300px
+            if (scrollPosition > 300) {
+                scrollBtn.classList.add("show");
+            } else {
+                scrollBtn.classList.remove("show");
+            }
+
+            // Change icon based on scroll position
+            if (scrollPosition + windowHeight >= documentHeight - 100) {
+                // Near bottom - show up arrow
+                scrollIcon.classList.remove("fa-arrow-down");
+                scrollIcon.classList.add("fa-arrow-up");
+                scrollBtn.title = "Scroll to Top";
+            } else {
+                // Not near bottom - show down arrow
+                scrollIcon.classList.remove("fa-arrow-up");
+                scrollIcon.classList.add("fa-arrow-down");
+                scrollBtn.title = "Scroll to Bottom";
+            }
+        });
+
+        // Scroll functionality
+        scrollBtn.addEventListener("click", () => {
+            const scrollPosition = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            if (scrollPosition + windowHeight >= documentHeight - 100) {
+                // Near bottom - scroll to top
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            } else {
+                // Not near bottom - scroll to bottom
+                window.scrollTo({
+                    top: document.documentElement.scrollHeight,
+                    behavior: "smooth"
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
