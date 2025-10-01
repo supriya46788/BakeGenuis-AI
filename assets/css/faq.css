@@ -334,7 +334,7 @@
 
         /* FAQ Styles */
         .faq-section {
-            padding: 120px 20px 60px;
+            padding: 95px 20px 60px;
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(15px);
             margin-top: 20px;
@@ -351,16 +351,12 @@
         }
 
         .faq-title {
-            text-align: center;
-            font-size: 3rem;
-           font-weight: 700;
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-           -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1rem;
-            animation: bounce 2s ease-in-out infinite;
+            font-size:clamp(2rem, 6vw, 3rem); 
+    font-weight:700; 
+    margin-bottom:1rem; 
+    color:#3e2723;
+    animation:bounce 2s ease-in-out infinite;
+    text-align: center;
         }
         body.dark-mode h2.faq-title{
             text-align: center;

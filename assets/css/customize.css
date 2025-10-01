@@ -833,11 +833,11 @@ body.dark-mode .copyright .name {
 }
 
 .page-title {
-    font-size: 3rem;
-    color: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-    margin-bottom: 1rem;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
-    animation: bounce 2s ease-in-out infinite;
+    font-size:clamp(2rem, 6vw, 3rem); 
+    font-weight:700; 
+    margin-bottom:1rem; 
+    color:#3e2723;
+    animation:bounce 2s ease-in-out infinite;
 }
 
 body.dark-mode .page-title {
@@ -846,10 +846,11 @@ body.dark-mode .page-title {
 }
 
 .page-subtitle {
-    font-size: 1.2rem;
-    color: #666;
-    max-width: 600px;
-    margin: 0 auto;
+   
+     font-size:1.2rem;
+      color:#6b6767; 
+      opacity:.9;
+       margin-bottom:2rem; 
 }
 
 @keyframes bounce {
