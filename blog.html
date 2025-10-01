@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BakeGenius.ai - Blog | Baking Tips & Recipes</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Neue', cursive;
+            background: linear-gradient(135deg, #ffeaf3 0%, #ffd4e5 50%, #ffb3d9 100%);
+            color: #5d4037;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #f5f5f5;
+        }
+
+        /* Back to Home Button */
+        .back-home-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: white;
+            color: #5d4037;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .back-home-btn {
+            background: #0f3460;
+            color: #f5f5f5;
+        }
+
+        .back-home-btn:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+        }
+
+        .back-home-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ff1493;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            font-size: 1rem;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 120px 5% 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #ff1493;
+            margin-bottom: 1rem;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        body.dark-mode .hero h1 {
+            color: #ff69b4;
+        }
+
+        .hero-emoji {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            animation: fadeIn 1s ease 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .search-bar {
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+            position: relative;
+            animation: fadeIn 1s ease 0.5s both;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 18px 55px 18px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-family: 'Comic Neue', cursive;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .search-bar input {
+            background: #0f3460;
+            color: #f5f5f5;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            box-shadow: 0 6px 25px rgba(255, 20, 147, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .search-bar i {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ff1493;
+            font-size: 1.3rem;
+            pointer-events: none;
+        }
+
+        /* Category Filter */
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+            animation: fadeIn 1s ease 0.7s both;
+        }
+
+        .category-btn {
+            background: white;
+            color: #5d4037;
+            border: 2px solid transparent;
+            padding: 12px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .category-btn {
+            background: #0f3460;
+            color: #f5f5f5;
+        }
+
+        .category-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .category-btn.active {
+            background: #ff1493;
+            color: white;
+            border-color: #ff1493;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+        }
+
+        .category-btn i {
+            margin-right: 8px;
+        }
+
+        /* Blog Grid */
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5% 5rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .blog-card {
+            background: #fffbf5;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .blog-card:nth-child(1) { animation-delay: 0.1s; }
+        .blog-card:nth-child(2) { animation-delay: 0.2s; }
+        .blog-card:nth-child(3) { animation-delay: 0.3s; }
+        .blog-card:nth-child(4) { animation-delay: 0.1s; }
+        .blog-card:nth-child(5) { animation-delay: 0.2s; }
+        .blog-card:nth-child(6) { animation-delay: 0.3s; }
+
+        body.dark-mode .blog-card {
+            background: #0f3460;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 30px rgba(255, 20, 147, 0.3);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .blog-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-category {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            width: fit-content;
+            box-shadow: 0 2px 8px rgba(255, 20, 147, 0.3);
+        }
+
+        .blog-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: #5d4037;
+            transition: color 0.3s;
+            line-height: 1.4;
+        }
+
+        body.dark-mode .blog-card h3 {
+            color: #f5f5f5;
+        }
+
+        .blog-card:hover h3 {
+            color: #ff1493;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            flex-wrap: wrap;
+        }
+
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .blog-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            font-weight: 600;
+        }
+
+        .blog-author i {
+            color: #ff1493;
+        }
+
+        .blog-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .read-more-btn {
+            background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            width: fit-content;
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+        }
+
+        .read-more-btn:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.5);
+        }
+
+        .read-more-btn i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 5rem 2rem;
+            font-size: 1.6rem;
+            color: #5d4037;
+            animation: fadeIn 0.5s ease;
+        }
+
+        body.dark-mode .no-results {
+            color: #f5f5f5;
+        }
+
+        .no-results i {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 1rem;
+            color: #ff1493;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+            color: white;
+            padding: 4rem 5% 2rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            line-height: 2.2;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .footer-section a i {
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            background: white;
+            color: #ff1493;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 1rem;
+        }
+
+        .footer-bottom i {
+            color: #ffeb3b;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .category-filter {
+                padding: 0 1rem;
+            }
+
+            .back-home-btn, .dark-mode-toggle {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+
+            .back-home-btn {
+                left: 10px;
+                top: 10px;
+            }
+
+            .dark-mode-toggle {
+                right: 10px;
+                top: 10px;
+            }
+
+            .hero {
+                padding: 100px 5% 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .category-btn {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to Home Button -->
+    <a href="index.html" class="back-home-btn">
+        <i class="fas fa-home"></i>
+        <span>Back to Home</span>
+    </a>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+        <i class="fas fa-moon"></i>
+        <span id="modeText">Dark Mode</span>
+    </button>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <span class="hero-emoji">🍰</span>
+        <h1>Bake Smarter with Our Blog</h1>
+        <p>Tips, tricks, and recipes powered by AI to make your baking magical!</p>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for baking tips, recipes, and more..." onkeyup="searchBlogs()">
+            <i class="fas fa-search"></i>
+        </div>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="category-filter">
+        <button class="category-btn active" onclick="filterCategory('all')">
+            <i class="fas fa-th"></i>All Posts
+        </button>
+        <button class="category-btn" onclick="filterCategory('recipes')">
+            <i class="fas fa-utensils"></i>Recipes
+        </button>
+        <button class="category-btn" onclick="filterCategory('articles')">
+            <i class="fas fa-newspaper"></i>Articles
+        </button>
+        <button class="category-btn" onclick="filterCategory('news')">
+            <i class="fas fa-bullhorn"></i>News
+        </button>
+        <button class="category-btn" onclick="filterCategory('cakes')">
+            <i class="fas fa-birthday-cake"></i>Cakes
+        </button>
+        <button class="category-btn" onclick="filterCategory('cookies')">
+            <i class="fas fa-cookie"></i>Cookies
+        </button>
+        <button class="category-btn" onclick="filterCategory('breads')">
+            <i class="fas fa-bread-slice"></i>Breads
+        </button>
+        <button class="category-btn" onclick="filterCategory('tips')">
+            <i class="fas fa-lightbulb"></i>Tips & Tricks
+        </button>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="blog-container">
+        <div class="blog-grid" id="blogGrid"></div>
+        <div class="no-results" id="noResults" style="display: none;">
+            <i class="fas fa-search"></i>
+            <div>No blogs found matching your search!</div>
+            <p style="font-size: 1.2rem; margin-top: 1rem; opacity: 0.7;">Try different keywords or explore other categories</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🍰 About BakeGenius</h3>
+                <p>Transform vague recipe measurements into precise, consistent results with AI-powered baking intelligence. Making baking accessible and delightful for everyone!</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/supriya46788/BakeGenuis-AI" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:supriyadpandey502@gmail.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html"><i class="fas fa-home"></i>Home</a>
+                <a href="convert.html"><i class="fas fa-exchange-alt"></i>Convert Recipe</a>
+                <a href="customize.html"><i class="fas fa-cog"></i>Customize</a>
+                <a href="scale.html"><i class="fas fa-balance-scale"></i>Scale Recipes</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i>About Us</a>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <a href="faq.html"><i class="fas fa-question-circle"></i>FAQs</a>
+                <a href="contact.html"><i class="fas fa-envelope"></i>Contact</a>
+                <a href="feedback.html"><i class="fas fa-comment"></i>Feedback</a>
+                <a href="privacypolicy.html"><i class="fas fa-shield-alt"></i>Privacy Policy</a>
+                <a href="toc.html"><i class="fas fa-file-contract"></i>Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 BakeGenius.ai. Made with <i class="fas fa-heart"></i> by Supriya Pandey</p>
+        </div>
+    </footer>
+
+    <script>
+        // Blog data with rich content - Articles, Recipes, and News
+        const blogs = [
+            // News Posts
+            {
+                id: 1,
+                title: "BakeGenius.ai Launches AI-Powered Recipe Assistant",
+                category: "news",
+                excerpt: "Exciting news! We've launched our new AI assistant that helps you convert any recipe to precise measurements in seconds. Try it today!",
+                image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=500&h=300&fit=crop",
+                date: "Jan 20, 2025",
+                readTime: "3 min",
+                author: "Supriya Pandey"
+            },
+            {
+                id: 2,
+                title: "New Feature: Voice-Activated Conversions",
+                category: "news",
+                excerpt: "Hands covered in flour? No problem! Use voice commands to convert measurements while you bake. Rolling out this week!",
+                image: "https://images.unsplash.com/photo-1589149098258-3e9102cd63d3?w=500&h=300&fit=crop",
+                date: "Jan 18, 2025",
+                readTime: "2 min",
+                author: "BakeGenius Team"
+            },
+            {
+                id: 3,
+                title: "10,000+ Successful Conversions Milestone",
+                category: "news",
+                excerpt: "Thank you to our amazing community! We've helped convert over 10,000 recipes with perfect accuracy. Here's to many more!",
+                image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=500&h=300&fit=crop",
+                date: "Jan 15, 2025",
+                readTime: "3 min",
+                author: "Supriya Pandey"
+            },
+            
+            // Recipe Posts
+            {
+                id: 4,
+                title: "Classic French Croissants Recipe",
+                category: "recipes",
+                excerpt: "Master the art of laminated dough with our gram-perfect croissant recipe. Includes step-by-step photos and temperature guides.",
+                image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=500&h=300&fit=crop",
+                date: "Jan 16, 2025",
+                readTime: "15 min",
+                author: "Chef Marie"
+            },
+            {
+                id: 5,
+                title: "Ultimate Chocolate Chip Cookie Recipe",
+                category: "recipes",
+                excerpt: "The perfect balance of crispy edges and chewy centers. Precise measurements ensure bakery-quality cookies every time.",
+                image: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=500&h=300&fit=crop",
+                date: "Jan 14, 2025",
+                readTime: "8 min",
+                author: "Baker Sarah"
+            },
+            {
+                id: 6,
+                title: "Artisan Sourdough Bread - Complete Guide",
+                category: "recipes",
+                excerpt: "From starter to bake, this comprehensive sourdough guide includes hydration ratios, timing schedules, and troubleshooting tips.",
+                image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&h=300&fit=crop",
+                date: "Jan 12, 2025",
+                readTime: "20 min",
+                author: "Master Baker Tom"
+            },
+            {
+                id: 7,
+                title: "Red Velvet Cupcakes with Cream Cheese Frosting",
+                category: "recipes",
+                excerpt: "Moist, tender red velvet cupcakes with the perfect tangy frosting. Includes natural coloring alternatives and scaling options.",
+                image: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=500&h=300&fit=crop",
+                date: "Jan 10, 2025",
+                readTime: "10 min",
+                author: "Pastry Chef Lisa"
+            },
+            
+            // Article Posts
+            {
+                id: 8,
+                title: "The Science Behind Perfect Cake Texture",
+                category: "articles",
+                excerpt: "Dive deep into the chemistry of baking. Learn how protein, fat, and sugar ratios affect your cake's final texture and crumb.",
+                image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&h=300&fit=crop",
+                date: "Jan 17, 2025",
+                readTime: "12 min",
+                author: "Dr. Emma Wilson"
+            },
+            {
+                id: 9,
+                title: "Why Professional Bakers Use Weight, Not Volume",
+                category: "articles",
+                excerpt: "Understanding the critical difference between cups and grams. Why precision matters and how it transforms your baking results.",
+                image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=500&h=300&fit=crop",
+                date: "Jan 13, 2025",
+                readTime: "8 min",
+                author: "Baking Institute"
+            },
+            {
+                id: 10,
+                title: "Mastering Ingredient Temperatures in Baking",
+                category: "articles",
+                excerpt: "Room temperature butter, cold eggs, or warm milk? Learn when temperature matters and how it impacts your baked goods.",
+                image: "https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=500&h=300&fit=crop",
+                date: "Jan 11, 2025",
+                readTime: "10 min",
+                author: "Culinary Expert Mike"
+            },
+            {
+                id: 11,
+                title: "Understanding Different Types of Flour",
+                category: "articles",
+                excerpt: "All-purpose vs bread flour vs cake flour. A complete guide to protein content and how to choose the right flour for every recipe.",
+                image: "https://images.unsplash.com/photo-1595855759920-86582396756a?w=500&h=300&fit=crop",
+                date: "Jan 9, 2025",
+                readTime: "9 min",
+                author: "Flour Expert Amy"
+            },
+            
+            // Category-specific posts
+            {
+                id: 12,
+                title: "Perfect Chocolate Cake Every Time",
+                category: "cakes",
+                excerpt: "Learn the science behind moist, fluffy chocolate cakes with our AI-powered tips for perfect measurements and temperature control.",
+                image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&h=300&fit=crop",
+                date: "Jan 8, 2025",
+                readTime: "7 min",
+                author: "Baker's Journal"
+            },
+            {
+                id: 13,
+                title: "Cookie Science: Crispy vs Chewy",
+                category: "cookies",
+                excerpt: "Discover how tiny measurement changes create dramatically different cookie textures. Master the art of precision baking.",
+                image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&h=300&fit=crop",
+                date: "Jan 6, 2025",
+                readTime: "6 min",
+                author: "Cookie Master"
+            },
+            {
+                id: 14,
+                title: "Bagels at Home: Boil & Bake",
+                category: "breads",
+                excerpt: "Achieve that perfect chewy texture with exact water ratios and boiling techniques for authentic New York-style bagels.",
+                image: "https://images.unsplash.com/photo-1612187814158-8673e86c8e0b?w=500&h=300&fit=crop",
+                date: "Jan 4, 2025",
+                readTime: "11 min",
+                author: "Bread Artisan"
+            },
+            {
+                id: 15,
+                title: "5 Common Baking Mistakes to Avoid",
+                category: "tips",
+                excerpt: "Stop making these measurement errors! Learn how AI precision prevents the most common baking failures and saves your recipes.",
+                image: "https://images.unsplash.com/photo-1556910096-6f5e72db6803?w=500&h=300&fit=crop",
+                date: "Jan 2, 2025",
+                readTime: "7 min",
+                author: "Pro Baker Tips"
+            },
+            {
+                id: 16,
+                title: "Scaling Recipes: The Complete Guide",
+                category: "tips",
+                excerpt: "Learn why doubling recipes isn't always 2x and how to scale baking agents properly with AI-powered calculations.",
+                image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&h=300&fit=crop",
+                date: "Dec 30, 2024",
+                readTime: "8 min",
+                author: "Baking Science"
+            }
+        ];
+
+        let currentCategory = 'all';
+        let searchTerm = '';
+
+        // Initialize
+        function initBlogs() {
+            renderBlogs();
+        }
+
+        // Render blogs
+        function renderBlogs() {
+            const blogGrid = document.getElementById('blogGrid');
+            const noResults = document.getElementById('noResults');
+            
+            let filteredBlogs = blogs;
+
+            // Filter by category
+            if (currentCategory !== 'all') {
+                filteredBlogs = filteredBlogs.filter(blog => blog.category === currentCategory);
+            }
+
+            // Filter by search
+            if (searchTerm) {
+                filteredBlogs = filteredBlogs.filter(blog => 
+                    blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            }
+
+            // Show/hide results
+            if (filteredBlogs.length === 0) {
+                blogGrid.style.display = 'none';
+                noResults.style.display = 'block';
+            } else {
+                blogGrid.style.display = 'grid';
+                noResults.style.display = 'none';
+            }
+
+            // Render cards
+            blogGrid.innerHTML = filteredBlogs.map(blog => `
+                <div class="blog-card">
+                    <img src="${blog.image}" alt="${blog.title}" loading="lazy">
+                    <div class="blog-content">
+                        <span class="blog-category">${blog.category.charAt(0).toUpperCase() + blog.category.slice(1)}</span>
+                        <h3>${blog.title}</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i>${blog.date}</span>
+                            <span><i class="far fa-clock"></i>${blog.readTime}</span>
+                        </div>
+                        <p>${blog.excerpt}</p>
+                        <div class="blog-author">
+                            <i class="fas fa-user-circle"></i>
+                            <span>By ${blog.author}</span>
+                        </div>
+                        <button class="read-more-btn" onclick="openBlog(${blog.id})">
+                            Read More<i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter by category
+        function filterCategory(category) {
+            currentCategory = category;
+            
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            renderBlogs();
+        }
+
+        // Search blogs
+        function searchBlogs() {
+            searchTerm = document.getElementById('searchInput').value;
+            renderBlogs();
+        }
+
+        // Open blog
+        function openBlog(id) {
+            const blog = blogs.find(b => b.id === id);
+            alert(`Opening: "${blog.title}"\n\nIn production, this would navigate to a detailed blog page with the full article, images, and related content.`);
+        }
+
+        // Dark mode
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.querySelector('.dark-mode-toggle i');
+            const text = document.getElementById('modeText');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                icon.className = 'fas fa-sun';
+                text.textContent = 'Light Mode';
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                icon.className = 'fas fa-moon';
+                text.textContent = 'Dark Mode';
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+
+        // Load dark mode preference
+        window.onload = function() {
+            initBlogs();
+            
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.dark-mode-toggle i').className = 'fas fa-sun';
+                document.getElementById('modeText').textContent = 'Light Mode';
+            }
+        };
+    </script>
+</body>
+</html>
