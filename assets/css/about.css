@@ -919,21 +919,17 @@ body.dark-mode .dark-mode-btn {
   padding: 4rem 2rem;
   position: relative;
   z-index: 10;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 .hero-title {
-  font-size: 3rem;
-  font-weight: 700;
-  background: linear-gradient(90deg,
-      #b08968,
-      #3e2723);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 1rem;
-  animation:bounce 2s ease-in-out infinite ;
+ 
+  font-size:clamp(2rem, 6vw, 3rem);
+   font-weight:700;
+    margin-bottom:1rem;  
+    animation:bounce 2s ease-in-out infinite;
 }
+
 
 
 @keyframes bounce {
@@ -955,10 +951,10 @@ body.dark-mode .dark-mode-btn {
     }
 }
 .hero-subtitle {
-  font-size: 1.5rem;
-  color: #666;
+  font-size: 1.2rem;
+  color: #6b6767;
   margin-bottom: 2rem;
-  animation: fadeInUp 1s ease-out 0.5s both;
+ opacity:0.9;
 }
 
 
