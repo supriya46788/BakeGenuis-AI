@@ -359,7 +359,7 @@
    .help-center {
   padding: 60px 20px;
   background: linear-gradient(to right, #fffafc, #fdf1f5);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family:  Comic Sans MS, Geneva, Verdana, sans-serif;
   transition: all 0.3s ease;
 }
 
@@ -370,26 +370,26 @@
   background: #ffffff;
   padding: 40px;
   border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 20px rgba(86, 5, 5, 0.06);
   text-align: left;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
 .help-center h1 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #c08497;
+  font-size: 3rem;
+    font-weight: 500;
+    background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+  color: #22010c;
   text-align: center;
-  margin-bottom: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
 }
 
 .divider {
   border: none;
-  border-top: 2px solid #f3d1d9;
+  border-top: 2px solid #6e463e;
   margin: 10px auto 40px;
   width: 60%;
 }
@@ -399,18 +399,18 @@
   margin-bottom: 20px;
   padding: 18px 20px;
   border-radius: 12px;
-  background: #fff7f9;
+  background: #fcf8f5;
   transition: transform 0.2s ease, background 0.3s ease;
 }
 
 .faq:hover {
   transform: translateY(-3px);
-  background: #ffeef3;
+  background: #fdefe5;
 }
 
 .faq h2 {
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 400;
   color: #444;
   margin-bottom: 8px;
   display: flex;
