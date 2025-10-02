@@ -198,16 +198,9 @@
     .results-section { display:none; }
     body.dark-mode .input-section,
 body.dark-mode .results-section {
-    /* Use your dark card variable for a solid, dark background */
     background:linear-gradient(135deg, #050505, #0d1731);
-    
-    /* Use your dark border variable to define the card edge */
     border: 1px solid var(--dark-border) !important; 
-
-    /* Remove the blur effect when using a solid color in dark mode */
     backdrop-filter: none;
-    
-    /* Add a subtle dark shadow to lift the card off the background */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
 }
 
