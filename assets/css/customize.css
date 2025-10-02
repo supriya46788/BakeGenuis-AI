@@ -1,3 +1,7 @@
+/* === Footer Animation (Unified Minimal) === */
+.footer { animation: footerFade 0.8s ease-out; }
+.footer-logo-icon { animation: none; }
+@keyframes footerFade { from { opacity:0; transform:translateY(10px);} to { opacity:1; transform:translateY(0);} }
 :root {
     --candy-red: #FF6B6B;
     --sky-blue: #4ECDC4;
@@ -515,16 +519,15 @@ body.dark-mode .dark-mode-btn {
 }
 
 /* Footer Styles */
-.footer {
-    background: radial-gradient(circle at center, #e9b4b6, #e5c5b3);
-    backdrop-filter: blur(15px);
-    position: relative;
-    z-index: 2;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    margin-top: 4rem;
-}
-
-.footer-content {
+        .footer {
+            background: radial-gradient(circle at center, #e9b4b6, #e5c5b3);
+            backdrop-filter: blur(15px);
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 4rem;
+            animation: fadeIn 1s ease-out;
+        }.footer-content {
     max-width: 1500px;
     margin: 0 auto;
     display: grid;

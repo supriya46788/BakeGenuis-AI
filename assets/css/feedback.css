@@ -522,6 +522,27 @@ body.dark-mode .submit-btn {
     }
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
 /* Footer - Same as index.html */
 .footer {
     background: radial-gradient(circle at center, #e9b4b6, #e5c5b3);
@@ -530,7 +551,13 @@ body.dark-mode .submit-btn {
     z-index: 2;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     margin-top: 4rem;
+    animation: fadeIn 1s ease-out;
 }
+
+/* === Footer Animation (Unified Minimal) === */
+.footer { animation: footerFade 0.8s ease-out; }
+.footer-logo-icon { animation: none; }
+@keyframes footerFade { from { opacity:0; transform:translateY(10px);} to { opacity:1; transform:translateY(0);} }
 
 .footer-content {
     max-width: 1500px;
@@ -541,12 +568,17 @@ body.dark-mode .submit-btn {
     padding: 3rem 2rem 2rem;
 }
 
+.footer-section {
+    animation: fadeIn 1s ease-out;
+}
+
 .footer-section h3.footer-title {
     color: #3e2723;
     font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
     position: relative;
+    animation: fadeIn 1s ease-out;
 }
 
 .footer-section h3.footer-title::after {
@@ -576,6 +608,7 @@ body.dark-mode .footer-section h3.footer-title::after {
 
 .footer-logo-icon {
     font-size: 2rem;
+    animation: none !important;
 }
 
 .footer-description {

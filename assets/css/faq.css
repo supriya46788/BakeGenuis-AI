@@ -1,3 +1,7 @@
+/* === Footer Animation (Unified Minimal) === */
+.footer { animation: footerFade 0.8s ease-out; }
+.footer-logo-icon { animation: none; }
+@keyframes footerFade { from { opacity:0; transform:translateY(10px);} to { opacity:1; transform:translateY(0);} }
 * {
             margin: 0;
             padding: 0;
@@ -367,7 +371,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 40px;
-            animation: bounce 2s ease-in-out infinite;
+            animation: none !important;
         }
         @keyframes bounce {
 
@@ -562,6 +566,7 @@
             z-index: 2;
             border-top: 1px solid rgba(255, 255, 255, 0.3);
             margin-top: 4rem;
+            animation: fadeIn 1s ease-out;
         }
 
         body.dark-mode .footer {

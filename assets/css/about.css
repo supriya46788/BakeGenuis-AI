@@ -20,6 +20,7 @@ body {
   z-index: 2;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   margin-top: 4rem;
+  animation: fadeIn 1s ease-out;
 }
 
 body.dark-mode .footer {
@@ -70,6 +71,7 @@ body.dark-mode .footer-section h3.footer-title::after {
 
 .footer-logo-icon {
   font-size: 2rem;
+  animation: none !important;
 }
 
 .footer-description {
@@ -486,6 +488,15 @@ body.dark-mode {
   left: 10%;
   font-size: 1.8rem;
   animation-delay: 5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes floatAdvanced {
@@ -3414,3 +3425,8 @@ body.dark-mode .form-title {
     font-size: 1.7rem;
   }
 }
+
+/* === Footer Animation (Unified Minimal) === */
+.footer { animation: footerFade 0.8s ease-out; }
+.footer-logo-icon { animation: none; }
+@keyframes footerFade { from { opacity:0; transform:translateY(10px);} to { opacity:1; transform:translateY(0);} }

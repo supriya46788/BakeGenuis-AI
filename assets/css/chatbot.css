@@ -1,3 +1,7 @@
+/* === Footer Animation (Unified Minimal) === */
+.footer { animation: footerFade 0.8s ease-out; }
+.footer-logo-icon { animation: none; }
+@keyframes footerFade { from { opacity:0; transform:translateY(10px);} to { opacity:1; transform:translateY(0);} }
 /* Chatbot Navbar Button */
 .chatbot-nav-btn {
     background-color: #3e2723;
