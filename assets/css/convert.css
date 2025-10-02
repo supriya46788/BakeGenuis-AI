@@ -196,15 +196,29 @@
       border: 1px solid rgba(255,255,255,0.2);
     }
     .results-section { display:none; }
+    body.dark-mode .input-section,
+body.dark-mode .results-section {
+    /* Use your dark card variable for a solid, dark background */
+    background:linear-gradient(135deg, #050505, #0d1731);
+    
+    /* Use your dark border variable to define the card edge */
+    border: 1px solid var(--dark-border) !important; 
+
+    /* Remove the blur effect when using a solid color in dark mode */
+    backdrop-filter: none;
+    
+    /* Add a subtle dark shadow to lift the card off the background */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
+}
 
     .input-group { margin-bottom:1.5rem; }
     .input-label { display:block; font-size:1.1rem; font-weight:600; margin-bottom:.5rem; color:#3e2723; }
-    body.dark-mode .input-label { color:#e0e0e0; }
+    body.dark-mode .input-label { color:#e0e0e0 }
 
     .recipe-input {
       width:100%; min-height:200px; padding:1rem; border:none; border-radius:15px;
       background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
-      color:#000 !important; font-family:'Comic Neue', cursive; font-size:1rem; resize:vertical;
+      color:white !important; font-family:'Comic Neue', cursive; font-size:1rem; resize:vertical;
       border:2px solid #6b6767; transition:all .3s ease;
     }
     .recipe-input:focus { outline:none; border-color:#3e2723; box-shadow:0 0 2px rgba(255,165,2,0.3); }
