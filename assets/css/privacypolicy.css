@@ -749,3 +749,16 @@
                 font-size: 1.5rem;
             }
         }
+        /* Footer - Mobile Left Alignment Fix */
+    @media (max-width:500px){
+      .footer-content{grid-template-columns:1fr; text-align:center}
+      .footer-logo{justify-content:center}
+      .social-links{justify-content:center}
+      .footer-badges{justify-content:center}
+    }
+
+    @media (max-width:480px){
+      .hero-title{font-size:2rem}
+      .hero-subtitle{font-size:1.1rem}
+      .cta-button{font-size:1rem; padding:.8rem 2rem}
+    }
