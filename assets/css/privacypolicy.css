@@ -750,34 +750,15 @@
             }
         }
         /* Footer - Mobile Left Alignment Fix */
-@media screen and (max-width: 768px) {
-  .footer {
-    text-align: left !important;
-    padding: 20px 15px !important;
-  }
+    @media (max-width:500px){
+      .footer-content{grid-template-columns:1fr; text-align:center}
+      .footer-logo{justify-content:center}
+      .social-links{justify-content:center}
+      .footer-badges{justify-content:center}
+    }
 
-  .footer .footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start !important;
-  }
-
-  .footer .footer-section {
-    margin-bottom: 20px;
-  }
-
-  .footer .footer-bottom-content {
-    flex-direction: column;
-    align-items: flex-start !important;
-    text-align: left !important;
-  }
-
-  .footer .footer-badges {
-    justify-content: flex-start !important;
-    margin-top: 10px;
-  }
-
-  .footer .social-links {
-    justify-content: flex-start !important;
-  }
-}
+    @media (max-width:480px){
+      .hero-title{font-size:2rem}
+      .hero-subtitle{font-size:1.1rem}
+      .cta-button{font-size:1rem; padding:.8rem 2rem}
+    }

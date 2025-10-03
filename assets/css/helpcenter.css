@@ -556,12 +556,14 @@ body.dark-mode .faq h2 i {
             content: '';
             position: absolute;
             bottom: -8px;
-            left: 0;
+            left: 50%;                /* center horizontally */
+            transform: translateX(-50%); /* shift back by half its width */
             width: 30px;
             height: 3px;
             background: #3e2723;
             border-radius: 2px;
         }
+
 
         body.dark-mode .footer-section h3.footer-title::after {
             background: #e0e0e0;
@@ -764,3 +766,15 @@ body.dark-mode .faq h2 i {
                 gap: 2rem;
             }
         }
+    @media (max-width:500px){
+      .footer-content{grid-template-columns:1fr; text-align:center}
+      .footer-logo{justify-content:center}
+      .social-links{justify-content:center}
+      .footer-badges{justify-content:center}
+    }
+
+    @media (max-width:480px){
+      .hero-title{font-size:2rem}
+      .hero-subtitle{font-size:1.1rem}
+      .cta-button{font-size:1rem; padding:.8rem 2rem}
+    }
