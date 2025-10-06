@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BakeGenius.ai - Blog | Baking Tips & Recipes</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    
+    <!-- SEO -->
+    <meta name="description" content="Baking tips, recipes, and news from BakeGenius.ai. Learn baking techniques, get AI-powered recipe conversions, and stay updated with the latest baking trends." />
+    <meta name="keywords" content="baking blog, recipes, baking tips, cake recipes, cookie recipes, bread baking, baking techniques" />
+    <meta name="author" content="Supriya Pandey" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="BakeGenius.ai Blog - Baking Tips & Recipes" />
+    <meta property="og:description" content="Transform your baking with AI-powered tips, recipes, and techniques from BakeGenius.ai." />
+    <meta property="og:type" content="website" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --candy-red: #ff6b6b;
+            --sky-blue: #4ecdc4;
+            --sunny-yellow: #ffd93d;
+            --soft-pink: #ffb6c1;
+            --mint-green: #98fb98;
+            --lavender: #e6e6fa;
+            --dark-bg: #1a1a1a;
+            --dark-card: #2d2d2d;
+            --dark-text: #ffffff;
+            --dark-border: #404040;
+            --border-color: #e6e6e6;
+            --text-light: #666666;
+            --text-dark: #1a1a1a;
+            --shadow-medium: 0 10px 30px rgba(0,0,0,.12);
+            --primary-brown: #3e2723;
+            --secondary-brown: #4d312b;
+            --light-brown: #a4766a;
+            --cream-bg: #f5f3f1;
+            --card-bg: #fffbf5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Neue', cursive;
+            background-color: var(--cream-bg);
+            color: var(--text-dark);
+            min-height: 100vh;
+            transition: all 0.3s ease;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body.dark-mode {
+            background: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        /* Loading Screen */
+        #loading-screen {
+            position: fixed;
+            inset: 0;
+            background: rgba(255,255,255,0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            transition: opacity .3s ease, visibility .3s ease;
+        }
+
+        #loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        #loading-screen .loader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .75rem;
+            color: var(--primary-brown);
+            font-weight: 700;
+        }
+
+        #loading-screen .fa-spinner {
+            font-size: 2rem;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Navigation */
+        .navbar {
+            background: radial-gradient(circle at center, #e5c5b3, #e9b4b6);
+            backdrop-filter: blur(15px);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            transition: all .3s ease;
+        }
+
+        body.dark-mode .navbar {
+            background: #1e1e1e !important;
+            border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-brown);
+            text-decoration: none;
+            transition: all .3s ease;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            min-width: 150px;
+            padding-right: 50px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            transition: transform .3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            color: var(--primary-brown);
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(10deg);
+        }
+
+        body.dark-mode .logo {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .logo:hover {
+            color: #e0e0e0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-brown);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.7rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+        }
+
+        body.dark-mode .nav-links a {
+            color: #e0e0e0 !important;
+            background: rgba(111, 100, 91, 0.133) !important;
+            border: 2px solid transparent !important;
+        }
+
+        .nav-links a:hover {
+            background-color: #f3e0d6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(228, 191, 180, 0.3);
+            color: var(--primary-brown);
+        }
+
+        body.dark-mode .nav-links a:hover {
+            background-color: #0d0d0d !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-color: #1e1e1e !important;
+            color: #e0e0e0 !important;
+        }
+
+        .nav-links a.active {
+            background-color: var(--primary-brown) !important;
+            color: #ffffff !important;
+            border-color: var(--primary-brown) !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .nav-links a.active {
+            background-color: #0d0d0d !important;
+            color: #ffffff !important;
+            border-color: #1e1e1e !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .dark-mode-btn {
+            background: linear-gradient(135deg, var(--primary-brown), var(--secondary-brown));
+            border: none;
+            color: white;
+            padding: .7rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all .4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark-mode-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transition: all .4s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .dark-mode-btn:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        .dark-mode-btn:hover {
+            transform: scale(1.15) rotate(360deg);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3), 0 4px 12px rgba(62,39,35,0.2);
+            background: linear-gradient(135deg, var(--secondary-brown), var(--primary-brown));
+        }
+
+        body.dark-mode .dark-mode-btn {
+            background: linear-gradient(135deg, #e0e0e0, #d0d0d0);
+            color: #1e1e1e;
+            box-shadow: 0 4px 15px rgba(224,224,224,0.2);
+        }
+
+        body.dark-mode .dark-mode-btn:hover {
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            box-shadow: 0 8px 25px rgba(224,224,224,0.3), 0 4px 12px rgba(30,30,30,0.2);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: .5rem;
+            border-radius: 8px;
+            transition: all .4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hamburger::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity .3s ease;
+        }
+
+        .hamburger:hover::before {
+            opacity: 1;
+        }
+
+        .hamburger:hover {
+            transform: scale(1.05);
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--light-brown), var(--primary-brown));
+            margin: 3px 0;
+            transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hamburger:hover span {
+            transform: scale(1.1);
+        }
+
+        body.dark-mode .hamburger span {
+            background: linear-gradient(45deg, #e0e0e0, #c0c0c0);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px,6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px,-6px);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 100px;
+            transition: all .3s ease;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+            min-height: calc(100vh - 200px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(15px);
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            position: relative;
+            overflow: hidden;
+            transition: all .3s ease;
+            text-align: center;
+        }
+
+        body.dark-mode .hero-section {
+            background: #1e1e1e;
+            box-shadow: 0 2px 2px #1e1e1e;
+        }
+
+        .hero-emoji {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary-brown), var(--secondary-brown), var(--primary-brown));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        body.dark-mode .hero-title {
+            background: #e0e0e0;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            line-height: 1.6;
+            transition: color .3s ease;
+        }
+
+        body.dark-mode .hero-subtitle {
+            color: #e0e0e0 !important;
+        }
+
+        .search-bar {
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+            position: relative;
+            animation: fadeIn 1s ease 0.5s both;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 18px 55px 18px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-family: 'Comic Neue', cursive;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        body.dark-mode .search-bar input {
+            background: #2a2a2a;
+            color: #f5f5f5;
+            border-color: #404040;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            box-shadow: 0 6px 25px rgba(62, 39, 35, 0.4);
+            transform: translateY(-2px);
+            border-color: var(--primary-brown);
+        }
+
+        .search-bar i {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-brown);
+            font-size: 1.3rem;
+            pointer-events: none;
+        }
+
+        /* Category Filter */
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+            animation: fadeIn 1s ease 0.7s both;
+        }
+
+        .category-btn {
+            background: white;
+            color: var(--primary-brown);
+            border: 2px solid transparent;
+            padding: 12px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .category-btn {
+            background: #2a2a2a;
+            color: #e0e0e0;
+        }
+
+        .category-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-color: var(--primary-brown);
+        }
+
+        .category-btn.active {
+            background: var(--primary-brown);
+            color: white;
+            border-color: var(--primary-brown);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(62, 39, 35, 0.4);
+        }
+
+        .category-btn i {
+            margin-right: 8px;
+        }
+
+        /* Blog Grid */
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5% 5rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            animation: fadeInUp 0.6s ease both;
+            border: 2px solid transparent;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .blog-card:nth-child(1) { animation-delay: 0.1s; }
+        .blog-card:nth-child(2) { animation-delay: 0.2s; }
+        .blog-card:nth-child(3) { animation-delay: 0.3s; }
+        .blog-card:nth-child(4) { animation-delay: 0.1s; }
+        .blog-card:nth-child(5) { animation-delay: 0.2s; }
+        .blog-card:nth-child(6) { animation-delay: 0.3s; }
+
+        body.dark-mode .blog-card {
+            background: var(--dark-card);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 30px rgba(62, 39, 35, 0.3);
+            border-color: var(--primary-brown);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .blog-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-category {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-brown), var(--secondary-brown));
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            width: fit-content;
+            box-shadow: 0 2px 8px rgba(62, 39, 35, 0.3);
+        }
+
+        .blog-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--primary-brown);
+            transition: color 0.3s;
+            line-height: 1.4;
+        }
+
+        body.dark-mode .blog-card h3 {
+            color: #f5f5f5;
+        }
+
+        .blog-card:hover h3 {
+            color: var(--secondary-brown);
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            flex-wrap: wrap;
+        }
+
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .blog-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            font-weight: 600;
+        }
+
+        .blog-author i {
+            color: var(--primary-brown);
+        }
+
+        .blog-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .read-more-btn {
+            background: linear-gradient(135deg, var(--primary-brown), var(--secondary-brown));
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            width: fit-content;
+            box-shadow: 0 4px 15px rgba(62, 39, 35, 0.3);
+        }
+
+        .read-more-btn:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px rgba(62, 39, 35, 0.5);
+        }
+
+        .read-more-btn i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 5rem 2rem;
+            font-size: 1.6rem;
+            color: var(--primary-brown);
+            animation: fadeIn 0.5s ease;
+        }
+
+        body.dark-mode .no-results {
+            color: #f5f5f5;
+        }
+
+        .no-results i {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 1rem;
+            color: var(--primary-brown);
+        }
+
+        /* Scroll buttons */
+        #backToTop, #Toptoback {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            z-index: 2000;
+            background: linear-gradient(45deg, var(--light-brown), var(--primary-brown));
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            font-size: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s, transform 0.2s;
+        }
+
+        #Toptoback {
+            transform: translateY(-10px);
+        }
+
+        body.dark-mode #backToTop, body.dark-mode #Toptoback {
+            background: #e0e0e0;
+            color: #0d0d0d;
+        }
+
+        #backToTop.show, #Toptoback.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1.08);
+        }
+
+        #backToTop:hover, #Toptoback:hover {
+            background: linear-gradient(45deg, var(--light-brown), var(--primary-brown));
+            transform: scale(1.15);
+        }
+
+        body.dark-mode #backToTop:hover, body.dark-mode #Toptoback:hover {
+            background: #e0e0e0;
+            transform: scale(1.15);
+        }
+
+        /* Footer */
+        .footer {
+            background: radial-gradient(circle at center, #e9b4b6, #e5c5b3);
+            backdrop-filter: blur(15px);
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            margin-top: 4rem;
+        }
+
+        body.dark-mode .footer {
+            background: #1e1e1e;
+        }
+
+        .footer-content {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-section h3.footer-title {
+            color: var(--primary-brown);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-section h3.footer-title::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: var(--primary-brown);
+            border-radius: 2px;
+        }
+
+        body.dark-mode .footer-section h3.footer-title::after {
+            background: #e0e0e0;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-brown);
+        }
+
+        .footer-logo-icon {
+            font-size: 2rem;
+        }
+
+        .footer-description {
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: .95rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: .8rem;
+        }
+
+        .footer-links a {
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+            font-weight: 500;
+            transition: all .3s ease;
+            padding: .3rem 0;
+            border-radius: 5px;
+        }
+
+        .footer-links a:hover {
+            color: black;
+            transform: translateX(4px);
+            background: rgba(255,107,107,0.1);
+            padding-left: .8rem;
+        }
+
+        .footer-links i {
+            font-size: .9rem;
+            width: 16px;
+            opacity: .7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(90deg, var(--primary-brown), var(--secondary-brown), var(--primary-brown));
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all .3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .footer-bottom {
+            background: rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 1.5rem 0;
+        }
+
+        .footer-bottom-content {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .copyright {
+            color: #333;
+            font-size: .9rem;
+            margin: 0;
+        }
+
+        .copyright .name {
+            color: var(--primary-brown);
+            font-weight: 600;
+        }
+
+        .footer-badges {
+            display: flex;
+            gap: .8rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            padding: .4rem .8rem;
+            border-radius: 20px;
+            font-size: .8rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: all .3s ease;
+        }
+
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .badge-green, .badge-blue, .badge-purple {
+            background: linear-gradient(90deg, var(--primary-brown), var(--secondary-brown), var(--primary-brown));
+        }
+
+        body.dark-mode .footer-content {
+            background-color: #1e1e1e;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        body.dark-mode .footer-section h3.footer-title {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .footer-logo {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .footer-description {
+            color: #a0a0a0;
+        }
+
+        body.dark-mode .footer-links a {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .footer-links a:hover {
+            color: #a0a0a0;
+            background: rgba(255,138,128,0.1);
+        }
+
+        body.dark-mode .footer-bottom {
+            background: #1e1e1e;
+        }
+
+        body.dark-mode .copyright {
+            color: #a0a0a0;
+        }
+
+        body.dark-mode .copyright .name {
+            color: #ef6154;
+        }
+
+        /* Responsive */
+        @media (max-width: 1242px) {
+            .navbar {
+                padding: .8rem 1rem;
+            }
+            
+            .nav-links {
+                display: flex;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: #1a1a1a;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 6rem;
+                transition: transform .3s ease;
+                transform: translateX(-100%);
+                gap: 0;
+                z-index: 999;
+            }
+            
+            body.dark-mode .nav-links {
+                background: #1a1a1a !important;
+            }
+            
+            .nav-links.active {
+                transform: translateX(0);
+            }
+            
+            .nav-links li {
+                width: 90%;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            .nav-links a {
+                width: 100%;
+                padding: 1.5rem 2rem;
+                font-size: 1.2rem;
+                margin-bottom: 0;
+                background: #2a2a2a !important;
+                color: #e0e0e0 !important;
+                border-radius: 0;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                background: #3a3a3a !important;
+                color: #ffffff !important;
+            }
+
+            .nav-links a.active {
+                background: #0d0d0d !important;
+                color: #ffffff !important;
+            }
+            
+            .nav-actions {
+                gap: .5rem;
+                z-index: 1001;
+                position: absolute;
+                right: 5rem;
+            }
+            
+            .dark-mode-btn {
+                width: 40px;
+                height: 40px;
+                font-size: .9rem;
+            }
+            
+            .hamburger {
+                display: flex;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .logo-icon {
+                font-size: 1.7rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section {
+                padding: 2rem;
+                margin: 1rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .category-filter {
+                padding: 0 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+                padding: 2rem 1rem 1rem;
+            }
+            
+            .footer-section h3.footer-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .footer-badges {
+                justify-content: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* Tablet footer grid */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Tablet nav tweaks */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-links {
+                flex-grow: 1;
+                justify-content: space-around;
+            }
+            
+            .nav-links a {
+                padding: .5rem .8rem;
+            }
+            
+            .nav-actions {
+                gap: .8rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-logo {
+                justify-content: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .footer-badges {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .category-btn {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" aria-live="polite">
+        <div class="loader">
+            <i class="fa-solid fa-spinner" aria-hidden="true"></i>
+            <h2>Baking Mode On<span class="dots"></span></h2>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="BakeGenius.ai home">
+                <span class="logo-icon">🍰</span>
+                <span class="logo-text">BakeGenius.ai</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html"><i class="fas fa-home" style="margin-right:8px;"></i>Home</a></li>
+                <li><a href="convert.html"><i class="fas fa-exchange-alt" style="margin-right:8px;"></i>Convert Recipe</a></li>
+                <li><a href="customize.html"><i class="fas fa-cog" style="margin-right:8px;"></i>Customize</a></li>
+                <li><a href="scale.html"><i class="fas fa-balance-scale" style="margin-right:8px;"></i>Scale Recipes</a></li>
+                <li><a href="blog.html" class="active"><i class="fas fa-blog" style="margin-right:8px;"></i>Blog</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle" style="margin-right:8px;"></i>About</a></li>
+                <li><a href="faq.html"><i class="fas fa-question-circle" style="margin-right:8px;"></i>FAQs</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button id="darkModeToggle" class="dark-mode-btn" title="Toggle Dark Mode" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <div class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <span class="hero-emoji">🍰</span>
+            <h1 class="hero-title">Bake Smarter with Our Blog</h1>
+            <p class="hero-subtitle">Tips, tricks, and recipes powered by AI to make your baking magical!</p>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for baking tips, recipes, and more..." onkeyup="searchBlogs()">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <button class="category-btn active" onclick="filterCategory('all')">
+                <i class="fas fa-th"></i>All Posts
+            </button>
+            <button class="category-btn" onclick="filterCategory('recipes')">
+                <i class="fas fa-utensils"></i>Recipes
+            </button>
+            <button class="category-btn" onclick="filterCategory('articles')">
+                <i class="fas fa-newspaper"></i>Articles
+            </button>
+            <button class="category-btn" onclick="filterCategory('news')">
+                <i class="fas fa-bullhorn"></i>News
+            </button>
+            <button class="category-btn" onclick="filterCategory('cakes')">
+                <i class="fas fa-birthday-cake"></i>Cakes
+            </button>
+            <button class="category-btn" onclick="filterCategory('cookies')">
+                <i class="fas fa-cookie"></i>Cookies
+            </button>
+            <button class="category-btn" onclick="filterCategory('breads')">
+                <i class="fas fa-bread-slice"></i>Breads
+            </button>
+            <button class="category-btn" onclick="filterCategory('tips')">
+                <i class="fas fa-lightbulb"></i>Tips & Tricks
+            </button>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="blog-container">
+            <div class="blog-grid" id="blogGrid"></div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <div>No blogs found matching your search!</div>
+                <p style="font-size: 1.2rem; margin-top: 1rem; opacity: 0.7;">Try different keywords or explore other categories</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scroll buttons -->
+    <button id="backToTop" title="Back to Top" aria-label="Back to top">⬆</button>
+    <button id="Toptoback" title="Top To Back" aria-label="Scroll to bottom">⬇</button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section footer-brand">
+                <div class="footer-logo">
+                    <span class="footer-logo-icon">🍰</span>
+                    <span class="footer-logo-text">BakeGenius.ai</span>
+                </div>
+                <p class="footer-description">
+                    Transform your baking with AI-powered recipe conversions. Making baking accessible, precise, and delightful for everyone.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/supriyapandey595/" class="social-link linkedin" target="_blank" rel="noopener" title="LinkedIn">
+                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://github.com/supriya46788/BakeGenuis-AI" class="social-link github" target="_blank" rel="noopener" title="GitHub">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="mailto:supriyadpandey502@gmail.com" class="social-link email" target="_blank" rel="noopener" title="Email">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="convert.html"><i class="fas fa-exchange-alt"></i>Convert Recipe</a></li>
+                    <li><a href="customize.html"><i class="fas fa-cog"></i>Customize</a></li>
+                    <li><a href="scale.html"><i class="fas fa-balance-scale"></i>Scale Recipes</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">Features</h3>
+                <ul class="footer-links">
+                    <li><a href="javascript:void(0)"><i class="fas fa-calculator"></i>Unit Conversion</a></li>
+                    <li><a href="javascript:void(0)"><i class="fas fa-chart-line"></i>Nutritional Analysis</a></li>
+                    <li><a href="javascript:void(0)"><i class="fas fa-balance-scale"></i>Recipe Scaling</a></li>
+                    <li><a href="javascript:void(0)"><i class="fas fa-magic"></i>AI Optimization</a></li>
+                    <li><a href="javascript:void(0)"><i class="fas fa-mobile-alt"></i>Mobile Friendly</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="contact.html"><i class="fas fa-question-circle"></i>Contact Us</a></li>
+                    <li><a href="feedback.html"><i class="fas fa-comment"></i>Feedback</a></li>
+                    <li><a href="faq.html"><i class="fas fa-info-circle"></i>FAQ</a></li>
+                    <li><a href="privacypolicy.html"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
+                    <li><a href="toc.html"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p class="copyright">
+                    © 2025 BakeGenius.ai. Made with <span style="color:#FF6B6B;">❤️</span> by <span class="name">Supriya Pandey</span>
+                </p>
+                <div class="footer-badges">
+                    <span class="badge badge-green"><i class="fas fa-heart"></i> Open Source</span>
+                    <span class="badge badge-blue"><i class="fas fa-leaf"></i> Eco Friendly</span>
+                    <span class="badge badge-purple"><i class="fas fa-robot"></i> AI Powered</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Blog data with rich content - Articles, Recipes, and News
+        const blogs = [
+            // News Posts
+            {
+                id: 1,
+                title: "BakeGenius.ai Launches AI-Powered Recipe Assistant",
+                category: "news",
+                excerpt: "Exciting news! We've launched our new AI assistant that helps you convert any recipe to precise measurements in seconds. Try it today!",
+                image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=500&h=300&fit=crop",
+                date: "Jan 20, 2025",
+                readTime: "3 min",
+                author: "Supriya Pandey"
+            },
+            {
+                id: 2,
+                title: "New Feature: Voice-Activated Conversions",
+                category: "news",
+                excerpt: "Hands covered in flour? No problem! Use voice commands to convert measurements while you bake. Rolling out this week!",
+                image: "https://images.unsplash.com/photo-1589149098258-3e9102cd63d3?w=500&h=300&fit=crop",
+                date: "Jan 18, 2025",
+                readTime: "2 min",
+                author: "BakeGenius Team"
+            },
+            {
+                id: 3,
+                title: "10,000+ Successful Conversions Milestone",
+                category: "news",
+                excerpt: "Thank you to our amazing community! We've helped convert over 10,000 recipes with perfect accuracy. Here's to many more!",
+                image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=500&h=300&fit=crop",
+                date: "Jan 15, 2025",
+                readTime: "3 min",
+                author: "Supriya Pandey"
+            },
+            
+            // Recipe Posts
+            {
+                id: 4,
+                title: "Classic French Croissants Recipe",
+                category: "recipes",
+                excerpt: "Master the art of laminated dough with our gram-perfect croissant recipe. Includes step-by-step photos and temperature guides.",
+                image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=500&h=300&fit=crop",
+                date: "Jan 16, 2025",
+                readTime: "15 min",
+                author: "Chef Marie"
+            },
+            {
+                id: 5,
+                title: "Ultimate Chocolate Chip Cookie Recipe",
+                category: "recipes",
+                excerpt: "The perfect balance of crispy edges and chewy centers. Precise measurements ensure bakery-quality cookies every time.",
+                image: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=500&h=300&fit=crop",
+                date: "Jan 14, 2025",
+                readTime: "8 min",
+                author: "Baker Sarah"
+            },
+            {
+                id: 6,
+                title: "Artisan Sourdough Bread - Complete Guide",
+                category: "recipes",
+                excerpt: "From starter to bake, this comprehensive sourdough guide includes hydration ratios, timing schedules, and troubleshooting tips.",
+                image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&h=300&fit=crop",
+                date: "Jan 12, 2025",
+                readTime: "20 min",
+                author: "Master Baker Tom"
+            },
+            {
+                id: 7,
+                title: "Red Velvet Cupcakes with Cream Cheese Frosting",
+                category: "recipes",
+                excerpt: "Moist, tender red velvet cupcakes with the perfect tangy frosting. Includes natural coloring alternatives and scaling options.",
+                image: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=500&h=300&fit=crop",
+                date: "Jan 10, 2025",
+                readTime: "10 min",
+                author: "Pastry Chef Lisa"
+            },
+            
+            // Article Posts
+            {
+                id: 8,
+                title: "The Science Behind Perfect Cake Texture",
+                category: "articles",
+                excerpt: "Dive deep into the chemistry of baking. Learn how protein, fat, and sugar ratios affect your cake's final texture and crumb.",
+                image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&h=300&fit=crop",
+                date: "Jan 17, 2025",
+                readTime: "12 min",
+                author: "Dr. Emma Wilson"
+            },
+            {
+                id: 9,
+                title: "Why Professional Bakers Use Weight, Not Volume",
+                category: "articles",
+                excerpt: "Understanding the critical difference between cups and grams. Why precision matters and how it transforms your baking results.",
+                image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=500&h=300&fit=crop",
+                date: "Jan 13, 2025",
+                readTime: "8 min",
+                author: "Baking Institute"
+            },
+            {
+                id: 10,
+                title: "Mastering Ingredient Temperatures in Baking",
+                category: "articles",
+                excerpt: "Room temperature butter, cold eggs, or warm milk? Learn when temperature matters and how it impacts your baked goods.",
+                image: "https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=500&h=300&fit=crop",
+                date: "Jan 11, 2025",
+                readTime: "10 min",
+                author: "Culinary Expert Mike"
+            },
+            {
+                id: 11,
+                title: "Understanding Different Types of Flour",
+                category: "articles",
+                excerpt: "All-purpose vs bread flour vs cake flour. A complete guide to protein content and how to choose the right flour for every recipe.",
+                image: "https://images.unsplash.com/photo-1595855759920-86582396756a?w=500&h=300&fit=crop",
+                date: "Jan 9, 2025",
+                readTime: "9 min",
+                author: "Flour Expert Amy"
+            },
+            
+            // Category-specific posts
+            {
+                id: 12,
+                title: "Perfect Chocolate Cake Every Time",
+                category: "cakes",
+                excerpt: "Learn the science behind moist, fluffy chocolate cakes with our AI-powered tips for perfect measurements and temperature control.",
+                image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&h=300&fit=crop",
+                date: "Jan 8, 2025",
+                readTime: "7 min",
+                author: "Baker's Journal"
+            },
+            {
+                id: 13,
+                title: "Cookie Science: Crispy vs Chewy",
+                category: "cookies",
+                excerpt: "Discover how tiny measurement changes create dramatically different cookie textures. Master the art of precision baking.",
+                image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&h=300&fit=crop",
+                date: "Jan 6, 2025",
+                readTime: "6 min",
+                author: "Cookie Master"
+            },
+            {
+                id: 14,
+                title: "Bagels at Home: Boil & Bake",
+                category: "breads",
+                excerpt: "Achieve that perfect chewy texture with exact water ratios and boiling techniques for authentic New York-style bagels.",
+                image: "https://images.unsplash.com/photo-1612187814158-8673e86c8e0b?w=500&h=300&fit=crop",
+                date: "Jan 4, 2025",
+                readTime: "11 min",
+                author: "Bread Artisan"
+            },
+            {
+                id: 15,
+                title: "5 Common Baking Mistakes to Avoid",
+                category: "tips",
+                excerpt: "Stop making these measurement errors! Learn how AI precision prevents the most common baking failures and saves your recipes.",
+                image: "https://images.unsplash.com/photo-1556910096-6f5e72db6803?w=500&h=300&fit=crop",
+                date: "Jan 2, 2025",
+                readTime: "7 min",
+                author: "Pro Baker Tips"
+            },
+            {
+                id: 16,
+                title: "Scaling Recipes: The Complete Guide",
+                category: "tips",
+                excerpt: "Learn why doubling recipes isn't always 2x and how to scale baking agents properly with AI-powered calculations.",
+                image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&h=300&fit=crop",
+                date: "Dec 30, 2024",
+                readTime: "8 min",
+                author: "Baking Science"
+            }
+        ];
+
+        let currentCategory = 'all';
+        let searchTerm = '';
+
+        // Initialize
+        function initBlogs() {
+            renderBlogs();
+        }
+
+        // Render blogs
+        function renderBlogs() {
+            const blogGrid = document.getElementById('blogGrid');
+            const noResults = document.getElementById('noResults');
+            
+            let filteredBlogs = blogs;
+
+            // Filter by category
+            if (currentCategory !== 'all') {
+                filteredBlogs = filteredBlogs.filter(blog => blog.category === currentCategory);
+            }
+
+            // Filter by search
+            if (searchTerm) {
+                filteredBlogs = filteredBlogs.filter(blog => 
+                    blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            }
+
+            // Show/hide results
+            if (filteredBlogs.length === 0) {
+                blogGrid.style.display = 'none';
+                noResults.style.display = 'block';
+            } else {
+                blogGrid.style.display = 'grid';
+                noResults.style.display = 'none';
+            }
+
+            // Render cards
+            blogGrid.innerHTML = filteredBlogs.map(blog => `
+                <div class="blog-card">
+                    <img src="${blog.image}" alt="${blog.title}" loading="lazy">
+                    <div class="blog-content">
+                        <span class="blog-category">${blog.category.charAt(0).toUpperCase() + blog.category.slice(1)}</span>
+                        <h3>${blog.title}</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i>${blog.date}</span>
+                            <span><i class="far fa-clock"></i>${blog.readTime}</span>
+                        </div>
+                        <p>${blog.excerpt}</p>
+                        <div class="blog-author">
+                            <i class="fas fa-user-circle"></i>
+                            <span>By ${blog.author}</span>
+                        </div>
+                        <button class="read-more-btn" onclick="openBlog(${blog.id})">
+                            Read More<i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter by category
+        function filterCategory(category) {
+            currentCategory = category;
+            
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            renderBlogs();
+        }
+
+        // Search blogs
+        function searchBlogs() {
+            searchTerm = document.getElementById('searchInput').value;
+            renderBlogs();
+        }
+
+        // Open blog
+        function openBlog(id) {
+            const blog = blogs.find(b => b.id === id);
+            alert(`Opening: "${blog.title}"\n\nIn production, this would navigate to a detailed blog page with the full article, images, and related content.`);
+        }
+
+        // Navigation toggle
+        function toggleNav() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', hamburger.classList.contains('active'));
+        }
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Scroll to bottom
+        function scrollToBottom() {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.querySelector('#darkModeToggle i');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                icon.className = 'fas fa-sun';
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                icon.className = 'fas fa-moon';
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+
+        // Show/hide scroll buttons based on scroll position
+        function handleScroll() {
+            const backToTop = document.getElementById('backToTop');
+            const topToBack = document.getElementById('Toptoback');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            // Show back to top when scrolled down
+            if (scrollTop > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+            
+            // Show top to back when not at bottom
+            if (scrollTop + windowHeight < documentHeight - 100) {
+                topToBack.classList.add('show');
+            } else {
+                topToBack.classList.remove('show');
+            }
+        }
+
+        // Load dark mode preference and initialize
+        window.onload = function() {
+            // Hide loading screen
+            setTimeout(() => {
+                document.getElementById('loading-screen').classList.add('hidden');
+            }, 1000);
+            
+            // Initialize blogs
+            initBlogs();
+            
+            // Set up dark mode
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('#darkModeToggle i').className = 'fas fa-sun';
+            }
+            
+            // Set up navigation
+            document.getElementById('hamburger').addEventListener('click', toggleNav);
+            
+            // Set up dark mode toggle
+            document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
+            
+            // Set up scroll buttons
+            document.getElementById('backToTop').addEventListener('click', scrollToTop);
+            document.getElementById('Toptoback').addEventListener('click', scrollToBottom);
+            
+            // Handle scroll events
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Initial check
+        };
+    </script>
+</body>
+</html>
