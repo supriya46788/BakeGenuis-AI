@@ -425,7 +425,7 @@
             left: 0;
             width: 30px;
             height: 3px;
-            background:#e0e0e0;
+            background:#3e2723;
             border-radius: 2px;
         }
 
@@ -988,7 +988,7 @@
         .section-title {
             font-size: 1.9rem;
             font-weight: 700;
-            color: #2b1d14;
+            color: #3e2723;
             margin-bottom: 2rem;
             text-align: center;
             position: relative;
@@ -1008,7 +1008,7 @@
             transform: translateX(-50%);
             width: 60px;
             height: 3px;
-            background: linear-gradient(90deg, #4ECDC4, #ff6b6b);
+            background: #3e2723;
             border-radius: 2px;
         }
         body.dark-mode .section-title::after{
@@ -1255,17 +1255,19 @@
 
         /* Primary Button */
         .btn-primary {
-            width: 50%;
-            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
-            color: #fff;
+          
+             background:linear-gradient(20deg, #3e2723, #6e463e, #3e2723);
+            padding: 15px 25px;
             border: none;
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            font-weight: bold;
+            border-radius: 20px;
             font-size: 1.1rem;
-            box-shadow: 0 2px 8px rgba(255, 70, 70, 0.10);
-            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+            font-weight: 600;
             cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+            color: white;
 
         }
 

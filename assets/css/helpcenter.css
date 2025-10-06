@@ -764,3 +764,10 @@ body.dark-mode .faq h2 i {
                 gap: 2rem;
             }
         }
+
+        @media (max-width:500px){
+      .footer-content{grid-template-columns:1fr; text-align:center}
+      .footer-logo{justify-content:center}
+      .social-links{justify-content:center}
+      .footer-badges{justify-content:center}
+    }

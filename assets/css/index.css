@@ -513,3 +513,8 @@ body.dark-mode .form-title{
       .hero-subtitle{font-size:1.1rem}
       .cta-button{font-size:1rem; padding:.8rem 2rem}
     }
+.nonclickable-link {
+  cursor: default;
+  color: #aaa;          
+ 
+}
