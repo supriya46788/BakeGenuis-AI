@@ -738,8 +738,6 @@
         display: none; /* Hidden on desktop */
         flex-direction: column;
         justify-content: space-around;
-        width: 2rem;
-        height: 2rem;
         background: transparent;
         border: none;
         cursor: pointer;
@@ -748,8 +746,6 @@
     }
 
 .hamburger-icon .bar {
-    width: 2rem;
-    height: 0.25rem;
     background-color: #333; 
     border-radius: 10px;
 }
@@ -822,4 +818,30 @@
 
 .hamburger-icon.active .bar:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* ===== STANDARDIZED SMALL MOBILE NAVIGATION ===== */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.5rem;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .logo-icon {
+        font-size: 1.5rem;
+    }
+
+    .nav-actions {
+        gap: 0.3rem;
+    }
+
+
+    .dark-mode-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
 }
