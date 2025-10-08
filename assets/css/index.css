@@ -421,7 +421,13 @@ body.dark-mode .form-title {
         background: #0d0d0d !important;
         color: #ffffff !important;
       }
-      .nav-actions{gap:.5rem; z-index:1001; position: absolute; right:5rem;}
+      .nav-actions{
+        /* gap:.5rem; z-index:1001; position: absolute; right:5rem;} */
+        display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;        /* push to right */
+  position: static; }
       .dark-mode-btn{width:40px; height:40px; font-size:.9rem}
       .hamburger{display:flex; position:relative; z-index:1001}
 
