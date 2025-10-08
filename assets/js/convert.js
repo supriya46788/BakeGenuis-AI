@@ -108,11 +108,29 @@ const conversionDatabase = {
     'oats': { grams: 90, note: '1 cup = 90g' },
     'honey': { grams: 340, note: '1 cup = 340g' },
     
+     
+    // Liquids - ADD ML CONVERSIONS
+    'water': { grams: 236, note: '1 cup = 236g' },
+    'milk': { grams: 245, note: '1 cup = 245g' },
+    'heavy cream': { grams: 238, note: '1 cup = 238g' },
+    'vanilla extract': { grams: 4.2, note: '1 teaspoon = 4.2g' },
+    
+    'ml water': { grams: 1, note: '1 ml = 1g' },
+    'ml milk': { grams: 1.03, note: '1 ml = 1.03g' },
+    'ml heavy cream': { grams: 1.04, note: '1 ml = 1.04g' },
+    'ml vanilla': { grams: 0.84, note: '1 ml vanilla = 0.84g' },
+    'ml vanilla extract': { grams: 0.84, note: '1 ml vanilla extract = 0.84g' },
+    'ml oil': { grams: 0.92, note: '1 ml oil = 0.92g' },
+    'ml vegetable oil': { grams: 0.92, note: '1 ml vegetable oil = 0.92g' },
+    'ml olive oil': { grams: 0.92, note: '1 ml olive oil = 0.92g' },
+    'ml honey': { grams: 1.42, note: '1 ml honey = 1.42g' },
     // Eggs
-    'large egg': { grams: 50, note: '1 large egg = 50g' },
     'egg': { grams: 50, note: '1 egg = 50g' },
+    'eggs': { grams: 50, note: '1 egg = 50g' },
+    'large egg': { grams: 50, note: '1 large egg = 50g' },
+    'large eggs': { grams: 50, note: '1 large egg = 50g' },
     'egg white': { grams: 30, note: '1 egg white = 30g' },
-    'egg yolk': { grams: 18, note: '1 egg yolk = 18g' }
+    'egg yolk': { grams: 18, note: '1 egg yolk = 18g' },
 };
 // Unit conversion factors
 // UPDATED: Unit conversion factors with better small quantity handling
@@ -123,6 +141,8 @@ const unitConversions = {
     'teaspoon': 1/48, 'teaspoons': 1/48, 'tsp': 1/48,
     'pint': 2, 'pints': 2,
     'quart': 4, 'quarts': 4,
+    'milliliter': 'direct', 'milliliters': 'direct', 'ml': 'direct',
+    'liter': 4.226, 'liters': 4.226, 'l': 4.226,
     
     // Small quantity direct multipliers (for ingredients under 10g per cup)
     'pinch': 1/48, 'dash': 1/24, 'drop': 1/360
@@ -132,35 +152,521 @@ let currentUnit = 'metric';
 let convertedData = [];
 
 // MAIN CONVERSION FUNCTION
-function convertRecipe(){
-  const recipeText = document.getElementById('recipeInput').value.trim();
-  
-  if (!recipeText) { 
-    showWarning('Please enter a recipe to convert!'); 
-    return; 
-  }
-  
-  setLoading(true);
-  
-  // Use setTimeout to show loading state
-  setTimeout(() => {
-    try {
-      const localResult = convertRecipeLocally(recipeText);
-      convertedData = localResult.ingredients;
-      
-      displayResults(convertedData);
-      
-      if (localResult.warnings.length > 0) {
-        showWarning(localResult.warnings.join('\n'));
-      }
-      
-    } catch(err) {
-      console.error('Conversion error:', err);
-      showWarning('Sorry, there was an error. Please check your recipe format and try again.');
-    } finally {
-      setLoading(false);
+// COMPREHENSIVE RECIPE NORMALIZATION FUNCTION
+function normalizeRecipeText(rawText) {
+    if (!rawText || typeof rawText !== 'string') return '';
+    
+    let text = rawText.trim();
+    
+    // Step 1: Handle different line endings and normalize to array of lines
+    let lines = text.split(/\r\n|\n|\r/).map(line => line.trim()).filter(line => line);
+    
+    // Step 2: Process each line to extract structured ingredients
+    const structuredIngredients = [];
+    
+    for (const line of lines) {
+        const normalizedLine = normalizeIngredientLine(line);
+        if (normalizedLine) {
+            structuredIngredients.push(normalizedLine);
+        }
     }
-  }, 800);
+    
+    return structuredIngredients.join('\n');
+}
+function normalizeIngredientLine(line) {
+    if (!line || line.length < 2) return null;
+    
+    let cleanLine = line.trim();
+    
+    // ===== CHANGED: IMPROVED INSTRUCTION HANDLING =====
+    
+    // Separate instruction words into two categories:
+    const mixingInstructions = [
+        'mix', 'stir', 'combine', 'whisk', 'beat', 'blend', 'fold', 'knead',
+        'add', 'pour', 'sprinkle', 'garnish'
+    ];
+    
+    const cookingInstructions = [
+        'bake', 'cook', 'heat', 'preheat', 'grease', 'line', 'sift',
+        'spread', 'decorate', 'cool', 'chill', 'refrigerate',
+        'microwave', 'boil', 'simmer', 'fry', 'roast', 'grill', 'broil'
+    ];
+    
+    const firstWord = cleanLine.toLowerCase().split(' ')[0];
+    
+    // Skip only actual cooking instructions, not mixing instructions
+    if (cookingInstructions.includes(firstWord)) {
+        return null; // Skip cooking instruction lines
+    }
+    
+    // If line starts with mixing instruction, try to extract ingredients from it
+    if (mixingInstructions.includes(firstWord)) {
+        // Remove the mixing instruction word and process the rest
+        const remainingLine = cleanLine.substring(firstWord.length).trim();
+        
+        // If there's content left after removing instruction word, process it
+        if (remainingLine.length > 2) {
+            // Recursively process the remaining line
+            return normalizeIngredientLine(remainingLine);
+        } else {
+            return null; // No meaningful content after instruction word
+        }
+    }
+
+    // ===== ADD INSTRUCTION + QUANTITY PATTERNS HERE =====
+       // Pattern for "word number unit ingredient" (e.g., "one and a half cup milk")
+    const wordNumberPattern1 = /^(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\s+and\s+(a\s+)?(half|quarter|third)\s+(cups?|tbsp|tsp|ml|oz|lb|g|kg)\s+(.+)$/i;
+    const wordNumberMatch1 = cleanLine.match(wordNumberPattern1);
+    
+    if (wordNumberMatch1) {
+        const numberWord = wordNumberMatch1[1];
+        const fractionWord = wordNumberMatch1[3];
+        const unit = wordNumberMatch1[4].toLowerCase();
+        const ingredient = wordNumberMatch1[5].trim();
+        
+        // Convert word numbers to digits
+        const numberMap = {
+            'one': '1', 'two': '2', 'three': '3', 'four': '4', 'five': '5',
+            'six': '6', 'seven': '7', 'eight': '8', 'nine': '9', 'ten': '10',
+            'eleven': '11', 'twelve': '12'
+        };
+        const fractionMap = {
+            'half': '1/2', 'quarter': '1/4', 'third': '1/3'
+        };
+        
+        const number = numberMap[numberWord.toLowerCase()] || '1';
+        const fraction = fractionMap[fractionWord.toLowerCase()] || '1/2';
+        
+        return `${number} ${fraction} ${unit} ${ingredient}`;
+    }
+    
+    // Pattern for simple word numbers (e.g., "two cups milk")
+    const wordNumberPattern2 = /^(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\s+(cups?|tbsp|tsp|ml|oz|lb|g|kg)\s+(.+)$/i;
+    const wordNumberMatch2 = cleanLine.match(wordNumberPattern2);
+    
+    if (wordNumberMatch2) {
+        const numberWord = wordNumberMatch2[1];
+        const unit = wordNumberMatch2[2].toLowerCase();
+        const ingredient = wordNumberMatch2[3].trim();
+        
+        const numberMap = {
+            'one': '1', 'two': '2', 'three': '3', 'four': '4', 'five': '5',
+            'six': '6', 'seven': '7', 'eight': '8', 'nine': '9', 'ten': '10',
+            'eleven': '11', 'twelve': '12'
+        };
+        
+        const number = numberMap[numberWord.toLowerCase()] || '1';
+        return `${number} ${unit} ${ingredient}`;
+    }
+    // Pattern for "instruction quantity unit ingredient" (e.g., "mix 2 cups flour")
+    const instructionPattern1 = /^(mix|stir|combine|whisk|beat|blend|add|pour)\s+(\d+\s+\d+\/\d+|\d+\/\d+|\d+\.\d+|\d+)\s+(cups?|tbsp|tsp|ml|oz|lb|g|kg)\s+(.+)$/i;
+    const instructionMatch1 = cleanLine.match(instructionPattern1);
+    
+    if (instructionMatch1) {
+        const amount = instructionMatch1[2];
+        const unit = instructionMatch1[3].toLowerCase();
+        const ingredient = instructionMatch1[4].trim();
+        return `${amount} ${unit} ${ingredient}`;
+    }
+    
+    // Pattern for "instruction quantity ingredient" (e.g., "add 3 eggs")
+    const instructionPattern2 = /^(mix|stir|combine|whisk|beat|blend|add|pour)\s+(\d+\s+\d+\/\d+|\d+\/\d+|\d+\.\d+|\d+)\s+(.+)$/i;
+    const instructionMatch2 = cleanLine.match(instructionPattern2);
+    
+    if (instructionMatch2) {
+        const amount = instructionMatch2[2];
+        const ingredient = instructionMatch2[3].trim();
+        return `${amount} ${ingredient}`;
+    }
+
+    // ===== RANGE HANDLING PATTERNS =====
+    
+    // PATTERN FOR RANGES: "number-number unit ingredient" (e.g., "1-2 cups flour")
+    const rangePattern1 = /^(\d+)\s*-\s*(\d+)\s+(cups?|tbsp|tsp|ml|oz|lb|g|kg)\s+(.+)$/i;
+    const rangeMatch1 = cleanLine.match(rangePattern1);
+    
+    if (rangeMatch1) {
+        const amount = rangeMatch1[1]; // Take first number
+        const unit = rangeMatch1[3].toLowerCase();
+        const ingredient = rangeMatch1[4].trim();
+        return `${amount} ${unit} ${ingredient}`;
+    }
+    
+    // PATTERN FOR RANGES: "number-number ingredient" (e.g., "2-3 eggs")
+    const rangePattern2 = /^(\d+)\s*-\s*(\d+)\s+([a-zA-Z].+)$/i;
+    const rangeMatch2 = cleanLine.match(rangePattern2);
+    
+    if (rangeMatch2) {
+        const amount = rangeMatch2[1]; // Take first number
+        const ingredient = rangeMatch2[3].trim();
+        return `${amount} ${ingredient}`;
+    }
+    
+    // PATTERN FOR RANGES: "fraction-number unit ingredient" (e.g., "1/2-1 cup sugar")
+    const rangePattern3 = /^(\d+\/\d+)\s*-\s*(\d+)\s+(cups?|tbsp|tsp|ml|oz|lb|g|kg)\s+(.+)$/i;
+    const rangeMatch3 = cleanLine.match(rangePattern3);
+    
+    if (rangeMatch3) {
+        const amount = rangeMatch3[1]; // Take first fraction
+        const unit = rangeMatch3[3].toLowerCase();
+        const ingredient = rangeMatch3[4].trim();
+        return `${amount} ${unit} ${ingredient}`;
+    }
+    
+    // PATTERN FOR RANGES: "fraction-fraction unit ingredient" (e.g., "1/4-1/2 tsp salt")
+    const rangePattern4 = /^(\d+\/\d+)\s*-\s*(\d+\/\d+)\s+(cups?|tbsp|tsp|ml|oz|lb|g|kg)\s+(.+)$/i;
+    const rangeMatch4 = cleanLine.match(rangePattern4);
+    
+    if (rangeMatch4) {
+        const amount = rangeMatch4[1]; // Take first fraction
+        const unit = rangeMatch4[3].toLowerCase();
+        const ingredient = rangeMatch4[4].trim();
+        return `${amount} ${unit} ${ingredient}`;
+    }
+    // Pattern for "quantity large ingredient" (e.g., "2 large eggs")
+    const largePattern = /^(\d+\s+\d+\/\d+|\d+\/\d+|\d+\.\d+|\d+)\s+large\s+([a-zA-Z].+)$/i;
+    const largeMatch = cleanLine.match(largePattern);
+    
+    if (largeMatch) {
+        const amount = largeMatch[1];
+        const ingredient = largeMatch[2].trim();
+        return `${amount} ${ingredient}`;
+    }
+    
+    
+    // PATTERN 1: "ingredient quantity unit" format (e.g., "flour 2 tbsp sugar")
+    const pattern1 = /^([a-zA-Z]+)\s+(\d+\s+\d+\/\d+|\d+\/\d+|\d+\.\d+|\d+)\s+(tbsp|tsp|cup|cups|ml)\s+([a-zA-Z\s]*)(?:\s+.*)?$/i;
+    const match1 = cleanLine.match(pattern1);
+    
+    if (match1) {
+        const ingredient = match1[1].trim();
+        const amount = match1[2];
+        const unit = match1[3].toLowerCase();
+        return `${amount} ${unit} ${ingredient}`;
+    }
+    
+    // PATTERN 2: "ingredient quantity unit extract/essence" (e.g., "vanilla 2 tsp extract")
+    const pattern2 = /^([a-zA-Z]+)\s+(\d+\s+\d+\/\d+|\d+\/\d+|\d+\.\d+|\d+)\s+(tbsp|tsp|cup|cups|ml)\s+(extract|essence)(?:\s+.*)?$/i;
+    const match2 = cleanLine.match(pattern2);
+    
+    if (match2) {
+        const ingredient = match2[1].trim();
+        const amount = match2[2];
+        const unit = match2[3].toLowerCase();
+        return `${amount} ${unit} ${ingredient} ${match2[4]}`;
+    }
+    
+    // Step 1: Normalize number formats
+    cleanLine = normalizeNumbers(cleanLine);
+    
+    // Step 2: Normalize units and abbreviations
+    cleanLine = normalizeUnits(cleanLine);
+    
+    // Step 3: Extract quantity, unit, and ingredient
+    const parsed = parseIngredientQuantity(cleanLine);
+    
+    return parsed;
+}
+
+function normalizeNumbers(line) {
+    let result = line;
+    
+    console.log(`🔢 Normalizing numbers in: "${line}"`); // DEBUG
+    
+    // Map of number words to numbers/fractions
+    const numberWords = {
+        // Whole numbers
+        'zero': '0', 'one': '1', 'two': '2', 'three': '3', 'four': '4', 
+        'five': '5', 'six': '6', 'seven': '7', 'eight': '8', 'nine': '9', 'ten': '10',
+        'eleven': '11', 'twelve': '12', 'a dozen': '12', 'dozen': '12',
+        
+        // Fractions
+        'half': '1/2', 'halves': '1/2', 'quarter': '1/4', 'quarters': '1/4',
+        'third': '1/3', 'thirds': '1/3', 'fourth': '1/4', 'fourths': '1/4',
+        'eighth': '1/8', 'eighths': '1/8',
+        
+        // Combined words
+        'one half': '1/2', 'one quarter': '1/4', 'one third': '1/3', 'one fourth': '1/4',
+        'three quarters': '3/4', 'three fourths': '3/4', 'two thirds': '2/3'
+    };
+    
+    // Replace number words (case insensitive)
+    for (const [word, replacement] of Object.entries(numberWords)) {
+        const regex = new RegExp(`\\b${word}\\b`, 'gi');
+        result = result.replace(regex, replacement);
+        if (result !== line) {
+            console.log(`✅ Replaced "${word}" with "${replacement}": "${result}"`); // DEBUG
+        }
+    }
+    
+    // IMPROVED: Handle "and a half" patterns more comprehensively
+    result = result.replace(/(\d+)\s+and\s+(a\s+)?half/gi, '$1 1/2');
+    result = result.replace(/(\d+)\s+and\s+(a\s+)?quarter/gi, '$1 1/4');
+    result = result.replace(/(\d+)\s+and\s+(a\s+)?third/gi, '$1 1/3');
+    
+    // Handle "one and a half" specifically
+    result = result.replace(/\bone and a half\b/gi, '1 1/2');
+    result = result.replace(/\btwo and a half\b/gi, '2 1/2');
+    result = result.replace(/\bthree and a half\b/gi, '3 1/2');
+    
+    // Handle decimal fractions
+    result = result.replace(/(\d+)\.5\b/g, '$1 1/2');
+    result = result.replace(/(\d+)\.25\b/g, '$1 1/4');
+    result = result.replace(/(\d+)\.75\b/g, '$1 3/4');
+    result = result.replace(/(\d+)\.33\b/g, '$1 1/3');
+    result = result.replace(/(\d+)\.67\b/g, '$1 2/3');
+    
+    console.log(`🔢 After normalization: "${result}"`); // DEBUG
+    
+    return result;
+}
+
+function normalizeUnits(line) {
+    let result = line;
+    
+    // Comprehensive unit mapping
+    const unitMap = {
+        // Volume
+        'tablespoon': 'tbsp', 'tablespoons': 'tbsp', 'tbs': 'tbsp', 'tbl': 'tbsp',
+        'teaspoon': 'tsp', 'teaspoons': 'tsp', 
+        'cup': 'cup', 'cups': 'cup', 'c': 'cup',
+        'pint': 'pint', 'pints': 'pint', 'pt': 'pint',
+        'quart': 'quart', 'quarts': 'quart', 'qt': 'quart',
+        'gallon': 'gallon', 'gallons': 'gallon', 'gal': 'gallon',
+        'milliliter': 'ml', 'milliliters': 'ml', 'millilitre': 'ml', 'millilitres': 'ml',
+        'liter': 'l', 'liters': 'l', 'litre': 'l', 'litres': 'l',
+        
+        // Weight
+        'ounce': 'oz', 'ounces': 'oz', 'ozs': 'oz',
+        'pound': 'lb', 'pounds': 'lb', 'lbs': 'lb',
+        'gram': 'g', 'grams': 'g', 'gramme': 'g', 'grammes': 'g',
+        'kilogram': 'kg', 'kilograms': 'kg', 'kilo': 'kg', 'kilos': 'kg',
+        
+        // Small quantities
+        'pinch': 'pinch', 'pinches': 'pinch',
+        'dash': 'dash', 'dashes': 'dash',
+        'drop': 'drop', 'drops': 'drop',
+        'sprinkle': 'sprinkle'
+    };
+    
+    // Replace units (case insensitive)
+    for (const [unit, replacement] of Object.entries(unitMap)) {
+        const regex = new RegExp(`\\b${unit}\\b`, 'gi');
+        result = result.replace(regex, replacement);
+    }
+    
+    // Handle common abbreviations without spaces
+    result = result.replace(/(\d)([tT])([bspSP])/g, '$1 t$3'); // 2tsp -> 2 tsp
+    result = result.replace(/(\d)([cC])(?!\w)/g, '$1 cup');    // 2c -> 2 cup
+    
+    return result;
+}
+function parseIngredientQuantity(line) {
+    // Remove extra spaces and punctuation
+    let cleanLine = line.replace(/[.,;:!?]/g, ' ').replace(/\s+/g, ' ').trim();
+    
+    // REMOVED: Don't skip instruction words here - we already handle them in normalizeIngredientLine
+    // The instruction detection above is causing "2 large eggs" to be skipped
+
+    // Patterns to match different ingredient formats - IMPROVED
+    const patterns = [
+        // Format: "ingredient: quantity unit" (e.g., "Flour: 2 cups")
+        /^([a-zA-Z\s]+):\s*(\d+\s+\d+\/\d+|\d+\/\d+|\d+\.\d+|\d+)\s*(tbsp|tsp|cup|cups|pint|quart|gallon|oz|lb|g|kg|ml|l)?$/i,
+        
+        // Format: "ingredient - quantity unit" (e.g., "Flour - 2 cups")
+        /^([a-zA-Z\s]+)\s*-\s*(\d+\s+\d+\/\d+|\d+\/\d+|\d+\.\d+|\d+)\s*(tbsp|tsp|cup|cups|pint|quart|gallon|oz|lb|g|kg|ml|l)?$/i,
+        
+        // Format: "ingredient quantity unit" (e.g., "Flour 2 cups")
+        /^([a-zA-Z\s]+)\s+(\d+\s+\d+\/\d+|\d+\/\d+|\d+\.\d+|\d+)\s+(tbsp|tsp|cup|cups|pint|quart|gallon|oz|lb|g|kg|ml|l)$/i,
+        
+        // Format: "quantity unit ingredient" (e.g., "2 cups flour")
+        /^(\d+\s+\d+\/\d+|\d+\/\d+|\d+\.\d+|\d+)\s+(tbsp|tsp|cup|cups|pint|quart|gallon|oz|lb|g|kg|ml|l)\s+(.+)$/i,
+        
+        // Format: "quantity ingredient" (e.g., "2 eggs", "1/2 onion")
+        /^(\d+\s+\d+\/\d+|\d+\/\d+|\d+\.\d+|\d+)\s+(.+)$/i
+    ];
+        
+    for (const pattern of patterns) {
+        const match = cleanLine.match(pattern);
+        if (match) {
+            let amount, unit, ingredient;
+            
+            if (pattern.source.includes('^([a-zA-Z')) {
+                // Formats where ingredient comes first
+                ingredient = match[1].trim();
+                amount = parseFraction(match[2]);
+                unit = match[3] ? match[3].toLowerCase() : 'unit';
+            } else {
+                // Formats where quantity comes first
+                amount = parseFraction(match[1]);
+                unit = match[2] ? match[2].toLowerCase() : 'unit';
+                ingredient = match[3] ? match[3].trim() : '';
+            }
+            
+            // Clean up ingredient - remove extra spaces and common words
+            ingredient = cleanIngredientName(ingredient);
+            
+            if (!ingredient || ingredient.trim().length < 2) {
+                return null;
+            }
+            
+            // Format the final string consistently
+            if (unit === 'unit') {
+                return `${amount} ${ingredient}`.trim();
+            } else {
+                return `${amount} ${unit} ${ingredient}`.trim();
+            }
+        }
+    }
+    
+    // If no pattern matches but line looks like an ingredient, return as-is
+    if (cleanLine.length > 2 && 
+        !isInstructionLine(cleanLine)) {
+        return cleanLine;
+    }
+    
+    return null;
+}
+
+// Helper function to clean ingredient names - IMPROVED
+function cleanIngredientName(ingredient) {
+    if (!ingredient) return '';
+    
+    const wordsToRemove = [
+        'mix', 'stir', 'combine', 'whisk', 'beat', 'blend', 'fold', 'knead',
+        'add', 'pour', 'sprinkle', 'garnish', 'decorate', 'cool', 'chill',
+        'well', 'until', 'smooth', 'creamy', 'fluffy', 'softened', 'melted',
+        'divided', 'optional', 'to taste', 'as needed'
+    ];
+    
+    let words = ingredient.split(/\s+/);
+    let filteredWords = [];
+    
+    for (let word of words) {
+        const cleanWord = word.toLowerCase().replace(/[.,!?;:]/g, '');
+        if (!wordsToRemove.includes(cleanWord) && cleanWord.length > 1) {
+            filteredWords.push(word);
+        }
+    }
+    
+    let result = filteredWords.join(' ').trim();
+    
+    // SPECIAL FIX: If we have multiple ingredients like "flour sugar", take only the first one
+    if (result.split(' ').length > 1) {
+        const commonIngredients = ['flour', 'sugar', 'butter', 'egg', 'vanilla', 'salt', 'baking', 'milk', 'water', 'oil', 'chocolate', 'extract'];
+        const firstWord = result.split(' ')[0];
+        const secondWord = result.split(' ')[1];
+        
+        // If first word is a common ingredient, use it
+        if (commonIngredients.some(ing => firstWord.toLowerCase().includes(ing))) {
+            result = firstWord;
+        } 
+        // If second word is a common ingredient and first isn't, use second
+        else if (commonIngredients.some(ing => secondWord.toLowerCase().includes(ing))) {
+            result = secondWord;
+        }
+    }
+    
+    return result;
+}
+
+// Helper function to check if a line is an instruction
+function isInstructionLine(line) {
+    const instructionIndicators = [
+        'instruction', 'method', 'step', 'preheat', 'bake', 'cook', 'heat',
+        'mix', 'stir', 'combine', 'whisk', 'beat', 'blend', 'fold', 'knead',
+        'add', 'pour', 'sprinkle', 'garnish', 'decorate'
+    ];
+    
+    const firstWords = line.toLowerCase().split(/\s+/).slice(0, 3).join(' ');
+    return instructionIndicators.some(indicator => firstWords.includes(indicator));
+}
+
+
+
+// NEW FUNCTION: Split multiple ingredients in one line
+function splitMultipleIngredients(normalizedText) {
+    const lines = normalizedText.split('\n');
+    const result = [];
+    
+    for (const line of lines) {
+        // Check if line contains multiple ingredients (has "and" or multiple quantity patterns)
+        if (line.includes(' and ') || line.match(/\d+\s+\w+\s+[a-z]+\s+\d+\s+\w+\s+[a-z]+/i)) {
+            // Simple splitting logic for now - you can enhance this
+            const parts = line.split(/\s+and\s+|\s*,\s*|\s+or\s+/i);
+            parts.forEach(part => {
+                if (part.trim().length > 0) {
+                    result.push(part.trim());
+                }
+            });
+        } else {
+            result.push(line);
+        }
+    }
+    
+    return result.join('\n');
+}
+
+// Update your normalizeRecipeText function to use this:
+function normalizeRecipeText(rawText) {
+    if (!rawText || typeof rawText !== 'string') return '';
+    
+    let text = rawText.trim();
+    
+    // Step 1: Handle different line endings and normalize to array of lines
+    let lines = text.split(/\r\n|\n|\r/).map(line => line.trim()).filter(line => line);
+    
+    // Step 2: Process each line to extract structured ingredients
+    const structuredIngredients = [];
+    
+    for (const line of lines) {
+        const normalizedLine = normalizeIngredientLine(line);
+        if (normalizedLine) {
+            structuredIngredients.push(normalizedLine);
+        }
+    }
+    
+    const result = structuredIngredients.join('\n');
+    
+    // Step 3: Split multiple ingredients in single lines
+    return splitMultipleIngredients(result);
+}
+function convertRecipe(){
+    const rawText = document.getElementById('recipeInput').value.trim();
+    if (!rawText) { 
+        showWarning('Please enter a recipe to convert!'); 
+        return; 
+    }
+
+    // Use the new comprehensive normalization
+    const recipeText = normalizeRecipeText(rawText);
+  
+    if (!recipeText) { 
+        showWarning('Please enter a recipe to convert!'); 
+        return; 
+    }
+  
+    setLoading(true);
+  
+    // Use setTimeout to show loading state
+    setTimeout(() => {
+        try {
+            const localResult = convertRecipeLocally(recipeText);
+            convertedData = localResult.ingredients;
+            
+            displayResults(convertedData);
+            
+            if (localResult.warnings.length > 0) {
+                showWarning(localResult.warnings.join('\n'));
+            }
+            
+        } catch(err) {
+            console.error('Conversion error:', err);
+            showWarning('Sorry, there was an error. Please check your recipe format and try again.');
+        } finally {
+            setLoading(false);
+        }
+    }, 800);
 }
 
 // Local conversion function
@@ -193,21 +699,39 @@ function convertRecipeLocally(recipeText) {
 // Parse ingredient line - IMPROVED VERSION
 function parseIngredientLine(line) {
     const cleanLine = line.trim();
-    if (!cleanLine) return null;
+    if (!cleanLine) {
+        console.log(`❌ Empty line: "${line}"`);
+        return null;
+    }
     
-    // Common patterns for recipe lines
+    console.log(`🔍 Parsing: "${cleanLine}"`);
+    
+    // Common patterns for recipe lines - IMPROVED
     const patterns = [
-        /^(\d+\s+\d+\/\d+|\d+\/\d+|\d+\.\d+|\d+)\s+(tbsp|tsp|cups?|tablespoons?|teaspoons?|pints?|quarts?|ounces?|pounds?|oz|lb)\s+(.+)$/i,
+        // Format: "mixed number unit ingredient" (e.g., "1 1/2 cups milk")
+        /^(\d+\s+\d+\/\d+)\s+(cups?|tbsp|tsp|ml|oz|lb|g|kg)\s+(.+)$/i,
+        
+        // Format: "quantity unit ingredient" (e.g., "2 cups flour")
+        /^(\d+\s+\d+\/\d+|\d+\/\d+|\d+\.\d+|\d+)\s+(tbsp|tsp|cups?|tablespoons?|teaspoons?|pints?|quarts?|ounces?|pounds?|oz|lb|pinch|dash|drop)\s+(.+)$/i,
+        
+        // Format: "quantity ingredient" (e.g., "2 eggs", "1/2 onion")
         /^(\d+\s+\d+\/\d+|\d+\/\d+|\d+\.\d+|\d+)\s+(.+)$/i
     ];
     
     for (const pattern of patterns) {
         const match = cleanLine.match(pattern);
         if (match) {
+            console.log(`✅ Pattern matched:`, match);
+            
             let amount, unit, ingredient;
             
-            if (match[3]) {
-                // Has unit
+            if (match[3] && pattern.source.includes('mixed number')) {
+                // Mixed number pattern (e.g., "1 1/2 cups milk")
+                amount = parseFraction(match[1]);
+                unit = match[2].toLowerCase();
+                ingredient = match[3].trim();
+            } else if (match[3]) {
+                // Has unit and ingredient
                 amount = parseFraction(match[1]);
                 unit = match[2].toLowerCase();
                 ingredient = match[3].trim();
@@ -218,6 +742,8 @@ function parseIngredientLine(line) {
                 ingredient = match[2].trim();
             }
             
+            console.log(`📊 Parsed values: amount=${amount}, unit=${unit}, ingredient="${ingredient}"`);
+            
             return { 
                 amount, 
                 unit, 
@@ -227,6 +753,8 @@ function parseIngredientLine(line) {
         }
     }
     
+    console.log(`❌ No pattern matched for: "${cleanLine}"`);
+    
     // If no pattern matches, return as ingredient only
     return { 
         amount: 1, 
@@ -235,10 +763,10 @@ function parseIngredientLine(line) {
         original: cleanLine 
     };
 }
-
-// Parse fractions and mixed numbers
+// Parse fractions and mixed numbers - IMPROVED
 function parseFraction(str) {
     const cleanStr = str.toString().trim();
+    console.log(`🔢 Parsing fraction: "${cleanStr}"`); // DEBUG
     
     // Handle mixed numbers like "1 1/2"
     if (cleanStr.includes(' ')) {
@@ -247,10 +775,13 @@ function parseFraction(str) {
         for (const part of parts) {
             total += parseSingleFraction(part);
         }
+        console.log(`🔢 Mixed number result: ${total}`); // DEBUG
         return total;
     }
     
-    return parseSingleFraction(cleanStr);
+    const result = parseSingleFraction(cleanStr);
+    console.log(`🔢 Single fraction result: ${result}`); // DEBUG
+    return result;
 }
 
 function parseSingleFraction(str) {
@@ -260,6 +791,7 @@ function parseSingleFraction(str) {
     }
     return parseFloat(str) || 1;
 }
+
 
 // FIXED: Convert single ingredient function
 function convertIngredient(parsed) {
@@ -271,28 +803,94 @@ function convertIngredient(parsed) {
     
     const cleanIngredient = ingredient.toLowerCase();
     
-    // Exact match first
-    if (conversionDatabase[cleanIngredient]) {
-        bestMatch = conversionDatabase[cleanIngredient];
-        matchedKey = cleanIngredient;
-    } else {
-        // Fuzzy match - find ingredient that contains key or vice versa
-        for (const [key, data] of Object.entries(conversionDatabase)) {
-            if (cleanIngredient.includes(key) || key.includes(cleanIngredient)) {
-                bestMatch = data;
-                matchedKey = key;
-                break;
+    console.log(`🔍 Converting: "${cleanIngredient}"`); // DEBUG LINE
+    
+    // IMPROVED: Multiple matching strategies with priority
+    const matchingStrategies = [
+        // Strategy 1: Exact match
+        () => {
+            if (conversionDatabase[cleanIngredient]) {
+                console.log(`✅ Exact match: "${cleanIngredient}"`); // DEBUG
+                return { match: conversionDatabase[cleanIngredient], key: cleanIngredient };
             }
+            return null;
+        },
+        
+        // Strategy 2: Singular version (remove 's')
+        () => {
+            let singular = cleanIngredient;
+            if (cleanIngredient.endsWith('s') && !cleanIngredient.endsWith('ss')) {
+                singular = cleanIngredient.slice(0, -1);
+            }
+            if (conversionDatabase[singular]) {
+                console.log(`✅ Singular match: "${singular}" from "${cleanIngredient}"`); // DEBUG
+                return { match: conversionDatabase[singular], key: singular };
+            }
+            return null;
+        },
+        
+        // Strategy 3: Database key is contained in ingredient (e.g., "egg" in "large eggs")
+        () => {
+            for (const [key, data] of Object.entries(conversionDatabase)) {
+                if (cleanIngredient.includes(key) && key.length > 2) {
+                    console.log(`✅ Contains match: "${cleanIngredient}" contains "${key}"`); // DEBUG
+                    return { match: data, key: key };
+                }
+            }
+            return null;
+        },
+        
+        // Strategy 4: Ingredient is contained in database key
+        () => {
+            for (const [key, data] of Object.entries(conversionDatabase)) {
+                if (key.includes(cleanIngredient) && cleanIngredient.length > 2) {
+                    console.log(`✅ Reverse contains: "${key}" contains "${cleanIngredient}"`); // DEBUG
+                    return { match: data, key: key };
+                }
+            }
+            return null;
+        },
+        
+        // Strategy 5: Word-based matching (for "large eggs" -> "egg")
+        () => {
+            const words = cleanIngredient.split(' ');
+            for (const word of words) {
+                if (word.length > 2 && conversionDatabase[word]) {
+                    console.log(`✅ Word match: "${word}" from "${cleanIngredient}"`); // DEBUG
+                    return { match: conversionDatabase[word], key: word };
+                }
+            }
+            return null;
+        }
+    ];
+    
+    // Try each strategy in order
+    for (const strategy of matchingStrategies) {
+        const result = strategy();
+        if (result) {
+            bestMatch = result.match;
+            matchedKey = result.key;
+            break;
         }
     }
     
     if (bestMatch) {
+        console.log(` Matched "${cleanIngredient}" to database key "${matchedKey}"`); // DEBUG
+        
         // Convert to the appropriate base unit first
+                // Convert to the appropriate base unit first
         let baseAmount = amount;
         
         if (unitConversions[unit]) {
-            // For volume units, convert to cups first
-            baseAmount = amount * unitConversions[unit];
+            if (unitConversions[unit] === 'direct') {
+                // For ML units, use direct multiplication (no cup conversion needed)
+                baseAmount = amount;
+                console.log(`⚖️ Using direct ML conversion for ${amount}${unit}`); // DEBUG
+            } else {
+                // For other volume units, convert to cups first
+                baseAmount = amount * unitConversions[unit];
+                console.log(`⚖️ Converted ${amount}${unit} to ${baseAmount} cups`); // DEBUG
+            }
         } else if (unit === 'unit' && bestMatch.grams <= 10) {
             // For small quantities like spices, use direct multiplication
             baseAmount = amount;
@@ -320,6 +918,8 @@ function convertIngredient(parsed) {
             notes: bestMatch.note
         };
     } else {
+        console.log(`❌ No match found for: "${cleanIngredient}"`); // DEBUG
+        
         // Unknown ingredient
         return {
             ingredient: formatIngredientName(ingredient),
@@ -730,5 +1330,308 @@ function testConverter() {
     convertRecipe();
 }
 
+
+
+// COMPREHENSIVE TEST SUITE - ALL CASES
+function runCompleteTestSuite() {
+    console.log("=== COMPLETE RECIPE CONVERTER TEST SUITE ===\n");
+    
+    const testCases = [
+        {
+            name: "1. Standard format",
+            input: `2 cups all-purpose flour
+1 cup white sugar
+1/2 cup butter
+2 large eggs
+1 tsp vanilla extract
+1 tsp baking powder
+1/4 tsp salt`,
+            expected: "All ingredients should convert properly"
+        },
+        {
+            name: "2. Problematic ingredient-first format",
+            input: "flour 2 tbsp sugar mix well",
+            expected: "Should convert to '2 tbsp flour' without ambiguous warning"
+        },
+        {
+            name: "3. Range quantities",
+            input: `1-2 cups flour
+2-3 eggs
+1/2-1 cup sugar
+1/4-1/2 tsp salt`,
+            expected: "Should take first number from ranges and convert"
+        },
+        {
+            name: "4. Punctuation and special characters",
+            input: `Sugar - 1 cup;
+Butter, 1/2 cup.
+Eggs: 2 large,
+Vanilla extract - 1 tsp!`,
+            expected: "Should handle punctuation and convert properly"
+        },
+        {
+            name: "5. Instruction lines with ingredients",
+            input: `mix 2 cups flour
+combine 1 cup sugar and 1/2 cup butter
+add 1 tsp vanilla last
+stir in 3 eggs`,
+            expected: "Should extract ingredients from mixing instructions"
+        },
+        {
+            name: "6. Word numbers and fractions",
+            input: `two cups flour
+one half cup sugar
+three tbsp butter
+one teaspoon vanilla
+quarter teaspoon salt
+one and a half cups milk`,
+            expected: "Should convert word numbers to digits/fractions"
+        },
+        {
+            name: "7. ML conversions",
+            input: `2.5 ml vanilla extract
+250 ml milk
+500 ml water
+15 ml oil`,
+            expected: "Should handle milliliter conversions"
+        },
+        {
+            name: "8. Complex real recipe with instructions",
+            input: `Chocolate Chip Cookies:
+2 1/4 cups all-purpose flour
+1 teaspoon baking soda
+1 teaspoon salt
+1 cup butter, softened
+3/4 cup granulated sugar
+3/4 cup packed brown sugar
+1 teaspoon vanilla extract
+2 large eggs
+2 cups chocolate chips
+
+Instructions:
+Preheat oven to 375°F
+Mix dry ingredients separately
+Cream butter and sugars until fluffy`,
+            expected: "Should extract only ingredients, skip cooking instructions"
+        },
+        {
+            name: "9. No units (countable items)",
+            input: `3 eggs
+2 bananas
+1 apple
+1/2 lemon`,
+            expected: "Should handle items without units"
+        },
+        {
+            name: "10. Multiple ingredient formats mixed",
+            input: `Flour: 2 cups
+Sugar - 1 cup
+Butter 1/2 cup
+3 eggs
+vanilla extract 1 tsp
+chocolate 1/2 cup chips`,
+            expected: "Should handle all different formats in one recipe"
+        },
+        {
+            name: "11. Decimal numbers",
+            input: `1.5 cups flour
+0.5 cup sugar
+2.5 ml vanilla
+0.25 tsp salt`,
+            expected: "Should handle decimal numbers"
+        },
+        {
+            name: "12. Edge cases - plurals and extracts",
+            input: `vanilla 2 tsp extract
+chocolate 1/2 cup chips
+brown sugars 1 cup packed
+eggs 3 large`,
+            expected: "Should handle ingredient-first patterns with extracts/plurals"
+        },
+        {
+            name: "13. Cooking instructions (should be skipped)",
+            input: `preheat oven to 350°F
+bake for 30 minutes
+grease the pan
+cook until golden brown`,
+            expected: "Should skip all cooking instructions"
+        },
+        {
+            name: "14. Your original problematic case",
+            input: `Sugar - 1 cup;
+Butter, 1/2 cup.
+Eggs: 2 large,
+Vanilla extract - 1 tsp!
+flour 2 tbsp sugar mix well`,
+            expected: "All ingredients should convert without ambiguous warnings"
+        }
+    ];
+
+    let totalTests = testCases.length;
+    let passedTests = 0;
+    let failedTests = 0;
+
+    testCases.forEach((test, index) => {
+        console.log(`\n${'='.repeat(60)}`);
+        console.log(`TEST ${index + 1}/${totalTests}: ${test.name}`);
+        console.log(`${'='.repeat(60)}`);
+        console.log('INPUT:');
+        console.log(test.input);
+        
+        console.log('\nEXPECTED:', test.expected);
+        
+        try {
+            // Set the test input
+            document.getElementById('recipeInput').value = test.input;
+            
+            // Convert and check results
+            convertRecipe();
+            
+            // Wait for conversion to complete
+            setTimeout(() => {
+                const resultsSection = document.getElementById('resultsSection');
+                const warningPopup = document.getElementById('warningPopup');
+                
+                if (resultsSection.style.display !== 'none') {
+                    console.log('✅ TEST PASSED - Conversion successful');
+                    passedTests++;
+                } else if (warningPopup.style.display !== 'none') {
+                    const warningMsg = document.getElementById('warningMessage').textContent;
+                    console.log('❌ TEST FAILED - Warning:', warningMsg);
+                    failedTests++;
+                } else {
+                    console.log('❌ TEST FAILED - No results shown');
+                    failedTests++;
+                }
+                
+                // Show final results after last test
+                if (index === testCases.length - 1) {
+                    setTimeout(showFinalResults, 500);
+                }
+            }, 2000);
+            
+        } catch (error) {
+            console.log('❌ TEST FAILED - Error:', error.message);
+            failedTests++;
+        }
+    });
+
+    function showFinalResults() {
+        console.log(`\n${'='.repeat(60)}`);
+        console.log('FINAL TEST RESULTS');
+        console.log(`${'='.repeat(60)}`);
+        console.log(`Total Tests: ${totalTests}`);
+        console.log(`✅ Passed: ${passedTests}`);
+        console.log(`❌ Failed: ${failedTests}`);
+        console.log(`📊 Success Rate: ${((passedTests / totalTests) * 100).toFixed(1)}%`);
+        
+        if (failedTests === 0) {
+            console.log('\n🎉 ALL TESTS PASSED! Your converter is working perfectly!');
+        } else {
+            console.log('\n🔧 Some tests failed. Check the failed cases above.');
+        }
+    }
+}
+
+// INDIVIDUAL TEST FUNCTION FOR SPECIFIC CASES
+function testSpecificCase(testName, input) {
+    console.log(`\n🔍 TESTING: ${testName}`);
+    console.log('Input:', input);
+    
+    document.getElementById('recipeInput').value = input;
+    convertRecipe();
+    
+    // Also show normalization details
+    setTimeout(() => {
+        console.log('Normalization details:');
+        const normalized = normalizeRecipeText(input);
+        console.log('Normalized output:');
+        console.log(normalized);
+        
+        const lines = normalized.split('\n');
+        lines.forEach((line, i) => {
+            if (line.trim()) {
+                console.log(`Line ${i + 1}: "${line}"`);
+                const parsed = parseIngredientLine(line);
+                console.log('Parsed:', parsed);
+            }
+        });
+    }, 1000);
+}
+
+// QUICK TEST FOR KNOWN PROBLEMATIC CASES
+function quickProblemTest() {
+    console.log("🚨 QUICK TEST FOR KNOWN PROBLEMS");
+    
+    const problemCases = [
+        { name: "flour 2 tbsp sugar", input: "flour 2 tbsp sugar mix well" },
+        { name: "range quantities", input: "2-3 eggs" },
+        { name: "instruction lines", input: "mix 2 cups flour" },
+        { name: "punctuation", input: "Sugar - 1 cup;" },
+        { name: "ML conversion", input: "2.5 ml vanilla" },
+        { name: "ingredient-first", input: "vanilla 2 tsp extract" }
+    ];
+    
+    problemCases.forEach(test => {
+        testSpecificCase(test.name, test.input);
+        
+        // Add delay between tests
+        setTimeout(() => {}, 1500);
+    });
+}
+
+// Make functions available globally
+window.runCompleteTestSuite = runCompleteTestSuite;
+window.testSpecificCase = testSpecificCase;
+window.quickProblemTest = quickProblemTest;
+
+// COMPREHENSIVE DEBUG FUNCTION
+function debugEggIssue() {
+    console.log("=== COMPREHENSIVE EGG DEBUG ===");
+    
+    const testInput = `2 cups all-purpose flour
+1 cup white sugar
+1/2 cup butter
+2 large eggs
+1 tsp vanilla extract
+1 tsp baking powder
+1/4 tsp salt`;
+    
+    console.log("ORIGINAL INPUT:");
+    console.log(testInput);
+    
+    console.log("\nSTEP 1: Normalize recipe text");
+    const normalized = normalizeRecipeText(testInput);
+    console.log("Normalized output:");
+    console.log(normalized);
+    
+    console.log("\nSTEP 2: Parse each line");
+    const lines = normalized.split('\n');
+    lines.forEach((line, index) => {
+        console.log(`\nLine ${index + 1}: "${line}"`);
+        
+        if (line.trim()) {
+            const parsed = parseIngredientLine(line);
+            console.log("Parsed:", parsed);
+            
+            if (parsed) {
+                console.log("STEP 3: Convert ingredient");
+                const converted = convertIngredient(parsed);
+                console.log("Converted:", converted);
+            } else {
+                console.log("❌ Could not parse this line");
+            }
+        }
+    });
+    
+    console.log("\nSTEP 4: Check database entries");
+    console.log("Database has 'egg':", conversionDatabase['egg']);
+    console.log("Database has 'eggs':", conversionDatabase['eggs']);
+    console.log("Database has 'large egg':", conversionDatabase['large egg']);
+    console.log("Database has 'large eggs':", conversionDatabase['large eggs']);
+}
+
+// Add to global scope
+window.debugEggIssue = debugEggIssue;
 // Uncomment the line below to auto-test when page loads
 // document.addEventListener('DOMContentLoaded', testConverter);
