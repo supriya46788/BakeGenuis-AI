@@ -189,6 +189,7 @@
             position: relative;
             overflow: hidden;
         }
+        
 
 
         .contact-info h2 {
@@ -450,6 +451,8 @@
             box-shadow: 0 8px 20px rgba(115, 115, 115, 0.25);
 
         }
+
+        
 
         
 
@@ -823,3 +826,49 @@
 .hamburger-icon.active .bar:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
 }
+
+@media (max-width: 480px) {
+            .navbar {
+                padding: 0.5rem;
+                background: #ff0000;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .logo-icon {
+                font-size: 1.5rem;
+            }
+
+            .nav-actions {
+                gap: 0.3rem;
+            }
+
+           
+
+            .dark-mode-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 0.8rem;
+            }
+        }
+
+        body.dark-mode .contact-info{
+            background: linear-gradient(135deg, #3e2723, #6e463e, #3e2723) !important;
+            color: white;
+
+        }
+
+        body.dark-mode .contact-info h2{
+            color: white;
+        }
+
+        body.dark-mode .contact-info p{
+            color: white;
+        }
+
+        body.dark-mode .contact-info .info-item {
+            color: white;
+        }
+ 
