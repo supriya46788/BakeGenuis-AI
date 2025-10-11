@@ -335,7 +335,7 @@
         /* FAQ Styles */
         .faq-section {
             padding: 95px 20px 60px;
-            background: rgba(255, 255, 255, 0.8);
+            background: #f5f3f1;
             backdrop-filter: blur(15px);
             margin-top: 20px;
         }
