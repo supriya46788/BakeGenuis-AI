@@ -244,14 +244,16 @@
         .hamburger span {
             width: 25px;
             height: 3px;
-            background: linear-gradient(45deg, var(--candy-red), var(--sky-blue));
+            background: rgb(0, 0, 0);
             margin: 3px 0;
             transition: 0.3s;
             border-radius: 2px;
+            color: white;
+            background: linear-gradient(45deg, #a4766a, #5d4037);
         }
 
         body.dark-mode .hamburger span {
-            background: linear-gradient(45deg, #3498db, #9b59b6);
+            background: rgb(255, 255, 255);
         }
 
         .hamburger.active span:nth-child(1) {
@@ -478,9 +480,6 @@ body.dark-mode .help-center .container {
 }
 
 
-body.dark-mode .help-center h1 {
-  color: #f8b4c3;
-}
 
 body.dark-mode .divider {
   border-top: 2px solid #444;
