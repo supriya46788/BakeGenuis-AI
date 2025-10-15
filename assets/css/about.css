@@ -963,7 +963,7 @@ body.dark-mode .dark-mode-btn {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0.10rem;
   position: relative;
   z-index: 10;
 }
@@ -3414,3 +3414,36 @@ body.dark-mode .form-title {
     font-size: 1.7rem;
   }
 }
+
+.highlight-text {
+    background-color: #f9eaa9;
+    color: rgb(22, 45, 45);
+    padding: 3px;
+    border-radius: 9px;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+
+@media (prefers-color-scheme: dark) {
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .highlight-text {
+      background-color: #000;
+      color: #fff;
+      border: 1px solid #fff;
+    }
+  }
+body.dark-mode .highlight-text {
+    background-color: #090a0a;
+    color: #fff;
+    padding: 3px;
+    border-radius: 9px;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+  
