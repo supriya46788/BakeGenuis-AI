@@ -459,7 +459,7 @@
         }
 
         body.dark-mode .submit-btn {
-            background: rgba(220, 121, 63, 0.893);
+            background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723) ;
             color: #e0e0e0;
         }
 

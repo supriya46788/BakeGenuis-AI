@@ -363,15 +363,15 @@
         }
 
         body.dark-mode .back-link {
-            background: rgba(220, 121, 63, 0.893);
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: #e0e0e0;
             box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
         }
 
         body.dark-mode .back-link:hover {
-            background: rgba(220, 121, 63, 0.893);
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: #e0e0e0;
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+            box-shadow: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
         }
 
         /* Footer */

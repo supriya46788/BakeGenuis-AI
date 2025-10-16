@@ -216,7 +216,7 @@ body.dark-mode .page-subtitle{ color:#e0e0e0 !important; }
 .results-section { display:none; }
 body.dark-mode .input-section,
 body.dark-mode .results-section {
-  background: linear-gradient(135deg, #050505, #0d1731);
+  background: rgba(111, 100, 91, 0.133);
   border: 1px solid var(--dark-border) !important; 
   backdrop-filter: none;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
@@ -268,7 +268,7 @@ body.dark-mode .recipe-input:focus {
   margin-right:1rem;
 }
 .file-upload-label:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-body.dark-mode .file-upload-label { background: rgba(220,121,63,0.893); color:#e0e0e0; }
+body.dark-mode .file-upload-label { background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723); color:#e0e0e0; }
 
 .convert-button {
   width:100%;
@@ -287,7 +287,7 @@ body.dark-mode .file-upload-label { background: rgba(220,121,63,0.893); color:#e
 }
 .convert-button:hover { transform: translateY(-3px); box-shadow:0 15px 40px rgba(0,0,0,0.2); }
 .convert-button:disabled { opacity:.6; cursor:not-allowed; transform:none; }
-body.dark-mode .convert-button { background: rgba(220,121,63,0.893); color:#e0e0e0; }
+body.dark-mode .convert-button { background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);; color:#e0e0e0; }
 
 .loading-spinner{
   display:none;

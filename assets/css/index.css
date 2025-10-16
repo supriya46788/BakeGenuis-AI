@@ -599,7 +599,7 @@ body.dark-mode .hero-subtitle {
 
 body.dark-mode .cta-button{
   box-shadow: 0 15px 20px rgba(22, 21, 21, 0.6);
-   background: linear-gradient(135deg, #5C2E05 0%, #8B4513 40%, #A0522D 75%, #D2691E 100%);
+   background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 
@@ -884,7 +884,7 @@ body.dark-mode .footer-section h3.footer-title::after {
 .badge-green,
 .badge-blue,
 .badge-purple {
-  background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723)
+  background:   linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 body.dark-mode .footer-content {

@@ -1108,37 +1108,37 @@ body.dark-mode .brand-option.selected {
 .btn-primary {
     background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
     color: white;
-    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+    box-shadow:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 body.dark-mode .btn-primary {
-    background: rgba(220, 121, 63, 0.893);
+    background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
     color: #e0e0e0;
-    box-shadow: 0 2px 2px rgba(220, 121, 63, 0.893);
+    box-shadow: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 .btn-secondary {
     background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
     color: white;
-    box-shadow: 0 4px 15px rgba(112, 161, 255, 0.4);
+    box-shadow: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 body.dark-mode .btn-secondary {
-    background: rgba(220, 121, 63, 0.893);
+    background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
     color: #e0e0e0;
-    box-shadow: 0 2px 2px rgba(220, 121, 63, 0.893);
+    box-shadow: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 .btn-success {
     background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
     color: white;
-    box-shadow: 0 4px 15px rgba(46, 213, 115, 0.4);
+    box-shadow: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 body.dark-mode .btn-success {
-    background: rgba(220, 121, 63, 0.893);
+    background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
     color: #e0e0e0;
-    box-shadow: 0 2px 2px rgba(220, 121, 63, 0.893);
+    box-shadow: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 .btn:hover {
