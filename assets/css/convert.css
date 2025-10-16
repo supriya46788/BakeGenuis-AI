@@ -738,3 +738,23 @@ body.dark-mode .copyright .name {
   .footer-bottom-content{ flex-direction:column; text-align:center; gap:1rem; }
   .social-links{ justify-content:center; }
 }
+
+@media (max-width: 500px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    /* stack sections on mobile */
+    text-align: center;
+  }
+
+  .footer-logo {
+    justify-content: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .footer-badges {
+    justify-content: center;
+  }
+}
