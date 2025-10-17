@@ -366,34 +366,34 @@
 }
 
 .help-center .container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: auto;
   margin-top: 4rem;
   background: #ffffff;
   padding: 40px;
   border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(86, 5, 5, 0.06);
+  box-shadow:0 8px 25px rgba(0, 0, 0, 0.08);
   text-align: left;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
 .help-center h1 {
-  font-size: 3rem;
+  font-size: 2.7rem;
     font-weight: 500;
     background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   color: #22010c;
   text-align: center;
 }
 
 .divider {
-  border: none;
-  border-top: 2px solid #6e463e;
+  
   margin: 10px auto 40px;
-  width: 60%;
+  width: 100%;
+  border-bottom: 3px solid #d18a68;
 }
 
 
@@ -402,6 +402,9 @@
   padding: 18px 20px;
   border-radius: 12px;
   background: #fcf8f5;
+  font-size:1.8rem;
+  font-weight:500;
+font-family: "Comic Neue", cursive;
   transition: transform 0.2s ease, background 0.3s ease;
 }
 
@@ -411,9 +414,11 @@
 }
 
 .faq h2 {
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: #444;
+font-size: 1.4rem;
+    color: #5d4037;
+ 
+  font-weight: 520;
+
   margin-bottom: 8px;
   display: flex;
   align-items: center;
@@ -454,15 +459,15 @@
         }
 
         body.dark-mode .back-link {
-            background: rgba(220, 121, 63, 0.893);
+            background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: #e0e0e0;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            box-shadow: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
         }
 
         body.dark-mode .back-link:hover {
-            background: rgba(220, 121, 63, 0.893);
+            background: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
             color: #e0e0e0;
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+            box-shadow: linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
         }
 
   /* ===================
