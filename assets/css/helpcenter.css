@@ -388,6 +388,17 @@
   color: #22010c;
   text-align: center;
 }
+body.dark-mode .help-center h1{
+    font-size: 2.7rem;
+    font-weight: 500;
+    background: #e0e0e0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+     color: #e0e0e0;
+  text-align: center;
+}
 
 .divider {
   
@@ -395,7 +406,10 @@
   width: 100%;
   border-bottom: 3px solid #d18a68;
 }
-
+body.dark-mode .divider {
+    border-bottom: 3px solid #e0e0e0;
+ 
+}
 
 .faq {
   margin-bottom: 20px;
