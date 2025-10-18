@@ -1635,3 +1635,20 @@ function debugEggIssue() {
 window.debugEggIssue = debugEggIssue;
 // Uncomment the line below to auto-test when page loads
 // document.addEventListener('DOMContentLoaded', testConverter);
+
+function downloadResults() {
+  const table = document.getElementById('resultsTable');
+  let text = 'Ingredient\tOriginal\tGrams\tNotes\n';
+  const rows = table.querySelectorAll('tbody tr');
+  rows.forEach(row => {
+    const cells = row.querySelectorAll('td');
+    const line = Array.from(cells).map(cell => cell.innerText).join('\t');
+    text += line + '\n';
+  });
+
+  const blob = new Blob([text], { type: 'text/plain' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'converted_recipe.txt';
+  link.click();
+}

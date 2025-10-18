@@ -101,70 +101,72 @@
     </div>
   </nav>
 
-  <!-- MAIN -->
-  <main>
-    <div class="page-header">
-      <h1 class="page-title">🍪 Recipe Converter</h1>
-      <p class="page-subtitle">Transform your recipes into precise gram measurements with AI magic ✨</p>
-    </div>
-
-    <div class="converter-container">
-      <div class="input-section">
-        <div class="input-group">
-          <label for="recipeInput" class="input-label">📝 Paste your recipe here:</label>
-          <textarea id="recipeInput" class="recipe-input" placeholder="Example:
-2 cups all-purpose flour
-1 cup packed brown sugar
-1/2 cup melted butter
-2 large eggs
-1 tsp vanilla extract
-1/2 tsp baking powder
-1/4 tsp salt"></textarea>
-        </div>
-
-        <div class="input-group">
-          <label for="fileUpload" class="file-upload-label">📁 Or upload a recipe file</label>
-          <input type="file" id="fileUpload" class="file-upload" accept=".txt,.doc,.docx"
-            onchange="handleFileUpload(event)">
-        </div>
-
-        <button class="convert-button" onclick="convertRecipe()">
-          <div class="loading-spinner" id="loadingSpinner"></div>
-          <span id="buttonText">Magically Convert ✨</span>
-        </button>
-      </div>
-
-      <div class="results-section" id="resultsSection">
-        <div class="results-header">
-          <h2 class="results-title">🎯 Conversion Results</h2>
-          <div class="unit-toggle">
-            <button class="active" onclick="toggleUnits('metric')">Metric (g)</button>
-            <button onclick="toggleUnits('imperial')">Imperial</button>
-          </div>
-        </div>
-
-        <table class="results-table" id="resultsTable">
-          <thead>
-            <tr>
-              <th>Ingredient</th>
-              <th>Original</th>
-              <th>Grams</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-          <tbody id="resultsBody"></tbody>
-        </table>
-      </div>
-    </div>
-  </main>
-
-  <!-- Warning Popup -->
-  <div class="overlay" id="overlay" onclick="closeWarning()"></div>
-  <div class="warning-popup" id="warningPopup" role="alertdialog" aria-modal="true" aria-labelledby="warnTitle">
-    <h3 id="warnTitle">⚠️ Ambiguous Measurement</h3>
-    <p id="warningMessage"></p>
-    <button onclick="closeWarning()">Got it!</button>
+ <!-- MAIN -->
+<main>
+  <div class="page-header">
+    <h1 class="page-title">🍪 Recipe Converter</h1>
+    <p class="page-subtitle">Transform your recipes into precise gram measurements with AI magic ✨</p>
   </div>
+
+  <div class="converter-container">
+    <div class="input-section">
+      <div class="input-group">
+        <label for="recipeInput" class="input-label">📝 Paste your recipe here:</label>
+        <textarea id="recipeInput" class="recipe-input" placeholder="Example:
+          2 cups all-purpose flour
+          1 cup packed brown sugar
+          1/2 cup melted butter
+          2 large eggs
+          1 tsp vanilla extract
+          1/2 tsp baking powder
+          1/4 tsp salt"></textarea>
+         </div>
+
+      <div class="input-group">
+        <label for="fileUpload" class="file-upload-label">📁 Or upload a recipe file</label>
+        <input type="file" id="fileUpload" class="file-upload" accept=".txt,.doc,.docx" onchange="handleFileUpload(event)">
+      </div>
+
+      <button class="convert-button" onclick="convertRecipe()">
+        <div class="loading-spinner" id="loadingSpinner"></div>
+        <span id="buttonText">Magically Convert ✨</span>
+      </button>
+    </div>
+
+    <div class="results-section" id="resultsSection">
+      <div class="results-header">
+        <h2 class="results-title">🎯 Conversion Results</h2>
+        <div class="unit-toggle">
+          <button class="active" onclick="toggleUnits('metric')">Metric (g)</button>
+          <button onclick="toggleUnits('imperial')">Imperial</button>
+        </div>
+      </div>
+
+      <table class="results-table" id="resultsTable">
+        <thead>
+          <tr>
+            <th>Ingredient</th>
+            <th>Original</th>
+            <th>Grams</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody id="resultsBody"></tbody>
+      </table>
+      <button class="download-button" onclick="downloadResults()">Download Result ⬇ </button>
+    </div>
+  </div>
+</main>
+
+<!-- Warning Popup -->
+<div class="overlay" id="overlay" onclick="closeWarning()"></div>
+<div class="warning-popup" id="warningPopup" role="alertdialog" aria-modal="true" aria-labelledby="warnTitle">
+  <h3 id="warnTitle">⚠️ Ambiguous Measurement</h3>
+  <p id="warningMessage"></p>
+  <button onclick="closeWarning()">Got it!</button>
+</div>
+
+
 
   <!-- Back to Top Button -->
   <button id="backToTop" title="Back to Top">⬆</button>
@@ -244,7 +246,8 @@
       </div>
     </div>
   </footer>
-
+ 
+</script>
   <script src="assets/js/convert.js"></script>
 </body>
 
