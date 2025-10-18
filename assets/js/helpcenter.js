@@ -56,3 +56,13 @@
                 hamburger.classList.remove("active");
             }
         });
+
+        // scroll buttons logic
+        const backToTopBtn = document.getElementById("backToTop");
+        const ToptobackBtn = document.getElementById("Toptoback");
+        window.addEventListener("scroll", () => {
+            backToTopBtn.classList.toggle("show", window.scrollY > 300);
+            ToptobackBtn.classList.toggle("show", window.scrollY < 100);
+      });
+        backToTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+        ToptobackBtn.addEventListener("click", () => window.scrollTo({ top: 10000, behavior: "smooth" }));
