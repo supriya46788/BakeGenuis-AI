@@ -626,8 +626,8 @@ body.dark-mode .logo:hover {
   text-decoration: none;
   color: #3e2723;
   font-weight: 600;
-  display: inline-block;
-  font-size: 1.1rem;
+  /*display: inline-block;
+  font-size: 1.1rem;*/
   padding: 0.7rem 1rem;
   border-radius: 25px;
   transition: all 0.3s ease;
@@ -2341,6 +2341,7 @@ body.dark-mode #Toptoback:hover {
     gap: 0.5rem;
     position: relative;
     z-index: 1001;
+
   }
 
   .login-btn {
