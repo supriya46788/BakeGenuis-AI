@@ -112,7 +112,7 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 body.dark-mode .nav-links a.active {
-    background-color: #0d0d0d !important;
+    background: #0d0d0d !important;
     color: #ffffff !important;
     border-color: #1e1e1e !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
