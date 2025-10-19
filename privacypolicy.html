@@ -9,85 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/privacypolicy.css">
-    <style>
-        /* Back to Top Button Styles */
-        #backToTop {
-            position: fixed;
-            bottom: 2.5rem;
-            right: 2.5rem;
-            z-index: 2000;
-            background: linear-gradient(45deg, #a4766a, #5d4037);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 56px;
-            height: 56px;
-            font-size: 2rem;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-            cursor: pointer;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s, transform 0.2s;
-        }
-
-        body.dark-mode #backToTop {
-            background: #e0e0e0;
-            color: #0d0d0d;
-        }
-
-        #backToTop.show {
-            opacity: 1;
-            pointer-events: auto;
-            transform: scale(1.08);
-        }
-
-        #backToTop:hover {
-            background: linear-gradient(45deg, #a4766a, #5d4037);
-            transform: scale(1.15);
-        }
-
-        /* Back to Top to Bottom Button Styles */
-        #Toptoback {
-            position: fixed;
-            bottom: 2.5rem;
-            right: 2.5rem;
-            z-index: 2000;
-            background: linear-gradient(45deg, #a4766a, #5d4037);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 56px;
-            height: 56px;
-            font-size: 2rem;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-            cursor: pointer;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s, transform 0.2s;
-        }
-
-        body.dark-mode #Toptoback {
-            background: #e0e0e0;
-            color: #0d0d0d;
-        }
-
-        #Toptoback.show {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(-10px) scale(1.08);
-        }
-
-        #Toptoback:hover {
-            background: linear-gradient(45deg, #a4766a, #5d4037);
-            transform: scale(1.15);
-        }
-
-        body.dark-mode #Toptoback:hover {
-            background: #e0e0e0;
-            transform: scale(1.15);
-        }
-
-    </style>
+    
 </head>
 
 <body>
@@ -381,19 +303,7 @@
 
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/privacypolicy.js"></script>
-    <script>
-
-    // Scroll buttons logic
-    const backToTopBtn = document.getElementById("backToTop");
-    const ToptobackBtn = document.getElementById("Toptoback");
-    window.addEventListener("scroll", () => {
-      backToTopBtn.classList.toggle("show", window.scrollY > 300);
-      ToptobackBtn.classList.toggle("show", window.scrollY < 100);
-    });
-    backToTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-    ToptobackBtn.addEventListener("click", () => window.scrollTo({ top: 10000, behavior: "smooth" }));
-
-    </script>
+   
 </body>
 
 </html>
