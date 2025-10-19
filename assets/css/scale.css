@@ -355,7 +355,7 @@
 
             .logo {
                 font-size: 1.5rem;
-            }e0e0e0
+            }
 
             .logo-icon {
                 font-size: 1.7rem;
@@ -1521,7 +1521,7 @@
         }
 
         .suggestions-box h3 {
-            color: #FF6B6B;
+            color: #4ecdc4;
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
@@ -1530,6 +1530,9 @@
             color: #333;
             line-height: 1.6;
             margin-bottom: 0.5rem;
+        }
+        body.dark-mode .suggestions-box p{
+            color: #e0e0e0;
         }
 
         /* Loading Animation */
