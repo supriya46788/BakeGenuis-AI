@@ -451,7 +451,6 @@ body.dark-mode .dark-mode-btn {
 
     /* Mobile navigation active state */
     .nav-links a.active {
-        background: #0d0d0d !important;
         color: #ffffff !important;
     }
 
