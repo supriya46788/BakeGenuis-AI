@@ -577,7 +577,6 @@ body.dark-mode .hero-subtitle {
 
 .cta-button {
   background: linear-gradient(90deg, #3e2723, #7b4a35, #3e2723);
-
   color: white;
   font-size: 1.2rem;
   font-weight: 700;
@@ -591,15 +590,12 @@ body.dark-mode .hero-subtitle {
   position: relative;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(90, 50, 40, 0.3);
-  
-
-
   animation: pulse 2s ease-in-out infinite;
 }
 
 body.dark-mode .cta-button{
   box-shadow: 0 15px 20px rgba(22, 21, 21, 0.6);
-   background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
+  background:linear-gradient(90deg, #3e2723, #6e463e, #3e2723);
 }
 
 
@@ -628,10 +624,9 @@ body.dark-mode .cta-button{
   width: 30px;
 }
 .cta-button:hover i{
-  transform: translateX(5px) scale(1.25);
-  transition: left .8s;
+  transition: all .3s ease;
+  animation: pulse 2s ease-in-out infinite;
 }
-
 
 /* Features */
 .features-preview {
