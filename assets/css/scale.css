@@ -429,6 +429,10 @@
             border-radius: 2px;
         }
 
+        body.dark-mode .footer-section h3.footer-title::after {
+  background: #e0e0e0;
+}
+
         .footer-logo {
             display: flex;
             align-items: center;
