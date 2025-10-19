@@ -164,3 +164,22 @@ document.addEventListener("DOMContentLoaded", function () {
         ToptobackBtn.addEventListener("click", () => {
             window.scrollTo({ top: 10000, behavior: "smooth" });
         });
+
+  // Set active navigation link based on current page
+  document.addEventListener("DOMContentLoaded", function () {
+    setActiveNavigation();
+  });
+
+  function setActiveNavigation() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
