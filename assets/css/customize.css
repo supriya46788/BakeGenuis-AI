@@ -99,21 +99,22 @@ body.dark-mode .floating-elements {
 /* Navigation */
 /* ===== STANDARDIZED NAVIGATION BAR ===== */
 .navbar {
-    background: radial-gradient(circle at center, #e5c5b3, #e9b4b6);
+    background: rgba(233, 180, 182, 0.35); 
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Added for Safari support */
     padding: 1rem 2rem;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.18); /* A slightly more defined border */
     transition: all 0.3s ease;
 }
 
 body.dark-mode .navbar {
-    background: #1e1e1e !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(30, 30, 30, 0.35);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-container {
